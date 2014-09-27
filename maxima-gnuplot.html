@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content="© 2002–2014 Maxima CAS development team." />
+<title>Examples of the Maxima Gnuplot interface // Maxima CAS</title>
+<link rel="stylesheet" href="main.css" />
+<link rel="shortcut icon" href="i/favicon.png" media="all" />
+<link rel="alternate" type="application/rss+xml" title="Maxima News" href="feed.xml" />
+</head>
+<body>
+<p class="langnav">
+<a href="es/index.html" xml:lang="es" lang="es">Español</a> · <a href="ru/index.html" xml:lang="ru" lang="ru">Русский</a>
+</p>
+<h1>
+<a href="index.html" title="Go to the main page">
+<img src="i/logo.png" alt="MξΣ" width="135" height="135" class="mks" />
+</a> <a href="index.html" title="Go to the main page">Maxima, a Computer Algebra System</a>
+</h1>
+<ul class="nav">
+<li>
+<a href="documentation.html">Documentation</a>
+</li>
+<li>
+<a href="faq.html">FAQ</a>
+</li>
+<li>
+<a href="screenshots.html">Screen Shots</a>
+</li>
+<li>
+<a href="download.html">Download</a>
+</li>
+<li>
+<a href="http://sourceforge.net/p/maxima/bugs/">Report Bugs</a>
+</li>
+<li>
+<a href="http://sourceforge.net/projects/maxima">Maxima Developers' Site</a>
+</li>
+<li>
+<a href="3rdpartycode.html">Third Party Code</a>
+</li>
+<li>
+<a href="relatedprojects.html">Related Projects</a>
+</li>
+<li>
+<a href="lisp.html">Lisp Links</a>
+</li>
+<li>
+<a href="compalg.html">Computer Algebra</a>
+</li>
+<li>
+<a href="http://sourceforge.net/p/maxima/wiki/Home/">Wiki</a>
+</li>
+<li style="border: none">
+<a href="maximalist.html">Mail Lists</a>
+</li>
+<li class="sflink">
+<a href="http://sourceforge.net/projects/maxima" title="Project page at SourceForge.net">
+<img src="http://sflogo.sourceforge.net/sflogo.php?group_id=4933&amp;type=10" alt="Get Maxima -- GPL CAS based on DOE-MACSYMA at SourceForge.net. Fast, secure and Free Open Source software downloads" />
+</a>
+</li>
+</ul>
+<div class="body">
+<h2 style="padding-top: 0; margin-top: 0">Examples of the Maxima Gnuplot interface</h2>
+<h3 style="margin-top: 0; padding-top: 0">Basic usage</h3>
+<p>The Maxima-Gnuplot interface offers three terminal choices:
+<em>default</em>, <em>ps</em> and <em>dumb</em>.</p>
+<pre>plot2d(sin(x),[x,0,2*%pi]);</pre>
+<p>
+<img src="i/plotting/sin-screenshot.png" alt="sin(x) plot" />
+</p>
+<pre>plot2d(sin(x),[x,0,2*%pi],[gnuplot_term,ps],[gnuplot_out_file,"sin.eps"]);</pre>
+<p>
+<a href="i/plotting/sin.eps">
+<img src="i/plotting/sin.png" alt="sin(x) plot" />
+</a>
+</p>
+<p>
+<em>Click on the above image to see The actual postscript file</em>.</p>
+<pre>plot2d(sin(x),[x,0,2*%pi],[gnuplot_term,dumb]);
+
+
+
+    1 ++--------+--$$$$$$$+---------+---------+---------+---------+--------++
+      +         $$$      $$$        +         +         +     SIN(x) $$$$$$ +
+      |       $$$           $$                                              |
+      |      $$              $$$                                            |
+  0.5 ++   $$                  $$                                          ++
+      |   $$                    $$                                          |
+      |  $$                      $$                                         |
+      | $$                         $$                                       |
+      |$$                           $$                                      |
+    0 $+                             $$                             $$     ++
+      |                               $$                           $$       |
+      |                                $$                         $$        |
+      |                                 $$                       $$         |
+ -0.5 ++                                  $$                    $$         ++
+      |                                    $$                  $            |
+      |                                     $$               $$             |
+      |                                       $$           $$$              |
+      +         +         +         +         +$$$$     +$$$      +         +
+   -1 ++--------+---------+---------+---------+---$$$$$$$---------+--------++
+      0         1         2         3         4         5         6         7</pre>
+<p>Those of us who remember when “vt100” was not just a menu item in a
+terminal editor, but an actual thing that would hurt to drop on your
+foot, should find the following picture nostalgic.</p>
+<p>
+<img src="i/plotting/sin-nostalgic.png" alt="sin(x) nostalgic plot" />
+</p>
+<h3>More advanced usage</h3>
+<p>The adaptive plotting routines (based on an algorithm from <a href="http://yacas.sourceforge.net/">Yacas</a>) allow plotting of
+functions with singularities.</p>
+<pre>plot2d([gamma(x),1/gamma(x)],[x,-4.5,5],[y,-10,10],
+[gnuplot_preamble,"set key bottom"]);</pre>
+<p>
+<img src="i/plotting/gamma-screenshot.png" alt="gamma(x) and 1/gamma(x) plots" />
+</p>
+<p>It is now possible to take advantage of the advanced features of
+Gnuplot. Note the tick labels on the horizontal axis in the following
+figure.</p>
+<pre>plot2d([cos(x),sin(x),tan(x),cot(x)],[x,-2*%pi,2*%pi],[y,-2,2],
+[gnuplot_preamble,"set xzeroaxis; set xtics ('-2pi' -6.283, '-3pi/2' -4.712,
+'-pi' -3.1415, '-pi/2' -1.5708,  '0' 0,'pi/2' 1.5708, 'pi' 3.1415,'3pi/2' 4.712,
+'2pi' 6.283)"]);</pre>
+<p>
+<img src="i/plotting/trig-screenshot.png" alt="cos(x), sin(x), tan(x), cot(x) plots" />
+</p>
+<p>The postscript version of the previous figure can take advantage of
+Gnuplot's enhanced postscript terminal.</p>
+<pre>plot2d([cos(x),sin(x),tan(x)],[x,-2*%pi,2*%pi],[y,-2,2],
+[gnuplot_preamble,"set xzeroaxis; set xtics ('-2{/Symbol p}' -6.283,
+'-3{/Symbol p}/2' -4.712, '-{/Symbol p}' -3.1415, '-{/Symbol p}/2' -1.5708,
+'0' 0,'{/Symbol p}/2' 1.5708, '{/Symbol p}' 3.1415,'3{/Symbol p}/2' 4.712,
+'2{/Symbol p}' 6.283)"],[gnuplot_term,ps],[gnuplot_out_file,"trig.eps"]);</pre>
+<p>
+<a href="i/plotting/trig.eps">
+<img src="i/plotting/trig.png" alt="cos(x), sin(x), tan(x) plots" />
+</a>
+</p>
+<p>Click on the above image to see the actual postscript file.</p>
+<h3>3D plotting and pm3d</h3>
+<h4 style="margin-top: 0; padding-top: 0">Plotting without pm3d</h4>
+<p>The default three-dimensional plotting generates a mesh. It works
+with all versions of Gnuplot.</p>
+<pre>plot3d(atan(-x^2+y^3/4),[x,-4,4],[y,-4,4],[grid,50,50]);</pre>
+<p>
+<img src="i/plotting/surface.png" alt="atan(-x^2+y^3/4) plot" />
+</p>
+<h4>Plotting with pm3d</h4>
+<p>Gnuplot 4.0 includes pm3d, which provides many advanced options for
+three- and four-dimensional plotting. Use of pm3d is turned off by
+default because Gnuplot 4.0 is not yet commonly installed. If Gnuplot
+4.0 is installed, Maxima can take advantage of the features in
+pm3d.</p>
+<p>The default plot with pm3d includes a mesh and a colored surface.</p>
+<pre>plot3d(atan(-x^2+y^3/4),[x,-4,4],[y,-4,4],[grid,50,50],[gnuplot_pm3d,true]);</pre>
+<p>
+<img src="i/plotting/surface-pm3d.png" alt="atan(-x^2+y^3/4) plot" />
+</p>
+<p>Several variations are possible. Here is one with no mesh and
+contours on at the base.</p>
+<pre>plot3d(atan(-x^2+y^3/4),[x,-4,4],[y,-4,4],[grid,50,50],[gnuplot_pm3d,true],
+[gnuplot_preamble,"set pm3d at s;unset surface;set contour;set cntrparam levels
+20;unset key"]);</pre>
+<p>
+<img src="i/plotting/surface-pm3d-1.png" alt="atan(-x^2+y^3/4) plot" />
+</p>
+<p>The following variation includes the mesh and puts the colors on
+the base.</p>
+<pre>plot3d(atan(-x^2+y^3/4),[x,-4,4],[y,-4,4],[grid,50,50],[gnuplot_pm3d,true],
+[gnuplot_preamble,"set pm3d at b"]);</pre>
+<p>
+<img src="i/plotting/surface-pm3d-2.png" alt="atan(-x^2+y^3/4) plot" />
+</p>
+<p>Some functions are too complicated to be practically visualized
+with a mesh.</p>
+<pre>plot3d(cos(-x^2+y^3/4),[x,-4,4],[y,-4,4],[grid,150,150]);</pre>
+<p>
+<img src="i/plotting/badsurface.png" alt="cos(-x^2+y^3/4) plot" />
+</p>
+<p>However, the above function can be effectively visualized using
+pm3d's “map view”.</p>
+<pre>plot3d(cos(-x^2+y^3/4),[x,-4,4],[y,-4,4],
+[gnuplot_preamble,"set view map; unset surface"],
+[gnuplot_pm3d,true],[grid,150,150]);</pre>
+<p>
+<img src="i/plotting/map.png" alt="cos(-x^2+y^3/4) plot" />
+</p>
+</div>
+<div class="footer">
+<p>Questions about Maxima or this site: <a href="maximalist.html">mailing list at sourceforge.net</a>
+</p>
+</div>
+</body>
+</html>
