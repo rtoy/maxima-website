@@ -1,0 +1,26 @@
+This is the "Website" GIT repository, which contains the Webpages of
+project Maxima (http://maxima.sourceforge.net)
+
+After committing any modifications to this repository, the Webpages
+must be updated in the Sourforge Web server, by running "git pull"
+in directory /home/project-web/maxima/htdocs
+
+If you are helping maintain the Website and you use Linux, you can
+simplify that update process by creating a file "update_maximaweb"
+with the following content:
+
+
+#!/bin/sh
+USER=sourceforge_name
+ssh $USER,maxima@shell.sourceforge.net create
+ssh $USER,maxima@shell.sourceforge.net "cd /home/project-web/maxima/htdocs; git pull"
+ssh $USER,maxima@shell.sourceforge.net shutdown
+
+
+Where sourceforge_name should be replaced with your user name in
+Sourceforge. Make that file executable and put it somewhere in your
+executable commands path. Then run that command every time you would
+like to update the Website with the current GIT repository.
+
+If you do not want to or cannot do that update yourself, please send a
+request for Website update in the Maxima mailing list.
