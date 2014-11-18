@@ -1,196 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="copyright" content="© 2002–2014 Maxima CAS development team." />
-<title>Lisp Implementations // Maxima CAS</title>
-<link rel="stylesheet" href="main.css" />
-<link rel="shortcut icon" href="i/favicon.png" media="all" />
-<link rel="alternate" type="application/rss+xml" title="Maxima News" href="feed.xml" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="HandheldFriendly" content="true">
+<meta name="copyright" content="© 2002–2014 Maxima CAS development team.">
+<meta name="keywords" content="Maxima, CAS, computer algebra, mathematics, Lisp, symbolic computation">
+<title>Maxima - Lisp Implementations</title>
+<!-- This site uses Bootstrap http://getbootstrap.com -->
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="shortcut icon" href="./i/favicon.png" media="all">
+<style type="text/css">
+.mx-content {background:#f2f2f2;color:#333;padding: 0 1.5em 1.5em 1.5em;}
+</style>
 </head>
-<body>
-<p class="langnav">
-<a href="es/index.html" xml:lang="es" lang="es">Español</a> · <a href="ru/index.html" xml:lang="ru" lang="ru">Русский</a>
-</p>
-<h1>
-<a href="index.html" title="Go to the main page">
-<img src="i/logo.png" alt="MξΣ" width="135" height="135" class="mks" />
-</a> <a href="index.html" title="Go to the main page">Maxima, a Computer Algebra System</a>
-</h1>
-<ul class="nav">
-<li>
-<a href="documentation.html">Documentation</a>
-</li>
-<li>
-<a href="faq.html">FAQ</a>
-</li>
-<li>
-<a href="screenshots.html">Screen Shots</a>
-</li>
-<li>
-<a href="download.html">Download</a>
-</li>
-<li>
-<a href="http://sourceforge.net/p/maxima/bugs/">Report Bugs</a>
-</li>
-<li>
-<a href="http://sourceforge.net/projects/maxima">Maxima Developers' Site</a>
-</li>
-<li>
-<a href="3rdpartycode.html">Third Party Code</a>
-</li>
-<li>
-<a href="relatedprojects.html">Related Projects</a>
-</li>
-<li class="current">
-<span>Lisp Links</span>
-</li>
-<li>
-<a href="compalg.html">Computer Algebra</a>
-</li>
-<li>
-<a href="http://sourceforge.net/p/maxima/wiki/Home/">Wiki</a>
-</li>
-<li style="border: none">
-<a href="maximalist.html">Mail Lists</a>
-</li>
-<li class="sflink">
-<a href="http://sourceforge.net/projects/maxima" title="Project page at SourceForge.net">
-<img src="http://sflogo.sourceforge.net/sflogo.php?group_id=4933&amp;type=10" alt="Get Maxima -- GPL CAS based on DOE-MACSYMA at SourceForge.net. Fast, secure and Free Open Source software downloads" />
-</a>
-</li>
-</ul>
-<div class="body">
-<h2 style="padding-top: 0; margin-top: 0">Lisp Implementations</h2>
-<p>CMUCL, SBCL, Clisp, GCL (ANSI-enabled only), and Scieneer Common
-Lisp (SCL) can compile and execute Maxima. Allegro Common Lisp and
-OpenMCL might also work, but have not been fully tested.</p>
-<p>Ports to other ANSI Common Lisps should be straightforward and are
-welcome; please post a message on the <a href="/maximalist.html">Maxima mailing list</a> if you are interested
-in working on a port.</p>
-<p>For specific Maxima and Lisp version number combinations, see the
-<a href="/ports.html">ports page</a>.</p>
-<p>When Maxima is recompiled, the Lisp implementation is selected by
-an argument of the form <code>--enable-foolisp</code> for the
-configure script. <kbd>./configure --help</kbd> shows a list of the
-Lisp types recognized by <kbd>configure</kbd> (among other
-options). Always specify the Lisp type; configure tries to autodetect
-the Lisp type if it is not specified, but it has been reported that
-autodetection can fail.</p>
-<h3>
-<a href="http://www.cons.org/cmucl/">CMUCL</a>
-</h3>
-<p>CMUCL is a fast option for Maxima on platforms where it is
-available. CMUCL versions 18e and 19a are known to work. There are
-CMUCL implementations only for Unix-like systems (not MS Windows).</p>
-<p>The <kbd>rmaxima</kbd> front-end provides advanced line-editing
-facilities via <a href="http://utopia.knoware.nl/~hlub/uck/rlwrap">rlwrap</a>.</p>
-<h3>
-<a href="http://sbcl.sourceforge.net/">SBCL</a>
-</h3>
-<p>SBCL is a fork of CMUCL which differs in some minor details, but
-most notably, it is simpler to rebuild SBCL than CMUCL. There are SBCL
-implementations for Linux, several *BSD systems, Solaris, Mac OS X and
-MS Windows.</p>
-<p>
-<kbd>rmaxima</kbd> is recommended for use with SBCL.</p>
-<h3>
-<a href="http://clisp.cons.org/">Clisp</a>
-</h3>
-<p>Clisp includes GNU readline support, so Maxima has advanced
-command-line editing facilities when built with it.</p>
-<p>Clisp is compiled to bytecodes, so Maxima running on Clisp is
-substantially slower than on Lisps compiled to machine
-instructions. Clisp computes floating-point operations in software, so
-floating-point operations in Clisp are much slower than in Lisps which
-make use of hardware instructions for floating-point operations. On
-the other hand, Clisp makes use of the GMP library for arbitrary-
-precision integer computations.</p>
-<p>There are Clisp implementations for many platforms including MS
-Windows and Unix-like systems.</p>
-<h3>
-<a href="http://www.gnu.org/software/gcl/">GCL</a>
-</h3>
-<p>GCL versions starting with 2.4.3 can be built with
-<code>readline</code> support, so Maxima has advanced command-line
-editing facilities when built with it. GCL produces a fast Maxima
-exectuable.</p>
-<p>Only the ANSI-enabled version of GCL works with Maxima, i.e., when
-GCL is built, it must be configured with the
-<code>--enable-ansi</code> flag, i.e., execute <kbd>./configure
---enable-ansi</kbd> in the build directory before executing
-<kbd>make</kbd>. Whether GCL is ANSI-enabled or not can be determined
-by inspecting the banner which is printed when GCL is executed; if
-ANSI-enabled, the banner should say ”ANSI”. Also, the special variable
-<code>FEATURES</code> should include the keyword
-<code>:ANSI-CL</code>.</p>
-<p>There are GCL implementations for many platforms including MS
-Windows and Unix-like systems.</p>
-<p>
-<em>N.B. Building GCL could be tricky. Also you may need the CVS
-code instead of tarball releases.</em>
-</p>
-<h3>
-<a href="http://www.scieneer.com/scl/">Scieneer Common Lisp (SCL)</a>
-</h3>
-<p>Scieneer Common Lisp (SCL) is a fast option for Maxima for a range
-of Linux and Unix platforms.  The SCL 1.2.8 release and later are
-supported.  SCL offers a lower case, case sensitive, version which
-avoids the Maxima case inversion issues with symbol names. Tested
-front end options are: maxima emacs mode available in the
-interfaces/emacs/ directory, the <a href="http://members3.jcom.home.ne.jp/imaxima/">Emacs imaxima
-mode</a>, and <a href="http://www.texmacs.org/">TeXmacs</a>.</p>
-<h3>
-<a href="http://www.franz.com/products/allegrocl/">Allegro CL</a> and <a href="http://openmcl.clozure.com/">OpenMCL</a>
-</h3>
-<p>Maxima should work with Allegro Common Lisp and OpenMCL, but only
-limited testing has been done with these Lisp implementations. User
-feedback would be welcome.</p>
-<p>
-<em>
-<sup>*</sup> Allegro CL and SCL are commercial non-free
-software.</em>
-</p>
-<h2>Worthwhile Lisp Sites</h2>
-<div class="catit">
-<h3>
-<a href="http://www.lisp.org/">The Association of LISP Users</a>
-</h3>
-<p>There are few better starting points for Lisp than this site.</p>
-<p class="url">→ <a href="http://www.lisp.org/">http://www.lisp.org/</a>
-</p>
+<body style="padding-top:50px;" id="top">
+<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<!-- Begin navigation bar -->
+<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>                        
+      </button>
+      <a href="./index.html" class="navbar-brand"
+      style="padding: 0 0.75rem 0 1.5rem"><img src="./i/logo.png" width="56"
+      height="56" alt="Maxima"></a>
+    </div>
+    <nav class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="./download.html">Downloads</a></li>
+        <li><a href="./documentation.html">Documentation</a></li>
+        <li><a href="./project.html" >Project</a></li>
+        <li><a href="#top" >Page Top</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- End navigation bar -->
+<!-- Begin page -->
+<div class="container-fluid">
+  <!-- Begin content row -->
+  <div class="row">
+    <!-- Begin content column -->
+    <div class="col-sm-9 col-md-8 mx-content" id="content">
+      <h1>Lisp Implementations of Maxima</h1>
+      <p>Maxima  can be compiled with SBCL,
+      Clisp, CCL, GCL, CMUCL, ECL, Scieneer Common Lisp (SCL) and
+      Allegro Common Lisp (ACL).</p>
+      <p>Ports to other ANSI Common Lisps should be straightforward
+      and are welcome; please post a message on the <a
+      href="/maximalist.html">Maxima mailing list</a> if you are
+      interested in working on a port.</p>
+      <p>When Maxima is compiled, the Lisp implementation is
+      selected by giving to the configure script an argument of the form
+      <samp class="text-success">--enable-foolisp</samp>, where &quot;foolisp&quot; is the
+      name of the Lisp implementation. <samp class="text-success">./configure --help</samp>
+      shows a list of the Lisp implementations accepted by
+      <samp class="text-success">configure</samp> (among other options). Always specify the
+      Lisp type; configure tries to autodetect the Lisp type if it is
+      not specified, but it has been reported that autodetection can
+      fail.</p>
+      <p>The compiled Maxima image can also be made executable
+      (embedding an autonomous copy of the Lisp program used), when
+      Clisp, SBCL or CMUCL are used. To build an executable image, the
+      suffix <samp class="text-success">-exec</samp> should be appended to the option
+      <samp class="text-success">--enable-foolisp</samp> given to the
+      <samp class="text-success">configure</samp> program.</p>
+      <p>There are various differences among different Lisp
+      implementations, regarding speed, memory usage, error handling,
+      support for foreign functions interface (FFI) and command line
+      editing. Some implementations use the GNU readline library,
+      which provides the ability to recall previously used commands
+      and edit them. For the implementations that do not have that
+      ability, Maxima includes the <samp class="text-success">rmaxima</samp> front-end which
+      provides advanced line-editing facilities via <a
+      href="http://utopia.knoware.nl/~hlub/uck/rlwrap">rlwrap</a>.</p>
+      <h2>Steel Bank Common Lisp</h2>
+      <p><a href="http://www.sbcl.org/">Steel Bank Common Lisp</a>
+      (SBCL), is a fork of
+      CMUCL which differs in some minor details, but most notably, it
+      is simpler to rebuild SBCL than CMUCL. There are SBCL
+      implementations for Linux, several BSD systems, Solaris, Mac OS
+      X and MS Windows.</p>
+      <p><samp class="text-success">rmaxima</samp> is recommended for use with SBCL.</p>
+      <h2>Clisp</h2>
+      <p><a href="http://clisp.cons.org/">Clisp</a> includes GNU
+      readline support, so Maxima has advanced command-line editing
+      facilities when built with it.</p> 
+      <p>Clisp is compiled to bytecodes, so Maxima running on Clisp
+      is substantially slower than on Lisps compiled to machine
+      instructions. Clisp computes floating-point operations in
+      software, so floating-point operations in Clisp are much slower
+      than in Lisp implementations that use hardware instructions for
+      floating-point operations. On the other hand, Clisp makes use
+      of the GMP library for arbitrary-precision integer
+      computations.</p>
+      <p>There are Clisp implementations for many platforms including
+      MS Windows and Unix-like systems.</p>
+      <h2><acronym title="GNU Common Lisp">GCL</acronym></h2>
+      <p><a href="http://www.gnu.org/software/gcl/">GCL</a> versions
+      starting with 2.4.3 can be built with <samp class="text-success">readline</samp>
+      support, so Maxima has advanced command-line editing facilities
+      when built with it. GCL produces a fast Maxi exectuable.</p>
+      <p>Only the ANSI-enabled version of GCL works with Maxima; thus,
+      when GCL is built, it must be configured with the
+      <samp class="text-success">--enable-ansi</samp> flag, i.e., execute <samp class="text-success">./configure
+      --enable-ansi</samp> in the build directory before executing
+      <samp class="text-success">make</samp>. Whether GCL is ANSI-enabled or not can be
+      determined by inspecting the banner which is printed when GCL
+      is executed; if ANSI-enabled, the banner should say ”ANSI”.
+      Also, the special variable <samp class="text-success">FEATURES</samp> should include
+      the keyword <samp class="text-success">:ANSI-CL</samp>.</p>
+      <p>There are GCL implementations for many platforms including
+      MS Windows and Unix-like systems.</p>
+      <h2><acronym title="Clozure Common Lisp">CCL</acronym></h2>
+      <p><a href="http://ccl.clozure.com/">Clozure Common Lisp</a>,
+      or CCL for short, was formerly known as OpenMCL. It is available
+      for Linux, MS Windows and Macintosh and Maxima can be compiled
+      with it.</p>
+      <h2>CMUCL</h2>
+      <p><a href="http://www.cons.org/cmucl/">CMUCL</a> is a fast
+      option for Maxima on platforms where it is available. CMUCL
+      versions 18e and 19a are known to work. There are CMUCL
+      implementations only for Unix-like systems (not MS Windows).</p>
+      <p><samp class="text-success">rmaxima</samp> is recommended for use with CMUCL.</p>
+      <h2><acronym title="Embeddable Common Lisp">ECL</acronym></h2>
+      <p><a href="http://ecls.sourceforge.net/" >ECL</a> is a small but
+      complete implementation of Common Lisp. The Android port of
+      Maxima is currently built with ECL.<7p>
+      <h2>Scieneer Common Lisp (SCL) and Allegro CL</h2>
+      <p><a href="http://www.scieneer.com/scl/">Scieneer Common
+      Lisp</a> (SCL) is a fast option for Maxima for a range of Linux
+      and Unix platforms. <a href="http://franz.com/products/allegrocl/">Allegro
+      Common Lisp</a> is an object-oriented system. The SCL 1.2.8
+      release and later are supported. SCL offers a lower case, case
+      sensitive, version which avoids the Maxima case inversion issues
+      with symbol names. Maxima can be compiled with these two
+      Lisp implementations, but only limited testing has been since
+      they are commercial non-free software.</em></p>
+      <h2>Useful Lisp Sites</h2>
+      <dl>
+        <dt><a href="http://www.cliki.net/Common%20Lisp%20implementation">Common Lisp implementation</a></dt>
+        <dd>Comparison of actively developed Common Lisp implementations.</dd><br>
+        <dt><a
+        href="http://www.lispworks.com/documentation/lw50/CLHS/Front/Contents.htm">CLHS</a></dt>
+        <dd>The Common Lisp Hyper Specification.</dd><br>
+        <dt><a href="http://common-lisp.net/tutorials/" >Common Lisp
+        Tutorials</a></dt>
+        <dd>For those who want to start learning Lisp.</dd><br>
+        <dt><a href="http://www.cliki.net/">CLiki</a></dt>
+        <dd>User maintained archive of Lisp links and
+        information.</dd>
+      </dl>
+    </div>
+    <!-- End content column -->
+    <!-- Begin info and menu column -->
+    <div class="col-sm-3 col-md-4 hidden-print">
+      <!-- Begin menu list -->
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="./index.html">Home</a></li>
+        <li class="dropdown"><a class="dropdown-toggle"
+        data-toggle="dropdown" href="./documentation.html">Documentation
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="./documentation.html">Maxima Documentation</a></li>
+          <li><a href="./faq.html">FAQ</a></li>
+          <li><a href="./compalg.html">Computer Algebra Systems</a></li>
+          <li><a href="./lisp.html">Lisp Links</a></li>
+        </ul>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle"
+        data-toggle="dropdown" href="./project.html">Project
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="./project.html">Maxima project</a></li>
+          <li><a href="./3rdpartycode.html">Third Party Code</a></li>
+          <li><a href="./relatedprojects.html">Related Projects</a></li>
+        </ul>
+        </li>
+        <li><a href="./download.html">Download</a></li>
+        <li><a href="./maximalist.html">Mail Lists</a></li>
+      </ul>
+      <!-- End menu list -->
+    </div>
+    <!-- End info and menu column -->
+  </div>
+  <!-- End content row -->
 </div>
-<div class="catit">
-<h3>
-<a href="http://www-2.cs.cmu.edu/afs/cs.cmu.edu/project/ai-repository/ai/0.html">CMU Artificial Intelligence Repository</a>
-</h3>
-<p>A very large archive of Lisp documentation and code.</p>
-<p class="url">→ <a href="http://www-2.cs.cmu.edu/afs/cs.cmu.edu/project/ai-repository/ai/0.html">http://www-2.cs.cmu.edu/afs/cs.cmu.edu/project/ai-repository/ai/0.html</a>
-</p>
-</div>
-<div class="catit">
-<h3>
-<a href="http://www.cliki.net/">CLiki</a>
-</h3>
-<p>User maintained archive of Lisp links and information.</p>
-<p class="url">→ <a href="http://www.cliki.net/">http://www.cliki.net/</a>
-</p>
-</div>
-<h2>Tools</h2>
-<div class="catit">
-<h3>XREF</h3>
-<p>XREF is a tool to determine relationships in Lisp source
-code. These plots were created using the output from XREF and a
-program called graphviz. Not particularly useful, but interesting in
-that they display the complexity of the source code.</p>
-<p class="url">→ <a href="http://maxima.sourceforge.net/misc/rat_files_chart.ps.gz">http://maxima.sourceforge.net/misc/rat_files_chart.ps.gz</a> (Rat)</p>
-<p class="url">→ <a href="http://maxima.sourceforge.net/misc/risch.ps.gz">http://maxima.sourceforge.net/misc/risch.ps.gz</a>
-(Risch)</p>
-</div>
-</div>
-<div class="footer">
-<p>Questions about Maxima or this site: <a href="maximalist.html">mailing list at sourceforge.net</a>
-</p>
-</div>
+<!-- End page -->
+<br>
+<!-- Begin project info -->
+<footer role="contentinfo">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-9 col-md-8 text-center">
+        <p>Questions about Maxima or this site: <a href="maximalist.html">mailing
+        list</a></p>
+        <p><a href="http://sourceforge.net/projects/maxima" >Hosted at
+        Sourceforge</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- End project info -->
+<!-- Scripts section -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function ChangeLanguage() {
+ var selectbox = document.changelang.elements["page"];
+ var selectedIndex = selectbox.selectedIndex;
+ var page = selectbox.options[selectedIndex].value;
+ selectbox.options[0].selected = true;
+ location.href = page;}
+</script>
 </body>
 </html>
