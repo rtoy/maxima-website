@@ -28,7 +28,7 @@
       </button>
       <a href="./index.html" class="navbar-brand"
       style="padding: 0 0.75rem 0 1.5rem"><img src="./i/logo.png" width="56"
-      height="56" alt="Maxima"></a>
+      height="56" alt="Maxima" title="Go to homepage"></a>
     </div>
     <nav class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -47,6 +47,18 @@
   <div class="row">
     <!-- Begin content column -->
     <div class="col-sm-9 col-md-8 mx-content" id="content">
+      <!-- Begin language menu -->
+      <div class="form-group">
+        <form class="form-inline text-right hidden-print" role="form" id="changelang" name="changelang">
+        <fieldset>
+        <select onchange="ChangeLanguage()" name="page" id="changelang-langs" class="form-control">
+          <option selected="selected">Other languages</option>
+          <option value='./es/download.html'>Español</option>
+        </select>
+        </fieldset>
+        </form>
+      </div>
+      <!-- End language menu -->
       <h1>Downloads</h1>
       <p>Files can downloaded from the <a
       href="http://sourceforge.net/projects/maxima/files/">Files
@@ -62,13 +74,13 @@
       href="http://sourceforge.net/projects/maxima/files/Maxima-Linux/">Maxima-Linux</a>
       subsection and follow the link to the most recent version. The
       page will contain several RPM packages named as:
-      <samp class="text-success">name-version.i386.rpm</samp>, where the first part is the
+      <code>name-version.i386.rpm</code>, where the first part is the
       name of each package and the second part are the numbers that
       identify the version. The minimum set of packages that must be
       installed are <em>maxima</em> and <em>maxima-exec-clisp</em>.
       Since they both depend on each other, they should be installed
       with a single rpm command:</p>
-      <pre class="text-success">rpm -ivh maxima-x.y.z-n.i386.rpm maxima-exec-clisp-x.y.z-n.i386.rpm</pre>
+      <pre>rpm -ivh maxima-x.y.z-n.i386.rpm maxima-exec-clisp-x.y.z-n.i386.rpm</pre>
       <strong>Clisp</strong> and <strong>Gnuplot</strong> should be
       installed in your system.</p>
       <p>You may also want to install <em>maxima-xmaxima</em>, which

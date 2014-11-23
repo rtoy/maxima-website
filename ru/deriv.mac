@@ -1,0 +1,92 @@
+mapany(f,[lst]):=block([o,l],l:lst,
+	if length(setify(map(length,l)))>1 then
+		error("Arguments to mapany are not of the same length"),
+	o:op(l[1]),
+	for i:1 thru length(l) do
+		l[i]:subst("[",op(l[i]),l[i]),
+	subst(o,"[",apply(map,cons(f,l)))
+)$
+map1st(f,expr,x):=block([o],
+	o:op(expr),
+	subst(o,"[",map(f,subst("[",o,expr),makelist(x,i,1,length(expr))))
+)$
+index(expr,list):=block([num],
+	num:for i:1 thru length(list) do
+			if equal(expr,list[i]) then
+				return(i),
+	if integerp(num) then num
+)$
+setup_autoload(stringproc,sequal)$
+sindex(expr,list):=block([num],
+	num:for i:1 thru length(list) do
+			if sequal(expr,list[i]) then
+				return(i),
+	if integerp(num) then num
+)$
+smember(expr,list):=
+	if sequal(true,
+		for i in list do
+			if sequal(expr,i) then
+				return(true) )
+	then true$
+
+deriv([l]):=block([f,len,o,x,func,fdrv],
+	len:length(l),
+	if len=0 then
+		error("deriv can't be used without arguments"),
+	f:l[1],
+	x:listofvars(f),
+	/*display(f),*/
+	if len=1 then (
+		if length(x)=0 then
+			return(0),
+		if length(x)>1 then
+			error("Expression has more than one unknowns and none was specified.",
+				"Unknowns given:", x),
+		x:x[1] )
+	else
+		x:l[2],
+	if len=3 then (
+		integerp(l[3]) or
+			return('diff(x,l[3])),
+		if l[3]=0 then
+			return(f),
+		if l[3]<0 then
+			error("Improper count to deriv:",l[3]),
+		if l[3]>1 then
+			return(deriv(deriv(f,x,l[3]-1),x))
+	),
+	if len>3 then (
+		if(evenp(len)) then
+			l:endcons(1,l),
+		return(deriv(apply(deriv,rest(l,-2)),l[len],l[len+1]))
+	),
+	if atom(f) or subvarp(f) then
+		if f=x then
+			return(1)
+		else
+			return(0),
+	o:op(f),
+	func:[sqrt,sin,cos,abs,exp,log,tan,cot,sec,csc,asin,acos,atan,acot,asec,acsc,
+		sinh,cosh,tanh,coth,asinh,acosh,atanh,acoth,asech,acsch],
+	fdrv:[1/2/arg,cos(arg),-sin(arg),arg/abs(arg),exp,1/arg,sec(arg)^2,-csc(arg)^2,
+		tan(arg)*sec(arg),-cot(arg)*csc(arg),1/sqrt(1-arg^2),-1/sqrt(1-arg^2),
+		1/(1+arg^2),-1/(1+arg^2),1/arg^2/sqrt(1-1/arg^2),-1/arg^2/sqrt(1-1/arg^2),
+		cosh(arg),sinh(arg),sech(arg),-csch(arg),1/sqrt(arg^2+1),1/sqrt(arg^2-1),
+		1/(1-arg^2),1/(1-arg^2),-1/arg^2/sqrt(1/arg^2-1),-1/arg^2/sqrt(1/arg^2+1)],
+	if sequal(o,"+") or sequal(o,"[") or sequal(o,set) then
+		map1st(deriv,f,x)
+	else if sequal(o,"-") then
+		-deriv(-f,x)
+	else if sequal(o,"*") then
+		deriv(first(f),x)*rest(f)+first(f)*deriv(rest(f),x)
+	else if sequal(o,"//") then
+		(deriv(first(f),x)*last(f)-first(f)*deriv(last(f),x))/last(f)^2
+	else if sequal(o,"^") then
+		first(f)^last(f)*log(first(f))*deriv(last(f),x)+
+			first(f)^(last(f)-1)*last(f)*deriv(first(f),x)
+	else if smember(o,func) then
+		deriv(first(f),x)*subst(first(f),arg,fdrv[sindex(o,func)])
+	else
+		'diff(f,x)
+)$
