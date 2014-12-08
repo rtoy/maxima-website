@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="HandheldFriendly" content="true">
+<meta name="copyright" content="© 2002–2014 Maxima CAS development team.">
+<meta name="description" content="Maxima sembolik hesaplama yeteneği
+ön plana çıkan, hemen hemen eksiksiz bir Bilgisayar Cebiri
+Sitemidir. Lisp dilinde yazılmıştır.  Maxima'nın temelini DOE-MACSYMA
+oluşturur ve GPL (General Public License= Genel Kanu Lisansı) özgür
+yazılım lisanslıdır.  Yetenkleri arasında sembolik İntegral
+hesaplamaları, 3 boyutlu grafik çizmi ve diferansiyel denklemlerin
+çöüzleri sayılabilir.">
+<meta name="keywords" content="Maxima, BCS, bilgisayar cebiri,
+matematik, Lisp, sembolik hesaplama, MACSYMA, GPL, özgür yazılım,
+diferansiyel denklemler, grafik çizimi">
+<title>Maxima, bir Bilgisayar Cebiri Sistemi</title>
+<!-- This site uses Bootstrap http://getbootstrap.com -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="shortcut icon" href="../i/favicon.png" media="all">
+<style type="text/css">
+.mx-content {background:#f2f2f2;color:#333;padding: 0 1.5em 1.5em 1.5em;}
+</style>
+</head>
+<body style="padding-top:50px;" id="top">
+<a class="sr-only sr-only-focusable" href="#content">Ana menüye geç</a>
+<!-- Begin navigation bar -->
+<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>                        
+      </button>
+      <a name="home" class="navbar-brand"
+      style="padding: 0 0.75rem 0 1.5rem"><img src="../i/logo.png" width="56"
+      height="56" alt="Maxima"></a>
+    </div>
+    <nav class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="../download.html">İndirmeler</a></li>
+        <li><a href="../documentation.html">Belgeler</a></li>
+        <li><a href="../project.html" >Proje</a></li>
+        <li><a href="#top" >Sayfa Başı</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- End navigation bar -->
+<!-- Begin Screen shots carousel -->
+<div id="screenshots" class="carousel slide" data-ride="carousel" style="height:250px;background: #444;">
+  <!-- Begin indicators list -->
+  <ol class="carousel-indicators">
+    <li data-target="#screenshots" data-slide-to="0" class="active"></li>
+    <li data-target="#screenshots" data-slide-to="1"></li>
+    <li data-target="#screenshots" data-slide-to="2"></li>
+  </ol>
+  <!-- End indicators list -->
+  <!-- Begin slides wrapper -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="../i/maximacl.png" alt="maxima" class="img-responsive center-block">
+    </div>
+    <div class="item">
+      <img src="../i/imaxima.png" alt="imaxima" class="img-responsive center-block">
+    </div>
+    <div class="item">
+      <img src="../i/plot3d.png" alt="plot3d" class="img-responsive center-block">
+    </div>
+  </div>
+  <!-- End slides wrapper -->
+  <!-- Begin controls -->
+  <a class="left carousel-control" href="#screenshots" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">önceki</span>
+  </a>
+  <a class="right carousel-control" href="#screenshots" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">sonraki</span>
+  </a>
+  <!-- End controls -->
+</div>
+<!-- End Screen shots carousel -->
+<!-- Begin page -->
+<div class="container-fluid">
+  <!-- Begin content row -->
+  <div class="row">
+    <!-- Begin content column -->
+    <div class="col-sm-9 col-md-8 mx-content" id="content">
+      <!-- Begin language menu -->
+      <div class="form-group">
+        <form class="form-inline text-right hidden-print" role="form" id="changelang" name="changelang">
+        <fieldset>
+        <select onchange="ChangeLanguage()" name="page" id="changelang-langs" class="form-control">
+          <option selected="selected">Diğer diller</option>
+          <option value='../index.html'>English</option>
+          <option value='../es/index.html'>Español</option>
+          <option value='../pt/index.html'>Português</option>
+          <option value='../ru/index.html'>Русский</option>
+        </select>
+        </fieldset>
+        </form>
+      </div>
+      <!-- End language menu -->
+      <h1>Maxima, bir Bilgisayar Cebiri Sistemi:</h1>
+      <p>Maxima, diferansiyel ve integral hesapları,Taylor Serileri,
+      Laplace Dönüşümleri, Adi Diferansiyel Denklemler, doğrusal
+      denklem sistemleri, polinomlar, kümeler, diziler,
+      vektörler,matrisler ve tensörleri kapsayan sembolik ve numerik
+      işlemlerde kullanılan bir sistemdir.  Maxima 'exact fractions
+      ','arbitrary-precision integers' ve 'variable-precision
+      floating-point numbers' metodlarıyla yüksek hassasiyette numerik
+      sonuçlar elde edebilmektedir.  Maxima fonksiyonların ve
+      verilerin 3-B (üç boyutlu) grafik çizimlerini yapabilir.</p>
+      <p>Maxima kaynak kodları Windows, Linux, and MacOS X gibi
+      işletim sistemlerinde derlenebilir.  Tüm sistemler için kaynak
+      kodları ve Windows ve Linux için ön derlemeli ikili dosyalar
+      (binary
+      files) <a href="http://sourceforge.net/projects/maxima/files/">
+      SourceForge Dosya Yöneticisi</a> den elde edilebilir.</p>
+      <p>Maxima 1960 ların sonunda <a href="http://www.mit.edu/">
+      Massachusetts Institute of Technology (MIT) </a> de geliştirilen
+      ve zamanının efsanevi yazılımı olarak nitelendirilen MACSYMA nın
+      bir türevidir.  MACSYMA o günlerde bir çığır açmıştır ve Maple,
+      Mathematica gibi yazılımlara ilham kaynağı olmuştur.  Özgür
+      yazılım olmasından dolayı Maxima, aktif kullanıcı topluluğu
+      desteği ile geliştirilen bir BCS dir.</p>
+      <p> MACSYMA'nın Maxima
+      türevi <a href="http://www.utexas.edu/faculty/council/2004-2005/memorials/schelter/schelter.html">William
+      Schelter</a> tarafından 1982 den 2001 de ölümüne kadar
+      geliştirildi.  1998 ile almasından sonra, <a data-toggle="modal"
+      data-target="#letter">kaynak kodların yayınlanması
+      iznini<span class="glyphicon glyphicon-fullscreen"
+      aria-hidden="true"></span></a> de GNU GPL-Genel Kamu
+      Lisansı. Schelter'ın yetenek ve çabalarıyla Maxima'nın varlığını
+      devam ettirmesi mümkün olmuştur.DOE MACSYMA kodlarının varlığını
+      devam ettirilmesi ve geliştirilmesi konusundaki zamanını ve
+      bilimsel uzmanlığını gönüllü paylaşımından dolayı kendisine
+      müteşekkiriz.Ölümümden sonra bir grup kullanıcı ve geliştirici
+      Maxima'nın geniş kullanıcı kitlelerine ulaşması için
+      çalışmaktadır.</p>
+      <p>Hataların düzeltilmesi, kod ve belgelerin geliştirilmesi için
+      Maxima sıkça güncellenmektedir.Maxima kullanıcılarının öneri ve
+      destekleri bizleri memnun edecektir. Görüş alış verişleri
+      çoklukla <a href="maximalist.html">Maxima e-posta listesi</a> de
+      yapılmaktadır.</p>
+    </div>
+    <!-- End content column -->
+    <!-- Begin info and menu column -->
+    <div class="col-sm-3 col-md-4 hidden-print">
+      <!-- Begin info panel -->
+      <div class="panel panel-default hidden-xs text-info">
+        <div class="panel-heading">
+          <h4 class="panel-title">Eski Sürümler</h4>
+        </div>
+        <div class="panel-body bg-info" id="Yeni Sürümler">
+          <p>5.34.1: 8 Eylül 2014</p>
+          <p>5.34.0: 27 Ağustos 2014</p>
+          <p>5.33.0: 2 Nisan 2014</p>
+        </div>
+      </div>
+      <!--End info panel -->
+      <!-- Begin menu list -->
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a name="menu-home">Ana Sayfa</a></li>
+        <li class="dropdown"><a class="dropdown-toggle"
+        data-toggle="dropdown" href="../documentation.html">Belgeler
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="../documentation.html">Maxima Belgeleri</a></li>
+          <li><a href="../faq.html">SSS</a></li>
+          <li><a href="../compalg.html">Bilgisayar Cebiri Sistemleri</a></li>
+          <li><a href="../lisp.html">Lisp Linkleri</a></li>
+        </ul>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle"
+        data-toggle="dropdown" href="../project.html">Proje
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="../project.html">Maxima Projesi</a></li>
+          <li><a href="../3rdpartycode.html">Üçüncü Parti Kod </a></li>
+          <li><a href="../relatedprojects.html">İlgili Projeler</a></li>
+        </ul>
+        </li>
+        <li><a href="../download.html">İndir</a></li>
+        <li><a href="../maximalist.html">Mail Lists</a></li>
+      </ul>
+      <!-- End menu list -->
+    </div>
+    <!-- End info and menu column -->
+  </div>
+  <!-- End content row -->
+</div>
+<!-- End page -->
+<br>
+<!-- Begin project info -->
+<footer role="contentinfo">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-9 col-md-8 text-center">
+        <p>Maxima hakkında sorular yada bu site: <a href="maximalist.html">mailing
+        list</a></p>
+        <p><a href="http://sourceforge.net/projects/maxima" >Hosted at
+        Sourceforge</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- End project info -->
+<!-- Begin letter -->
+<div class="modal fade" id="letter" tabindex="-1" role="dialog"
+  aria-labelledby="letterLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content mx-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span
+        aria-hidden="true">&times;</span><span class="sr-only">Kapat</span>
+        </button>
+        <h4 class="modal-title" id="letterLabel">DOE-MACSYMA Yetkilendirme mektup</h4>
+      </div>
+      <div class="modal-body">
+        <div class="well" style="background: #fff; color: solid #333;">
+          <p><a href="http://www.osti.gov/estsc/">Energy Science and<br>
+          Technology Software Center</a><br>
+          P.O. Box 1020 Oak Ridge TN 37831</p>
+          <p>TEL (423) 576-2606 FAX (423) 576-6436</p>
+          <p class="text-center"> 6 Ekim 1998</p>
+          <p>William F. Schelter<br>
+          Dept. of Mathematics<br>
+          <a href="http://www.utexas.edu/">University of Texas</a><br>
+          Austin TX, 78712</p>
+          <p>Dear Dr. Schelter:</p>
+          <p>RE: DOE-MACSYMA</p>
+          <p>Bu, sizin 17 Eylül 1998 tarihli, 'NESC'den elde edilen
+          DOE MACSYMA kopyası'ndan türetilmiş çalışmalar hazırlama ve
+          bunların dağıtımını yapma izni talebinize cevaptır.  ESTSC
+          Ocak 1991'de DOE Merkezi Yazılım Yönetimi Biriminin
+          sorumluluğunu üslendi. DOE'nin durmunu tanımlayan şu cümle
+          talebinize bir cevap olarak verilebilir.  </p>
+          <p>“<cite>Elverişli durumlarda, özel şirket yada kişileri,
+          DOE'nin sponsoru olduğu yada desteklediği (DOE tarafından
+          izin verilmiş) yazılımların, kar amaçlı olarak
+          değiştirilmesi, zenginleştirilmesi yada bunlardan türetilmiş
+          çalışmalar yapılması ve\veya bu türev çalışmaların dağıtımı
+          konusunda desteklemek DOE'nin süregelen bir
+          uygulamasıdır.Buna göre, William F. Schelter, 'NESC'den elde
+          edilen DOE-MACSYMA kopyası' ndan, kişiye yada bir gruba ait
+          olmayan, dünya genelini kapsayan ve telif haklarından
+          arındırılmış değiştirme, zenginleştirme çalışmaları yapma ve
+          \veya bu çalışmaların kullanma, değiştirme ve zenginleştirme
+          için kopyalama, lisans verme ve alt-lisanlama ve dağıtım
+          işleri yapma iznine sahip olduğunu düşünebilir. </cite> </p>
+          <p><cite> Benzeri türev çalışmaların dağıtımı 1979 da
+          yürürlüğe giren İhracat Yöneitmi Kanununun yürütmesini
+          düzenleyen Birleşik Devletler İhracat İdaresi
+          Yönetmeliği(Title 15 CFR 768-799), değiştirlidiği haliyle,
+          ve\veya (22 U.S.C. 2728) sayılı Silah İhracatı Kanununun
+          yürütmesini düzenleyen 12-6-84 tarih ve (Title 22 CFR
+          121-130) sayılı Uluslararası Silah Trafiği Yönetmeliğine
+          göre izne tabidir.</cite>”</p>
+          <p>Halihazırda hassas olduğunu ve DOE idare merkezinden onay
+          gerektiren ülkelerin listesi ekte verilmiştir. Bu ülkelerle
+          ilgili sorun yaşadığınızda kabul yazısı için lütfen ESTSC
+          ile irtibata geçiniz.</p>
+          <p>Eğer türev çalışmlarınızın internet üzerinden GPL lisansı
+          ile elde edilebilir olmasını isterseniz, bir önceki paragraf
+          GPL'de ve diğer değiştirme,zenginleştirme veya programınızın
+          türev çalışmalarında bulunmalıdır. </p>
+          <p>Soru ve görüşleriniz için 423/576-2606 den bana ulaşabilirsiniz.</p>
+          <p class="text-right">En Derin Saygılarımla,<br>
+          <img src="../i/brabson-sign.png" alt="(signed)"><br>
+          Delores F. Brabson, Program Müdürü<br>
+          ESTSC-Energy Science and Technology<br>
+          Software Center</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+        data-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End letter -->
+<!-- Scripts section -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function ChangeLanguage() {
+ var selectbox = document.changelang.elements["page"];
+ var selectedIndex = selectbox.selectedIndex;
+ var page = selectbox.options[selectedIndex].value;
+ selectbox.options[0].selected = true;
+ location.href = page;}
+</script>
+</body>
+</html>
