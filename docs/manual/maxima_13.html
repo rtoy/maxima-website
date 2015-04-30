@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on December, 30 2014 by texi2html 1.76 -->
+<!-- Created on April, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.35.1 Manual: 13. File Input and Output</title>
+<title>Maxima 5.36.0 Manual: 13. File Input and Output</title>
 
-<meta name="description" content="Maxima 5.35.1 Manual: 13. File Input and Output">
-<meta name="keywords" content="Maxima 5.35.1 Manual: 13. File Input and Output">
+<meta name="description" content="Maxima 5.36.0 Manual: 13. File Input and Output">
+<meta name="keywords" content="Maxima 5.36.0 Manual: 13. File Input and Output">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -679,19 +679,42 @@ When <code>loadprint</code> is <code>false</code>, never print a message.
 </div>
 </p></dd></dl>
 
+<p><a name="directory"></a>
+<a name="Item_003a-directory"></a>
+</p><dl>
+<dt><u>Function:</u> <b>directory</b><i> (<var>path</var>)</i>
+<a name="IDX526"></a>
+</dt>
+<dd><p>Returns a list of the files and directories found in <var>path</var>
+in the file system.
+</p>
+<p><var>path</var> may contain wildcard characters (i.e., characters which represent
+unspecified parts of the path),
+which include at least the asterisk on most systems,
+and possibly other characters, depending on the system.
+</p>
+<p><code>directory</code> relies on the Lisp function DIRECTORY,
+which may have implementation-specific behavior.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-File-input">File input</a>
+</div>
+</p></dd></dl>
+
 <p><a name="pathname_005fdirectory"></a>
 <a name="pathname_005fname"></a>
 <a name="pathname_005ftype"></a>
 <a name="Item_003a-pathname_005fdirectory"></a>
 </p><dl>
 <dt><u>Function:</u> <b>pathname_directory</b><i> (<var>pathname</var>)</i>
-<a name="IDX526"></a>
-</dt>
-<dt><u>Function:</u> <b>pathname_name</b><i> (<var>pathname</var>)</i>
 <a name="IDX527"></a>
 </dt>
-<dt><u>Function:</u> <b>pathname_type</b><i> (<var>pathname</var>)</i>
+<dt><u>Function:</u> <b>pathname_name</b><i> (<var>pathname</var>)</i>
 <a name="IDX528"></a>
+</dt>
+<dt><u>Function:</u> <b>pathname_type</b><i> (<var>pathname</var>)</i>
+<a name="IDX529"></a>
 </dt>
 <dd><p>These functions return the components of <var>pathname</var>.
 </p>
@@ -714,7 +737,7 @@ When <code>loadprint</code> is <code>false</code>, never print a message.
 <a name="Item_003a-printfile"></a>
 </p><dl>
 <dt><u>Function:</u> <b>printfile</b><i> (<var>path</var>)</i>
-<a name="IDX529"></a>
+<a name="IDX530"></a>
 </dt>
 <dd><p>Prints the file named by <var>path</var> to the console.  <var>path</var> may be a string
 or a symbol; if it is a symbol, it is converted to a string.
@@ -739,7 +762,7 @@ or otherwise the result of a successful filename merge.
 <a name="Item_003a-save"></a>
 </p><dl>
 <dt><u>Function:</u> <b>save</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, values, functions, labels, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, [<var>m</var>, <var>n</var>]) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, all) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>save</tt> (<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, <var>name_2</var>=<var>expr_2</var>, &hellip;)</i>
-<a name="IDX530"></a>
+<a name="IDX531"></a>
 </dt>
 <dd><p>Stores the current values of <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, &hellip;,
 in <var>filename</var>.  The arguments are the names of variables, functions, or
@@ -799,7 +822,7 @@ have been assigned new values by the user; see <code><a href="maxima_4.html#myop
 <a name="Item_003a-stringout"></a>
 </p><dl>
 <dt><u>Function:</u> <b>stringout</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>stringout</tt> (<var>filename</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>stringout</tt> (<var>filename</var>, [<var>m</var>, <var>n</var>]) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>stringout</tt> (<var>filename</var>, input) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>stringout</tt> (<var>filename</var>, functions) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>stringout</tt> (<var>filename</var>, values)</i>
-<a name="IDX531"></a>
+<a name="IDX532"></a>
 </dt>
 <dd><p><code>stringout</code> writes expressions to a file in the same form the expressions
 would be typed for input.  The file can then be used as input for the
@@ -850,7 +873,7 @@ variable, a colon, and its value.  Note that the general form of
 <a name="Item_003a-with_005fstdout"></a>
 </p><dl>
 <dt><u>Function:</u> <b>with_stdout</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>with_stdout</tt> (<var>f</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>with_stdout</tt> (<var>s</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;)</i>
-<a name="IDX532"></a>
+<a name="IDX533"></a>
 </dt>
 <dd><p>Evaluates <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip; and writes any
 output thus generated to a file <var>f</var> or output stream <var>s</var>.  The evaluated
@@ -887,7 +910,7 @@ is <code>true</code>, <code>with_stdout</code> appends to the output file.  Othe
 <a name="Item_003a-writefile"></a>
 </p><dl>
 <dt><u>Function:</u> <b>writefile</b><i> (<var>filename</var>)</i>
-<a name="IDX533"></a>
+<a name="IDX534"></a>
 </dt>
 <dd><p>Begins writing a transcript of the Maxima session to <var>filename</var>.
 All interaction between the user and Maxima is then recorded in this file,
@@ -945,7 +968,7 @@ displayed by <code>playback</code>.
 <a name="Item_003a-tex"></a>
 </p><dl>
 <dt><u>Function:</u> <b>tex</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>expr</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>expr</var>, <var>destination</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>expr</var>, false) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>label</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>label</var>, <var>destination</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tex</tt> (<var>label</var>, false)</i>
-<a name="IDX534"></a>
+<a name="IDX535"></a>
 </dt>
 <dd><p>Prints a representation of an expression suitable for the TeX document
 preparation system.  The result is a fragment of a document, which can be copied
@@ -1008,7 +1031,7 @@ $$-\cos x$$
 <a name="Item_003a-tex1"></a>
 </p><dl>
 <dt><u>Function:</u> <b>tex1</b><i> (<var>e</var>)</i>
-<a name="IDX535"></a>
+<a name="IDX536"></a>
 </dt>
 <dd><p>Returns a string which represents the TeX output for the expressions <var>e</var>.
 The TeX output is not enclosed in delimiters for an equation or any other
@@ -1024,7 +1047,7 @@ environment.
 <a name="Item_003a-texput"></a>
 </p><dl>
 <dt><u>Function:</u> <b>texput</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>texput</tt> (<var>a</var>, <var>s</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>texput</tt> (<var>a</var>, <var>f</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>texput</tt> (<var>a</var>, <var>s</var>, <var>operator_type</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>texput</tt> (<var>a</var>, [<var>s_1</var>, <var>s_2</var>], matchfix) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>texput</tt> (<var>a</var>, [<var>s_1</var>, <var>s_2</var>, <var>s_3</var>], matchfix)</i>
-<a name="IDX536"></a>
+<a name="IDX537"></a>
 </dt>
 <dd><p>Assign the TeX output for the atom <var>a</var>, which can be a symbol or the name
 of an operator.
@@ -1164,10 +1187,10 @@ $$ \langle a \, | \,b \rangle $$
 <a name="Item_003a-get_005ftex_005fenvironment"></a>
 </p><dl>
 <dt><u>Function:</u> <b>get_tex_environment</b><i> (<var>op</var>)</i>
-<a name="IDX537"></a>
+<a name="IDX538"></a>
 </dt>
 <dt><u>Function:</u> <b>set_tex_environment</b><i> (<var>op</var>, <var>before</var>, <var>after</var>)</i>
-<a name="IDX538"></a>
+<a name="IDX539"></a>
 </dt>
 <dd><p>Customize the TeX environment output by <code>tex</code>.
 As maintained by these functions, the TeX environment comprises two strings:
@@ -1214,10 +1237,10 @@ $$f(x):=1-x$$
 <a name="Item_003a-get_005ftex_005fenvironment_005fdefault"></a>
 </p><dl>
 <dt><u>Function:</u> <b>get_tex_environment_default</b><i> ()</i>
-<a name="IDX539"></a>
+<a name="IDX540"></a>
 </dt>
 <dt><u>Function:</u> <b>set_tex_environment_default</b><i> (<var>before</var>, <var>after</var>)</i>
-<a name="IDX540"></a>
+<a name="IDX541"></a>
 </dt>
 <dd><p>Customize the TeX environment output by <code>tex</code>.
 As maintained by these functions, the TeX environment comprises two strings:
@@ -1280,7 +1303,7 @@ g\left(x\right)+f\left(x\right)
 <a name="Item_003a-fortindent"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>fortindent</b>
-<a name="IDX541"></a>
+<a name="IDX542"></a>
 </dt>
 <dd><p>Default value: <code>0</code>
 </p>
@@ -1299,7 +1322,7 @@ expressions to be printed farther to the right.
 <a name="Item_003a-fortran"></a>
 </p><dl>
 <dt><u>Function:</u> <b>fortran</b><i> (<var>expr</var>)</i>
-<a name="IDX542"></a>
+<a name="IDX543"></a>
 </dt>
 <dd><p>Prints <var>expr</var> as a Fortran statement.
 The output line is indented with spaces.
@@ -1365,7 +1388,7 @@ expressions as a Fortran 90 program.
 <a name="Item_003a-fortspaces"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>fortspaces</b>
-<a name="IDX543"></a>
+<a name="IDX544"></a>
 </dt>
 <dd><p>Default value: <code>false</code>
 </p>
@@ -1396,7 +1419,7 @@ each printed line with spaces to 80 columns.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>December, 30 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>April, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 

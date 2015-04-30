@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on December, 30 2014 by texi2html 1.76 -->
+<!-- Created on April, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.35.1 Manual: 32. Runtime Environment</title>
+<title>Maxima 5.36.0 Manual: 32. Runtime Environment</title>
 
-<meta name="description" content="Maxima 5.35.1 Manual: 32. Runtime Environment">
-<meta name="keywords" content="Maxima 5.35.1 Manual: 32. Runtime Environment">
+<meta name="description" content="Maxima 5.36.0 Manual: 32. Runtime Environment">
+<meta name="keywords" content="Maxima 5.36.0 Manual: 32. Runtime Environment">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -218,7 +218,7 @@ to resume from the point at which it was stopped.
 <a name="Item_003a-maxima_005ftempdir"></a>
 </p><dl>
 <dt><u>System variable:</u> <b>maxima_tempdir</b>
-<a name="IDX1228"></a>
+<a name="IDX1229"></a>
 </dt>
 <dd><p><code>maxima_tempdir</code> names the directory in which Maxima creates some temporary
 files.  In particular, temporary files for plotting are created in
@@ -239,7 +239,7 @@ Maxima can locate it; otherwise Maxima makes a guess about a suitable directory.
 <a name="Item_003a-maxima_005fuserdir"></a>
 </p><dl>
 <dt><u>System variable:</u> <b>maxima_userdir</b>
-<a name="IDX1229"></a>
+<a name="IDX1230"></a>
 </dt>
 <dd><p><code>maxima_userdir</code> names a directory which Maxima searches to find Maxima and
 Lisp files.  (Maxima searches some other directories as well;
@@ -264,7 +264,7 @@ those variables must be changed separately.
 <a name="Item_003a-room"></a>
 </p><dl>
 <dt><u>Function:</u> <b>room</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>room</tt> () &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>room</tt> (true) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>room</tt> (false)</i>
-<a name="IDX1230"></a>
+<a name="IDX1231"></a>
 </dt>
 <dd><p>Prints out a description of the state of storage and
 stack management in Maxima.  <code>room</code> calls the Lisp function of 
@@ -289,7 +289,7 @@ the same name.
 <a name="Item_003a-sstatus"></a>
 </p><dl>
 <dt><u>Function:</u> <b>sstatus</b><i> (<var>keyword</var>, <var>item</var>)</i>
-<a name="IDX1231"></a>
+<a name="IDX1232"></a>
 </dt>
 <dd><p>When <var>keyword</var> is the symbol <code>feature</code>, <var>item</var> is put on the list
 of system features.  After <code>sstatus (keyword, item)</code> is executed,
@@ -310,7 +310,7 @@ loaded in.
 <a name="Item_003a-status"></a>
 </p><dl>
 <dt><u>Function:</u> <b>status</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>status</tt> (<code>feature</code>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>status</tt> (<code>feature</code>, <var>item</var>)</i>
-<a name="IDX1232"></a>
+<a name="IDX1233"></a>
 </dt>
 <dd><p>Returns information about the presence or absence of certain system-dependent 
 features.
@@ -347,7 +347,7 @@ information.
 <a name="Item_003a-system"></a>
 </p><dl>
 <dt><u>Function:</u> <b>system</b><i> (<var>command</var>)</i>
-<a name="IDX1233"></a>
+<a name="IDX1234"></a>
 </dt>
 <dd><p>Executes <var>command</var> as a separate process.  The command is passed to the
 default shell for execution.  <code>system</code> is not supported by all operating
@@ -371,7 +371,7 @@ Maxima) and remove the temporary file after it is done do:
 <a name="Item_003a-time"></a>
 </p><dl>
 <dt><u>Function:</u> <b>time</b><i> (%o1, %o2, %o3, &hellip;)</i>
-<a name="IDX1234"></a>
+<a name="IDX1235"></a>
 </dt>
 <dd><p>Returns a list of the times, in seconds, taken to compute the output lines
 <code>%o1</code>, <code>%o2</code>, <code>%o3</code>, &hellip; The time returned is Maxima's
@@ -392,7 +392,7 @@ and elapsed time with each output line.
 <a name="Item_003a-timedate"></a>
 </p><dl>
 <dt><u>Function:</u> <b>timedate</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>timedate</tt> () &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>timedate</tt> (<var>T</var>)</i>
-<a name="IDX1235"></a>
+<a name="IDX1236"></a>
 </dt>
 <dd><p><code>timedate()</code> with no argument
 returns a string representing the current time and date.
@@ -427,11 +427,63 @@ timedate reports current time 2010-06-08 04:08:09+01:00
 </div>
 </p></dd></dl>
 
+<p><a name="parse_005ftimedate"></a>
+<a name="Item_003a-parse_005ftimedate"></a>
+</p><dl>
+<dt><u>Function:</u> <b>parse_timedate</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>parse_timedate</tt> (<var>S</var>)</i>
+<a name="IDX1237"></a>
+</dt>
+<dd><p>Parses a string <var>S</var> representing a date or date and time of day
+and returns the number of seconds since midnight, January 1, 1900 GMT.
+If there is a nonzero milliseconds part, the value returned is a rational number,
+otherwise, it is an integer.
+</p>
+<p>The string <var>S</var> must have one of the following formats:
+</p>
+<ul>
+<li>
+<code>YYYY-MM-DD[ T]hh:mm:ss[,.]nnn</code>
+</li><li>
+<code>YYYY-MM-DD[ T]hh:mm:ss</code>
+</li><li>
+<code>YYYY-MM-DD</code>
+</li></ul>
+
+<p>where the fields are year, month, day, hours, minutes, seconds, and milliseconds,
+and square brackets indicate acceptable alternatives.
+</p>
+<p>See also <code>timedate</code> and <code>absolute_real_time</code>.
+</p>
+<p>Examples:
+</p>
+<p>Midnight, January 1, 1900, in the local time zone, in each acceptable format.
+</p>
+<pre class="example">(%i1) parse_timedate (&quot;1900-01-01 00:00:00,000&quot;);
+(%o1)                         28800
+(%i2) parse_timedate (&quot;1900-01-01 00:00:00.000&quot;);
+(%o2)                         28800
+(%i3) parse_timedate (&quot;1900-01-01T00:00:00,000&quot;);
+(%o3)                         28800
+(%i4) parse_timedate (&quot;1900-01-01T00:00:00.000&quot;);
+(%o4)                         28800
+(%i5) parse_timedate (&quot;1900-01-01 00:00:00&quot;);
+(%o5)                         28800
+(%i6) parse_timedate (&quot;1900-01-01T00:00:00&quot;);
+(%o6)                         28800
+(%i7) parse_timedate (&quot;1900-01-01&quot;);
+(%o7)                         28800
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Time-and-date-functions">Time and date functions</a>
+</div>
+</p></dd></dl>
+
 <p><a name="absolute_005freal_005ftime"></a>
 <a name="Item_003a-absolute_005freal_005ftime"></a>
 </p><dl>
 <dt><u>Function:</u> <b>absolute_real_time</b><i> ()</i>
-<a name="IDX1236"></a>
+<a name="IDX1238"></a>
 </dt>
 <dd><p>Returns the number of seconds since midnight, January 1, 1900 UTC.
 The return value is an integer.
@@ -455,7 +507,7 @@ The return value is an integer.
 <a name="Item_003a-elapsed_005freal_005ftime"></a>
 </p><dl>
 <dt><u>Function:</u> <b>elapsed_real_time</b><i> ()</i>
-<a name="IDX1237"></a>
+<a name="IDX1239"></a>
 </dt>
 <dd><p>Returns the number of seconds (including fractions of a second)
 since Maxima was most recently started or restarted.
@@ -481,7 +533,7 @@ The return value is a floating-point number.
 <a name="Item_003a-elapsed_005frun_005ftime"></a>
 </p><dl>
 <dt><u>Function:</u> <b>elapsed_run_time</b><i> ()</i>
-<a name="IDX1238"></a>
+<a name="IDX1240"></a>
 </dt>
 <dd><p>Returns an estimate of the number of seconds (including fractions of a second)
 which Maxima has spent in computations since Maxima was most recently started
@@ -521,7 +573,7 @@ or restarted.  The return value is a floating-point number.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>December, 30 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>April, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 
