@@ -7,9 +7,10 @@ This is the GIT repository for the Website of project Maxima
 Mirroring
 ---------
 
-You are welcome to keep a mirror of Maxima's Website in you own site.
-To do that, you just have to retrieve this repository somewhere in your
-own site. It will work without any additional configuration.
+You are welcome to keep a mirror of Maxima's Website in you own site or
+to use it as a template for your own Website. To do that, you just have
+to retrieve this repository somewhere in your own site. It will work
+without any additional configuration or external files.
 
 A copy of this repository will even work locally in your computer, even
 if you don't have a Web server installed. This could be a handy way of
