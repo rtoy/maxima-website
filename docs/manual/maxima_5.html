@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on April, 9 2015 by texi2html 1.76 -->
+<!-- Created on November, 9 2015 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.36.0 Manual: 5. Data Types and Structures</title>
+<title>Maxima 5.37.3 Manual: 5. Data Types and Structures</title>
 
-<meta name="description" content="Maxima 5.36.0 Manual: 5. Data Types and Structures">
-<meta name="keywords" content="Maxima 5.36.0 Manual: 5. Data Types and Structures">
+<meta name="description" content="Maxima 5.37.3 Manual: 5. Data Types and Structures">
+<meta name="keywords" content="Maxima 5.37.3 Manual: 5. Data Types and Structures">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -78,7 +78,7 @@ div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 5. Data Types and Structures </h1>
@@ -115,7 +115,7 @@ div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 5.1 Numbers </h2>
@@ -144,7 +144,7 @@ div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection"> 5.1.1 Introduction to Numbers </h3>
@@ -188,7 +188,7 @@ corresponds to choosing the range of the mantissa). See <code><a href="#fpprec">
 for more information. To type a literal bigfloat, use the exponent
 notation as above but with the character <code>b</code> in place of
 <code>e</code>. The example of <code>0.01</code> from above could be entered as a
-bigfloat with <code>1b-2</code> or <code>0.001b0</code>.
+bigfloat with <code>1b-2</code> or <code>0.01b0</code>.
 </p>
 <p>Calculations using machine floats can be significantly faster than
 using bigfloats since modern computer processors have dedicated
@@ -217,7 +217,7 @@ the <code><a href="#promote_005ffloat_005fto_005fbigfloat">promote_float_to_bigf
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection"> 5.1.2 Functions and Variables for Numbers </h3>
@@ -320,8 +320,11 @@ displays as <code>1.000000000000000B0</code>.  Otherwise, this is displayed as
 <dt><u>Function:</u> <b>evenp</b><i> (<var>expr</var>)</i>
 <a name="IDX69"></a>
 </dt>
-<dd><p>Returns <code>true</code> if <var>expr</var> is an even integer.
-<code>false</code> is returned in all other cases.
+<dd><p>Returns <code>true</code> if <var>expr</var> is a literal even integer, otherwise
+<code>false</code>.
+</p>
+<p><code>evenp</code> returns <code>false</code> if <var>expr</var> is a symbol, even if <var>expr</var>
+is declared <code>even</code>.
 </p>
 <div class=categorybox>
 
@@ -447,8 +450,8 @@ if there are trailing zero digits.
 <dd><p>Returns <code>true</code> if <var>expr</var> is a literal numeric integer, otherwise
 <code>false</code>.
 </p>
-<p><code>integerp</code> returns <code>false</code> if its argument is a symbol,
-even if the argument is declared integer.
+<p><code>integerp</code> returns <code>false</code> if <var>expr</var> is a symbol, even if <var>expr</var>
+is declared <code>integer</code>.
 </p>
 <p>Examples:
 </p>
@@ -529,8 +532,8 @@ m1pbranch:false          m1pbranch:true
 <dd><p>Returns <code>true</code> if <var>expr</var> is a literal integer, rational number, 
 floating point number, or bigfloat, otherwise <code>false</code>.
 </p>
-<p><code>numberp</code> returns <code>false</code> if its argument is a symbol, even if the
-argument is a symbolic number such as <code>%pi</code> or <code>%i</code>, or declared to be
+<p><code>numberp</code> returns <code>false</code> if <var>expr</var> is a symbol, even if <var>expr</var>
+is a symbolic number such as <code>%pi</code> or <code>%i</code>, or declared to be
 <code>even</code>, <code>odd</code>, <code>integer</code>, <code>rational</code>, <code>irrational</code>,
 <code>real</code>, <code>imaginary</code>, or <code>complex</code>.
 </p>
@@ -579,7 +582,7 @@ their values.  It also sets the <code><a href="#float">float</a></code> switch o
 (%o1)            [sqrt(2), sin(1), -----------]
                                    sqrt(3) + 1
 (%i2) [sqrt(2), sin(1), 1/(1+sqrt(3))],numer;
-(%o2) [1.414213562373095, .8414709848078965, .3660254037844387]
+(%o2) [1.414213562373095, 0.8414709848078965, 0.3660254037844387]
 </pre>
 <div class=categorybox>
 
@@ -606,19 +609,18 @@ not an evaluated result is returned.
 <p>Examples:
 </p>
 <pre class="example">(%i1) (-2)^0.75;
-(%o1) (-2)^0.75
-
+                                 0.75
+(%o1)                       (- 2)
 (%i2) (-2)^0.75,numer_pbranch:true;
-(%o2) 1.189207115002721*%i-1.189207115002721
-
+(%o2)       1.189207115002721 %i - 1.189207115002721
 (%i3) (-2)^(3/4);
-(%o3) (-1)^(3/4)*2^(3/4)
-
+                               3/4  3/4
+(%o3)                     (- 1)    2
 (%i4) (-2)^(3/4),numer;
-(%o4) 1.681792830507429*(-1)^0.75
-
+                                          0.75
+(%o4)              1.681792830507429 (- 1)
 (%i5) (-2)^(3/4),numer,numer_pbranch:true;
-(%o5) 1.189207115002721*%i-1.189207115002721
+(%o5)       1.189207115002721 %i - 1.189207115002721
 </pre>
 <div class=categorybox>
 
@@ -655,8 +657,11 @@ not necessarily numeric.
 <dt><u>Function:</u> <b>oddp</b><i> (<var>expr</var>)</i>
 <a name="IDX82"></a>
 </dt>
-<dd><p>is <code>true</code> if <var>expr</var> is an odd integer.
-<code>false</code> is returned in all other cases.
+<dd><p>Returns <code>true</code> if <var>expr</var> is a literal odd integer, otherwise
+<code>false</code>.
+</p>
+<p><code>oddp</code> returns <code>false</code> if <var>expr</var> is a symbol, even if <var>expr</var>
+is declared <code>odd</code>.
 </p>
 <div class=categorybox>
 
@@ -727,9 +732,9 @@ representation.
 (%o1)                           -
                                 2
 (%i2) rationalize (0.1);
-                               1
-(%o2)                          --
-                               10
+                        3602879701896397
+(%o2)                   -----------------
+                        36028797018963968
 (%i3) fpprec : 5$
 (%i4) rationalize (0.1b0);
                              209715
@@ -741,9 +746,9 @@ representation.
 (%o6)                ----------------------
                      2361183241434822606848
 (%i7) rationalize (sin (0.1*x + 5.6));
-                              x    28
-(%o7)                     sin(-- + --)
-                              10   5
+               3602879701896397 x   3152519739159347
+(%o7)      sin(------------------ + ----------------)
+               36028797018963968    562949953421312
 </pre>
 <div class=categorybox>
 
@@ -786,7 +791,7 @@ integers, otherwise <code>false</code>.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 5.2 Strings </h2>
@@ -815,10 +820,11 @@ integers, otherwise <code>false</code>.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection"> 5.2.1 Introduction to Strings </h3>
+
 
 <p>Strings (quoted character sequences) are enclosed in double quote marks <code>&quot;</code>
 for input, and displayed with or without the quote marks, depending on the
@@ -844,26 +850,23 @@ strings.
 <p>Examples:
 </p>
 <pre class="example">(%i1) s_1 : &quot;This is a string.&quot;;
-(%o1)               This is a string.
+(%o1)                   This is a string.
 (%i2) s_2 : &quot;Embedded \&quot;double quotes\&quot; and backslash \\ characters.&quot;;
 (%o2) Embedded &quot;double quotes&quot; and backslash \ characters.
 (%i3) s_3 : &quot;Embedded line termination
-in this string.&quot;;
 (%o3) Embedded line termination
 in this string.
-(%i4) s_4 : &quot;Ignore the \
-line termination \
-characters in \
-this string.&quot;;
+(%i4) in this string.&quot;;
 (%o4) Ignore the line termination characters in this string.
-(%i5) stringdisp : false;
+(%i5) s_4 : &quot;Ignore the \
 (%o5)                         false
-(%i6) s_1;
+(%i6) line termination \
 (%o6)                   This is a string.
-(%i7) stringdisp : true;
+(%i7) characters in \
 (%o7)                         true
-(%i8) s_1;
+(%i8) this string.&quot;;
 (%o8)                  &quot;This is a string.&quot;
+(%i9) stringdisp : false;
 </pre>
 <div class=categorybox>
 
@@ -887,7 +890,7 @@ this string.&quot;;
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection"> 5.2.2 Functions and Variables for Strings </h3>
@@ -1030,7 +1033,7 @@ quote marks.  Otherwise, quote marks are not displayed.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 5.3 Constants </h2>
@@ -1057,7 +1060,7 @@ quote marks.  Otherwise, quote marks are not displayed.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection"> 5.3.1 Functions and Variables for Constants </h3>
@@ -1364,7 +1367,7 @@ infinitesimals.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 5.4 Lists </h2>
@@ -1393,7 +1396,7 @@ infinitesimals.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection"> 5.4.1 Introduction to Lists </h3>
@@ -1440,7 +1443,7 @@ itself, since after it has been through the simplifier the list would become
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection"> 5.4.2 Functions and Variables for Lists </h3>
@@ -2474,7 +2477,7 @@ See <code><a href="#first">first</a></code> for more details.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 5.5 Arrays </h2>
@@ -2501,7 +2504,7 @@ See <code><a href="#first">first</a></code> for more details.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection"> 5.5.1 Functions and Variables for Arrays </h3>
@@ -3102,41 +3105,25 @@ desired to redefine the values in a hashed array.
 </div>
 </p></dd></dl>
 
-
 <p><a name="use_005ffast_005farrays"></a>
 <a name="Item_003a-use_005ffast_005farrays"></a>
 </p><dl>
 <dt><u>Option variable:</u> <b>use_fast_arrays</b>
 <a name="IDX152"></a>
 </dt>
-<dd><p>If <code>true</code> then only two types of arrays are recognized:
+<dd><p>Default value: <code>false</code>
 </p>
-<ol>
-<li>
-The art-q array (t in Common Lisp) which may have several dimensions
-indexed by integers, and may hold any Lisp or Maxima object as an
-entry.  To construct such an array, enter <code>a:make_array(any,3,4);</code> 
-then <code>a</code> will have as value, an array with twelve slots, and the 
-indexing is zero based.
-
-</li><li>
-The Hash_table array which is the default type of array created if one
-does <code>b[x+1]:y^2</code> (and <code>b</code> is not already an array, a list, or a
-matrix - if it were one of these an error would be caused since
-<code>x+1</code> would not be a valid subscript for an art-q array, a list or
-a matrix).  Its indices (also known as keys) may be any object.
-It only takes one key at a time (<code>b[x+1,u]:y</code> would ignore the <code>u</code>).
-Referencing is done by <code>b[x+1] ==&gt; y^2</code>.  Of course the key may be
-a list, e.g. <code>b[[x+1,u]]:y</code> would be valid.  This is incompatible 
-with the old Maxima hash arrays, but saves consing.
-</li></ol>
-
-<p>An advantage of storing the arrays as values of the symbol is that the
-usual conventions about local variables of a function apply to arrays as
-well.  The Hash_table type also uses less consing and is more efficient
-than the old type of Maxima hashar.  To obtain consistent behaviour in
-translated and compiled code set <code>translate_fast_arrays</code> to be
-<code>true</code>.
+<p>When <code>use_fast_arrays</code> is <code>true</code>,
+undeclared arrays and arrays declared by <code>array</code> are values instead of properties,
+and undeclared arrays are implemented as Lisp hash tables.
+</p>
+<p>When <code>use_fast_arrays</code> is <code>false</code>,
+undeclared arrays and arrays declared by <code>array</code> are properties,
+and undeclared arrays are implemented with Maxima's own hash table implementation.
+</p>
+<p>Arrays created by <code>make_array</code> are not affected by <code>use_fast_arrays</code>.
+</p>
+<p>See also <code>translate_fast_arrays</code>.
 </p>
 <div class=categorybox>
 
@@ -3145,6 +3132,28 @@ translated and compiled code set <code>translate_fast_arrays</code> to be
 </div>
 </p></dd></dl>
 
+<p><a name="translate_005ffast_005farrays"></a>
+<a name="Item_003a-translate_005ffast_005farrays"></a>
+</p><dl>
+<dt><u>Option variable:</u> <b>translate_fast_arrays</b>
+<a name="IDX153"></a>
+</dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>When <code>translate_fast_arrays</code> is <code>true</code>,
+the Maxima-to-Lisp translator generates code that assumes arrays are values instead of properties,
+as if <code>use_fast_arrays</code> were <code>true</code>.
+</p>
+<p>When <code>translate_fast_arrays</code> is <code>false</code>,
+the Maxima-to-Lisp translator generates code that assumes arrays are properties,
+as if <code>use_fast_arrays</code> were <code>false</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Arrays">Arrays</a> &middot;
+<a href="maxima_99.html#Category_003a-Translation-flags-and-variables">Translation flags and variables</a>
+</div>
+</p></dd></dl>
 
 
 <p><a name="Item_003a-Structures"></a>
@@ -3164,7 +3173,7 @@ translated and compiled code set <code>translate_fast_arrays</code> to be
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 5.6 Structures </h2>
@@ -3193,7 +3202,7 @@ translated and compiled code set <code>translate_fast_arrays</code> to be
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection"> 5.6.1 Introduction to Structures </h3>
@@ -3241,7 +3250,7 @@ all fields are always visible.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection"> 5.6.2 Functions and Variables for Structures </h3>
@@ -3249,7 +3258,7 @@ all fields are always visible.
 <p><a name="Item_003a-structures"></a>
 </p><dl>
 <dt><u>Global variable:</u> <b>structures</b>
-<a name="IDX153"></a>
+<a name="IDX154"></a>
 </dt>
 <dd><p><code>structures</code> is the list of user-defined structures defined by <code>defstruct</code>.
 </p>
@@ -3263,7 +3272,7 @@ all fields are always visible.
 <p><a name="Item_003a-defstruct"></a>
 </p><dl>
 <dt><u>Function:</u> <b>defstruct</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>defstruct</tt> (<var>S</var>(<var>a_1</var>, &hellip;, <var>a_n</var>)) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>defstruct</tt> (<var>S</var>(<var>a_1</var> = <var>v_1</var>, &hellip;, <var>a_n</var> = <var>v_n</var>))</i>
-<a name="IDX154"></a>
+<a name="IDX155"></a>
 </dt>
 <dd><p>Define a structure, which is a list of named fields <var>a_1</var>, &hellip;,
 <var>a_n</var> associated with a symbol <var>S</var>.
@@ -3309,7 +3318,7 @@ and removes the structure definition.
 <p><a name="Item_003a-new"></a>
 </p><dl>
 <dt><u>Function:</u> <b>new</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>new</tt> (<var>S</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>new</tt> (<var>S</var> (<var>v_1</var>, &hellip;, <var>v_n</var>))</i>
-<a name="IDX155"></a>
+<a name="IDX156"></a>
 </dt>
 <dd><p><code>new</code> creates new instances of structures.
 </p>
@@ -3338,7 +3347,7 @@ in which fields are assigned the values <var>v_1</var>, &hellip;, <var>v_n</var>
 <p><a name="Item_003a_0040"></a>
 </p><dl>
 <dt><u>Operator:</u> <b>@</b>
-<a name="IDX156"></a>
+<a name="IDX157"></a>
 </dt>
 <dd><p><code>@</code> is the structure field access operator.
 The expression <code><var>x</var>@ <var>a</var></code> refers to the value of field <var>a</var> of the structure instance <var>x</var>.
@@ -3407,12 +3416,12 @@ The field name is not evaluated.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC392" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>April, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Robert Dodier</em> on <em>November, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 
