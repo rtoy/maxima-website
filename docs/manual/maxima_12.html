@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on November, 9 2015 by texi2html 1.76 -->
+<!-- Created on May, 19 2016 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.37.3 Manual: 12. Plotting</title>
+<title>Maxima 5.38.1 Manual: 12. Plotting</title>
 
-<meta name="description" content="Maxima 5.37.3 Manual: 12. Plotting">
-<meta name="keywords" content="Maxima 5.37.3 Manual: 12. Plotting">
+<meta name="description" content="Maxima 5.38.1 Manual: 12. Plotting">
+<meta name="keywords" content="Maxima 5.38.1 Manual: 12. Plotting">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -54,11 +54,13 @@ div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
 div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
-
+img {max-width:80%; max-height: 80%}
 -->
 </style>
 
 <link rel="icon" href="figures/favicon.ico"/>
+
+
 </head>
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
@@ -78,7 +80,7 @@ div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 12. Plotting </h1>
@@ -115,7 +117,7 @@ div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 12.1 Introduction to Plotting </h2>
@@ -126,18 +128,19 @@ set of points and pass them to the plotting package together with a set
 of commands.  That information can be passed to the external program
 either through a pipe or by calling the program with the name of a file
 where the data has been saved.  The data file is given the name
-<code>maxout.format</code>, where <code>format</code> is the name of the plotting
-format being used (<code>gnuplot</code>, <code>xmaxima</code>, <code>mgnuplot</code> or
-<code>gnuplot_pipes</code>).
+<code>maxout_xxx.format</code>, where <code>xxx</code> is a number that is unique
+to every concurrently-running instance of maxima and <code>format</code> is
+the name of the plotting format being used (<code>gnuplot</code>,
+<code>xmaxima</code>, <code>mgnuplot</code> or <code>gnuplot_pipes</code>).
 </p>
 <p>There are to save the plot in a graphic format file. In those cases, the
-file <code>maxout.format</code> created by Maxima includes commands that will
+file <code>maxout_xxx.format</code> created by Maxima includes commands that will
 make the external plotting program save the result in a graphic
 file. The default name for that graphic file is
 <code>maxplot.extension</code>, where <code>extension</code> is the extension
 normally used for the kind of graphic file selected.
 </p>
-<p>The <code>maxout.format</code> and <code>maxplot.extension</code> files are created
+<p>The <code>maxout_xxx.format</code> and <code>maxplot.extension</code> files are created
 in the directory specified by the system variable
 <code><a href="maxima_32.html#maxima_005ftempdir">maxima_tempdir</a></code>. That location can be changed by assigning to
 that variable (or to the environment variable MAXIMA_TEMPDIR) a string
@@ -147,13 +150,13 @@ the file(s) created, including their complete path.
 </p>
 <p>If the format used is either <code>gnuplot</code> or <code>xmaxima</code>, the
 external programs <code>gnuplot</code> or <code>xmaxima</code> can be run, giving it
-the file <code>maxout.format</code> as argument, in order to view again a plot
+the file <code>maxout_xxx.format</code> as argument, in order to view again a plot
 previously created in Maxima. Thus, when a Maxima plotting command
 fails, the format can be set to <code>gnuplot</code> or <code>xmaxima</code> and the
-plain-text file <code>maxout.gnuplot</code> (or <code>maxout.xmaxima</code>) can be
+plain-text file <code>maxout_xxx.gnuplot</code> (or <code>maxout_xxx.xmaxima</code>) can be
 inspected to look for the source of the problem.
 </p>
-<p>The additional package <a href="maxima_50.html#SEC245">draw</a> provides functions similar to the ones
+<p>The additional package <a href="maxima_52.html#draw">draw</a> provides functions similar to the ones
 described in this section with some extra features. Note that some
 plotting options have the same name in both plotting packages, but their
 syntax and behavior is different. To view the documentation for a
@@ -162,7 +165,7 @@ information for either of those two packages.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p>
 <p><a name="Item_003a-Plotting-Formats"></a>
@@ -182,7 +185,7 @@ information for either of those two packages.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 12.2 Plotting Formats </h2>
@@ -201,7 +204,7 @@ those programs, which can be selected with the option <code><a href="#plot_005ff
 
 <p>Used to launch the external program gnuplot, which must be installed in
 your system.  All plotting commands and data are saved into the file
-<code>maxout.gnuplot</code>.
+<code>maxout_xxx.gnuplot</code>.
 </p>
 </li><li>
 <strong>gnuplot_pipes</strong> (default on non-Windows platforms)
@@ -209,7 +212,7 @@ your system.  All plotting commands and data are saved into the file
 <p>This format is not available in Windows platforms.
 It is similar to the <code>gnuplot</code> format except that the commands are sent
 to gnuplot through a pipe, while the data are saved into the file
-<code>maxout.gnuplot_pipes</code>.  A single gnuplot process is kept open
+<code>maxout_xxx.gnuplot_pipes</code>.  A single gnuplot process is kept open
 and subsequent plot commands will be sent to the same process, replacing
 previous plots, unless the gnuplot pipe is closed with the function
 <code><a href="#gnuplot_005fclose">gnuplot_close</a></code>.  When this format is used, the function
@@ -219,7 +222,7 @@ displayed on the screen.
 <p>This format is only used to plot to the screen; whenever graphic files are
 created, the format is silently switched to <code>gnuplot</code> and
 the commands needed to create the graphic file are saved with the data
-in file <code>maxout.gnuplot</code>.
+in file <code>maxout_xxx.gnuplot</code>.
 </p>
 </li><li>
 <strong>mgnuplot</strong>
@@ -241,7 +244,7 @@ Maxima is being run from the Xmaxima console, the data and commands are
 passed to xmaxima through the same socket used for the communication
 between Maxima and the Xmaxima console. When used from a terminal or
 from graphical interfaces different from Xmaxima, the commands and data
-are saved in the file <code>maxout.xmaxima</code> and xmaxima is run with the
+are saved in the file <code>maxout_xxx.xmaxima</code> and xmaxima is run with the
 name of that file as argument.
 </p>
 <p>In previous versions this format used to be called <code>openmath</code>; that
@@ -250,7 +253,7 @@ old name still works as a synonym for <code>xmaxima</code>.
 
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p>
 <p><a name="Item_003a-Functions-and-Variables-for-Plotting"></a>
@@ -270,7 +273,7 @@ old name still works as a synonym for <code>xmaxima</code>.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 12.3 Functions and Variables for Plotting </h2>
@@ -301,7 +304,7 @@ contour.
 option <code><a href="#legend">legend</a></code> with a value of false, to remove the
 legend. By default, Gnuplot chooses and displays 3 contours. To increase the
 number of contours, it is necessary to use a custom
-<code><a href="#gnuplot_005fpreamble">gnuplot_preamble</a></code>, as in the next example:
+<code><a href="#gnuplot_005fpreamble">gnuplot_preamble</a></code>,  as in the next example:
 </p>
 <pre class="example">(%i1) contour_plot (u^3 + v^2, [u, -4, 4], [v, -4, 4],
               [legend,false],
@@ -310,7 +313,7 @@ number of contours, it is necessary to use a custom
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -346,7 +349,7 @@ variable. For instance,
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -365,7 +368,7 @@ options before the format directive &quot;~s&quot;.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -379,7 +382,7 @@ options before the format directive &quot;~s&quot;.
 gnuplot program when the plot format is <code>gnuplot</code>. Its default
 value is &quot;-persist ~s&quot;, where &quot;~s&quot; will be replaced with the name of the
 file where the gnuplot commands have been written (usually
-&quot;maxout.gnuplot&quot;). The option <code>-persist</code> tells gnuplot to exit
+&quot;maxout_xxx.gnuplot&quot;). The option <code>-persist</code> tells gnuplot to exit
 after the commands in the file have been executed, without closing the
 window that displays the plot.
 </p>
@@ -402,7 +405,7 @@ of <code>gnuplot_view_args</code>.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -433,9 +436,9 @@ changes on the domain given and it can fail for complicated expressions.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a> &middot;
-<a href="maxima_99.html#Category_003a-Share-packages">Share packages</a> &middot;
-<a href="maxima_99.html#Category_003a-Package-implicit_005fplot">Package implicit_plot</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a> &middot;
+<a href="maxima_105.html#Category_003a-Share-packages">Share packages</a> &middot;
+<a href="maxima_105.html#Category_003a-Package-implicit_005fplot">Package implicit_plot</a>
 </div>
 </p></dd></dl>
 
@@ -480,8 +483,8 @@ corresponding the maximum 36 iterations would not be black.
 
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a> &middot;
-<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Package-dynamics">Package dynamics</a> &middot;
+<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p>
 </dd></dl>
@@ -506,7 +509,7 @@ for those two transformations.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -548,8 +551,8 @@ is used or the option <code><a href="#same_005fxy">same_xy</a></code> is disable
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Package-dynamics">Package dynamics</a> &middot;
-<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Package-dynamics">Package dynamics</a> &middot;
+<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p>
 </dd></dl>
@@ -567,7 +570,7 @@ coordinates), and transform them into x and y coordinates.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -733,7 +736,7 @@ plotted on the two axes:
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -858,7 +861,7 @@ in which each color represents a different level.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -875,7 +878,7 @@ values or remove options, use <code><a href="#set_005fplot_005foption">set_plot_
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -892,7 +895,7 @@ on Plotting Options.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 <p><a name="set_005fplot_005foption"></a>
@@ -928,7 +931,7 @@ red, brown, black]], [gnuplot_preamble, ], [gnuplot_term, default]]
 </pre>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -947,7 +950,7 @@ transform them into x, y and z coordinates.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -968,7 +971,7 @@ transform them into x, y and z coordinates.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 12.4 Plotting Options </h2>
@@ -994,7 +997,7 @@ names. For instance, typing logx as an option is equivalent to writing
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1015,7 +1018,7 @@ line. This option does not have any effect in the 3 dimensional plots.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1038,7 +1041,7 @@ the value for the azimuth, in degrees.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1055,7 +1058,7 @@ to <code>false</code>, no box will be drawn.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1080,7 +1083,7 @@ will be used instead.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1099,7 +1102,7 @@ shown on the right, showing the corresponding between colors and values.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1118,7 +1121,7 @@ chosen automatically.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1141,7 +1144,7 @@ the value for the azimuth, in degrees.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1159,7 +1162,7 @@ programs.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1178,7 +1181,7 @@ options.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1194,7 +1197,7 @@ options.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1209,7 +1212,7 @@ coordinates indicated after each label.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1227,7 +1230,7 @@ words discrete1, discrete2, &hellip;, for discrete sets of points.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1242,7 +1245,7 @@ true or false.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1257,7 +1260,7 @@ true or false.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1276,7 +1279,7 @@ value <code>false</code> to eliminate completely the mesh lines.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1295,7 +1298,7 @@ it sets the number of points that will be shown for the plot.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1331,7 +1334,7 @@ determined by the option <code><a href="#color">color</a></code>.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1351,7 +1354,7 @@ gnuplot_pipes.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1375,7 +1378,7 @@ as <code>log(5)</code>, while nothing would be plotted if
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1396,7 +1399,7 @@ The possible objects that can be used are: <code>bullet</code>, <code>circle</co
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1420,7 +1423,7 @@ size of 17.2 cm by 12.9 cm and font of 18 points.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1443,7 +1446,7 @@ will be used, with a font of size 12.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1467,7 +1470,7 @@ size of 16.4 cm by 12.3 cm and font of 24 points.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1482,14 +1485,14 @@ terminal is <code>default</code> or when the Gnuplot terminal is set to
 <code>dumb</code> (see <code><a href="#gnuplot_005fterm">gnuplot_term</a></code>) and can have a true or false
 value.
 </p>
-<p>If the terminal is <code>default</code>, a file <code>maxout.gnuplot</code> (or
+<p>If the terminal is <code>default</code>, a file <code>maxout_xxx.gnuplot</code> (or
 other name specified with <code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>) is created with the
 gnuplot commands necessary to generate the plot. Option <code>run_viewer</code>
 controls whether or not Gnuplot will be launched to execute those
 commands and show the plot.
 </p>
 <p>If the terminal is <code>default</code>, gnuplot is run to execute the
-commands in <code>maxout.gnuplot</code>, producing another file
+commands in <code>maxout_xxx.gnuplot</code>, producing another file
 <code>maxplot.txt</code> (or other name specified with
 <code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code>). Option <code>run_viewer</code> controls whether or
 not that file, with an ASCII representation of the plot, will be shown
@@ -1500,7 +1503,7 @@ in either the console or a separate graphics window.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1515,7 +1518,7 @@ axes will be the same, in either 2d or 3d plots. See also <code><a href="#yx_005
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1530,7 +1533,7 @@ a 3d plot will be the same.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1574,7 +1577,7 @@ radius, color and type of object to replace the points.
 </p> 
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1597,7 +1600,7 @@ will be used with font of 14 points.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1611,7 +1614,7 @@ will be used with font of 14 points.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1625,7 +1628,7 @@ will be used with font of 14 points.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1644,7 +1647,7 @@ it will be used to transform the 3 coordinates in plot3d.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1662,7 +1665,7 @@ horizontal domain that will be shown in the plot.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1681,7 +1684,7 @@ plot.  It can not be used with <code><a href="#set_005fplot_005foption">set_plot
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1700,7 +1703,7 @@ automatically.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1716,7 +1719,7 @@ arguments are the scale factors for the x and y axes.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1733,7 +1736,7 @@ shown in the plot.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1752,7 +1755,7 @@ plot.  It can not be used with <code><a href="#set_005fplot_005foption">set_plot
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1771,7 +1774,7 @@ automatically
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 <p><a name="yx_005fratio"></a>
@@ -1785,7 +1788,7 @@ the rectangle used to make the plot. See also <code><a href="#same_005fxy">same_
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1800,7 +1803,7 @@ shown in the plot.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1818,7 +1821,7 @@ ignored by <code><a href="#plot2d">plot2d</a></code> and <code><a href="#implici
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1832,7 +1835,7 @@ ignored by <code><a href="#plot2d">plot2d</a></code> and <code><a href="#implici
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1853,7 +1856,7 @@ ignored by <code><a href="#plot2d">plot2d</a></code> and <code><a href="#implici
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 12.5 Gnuplot Options </h2>
@@ -1884,10 +1887,10 @@ gnuplot terminal used will be specified by the value of the option
 </li><li>
 <strong>dumb</strong>
 
-<p>Gnuplot output is saved to a file <code>maxout.gnuplot</code> using &quot;ASCII
+<p>Gnuplot output is saved to a file <code>maxout_xxx.gnuplot</code> using &quot;ASCII
 art&quot; approximation to graphics. If the option <code><a href="#gnuplot_005fout_005ffile">gnuplot_out_file</a></code> is
 set to <var>filename</var>, the plot will be saved there, instead of the
-default <code>maxout.gnuplot</code>. The settings for the &quot;dumb&quot; terminal of
+default <code>maxout_xxx.gnuplot</code>. The settings for the &quot;dumb&quot; terminal of
 Gnuplot are given by the value of option
 <code><a href="#gnuplot_005fdumb_005fterm_005fcommand">gnuplot_dumb_term_command</a></code>. If option <code><a href="#run_005fviewer">run_viewer</a></code> is set
 to true and the plot_format is <code>gnuplot</code> that ASCII representation
@@ -1919,7 +1922,7 @@ name.
 
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1947,7 +1950,7 @@ or <code><a href="#svg_005ffile">svg_file</a></code>.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1962,7 +1965,7 @@ mode, which is enabled by default.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1978,7 +1981,7 @@ be separated with a semi-colon. See also <code><a href="#gnuplot_005fpostamble">
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -1995,7 +1998,7 @@ semi-colon. See also <code><a href="#gnuplot_005fpreamble">gnuplot_preamble</a><
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2012,7 +2015,7 @@ terminal. It this option is not set, the command used will be: <code>&quot;set t
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2030,7 +2033,7 @@ this option is not set, the command used will be: <code>&quot;set term dumb
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2045,7 +2048,7 @@ terminal.  If this option is not set, the command used will be: <code>&quot;set 
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2062,7 +2065,7 @@ for more information.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2078,7 +2081,7 @@ more information.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2095,7 +2098,7 @@ more information.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2110,7 +2113,7 @@ above.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2124,7 +2127,7 @@ above.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2145,7 +2148,7 @@ above.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 12.6 Gnuplot_pipes Format Functions </h2>
@@ -2161,7 +2164,7 @@ format.  Is not necessary to manually open the pipe before plotting.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2175,7 +2178,7 @@ format.  Is not necessary to manually open the pipe before plotting.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2190,7 +2193,7 @@ format and opens a new pipe.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2206,7 +2209,7 @@ before reploting the window.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2221,7 +2224,7 @@ update the gnuplot window call <code><a href="#gnuplot_005freplot">gnuplot_replo
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_99.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_105.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
@@ -2238,12 +2241,12 @@ update the gnuplot window call <code><a href="#gnuplot_005freplot">gnuplot_replo
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_83.html#SEC393" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>November, 9 2015</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Wolfgang Dautermann</em> on <em>May, 19 2016</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 
