@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on May, 19 2016 by texi2html 1.76 -->
+<!-- Created on December, 14 2016 by texi2html 1.76 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -11,10 +11,10 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 -->
 <head>
-<title>Maxima 5.38.1 Manual: 39. alt-display</title>
+<title>Maxima 5.39.0 Manual: 39. alt-display</title>
 
-<meta name="description" content="Maxima 5.38.1 Manual: 39. alt-display">
-<meta name="keywords" content="Maxima 5.38.1 Manual: 39. alt-display">
+<meta name="description" content="Maxima 5.39.0 Manual: 39. alt-display">
+<meta name="keywords" content="Maxima 5.39.0 Manual: 39. alt-display">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2html 1.76">
@@ -80,7 +80,7 @@ img {max-width:80%; max-height: 80%}
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC425" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter"> 39. alt-display </h1>
@@ -109,7 +109,7 @@ img {max-width:80%; max-height: 80%}
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC425" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 39.1 Introduction to alt-display </h2>
@@ -206,7 +206,7 @@ Messge: Condition designator ((MLABEL) $%O9 $X) is not of type (OR SYMBOL STRING
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC425" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 39.2 Functions and Variables for alt-display </h2>
@@ -214,7 +214,7 @@ Messge: Condition designator ((MLABEL) $%O9 $X) is not of type (OR SYMBOL STRING
 <p><a name="Item_003a-define_005falt_005fdisplay"></a>
 </p><dl>
 <dt><u>Function:</u> <b>define_alt_display</b><i> (<var>function</var>(<var>input</var>), <var>expr</var>)</i>
-<a name="IDX1420"></a>
+<a name="IDX1429"></a>
 </dt>
 <dd><p>This function is similar to <code>define</code>: it evaluates its arguments
 and expands into a function definition. The <var>function</var> is a
@@ -229,17 +229,19 @@ Lisp variable names.
 
 (%i3) define_alt_display(time_stamp(x),
                    block([alt_display1d:false,alt_display2d:false],
+                         simp:true,
                          prompt_prefix:printf(false,&quot;~a~%&quot;,timedate()),
                          displa(x)));
 
 (%o3) time_stamp(x):=block([simp:false],
                  block([?\*alt\-display1d\*:false,?\*alt\-display2d\*:false],
+                       simp:true,
                        ?\*prompt\-prefix\*:printf(false,&quot;~a~%&quot;,timedate()),
                        ?displa(x)))
 (%i4) set_alt_display(1,time_stamp);
 
 (%o4) done
-2014-01-07 13:41:50-05:00
+2016-10-03 09:49:27-05:00
 (%i5) 
 </pre>
 <p>The input line <code>%i3</code> defines <code>time_stamp</code> using
@@ -264,7 +266,7 @@ an infinite recursion in <code>displa</code>.
 <a name="Item_003a-info_005fdisplay"></a>
 </p><dl>
 <dt><u>Function:</u> <b>info_display</b><i> (<var>form</var>)</i>
-<a name="IDX1421"></a>
+<a name="IDX1430"></a>
 </dt>
 <dd><p>This is an alias for the default 1-d display function. It may be used as
 an alternative 1-d or 2-d display function.
@@ -289,7 +291,7 @@ an alternative 1-d or 2-d display function.
 <a name="Item_003a-mathml_005fdisplay"></a>
 </p><dl>
 <dt><u>Function:</u> <b>mathml_display</b><i> (<var>form</var>)</i>
-<a name="IDX1422"></a>
+<a name="IDX1431"></a>
 </dt>
 <dd><p>Produces MathML output.
 </p>
@@ -311,7 +313,7 @@ an alternative 1-d or 2-d display function.
 <a name="Item_003a-tex_005fdisplay"></a>
 </p><dl>
 <dt><u>Function:</u> <b>tex_display</b><i> (<var>form</var>)</i>
-<a name="IDX1423"></a>
+<a name="IDX1432"></a>
 </dt>
 <dd><p>Produces TeX output.
 </p>
@@ -330,7 +332,7 @@ an alternative 1-d or 2-d display function.
 <p><a name="Item_003a-multi_005fdisplay_005ffor_005ftexinfo"></a>
 </p><dl>
 <dt><u>Function:</u> <b>multi_display_for_texinfo</b><i> (<var>form</var>)</i>
-<a name="IDX1424"></a>
+<a name="IDX1433"></a>
 </dt>
 <dd><p>Produces Texinfo output using all three display functions.
 </p>
@@ -369,7 +371,7 @@ an alternative 1-d or 2-d display function.
 <p><a name="Item_003a-reset_005fdisplays"></a>
 </p><dl>
 <dt><u>Functions:</u> <b>reset_displays</b><i> ()</i>
-<a name="IDX1425"></a>
+<a name="IDX1434"></a>
 </dt>
 <dd><p>Resets the prompt prefix and suffix to the empty string, and sets both
 1-d and 2-d display functions to the default.
@@ -385,7 +387,7 @@ an alternative 1-d or 2-d display function.
 <a name="Item_003a-set_005falt_005fdisplay"></a>
 </p><dl>
 <dt><u>Function:</u> <b>set_alt_display</b><i> (<var>num</var>, <var>display-function</var>)</i>
-<a name="IDX1426"></a>
+<a name="IDX1435"></a>
 </dt>
 <dd><p>The input <var>num</var> is the display to set; it may be either 1 or 2. The
 second input <var>display-function</var> is the display function to use. The
@@ -416,7 +418,7 @@ display nothing, nor cause any errors.
 <a name="Item_003a-set_005fprompt"></a>
 </p><dl>
 <dt><u>Function:</u> <b>set_prompt</b><i> (<var>fix</var>, <var>expr</var>)</i>
-<a name="IDX1427"></a>
+<a name="IDX1436"></a>
 </dt>
 <dd><p>Set the prompt prefix or suffix to <var>expr</var>. The input <var>fix</var> must
 evaluate to one of <code>prefix</code>, <code>suffix</code>, <code>general</code>,
@@ -485,12 +487,12 @@ information on how to use control strings to set the terminal colors.
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_89.html#SEC422" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="maxima_89.html#SEC425" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated by <em>Wolfgang Dautermann</em> on <em>May, 19 2016</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+  This document was generated by <em>Wolfgang Dautermann</em> on <em>December, 14 2016</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
  </font>
  <br>
 
