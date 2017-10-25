@@ -71,12 +71,14 @@
       subsection, which will be a single file with a self-contained
       installer program.</p>
       <h2>Linux</h2>
+      <h3>The simple way to instal</h3>
       <p>Normally linux distributions include a packet manager that allows to
 	install apps automatically. Most linux distributions based on .deb
 	packages will automatically install maxima on clicking
 	<a href="apt://maxima">this link</a>. The package manager also provides
 	several graphical front-ends for using maxima. One that aims for
-	completeness is <a href="apt://wxmaxima">wxMaxima</a>.</p>
+	completleness is <a href="apt://wxmaxima">wxMaxima</a>.</p>
+      <h3>Manually installing maxima on RPM based systems</h3>
       <p>In Linux distributions based on RPM packages as an alternative
       to the package manager it is possible to enter the <a
       href="https://sourceforge.net/projects/maxima/files/Maxima-Linux/">Maxima-Linux</a>
@@ -97,6 +99,33 @@
       <em>ploteq</em>.
       <p>The <em>maxima-lang</em> packages provide translations of the
 	manual into various languages.</p>
+      <h3>Manually installing maxima on debian-based systems</h3>
+      <p><a href="https://sourceforge.net/projects/maxima/files/Maxima-Linux/">Maxima-Linux</a>
+      Contains <em>.deb</em> files that can be downloaded and manually installed
+      on debian-based sys<tems.</p>
+      <ul>
+        <li><em>maxima-common</em> contains many files needed in order to run
+	  and install the actual maxima binary.</li>
+        <li><em>maxima-doc</em> contains the help files for maxima.</li>
+        <li><em>maxima-sbcl</em> provides a maxima binary that was compiled with sbcl.
+	  It should be reasonably fast and able to run even on systems with no sbcl
+	  installed.</li>
+        <li><em>maxima-clisp</em> provides a maxima binary that was compiled with clisp.
+	  It should be extremely memory-efficient and able to run on every system
+	  that has a similar clisp to that maxima was compiled with installed.</li>
+      </ul>
+      <p>In order to be able to run maxima both <em>maxima-common</em> and at least
+      one of the above binaries have to be installed.
+      Most systems contain a program that automatically installs <em>.deb</em>
+      packages on double-clicking them. If that isn't the case the following
+      command will install packages:</p>
+      <pre>sudo dpkg -i &lt;packagename&gt;</pre>
+      <p>If dpkg claims that some dependencies aren't fulfilled the required packages
+      an automatical install and download of these can be triggered by issuing
+      the following command:</p>
+      <pre>sudo apt-get -f install</pre>
+
+      <h3>Distribution-independent packages</h3>
       <p>Maxima is also part of the distribution-independent
 	<a href="https://uappexplorer.com/snap/ubuntu/wxmaxima"> snap package</a>
 	   of wxMaxima. Informations about installing snaps can be found
