@@ -32,24 +32,23 @@ directly into the Git repository. If you are not a member but would
 like to have write privileges to help improve the site, ask villate@fe.up.pt
 or other project administrators to give you access.
 
-After committing any modifications to this repository, the Sourceforge Web
-server pages must be refreshed manually by running "git pull" in the
-directory /home/project-web/maxima/htdocs. If you are not a member of
-the project, the project administrators will do that once they become aware
-that the repository changed or you can ask them to do that in the project
-mailing list.
+After committing any modifications to the repository, the Sourceforge
+Web server pages must be refreshed manually by copying any new files
+and updating changed files in the Web server. If you are not a member
+of the project, the project administrators will do that once they
+become aware that the repository has changed or you can request a Web
+server update in the mailing list.
 
-If you are a member of the project and you use Linux, you can automate the
-process of refreshing the pages by creating a file "update_maximaweb"
-with the following content:
+If you are a member of the project and you use Linux, you can update the
+pages in the Web server using rsync. First move to the directory where you
+have your copy of the Web repository, make sure you don't have any additional
+files or changes that have not been committed, and then issue the following
+command:
 
-    #!/bin/sh
-    USER=sourceforge_name
-    ssh $USER,maxima@shell.sourceforge.net create
-    ssh $USER,maxima@shell.sourceforge.net "cd /home/project-web/maxima/htdocs; git pull"
-    ssh $USER,maxima@shell.sourceforge.net shutdown
+    rsync -avz --delete * username@web.sf.net:maxima/htdocs
 
-Where sourceforge_name should be replaced with your username in
-Sourceforge. Make that file executable and put it somewhere in your
-executable commands path. Then run that command every time you would
-like to update the Website with the current GIT repository.
+Where username should be replaced with the username you use in
+Sourceforge. In addition to rsync, you can also use sftp or scp to copy files
+to the web.sf.net; if you use one of those programs instead, make sure you
+send any new files, update the files that have changed and delete the ones
+that have been removed from the repository.
