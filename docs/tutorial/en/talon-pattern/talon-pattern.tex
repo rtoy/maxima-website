@@ -15,7 +15,9 @@
 \parindent = 0.0in
 
 
-\title{Rules and patterns in maxima}
+\title{Rules and patterns in Maxima}
+\author{Michel Talon}
+\date{February 19, 2019}
 
 \begin{document}
 
@@ -23,12 +25,12 @@
 \section{Introduction.}
 
 
-Rules and patterns have been introduced in maxima by prof. R. Fateman
+Rules and patterns have been introduced in Maxima by prof.\ R.\ Fateman
 (in the program matcom.lisp) and are described in a particularly
 abstruse and compact chapter of the manual. The present discussion is
 intended to be a more tutorial like introduction to the subject, but
 also to the lisp program underlying this rules system. It is based on
-the manual and comments by R. Fateman and R. Dodier in the maxima
+the manual and comments by R.\ Fateman and R.\ Dodier in the Maxima
 mailing list, but for sure many points in the manual and the mailing
 list are not discussed here.
 
@@ -49,14 +51,14 @@ which declares such wild cards, associated to conditions allowing the
 variable to match or not, also called predicates. For example i want
 variable a and b to match atoms except numbers, variable c to match non
 atoms and variable d to match numbers.  If a variable is to match
-anything then put "all" as predicate, or "true". The syntax is
+anything then put {\tt all} as predicate, or {\tt true}. The syntax is
 \begin{verbatim}
 matchdeclare(a,pred1,b,pred1,c,pred2,d,numberp);
 \end{verbatim}
 pred1 is a logical function taking one variable which will be applied
 to a, then b, etc. For d  one can take simply numberp. However pred2 should
-be "not atom" and this doesn't work. The simplest is to define a
-maxima function 
+be {\tt not atom} and this doesn't work. The simplest is to define a
+Maxima function 
 \begin{verbatim}
 pred2(x):= not atom(x);
 \end{verbatim}
@@ -94,7 +96,7 @@ in the property list of the wild card variables:
 (MPROPS (NIL MATCHDECLARE ($PRED1)))
 \end{verbatim}
 
-A pattern is a maxima expression involving in general several
+A pattern is a Maxima expression involving in general several
 variables, various so-called kernels (such as sin, cos, exp, etc.)
 some of these variables being the above wildcards. The aim of a
 pattern matcher is to determine if a given expression is of the same
@@ -149,11 +151,11 @@ it is sufficient to redeclare matchdeclare and redefine the rule:
 We can now explain various facets of the matching mechanism.  First
 defmatch (or defrule) creates a matching rule r1, and puts on the
 property list of r1 an MPROP property with value the thing to be
-matched and result a maxima list. the command disprule says the same
-thing in maxima language.  Note that r1 has in its definition access
+matched and result a Maxima list. the command disprule says the same
+thing in Maxima language.  Note that r1 has in its definition access
 to the appropriate matching variables and thus their property list,
 which contain the corresponding predicates. The command disprule gives
-the same information in maxima language. Second one can modify the
+the same information in Maxima language. Second one can modify the
 declaration of match variables but one has to redefine the matching
 rules for the new predicate to take effect (see \%o11 and \%o12).  
 
@@ -168,7 +170,7 @@ that are not numbers. It is a special case that for the addition and
 the multiplication which are commutative and nary, the matcher is
 \textbf{greedy} and matches the complete string of symbols appearing in the
 addition or the multiplication. For example in \%o14 it matches the 3
-symbols x,y,z.  Now what about a? The matcher is able to "invent" that
+symbols x,y,z.  Now what about a? The matcher is able to ``invent'' that
 xyz = 1*xyz and then tries to associate a with 1. In the first
 matchdeclare a is forbidden to be a number. But this matcher has \textbf{no
 backtracking capability}, so having set b=xy it will not come back to
@@ -253,8 +255,8 @@ in a perhaps non intuitive way. For example with the same rule as above:
                                         z
 \end{verbatim}
 First the matcher has inserted a factor 1 to match d, but note that 1/z
-appears in the non atoms. This is because 1/z is indeed not an atom, 
-op(1/z)=/ Similarly for a subtraction:
+appears in the non atoms. This is because 1/z is not an atom; 
+indeed, op(1/z)=``/''. Similarly for a subtraction:
 \begin{verbatim}
 (%i25) defmatch(r2,b+c);
 (%o25)                                r2
@@ -285,7 +287,7 @@ in the products. Anyways the wild card variables are correctly identified.
 \subsection{If one is interested in the inner workings.}
 
 Let us see how the matcher works in more details on a simple case. The 
-following only works OK with maxima compiled with clisp.
+following only works OK with Maxima compiled with Clisp.
 \begin{verbatim}
 (%i1) matchdeclare(a,atom);
 (%o1)                                done
@@ -376,7 +378,7 @@ form is the following:
 \begin{verbatim}
 defmatch(name, pattern,x_1,...,x_n) 
 \end{verbatim}
-that is one may specify extra "pattern arguments" besides the
+that is one may specify extra ``pattern arguments'' besides the
 wildcards declared by matchdeclare. However their use is not as
 flexible as that of the wildcards as illustrated below.
 
@@ -525,7 +527,7 @@ overlapping predicates:
 \end{verbatim}
 Note that a number satisfies both predicates for aa and bb, so that 8
 is taken greedily by the first variable bb, and thus does not appear
-in "all atoms".
+in ``all atoms''.
 
 
 
@@ -668,7 +670,7 @@ a = x
 (%o3)                                  x
 \end{verbatim}
 Note the a inside the lambda is not captured automatically, and stays in the
-printout a=x . This is a remark of R. Dodier.
+printout a=x . This is a remark of R.\ Dodier.
 
 
 
@@ -827,7 +829,7 @@ current_let_rule_package can be assigned to any package name.
 \end{verbatim}
 We see that the let rules allow to simplify differently expressions. However they
 have to be called explicitely by letsimp(). We are now going to discuss similar
-simplifying functions which are directly hooked in the maxima simplifier, and are
+simplifying functions which are directly hooked in the Maxima simplifier, and are
 thus called automatically. They are called letsimp (called before the simplifier)
 and letsimpafter (called after the simplifier).
 
@@ -844,8 +846,8 @@ tellsimpafter (pattern, replacement);
 
 The manual says: tellsimp is used when it is important to modify the
 expression before the simplifier works on it, for instance if the
-simplifier "knows" something about the expression, but what it returns
-is not to your liking. If the simplifier "knows" something about the
+simplifier ``knows'' something about the expression, but what it returns
+is not to your liking. If the simplifier ``knows'' something about the
 main operator of the expression, but is simply not doing enough for
 you, you probably want to use tellsimpafter.  
 
@@ -870,7 +872,7 @@ defmatch: c b
          will be matched uniquely since sub-parts would otherwise be ambigious.
 (%o2)                          [+rule1, simplus]
 \end{verbatim}
-Note the rule is associated to main operator "+" and named +rule1.  It
+Note the rule is associated to main operator ``+'' and named +rule1.  It
 is also associated to the simplus generic simplification functions for
 sums. Tracing it gives:
 
@@ -909,8 +911,8 @@ The following is trickier:
 \end{verbatim}
 Here we see that a is matched to 0, and b to (x+y) so the result is
 probably unexpectedly -x-y.  We see once more the problems associated
-with the fact that for "+" and "*" the matcher is greedy and constants
-like 0 or 1 are added freely in the game. For tellsimp, main operator "+"
+with the fact that for ``+'' and ``*'' the matcher is greedy and constants
+like 0 or 1 are added freely in the game. For tellsimp, main operator ``+''
 is forbidden, and indeed if one tries it:
 \begin{verbatim}
 (%i1) matchdeclare([a,b],all);
@@ -971,7 +973,7 @@ way, we refer to
 \begin{verbatim}
 https://github.com/dprodanov/clifford/blob/master/clifford.mac
 \end{verbatim}
-by D. Prodanov.  This formalism is also amenable to treat the case of
+by D.\ Prodanov.  This formalism is also amenable to treat the case of
 groups defined by generators and relations
 \begin{verbatim}
 https://en.wikipedia.org/wiki/Presentation_of_a_group
