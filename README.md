@@ -45,7 +45,7 @@ have your copy of the Web repository, make sure you don't have any additional
 files or changes that have not been committed, and then issue the following
 command:
 
-    rsync -avz --delete * username@web.sf.net:maxima/htdocs
+    rsync -avz --delete * username@web.sf.net:/home/project-web/maxima/htdocs
 
 Where username should be replaced with the username you use in
 Sourceforge. In addition to rsync, you can also use sftp or scp to copy files
