@@ -1,37 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on October, 12 2018 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Maxima 5.42.0 Manual: 79. romberg</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Bessel Functions (Maxima 5.44.0 Manual)</title>
 
-<meta name="description" content="Maxima 5.42.0 Manual: 79. romberg">
-<meta name="keywords" content="Maxima 5.42.0 Manual: 79. romberg">
+<meta name="description" content="Bessel Functions (Maxima 5.44.0 Manual)">
+<meta name="keywords" content="Bessel Functions (Maxima 5.44.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="Generator" content="makeinfo">
+<link href="maxima_0.html#Top" rel="start" title="Top">
+<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="maxima_77.html#Special-Functions" rel="up" title="Special Functions">
+<link href="maxima_80.html#Airy-Functions" rel="next" title="Airy Functions">
+<link href="maxima_78.html#Introduction-to-Special-Functions" rel="prev" title="Introduction to Special Functions">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
 h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
@@ -54,288 +63,316 @@ div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
 div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
-img {max-width:80%; max-height: 80%}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
 -->
 </style>
 
 <link rel="icon" href="figures/favicon.ico">
 
-
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
+<a name="Bessel-Functions"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_80.html#Airy-Functions" accesskey="n" rel="next">Airy Functions</a>, Previous: <a href="maxima_78.html#Introduction-to-Special-Functions" accesskey="p" rel="prev">Introduction to Special Functions</a>, Up: <a href="maxima_77.html#Special-Functions" accesskey="u" rel="up">Special Functions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Bessel-Functions-1"></a>
+<h3 class="section">15.2 Bessel Functions</h3>
 
-<a name="romberg_002dpkg"></a>
-<a name="SEC365"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_78.html#SEC364" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC366" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_78.html#SEC363" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC367" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_91.html#SEC433" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 79. romberg </h1>
+<a name="bessel_005fj"></a><a name="Item_003a-Special_002fdeffn_002fbessel_005fj"></a><dl>
+<dt><a name="index-bessel_005fj"></a>Function: <strong>bessel_j</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>The Bessel function of the first kind of order <em>v</em> and argument <em>z</em>.
+</p>
+<p><code>bessel_j</code> is defined as
+</p>
+<div class="example">
+<pre class="example">                inf
+                ====       k  - v - 2 k  v + 2 k
+                \     (- 1)  2          z
+                 &gt;    --------------------------
+                /        k! gamma(v + k + 1)
+                ====
+                k = 0
+</pre></div>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC366">79.1 Functions and Variables for romberg</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
-<p><a name="Item_003a-Functions-and-Variables-for-romberg"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-romberg"></a>
-<a name="SEC366"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC365" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC367" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC365" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC365" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC367" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_91.html#SEC433" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 79.1 Functions and Variables for romberg </h2>
+<p>although the infinite series is not used for computations.
+</p>
+<div class=categorybox>
 
-<p><a name="romberg_005ffunction"></a>
-<a name="Item_003a-romberg"></a>
-</p><dl>
-<dt><u>Function:</u> <b>romberg</b><i> &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>romberg</tt> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>) &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>romberg</tt> (<var>F</var>, <var>a</var>, <var>b</var>)</i>
-<a name="IDX2395"></a>
-</dt>
-<dd><p>Computes a numerical integration by Romberg's method.
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Bessel-functions">Bessel functions</a>
+
+<a href="maxima_364.html#Category_003a-Special-functions">Special functions</a>
+</div>
+</p></dd></dl>
+
+<a name="bessel_005fy"></a><a name="Item_003a-Special_002fdeffn_002fbessel_005fy"></a><dl>
+<dt><a name="index-bessel_005fy"></a>Function: <strong>bessel_y</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>The Bessel function of the second kind of order <em>v</em> and argument <em>z</em>.
 </p>
-<p><code>romberg(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>
-returns an estimate of the integral <code>integrate(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>.
-<var>expr</var> must be an expression which evaluates to a floating point value
-when <var>x</var> is bound to a floating point value.
+<p><code>bessel_y</code> is defined as
+</p><div class="example">
+<pre class="example">              cos(%pi v) bessel_j(v, z) - bessel_j(-v, z)
+              -------------------------------------------
+                             sin(%pi v)
+</pre></div>
+
+
+<p>when <em>v</em> is not an integer.  When <em>v</em> is an integer <em>n</em>,
+the limit as <em>v</em> approaches <em>n</em> is taken.
 </p>
-<p><code>romberg(<var>F</var>, <var>a</var>, <var>b</var>)</code>
-returns an estimate of the integral <code>integrate(<var>F</var>(x), x, <var>a</var>, <var>b</var>)</code>
-where <code>x</code> represents the unnamed, sole argument of <var>F</var>;
-the actual argument is not named <code>x</code>.
-<var>F</var> must be a Maxima or Lisp function which returns a floating point value
-when the argument is a floating point value.
-<var>F</var> may name a translated or compiled Maxima function.
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Bessel-functions">Bessel functions</a>
+
+<a href="maxima_364.html#Category_003a-Special-functions">Special functions</a>
+</div>
+</p></dd></dl>
+
+<a name="bessel_005fi"></a><a name="Item_003a-Special_002fdeffn_002fbessel_005fi"></a><dl>
+<dt><a name="index-bessel_005fi"></a>Function: <strong>bessel_i</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>The modified Bessel function of the first kind of order <em>v</em> and argument
+<em>z</em>.
 </p>
-<p>The accuracy of <code>romberg</code> is governed by the global variables
-<code>rombergabs</code> and <code>rombergtol</code>.
-<code>romberg</code> terminates successfully when
-the absolute difference between successive approximations is less than <code>rombergabs</code>,
-or the relative difference in successive approximations is less than <code>rombergtol</code>.
-Thus when <code>rombergabs</code> is 0.0 (the default)
-only the relative error test has any effect on <code>romberg</code>.
+<p><code>bessel_i</code> is defined as
+</p><div class="example">
+<pre class="example">                    inf
+                    ====   - v - 2 k  v + 2 k
+                    \     2          z
+                     &gt;    -------------------
+                    /     k! gamma(v + k + 1)
+                    ====
+                    k = 0
+</pre></div>
+
+
+<p>although the infinite series is not used for computations.
 </p>
-<p><code>romberg</code> halves the stepsize at most <code>rombergit</code> times before it gives up;
-the maximum number of function evaluations is therefore <code>2^rombergit</code>.
-If the error criterion established by <code>rombergabs</code> and <code>rombergtol</code>
-is not satisfied, <code>romberg</code> prints an error message.
-<code>romberg</code> always makes at least <code>rombergmin</code> iterations;
-this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Bessel-functions">Bessel functions</a>
+
+<a href="maxima_364.html#Category_003a-Special-functions">Special functions</a>
+</div>
+</p></dd></dl>
+
+<a name="bessel_005fk"></a><a name="Item_003a-Special_002fdeffn_002fbessel_005fk"></a><dl>
+<dt><a name="index-bessel_005fk"></a>Function: <strong>bessel_k</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>The modified Bessel function of the second kind of order <em>v</em> and argument
+<em>z</em>.
 </p>
-<p><code>romberg</code> repeatedly evaluates the integrand after binding the variable
-of integration to a specific value (and not before).
-This evaluation policy makes it possible to nest calls to <code>romberg</code>,
-to compute multidimensional integrals.
-However, the error calculations do not take the errors of nested integrations
-into account, so errors may be underestimated.
-Also, methods devised especially for multidimensional problems may yield
-the same accuracy with fewer function evaluations.
+<p><code>bessel_k</code> is defined as
+</p><div class="example">
+<pre class="example">           %pi csc(%pi v) (bessel_i(-v, z) - bessel_i(v, z))
+           -------------------------------------------------
+                                  2
+</pre></div>
+
+<p>when <em>v</em> is not an integer.  If <em>v</em> is an integer <em>n</em>,
+then the limit as <em>v</em> approaches <em>n</em> is taken.
 </p>
-<p><code>load(romberg)</code> loads this function.
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Bessel-functions">Bessel functions</a>
+
+<a href="maxima_364.html#Category_003a-Special-functions">Special functions</a>
+</div>
+</p></dd></dl>
+
+<a name="hankel_005f1"></a><a name="Item_003a-Special_002fdeffn_002fhankel_005f1"></a><dl>
+<dt><a name="index-hankel_005f1"></a>Function: <strong>hankel_1</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>The Hankel function of the first kind of order <em>v</em> and argument <em>z</em>
+(A&amp;S 9.1.3). <code>hankel_1</code> is defined as
 </p>
-<p>See also <code>QUADPACK</code>, a collection of numerical integration functions.
+<div class="example">
+<pre class="example">   bessel_j(v,z) + %i * bessel_y(v,z)
+</pre></div>
+
+<p>Maxima evaluates <code>hankel_1</code> numerically for a complex order <em>v</em> and 
+complex argument <em>z</em> in float precision. The numerical evaluation in 
+bigfloat precision is not supported.
+</p>
+<p>When <code>besselexpand</code> is <code>true</code>, <code>hankel_1</code> is expanded in terms
+of elementary functions when the order <em>v</em> is half of an odd integer. 
+See <code>besselexpand</code>.
+</p>
+<p>Maxima knows the derivative of <code>hankel_1</code> wrt the argument <em>z</em>.
 </p>
 <p>Examples:
 </p>
-<p>A 1-dimensional integration.
+<p>Numerical evaluation:
 </p>
-<pre class="example">(%i1) load (&quot;romberg&quot;);
-(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
-(%i2) f(x) := 1/((x - 1)^2 + 1/100) + 1/((x - 2)^2 + 1/1000)
-              + 1/((x - 3)^2 + 1/200);
-                    1                 1                1
-(%o2) f(x) := -------------- + --------------- + --------------
-                     2    1           2    1            2    1
-              (x - 1)  + ---   (x - 2)  + ----   (x - 3)  + ---
-                         100              1000              200
-(%i3) rombergtol : 1e-6;
-(%o3)                 9.9999999999999995E-7
-(%i4) rombergit : 15;
-(%o4)                          15
-(%i5) estimate : romberg (f(x), x, -5, 5);
-(%o5)                   173.6730736617464
-(%i6) exact : integrate (f(x), x, -5, 5);
-(%o6) 10 sqrt(10) atan(70 sqrt(10))
- + 10 sqrt(10) atan(30 sqrt(10)) + 10 sqrt(2) atan(80 sqrt(2))
- + 10 sqrt(2) atan(20 sqrt(2)) + 10 atan(60) + 10 atan(40)
-(%i7) abs (estimate - exact) / exact, numer;
-(%o7)                7.5527060865060088E-11
-</pre>
-<p>A 2-dimensional integration, implemented by nested calls to <code>romberg</code>.
+<div class="example">
+<pre class="example">(%i1) hankel_1(1,0.5);
+(%o1)        0.24226845767487 - 1.471472392670243 %i
+</pre><pre class="example">(%i2) hankel_1(1,0.5+%i);
+(%o2)       - 0.25582879948621 %i - 0.23957560188301
+</pre></div>
+
+<p>Expansion of <code>hankel_1</code> when <code>besselexpand</code> is <code>true</code>:
 </p>
-<pre class="example">(%i1) load (&quot;romberg&quot;);
-(%o1)    /usr/share/maxima/5.11.0/share/numeric/romberg.lisp
-(%i2) g(x, y) := x*y / (x + y);
-                                    x y
-(%o2)                   g(x, y) := -----
-                                   x + y
-(%i3) rombergtol : 1e-6;
-(%o3)                 9.9999999999999995E-7
-(%i4) estimate : romberg (romberg (g(x, y), y, 0, x/2), x, 1, 3);
-(%o4)                   0.81930239628356
-(%i5) assume (x &gt; 0);
-(%o5)                        [x &gt; 0]
-(%i6) integrate (integrate (g(x, y), y, 0, x/2), x, 1, 3);
-                                          3
-                                    2 log(-) - 1
-                    9                     2        9
-(%o6)       - 9 log(-) + 9 log(3) + ------------ + -
-                    2                    6         2
-(%i7) exact : radcan (%);
-                    26 log(3) - 26 log(2) - 13
-(%o7)             - --------------------------
-                                3
-(%i8) abs (estimate - exact) / exact, numer;
-(%o8)                1.3711979871851024E-10
-</pre>
+<div class="example">
+<pre class="example">(%i1) hankel_1(1/2,z),besselexpand:true;
+               sqrt(2) sin(z) - sqrt(2) %i cos(z)
+(%o1)          ----------------------------------
+                       sqrt(%pi) sqrt(z)
+</pre></div>
+
+<p>Derivative of <code>hankel_1</code> wrt the argument <em>z</em>. The derivative wrt the 
+order <em>v</em> is not supported. Maxima returns a noun form:
+</p>
+<div class="example">
+<pre class="example">(%i1) diff(hankel_1(v,z),z);
+             hankel_1(v - 1, z) - hankel_1(v + 1, z)
+(%o1)        ---------------------------------------
+                                2
+</pre><pre class="example">(%i2) diff(hankel_1(v,z),v);
+                       d
+(%o2)                  -- (hankel_1(v, z))
+                       dv
+</pre></div>
+
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_107.html#Category_003a-Package-romberg">Package romberg</a> &middot;
-<a href="maxima_107.html#Category_003a-Numerical-methods">Numerical methods</a>
-</div>
-</p>
-</dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Bessel-functions">Bessel functions</a>
 
-<p><a name="rombergabs"></a>
-<a name="Item_003a-rombergabs"></a>
-</p><dl>
-<dt><u>Option variable:</u> <b>rombergabs</b>
-<a name="IDX2396"></a>
-</dt>
-<dd><p>Default value: 0.0
+<a href="maxima_364.html#Category_003a-Special-functions">Special functions</a>
+</div>
+</p></dd></dl>
+
+<a name="hankel_005f2"></a><a name="Item_003a-Special_002fdeffn_002fhankel_005f2"></a><dl>
+<dt><a name="index-hankel_005f2"></a>Function: <strong>hankel_2</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>The Hankel function of the second kind of order <em>v</em> and argument <em>z</em>
+(A&amp;S 9.1.4). <code>hankel_2</code> is defined as
 </p>
-<p>The accuracy of <code>romberg</code> is governed by the global variables
-<code>rombergabs</code> and <code>rombergtol</code>.
-<code>romberg</code> terminates successfully when
-the absolute difference between successive approximations is less than <code>rombergabs</code>,
-or the relative difference in successive approximations is less than <code>rombergtol</code>.
-Thus when <code>rombergabs</code> is 0.0 (the default)
-only the relative error test has any effect on <code>romberg</code>.
+<div class="example">
+<pre class="example">   bessel_j(v,z) - %i * bessel_y(v,z)
+</pre></div>
+
+<p>Maxima evaluates <code>hankel_2</code> numerically for a complex order <em>v</em> and 
+complex argument <em>z</em> in float precision. The numerical evaluation in 
+bigfloat precision is not supported.
 </p>
-<p>See also <code><a href="#rombergit">rombergit</a></code> and <code><a href="#rombergmin">rombergmin</a></code>.
+<p>When <code>besselexpand</code> is <code>true</code>, <code>hankel_2</code> is expanded in terms
+of elementary functions when the order <em>v</em> is half of an odd integer. 
+See <code>besselexpand</code>.
+</p>
+<p>Maxima knows the derivative of <code>hankel_2</code> wrt the argument <em>z</em>.
+</p>
+<p>For examples see <code>hankel_1</code>.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_107.html#Category_003a-Package-romberg">Package romberg</a>
-</div>
-</p>
-</dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Bessel-functions">Bessel functions</a>
 
-<p><a name="rombergit"></a>
-<a name="Item_003a-rombergit"></a>
-</p><dl>
-<dt><u>Option variable:</u> <b>rombergit</b>
-<a name="IDX2397"></a>
-</dt>
-<dd><p>Default value: 11
+<a href="maxima_364.html#Category_003a-Special-functions">Special functions</a>
+</div>
+</p></dd></dl>
+
+<a name="besselexpand"></a><a name="Item_003a-Special_002fdefvr_002fbesselexpand"></a><dl>
+<dt><a name="index-besselexpand"></a>Option variable: <strong>besselexpand</strong></dt>
+<dd><p>Default value: <code>false</code>
 </p>
-<p><code>romberg</code> halves the stepsize at most <code>rombergit</code> times before it gives up;
-the maximum number of function evaluations is therefore <code>2^rombergit</code>.
-<code>romberg</code> always makes at least <code>rombergmin</code> iterations;
-this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
+<p>Controls expansion of the Bessel functions when the order is half of
+an odd integer.  In this case, the Bessel functions can be expanded
+in terms of other elementary functions.  When <code>besselexpand</code> is <code>true</code>,
+the Bessel function is expanded.
 </p>
-<p>See also <code><a href="#rombergabs">rombergabs</a></code> and <code><a href="#rombergtol">rombergtol</a></code>.
+<div class="example">
+<pre class="example">(%i1) besselexpand: false$
+(%i2) bessel_j (3/2, z);
+                                    3
+(%o2)                      bessel_j(-, z)
+                                    2
+(%i3) besselexpand: true$
+(%i4) bessel_j (3/2, z);
+                                        sin(z)   cos(z)
+                       sqrt(2) sqrt(z) (------ - ------)
+                                           2       z
+                                          z
+(%o4)                  ---------------------------------
+                                   sqrt(%pi)
+</pre></div>
+
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Bessel-functions">Bessel functions</a>
+
+<a href="maxima_364.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a> 
+
+<a href="maxima_364.html#Category_003a-Special-functions">Special functions</a>
+</div>
+</p></dd></dl>
+
+<a name="scaled_005fbessel_005fi"></a><a name="Item_003a-Special_002fdeffn_002fscaled_005fbessel_005fi"></a><dl>
+<dt><a name="index-scaled_005fbessel_005fi"></a>Function: <strong>scaled_bessel_i</strong> <em>(<var>v</var>, <var>z</var>) </em></dt>
+<dd>
+<p>The scaled modified Bessel function of the first kind of order
+<em>v</em> and argument <em>z</em>.  That is, <em>scaled\_bessel_i(v,z) =
+exp(-abs(z))*bessel_i(v, z)</em>.  This function is particularly useful
+for calculating <em>bessel_i</em> for large <em>z</em>, which is large.
+However, maxima does not otherwise know much about this function.  For
+symbolic work, it is probably preferable to work with the expression
+<code>exp(-abs(z))*bessel_i(v, z)</code>.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_107.html#Category_003a-Package-romberg">Package romberg</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Bessel-functions">Bessel functions</a>
 </div>
-</p>
-</dd></dl>
+</p></dd></dl>
 
-<p><a name="rombergmin"></a>
-<a name="Item_003a-rombergmin"></a>
-</p><dl>
-<dt><u>Option variable:</u> <b>rombergmin</b>
-<a name="IDX2398"></a>
-</dt>
-<dd><p>Default value: 0
-</p>
-<p><code>romberg</code> always makes at least <code>rombergmin</code> iterations;
-this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
-</p>
-<p>See also <code><a href="#rombergit">rombergit</a></code>, <code><a href="#rombergabs">rombergabs</a></code>, and <code><a href="#rombergtol">rombergtol</a></code>.
+<a name="scaled_005fbessel_005fi0"></a><a name="Item_003a-Special_002fdeffn_002fscaled_005fbessel_005fi0"></a><dl>
+<dt><a name="index-scaled_005fbessel_005fi0"></a>Function: <strong>scaled_bessel_i0</strong> <em>(<var>z</var>) </em></dt>
+<dd>
+<p>Identical to <code>scaled_bessel_i(0,z)</code>.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_107.html#Category_003a-Package-romberg">Package romberg</a>
-</div>
-</p>
-</dd></dl>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Bessel-functions">Bessel functions</a>
 
-<p><a name="rombergtol"></a>
-<a name="Item_003a-rombergtol"></a>
-</p><dl>
-<dt><u>Option variable:</u> <b>rombergtol</b>
-<a name="IDX2399"></a>
-</dt>
-<dd><p>Default value: 1e-4
-</p>
-<p>The accuracy of <code>romberg</code> is governed by the global variables
-<code>rombergabs</code> and <code>rombergtol</code>.
-<code>romberg</code> terminates successfully when
-the absolute difference between successive approximations is less than <code>rombergabs</code>,
-or the relative difference in successive approximations is less than <code>rombergtol</code>.
-Thus when <code>rombergabs</code> is 0.0 (the default)
-only the relative error test has any effect on <code>romberg</code>.
-</p>
-<p>See also <code><a href="#rombergit">rombergit</a></code> and <code><a href="#rombergmin">rombergmin</a></code>.
-</p>
+<a href="maxima_364.html#Category_003a-Special-functions">Special functions</a>
+</div>
+</p></dd></dl>
+
+<a name="scaled_005fbessel_005fi1"></a><a name="Item_003a-Special_002fdeffn_002fscaled_005fbessel_005fi1"></a><dl>
+<dt><a name="index-scaled_005fbessel_005fi1"></a>Function: <strong>scaled_bessel_i1</strong> <em>(<var>z</var>)</em></dt>
+<dd>
+<p>Identical to <code>scaled_bessel_i(1,z)</code>.
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_107.html#Category_003a-Package-romberg">Package romberg</a>
+<a href="maxima_364.html#Category_003a-Bessel-functions">Bessel functions</a>
+
+<a href="maxima_364.html#Category_003a-Special-functions">Special functions</a>
 </div>
-</p>
-</dd></dl>
+</p></dd></dl>
 
+<a name="Item_003a-Special_002fdeffn_002f_0025s"></a><dl>
+<dt><a name="index-_0025s"></a>Function: <strong>%s</strong> <em>[<var>u</var>,<var>v</var>] (<var>z</var>) </em></dt>
+<dd><p>Lommel&rsquo;s little s[u,v](z) function.  
+Probably Gradshteyn &amp; Ryzhik 8.570.1.
+<div class=categorybox>
 
-<p><a name="Item_003a-simplex_002dpkg"></a>
-</p><hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC365" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC367" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_91.html#SEC433" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a href="maxima_364.html#Category_003a-Bessel-functions">Bessel functions</a>
+
+<a href="maxima_364.html#Category_003a-Special-functions">Special functions</a>
+</div>
+</p></dd></dl>
+
+<a name="Item_003a-Special_002fnode_002fAiry-Functions"></a><hr>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>October, 12 2018</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Next: <a href="maxima_80.html#Airy-Functions" accesskey="n" rel="next">Airy Functions</a>, Previous: <a href="maxima_78.html#Introduction-to-Special-Functions" accesskey="p" rel="prev">Introduction to Special Functions</a>, Up: <a href="maxima_77.html#Special-Functions" accesskey="u" rel="up">Special Functions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
-</p>
+
+
 </body>
 </html>

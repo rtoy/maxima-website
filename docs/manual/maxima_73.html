@@ -1,37 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on October, 12 2018 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Maxima 5.42.0 Manual: 73. mnewton</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Functions and Variables for Fortran Output (Maxima 5.44.0 Manual)</title>
 
-<meta name="description" content="Maxima 5.42.0 Manual: 73. mnewton">
-<meta name="keywords" content="Maxima 5.42.0 Manual: 73. mnewton">
+<meta name="description" content="Functions and Variables for Fortran Output (Maxima 5.44.0 Manual)">
+<meta name="keywords" content="Functions and Variables for Fortran Output (Maxima 5.44.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="Generator" content="makeinfo">
+<link href="maxima_0.html#Top" rel="start" title="Top">
+<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="maxima_68.html#File-Input-and-Output" rel="up" title="File Input and Output">
+<link href="maxima_74.html#Polynomials" rel="next" title="Polynomials">
+<link href="maxima_72.html#Functions-and-Variables-for-TeX-Output" rel="prev" title="Functions and Variables for TeX Output">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
 h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
@@ -54,205 +63,123 @@ div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
 div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
-img {max-width:80%; max-height: 80%}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
 -->
 </style>
 
 <link rel="icon" href="figures/favicon.ico">
 
-
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="mnewton_002dpkg"></a>
-<a name="SEC336"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_72.html#SEC335" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC337" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC334" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC339" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_91.html#SEC433" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 73. mnewton </h1>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC337">73.1 Introduction to mnewton</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC338">73.2 Functions and Variables for mnewton</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<p><a name="Item_003a-Introduction-to-mnewton"></a>
-</p><hr size="6">
-<a name="Introduction-to-mnewton"></a>
-<a name="SEC337"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC336" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC338" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC336" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC336" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC339" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_91.html#SEC433" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 73.1 Introduction to mnewton </h2>
-
-<p><code>mnewton</code> is an implementation of Newton's method for solving nonlinear
-equations in one or more variables.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_107.html#Category_003a-Numerical-methods">Numerical methods</a> &middot;
-<a href="maxima_107.html#Category_003a-Share-packages">Share packages</a> &middot;
-<a href="maxima_107.html#Category_003a-Package-mnewton">Package mnewton</a>
-</div>
-</p>
-<p><a name="Item_003a-Functions-and-Variables-for-mnewton"></a>
-</p><hr size="6">
-<a name="Functions-and-Variables-for-mnewton"></a>
-<a name="SEC338"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC337" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC339" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC336" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC336" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC339" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_91.html#SEC433" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 73.2 Functions and Variables for mnewton </h2>
-
-<p><a name="newtonepsilon"></a>
-<a name="Item_003a-newtonepsilon"></a>
-</p><dl>
-<dt><u>Option variable:</u> <b>newtonepsilon</b>
-<a name="IDX2342"></a>
-</dt>
-<dd><p>Default value: <code>10.0^(-fpprec/2)</code>
-</p>
-<p>Precision to determine when the <code>mnewton</code> function has converged towards
-the solution.  If <code>newtonepsilon</code> is a bigfloat, then <code>mnewton</code>
-computations are done with bigfloats.  See also <code><a href="#mnewton">mnewton</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_107.html#Category_003a-Package-mnewton">Package mnewton</a>
-</div>
-</p></dd></dl>
-
-<p><a name="newtonmaxiter"></a>
-<a name="Item_003a-newtonmaxiter"></a>
-</p><dl>
-<dt><u>Option variable:</u> <b>newtonmaxiter</b>
-<a name="IDX2343"></a>
-</dt>
-<dd><p>Default value: <code>50</code>
-</p>
-<p>Maximum number of iterations to stop the <code>mnewton</code> function
-if it does not converge or if it converges too slowly.
-</p>
-<p>See also <code><a href="#mnewton">mnewton</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_107.html#Category_003a-Package-mnewton">Package mnewton</a>
-</div>
-</p></dd></dl>
-
-<p><a name="mnewton"></a>
-<a name="Item_003a-mnewton"></a>
-</p><dl>
-<dt><u>Function:</u> <b>mnewton</b><i> (<var>FuncList</var>,<var>VarList</var>,<var>GuessList</var>)</i>
-<a name="IDX2344"></a>
-</dt>
-<dd><p>Multiple nonlinear functions solution using the Newton method.
-<var>FuncList</var> is the list of functions to solve,
-<var>VarList</var> is the list of variable names, and
-<var>GuessList</var> is the list of initial approximations.
-</p>
-<p>The solution is returned in the same format that <code>solve()</code> returns.
-If the solution is not found, <code>[]</code> is returned.
-</p>
-<p>This function is controlled by global variables <code><a href="#newtonepsilon">newtonepsilon</a></code> and
-<code><a href="#newtonmaxiter">newtonmaxiter</a></code>.
-</p>
-<pre class="example">(%i1) load(&quot;mnewton&quot;)$
-
-(%i2) mnewton([x1+3*log(x1)-x2^2, 2*x1^2-x1*x2-5*x1+1],
-              [x1, x2], [5, 5]);
-(%o2) [[x1 = 3.756834008012769, x2 = 2.779849592817897]]
-(%i3) mnewton([2*a^a-5],[a],[1]);
-(%o3)             [[a = 1.70927556786144]]
-(%i4) mnewton([2*3^u-v/u-5, u+2^v-4], [u, v], [2, 2]);
-(%o4) [[u = 1.066618389595407, v = 1.552564766841786]]
-</pre>
-<p>The variable <code>newtonepsilon</code> controls the precision of the
-approximations.  It also controls if computations are performed with
-floats or bigfloats.
-</p>
-<pre class="example">(%i1) load(mnewton)$
-
-(%i2) (fpprec : 25, newtonepsilon : bfloat(10^(-fpprec+5)))$
-
-(%i3) mnewton([2*3^u-v/u-5, u+2^v-4], [u, v], [2, 2]);
-(%o3) [[u = 1.066618389595406772591173b0, 
-                               v = 1.552564766841786450100418b0]]
-</pre>
-<p>To use this function write first <code>load(&quot;mnewton&quot;)</code>.
-See also <code><a href="#newtonepsilon">newtonepsilon</a></code> and <code><a href="#newtonmaxiter">newtonmaxiter</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_107.html#Category_003a-Package-mnewton">Package mnewton</a>
-</div>
-</p></dd></dl>
-
-
-<p><a name="Item_003a-numericalio_002dpkg"></a>
-</p><hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC336" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC339" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_91.html#SEC433" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<body lang="en">
+<a name="Functions-and-Variables-for-Fortran-Output"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>October, 12 2018</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Previous: <a href="maxima_72.html#Functions-and-Variables-for-TeX-Output" accesskey="p" rel="prev">Functions and Variables for TeX Output</a>, Up: <a href="maxima_68.html#File-Input-and-Output" accesskey="u" rel="up">File Input and Output</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Functions-and-Variables-for-Fortran-Output-1"></a>
+<h3 class="section">13.5 Functions and Variables for Fortran Output</h3>
 
+<a name="fortindent"></a><a name="Item_003a-Input_002fdefvr_002ffortindent"></a><dl>
+<dt><a name="index-fortindent"></a>Option variable: <strong>fortindent</strong></dt>
+<dd><p>Default value: <code>0</code>
 </p>
+<p><code>fortindent</code> controls the left margin indentation of
+expressions printed out by the <code><a href="#fortran">fortran</a></code> command.  <code>0</code> gives normal
+printout (i.e., 6 spaces), and positive values will causes the
+expressions to be printed farther to the right.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Translation-and-compilation">Translation and compilation</a>
+</div>
+</p></dd></dl>
+
+<a name="fortran"></a><a name="Item_003a-Input_002fdeffn_002ffortran"></a><dl>
+<dt><a name="index-fortran"></a>Function: <strong>fortran</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Prints <var>expr</var> as a Fortran statement.
+The output line is indented with spaces.
+If the line is too long, <code>fortran</code> prints continuation lines.
+<code>fortran</code> prints the exponentiation operator <code>^</code> as <code>**</code>,
+and prints a complex number <code>a + b %i</code> in the form <code>(a,b)</code>.
+</p>
+<p><var>expr</var> may be an equation.  If so, <code>fortran</code> prints an assignment
+statement, assigning the right-hand side of the equation to the left-hand side.
+In particular, if the right-hand side of <var>expr</var> is the name of a matrix,
+then <code>fortran</code> prints an assignment statement for each element of the
+matrix.
+</p>
+<p>If <var>expr</var> is not something recognized by <code>fortran</code>,
+the expression is printed in <code><a href="maxima_9.html#grind">grind</a></code> format without complaint.
+<code>fortran</code> does not know about lists, arrays, or functions.
+</p>
+<p><code><a href="#fortindent">fortindent</a></code> controls the left margin of the printed lines.
+<code>0</code> is the normal margin (i.e., indented 6 spaces).  Increasing
+<code>fortindent</code> causes expressions to be printed further to the right.
+</p>
+<p>When <code><a href="#fortspaces">fortspaces</a></code> is <code>true</code>, <code>fortran</code> fills out
+each printed line with spaces to 80 columns.
+</p>
+<p><code>fortran</code> evaluates its arguments; quoting an argument defeats evaluation.
+<code>fortran</code> always returns <code>done</code>.
+</p>
+<p>See also the function <code><a href="maxima_235.html#function_005ff90">f90</a></code> for printing one or more
+expressions as a Fortran 90 program.
+</p>
+<p>Examples:
+</p>
+<pre class="verbatim">(%i1) expr: (a + b)^12$
+(%i2) fortran (expr);
+      (b+a)**12                                                                 
+(%o2)                         done
+(%i3) fortran ('x=expr);
+      x = (b+a)**12                                                             
+(%o3)                         done
+(%i4) fortran ('x=expand (expr));
+      x = b**12+12*a*b**11+66*a**2*b**10+220*a**3*b**9+495*a**4*b**8+792
+     1   *a**5*b**7+924*a**6*b**6+792*a**7*b**5+495*a**8*b**4+220*a**9*b
+     2   **3+66*a**10*b**2+12*a**11*b+a**12
+(%o4)                         done
+(%i5) fortran ('x=7+5*%i);
+      x = (7,5)                                                                 
+(%o5)                         done
+(%i6) fortran ('x=[1,2,3,4]);
+      x = [1,2,3,4]                                                             
+(%o6)                         done
+(%i7) f(x) := x^2$
+(%i8) fortran (f);
+      f                                                                         
+(%o8)                         done
+</pre>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Translation-and-compilation">Translation and compilation</a>
+</div>
+</p></dd></dl>
+
+<a name="fortspaces"></a><a name="Item_003a-Input_002fdefvr_002ffortspaces"></a><dl>
+<dt><a name="index-fortspaces"></a>Option variable: <strong>fortspaces</strong></dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>When <code>fortspaces</code> is <code>true</code>, <code>fortran</code> fills out
+each printed line with spaces to 80 columns.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Translation-and-compilation">Translation and compilation</a>
+</div>
+</p></dd></dl>
+
+
+<a name="Item_003a-include_002dmaxima_002fnode_002fPolynomials"></a><hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_72.html#Functions-and-Variables-for-TeX-Output" accesskey="p" rel="prev">Functions and Variables for TeX Output</a>, Up: <a href="maxima_68.html#File-Input-and-Output" accesskey="u" rel="up">File Input and Output</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>
