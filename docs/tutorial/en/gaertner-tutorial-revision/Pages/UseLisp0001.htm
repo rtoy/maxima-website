@@ -65,9 +65,9 @@ sign:</p>
 <span class="response">Type (to-maxima) to restart
 
 MAXIMA&gt;</span> $%o1
-<span class="response">((MPLUS SIMP) ((%COS SIMP) |$x|) ((%SIN SIMP) |$x|)
-         ((MTIMES SIMP) ((MEXPT SIMP) ((%SEC SIMP) |$x|) -1)
-          ((%SIN SIMP) |$x|)))
+<span class="response">((MPLUS SIMP) ((%COS SIMP) $X) ((%SIN SIMP) $X)
+         ((MTIMES SIMP) ((MEXPT SIMP) ((%SEC SIMP) $X) -1)
+          ((%SIN SIMP) $X)))
 MAXIMA&gt;</span> (to-maxima)</pre>
 
 <p><b>$%o1</b> answers the internal representation of the expression
@@ -76,14 +76,14 @@ formatted form:</p>
 
 <pre class="codeFragment">
 ((MPLUS SIMP) 
-      ((%COS SIMP) |$x|)
-      ((%SIN SIMP) |$x|)
+      ((%COS SIMP) $X)
+      ((%SIN SIMP) $X)
       ((MTIMES SIMP)
            ((MEXPT SIMP) 
-                ((%SEC SIMP) |$x|)
+                ((%SEC SIMP) $X)
                   -1
            )
-           ((%SIN SIMP) |$x|)
+           ((%SIN SIMP) $X)
 )     )</pre>
 
 
@@ -98,8 +98,8 @@ formatted form:</p>
 
 MAXIMA&gt;</span> $%o1
 <span class="response">((%INTEGRATE SIMP)
-         ((MTIMES SIMP) ((MEXPT SIMP) $%E |$x|) ((%SIN SIMP) |$x|))
-         |$x|)</pre>
+         ((MTIMES SIMP) ((MEXPT SIMP) $%E $X) ((%SIN SIMP) $X))
+         $X)</pre>
 
 <p>The second top-level element <b>(cadr $%o1)</b> is the integrand, the
 third top-level element <b>(caddr $%o1)</b> is the integration variable.
@@ -107,9 +107,9 @@ With this knowledge we can carry out the integration in Lisp:</p>
 
 <pre class="mInput">
 <span class="response">MAXIMA&gt;</span> ($INTEGRATE (cadr $%o1) (caddr $%o1))
-<span class="response">((MTIMES SIMP) ((RAT SIMP) 1 2) ((MEXPT SIMP) $%E |$x|)
-         ((MPLUS SIMP) ((MTIMES SIMP) -1 ((%COS SIMP) |$x|))
-          ((%SIN SIMP) |$x|))) 
+<span class="response">((MTIMES SIMP) ((RAT SIMP) 1 2) ((MEXPT SIMP) $%E $X)
+         ((MPLUS SIMP) ((MTIMES SIMP) -1 ((%COS SIMP) $X))
+          ((%SIN SIMP) $X))) 
 MAXIMA&gt;</span> (to-maxima)</pre>
 
 <br>

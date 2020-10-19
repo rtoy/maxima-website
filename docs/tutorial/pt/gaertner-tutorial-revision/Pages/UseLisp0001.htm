@@ -64,21 +64,21 @@ com um sinal de dólar prefixado:</p>
 <pre class="mInput"><span class="response">(%i1)</span> (sin(x) + cos(x) + sin(x)/sec(x));<br><span
  class="response">			   sin(x)<br>(%o1) 			   ------ + sin(x) + cos(x)<br>			   sec(x)<br>(%i2)</span> to_lisp();<br><span
  class="response">Type (to-maxima) to restart<br><br>MAXIMA&gt;</span> $%o1<br><span
- class="response">((MPLUS SIMP) ((%COS SIMP) |$x|) ((%SIN SIMP) |$x|)<br>         ((MTIMES SIMP) ((MEXPT SIMP) ((%SEC SIMP) |$x|) -1)<br>          ((%SIN SIMP) |$x|)))<br>MAXIMA&gt;</span> (to-maxima)</pre>
+ class="response">((MPLUS SIMP) ((%COS SIMP) $X) ((%SIN SIMP) $X)<br>         ((MTIMES SIMP) ((MEXPT SIMP) ((%SEC SIMP) $X) -1)<br>          ((%SIN SIMP) $X)))<br>MAXIMA&gt;</span> (to-maxima)</pre>
 <p><b>$%o1</b> responde a representação interna da expressão na
 célula de valor <b>%o1</b>. Para melhor legibilidade, esse resultado é
 fornecido aqui na forma formatada:</p>
-<pre class="codeFragment">((MPLUS SIMP) <br>      ((%COS SIMP) |$x|)<br>      ((%SIN SIMP) |$x|)<br>      ((MTIMES SIMP)<br>           ((MEXPT SIMP) <br>                ((%SEC SIMP) |$x|)<br>                  -1<br>           )<br>           ((%SIN SIMP) |$x|)<br>)     )</pre>
+<pre class="codeFragment">((MPLUS SIMP) <br>      ((%COS SIMP) $X)<br>      ((%SIN SIMP) $X)<br>      ((MTIMES SIMP)<br>           ((MEXPT SIMP) <br>                ((%SEC SIMP) $X)<br>                  -1<br>           )<br>           ((%SIN SIMP) $X)<br>)     )</pre>
 <pre class="mInput"><span class="response">(%i1)</span> 'integrate(sin(x)*exp(x), x);<br><span
  class="response">				/<br>				[   x<br>(%o1) 			        I %e  sin(x) dx<br>				]<br>				/<br>(%i2)</span> to_lisp();<br><span
  class="response">Type (to-maxima) to restart<br><br>MAXIMA&gt;</span> $%o1<br><span
- class="response">((%INTEGRATE SIMP)<br>         ((MTIMES SIMP) ((MEXPT SIMP) $%E |$x|) ((%SIN SIMP) |$x|))<br>         |$x|)</span></pre>
+ class="response">((%INTEGRATE SIMP)<br>         ((MTIMES SIMP) ((MEXPT SIMP) $%E $X) ((%SIN SIMP) $X))<br>         $X)</span></pre>
 <p>O segundo elemento do nível mais alto <b>(cadr $%o1)</b> é o
 integrando, o terceiro elemento do nível mais alto <b>(caddr $%o1)</b>
 é a variável de integração.
 Com esse conhecimento podemos realizar a integração em Lisp:</p>
 <pre class="mInput"><span class="response">MAXIMA&gt;</span> ($INTEGRATE (cadr $%o1) (caddr $%o1))<br><span
- class="response">((MTIMES SIMP) ((RAT SIMP) 1 2) ((MEXPT SIMP) $%E |$x|)<br>         ((MPLUS SIMP) ((MTIMES SIMP) -1 ((%COS SIMP) |$x|))<br>          ((%SIN SIMP) |$x|))) <br>MAXIMA&gt;</span> (to-maxima)</pre>
+ class="response">((MTIMES SIMP) ((RAT SIMP) 1 2) ((MEXPT SIMP) $%E $X)<br>         ((MPLUS SIMP) ((MTIMES SIMP) -1 ((%COS SIMP) $X))<br>          ((%SIN SIMP) $X))) <br>MAXIMA&gt;</span> (to-maxima)</pre>
 <br>
 <hr class="startOfFooter">
 <table bgcolor="#ffffff" border="0" cellpadding="2">
