@@ -2,7 +2,7 @@ Maxima Website
 ==============
 
 This is the GIT repository for the Website of project Maxima
-<http://maxima.sourceforge.net>
+<https://maxima.sourceforge.io>
 
 Mirroring
 ---------
