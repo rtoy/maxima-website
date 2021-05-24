@@ -1,42 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Introduction to ctensor (Maxima 5.44.0 Manual)</title>
+<title>ctensor (Maxima 5.45.0 Manual)</title>
 
-<meta name="description" content="Introduction to ctensor (Maxima 5.44.0 Manual)">
-<meta name="keywords" content="Introduction to ctensor (Maxima 5.44.0 Manual)">
+<meta name="description" content="ctensor (Maxima 5.45.0 Manual)">
+<meta name="keywords" content="ctensor (Maxima 5.45.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="maxima_0.html#Top" rel="start" title="Top">
-<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="index.html" rel="start" title="Top">
+<link href="maxima_369.html" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_125.html#ctensor" rel="up" title="ctensor">
-<link href="maxima_127.html#Functions-and-Variables-for-ctensor" rel="next" title="Functions and Variables for ctensor">
-<link href="maxima_125.html#ctensor" rel="prev" title="ctensor">
+<link href="index.html" rel="up" title="Top">
+<link href="maxima_127.html" rel="next" title="Introduction to ctensor">
+<link href="maxima_125.html" rel="prev" title="Functions and Variables for itensor">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -73,137 +64,22 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 </head>
 
 <body lang="en">
-<a name="Introduction-to-ctensor"></a>
+<span id="ctensor"></span><div class="header">
+<p>
+Next: <a href="maxima_129.html" accesskey="n" rel="next">atensor</a>, Previous: <a href="maxima_123.html" accesskey="p" rel="prev">itensor</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="ctensor-1"></span><h2 class="chapter">26 ctensor</h2>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="maxima_127.html" accesskey="1">Introduction to ctensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="maxima_128.html" accesskey="2">Functions and Variables for ctensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<span id="Item_003a-Ctensor_002fnode_002fIntroduction-to-ctensor"></span><hr>
 <div class="header">
 <p>
-Next: <a href="maxima_127.html#Functions-and-Variables-for-ctensor" accesskey="n" rel="next">Functions and Variables for ctensor</a>, Previous: <a href="maxima_125.html#ctensor" accesskey="p" rel="prev">ctensor</a>, Up: <a href="maxima_125.html#ctensor" accesskey="u" rel="up">ctensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<a name="Introduction-to-ctensor-1"></a>
-<h3 class="section">26.1 Introduction to ctensor</h3>
-
-<p><code>ctensor</code> is a component tensor manipulation package.  To use the <code>ctensor</code>
-package, type <code>load(&quot;ctensor&quot;)</code>.
-To begin an interactive session with <code>ctensor</code>, type <code>csetup()</code>.  You are
-first asked to specify the dimension of the manifold. If the dimension
-is 2, 3 or 4 then the list of coordinates defaults to <code>[x,y]</code>, <code>[x,y,z]</code>
-or <code>[x,y,z,t]</code> respectively.
-These names may be changed by assigning a new list of coordinates to
-the variable <code>ct_coords</code> (described below) and the user is queried about
-this. Care must be taken to avoid the coordinate names conflicting
-with other object definitions.
-</p>
-<p>Next, the user enters the metric either directly or from a file by
-specifying its ordinal position.
-The metric is stored in the matrix
-<code>lg</code>. Finally, the metric inverse is computed and stored in the matrix
-<code>ug</code>. One has the option of carrying out all calculations in a power
-series.
-</p>
-<p>A sample protocol is begun below for the static, spherically symmetric
-metric (standard coordinates) which will be applied to the problem of
-deriving Einstein&rsquo;s vacuum equations (which lead to the Schwarzschild
-solution) as an example. Many of the functions in <code>ctensor</code> will be
-displayed for the standard metric as examples.
-</p>
-<div class="example">
-<pre class="example">(%i1) load(&quot;ctensor&quot;);
-(%o1)      /share/tensor/ctensor.mac
-(%i2) csetup();
-Enter the dimension of the coordinate system:
-4;
-Do you wish to change the coordinate names?
-n;
-Do you want to
-1. Enter a new metric?
-
-2. Enter a metric from a file?
-
-3. Approximate a metric with a Taylor series?
-1;
-
-Is the matrix  1. Diagonal  2. Symmetric  3. Antisymmetric  4. General
-Answer 1, 2, 3 or 4
-1;
-Row 1 Column 1:
-a;
-Row 2 Column 2:
-x^2;
-Row 3 Column 3:
-x^2*sin(y)^2;
-Row 4 Column 4:
--d;
-
-Matrix entered.
-Enter functional dependencies with the DEPENDS function or 'N' if none
-depends([a,d],x);
-Do you wish to see the metric?
-y;
-                          [ a  0       0        0  ]
-                          [                        ]
-                          [     2                  ]
-                          [ 0  x       0        0  ]
-                          [                        ]
-                          [         2    2         ]
-                          [ 0  0   x  sin (y)   0  ]
-                          [                        ]
-                          [ 0  0       0       - d ]
-(%o2)                                done
-(%i3) christof(mcs);
-                                            a
-                                             x
-(%t3)                          mcs        = ---
-                                  1, 1, 1   2 a
-
-                                             1
-(%t4)                           mcs        = -
-                                   1, 2, 2   x
-
-                                             1
-(%t5)                           mcs        = -
-                                   1, 3, 3   x
-
-                                            d
-                                             x
-(%t6)                          mcs        = ---
-                                  1, 4, 4   2 d
-
-                                              x
-(%t7)                          mcs        = - -
-                                  2, 2, 1     a
-
-                                           cos(y)
-(%t8)                         mcs        = ------
-                                 2, 3, 3   sin(y)
-
-                                               2
-                                          x sin (y)
-(%t9)                      mcs        = - ---------
-                              3, 3, 1         a
-
-(%t10)                   mcs        = - cos(y) sin(y)
-                            3, 3, 2
-
-                                            d
-                                             x
-(%t11)                         mcs        = ---
-                                  4, 4, 1   2 a
-(%o11)                               done
-
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Tensors">Tensors</a>
-
-<a href="maxima_364.html#Category_003a-Share-packages">Share packages</a>
-
-<a href="maxima_364.html#Category_003a-Package-ctensor">Package ctensor</a>
-</div>
-</p>
-<a name="Item_003a-Ctensor_002fnode_002fFunctions-and-Variables-for-ctensor"></a><hr>
-<div class="header">
-<p>
-Next: <a href="maxima_127.html#Functions-and-Variables-for-ctensor" accesskey="n" rel="next">Functions and Variables for ctensor</a>, Previous: <a href="maxima_125.html#ctensor" accesskey="p" rel="prev">ctensor</a>, Up: <a href="maxima_125.html#ctensor" accesskey="u" rel="up">ctensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_129.html" accesskey="n" rel="next">atensor</a>, Previous: <a href="maxima_123.html" accesskey="p" rel="prev">itensor</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

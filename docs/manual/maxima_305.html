@@ -1,42 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for romberg (Maxima 5.44.0 Manual)</title>
+<title>Extending pytranslate (Maxima 5.45.0 Manual)</title>
 
-<meta name="description" content="Functions and Variables for romberg (Maxima 5.44.0 Manual)">
-<meta name="keywords" content="Functions and Variables for romberg (Maxima 5.44.0 Manual)">
+<meta name="description" content="Extending pytranslate (Maxima 5.45.0 Manual)">
+<meta name="keywords" content="Extending pytranslate (Maxima 5.45.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="maxima_0.html#Top" rel="start" title="Top">
-<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="index.html" rel="start" title="Top">
+<link href="maxima_369.html" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_0.html#Top" rel="up" title="Top">
-<link href="maxima_306.html#simplex_002dpkg" rel="next" title="simplex-pkg">
-<link href="maxima_304.html#romberg_002dpkg" rel="prev" title="romberg-pkg">
+<link href="index.html" rel="up" title="Top">
+<link href="maxima_306.html" rel="next" title="ratpow-pkg">
+<link href="maxima_304.html" rel="prev" title="Functions in pytranslate">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -73,201 +64,75 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 </head>
 
 <body lang="en">
-<a name="Functions-and-Variables-for-romberg"></a>
+<span id="Extending-pytranslate"></span><div class="header">
+<p>
+Previous: <a href="maxima_304.html" accesskey="p" rel="prev">Functions in pytranslate</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Extending-pytranslate-1"></span><h3 class="section">80.3 Extending pytranslate</h3>
+<p>Working of pytranslate:
+</p><ul>
+<li> The entry point for pytranslate is the function <code>$pytranslate</code> defined in <samp>share/pytranslate/pytranslate.lisp</samp>.
+</li><li> <code>$pytranslate</code> calls the function <code>maxima-to-ir</code> with the Maxima expression as an argument(henceforth referred as <code>expr</code>).
+</li><li> <code>maxima-to-ir</code> determines if <code>expr</code> is atomic or non-atomic(lisp cons form). If atomic, <code>atom-to-ir</code> is called with <code>expr</code> which returns the IR for the atomic expression.<br>
+To define/modify translation for atomic expressions, make changes to the definition of <code>atom-to-ir</code> in accordance with the IR.
+</li><li> If <code>expr</code> is non-atomic, the function <code>cons-to-ir</code> is called with <code>expr</code> as an argument.<br>
+<ul>
+<li> <code>cons-to-ir</code> looks for <code>(caar expr)</code> which specifies the type of <code>expr</code>, in hash-table <var>*maxima-direct-ir-map*</var> and if the type is found, then appends the retrieved IR with the result of lisp call <code>(mapcar #'maxima-to-ir (cdr expr))</code>, which applies maxima-to-ir function to all the elements present in the list. Effectively, recursively generate IR for all the elements present in <code>expr</code> and append them to the IR map for the type.<br>
+Example:
+<div class="example">
+<pre class="example">(%i9) show_form(a+b);
+((MPLUS) $B $A)
+</pre><pre class="example">(%i10) pytranslate(a+b, t);
+(body (op + (element-array (symbol &quot;v&quot;) (string &quot;b&quot;)) \
+(element-array (symbol &quot;v&quot;) (string &quot;a&quot;))))
+(%o10) 
+(v[&quot;b&quot;] + v[&quot;a&quot;])
+</pre></div>
+<p>Here, operator + with internal maxima representation, <code>(mplus)</code> is present in <var>*maxima-direct-ir-map*</var> and mapped to <code>(op +)</code> to which the result of generating IR for all other elements of the list (a b), i.e. <code>(ELEMENT-ARRAY (SYMBOL &quot;v&quot;) (STRING &quot;b&quot;)) (ELEMENT-ARRAY (SYMBOL &quot;v&quot;) (STRING &quot;a&quot;))</code> is appended.<br>
+</p>
+</li><li> If <code>(caar expr)</code> is not found in <var>*maxima-direct-ir-map*</var>, then <code>cons-to-ir</code> looks for the type in <var>*maxima-special-ir-map*</var> which returns the function to handle the translation of the type of <code>expr</code>. <code>cons-to-ir</code> then calls the returned function with argument <code>expr</code> as an argument.<br>
+Example:
+<div class="example">
+<pre class="example">(%i11) show_form(g(x) := x^2);
+((mdefine simp) (($g) $x) ((mexpt) $x 2))
+</pre><pre class="example">(%i12) pytranslate(g(x):=x^2, t);
+(body
+ (body
+  (func-def (symbol &quot;g&quot;)
+            ((symbol &quot;x&quot;) (op-no-bracket = (symbol &quot;v&quot;) (symbol &quot;v&quot;)))
+            (body-indented
+                (op-no-bracket = (symbol &quot;v&quot;) (funcall (symbol &quot;stack&quot;) \
+                (dictionary) (symbol &quot;v&quot;)))
+                (obj-funcall (symbol &quot;v&quot;) (symbol &quot;ins&quot;) (dictionary \
+                ((string &quot;x&quot;) (symbol &quot;x&quot;))))
+                (funcall (symbol &quot;return&quot;)
+                    (funcall (element-array (symbol &quot;f&quot;) (string &quot;pow&quot;))
+                         (element-array (symbol &quot;v&quot;) (string &quot;x&quot;))
+                                  (num 2 0)))))
+  (op-no-bracket = (element-array (symbol &quot;f&quot;) (string &quot;g&quot;)) \
+  (symbol &quot;g&quot;))))  
+(%o12) 
+def g(x, v = v):
+    v = Stack({}, v)
+    v.ins({&quot;x&quot; : x})
+    return(f[&quot;pow&quot;](v[&quot;x&quot;], 2))
+f[&quot;g&quot;] = g
+
+</pre></div>
+<p>Here, <code>mdefine</code>, which is the type of <code>expr</code> is present in <var>*maxima-special-ir-map*</var> which returns <code>func-def-to-ir</code> as handler function, which is then called with <code>expr</code> to generate the IR.<br>
+To define/modify translation for a type, add an entry to <var>*maxima-direct-ir-map*</var> if only a part of the IR needs to be generated and the rest can be appended, otherwise, for complete handling of <code>expr</code>, add an entry to <var>*maxima-special-ir-map*</var> and define a function with the name defined in <var>*maxima-special-ir-map*</var> which returns the IR for the form. The function naming convention for ir generators is (type)-to-ir, where type is the <code>(caar expr)</code> for expression(<code>mdefine -&gt; func-def-to-ir</code>). The function must return a valid IR for the specific type.
+</p></li></ul>
+</li><li> After the generation of IR, the function <code>ir-to-python</code> is called with the generated <code>ir</code> as an argument, which performs the codegen in a recursive manner.
+<ul>
+<li> <code>ir-to-python</code> looks for lisp <code>(car ir)</code> in the hash-table <var>*ir-python-direct-templates*</var>, which maps IR type to function handlers and calls the function returned with <code>ir</code> as an argument.
+</li></ul>
+</li><li> To extend the IR of pytranslate, define a function with the naming convention (type)-to-python and add the name to <var>*ir-python-direct-templates*</var>.
+</li></ul>
+
+<span id="Item_003a-include_002dmaxima_002fnode_002fratpow_002dpkg"></span><hr>
 <div class="header">
 <p>
-Previous: <a href="maxima_0.html#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="maxima_0.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<a name="Functions-and-Variables-for-romberg-1"></a>
-<h3 class="section">81.1 Functions and Variables for romberg</h3>
-
-<a name="romberg_005ffunction"></a><a name="Item_003a-romberg_002fdeffn_002fromberg"></a><dl>
-<dt><a name="index-romberg"></a>Function: <strong>romberg</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>romberg</tt> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>romberg</tt> (<var>F</var>, <var>a</var>, <var>b</var>)</em></dt>
-<dd>
-<p>Computes a numerical integration by Romberg&rsquo;s method.
-</p>
-<p><code>romberg(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>
-returns an estimate of the integral <code>integrate(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>.
-<var>expr</var> must be an expression which evaluates to a floating point value
-when <var>x</var> is bound to a floating point value.
-</p>
-<p><code>romberg(<var>F</var>, <var>a</var>, <var>b</var>)</code>
-returns an estimate of the integral <code>integrate(<var>F</var>(x), x, <var>a</var>, <var>b</var>)</code>
-where <code>x</code> represents the unnamed, sole argument of <var>F</var>;
-the actual argument is not named <code>x</code>.
-<var>F</var> must be a Maxima or Lisp function which returns a floating point value
-when the argument is a floating point value.
-<var>F</var> may name a translated or compiled Maxima function.
-</p>
-<p>The accuracy of <code>romberg</code> is governed by the global variables
-<code>rombergabs</code> and <code>rombergtol</code>.
-<code>romberg</code> terminates successfully when
-the absolute difference between successive approximations is less than <code>rombergabs</code>,
-or the relative difference in successive approximations is less than <code>rombergtol</code>.
-Thus when <code>rombergabs</code> is 0.0 (the default)
-only the relative error test has any effect on <code>romberg</code>.
-</p>
-<p><code>romberg</code> halves the stepsize at most <code>rombergit</code> times before it gives up;
-the maximum number of function evaluations is therefore <code>2^rombergit</code>.
-If the error criterion established by <code>rombergabs</code> and <code>rombergtol</code>
-is not satisfied, <code>romberg</code> prints an error message.
-<code>romberg</code> always makes at least <code>rombergmin</code> iterations;
-this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
-</p>
-<p><code>romberg</code> repeatedly evaluates the integrand after binding the variable
-of integration to a specific value (and not before).
-This evaluation policy makes it possible to nest calls to <code>romberg</code>,
-to compute multidimensional integrals.
-However, the error calculations do not take the errors of nested integrations
-into account, so errors may be underestimated.
-Also, methods devised especially for multidimensional problems may yield
-the same accuracy with fewer function evaluations.
-</p>
-<p>See also <code><a href="maxima_99.html#Introduction-to-QUADPACK">Introduction to QUADPACK</a></code>, a collection of numerical integration functions.
-</p>
-<p>Examples:
-</p>
-<p>A 1-dimensional integration.
-</p><div class="example">
-<pre class="example">(%i1) f(x) := 1/((x - 1)^2 + 1/100) + 1/((x - 2)^2 + 1/1000)
-              + 1/((x - 3)^2 + 1/200);
-                    1                 1                1
-(%o1) f(x) := -------------- + --------------- + --------------
-                     2    1           2    1            2    1
-              (x - 1)  + ---   (x - 2)  + ----   (x - 3)  + ---
-                         100              1000              200
-</pre><pre class="example">(%i2) rombergtol : 1e-6;
-(%o2)                 9.999999999999999e-7
-</pre><pre class="example">(%i3) rombergit : 15;
-(%o3)                          15
-</pre><pre class="example">(%i4) estimate : romberg (f(x), x, -5, 5);
-(%o4)                   173.6730736617464
-</pre><pre class="example">(%i5) exact : integrate (f(x), x, -5, 5);
-        3/2          3/2      3/2          3/2
-(%o5) 10    atan(7 10   ) + 10    atan(3 10   )
-      3/2         9/2       3/2         5/2
- + 5 2    atan(5 2   ) + 5 2    atan(5 2   ) + 10 atan(60)
- + 10 atan(40)
-</pre><pre class="example">(%i6) abs (estimate - exact) / exact, numer;
-(%o6)                 7.552722451569877e-11
-</pre></div>
-
-<p>A 2-dimensional integration, implemented by nested calls to <code>romberg</code>.
-</p><div class="example">
-<pre class="example">(%i1) g(x, y) := x*y / (x + y);
-                                    x y
-(%o1)                   g(x, y) := -----
-                                   x + y
-</pre><pre class="example">(%i2) rombergtol : 1e-6;
-(%o2)                 9.999999999999999e-7
-</pre><pre class="example">(%i3) estimate : romberg (romberg (g(x, y), y, 0, x/2), x, 1, 3);
-(%o3)                  0.8193023962835647
-</pre><pre class="example">(%i4) assume (x &gt; 0);
-(%o4)                        [x &gt; 0]
-</pre><pre class="example">(%i5) integrate (integrate (g(x, y), y, 0, x/2), x, 1, 3);
-                                           3
-                                     2 log(-) - 1
-                    9                      2        9
-(%o5)      (- 9 log(-)) + 9 log(3) + ------------ + -
-                    2                     6         2
-</pre><pre class="example">(%i6) exact : radcan (%);
-                    26 log(3) - 26 log(2) - 13
-(%o6)             - --------------------------
-                                3
-</pre><pre class="example">(%i7) abs (estimate - exact) / exact, numer;
-(%o7)                 1.371197987185102e-10
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-romberg">Package romberg</a>
-
-<a href="maxima_364.html#Category_003a-Numerical-methods">Numerical methods</a>
-</div>
-</p>
-</dd></dl>
-
-<a name="rombergabs"></a><a name="Item_003a-romberg_002fdefvr_002frombergabs"></a><dl>
-<dt><a name="index-rombergabs"></a>Option variable: <strong>rombergabs</strong></dt>
-<dd><p>Default value: 0.0
-</p>
-<p>The accuracy of <code>romberg</code> is governed by the global variables
-<code>rombergabs</code> and <code>rombergtol</code>.
-<code>romberg</code> terminates successfully when
-the absolute difference between successive approximations is less than <code>rombergabs</code>,
-or the relative difference in successive approximations is less than <code>rombergtol</code>.
-Thus when <code>rombergabs</code> is 0.0 (the default)
-only the relative error test has any effect on <code>romberg</code>.
-</p>
-<p>See also <code><a href="#rombergit">rombergit</a></code> and <code><a href="#rombergmin">rombergmin</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-romberg">Package romberg</a>
-</div>
-</p>
-</dd></dl>
-
-<a name="rombergit"></a><a name="Item_003a-romberg_002fdefvr_002frombergit"></a><dl>
-<dt><a name="index-rombergit"></a>Option variable: <strong>rombergit</strong></dt>
-<dd><p>Default value: 11
-</p>
-<p><code>romberg</code> halves the stepsize at most <code>rombergit</code> times before it gives up;
-the maximum number of function evaluations is therefore <code>2^rombergit</code>.
-<code>romberg</code> always makes at least <code>rombergmin</code> iterations;
-this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
-</p>
-<p>See also <code><a href="#rombergabs">rombergabs</a></code> and <code><a href="#rombergtol">rombergtol</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-romberg">Package romberg</a>
-</div>
-</p>
-</dd></dl>
-
-<a name="rombergmin"></a><a name="Item_003a-romberg_002fdefvr_002frombergmin"></a><dl>
-<dt><a name="index-rombergmin"></a>Option variable: <strong>rombergmin</strong></dt>
-<dd><p>Default value: 0
-</p>
-<p><code>romberg</code> always makes at least <code>rombergmin</code> iterations;
-this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
-</p>
-<p>See also <code><a href="#rombergit">rombergit</a></code>, <code><a href="#rombergabs">rombergabs</a></code>, and <code><a href="#rombergtol">rombergtol</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-romberg">Package romberg</a>
-</div>
-</p>
-</dd></dl>
-
-<a name="rombergtol"></a><a name="Item_003a-romberg_002fdefvr_002frombergtol"></a><dl>
-<dt><a name="index-rombergtol"></a>Option variable: <strong>rombergtol</strong></dt>
-<dd><p>Default value: 1e-4
-</p>
-<p>The accuracy of <code>romberg</code> is governed by the global variables
-<code>rombergabs</code> and <code>rombergtol</code>.
-<code>romberg</code> terminates successfully when
-the absolute difference between successive approximations is less than <code>rombergabs</code>,
-or the relative difference in successive approximations is less than <code>rombergtol</code>.
-Thus when <code>rombergabs</code> is 0.0 (the default)
-only the relative error test has any effect on <code>romberg</code>.
-</p>
-<p>See also <code><a href="#rombergit">rombergit</a></code> and <code><a href="#rombergmin">rombergmin</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-romberg">Package romberg</a>
-</div>
-</p>
-</dd></dl>
-
-
-<a name="Item_003a-include_002dmaxima_002fnode_002fsimplex_002dpkg"></a><hr>
-<div class="header">
-<p>
-Previous: <a href="maxima_0.html#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="maxima_0.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_304.html" accesskey="p" rel="prev">Functions in pytranslate</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

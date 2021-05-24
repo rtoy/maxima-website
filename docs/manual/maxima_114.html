@@ -1,42 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Dot (Maxima 5.44.0 Manual)</title>
+<title>Introduction to Matrices and Linear Algebra (Maxima 5.45.0 Manual)</title>
 
-<meta name="description" content="Dot (Maxima 5.44.0 Manual)">
-<meta name="keywords" content="Dot (Maxima 5.44.0 Manual)">
+<meta name="description" content="Introduction to Matrices and Linear Algebra (Maxima 5.45.0 Manual)">
+<meta name="keywords" content="Introduction to Matrices and Linear Algebra (Maxima 5.45.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="maxima_0.html#Top" rel="start" title="Top">
-<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="index.html" rel="start" title="Top">
+<link href="maxima_369.html" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_113.html#Introduction-to-Matrices-and-Linear-Algebra" rel="up" title="Introduction to Matrices and Linear Algebra">
-<link href="maxima_115.html#Matrices" rel="next" title="Matrices">
-<link href="maxima_113.html#Introduction-to-Matrices-and-Linear-Algebra" rel="prev" title="Introduction to Matrices and Linear Algebra">
+<link href="maxima_113.html" rel="up" title="Matrices and Linear Algebra">
+<link href="maxima_115.html" rel="next" title="Dot">
+<link href="maxima_113.html" rel="prev" title="Matrices and Linear Algebra">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -73,45 +64,27 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 </head>
 
 <body lang="en">
-<a name="Dot"></a>
-<div class="header">
+<span id="Introduction-to-Matrices-and-Linear-Algebra"></span><div class="header">
 <p>
-Next: <a href="maxima_115.html#Matrices" accesskey="n" rel="next">Matrices</a>, Previous: <a href="maxima_113.html#Introduction-to-Matrices-and-Linear-Algebra" accesskey="p" rel="prev">Introduction to Matrices and Linear Algebra</a>, Up: <a href="maxima_113.html#Introduction-to-Matrices-and-Linear-Algebra" accesskey="u" rel="up">Introduction to Matrices and Linear Algebra</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_119.html" accesskey="n" rel="next">Functions and Variables for Matrices and Linear Algebra</a>, Previous: <a href="maxima_113.html" accesskey="p" rel="prev">Matrices and Linear Algebra</a>, Up: <a href="maxima_113.html" accesskey="u" rel="up">Matrices and Linear Algebra</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Dot-1"></a>
-<h4 class="subsection">23.1.1 Dot</h4>
+<span id="Introduction-to-Matrices-and-Linear-Algebra-1"></span><h3 class="section">23.1 Introduction to Matrices and Linear Algebra</h3>
 
-<p>The operator <code>.</code> represents noncommutative multiplication and scalar
-product.  When the operands are 1-column or 1-row matrices <code>a</code> and
-<code>b</code>, the expression <code>a.b</code> is equivalent to
-<code>sum (a[i]*b[i], i, 1, length(a))</code>.  If <code>a</code> and <code>b</code> are not
-complex, this is the scalar product, also called the inner product or dot
-product, of <code>a</code> and <code>b</code>.  The scalar product is defined as
-<code>conjugate(a).b</code> when <code>a</code> and <code>b</code> are complex;
-<code><a href="maxima_118.html#innerproduct">innerproduct</a></code> in the <code>eigen</code> package provides the complex scalar
-product.
-</p>
-<p>When the operands are more general matrices,
-the product is the matrix product <code>a</code> and <code>b</code>.
-The number of rows of <code>b</code> must equal the number of columns of <code>a</code>,
-and the result has number of rows equal to the number of rows of <code>a</code>
-and number of columns equal to the number of columns of <code>b</code>.
-</p>
-<p>To distinguish <code>.</code> as an arithmetic operator from the decimal point in a
-floating point number, it may be necessary to leave spaces on either side.
-For example, <code>5.e3</code> is <code>5000.0</code> but <code>5 . e3</code> is <code>5</code>
-times <code>e3</code>.
-</p>
-<p>There are several flags which govern the simplification of expressions
-involving <code>.</code>, namely <code><a href="maxima_118.html#dot0nscsimp">dot0nscsimp</a></code>, <code><a href="maxima_118.html#dot0simp">dot0simp</a></code>,<!-- /@w -->
-<code><a href="maxima_118.html#dot1simp">dot1simp</a></code>, <code><a href="maxima_118.html#dotassoc">dotassoc</a></code>, <code><a href="maxima_118.html#dotconstrules">dotconstrules</a></code>,<!-- /@w -->
-<code><a href="maxima_118.html#dotdistrib">dotdistrib</a></code>, <code><a href="maxima_118.html#dotexptsimp">dotexptsimp</a></code>, <code><a href="maxima_118.html#dotident">dotident</a></code>, and
-<code><a href="maxima_118.html#dotscrules">dotscrules</a></code>.
-</p>
-<a name="Item_003a-Matrices_002fnode_002fMatrices"></a><hr>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="maxima_115.html" accesskey="1">Dot</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="maxima_116.html" accesskey="2">Matrices</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="maxima_117.html" accesskey="3">Vectors</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="maxima_118.html" accesskey="4">eigen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<span id="Item_003a-Matrices_002fnode_002fDot"></span><hr>
 <div class="header">
 <p>
-Next: <a href="maxima_115.html#Matrices" accesskey="n" rel="next">Matrices</a>, Previous: <a href="maxima_113.html#Introduction-to-Matrices-and-Linear-Algebra" accesskey="p" rel="prev">Introduction to Matrices and Linear Algebra</a>, Up: <a href="maxima_113.html#Introduction-to-Matrices-and-Linear-Algebra" accesskey="u" rel="up">Introduction to Matrices and Linear Algebra</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_119.html" accesskey="n" rel="next">Functions and Variables for Matrices and Linear Algebra</a>, Previous: <a href="maxima_113.html" accesskey="p" rel="prev">Matrices and Linear Algebra</a>, Up: <a href="maxima_113.html" accesskey="u" rel="up">Matrices and Linear Algebra</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

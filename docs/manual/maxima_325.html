@@ -1,42 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>stirling-pkg (Maxima 5.44.0 Manual)</title>
+<title>Introduction to stats (Maxima 5.45.0 Manual)</title>
 
-<meta name="description" content="stirling-pkg (Maxima 5.44.0 Manual)">
-<meta name="keywords" content="stirling-pkg (Maxima 5.44.0 Manual)">
+<meta name="description" content="Introduction to stats (Maxima 5.45.0 Manual)">
+<meta name="keywords" content="Introduction to stats (Maxima 5.45.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="maxima_0.html#Top" rel="start" title="Top">
-<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="index.html" rel="start" title="Top">
+<link href="maxima_369.html" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_0.html#Top" rel="up" title="Top">
-<link href="maxima_326.html#Functions-and-Variables-for-stirling" rel="next" title="Functions and Variables for stirling">
-<link href="maxima_324.html#Functions-and-Variables-for-special-distributions" rel="prev" title="Functions and Variables for special distributions">
+<link href="index.html" rel="up" title="Top">
+<link href="maxima_326.html" rel="next" title="Functions and Variables for inference_result">
+<link href="maxima_324.html" rel="prev" title="stats-pkg">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -73,22 +64,48 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 </head>
 
 <body lang="en">
-<a name="stirling_002dpkg"></a>
-<div class="header">
+<span id="Introduction-to-stats"></span><div class="header">
 <p>
-Next: <a href="maxima_327.html#stringproc_002dpkg" accesskey="n" rel="next">stringproc-pkg</a>, Previous: <a href="maxima_320.html#stats_002dpkg" accesskey="p" rel="prev">stats-pkg</a>, Up: <a href="maxima_0.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_326.html" accesskey="n" rel="next">Functions and Variables for inference_result</a>, Previous: <a href="index.html" accesskey="p" rel="prev">Top</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="stirling-1"></a>
-<h2 class="chapter">86 stirling</h2>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="maxima_326.html#Functions-and-Variables-for-stirling" accesskey="1">Functions and Variables for stirling</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
+<span id="Introduction-to-stats-1"></span><h3 class="section">86.1 Introduction to stats</h3>
 
-<a name="Item_003a-stirling_002fnode_002fFunctions-and-Variables-for-stirling"></a><hr>
+
+<p>Package <code>stats</code> contains a set of classical statistical inference and
+hypothesis testing procedures.
+</p>
+<p>All these functions return an <code>inference_result</code> Maxima object which contains
+the necessary results for population inferences and decision making.
+</p>
+<p>Global variable <code>stats_numer</code> controls whether results are given in 
+floating point or symbolic and rational format; its default value is <code>true</code>
+and results are returned in floating point format.
+</p>
+<p>Package <code>descriptive</code> contains some utilities to manipulate data structures
+(lists and matrices); for example, to extract subsamples. It also contains some
+examples on how to use package <code>numericalio</code> to read data from plain text
+files. See <code>descriptive</code> and <code>numericalio</code> for more details.
+</p>
+<p>Package <code>stats</code> loads packages <code>descriptive</code>, <code>distrib</code> and
+<code>inference_result</code>.
+</p>
+<p>For comments, bugs or suggestions, please contact the author at
+</p>
+<p><var>&rsquo;mario AT edu DOT xunta DOT es&rsquo;</var>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Statistical-inference">Statistical inference</a>
+
+<a href="maxima_370.html#Category_003a-Share-packages">Share packages</a>
+
+<a href="maxima_370.html#Category_003a-Package-stats">Package stats</a>
+</div>
+</p>
+<span id="Item_003a-stats_002fnode_002fFunctions-and-Variables-for-inference_005fresult"></span><hr>
 <div class="header">
 <p>
-Next: <a href="maxima_327.html#stringproc_002dpkg" accesskey="n" rel="next">stringproc-pkg</a>, Previous: <a href="maxima_320.html#stats_002dpkg" accesskey="p" rel="prev">stats-pkg</a>, Up: <a href="maxima_0.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_326.html" accesskey="n" rel="next">Functions and Variables for inference_result</a>, Previous: <a href="index.html" accesskey="p" rel="prev">Top</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

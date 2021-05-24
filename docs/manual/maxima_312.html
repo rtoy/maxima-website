@@ -1,42 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Package facexp (Maxima 5.44.0 Manual)</title>
+<title>Functions and Variables for simplex (Maxima 5.45.0 Manual)</title>
 
-<meta name="description" content="Package facexp (Maxima 5.44.0 Manual)">
-<meta name="keywords" content="Package facexp (Maxima 5.44.0 Manual)">
+<meta name="description" content="Functions and Variables for simplex (Maxima 5.45.0 Manual)">
+<meta name="keywords" content="Functions and Variables for simplex (Maxima 5.45.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="maxima_0.html#Top" rel="start" title="Top">
-<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="index.html" rel="start" title="Top">
+<link href="maxima_369.html" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_309.html#simplification_002dpkg" rel="up" title="simplification-pkg">
-<link href="maxima_313.html#Package-functs" rel="next" title="Package functs">
-<link href="maxima_311.html#Package-absimp" rel="prev" title="Package absimp">
+<link href="maxima_310.html" rel="up" title="simplex-pkg">
+<link href="maxima_313.html" rel="next" title="simplification-pkg">
+<link href="maxima_311.html" rel="prev" title="Introduction to simplex">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -73,199 +64,257 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 </head>
 
 <body lang="en">
-<a name="Package-facexp"></a>
-<div class="header">
+<span id="Functions-and-Variables-for-simplex"></span><div class="header">
 <p>
-Next: <a href="maxima_313.html#Package-functs" accesskey="n" rel="next">Package functs</a>, Previous: <a href="maxima_311.html#Package-absimp" accesskey="p" rel="prev">Package absimp</a>, Up: <a href="maxima_309.html#simplification_002dpkg" accesskey="u" rel="up">simplification-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_311.html" accesskey="p" rel="prev">Introduction to simplex</a>, Up: <a href="maxima_310.html" accesskey="u" rel="up">simplex-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Package-facexp-1"></a>
-<h3 class="section">83.3 Package facexp</h3>
+<span id="Functions-and-Variables-for-simplex-1"></span><h3 class="section">83.2 Functions and Variables for simplex</h3>
 
-<p>The <code>facexp</code> package contains several related  functions that
-provide the user with the ability to structure expressions by controlled
-expansion.   This capability  is especially  useful when  the expression
-contains variables that have physical meaning, because it is  often true
-that the most economical form  of such an expression can be  obtained by
-fully expanding the expression with respect to those variables, and then
-factoring their coefficients.  While it is  true that this  procedure is
-not difficult to carry out using standard Maxima  functions, additional
-fine-tuning may also  be desirable, and  these finishing touches  can be
-more  difficult to  apply.
+<span id="epsilon_005flp"></span><span id="Item_003a-simplex_002fdefvr_002fepsilon_005flp"></span><dl>
+<dt id="index-epsilon_005flp">Option variable: <strong>epsilon_lp</strong></dt>
+<dd><p>Default value: <code>10^-8</code>
 </p>
-<p>The  function <code>facsum</code>  and its  related forms
-provide a convenient means for controlling the structure  of expressions
-in this way.  Another function, <code>collectterms</code>, can be used to add  two or
-more expressions that have already been simplified to this form, without
-resimplifying the whole expression again.  This function may be
-useful when the expressions are very large.
-</p>
-
-<p><code>load (&quot;facexp&quot;)</code> loads this package.
-<code>demo (&quot;facexp&quot;)</code> shows a demonstration of this package.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Expressions">Expressions</a>
-
-<a href="maxima_364.html#Category_003a-Share-packages">Share packages</a>
-
-<a href="maxima_364.html#Category_003a-Package-facexp">Package facexp</a>
-</div>
-</p>
-
-<a name="facsum"></a><a name="Item_003a-simplifications_002fdeffn_002ffacsum"></a><dl>
-<dt><a name="index-facsum"></a>Function: <strong>facsum</strong> <em>(<var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>)</em></dt>
-<dd><p>Returns  a form  of <var>expr</var>  which depends  on the
-arguments <var>arg_1</var>, ..., <var>arg_n</var>.
-The arguments can be any form suitable for <code>ratvars</code>, or they can be
-lists  of such  forms.  If  the arguments  are not  lists, then  the form
-returned is  fully expanded with respect  to the arguments,  and the
-coefficients of the arguments are factored.  These  coefficients are
-free of the arguments, except perhaps in a non-rational sense.
-</p>
-<p>If any of the arguments are  lists, then all such lists are combined
-into  a  single  list,   and  instead  of  calling  <code>factor</code>   on  the
-coefficients  of  the  arguments,  <code>facsum</code>  calls  itself   on  these
-coefficients, using  this newly constructed  single list as  the new
-argument list  for this  recursive  call.  This  process can  be  repeated to
-arbitrary depth by nesting the desired elements in lists.
-</p>
-<p>It is possible that one may wish to <code>facsum</code> with respect  to more
-complicated subexpressions,  such as  <code>log (x + y)</code>.  Such  arguments are
-also  permissible.   
-</p>
-
-<p>Occasionally the user may wish to obtain any of the  above forms
-for expressions which are specified only by their leading operators.
-For example, one may wish  to <code>facsum</code> with respect to all  <code>log</code>&rsquo;s.  In
-this situation, one may  include among the arguments either  the specific
-<code>log</code>&rsquo;s which are to be treated in this way, or  alternatively, either
-the expression  <code>operator (log)</code> or <code>'operator (log)</code>.   If one  wished to
-<code>facsum</code> the expression <var>expr</var> with respect to the operators <var>op_1</var>, ..., <var>op_n</var>,
-one   would  evaluate  <code>facsum (<var>expr</var>, operator (<var>op_1</var>, ..., <var>op_n</var>))</code>.
-The <code>operator</code> form may also appear inside list arguments.
-</p>
-<p>In  addition,  the  setting  of  the  switches   <code>facsum_combine</code>  and
-<code>nextlayerfactor</code> may affect the result of <code>facsum</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-facexp">Package facexp</a>
-
-<a href="maxima_364.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p>
-</dd></dl>
-
-<a name="nextlayerfactor"></a><a name="Item_003a-simplifications_002fdefvr_002fnextlayerfactor"></a><dl>
-<dt><a name="index-nextlayerfactor"></a>Global variable: <strong>nextlayerfactor</strong></dt>
-<dd><p>Default value: <code>false</code>
-</p>
-<p>When <code>nextlayerfactor</code> is <code>true</code>, recursive calls  of <code>facsum</code>
-are applied  to  the  factors  of  the  factored  form   of  the
-coefficients of the arguments.
-</p>
-<p>When  <code>false</code>, <code>facsum</code> is applied to
-each coefficient as a whole whenever recusive calls to  <code>facsum</code> occur.
-</p>
-<p>Inclusion   of   the  atom
-<code>nextlayerfactor</code> in  the argument  list of <code>facsum</code>  has the  effect of
-<code>nextlayerfactor: true</code>, but for the next level of the expression <i>only</i>.
-Since <code>nextlayerfactor</code> is  always bound to  either <code>true</code> or  <code>false</code>, it
-must be presented single-quoted whenever it appears in the argument list of <code>facsum</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-facexp">Package facexp</a>
-
-<a href="maxima_364.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p>
-</dd></dl>
-
-<a name="facsum_005fcombine"></a><a name="Item_003a-simplifications_002fdefvr_002ffacsum_005fcombine"></a><dl>
-<dt><a name="index-facsum_005fcombine"></a>Global variable: <strong>facsum_combine</strong></dt>
-<dd><p>Default value: <code>true</code>
-</p>
-<p><code>facsum_combine</code> controls the form  of the final result  returned by
-<code>facsum</code>  when  its  argument  is  a  quotient  of   polynomials.   If
-<code>facsum_combine</code> is <code>false</code>  then the form will  be returned as  a fully
-expanded  sum  as described  above,  but if  <code>true</code>,  then  the expression
-returned is a ratio of polynomials, with each polynomial in the form
-described above.
-</p>
-<p>The <code>true</code> setting of this switch is useful when one
-wants to  <code>facsum</code> both  the numerator and  denominator of  a rational
-expression,  but  does not  want  the denominator  to  be multiplied
-through the terms of the numerator.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-facexp">Package facexp</a>
-
-<a href="maxima_364.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p>
-</dd></dl>
-
-<a name="factorfacsum"></a><a name="Item_003a-simplifications_002fdeffn_002ffactorfacsum"></a><dl>
-<dt><a name="index-factorfacsum"></a>Function: <strong>factorfacsum</strong> <em>(<var>expr</var>, <var>arg_1</var>, ... <var>arg_n</var>)</em></dt>
-<dd><p>Returns a  form of <var>expr</var>  which is
-obtained by calling  <code>facsum</code> on the factors  of <var>expr</var> with <var>arg_1</var>, ... <var>arg_n</var> as
-arguments.  If any of the factors of <var>expr</var> is raised to a  power, both
-the factor and the exponent will be processed in this way.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-facexp">Package facexp</a>
-
-<a href="maxima_364.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p>
-</dd></dl>
-
-<a name="collectterms"></a><a name="Item_003a-simplifications_002fdeffn_002fcollectterms"></a><dl>
-<dt><a name="index-collectterms"></a>Function: <strong>collectterms</strong> <em>(<var>expr</var>, <var>arg_1</var>, &hellip;, <var>arg_n</var>)</em></dt>
-<dd>
-<p>Collects all terms that contain <var>arg_1</var> ... <var>arg_n</var>.
-If several expressions have been simplified  with the following functions
-<code>facsum</code>, <code>factorfacsum</code>, <code>factenexpand</code>, <code>facexpten</code> or
-<code>factorfacexpten</code>, and they are to be added together, it may be desirable
-to combine them using the function  <code>collecterms</code>.  <code>collecterms</code> can
-take as arguments all of the arguments that can be given to these other
-associated functions with the exception of <code>nextlayerfactor</code>, which has no
-effect on <code>collectterms</code>.  The advantage of <code>collectterms</code> is that it
-returns a form  similar to <code>facsum</code>, but since it is adding forms that have
-already been processed by <code>facsum</code>, it does not need to repeat that effort.
-This capability is especially useful when the expressions to be summed are very
-large.
-</p>
-<p>See also <code><a href="maxima_76.html#factor">factor</a></code>.
+<p>Epsilon used for numerical computations in <code>linear_program</code>; it is
+set to 0 in <code>linear_program</code> when all inputs are rational.
 </p>
 <p>Example:
 </p>
 <div class="example">
-<pre class="example">(%i1) (exp(x)+2)*x+exp(x);
-                             x          x
-(%o1)                   x (%e  + 2) + %e
-</pre><pre class="example">(%i2) collectterms(expand(%),exp(x));
-                                  x
-(%o2)                   (x + 1) %e  + 2 x
+<pre class="example">(%i1) load(simplex)$
+
+(%i2) minimize_lp(-x, [1e-9*x + y &lt;= 1], [x,y]);
+Warning: linear_program(A,b,c): non-rat inputs found, epsilon_lp= 1.0e-8
+Warning: Solution may be incorrect.
+(%o2)                        Problem not bounded!
+(%i3) minimize_lp(-x, [10^-9*x + y &lt;= 1], [x,y]);
+(%o3)               [- 1000000000, [y = 0, x = 1000000000]]
+(%i4) minimize_lp(-x, [1e-9*x + y &lt;= 1], [x,y]), epsilon_lp=0;
+(%o4)     [- 9.999999999999999e+8, [y = 0, x = 9.999999999999999e+8]]
 </pre></div>
 
+<p>See also: <code><a href="#linear_005fprogram">linear_program</a></code>, <code><a href="maxima_13.html#ratnump">ratnump</a></code>.
+</p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-facexp">Package facexp</a>
-
-<a href="maxima_364.html#Category_003a-Expressions">Expressions</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-simplex">Package simplex</a>
 </div>
-</p></dd></dl>
+</p>
+</dd></dl>
+
+<span id="linear_005fprogram"></span><span id="Item_003a-simplex_002fdeffn_002flinear_005fprogram"></span><dl>
+<dt id="index-linear_005fprogram">Function: <strong>linear_program</strong> <em>(<var>A</var>, <var>b</var>, <var>c</var>)</em></dt>
+<dd>
+<p><code>linear_program</code> is an implementation of the simplex algorithm.
+<code>linear_program(A, b, c)</code> computes a vector <var>x</var> for which
+<code>c.x</code> is minimum possible among vectors for which <code>A.x = b</code>
+and <code>x &gt;= 0</code>. Argument <var>A</var> is a matrix and arguments <var>b</var>
+and <var>c</var> are lists.
+</p>
+<p><code>linear_program</code> returns a list which contains the minimizing
+vector <var>x</var> and the minimum value <code>c.x</code>. If the problem is not
+bounded, it returns &quot;Problem not bounded!&quot; and if the problem is not
+feasible, it returns &quot;Problem not feasible!&quot;.
+</p>
+<p>To use this function first load the <code>simplex</code> package with
+<code>load(simplex);</code>.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">(%i2) A: matrix([1,1,-1,0], [2,-3,0,-1], [4,-5,0,0])$
+(%i3) b: [1,1,6]$
+(%i4) c: [1,-2,0,0]$
+(%i5) linear_program(A, b, c);
+                   13     19        3
+(%o5)            [[--, 4, --, 0], - -]
+                   2      2         2
+</pre></div>
+
+<p>See also: <code><a href="#minimize_005flp">minimize_lp</a></code>, <code><a href="#scale_005flp">scale_lp</a></code>, and <code><a href="#epsilon_005flp">epsilon_lp</a></code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-simplex">Package simplex</a>
+
+<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p>
+</dd></dl>
+
+<span id="maximize_005flp"></span><span id="Item_003a-simplex_002fdeffn_002fmaximize_005flp"></span><dl>
+<dt id="index-maximize_005flp">Function: <strong>maximize_lp</strong> <em>(<var>obj</var>, <var>cond</var>, [<var>pos</var>])</em></dt>
+<dd>
+<p>Maximizes linear objective function <var>obj</var> subject to some linear
+constraints <var>cond</var>. See <code><a href="#minimize_005flp">minimize_lp</a></code> for detailed
+description of arguments and return value.
+</p>
+
+<p>See also: <code><a href="#minimize_005flp">minimize_lp</a></code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-simplex">Package simplex</a>
+
+<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p>
+</dd></dl>
+
+<span id="minimize_005flp"></span><span id="Item_003a-simplex_002fdeffn_002fminimize_005flp"></span><dl>
+<dt id="index-minimize_005flp">Function: <strong>minimize_lp</strong> <em>(<var>obj</var>, <var>cond</var>, [<var>pos</var>])</em></dt>
+<dd>
+<p>Minimizes a linear objective function <var>obj</var> subject to some linear
+constraints <var>cond</var>. <var>cond</var> a list of linear equations or
+inequalities. In strict inequalities <code>&gt;</code> is replaced by <code>&gt;=</code>
+and <code>&lt;</code> by <code>&lt;=</code>. The optional argument <var>pos</var> is a list
+of decision variables which are assumed to be positive.
+</p>
+<p>If the minimum exists, <code>minimize_lp</code> returns a list which
+contains the minimum value of the objective function and a list of
+decision variable values for which the minimum is attained. If the
+problem is not bounded, <code>minimize_lp</code> returns &quot;Problem not
+bounded!&quot; and if the problem is not feasible, it returns &quot;Problem not
+feasible!&quot;.
+</p>
+<p>The decision variables are not assumed to be non-negative by default. If
+all decision variables are non-negative, set <code>nonnegative_lp</code> to
+<code>true</code> or include <code>all</code> in the optional argument <var>pos</var>. If
+only some of decision variables are positive, list them in the optional
+argument <var>pos</var> (note that this is more efficient than adding
+constraints).
+</p>
+<p><code>minimize_lp</code> uses the simplex algorithm which is implemented in
+maxima <code>linear_program</code> function.
+</p>
+<p>To use this function first load the <code>simplex</code> package with
+<code>load(simplex);</code>.
+</p>
+<p>Examples:
+</p>
+<div class="example">
+<pre class="example">(%i1) minimize_lp(x+y, [3*x+y=0, x+2*y&gt;2]);
+                      4       6        2
+(%o1)                [-, [y = -, x = - -]]
+                      5       5        5
+(%i2) minimize_lp(x+y, [3*x+y&gt;0, x+2*y&gt;2]), nonnegative_lp=true;
+(%o2)                [1, [y = 1, x = 0]]
+(%i3) minimize_lp(x+y, [3*x+y&gt;0, x+2*y&gt;2], all);
+(%o3)                         [1, [y = 1, x = 0]]
+(%i4) minimize_lp(x+y, [3*x+y=0, x+2*y&gt;2]), nonnegative_lp=true;
+(%o4)                Problem not feasible!
+(%i5) minimize_lp(x+y, [3*x+y&gt;0]);
+(%o5)                Problem not bounded!
+
+</pre></div>
+
+<p>There is also a limited ability to solve linear programs with symbolic
+constants.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare(c,constant)$
+(%i2) maximize_lp(x+y, [y&lt;=-x/c+3, y&lt;=-x+4], [x, y]), epsilon_lp=0;
+Is (c-1)*c positive, negative or zero?
+p;
+Is c*(2*c-1) positive, negative or zero?
+p;
+Is c positive or negative?
+p;
+Is c-1 positive, negative or zero?
+p;
+Is 2*c-1 positive, negative or zero?
+p;
+Is 3*c-4 positive, negative or zero?
+p;
+                                 1                1
+(%o2)                 [4, [x = -----, y = 3 - ---------]]
+                                   1               1
+                               1 - -          (1 - -) c
+                                   c               c
+</pre></div>
+
+<div class="example">
+<pre class="example">(%i1) (assume(c&gt;4/3), declare(c,constant))$
+(%i2) maximize_lp(x+y, [y&lt;=-x/c+3, y&lt;=-x+4], [x, y]), epsilon_lp=0;
+                                 1                1
+(%o2)                 [4, [x = -----, y = 3 - ---------]]
+                                   1               1
+                               1 - -          (1 - -) c
+                                   c               c
+</pre></div>
+
+<p>See also: <code><a href="#maximize_005flp">maximize_lp</a></code>, <code><a href="#nonnegative_005flp">nonnegative_lp</a></code>, <code><a href="#epsilon_005flp">epsilon_lp</a></code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-simplex">Package simplex</a>
+
+<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
+</div>
+</p>
+</dd></dl>
+
+<span id="nonnegative_005flp"></span><span id="Item_003a-simplex_002fdefvr_002fnonnegative_005flp"></span><dl>
+<dt id="index-nonnegative_005flp">Option variable: <strong>nonnegative_lp</strong></dt>
+<dd><span id="Item_003a-simplex_002fdefvr_002fnonegative_005flp"></span></dd><dt id="index-nonegative_005flp">Option variable: <strong>nonegative_lp</strong></dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>If <code>nonnegative_lp</code> is true all decision variables to
+<code>minimize_lp</code> and <code>maximize_lp</code> are assumed to be non-negative.
+<code>nonegative_lp</code> is a deprecated alias.
+</p>                   
+<p>See also: <code><a href="#minimize_005flp">minimize_lp</a></code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-simplex">Package simplex</a>
+</div>
+</p>
+</dd></dl>
+
+<span id="scale_005flp"></span><span id="Item_003a-simplex_002fdefvr_002fscale_005flp"></span><dl>
+<dt id="index-scale_005flp">Option variable: <strong>scale_lp</strong></dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>When <code>scale_lp</code> is <code>true</code>,
+<code>linear_program</code> scales its input so that the maximum absolute value in each row or column is 1.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-simplex">Package simplex</a>
+</div>
+</p>
+</dd></dl>
+
+<span id="pivot_005fcount_005fsx"></span><span id="Item_003a-simplex_002fdefvr_002fpivot_005fcount_005fsx"></span><dl>
+<dt id="index-pivot_005fcount_005fsx">Variable: <strong>pivot_count_sx</strong></dt>
+<dd>
+<p>After <code>linear_program</code> returns,
+<code>pivot_count_sx</code> is the number of pivots in last computation.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-simplex">Package simplex</a>
+</div>
+</p>
+</dd></dl>
+
+<span id="pivot_005fmax_005fsx"></span><span id="Item_003a-simplex_002fdefvr_002fpivot_005fmax_005fsx"></span><dl>
+<dt id="index-pivot_005fmax_005fsx">Variable: <strong>pivot_max_sx</strong></dt>
+<dd>
+<p><code>pivot_max_sx</code> is the maximum number of pivots allowed by <code>linear_program</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-simplex">Package simplex</a>
+</div>
+</p>
+</dd></dl>
 
 
-<a name="Item_003a-simplifications_002fnode_002fPackage-functs"></a><hr>
+<span id="Item_003a-include_002dmaxima_002fnode_002fsimplification_002dpkg"></span><hr>
 <div class="header">
 <p>
-Next: <a href="maxima_313.html#Package-functs" accesskey="n" rel="next">Package functs</a>, Previous: <a href="maxima_311.html#Package-absimp" accesskey="p" rel="prev">Package absimp</a>, Up: <a href="maxima_309.html#simplification_002dpkg" accesskey="u" rel="up">simplification-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_311.html" accesskey="p" rel="prev">Introduction to simplex</a>, Up: <a href="maxima_310.html" accesskey="u" rel="up">simplex-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

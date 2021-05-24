@@ -1,42 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for Poisson series (Maxima 5.44.0 Manual)</title>
+<title>Functions and Variables for Fourier series (Maxima 5.45.0 Manual)</title>
 
-<meta name="description" content="Functions and Variables for Poisson series (Maxima 5.44.0 Manual)">
-<meta name="keywords" content="Functions and Variables for Poisson series (Maxima 5.44.0 Manual)">
+<meta name="description" content="Functions and Variables for Fourier series (Maxima 5.45.0 Manual)">
+<meta name="keywords" content="Functions and Variables for Fourier series (Maxima 5.45.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="maxima_0.html#Top" rel="start" title="Top">
-<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="index.html" rel="start" title="Top">
+<link href="maxima_369.html" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_131.html#Sums-Products-and-Series" rel="up" title="Sums Products and Series">
-<link href="maxima_138.html#Number-Theory" rel="next" title="Number Theory">
-<link href="maxima_136.html#Functions-and-Variables-for-Fourier-series" rel="prev" title="Functions and Variables for Fourier series">
+<link href="maxima_132.html" rel="up" title="Sums Products and Series">
+<link href="maxima_138.html" rel="next" title="Functions and Variables for Poisson series">
+<link href="maxima_136.html" rel="prev" title="Introduction to Fourier series">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -73,222 +64,232 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 </head>
 
 <body lang="en">
-<a name="Functions-and-Variables-for-Poisson-series"></a>
+<span id="Functions-and-Variables-for-Fourier-series"></span><div class="header">
+<p>
+Next: <a href="maxima_138.html" accesskey="n" rel="next">Functions and Variables for Poisson series</a>, Previous: <a href="maxima_136.html" accesskey="p" rel="prev">Introduction to Fourier series</a>, Up: <a href="maxima_132.html" accesskey="u" rel="up">Sums Products and Series</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Functions-and-Variables-for-Fourier-series-1"></span><h3 class="section">28.5 Functions and Variables for Fourier series</h3>
+
+
+<span id="equalp"></span><span id="Item_003a-Series_002fdeffn_002fequalp"></span><dl>
+<dt id="index-equalp">Function: <strong>equalp</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dd>
+<p>Returns <code>true</code> if <code>equal (<var>x</var>, <var>y</var>)</code> otherwise <code>false</code>
+(doesn&rsquo;t give an error message like <code>equal (x, y)</code> would do in this case).
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+<span id="remfun"></span><span id="Item_003a-Series_002fdeffn_002fremfun"></span><dl>
+<dt id="index-remfun">Function: <strong>remfun</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>remfun</tt> (<var>f</var>, <var>expr</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>remfun</tt> (<var>f</var>, <var>expr</var>, <var>x</var>)</em></dt>
+<dd>
+<p><code>remfun (<var>f</var>, <var>expr</var>)</code> replaces all occurrences of <code><var>f</var>
+(<var>arg</var>)</code> by <var>arg</var> in <var>expr</var>.
+</p>
+<p><code>remfun (<var>f</var>, <var>expr</var>, <var>x</var>)</code> replaces all occurrences of
+<code><var>f</var> (<var>arg</var>)</code> by <var>arg</var> in <var>expr</var> only if <var>arg</var> contains
+the variable <var>x</var>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+<span id="funp"></span><span id="Item_003a-Series_002fdeffn_002ffunp"></span><dl>
+<dt id="index-funp">Function: <strong>funp</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>funp</tt> (<var>f</var>, <var>expr</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>funp</tt> (<var>f</var>, <var>expr</var>, <var>x</var>)</em></dt>
+<dd>
+<p><code>funp (<var>f</var>, <var>expr</var>)</code>
+returns <code>true</code> if <var>expr</var> contains the function <var>f</var>.
+</p>
+<p><code>funp (<var>f</var>, <var>expr</var>, <var>x</var>)</code>
+returns <code>true</code> if <var>expr</var> contains the function <var>f</var> and the variable
+<var>x</var> is somewhere in the argument of one of the instances of <var>f</var>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+<span id="absint"></span><span id="Item_003a-Series_002fdeffn_002fabsint"></span><dl>
+<dt id="index-absint">Function: <strong>absint</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>absint</tt> (<var>f</var>, <var>x</var>, <var>halfplane</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>absint</tt> (<var>f</var>, <var>x</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>absint</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dd>
+<p><code>absint (<var>f</var>, <var>x</var>, <var>halfplane</var>)</code>
+returns the indefinite integral of <var>f</var> with respect to
+<var>x</var> in the given halfplane (<code>pos</code>, <code>neg</code>, or <code>both</code>).
+<var>f</var> may contain expressions of the form
+<code>abs (x)</code>, <code>abs (sin (x))</code>, <code>abs (a) * exp (-abs (b) * abs (x))</code>.
+</p>
+<p><code>absint (<var>f</var>, <var>x</var>)</code> is equivalent to
+<code>absint (<var>f</var>, <var>x</var>, pos)</code>.
+</p>
+<p><code>absint (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code> returns the definite integral
+of <var>f</var> with respect to <var>x</var> from <var>a</var> to <var>b</var>.
+<var>f</var> may include absolute values.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+
+<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
+</div>
+</p></dd></dl>
+
+
+<span id="fourier"></span><span id="Item_003a-Series_002fdeffn_002ffourier"></span><dl>
+<dt id="index-fourier">Function: <strong>fourier</strong> <em>(<var>f</var>, <var>x</var>, <var>p</var>)</em></dt>
+<dd>
+<p>Returns a list of the Fourier coefficients of <code><var>f</var>(<var>x</var>)</code> defined
+on the interval <code>[-p, p]</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+
+<span id="foursimp"></span><span id="Item_003a-Series_002fdeffn_002ffoursimp"></span><dl>
+<dt id="index-foursimp">Function: <strong>foursimp</strong> <em>(<var>l</var>)</em></dt>
+<dd>
+<p>Simplifies <code>sin (n %pi)</code> to 0 if <code>sinnpiflag</code> is <code>true</code> and
+<code>cos (n %pi)</code> to <code>(-1)^n</code> if <code>cosnpiflag</code> is <code>true</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+
+<a href="maxima_370.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+
+<a href="maxima_370.html#Category_003a-Simplification-functions">Simplification functions</a>
+</div>
+</p></dd></dl>
+
+<span id="sinnpiflag"></span><span id="Item_003a-Series_002fdefvr_002fsinnpiflag"></span><dl>
+<dt id="index-sinnpiflag">Option variable: <strong>sinnpiflag</strong></dt>
+<dd><p>Default value: <code>true</code>
+</p>
+<p>See <code>foursimp</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+<span id="cosnpiflag"></span><span id="Item_003a-Series_002fdefvr_002fcosnpiflag"></span><dl>
+<dt id="index-cosnpiflag">Option variable: <strong>cosnpiflag</strong></dt>
+<dd><p>Default value: <code>true</code>
+</p>
+<p>See <code>foursimp</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+
+<span id="fourexpand"></span><span id="Item_003a-Series_002fdeffn_002ffourexpand"></span><dl>
+<dt id="index-fourexpand">Function: <strong>fourexpand</strong> <em>(<var>l</var>, <var>x</var>, <var>p</var>, <var>limit</var>)</em></dt>
+<dd>
+<p>Constructs and returns the Fourier series from the list of Fourier coefficients
+<var>l</var> up through <var>limit</var> terms (<var>limit</var> may be <code>inf</code>).  <var>x</var>
+and <var>p</var> have same meaning as in <code>fourier</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+
+<span id="fourcos"></span><span id="Item_003a-Series_002fdeffn_002ffourcos"></span><dl>
+<dt id="index-fourcos">Function: <strong>fourcos</strong> <em>(<var>f</var>, <var>x</var>, <var>p</var>)</em></dt>
+<dd>
+<p>Returns the Fourier cosine coefficients for <code><var>f</var>(<var>x</var>)</code> defined on
+<code>[0, <var>p</var>]</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+
+<span id="foursin"></span><span id="Item_003a-Series_002fdeffn_002ffoursin"></span><dl>
+<dt id="index-foursin">Function: <strong>foursin</strong> <em>(<var>f</var>, <var>x</var>, <var>p</var>)</em></dt>
+<dd>
+<p>Returns the Fourier sine coefficients for <code><var>f</var>(<var>x</var>)</code> defined on
+<code>[0, <var>p</var>]</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+
+<span id="totalfourier"></span><span id="Item_003a-Series_002fdeffn_002ftotalfourier"></span><dl>
+<dt id="index-totalfourier">Function: <strong>totalfourier</strong> <em>(<var>f</var>, <var>x</var>, <var>p</var>)</em></dt>
+<dd>
+<p>Returns <code>fourexpand (foursimp (fourier (<var>f</var>, <var>x</var>, <var>p</var>)),
+<var>x</var>, <var>p</var>, 'inf)</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+
+<span id="fourint"></span><span id="Item_003a-Series_002fdeffn_002ffourint"></span><dl>
+<dt id="index-fourint">Function: <strong>fourint</strong> <em>(<var>f</var>, <var>x</var>)</em></dt>
+<dd>
+<p>Constructs and returns a list of the Fourier integral coefficients of
+<code><var>f</var>(<var>x</var>)</code> defined on <code>[minf, inf]</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+
+<span id="fourintcos"></span><span id="Item_003a-Series_002fdeffn_002ffourintcos"></span><dl>
+<dt id="index-fourintcos">Function: <strong>fourintcos</strong> <em>(<var>f</var>, <var>x</var>)</em></dt>
+<dd>
+<p>Returns the Fourier cosine integral coefficients for <code><var>f</var>(<var>x</var>)</code>
+on <code>[0, inf]</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+
+<span id="forintsin"></span><span id="Item_003a-Series_002fdeffn_002ffourintsin"></span><dl>
+<dt id="index-fourintsin">Function: <strong>fourintsin</strong> <em>(<var>f</var>, <var>x</var>)</em></dt>
+<dd>
+<p>Returns the Fourier sine integral coefficients for <code><var>f</var>(<var>x</var>)</code> on
+<code>[0, inf]</code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-fourie">Package fourie</a>
+</div>
+</p></dd></dl>
+
+
+<span id="Item_003a-Series_002fnode_002fFunctions-and-Variables-for-Poisson-series"></span><hr>
 <div class="header">
 <p>
-Previous: <a href="maxima_136.html#Functions-and-Variables-for-Fourier-series" accesskey="p" rel="prev">Functions and Variables for Fourier series</a>, Up: <a href="maxima_131.html#Sums-Products-and-Series" accesskey="u" rel="up">Sums Products and Series</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<a name="Functions-and-Variables-for-Poisson-series-1"></a>
-<h3 class="section">28.6 Functions and Variables for Poisson series</h3>
-
-
-<a name="intopois"></a><a name="Item_003a-Series_002fdeffn_002fintopois"></a><dl>
-<dt><a name="index-intopois"></a>Function: <strong>intopois</strong> <em>(<var>a</var>)</em></dt>
-<dd><p>Converts <var>a</var> into a Poisson encoding.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-
-<a name="outopois"></a><a name="Item_003a-Series_002fdeffn_002foutofpois"></a><dl>
-<dt><a name="index-outofpois"></a>Function: <strong>outofpois</strong> <em>(<var>a</var>)</em></dt>
-<dd>
-<p>Converts <var>a</var> from Poisson encoding to general representation.  If <var>a</var> is
-not in Poisson form, <code>outofpois</code> carries out the conversion,
-i.e., the return value is <code>outofpois (intopois (<var>a</var>))</code>.
-This function is thus a canonical simplifier
-for sums of powers of sine and cosine terms of a particular type.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-
-<a name="poisdiff"></a><a name="Item_003a-Series_002fdeffn_002fpoisdiff"></a><dl>
-<dt><a name="index-poisdiff"></a>Function: <strong>poisdiff</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
-<dd>
-<p>Differentiates <var>a</var> with respect to <var>b</var>. <var>b</var> must occur only
-in the trig arguments or only in the coefficients.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-
-<a name="poisexpt"></a><a name="Item_003a-Series_002fdeffn_002fpoisexpt"></a><dl>
-<dt><a name="index-poisexpt"></a>Function: <strong>poisexpt</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
-<dd>
-<p>Functionally identical to <code>intopois (<var>a</var>^<var>b</var>)</code>.
-<var>b</var> must be a positive integer.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-
-<a name="poisint"></a><a name="Item_003a-Series_002fdeffn_002fpoisint"></a><dl>
-<dt><a name="index-poisint"></a>Function: <strong>poisint</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
-<dd>
-<p>Integrates in a similarly restricted sense (to <code>poisdiff</code>).  Non-periodic
-terms in <var>b</var> are dropped if <var>b</var> is in the trig arguments.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-<a name="poislim"></a><a name="Item_003a-Series_002fdefvr_002fpoislim"></a><dl>
-<dt><a name="index-poislim"></a>Option variable: <strong>poislim</strong></dt>
-<dd><p>Default value: 5
-</p>
-<p><code>poislim</code> determines the domain of the coefficients in
-the arguments of the trig functions.  The initial value of 5
-corresponds to the interval [-2^(5-1)+1,2^(5-1)], or [-15,16], but it
-can be set to [-2^(n-1)+1, 2^(n-1)].
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-
-<a name="poismap"></a><a name="Item_003a-Series_002fdeffn_002fpoismap"></a><dl>
-<dt><a name="index-poismap"></a>Function: <strong>poismap</strong> <em>(<var>series</var>, <var>sinfn</var>, <var>cosfn</var>)</em></dt>
-<dd>
-<p>will map the functions <var>sinfn</var> on the sine terms and <var>cosfn</var> on the
-cosine terms of the Poisson series given.  <var>sinfn</var> and <var>cosfn</var> are
-functions of two arguments which are a coefficient and a trigonometric part of
-a term in series respectively.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-
-<a name="poisplus"></a><a name="Item_003a-Series_002fdeffn_002fpoisplus"></a><dl>
-<dt><a name="index-poisplus"></a>Function: <strong>poisplus</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
-<dd>
-<p>Is functionally identical to <code>intopois (a + b)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-<a name="poissimp"></a><a name="Item_003a-Series_002fdeffn_002fpoissimp"></a><dl>
-<dt><a name="index-poissimp"></a>Function: <strong>poissimp</strong> <em>(<var>a</var>)</em></dt>
-<dd>
-<p>Converts <var>a</var> into a Poisson series for <var>a</var> in general
-representation.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-
-<a name="poisson"></a><a name="Item_003a-Series_002fdefvr_002fpoisson"></a><dl>
-<dt><a name="index-poisson"></a>Special symbol: <strong>poisson</strong></dt>
-<dd>
-<p>The symbol <code>/P/</code> follows the line label of Poisson series
-expressions.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-<a name="poissubst"></a><a name="Item_003a-Series_002fdeffn_002fpoissubst"></a><dl>
-<dt><a name="index-poissubst"></a>Function: <strong>poissubst</strong> <em>(<var>a</var>, <var>b</var>, <var>c</var>)</em></dt>
-<dd>
-<p>Substitutes <var>a</var> for <var>b</var> in <var>c</var>.  <var>c</var> is a Poisson series.
-</p>
-<p>(1) Where <var>B</var> is a variable <var>u</var>, <var>v</var>, <var>w</var>, <var>x</var>, <var>y</var>,
-or <var>z</var>, then <var>a</var> must be an expression linear in those variables (e.g.,
-<code>6*u + 4*v</code>).
-</p>
-<p>(2) Where <var>b</var> is other than those variables, then <var>a</var> must also be
-free of those variables, and furthermore, free of sines or cosines.
-</p>
-<p><code>poissubst (<var>a</var>, <var>b</var>, <var>c</var>, <var>d</var>, <var>n</var>)</code> is a special type
-of substitution which operates on <var>a</var> and <var>b</var> as in type (1) above, but
-where <var>d</var> is a Poisson series, expands <code>cos(<var>d</var>)</code> and
-<code>sin(<var>d</var>)</code> to order <var>n</var> so as to provide the result of substituting
-<code><var>a</var> + <var>d</var></code> for <var>b</var> in <var>c</var>.  The idea is that <var>d</var> is an
-expansion in terms of a small parameter.  For example,
-<code>poissubst (u, v, cos(v), %e, 3)</code> yields
-<code>cos(u)*(1 - %e^2/2) - sin(u)*(%e - %e^3/6)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-
-<a name="poistimes"></a><a name="Item_003a-Series_002fdeffn_002fpoistimes"></a><dl>
-<dt><a name="index-poistimes"></a>Function: <strong>poistimes</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
-<dd>
-<p>Is functionally identical to <code>intopois (<var>a</var>*<var>b</var>)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-
-<a name="poistrim"></a><a name="Item_003a-Series_002fdeffn_002fpoistrim"></a><dl>
-<dt><a name="index-poistrim"></a>Function: <strong>poistrim</strong> <em>()</em></dt>
-<dd>
-<p>is a reserved function name which (if the user has defined
-it) gets applied during Poisson multiplication.  It is a predicate
-function of 6 arguments which are the coefficients of the <var>u</var>, <var>v</var>, ..., <var>z</var>
-in a term.  Terms for which <code>poistrim</code> is <code>true</code> (for the coefficients of
-that term) are eliminated during multiplication.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-</div>
-</p></dd></dl>
-
-<a name="printpois"></a><a name="Item_003a-Series_002fdeffn_002fprintpois"></a><dl>
-<dt><a name="index-printpois"></a>Function: <strong>printpois</strong> <em>(<var>a</var>)</em></dt>
-<dd>
-<p>Prints a Poisson series in a readable format.  In common
-with <code>outofpois</code>, it will convert <var>a</var> into a Poisson encoding first, if
-necessary.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Poisson-series">Poisson series</a>
-
-<a href="maxima_364.html#Category_003a-Display-functions">Display functions</a>
-</div>
-</p></dd></dl>
-
-
-<a name="Item_003a-include_002dmaxima_002fnode_002fNumber-Theory"></a><hr>
-<div class="header">
-<p>
-Previous: <a href="maxima_136.html#Functions-and-Variables-for-Fourier-series" accesskey="p" rel="prev">Functions and Variables for Fourier series</a>, Up: <a href="maxima_131.html#Sums-Products-and-Series" accesskey="u" rel="up">Sums Products and Series</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_138.html" accesskey="n" rel="next">Functions and Variables for Poisson series</a>, Previous: <a href="maxima_136.html" accesskey="p" rel="prev">Introduction to Fourier series</a>, Up: <a href="maxima_132.html" accesskey="u" rel="up">Sums Products and Series</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

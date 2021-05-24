@@ -1,42 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for Plotting (Maxima 5.44.0 Manual)</title>
+<title>Functions and Variables for Plotting (Maxima 5.45.0 Manual)</title>
 
-<meta name="description" content="Functions and Variables for Plotting (Maxima 5.44.0 Manual)">
-<meta name="keywords" content="Functions and Variables for Plotting (Maxima 5.44.0 Manual)">
+<meta name="description" content="Functions and Variables for Plotting (Maxima 5.45.0 Manual)">
+<meta name="keywords" content="Functions and Variables for Plotting (Maxima 5.45.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="maxima_0.html#Top" rel="start" title="Top">
-<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="index.html" rel="start" title="Top">
+<link href="maxima_369.html" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_61.html#Plotting" rel="up" title="Plotting">
-<link href="maxima_65.html#Plotting-Options" rel="next" title="Plotting Options">
-<link href="maxima_63.html#Plotting-Formats" rel="prev" title="Plotting Formats">
+<link href="maxima_61.html" rel="up" title="Plotting">
+<link href="maxima_65.html" rel="next" title="Plotting Options">
+<link href="maxima_63.html" rel="prev" title="Plotting Formats">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -73,56 +64,14 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 </head>
 
 <body lang="en">
-<a name="Functions-and-Variables-for-Plotting"></a>
-<div class="header">
+<span id="Functions-and-Variables-for-Plotting"></span><div class="header">
 <p>
-Next: <a href="maxima_65.html#Plotting-Options" accesskey="n" rel="next">Plotting Options</a>, Previous: <a href="maxima_63.html#Plotting-Formats" accesskey="p" rel="prev">Plotting Formats</a>, Up: <a href="maxima_61.html#Plotting" accesskey="u" rel="up">Plotting</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_65.html" accesskey="n" rel="next">Plotting Options</a>, Previous: <a href="maxima_63.html" accesskey="p" rel="prev">Plotting Formats</a>, Up: <a href="maxima_61.html" accesskey="u" rel="up">Plotting</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Functions-and-Variables-for-Plotting-1"></a>
-<h3 class="section">12.3 Functions and Variables for Plotting</h3>
+<span id="Functions-and-Variables-for-Plotting-1"></span><h3 class="section">12.3 Functions and Variables for Plotting</h3>
 
-<a name="contour_005fplot"></a><a name="Item_003a-Plotting_002fdeffn_002fcontour_005fplot"></a><dl>
-<dt><a name="index-contour_005fplot"></a>Function: <strong>contour_plot</strong> <em>(<var>expr</var>, <var>x_range</var>, <var>y_range</var>, <var>options</var>, &hellip;)</em></dt>
-<dd>
-<p>It plots the contours (curves of equal value) of <var>expr</var>
-over the region <var>x_range</var> by <var>y_range</var>.
-Any additional arguments are treated the same as in <code><a href="#plot3d">plot3d</a></code>.
-</p>
-<p>This function only works when the plot format is either <code>gnuplot</code>
-or <code>gnuplot_pipes</code>.  The additional package
-<code><a href="#implicit_005fplot">implicit_plot</a></code>, which works in any graphic format, can also be
-used to plot contours but a separate expression must be given for each
-contour.
-</p>
-
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) contour_plot (x^2 + y^2, [x, -4, 4], [y, -4, 4])$
-</pre></div>
-<img src="figures/plotting1.png" alt="figures/plotting1">
-
-<p>You can add any options accepted by <code>plot3d</code>; for instance, the
-option <code><a href="maxima_65.html#legend">legend</a></code> with a value of false, to remove the
-legend. By default, Gnuplot chooses and displays 3 contours. To increase the
-number of contours, it is necessary to use a custom
-<code><a href="maxima_66.html#gnuplot_005fpreamble">gnuplot_preamble</a></code>,  as in the next example:
-</p>
-<div class="example">
-<pre class="example">(%i1) contour_plot (u^3 + v^2, [u, -4, 4], [v, -4, 4],
-              [legend,false],
-              [gnuplot_preamble, &quot;set cntrparam levels 12&quot;])$
-</pre></div>
-<img src="figures/plotting2.png" alt="figures/plotting2">
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
-
-<a name="geomview_005fcommand"></a><a name="Item_003a-Plotting_002fdefvr_002fgeomview_005fcommand"></a><dl>
-<dt><a name="index-geomview_005fcommand"></a>System variable: <strong>geomview_command</strong></dt>
+<span id="geomview_005fcommand"></span><span id="Item_003a-Plotting_002fdefvr_002fgeomview_005fcommand"></span><dl>
+<dt id="index-geomview_005fcommand">System variable: <strong>geomview_command</strong></dt>
 <dd>
 <p>This variable stores the name of the command used to run the geomview
 program when the plot format is <code>geomview</code>. Its default value is
@@ -136,12 +85,12 @@ you may change the value of this variable. For instance,
 
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
-<a name="get_005fplot_005foption"></a><a name="Item_003a-Plotting_002fdeffn_002fget_005fplot_005foption"></a><dl>
-<dt><a name="index-get_005fplot_005foption"></a>Function: <strong>get_plot_option</strong> <em>(<var>keyword</var>, <var>index</var>)</em></dt>
+<span id="get_005fplot_005foption"></span><span id="Item_003a-Plotting_002fdeffn_002fget_005fplot_005foption"></span><dl>
+<dt id="index-get_005fplot_005foption">Function: <strong>get_plot_option</strong> <em>(<var>keyword</var>, <var>index</var>)</em></dt>
 <dd>
 <p>Returns the current default value of the option named <var>keyword</var>,
 which is a list. The optional argument <var>index</var> must be a positive
@@ -149,17 +98,18 @@ integer which can be used to extract only one element from the list
 (element 1 is the name of the option).
 </p>
 <p>See also <code><a href="#set_005fplot_005foption">set_plot_option</a></code>, <code><a href="#remove_005fplot_005foption">remove_plot_option</a></code> and the
-section on Plotting Options.
+section on <code><a href="maxima_65.html">Plotting Options</a></code>.
 </p></dd></dl>
 
-<a name="gnuplot_005fcommand"></a><a name="Item_003a-Plotting_002fdefvr_002fgnuplot_005fcommand"></a><dl>
-<dt><a name="index-gnuplot_005fcommand"></a>System variable: <strong>gnuplot_command</strong></dt>
+<span id="gnuplot_005fcommand"></span><span id="Item_003a-Plotting_002fdefvr_002fgnuplot_005fcommand"></span><dl>
+<dt id="index-gnuplot_005fcommand">System variable: <strong>gnuplot_command</strong></dt>
 <dd>
 <p>This variable stores the name of the command used to run the gnuplot
-program when the plot format is <code>gnuplot</code>. Its default value is
-&quot;gnuplot&quot;. If the gnuplot program is not found unless you give its
-complete path or if you want to try a different version of it, you
-may change the value of this variable. For instance,
+program when the plot format is <code>gnuplot</code> or
+<code>gnuplot_pipes</code>. Its default value is &quot;gnuplot&quot;. If the gnuplot
+program is not found unless you give its complete path or if you want to
+try a different version of it, you may change the value of this
+variable. For instance,
 </p>
 <div class="example">
 <pre class="example">(%i1) gnuplot_command: &quot;/usr/local/bin/my_gnuplot&quot;$
@@ -167,36 +117,39 @@ may change the value of this variable. For instance,
 
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
-<a name="gnuplot_005ffile_005fargs"></a><a name="Item_003a-Plotting_002fdefvr_002fgnuplot_005ffile_005fargs"></a><dl>
-<dt><a name="index-gnuplot_005ffile_005fargs"></a>System variable: <strong>gnuplot_file_args</strong></dt>
+<span id="gnuplot_005ffile_005fargs"></span><span id="Item_003a-Plotting_002fdefvr_002fgnuplot_005ffile_005fargs"></span><dl>
+<dt id="index-gnuplot_005ffile_005fargs">System variable: <strong>gnuplot_file_args</strong></dt>
 <dd>
 <p>When a graphic file is going to be created using <code>gnuplot</code>, this
-variable is used to specify the way the file name should be passed to
-gnuplot. Its default value is &quot;~s&quot;, which means that the name of the
-file will be passed directly. The contents of this variable can be
+variable is used to specify the format used to print the file name given
+to gnuplot. Its default value is &quot;~a&quot; in SBCL and Openmcl, and &quot;~s&quot; in
+other lisp versions, which means that the name of the file will be
+passed without quotes if SBCL or Openmcl are used and within quotes if
+other Lisp versions are used. The contents of this variable can be
 changed in order to add options for the gnuplot program, adding those
 options before the format directive &quot;~s&quot;.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
-<a name="gnuplot_005fview_005fargs"></a><a name="Item_003a-Plotting_002fdefvr_002fgnuplot_005fview_005fargs"></a><dl>
-<dt><a name="index-gnuplot_005fview_005fargs"></a>System variable: <strong>gnuplot_view_args</strong></dt>
+<span id="gnuplot_005fview_005fargs"></span><span id="Item_003a-Plotting_002fdefvr_002fgnuplot_005fview_005fargs"></span><dl>
+<dt id="index-gnuplot_005fview_005fargs">System variable: <strong>gnuplot_view_args</strong></dt>
 <dd>
-<p>This variable is used to parse the argument that will be passed to the
-gnuplot program when the plot format is <code>gnuplot</code>. Its default
-value is &quot;-persist ~s&quot;, where &quot;~s&quot; will be replaced with the name of the
-file where the gnuplot commands have been written (usually
-&quot;maxout_xxx.gnuplot&quot;). The option <code>-persist</code> tells gnuplot to exit
-after the commands in the file have been executed, without closing the
-window that displays the plot.
+<p>This variable is the format used to parse the argument that will be
+passed to the gnuplot program when the plot format is
+<code>gnuplot</code>. Its default value is &quot;-persist ~a&quot; when SBCL or Openmcl
+are used, and &quot;-persist ~s&quot; with other Lisp variants, where &quot;~a&quot; or &quot;~s&quot;
+will be replaced with the name of the file where the gnuplot commands
+have been written (usually &quot;maxout_xxx.gnuplot&quot;). The option
+<code>-persist</code> tells gnuplot to exit after the commands in the file
+have been executed, without closing the window that displays the plot.
 </p>
 <p>Those familiar with gnuplot, might want to change the value of this
 variable. For example, by changing it to:
@@ -219,46 +172,12 @@ of <code>gnuplot_view_args</code>.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
-<a name="implicit_005fplot"></a><a name="Item_003a-Plotting_002fdeffn_002fimplicit_005fplot"></a><dl>
-<dt><a name="index-implicit_005fplot"></a>Function: <strong>implicit_plot</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>implicit_plot</tt> (<var>expr</var>, <var>x_range</var>, <var>y_range</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>implicit_plot</tt> ([<var>expr_1</var>, &hellip;, <var>expr_n</var>], <var>x_range</var>, <var>y_range</var>)</em></dt>
-<dd>
-<p>Displays a plot of a function on the real plane, defined implicitly by
-the expression <var>expr</var>. The domain in the plane is defined by
-<var>x_range</var> and <var>y_range</var>. Several functions can be represented on
-the same plot, giving a list [<var>expr_1</var>, &hellip;, <var>expr_n</var>] of
-expressions that define them. This function uses the global format
-options set up with the <code><a href="#set_005fplot_005foption">set_plot_option</a></code>. Additional options can
-also be given as extra arguments for the <code>implicit_plot</code> command.
-</p>
-<p>The method used by <code>implicit_plot</code> consists of tracking sign
-changes on the domain given and it can fail for complicated expressions.
-</p>
-<p><code>load(implicit_plot)</code> loads this function.
-</p>
-<p>Example:
-</p><div class="example">
-<pre class="example">(%i1) load(implicit_plot)$
-(%i2) implicit_plot (x^2 = y^3 - 3*y + 1, [x, -4, 4], [y, -4, 4])$
-</pre></div>
-
-<img src="figures/plotting3.png" alt="figures/plotting3">
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
-
-<a href="maxima_364.html#Category_003a-Share-packages">Share packages</a>
-
-<a href="maxima_364.html#Category_003a-Package-implicit_005fplot">Package implicit_plot</a>
-</div>
-</p></dd></dl>
-
-<a name="julia"></a><a name="Item_003a-Plotting_002fdeffn_002fjulia"></a><dl>
-<dt><a name="index-julia"></a>Function: <strong>julia</strong> <em>(<var>x</var>, <var>y</var>, ...<var>options</var>...)</em></dt>
+<span id="julia"></span><span id="Item_003a-Plotting_002fdeffn_002fjulia"></span><dl>
+<dt id="index-julia">Function: <strong>julia</strong> <em>(<var>x</var>, <var>y</var>, ...<var>options</var>...)</em></dt>
 <dd>
 <p>Creates a graphic representation of the Julia set for the complex number
 (<var>x</var> + i <var>y</var>). The two mandatory parameters <var>x</var> and <var>y</var>
@@ -271,8 +190,8 @@ iterations it takes the sequence that starts at that point to move out
 of the convergence circle of radius 2 centered at the origin. The number
 of pixels in the grid is controlled by the <code><a href="maxima_65.html#grid">grid</a></code> plot option
 (default 30 by 30). The maximum number of iterations is set with the
-option <code><a href="maxima_65.html#iterations">iterations</a></code>. The program uses its own default palette:
-magenta,violet, blue, cyan, green, yellow, orange, red, brown and black,
+option <code><a href="maxima_65.html#iterations">iterations</a></code>. The program sets its own default palette:
+magenta, violet, blue, cyan, green, yellow, orange, red, brown and black,
 but it can be changed by adding an explicit <code><a href="maxima_65.html#palette">palette</a></code> option in the
 command.
 </p>
@@ -294,19 +213,17 @@ corresponding the maximum 36 iterations would not be black.
 
 <img src="figures/plotting4.png" alt="figures/plotting4">
 
-
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-dynamics">Package dynamics</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-dynamics">Package dynamics</a>
 
-<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p>
 </dd></dl>
 
-
-<a name="make_005ftransform"></a><a name="Item_003a-Plotting_002fdeffn_002fmake_005ftransform"></a><dl>
-<dt><a name="index-make_005ftransform"></a>Function: <strong>make_transform</strong> <em>([<var>var1</var>, <var>var2</var>, <var>var3</var>], <var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
+<span id="make_005ftransform"></span><span id="Item_003a-Plotting_002fdeffn_002fmake_005ftransform"></span><dl>
+<dt id="index-make_005ftransform">Function: <strong>make_transform</strong> <em>([<var>var1</var>, <var>var2</var>, <var>var3</var>], <var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
 <dd>
 <p>Returns a function suitable to be used in the option <code><a href="maxima_65.html#transform_005fxy">transform_xy</a></code><!-- /@w -->
 of plot3d.  The three variables <var>var1</var>, <var>var2</var>, <var>var3</var> are
@@ -321,12 +238,12 @@ for those two transformations.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
-<a name="mandelbrot"></a><a name="Item_003a-Plotting_002fdeffn_002fmandelbrot"></a><dl>
-<dt><a name="index-mandelbrot"></a>Function: <strong>mandelbrot</strong> <em>(<var>options</var>)</em></dt>
+<span id="mandelbrot"></span><span id="Item_003a-Plotting_002fdeffn_002fmandelbrot"></span><dl>
+<dt id="index-mandelbrot">Function: <strong>mandelbrot</strong> <em>(<var>options</var>)</em></dt>
 <dd>
 <p>Creates a graphic representation of the Mandelbrot set. This program is
 part of the additional package <code>dynamics</code>, but that package does
@@ -362,15 +279,15 @@ is used or the option <code><a href="maxima_65.html#same_005fxy">same_xy</a></co
 
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-dynamics">Package dynamics</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-dynamics">Package dynamics</a>
 
-<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p>
 </dd></dl>
 
-<a name="polar_005fto_005fxy"></a><a name="Item_003a-Plotting_002fdeffn_002fpolar_005fto_005fxy"></a><dl>
-<dt><a name="index-polar_005fto_005fxy"></a>System function: <strong>polar_to_xy</strong></dt>
+<span id="polar_005fto_005fxy"></span><span id="Item_003a-Plotting_002fdeffn_002fpolar_005fto_005fxy"></span><dl>
+<dt id="index-polar_005fto_005fxy">System function: <strong>polar_to_xy</strong></dt>
 <dd>
 <p>It can be given as value for the <code><a href="maxima_65.html#transform_005fxy">transform_xy</a></code> option of
 plot3d.  Its effect will be to interpret the two independent variables in
@@ -379,60 +296,85 @@ coordinates), and transform them into x and y coordinates.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
-<a name="plot2d"></a><a name="Item_003a-Plotting_002fdeffn_002fplot2d"></a><dl>
-<dt><a name="index-plot2d"></a>Function: <strong>plot2d</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> (<var>plot</var>, <var>x_range</var>, &hellip;, <var>options</var>, &hellip;) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> ([<var>plot_1</var>, &hellip;, <var>plot_n</var>], &hellip;, <var>options</var>, &hellip;) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> ([<var>plot_1</var>, &hellip;, <var>plot_n</var>], <var>x_range</var>, &hellip;, <var>options</var>, &hellip;)</em></dt>
+<span id="plot2d"></span><span id="Item_003a-Plotting_002fdeffn_002fplot2d"></span><dl>
+<dt id="index-plot2d">Function: <strong>plot2d</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> (<var>expr</var>, <var>range_x</var>, <var>options</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> (<var>expr_1</var>=<var>expr_2</var>, <var>range_x</var>, <var>range_y</var>, <var>options</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> ([parametric, <var>expr_x</var>, <var>expr</var>_y, <var>range</var>], <var>options</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> ([discrete, <var>points</var>], <var>options</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> ([contour, <var>expr</var>], <var>range_x</var>, <var>range_y</var>, <var>options</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot2d</tt> ([<var>type_1</var>, &hellip;, <var>type_n</var>], <var>options</var>)</em></dt>
 <dd>
-<p>Where <var>plot</var>, <var>plot_1</var>, &hellip;, <var>plot_n</var> can be either
-expressions, function names or a list with
-the any of the forms: <code>[discrete, [<var>x1</var>, ..., <var>xn</var>],
-[<var>y1</var>, ..., <var>yn</var>]]</code>, <code>[discrete, [[<var>x1</var>, <var>y1</var>],
-..., [<var>xn</var>, ..., <var>yn</var>]]]</code> or <code>[parametric, <var>x_expr</var>,
-<var>y_expr</var>, <var>t_range</var>]</code>.
+<p>There are 5 types of plots that can be plotted by <code>plot2d</code>:
 </p>
-<p>Displays a plot of one or more expressions as a function of one
-variable or parameter.
-</p>
-<p><code>plot2d</code> displays one or several plots in two dimensions.  When
-expressions or function names are used to define the plots,
-they should all depend on only one variable <var>var</var> and the use of
-<var>x_range</var> will be mandatory, to provide the name of the variable and
-its minimum and maximum values; the syntax for <var>x_range</var> is:
-<code>[<var>variable</var>, <var>min</var>, <var>max</var>]</code>.
-</p>
-<p>A plot can also be defined in the discrete or parametric forms.  The
-discrete form is used to plot a set of points with given coordinates.  A
-discrete plot is defined by a list starting with the keyword
-<var>discrete</var>, followed by one or two lists of values.  If two lists are
-given, they must have the same length; the first list will be
-interpreted as the x coordinates of the points to be plotted and the
-second list as the y coordinates.  If only one list is given after the
-<var>discrete</var> keyword, each element on the list could also be a list
-with two values that correspond to the x and y coordinates of a point,
-or it could be a sequence of numerical values which will be plotted
-at consecutive integer values (1,2,3,...) on the x axis.
-</p>
-<p>A parametric plot is defined by a list starting with the keyword
-<var>parametric</var>, followed by two expressions or function names and a
-range for the parameter.  The range for the parameter must be a list with
-the name of the parameter followed by its minimum and maximum values:
-<code>[<var>param</var>, <var>min</var>, <var>max</var>]</code>.  The plot will show the path
-traced out by the point with coordinates given by the two expressions or
-functions, as <var>param</var> increases from <var>min</var> to <var>max</var>.
-</p>
-<p>A range for the vertical axis is an optional argument with the form:
-<code>[y, <var>min</var>, <var>max</var>]</code> (the keyword <var>y</var> is always used for
-the vertical axis).  If that option is used, the plot will show that
-exact vertical range, independently of the values reached by the plot.
-If the vertical range is not specified, it will be set up according to
-the minimum and maximum values of the second coordinate of the plot
-points.
-</p>
-<p>All other options should also be lists, starting with a keyword and
-followed by one or more values.  See <code><a href="#plot_005foptions">plot_options</a></code>.
+<ol>
+<li> <b>Explicit functions</b>. <code>plot2d</code> (<var>expr</var>, <var>range_x</var>,
+<var>options</var>), where <var>expr</var> is an expression that depends on only
+one variable, or the name of a function with one input parameter and
+numerical results. <var>range_x</var> is a list with three elements, the
+first one being the name of the variable that will be shown on the
+horizontal axis of the plot, and the other two elements should be two
+numbers, the first one smaller than the second, that define the minimum
+and maximum values to be shown on the horizontal axis. The name of the
+variable used in <var>range_x</var> must be the same variable on which
+<var>expr</var> depends. The result will show in the vertical axis the
+corresponding values of the expression or function for each value of the
+variable in the horizontal axis.
+
+</li><li> <b>Implicit functions</b>. <code>plot2d</code> (<var>expr_1</var>=<var>expr_2</var>,
+<var>range_x</var>, <var>range_y</var>, <var>options</var>), where <var>expr_1</var> and
+<var>expr_2</var> are two expressions that can depend on one or two
+variables. <var>range_x</var> and <var>range_y</var> must be two lists of three
+elements that define the ranges for the variables in the two axes of the
+plot; the first element of each list is the name of the corresponding
+variable, and the other two elements are the minimum and maximum values
+for that variable. The two variables on which <var>expr_1</var> and
+<var>expr_2</var> can depend are those specified by <var>range_x</var> and
+<var>range_y</var>. The result will be a curve or a set of curves where the
+equation <var>expr_1</var>=<var>expr_2</var> is true.
+
+</li><li> <b>Parametric functions</b>. <code>plot2d</code> ([parametric,
+<var>expr_x</var>, <var>expr</var>_y, <var>range</var>], <var>options</var>), where
+<var>expr_x</var> and <var>expr</var>_y are two expressions that depend on a
+single parameter. <var>range</var> must be a three-element list; the first
+element must be the name of the parameter on which <var>expr_x</var> and
+<var>expr</var>_y depend, and the other two elements must be the minimum and
+maximum values for that parameter. The result will be a curve in which
+the horizontal and vertical coordinates of each point are the values of
+<var>expr_x</var> and <var>expr</var>_y for a value of the parameter within the
+range given.
+
+</li><li> <b>Set of points</b>. <code>plot2d</code> ([discrete, <var>points</var>],
+<var>options</var>), displays a list of points, joined by segments by
+default. The horizontal and vertical coordinates of each of those points
+can be specified in three different ways: With two lists of the same
+length, in which the elements of the first list are the horizontal
+coordinates of the points and the second list are the vertical
+coordinates, or with a list of two-element lists, each one corresponding
+to the two coordinates of one of the points, or with a single list that
+defines the vertical coordinates of the points; in this last case, the
+horizontal coordinates of the n points will be assumed to be the first n
+natural numbers.
+
+</li><li> <b>Contour lines</b>. <code>plot2d</code> ([contour, <var>expr</var>],
+<var>range_x</var>, <var>range_y</var>, <var>options</var>), where <var>expr</var> is an
+expression that depends on two variables. <var>range_x</var> and
+<var>range_y</var> will be lists whose first elements are the names of those
+two variables, followed by two numbers that set the minimum and maximum
+values for them. The first variable will be represented along the
+horizontal axis and the second along the vertical axis. The result will
+be a set of curves along which the given expression has certain
+values. If those values are not specified with the option <code>levels</code>,
+plotd2d will try to choose, at the most, 8 values of the form d*10^n, where d is
+either 1, 2 or 5, all of them within the minimum and maximum values of
+<var>expr</var> within the given ranges.
+</li></ol>
+
+<p>At the end of a plot2d command several of the options described in
+<code><a href="maxima_65.html">Plotting Options</a></code> can be used. Many instances of the 5 types
+described above can be combined into a single plot, by putting them
+inside a list: <code>plot2d</code> ([<var>type_1</var>, &hellip;, <var>type_n</var>],
+<var>options</var>). If one of the types included in the list require
+<var>range_x</var> or <var>range_y</var>, those ranges should come immediately
+after the list.
 </p>
 <p>If there are several plots to be plotted, a legend will be
 written to identity each of the expressions.  The labels that should be
@@ -442,16 +384,55 @@ function names.
 </p>
 <p><strong>Examples:</strong>
 </p>
-<p>Plot of a common function:
-</p>
+<ol>
+<li> Explicit function.
+
 <div class="example">
 <pre class="example">(%i1) plot2d (sin(x), [x, -%pi, %pi])$
 </pre></div>
 
 <img src="figures/plotting6.png" alt="figures/plotting6">
 
-<p>If the function grows too fast, it might be necessary to limit the
-values in the vertical axis using the <code><a href="maxima_65.html#y">y</a></code> option:
+</li><li> Implicit function.
+
+<div class="example">
+<pre class="example">(%i1) plot2d (x^2-y^3+3*y=2, [x,-2.5,2.5], [y,-2.5,2.5])$
+</pre></div>
+
+<img src="figures/plotting3.png" alt="figures/plotting3">
+
+</li><li> Parametric function.
+
+<div class="example">
+<pre class="example">(%i1) r: (exp(cos(t))-2*cos(4*t)-sin(t/12)^5)$
+(%i2) plot2d([parametric, r*sin(t), r*cos(t), [t,-8*%pi,8*%pi]])$
+</pre></div>
+
+<img src="figures/plotting11.png" alt="figures/plotting11">
+
+</li><li> Set of points.
+
+<div class="example">
+<pre class="example">(%i1) plot2d ([discrete, makelist(i*%pi, i, 1, 5),
+                            [0.6, 0.9, 0.2, 1.3, 1]])$
+</pre></div>
+
+<img src="figures/plotting14.png" alt="figures/plotting14">
+
+</li><li> Contour lines.
+
+<div class="example">
+<pre class="example">(%i1) plot2d ([contour, u^3 + v^2], [u, -4, 4], [v, -4, 4])$
+</pre></div>
+
+<img src="figures/plotting2.png" alt="figures/plotting2">
+
+</li></ol>
+
+<p><strong>Examples using options</strong>.
+</p>
+<p>If an explicit function grows too fast, the <code><a href="maxima_65.html#y">y</a></code> option can be used
+to limit the values in the vertical axis:
 </p>
 <div class="example">
 <pre class="example">(%i1) plot2d (sec(x), [x, -2, 2], [y, -20, 20])$
@@ -467,7 +448,7 @@ default rectangular shape of the plot; in this example the plot will
 fill a square.
 </p>
 <div class="example">
-<pre class="example">(%i1) plot2d ( x^2 - 1, [x, -3, 3], [box, false], grid2d,
+<pre class="example">(%i1) plot2d ( x^2 - 1, [x, -3, 3], nobox, grid2d,
       [yx_ratio, 1], [axes, solid], [xtics, -2, 4, 2],
       [ytics, 2, 2, 6], [label, [&quot;x&quot;, 2.9, -0.3],
       [&quot;x^2-1&quot;, 0.1, 8]], [title, &quot;A parabola&quot;])$
@@ -487,26 +468,18 @@ fill a square.
 </p>
 <div class="example">
 <pre class="example">(%i1) F(x) := x^2 $
-</pre><pre class="example">(%i2) :lisp (defun |$g| (x) (m* x x x))
+(%i2) :lisp (defun |$g| (x) (m* x x x))
 $g
-</pre><pre class="example">(%i2) H(x) := if x &lt; 0 then x^4 - 1 else 1 - x^5 $
+(%i2) H(x) := if x &lt; 0 then x^4 - 1 else 1 - x^5 $
 (%i3) plot2d ([F, G, H], [u, -1, 1], [y, -1.5, 1.5])$
 </pre></div>
 
 <img src="figures/plotting10.png" alt="figures/plotting10">
 
-<p>A plot of the butterfly curve, defined parametrically:
-</p>
-<div class="example">
-<pre class="example">(%i1) r: (exp(cos(t))-2*cos(4*t)-sin(t/12)^5)$
-(%i2) plot2d([parametric, r*sin(t), r*cos(t), [t, -8*%pi, 8*%pi]])$
-</pre></div>
-
-<img src="figures/plotting11.png" alt="figures/plotting11">
-
 <p>Plot of a circle, using its parametric representation, together with the
-function -|x|. The circle will only look like a circle if the scale in the
-two axes is the same, which is done with the option <code><a href="maxima_65.html#same_005fxy">same_xy</a></code>.
+function -<code>|<var>x</var>|</code>. The circle will only look like a circle if
+the scale in the two axes is the same, which is done with the option
+<code><a href="maxima_65.html#same_005fxy">same_xy</a></code>.
 </p>
 <div class="example">
 <pre class="example">(%i1) plot2d([[parametric, cos(t), sin(t), [t,0,2*%pi]], -abs(x)],
@@ -523,25 +496,16 @@ two axes is the same, which is done with the option <code><a href="maxima_65.htm
 
 <img src="figures/plotting13.png" alt="figures/plotting13">
 
-<p>A plot of a discrete set of points, defining x and y coordinates separately:
-</p>
-<div class="example">
-<pre class="example">(%i1) plot2d ([discrete, makelist(i*%pi, i, 1, 5),
-                            [0.6, 0.9, 0.2, 1.3, 1]])$
-</pre></div>
-
-<img src="figures/plotting14.png" alt="figures/plotting14">
-
 <p>In the next example a table with three columns is saved in a file
 &ldquo;data.txt&rdquo; which is then read and the second and third column are
 plotted on the two axes:
 </p>
 <div class="example">
 <pre class="example">(%i1) display2d:false$
-</pre><pre class="example">(%i2) with_stdout (&quot;data.txt&quot;, for x:0 thru 10 do
+(%i2) with_stdout (&quot;data.txt&quot;, for x:0 thru 10 do
                              print (x, x^2, x^3))$
-</pre><pre class="example">(%i3) data: read_matrix (&quot;data.txt&quot;)$
-</pre><pre class="example">(%i4) plot2d ([discrete, transpose(data)[2], transpose(data)[3]],
+(%i3) data: read_matrix (&quot;data.txt&quot;)$
+(%i4) plot2d ([discrete, transpose(data)[2], transpose(data)[3]],
   [style,points], [point_type,diamond], [color,red])$
 </pre></div>
 
@@ -551,7 +515,7 @@ plotted on the two axes:
 </p>
 <div class="example">
 <pre class="example">(%i1) xy: [[10, .6], [20, .9], [30, 1.1], [40, 1.3], [50, 1.4]]$
-</pre><pre class="example">(%i2) plot2d([[discrete, xy], 2*%pi*sqrt(l/980)], [l,0,50],
+(%i2) plot2d([[discrete, xy], 2*%pi*sqrt(l/980)], [l,0,50],
         [style, points, lines], [color, red, blue],
         [point_type, asterisk],
         [legend, &quot;experiment&quot;, &quot;theory&quot;],
@@ -565,12 +529,12 @@ plotted on the two axes:
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
-<a name="plot3d"></a><a name="Item_003a-Plotting_002fdeffn_002fplot3d"></a><dl>
-<dt><a name="index-plot3d"></a>Function: <strong>plot3d</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot3d</tt> (<var>expr</var>, <var>x_range</var>, <var>y_range</var>, &hellip;, <var>options</var>, &hellip;) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot3d</tt> ([<var>expr_1</var>, &hellip;, <var>expr_n</var>], <var>x_range</var>, <var>y_range</var>, &hellip;, <var>options</var>, &hellip;)</em></dt>
+<span id="plot3d"></span><span id="Item_003a-Plotting_002fdeffn_002fplot3d"></span><dl>
+<dt id="index-plot3d">Function: <strong>plot3d</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot3d</tt> (<var>expr</var>, <var>x_range</var>, <var>y_range</var>, &hellip;, <var>options</var>, &hellip;) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>plot3d</tt> ([<var>expr_1</var>, &hellip;, <var>expr_n</var>], <var>x_range</var>, <var>y_range</var>, &hellip;, <var>options</var>, &hellip;)</em></dt>
 <dd>
 <p>Displays a plot of one or more surfaces defined as functions of two
 variables or in parametric form.
@@ -579,13 +543,13 @@ variables or in parametric form.
 The mouse can be used to rotate the plot looking at the surface from different
 sides.
 </p>
-<p><strong>Examples:</strong>
+<p><strong>Examples</strong>.
 </p>
 <p>Plot of a function of two variables:
 </p>
 <div class="example">
 <pre class="example">(%i1) plot3d (u^2 - v^2, [u, -2, 2], [v, -3, 3], [grid, 100, 100],
-        [mesh_lines_color,false])$
+        nomesh_lines)$
 </pre></div>
 
 <img src="figures/plotting17.png" alt="figures/plotting17">
@@ -596,7 +560,7 @@ shows how to plot with only lines and no shading:
 </p>
 <div class="example">
 <pre class="example">(%i1) plot3d ( log ( x^2*y^2 ), [x, -2, 2], [y, -2, 2], [z, -8, 4],
-         [palette, false], [color, magenta])$
+         nopalette, [color, magenta])$
 </pre></div>
 
 <img src="figures/plotting18.png" alt="figures/plotting18">
@@ -634,7 +598,7 @@ definitions.
 <pre class="example">(%i1) expr_1: 5*cos(x)*(cos(x/2)*cos(y)+sin(x/2)*sin(2*y)+3)-10$
 (%i2) expr_2: -5*sin(x)*(cos(x/2)*cos(y)+sin(x/2)*sin(2*y)+3)$
 (%i3) expr_3: 5*(-sin(x/2)*cos(y)+cos(x/2)*sin(2*y))$
-</pre><pre class="example">(%i4) plot3d ([expr_1, expr_2, expr_3], [x, -%pi, %pi],
+(%i4) plot3d ([expr_1, expr_2, expr_3], [x, -%pi, %pi],
         [y, -%pi, %pi], [grid, 50, 50])$
 </pre></div>
 
@@ -646,10 +610,8 @@ coordinates to rectangular coordinates. See the documentation for
 <code><a href="#spherical_005fto_005fxyz">spherical_to_xyz</a></code>.
 </p>
 <div class="example">
-<pre class="example">(%i1) plot3d (sin(2*theta)*cos(phi), [theta, 0, %pi],
-        [phi, 0, 2*%pi],
-        [transform_xy, spherical_to_xyz], [grid,30,60],
-   [legend,false])$
+<pre class="example">(%i1) plot3d (sin(2*theta)*cos(phi), [theta,0,%pi], [phi,0,2*%pi],
+      [transform_xy, spherical_to_xyz], [grid, 30, 60], nolegend)$
 </pre></div>
 
 <img src="figures/plotting22.png" alt="figures/plotting22">
@@ -659,8 +621,8 @@ cylindrical to rectangular coordinates.  See the documentation for
 <code><a href="#polar_005fto_005fxy">polar_to_xy</a></code>.
 </p>
 <div class="example">
-<pre class="example">(%i1) plot3d (r^.33*cos(th/3), [r,0,1], [th,0,6*%pi], [box, false],
-   [grid, 12, 80], [transform_xy, polar_to_xy], [legend, false])$
+<pre class="example">(%i1) plot3d (r^.33*cos(th/3), [r,0,1], [th,0,6*%pi], nobox,
+    nolegend, [grid, 12, 80], [transform_xy, polar_to_xy])$
 </pre></div>
 
 <img src="figures/plotting23.png" alt="figures/plotting23">
@@ -672,9 +634,9 @@ convenient to eliminate the mesh lines, because Gnuplot will not show the
 surface correctly.
 </p>
 <div class="example">
-<pre class="example">(%i1) plot3d ( 5, [theta, 0, %pi], [phi, 0, 2*%pi], same_xyz,
+<pre class="example">(%i1) plot3d ( 5, [theta,0,%pi], [phi,0,2*%pi], same_xyz, nolegend,
   [transform_xy, spherical_to_xyz], [mesh_lines_color,blue],
-  [palette,[gradient,&quot;#1b1b4e&quot;, &quot;#8c8cf8&quot;]], [legend, false])$
+  [palette,[gradient,&quot;#1b1b4e&quot;, &quot;#8c8cf8&quot;]])$
 </pre></div>
 
 <img src="figures/plotting24.png" alt="figures/plotting24">
@@ -687,7 +649,7 @@ indices.
 <div class="example">
 <pre class="example">(%i1) M: matrix([1,2,3,4], [1,2,3,2], [1,2,3,4], [1,2,3,3])$
 (%i2) f(x, y) := float('M [round(x), round(y)])$
-</pre><pre class="example">(%i3) plot3d (f(x,y), [x,1,4],[y,1,4],[grid,3,3],[legend,false])$
+(%i3) plot3d (f(x,y), [x,1,4], [y,1,4], [grid,3,3], nolegend)$
 </pre></div>
 
 <img src="figures/plotting25.png" alt="figures/plotting25">
@@ -698,21 +660,21 @@ in which each color represents a different level.
 <div class="example">
 <pre class="example">(%i1) plot3d (cos (-x^2 + y^3/4), [x,-4,4], [y,-4,4], [zlabel,&quot;&quot;],
        [mesh_lines_color,false], [elevation,0], [azimuth,0],
-       color_bar, [grid,80,80], [ztics,false], [color_bar_tics,1])$
+       color_bar, [grid,80,80], noztics, [color_bar_tics,1])$
 </pre></div>
 
 <img src="figures/plotting26.png" alt="figures/plotting26">
 
-<p>See also the section about Plotting Options.
+<p>See also <code><a href="maxima_65.html">Plotting Options</a></code>.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
-<a name="plot_005foptions"></a><a name="Item_003a-Plotting_002fdefvr_002fplot_005foptions"></a><dl>
-<dt><a name="index-plot_005foptions"></a>System variable: <strong>plot_options</strong></dt>
+<span id="plot_005foptions"></span><span id="Item_003a-Plotting_002fdefvr_002fplot_005foptions"></span><dl>
+<dt id="index-plot_005foptions">System variable: <strong>plot_options</strong></dt>
 <dd>
 <p>This option is being kept for compatibility with older versions, but its
 use is deprecated. To set global plotting options, see their current
@@ -721,25 +683,25 @@ values or remove options, use <code><a href="#set_005fplot_005foption">set_plot_
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
-<a name="remove_005fplot_005foption"></a><a name="Item_003a-Plotting_002fdeffn_002fremove_005fplot_005foption"></a><dl>
-<dt><a name="index-remove_005fplot_005foption"></a>Function: <strong>remove_plot_option</strong> <em>(<var>name</var>)</em></dt>
+<span id="remove_005fplot_005foption"></span><span id="Item_003a-Plotting_002fdeffn_002fremove_005fplot_005foption"></span><dl>
+<dt id="index-remove_005fplot_005foption">Function: <strong>remove_plot_option</strong> <em>(<var>name</var>)</em></dt>
 <dd>
 <p>Removes the default value of an option. The name of the option must be given.
 </p>
-<p>See also <code><a href="#set_005fplot_005foption">set_plot_option</a></code>, <code><a href="#get_005fplot_005foption">get_plot_option</a></code> and the section
-on Plotting Options.
+<p>See also <code><a href="#set_005fplot_005foption">set_plot_option</a></code>, <code><a href="#get_005fplot_005foption">get_plot_option</a></code> and
+<code><a href="maxima_65.html">Plotting Options</a></code>.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
-<a name="set_005fplot_005foption"></a><a name="Item_003a-Plotting_002fdeffn_002fset_005fplot_005foption"></a><dl>
-<dt><a name="index-set_005fplot_005foption"></a>Function: <strong>set_plot_option</strong> <em>(<var>option</var>)</em></dt>
+<span id="set_005fplot_005foption"></span><span id="Item_003a-Plotting_002fdeffn_002fset_005fplot_005foption"></span><dl>
+<dt id="index-set_005fplot_005foption">Function: <strong>set_plot_option</strong> <em>(<var>option</var>)</em></dt>
 <dd>
 <p>Accepts any of the options listed in the section Plotting Options, and
 saves them for use in plotting commands. The values of the options set
@@ -770,12 +732,12 @@ red, brown, black]], [gnuplot_preamble, ], [gnuplot_term, default]]
 
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
-<a name="spherical_005fto_005fxyz"></a><a name="Item_003a-Plotting_002fdeffn_002fspherical_005fto_005fxyz"></a><dl>
-<dt><a name="index-spherical_005fto_005fxyz"></a>System function: <strong>spherical_to_xyz</strong></dt>
+<span id="spherical_005fto_005fxyz"></span><span id="Item_003a-Plotting_002fdeffn_002fspherical_005fto_005fxyz"></span><dl>
+<dt id="index-spherical_005fto_005fxyz">System function: <strong>spherical_to_xyz</strong></dt>
 <dd>
 <p>It can be given as value for the <code><a href="maxima_65.html#transform_005fxy">transform_xy</a></code> option of
 <code><a href="#plot3d">plot3d</a></code>. Its effect will be to interpret the two independent
@@ -786,14 +748,14 @@ transform them into x, y and z coordinates.
 </p>
 <div class=categorybox>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Plotting">Plotting</a>
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
 </div>
 </p></dd></dl>
 
-<a name="Item_003a-Plotting_002fnode_002fPlotting-Options"></a><hr>
+<span id="Item_003a-Plotting_002fnode_002fPlotting-Options"></span><hr>
 <div class="header">
 <p>
-Next: <a href="maxima_65.html#Plotting-Options" accesskey="n" rel="next">Plotting Options</a>, Previous: <a href="maxima_63.html#Plotting-Formats" accesskey="p" rel="prev">Plotting Formats</a>, Up: <a href="maxima_61.html#Plotting" accesskey="u" rel="up">Plotting</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_65.html" accesskey="n" rel="next">Plotting Options</a>, Previous: <a href="maxima_63.html" accesskey="p" rel="prev">Plotting Formats</a>, Up: <a href="maxima_61.html" accesskey="u" rel="up">Plotting</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

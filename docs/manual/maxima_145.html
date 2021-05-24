@@ -1,42 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Runtime Environment (Maxima 5.44.0 Manual)</title>
+<title>Functions and Variables for Groups (Maxima 5.45.0 Manual)</title>
 
-<meta name="description" content="Runtime Environment (Maxima 5.44.0 Manual)">
-<meta name="keywords" content="Runtime Environment (Maxima 5.44.0 Manual)">
+<meta name="description" content="Functions and Variables for Groups (Maxima 5.45.0 Manual)">
+<meta name="keywords" content="Functions and Variables for Groups (Maxima 5.45.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="maxima_0.html#Top" rel="start" title="Top">
-<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="index.html" rel="start" title="Top">
+<link href="maxima_369.html" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_0.html#Top" rel="up" title="Top">
-<link href="maxima_146.html#Introduction-for-Runtime-Environment" rel="next" title="Introduction for Runtime Environment">
-<link href="maxima_144.html#Functions-and-Variables-for-Groups" rel="prev" title="Functions and Variables for Groups">
+<link href="maxima_144.html" rel="up" title="Groups">
+<link href="maxima_146.html" rel="next" title="Runtime Environment">
+<link href="maxima_144.html" rel="prev" title="Groups">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -73,26 +64,67 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 </head>
 
 <body lang="en">
-<a name="Runtime-Environment"></a>
-<div class="header">
+<span id="Functions-and-Variables-for-Groups"></span><div class="header">
 <p>
-Next: <a href="maxima_149.html#Miscellaneous-Options" accesskey="n" rel="next">Miscellaneous Options</a>, Previous: <a href="maxima_143.html#Groups" accesskey="p" rel="prev">Groups</a>, Up: <a href="maxima_0.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_144.html" accesskey="p" rel="prev">Groups</a>, Up: <a href="maxima_144.html" accesskey="u" rel="up">Groups</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Runtime-Environment-1"></a>
-<h2 class="chapter">32 Runtime Environment</h2>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="maxima_146.html#Introduction-for-Runtime-Environment" accesskey="1">Introduction for Runtime Environment</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="maxima_147.html#Interrupts" accesskey="2">Interrupts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="maxima_148.html#Functions-and-Variables-for-Runtime-Environment" accesskey="3">Functions and Variables for Runtime Environment</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
+<span id="Functions-and-Variables-for-Groups-1"></span><h3 class="section">31.1 Functions and Variables for Groups</h3>
 
-<a name="Item_003a-Runtime_002fnode_002fIntroduction-for-Runtime-Environment"></a><hr>
+<span id="todd_005fcoxeter"></span><span id="Item_003a-Groups_002fdeffn_002ftodd_005fcoxeter"></span><dl>
+<dt id="index-todd_005fcoxeter">Function: <strong>todd_coxeter</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>todd_coxeter</tt> (<var>relations</var>, <var>subgroup</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>todd_coxeter</tt> (<var>relations</var>)</em></dt>
+<dd>
+<p>Find the order of G/H where G is the Free Group modulo <var>relations</var>, and
+H is the subgroup of G generated by <var>subgroup</var>.  <var>subgroup</var> is an optional
+argument, defaulting to [].  In doing this it produces a
+multiplication table for the right action of G on G/H, where the
+cosets are enumerated [H,Hg2,Hg3,...].  This can be seen internally in
+the variable <code>todd_coxeter_state</code>.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">(%i1) symet(n):=create_list(
+        if (j - i) = 1 then (p(i,j))^^3 else
+            if (not i = j) then (p(i,j))^^2 else
+                p(i,i) , j, 1, n-1, i, 1, j);
+                                                       &lt;3&gt;
+(%o1) symet(n) := create_list(if j - i = 1 then p(i, j)
+
+                                &lt;2&gt;
+ else (if not i = j then p(i, j)    else p(i, i)), j, 1, n - 1,
+
+i, 1, j)
+(%i2) p(i,j) := concat(x,i).concat(x,j);
+(%o2)        p(i, j) := concat(x, i) . concat(x, j)
+(%i3) symet(5);
+         &lt;2&gt;           &lt;3&gt;    &lt;2&gt;           &lt;2&gt;           &lt;3&gt;
+(%o3) [x1   , (x1 . x2)   , x2   , (x1 . x3)   , (x2 . x3)   ,
+
+            &lt;2&gt;           &lt;2&gt;           &lt;2&gt;           &lt;3&gt;    &lt;2&gt;
+          x3   , (x1 . x4)   , (x2 . x4)   , (x3 . x4)   , x4   ]
+(%i4) todd_coxeter(%o3);
+
+Rows tried 426
+(%o4)                          120
+(%i5) todd_coxeter(%o3,[x1]);
+
+Rows tried 213
+(%o5)                          60
+(%i6) todd_coxeter(%o3,[x1,x2]);
+
+Rows tried 71
+(%o6)                          20
+</pre></div>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Group-theory">Group theory</a>
+</div>
+</p></dd></dl>
+
+<span id="Item_003a-include_002dmaxima_002fnode_002fRuntime-Environment"></span><hr>
 <div class="header">
 <p>
-Next: <a href="maxima_149.html#Miscellaneous-Options" accesskey="n" rel="next">Miscellaneous Options</a>, Previous: <a href="maxima_143.html#Groups" accesskey="p" rel="prev">Groups</a>, Up: <a href="maxima_0.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_144.html" accesskey="p" rel="prev">Groups</a>, Up: <a href="maxima_144.html" accesskey="u" rel="up">Groups</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

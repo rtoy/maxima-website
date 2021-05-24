@@ -1,42 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for ratpow (Maxima 5.44.0 Manual)</title>
+<title>Introduction to pytranslate (Maxima 5.45.0 Manual)</title>
 
-<meta name="description" content="Functions and Variables for ratpow (Maxima 5.44.0 Manual)">
-<meta name="keywords" content="Functions and Variables for ratpow (Maxima 5.44.0 Manual)">
+<meta name="description" content="Introduction to pytranslate (Maxima 5.45.0 Manual)">
+<meta name="keywords" content="Introduction to pytranslate (Maxima 5.45.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="maxima_0.html#Top" rel="start" title="Top">
-<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="index.html" rel="start" title="Top">
+<link href="maxima_369.html" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_0.html#Top" rel="up" title="Top">
-<link href="maxima_304.html#romberg_002dpkg" rel="next" title="romberg-pkg">
-<link href="maxima_302.html#ratpow_002dpkg" rel="prev" title="ratpow-pkg">
+<link href="index.html" rel="up" title="Top">
+<link href="maxima_304.html" rel="next" title="Functions in pytranslate">
+<link href="maxima_302.html" rel="prev" title="pytranslate">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -73,126 +64,68 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 </head>
 
 <body lang="en">
-<a name="Functions-and-Variables-for-ratpow"></a>
+<span id="Introduction-to-pytranslate"></span><div class="header">
+<p>
+Next: <a href="maxima_304.html" accesskey="n" rel="next">Functions in pytranslate</a>, Previous: <a href="index.html" accesskey="p" rel="prev">Top</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Introduction-to-pytranslate-1"></span><h3 class="section">80.1 Introduction to pytranslate</h3>
+
+<p><code>pytranslate</code> package provides Maxima to Python translation functionality. The package is experimental, and the specifications of the functions in this package might change. It was written as a Google Summer of Code project by Lakshya A Agrawal (Undergraduate Student, IIIT-Delhi) in 2019. A detailed project report is available as a <a href="https://gist.github.com/LakshyAAAgrawal/33eee2d33c4788764087eef1fa67269e">GitHub Gist</a>.<br>
+</p>
+<p>The package needs to be loaded in a Maxima instance for use, by executing <code>load(pytranslate);</code><br>
+The statements are converted to python3 syntax. The file pytranslate.py must be imported for all translations to run, as shown in example.
+</p>
+<p>Example:
+</p><div class="example">
+<pre class="example">(%i1) load (pytranslate)$
+</pre><pre class="example">/* Define an example function to calculate factorial */
+(%i2) pytranslate(my_factorial(x) := if (x = 1 or x = 0) then 1
+                  else x * my_factorial(x - 1));
+(%o2) 
+def my_factorial(x, v = v):
+    v = Stack({}, v)
+    v.ins({&quot;x&quot; : x})
+    return((1 if ((v[&quot;x&quot;] == 1) or (v[&quot;x&quot;] == 0)) \
+              else (v[&quot;x&quot;] * my_factorial((v[&quot;x&quot;] + (-1))))))
+m[&quot;my_factorial&quot;] = my_factorial
+</pre><pre class="example">(%i3) my_factorial(5);
+(%o3)                          120
+</pre><pre class="example">&gt;&gt;&gt; from pytranslate import *
+&gt;&gt;&gt; def my_factorial(x, v = v):
+...     v = Stack({}, v)
+...     v.ins({&quot;x&quot; : x})
+...     return((1 if ((v[&quot;x&quot;] == 1) or (v[&quot;x&quot;] == 0)) \
+...     else (v[&quot;x&quot;] * my_factorial((v[&quot;x&quot;] + (-1))))))
+... 
+&gt;&gt;&gt; my_factorial(5)
+120
+</pre></div>
+
+<p>The Maxima to Python Translator works in two stages:<br>
+1. Conversion of the internal Maxima representation to a defined Intermediate Representation, henceforth referred as IR(mapping is present in <samp>share/pytranslate/maxima-to-ir.html</samp>)<br>
+2. The conversion of IR to Python.
+</p>
+<p>Supported Maxima forms:<br>
+1. <code><a href="maxima_11.html">Numbers</a></code>(including complex numbers)<br>
+2. <code><a href="maxima_40.html">Assignment operators</a></code><br>
+3. <code><a href="maxima_36.html">Arithmetic operators</a></code>(+, -, *, ^, /, !)<br>
+4. <code><a href="maxima_38.html">Logical operators</a></code>(and, or, not)<br>
+5. <code><a href="maxima_37.html">Relational operators</a></code>(<code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code>, <code>==</code>)<br>
+6. <code><a href="maxima_19.html">Lists</a></code><br>
+7. <code><a href="maxima_23.html">Arrays</a></code><br>
+8. <code><a href="maxima_164.html#block">block</a></code><br>
+9. <code><a href="maxima_162.html">Function</a></code> and function calls<br>
+10. <code><a href="maxima_169.html#if">if</a></code>-else converted to Python conditionals<br>
+11. <code><a href="maxima_169.html#for">for</a></code> loops<br>
+12. <code><a href="maxima_164.html#lambda">lambda</a></code> form
+</p>
+<span id="Tests-for-pytranslate"></span><h4 class="subsection">80.1.1 Tests for pytranslate</h4>
+<p>The tests for <code>pytranslate</code> are present at <samp>share/pytranslate/rtest_pytranslate.mac</samp> and can be run by executing <code>batch(rtest_pytranslate, test);</code>
+</p>
+<span id="Item_003a-pytranslate_002fnode_002fFunctions-in-pytranslate"></span><hr>
 <div class="header">
 <p>
-Previous: <a href="maxima_0.html#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="maxima_0.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<a name="Functions-and-Variables-for-ratpow-1"></a>
-<h3 class="section">80.1 Functions and Variables for ratpow</h3>
-
-
-
-<a name="ratp_005fhipow"></a><a name="Item_003a-ratpow_002fdeffn_002fratp_005fhipow"></a><dl>
-<dt><a name="index-ratp_005fhipow"></a>Function: <strong>ratp_hipow</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
-<dd>
-<p>Finds the highest power of the main variable in <code>ratnumer(expr)</code>
-</p>
-<div class="example">
-<pre class="example">(%i1) load(&quot;ratpow&quot;)$
-</pre><pre class="example">(%i2) ratp_hipow( x^(5/2) + x^2 , x);
-(%o2)                           2
-</pre><pre class="example">(%i3) ratp_hipow( x^(5/2) + x^2 , sqrt(x));
-(%o3)                           5
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Rational-expressions">Rational expressions</a>
-
-<a href="maxima_364.html#Category_003a-Package-ratpow">Package ratpow</a>
-</div>
-</p></dd></dl>
-
-
-<a name="ratp_005flopow"></a><a name="Item_003a-ratpow_002fdeffn_002fratp_005flopow"></a><dl>
-<dt><a name="index-ratp_005flopow"></a>Function: <strong>ratp_lopow</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
-<dd>
-<p>Finds the lowest power of the main variable in <code>ratnumer(expr)</code>
-</p>
-<div class="example">
-<pre class="example">(%i1) load(&quot;ratpow&quot;)$
-</pre><pre class="example">(%i2) ratp_lopow( x^5 + x^2 , x);
-(%o2)                           2
-</pre></div>
-
-<p>The following example will return 0 since <code>1</code> equals <code>x^0</code>:
-</p><div class="example">
-<pre class="example">(%i1) load(&quot;ratpow&quot;)$
-</pre><pre class="example">(%i2) ratp_lopow( x^5 + x^2 + 1, x);
-(%o2)                           0
-</pre></div>
-
-<p>The CRE form of the following equation contains <code>sqrt(x)</code> and
-<code>x</code>. Since they are interpreted as independent variables
-<code>ratp_lopow</code> returns <code>0</code> in this case:
-</p><div class="example">
-<pre class="example">(%i1) load(&quot;ratpow&quot;)$
-</pre><pre class="example">(%i2) g:sqrt(x)^5 + sqrt(x)^2;
-                             5/2
-(%o2)                       x    + x
-</pre><pre class="example">(%i3) showratvars(g);
-                              1/2
-(%o3)                       [x   , x]
-</pre><pre class="example">(%i4) ratp_lopow( g, x);
-(%o4)                           0
-</pre><pre class="example">(%i5) ratp_lopow( g, sqrt(x));
-(%o5)                           0
-</pre></div>
-
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Rational-expressions">Rational expressions</a>
-
-<a href="maxima_364.html#Category_003a-Package-ratpow">Package ratpow</a>
-</div>
-</p></dd></dl>
-
-
-<a name="ratp_005fcoeffs"></a><a name="Item_003a-ratpow_002fdeffn_002fratp_005fcoeffs"></a><dl>
-<dt><a name="index-ratp_005fcoeffs"></a>Function: <strong>ratp_coeffs</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
-<dd>
-<p>Generates a list of powers and coefficients of the main variable
-<code>ratnumer(expr)</code>.
-</p><div class="example">
-<pre class="example">(%i1) load(&quot;ratpow&quot;)$
-</pre><pre class="example">(%i2) ratp_coeffs( 4*x^3 + x + sqrt(x), x);
-(%o2)/R/         [[3, 4], [1, 1], [0, sqrt(x)]]
-</pre></div>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Rational-expressions">Rational expressions</a>
-
-<a href="maxima_364.html#Category_003a-Package-ratpow">Package ratpow</a>
-</div>
-</p></dd></dl>
-
-<a name="ratp_005fdense_005fcoeffs"></a><a name="Item_003a-ratpow_002fdeffn_002fratp_005fdense_005fcoeffs"></a><dl>
-<dt><a name="index-ratp_005fdense_005fcoeffs"></a>Function: <strong>ratp_dense_coeffs</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
-<dd>
-<p>Generates a list of coefficients in <code>ratnumer(expr)</code>; returned
-coefficients are in CRE form except for numbers.
-</p>
-<div class="example">
-<pre class="example">(%i1) load(&quot;ratpow&quot;)$
-</pre><pre class="example">(%i2) ratp_dense_coeffs( 4*x^3 + x + sqrt(x), x);
-(%o2)/R/               [4, 0, 1, sqrt(x)]
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Rational-expressions">Rational expressions</a>
-
-<a href="maxima_364.html#Category_003a-Package-ratpow">Package ratpow</a>
-</div>
-</p></dd></dl>
-
-
-<a name="Item_003a-include_002dmaxima_002fnode_002fromberg_002dpkg"></a><hr>
-<div class="header">
-<p>
-Previous: <a href="maxima_0.html#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="maxima_0.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_304.html" accesskey="n" rel="next">Functions in pytranslate</a>, Previous: <a href="index.html" accesskey="p" rel="prev">Top</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

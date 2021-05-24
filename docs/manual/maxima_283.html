@@ -1,42 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for binary input and output (Maxima 5.44.0 Manual)</title>
+<title>Functions and Variables for mnewton (Maxima 5.45.0 Manual)</title>
 
-<meta name="description" content="Functions and Variables for binary input and output (Maxima 5.44.0 Manual)">
-<meta name="keywords" content="Functions and Variables for binary input and output (Maxima 5.44.0 Manual)">
+<meta name="description" content="Functions and Variables for mnewton (Maxima 5.45.0 Manual)">
+<meta name="keywords" content="Functions and Variables for mnewton (Maxima 5.45.0 Manual)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="maxima_0.html#Top" rel="start" title="Top">
-<link href="maxima_363.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
+<link href="index.html" rel="start" title="Top">
+<link href="maxima_369.html" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_280.html#numericalio_002dpkg" rel="up" title="numericalio-pkg">
-<link href="maxima_284.html#odepack_002dpkg" rel="next" title="odepack-pkg">
-<link href="maxima_282.html#Functions-and-Variables-for-plain_002dtext-input-and-output" rel="prev" title="Functions and Variables for plain-text input and output">
+<link href="maxima_281.html" rel="up" title="mnewton-pkg">
+<link href="maxima_284.html" rel="next" title="numericalio-pkg">
+<link href="maxima_282.html" rel="prev" title="Introduction to mnewton">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -73,170 +64,98 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 </head>
 
 <body lang="en">
-<a name="Functions-and-Variables-for-binary-input-and-output"></a>
+<span id="Functions-and-Variables-for-mnewton"></span><div class="header">
+<p>
+Previous: <a href="maxima_282.html" accesskey="p" rel="prev">Introduction to mnewton</a>, Up: <a href="maxima_281.html" accesskey="u" rel="up">mnewton-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Functions-and-Variables-for-mnewton-1"></span><h3 class="section">74.2 Functions and Variables for mnewton</h3>
+
+<span id="newtonepsilon"></span><span id="Item_003a-mnewton_002fdefvr_002fnewtonepsilon"></span><dl>
+<dt id="index-newtonepsilon">Option variable: <strong>newtonepsilon</strong></dt>
+<dd><p>Default value: <code>10.0^(-fpprec/2)</code>
+</p>
+<p>Precision to determine when the <code>mnewton</code> function has converged towards
+the solution.  If <code>newtonepsilon</code> is a bigfloat, then <code>mnewton</code>
+computations are done with bigfloats.  See also <code><a href="#mnewton">mnewton</a></code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-mnewton">Package mnewton</a>
+</div>
+</p></dd></dl>
+
+<span id="newtonmaxiter"></span><span id="Item_003a-mnewton_002fdefvr_002fnewtonmaxiter"></span><dl>
+<dt id="index-newtonmaxiter">Option variable: <strong>newtonmaxiter</strong></dt>
+<dd><p>Default value: <code>50</code>
+</p>
+<p>Maximum number of iterations to stop the <code>mnewton</code> function
+if it does not converge or if it converges too slowly.
+</p>
+<p>See also <code><a href="#mnewton">mnewton</a></code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-mnewton">Package mnewton</a>
+</div>
+</p></dd></dl>
+
+<span id="mnewton"></span><span id="Item_003a-mnewton_002fdeffn_002fmnewton"></span><dl>
+<dt id="index-mnewton">Function: <strong>mnewton</strong> <em>(<var>FuncList</var>,<var>VarList</var>,<var>GuessList</var>)</em></dt>
+<dd>
+<p>Multiple nonlinear functions solution using the Newton method.
+<var>FuncList</var> is the list of functions to solve,
+<var>VarList</var> is the list of variable names, and
+<var>GuessList</var> is the list of initial approximations.
+</p>
+<p>The solution is returned in the same format that <code>solve()</code> returns.
+If the solution is not found, <code>[]</code> is returned.
+</p>
+<p>This function is controlled by global variables <code><a href="#newtonepsilon">newtonepsilon</a></code> and
+<code><a href="#newtonmaxiter">newtonmaxiter</a></code>.
+</p>
+<p>See also <code><a href="maxima_102.html#realroots">realroots</a></code>, <code><a href="maxima_102.html#allroots">allroots</a></code>, <code><a href="maxima_110.html#find_005froot">find_root</a></code> and
+<code><a href="maxima_110.html#newton">newton</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;mnewton&quot;)$
+
+(%i2) mnewton([x1+3*log(x1)-x2^2, 2*x1^2-x1*x2-5*x1+1],
+              [x1, x2], [5, 5]);
+(%o2) [[x1 = 3.756834008012769, x2 = 2.779849592817897]]
+(%i3) mnewton([2*a^a-5],[a],[1]);
+(%o3)             [[a = 1.70927556786144]]
+(%i4) mnewton([2*3^u-v/u-5, u+2^v-4], [u, v], [2, 2]);
+(%o4) [[u = 1.066618389595407, v = 1.552564766841786]]
+</pre></div>
+
+<p>The variable <code>newtonepsilon</code> controls the precision of the
+approximations.  It also controls if computations are performed with
+floats or bigfloats.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(mnewton)$
+
+(%i2) (fpprec : 25, newtonepsilon : bfloat(10^(-fpprec+5)))$
+
+(%i3) mnewton([2*3^u-v/u-5, u+2^v-4], [u, v], [2, 2]);
+(%o3) [[u = 1.066618389595406772591173b0, 
+                               v = 1.552564766841786450100418b0]]
+</pre></div>
+
+<p>To use this function write first <code>load(&quot;mnewton&quot;)</code>.
+See also <code><a href="#newtonepsilon">newtonepsilon</a></code> and <code><a href="#newtonmaxiter">newtonmaxiter</a></code>.
+</p>
+<div class=categorybox>
+
+<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-mnewton">Package mnewton</a>
+</div>
+</p></dd></dl>
+
+
+<span id="Item_003a-include_002dmaxima_002fnode_002fnumericalio_002dpkg"></span><hr>
 <div class="header">
 <p>
-Previous: <a href="maxima_282.html#Functions-and-Variables-for-plain_002dtext-input-and-output" accesskey="p" rel="prev">Functions and Variables for plain-text input and output</a>, Up: <a href="maxima_280.html#numericalio_002dpkg" accesskey="u" rel="up">numericalio-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<a name="Functions-and-Variables-for-binary-input-and-output-1"></a>
-<h3 class="section">74.3 Functions and Variables for binary input and output</h3>
-
-<a name="assume_005fexternal_005fbyte_005forder"></a><a name="Item_003a-numericalio_002fdeffn_002fassume_005fexternal_005fbyte_005forder"></a><dl>
-<dt><a name="index-assume_005fexternal_005fbyte_005forder"></a>Function: <strong>assume_external_byte_order</strong> <em>(<var>byte_order_flag</var>)</em></dt>
-<dd><p>Tells <code>numericalio</code> the byte order for reading and writing binary data.
-Two values of <var>byte_order_flag</var> are recognized:
-<code>lsb</code> which indicates least-significant byte first, also called little-endian byte order;
-and <code>msb</code> which indicates most-significant byte first, also called big-endian byte order.
-</p>
-<p>If not specified, <code>numericalio</code> assumes the external byte order is most-significant byte first.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-numericalio">Package numericalio</a>
-</div>
-</p></dd></dl>
-
-<a name="openr_005fbinary"></a><a name="Item_003a-numericalio_002fdeffn_002fopenr_005fbinary"></a><dl>
-<dt><a name="index-openr_005fbinary"></a>Function: <strong>openr_binary</strong> <em>(<var>file_name</var>)</em></dt>
-<dd><p>Returns an input stream of 8-bit unsigned bytes to read the file named by <var>file_name</var>.
-</p>
-<p>See also <code><a href="#openw_005fbinary">openw_binary</a></code> and <code><a href="maxima_329.html#openr">openr</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-numericalio">Package numericalio</a>
-
-<a href="maxima_364.html#Category_003a-File-input">File input</a>
-</div>
-</p></dd></dl>
-
-<a name="openw_005fbinary"></a><a name="Item_003a-numericalio_002fdeffn_002fopenw_005fbinary"></a><dl>
-<dt><a name="index-openw_005fbinary"></a>Function: <strong>openw_binary</strong> <em>(<var>file_name</var>)</em></dt>
-<dd><p>Returns an output stream of 8-bit unsigned bytes to write the file named by <var>file_name</var>.
-</p>
-<p>See also <code><a href="#openr_005fbinary">openr_binary</a></code>, <code><a href="#opena_005fbinary">opena_binary</a></code> and <code><a href="maxima_329.html#openw">openw</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-numericalio">Package numericalio</a>
-
-<a href="maxima_364.html#Category_003a-File-output">File output</a>
-</div>
-</p></dd></dl>
-
-<a name="opena_005fbinary"></a><a name="Item_003a-numericalio_002fdeffn_002fopena_005fbinary"></a><dl>
-<dt><a name="index-opena_005fbinary"></a>Function: <strong>opena_binary</strong> <em>(<var>file_name</var>)</em></dt>
-<dd><p>Returns an output stream of 8-bit unsigned bytes to append the file named by <var>file_name</var>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-numericalio">Package numericalio</a>
-
-<a href="maxima_364.html#Category_003a-File-output">File output</a>
-</div>
-</p></dd></dl>
-
-<a name="read_005fbinary_005fmatrix"></a><a name="Item_003a-numericalio_002fdeffn_002fread_005fbinary_005fmatrix"></a><dl>
-<dt><a name="index-read_005fbinary_005fmatrix"></a>Function: <strong>read_binary_matrix</strong> <em>(<var>S</var>, <var>M</var>)</em></dt>
-<dd><p>Reads binary 8-byte floating point numbers from the source <var>S</var> into the matrix <var>M</var>
-until <var>M</var> is full, or the source is exhausted.
-Elements of <var>M</var> are read in row-major order.
-</p>
-<p>The source <var>S</var> may be a file name or a stream.
-</p>
-<p>The byte order in elements of the source is specified by <code>assume_external_byte_order</code>.
-</p>
-<p>See also <code><a href="maxima_282.html#read_005fmatrix">read_matrix</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-numericalio">Package numericalio</a>
-
-<a href="maxima_364.html#Category_003a-File-input">File input</a>
-</div>
-</p></dd></dl>
-
-<a name="read_005fbinary_005farray"></a><a name="Item_003a-numericalio_002fdeffn_002fread_005fbinary_005farray"></a><dl>
-<dt><a name="index-read_005fbinary_005farray"></a>Function: <strong>read_binary_array</strong> <em>(<var>S</var>, <var>A</var>)</em></dt>
-<dd><p>Reads binary 8-byte floating point numbers from the source <var>S</var> into the array <var>A</var>
-until <var>A</var> is full, or the source is exhausted.
-<var>A</var> must be an array created by <code>array</code> or <code>make_array</code>.
-Elements of <var>A</var> are read in row-major order.
-</p>
-<p>The source <var>S</var> may be a file name or a stream.
-</p>
-<p>The byte order in elements of the source is specified by <code>assume_external_byte_order</code>.
-</p>
-<p>See also <code><a href="maxima_282.html#read_005farray">read_array</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-numericalio">Package numericalio</a>
-
-<a href="maxima_364.html#Category_003a-File-input">File input</a>
-</div>
-</p></dd></dl>
-
-<a name="read_005fbinary_005flist"></a><a name="Item_003a-numericalio_002fdeffn_002fread_005fbinary_005flist"></a><dl>
-<dt><a name="index-read_005fbinary_005flist"></a>Function: <strong>read_binary_list</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>read_binary_list</tt> (<var>S</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>read_binary_list</tt> (<var>S</var>, <var>L</var>)</em></dt>
-<dd>
-<p><code>read_binary_list(<var>S</var>)</code> reads the entire content of the source <var>S</var>
-as a sequence of binary 8-byte floating point numbers, and returns it as a list.
-The source <var>S</var> may be a file name or a stream.
-</p>
-<p><code>read_binary_list(<var>S</var>, <var>L</var>)</code> reads 8-byte binary floating point numbers
-from the source <var>S</var> until the list <var>L</var> is full, or the source is exhausted.
-</p>
-<p>The byte order in elements of the source is specified by <code>assume_external_byte_order</code>.
-</p>
-<p>See also <code><a href="maxima_282.html#read_005flist">read_list</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-numericalio">Package numericalio</a>
-
-<a href="maxima_364.html#Category_003a-File-input">File input</a>
-</div>
-</p></dd></dl>
-
-<a name="write_005fbinary_005fdata"></a><a name="Item_003a-numericalio_002fdeffn_002fwrite_005fbinary_005fdata"></a><dl>
-<dt><a name="index-write_005fbinary_005fdata"></a>Function: <strong>write_binary_data</strong> <em>(<var>X</var>, <var>D</var>)</em></dt>
-<dd>
-<p>Writes the object <var>X</var>, comprising binary 8-byte IEEE 754 floating-point numbers,
-to the destination <var>D</var>.
-Other kinds of numbers are coerced to 8-byte floats.
-<code>write_binary_data</code> cannot write non-numeric data.
-</p>
-<p>The object <var>X</var> may be a list, a nested list, a matrix,
-or an array created by <code>array</code> or <code>make_array</code>;
-<var>X</var> cannot be a hashed array or any other type of object.
-<code>write_binary_data</code> writes nested lists, matrices, and arrays in row-major order.
-</p>
-<p>The destination <var>D</var> may be a file name or a stream.
-When the destination is a file name,
-the global variable <code>file_output_append</code> governs
-whether the output file is appended or truncated.
-When the destination is a stream,
-no special action is taken by <code>write_binary_data</code> after all the data are written;
-in particular, the stream remains open.
-</p>
-<p>The byte order in elements of the destination
-is specified by <code>assume_external_byte_order</code>.
-</p>
-<p>See also <code><a href="maxima_282.html#write_005fdata">write_data</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_364.html#Category_003a-Package-numericalio">Package numericalio</a>
-
-<a href="maxima_364.html#Category_003a-File-output">File output</a>
-</div>
-</p></dd></dl>
-
-<a name="Item_003a-include_002dmaxima_002fnode_002fodepack_002dpkg"></a><hr>
-<div class="header">
-<p>
-Previous: <a href="maxima_282.html#Functions-and-Variables-for-plain_002dtext-input-and-output" accesskey="p" rel="prev">Functions and Variables for plain-text input and output</a>, Up: <a href="maxima_280.html#numericalio_002dpkg" accesskey="u" rel="up">numericalio-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_363.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_282.html" accesskey="p" rel="prev">Introduction to mnewton</a>, Up: <a href="maxima_281.html" accesskey="u" rel="up">mnewton-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 
