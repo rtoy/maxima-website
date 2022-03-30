@@ -1,286 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="HandheldFriendly" content="true">
-<meta name="copyright" content="© 2002–2017 Maxima CAS development team.">
-<meta name="keywords" content="Maxima, CAS, computer algebra, mathematics, Lisp, symbolic computation">
-<title>Maxima - user interface tips</title>
-<!-- This site uses Bootstrap http://getbootstrap.com -->
-<link rel="stylesheet" href="./css/bootstrap.min.css">
-<link rel="shortcut icon" href="./i/favicon.ico" media="all">
-<style>
-.mx-content {background:#f2f2f2;color:#333;padding: 0 1.5em 1.5em 1.5em;}
-</style>
+<meta name="description" content="Maxima is a fairly complete computer algebra system written in Lisp with an emphasis on symbolic computation. It is based on DOE-MACSYMA and licensed under the GPL free software license. Its abilities include symbolic integration, 3D plotting and solving differential equations.">
+<meta name="keywords" content="Maxima, CAS, computer algebra, mathematics, Lisp, symbolic computation, MACSYMA, GPL, free software, differential equations, plotting">
+<title>Maxima &ndash; user interface tips</title>
+<link rel="stylesheet" href="maxima.css">
+<link rel="icon" type="image/svg+xml" href="img/maxima.svg">
+<link rel="alternate icon" href="img/favicon.ico">
 </head>
-<body style="padding-top:50px;" id="top">
-<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
-<!-- Begin navigation bar -->
-<header class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>                        
-      </button>
-      <a href="./index.html" class="navbar-brand"
-      style="padding: 0 0.75rem 0 1.5rem"><img src="./i/logo.png" width="56"
-      height="56" alt="Maxima" title="Go to homepage"></a>
-    </div>
-    <nav class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="./download.html">Downloads</a></li>
-        <li><a href="./documentation.html">Documentation</a></li>
-        <li><a href="./project.html" >Project</a></li>
-        <li><a href="#top" >Page Top</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<!-- End navigation bar -->
-
-<!-- Begin page -->
-<div class="container-fluid">
-  <!-- Begin content row -->
-  <div class="row">
-    <!-- Begin content column -->
-    <div class="col-sm-9 col-md-8 mx-content" id="content">
-<h2 style="padding-top: 0; margin-top: 0">Maxima user interface tips</h2>
-<h3 style="margin-top: 0; padding-top: 0">
-<code>describe</code> shortcut</h3>
-<p>The <code>describe</code> command, e.g.,
-<code>describe(integrate);</code> can be shortened to “<code>?
+<body>
+<div class="header">
+<img style="float:left" src="img/maxima.svg">
+<h1>Maxima</h1>
+<p>A Computer Algebra System</p>
+</div>
+<div class="row">
+<div class="leftcolumn">
+<div class="card">
+<h2>Maxima user interface tips</h2>
+<h3><code>describe</code> shortcut</h3>
+<p>The <code>describe</code> command,
+e.g., <code>describe(integrate);</code> can be shortened to “<code>?
 </code>”, i.e., “<code>? integrate</code>”.</p>
 <p>Unfortunately, this shortcut contains two exceptions to Maxima's
 usual input rules:</p>
-<ul>
-<li>Unlike practically every other input line in Maxima, the line does
-not require a semi-colon or dollar sign to signify the end of the
-entry.</li>
-<li>The space is significant; “<code>?integrate</code>” has a separate
-meaning from “<code>? integrate</code>”; the former calls the Lisp
-function “<code>integrate</code>”.</li>
+<ul class="spacious">
+  <li>Unlike practically every other input line in Maxima, the line
+  does not require a semi-colon or dollar sign to signify the end of
+  the entry.</li>
+  <li>The space is significant; “<code>?integrate</code>” has a
+  separate meaning from “<code>? integrate</code>”; the former calls
+  the Lisp function “<code>integrate</code>”.</li>
 </ul>
-<h3>
-<code>:lisp</code> shortcut</h3>
+</div>
+<div class="card">
+<h3><code>:lisp</code> shortcut</h3>
 <p>Individual Lisp commands may be entered by starting the input line
-with “<code>:lisp</code>”. Ordinarily, one enters Lisp mode with
-<code>to_lisp()</code>:</p>
-<pre>(%i1) to_lisp();
+with “<code>:lisp</code>”. Ordinarily, one enters Lisp mode
+with <code>to_lisp()</code>:</p>
+<pre class="maxima">
+<span class="maxlabel">(%i1)</span> to_lisp();
 Type (to-maxima) to restart
 
 MAXIMA&gt; (format t "hello from lisp~%")
 hello from lisp
 NIL
 MAXIMA&gt; (setf foo 1)
-;
 Warning:  Declaring FOO special.
 1
 MAXIMA&gt; (to-maxima)
 Returning to Maxima
-(%o1)                                TRUE
-(%i2)</pre>
+<span class="maxlabel">(%o1)</span>                                TRUE
+</pre>
 <p>The above example is equivalent to</p>
-<pre>(%i1) :lisp (format t "hello from lisp~%")
+<pre class="maxima">
+<span class="maxlabel">(%i1)</span> :lisp (format t "hello from lisp~%")
 hello from lisp
 NIL
-(%i1) :lisp (setf foo 1)
+<span class="maxlabel">(%i1)</span> :lisp (setf foo 1)
 Warning:  Declaring FOO special.
 
 1
-(%i1)</pre>
-<p>Note that <code>:lisp</code> lines to not need to end with
+</pre>
+<p>Note that <code>:lisp</code> lines do not need to end with
 semi-colons or dollar signs.</p>
+</div>
+<div class="card">
 <h3>Input and output labels</h3>
-<p>Before Maxima 5.9.1, the input and output labels were
-<code>C1</code>, <code>C2</code>, etc. and <code>D1</code>,
+<p>Before Maxima 5.9.1, the input and output labels
+were <code>C1</code>, <code>C2</code>, etc. and <code>D1</code>,
 <code>D2</code>, etc., respectively. Starting with 5.9.1, the
 <code>C</code> and <code>D</code> characters have been changed to
 <code>%i</code> and <code>%o</code>. The prompts are customizable via
 the <code>inchar</code> and <code>outchar</code> variables.</p>
 <p>For example, the pre-5.9.1 behavior can be restored via</p>
-<pre>inchar:C; outchar:D;</pre>
+<pre class="maxima">
+inchar:C; outchar:D;
+</pre>
 <p>Even though the variable names imply that they should evaluate to a
 single character, the prompts may have arbitrary lengths. For
 example,</p>
-<pre>inchar:long_input_label; outchar:long_output_label;</pre>
+<pre class="maxima">
+inchar:long_input_label; outchar:long_output_label;
+</pre>
 <p>are also legal values.</p>
+</div>
+<div class="card">
 <h3>Re-enabling the Lisp debugger in Maxima</h3>
 <p>As of Maxima 5.9.1, Lisp errors will cause the user to be dumped
 into the Lisp debugger. The Lisp debugger can be re-enabled by setting
 the <code>*debugger-hook*</code> variable in Lisp to <code>nil</code>,
 i.e.,</p>
-<pre>(setf *debugger-hook* nil)</pre>
-<p>To restore Maxima's default behavior, set
-<code>*debugger-hook*</code> to point to the function
-<code>maxima-lisp-debugger</code>, i.e.,</p>
-<pre>(setf *debugger-hook* #'maxima-lisp-debugger)</pre>
+<pre class="maxima">
+(setf *debugger-hook* nil)
+</pre>
+<p>To restore Maxima's default behavior,
+set <code>*debugger-hook*</code> to point to the
+function <code>maxima-lisp-debugger</code>, i.e.,</p>
+<pre class="maxima">
+(setf *debugger-hook* #'maxima-lisp-debugger)
+</pre>
+</div>
+<div class="card">
 <h3>Environment variables</h3>
 <p>Maxima uses several environment variables. The following
 description comes from the man page:</p>
-<dl>
-<dt>
-<code>MAXIMA_USERDIR</code>
-</dt>
-<dd>Points to a directory for user customization files. Maxima's
-default search paths include <code>MAXIMA_USERDIR</code>. Default
-value: <code>$HOME/.maxima</code>.</dd>
-
-<dt>
-<code>MAXIMA_PREFIX</code>
-</dt>
-<dd>Maxima looks for its input files in the directory configured at
-compile time, <code>/home/amundson/opt/maxima</code>. Maxima can be
-relocated to a different directory as long as the Maxima script
-maintains the same relative position with respect to the Maxima input
-files. If, for some reason, the Maxima script needs to be relocated
-independently, <code>MAXIMA_PREFIX</code> needs to be set to point to
-the top of the tree holding the input files.</dd>
-
-<dt>
-<code>MAXIMA_DIRECTORY</code>
-</dt>
-<dd>
-<code>MAXIMA_DIRECTORY</code> is equivalent to
-<code>MAXIMA_PREFIX</code>. It is included only for backward
-compatibility with older versions of Maxima.</dd>
+<dl class="spacious">
+  <dt><code>MAXIMA_USERDIR</code></dt>
+  <dd>Points to a directory for user customization files. Maxima's
+  default search paths include <code>MAXIMA_USERDIR</code>. Default
+  value: <code>$HOME/.maxima</code>.</dd>
+  <dt><code>MAXIMA_PREFIX</code></dt>
+  <dd>Maxima looks for its input files in the directory configured at
+  compile time, <code>/home/amundson/opt/maxima</code>. Maxima can be
+  relocated to a different directory as long as the Maxima script
+  maintains the same relative position with respect to the Maxima
+  input files. If, for some reason, the Maxima script needs to be
+  relocated independently, <code>MAXIMA_PREFIX</code> needs to be set
+  to point to the top of the tree holding the input files.</dd>
+  <dt><code>MAXIMA_DIRECTORY</code></dt>
+  <dd>Equivalent to <code>MAXIMA_PREFIX</code>. It is included only
+  for backward compatibility with older versions of Maxima.</dd>
 </dl>
 <p>Maxima uses several other environment variables for communication
 between the Maxima script and the Lisp image. All such variables start
 with <code>MAXIMA_</code>. They should not need to be modified by the
 user.</p>
+</div>
+<div class="card">
 <h3>Customization files</h3>
-<p>Maxima checks for the presence of the files
-<code>maxima-init.lisp</code> and <code>maxima-init.mac</code> in the
-search path and loads them if available. The most logical place to put
-these files is in <code>MAXIMA_USERDIR</code>, as defined above.</p>
+<p>Maxima checks for the presence of the
+files <code>maxima-init.lisp</code> and <code>maxima-init.mac</code>
+in the search path and loads them if available. The most logical place
+to put these files is in <code>MAXIMA_USERDIR</code>, as defined
+above.</p>
 <p>An example <code>maxima-init.lisp</code> that re-enables the Lisp
 debugger:</p>
-<pre>(setf *debugger-hook* nil)
-(format t "*** My personal maxima-init.lisp has been loaded ***~%")</pre>
-<p>An example <code>maxima-init.mac</code> that enables gnuplot's
-<code>pm3d</code> mode:</p>
-<pre>set_plot_option([gnuplot_pm3d,true]);
-print("*** My very own personal maxima-init.mac has been loaded. ***");</pre>
+<pre class="maxima">
+(setf *debugger-hook* nil)
+(format t "*** My personal maxima-init.lisp has been loaded ***~%")
+</pre>
+<p>An example <code>maxima-init.mac</code> that enables
+gnuplot's <code>pm3d</code> mode:</p>
+<pre class="maxima">
+set_plot_option([gnuplot_pm3d,true]);
+print("*** My very own personal maxima-init.mac has been loaded. ***");
+</pre>
 <p>The <code>print</code>/<code>format</code> statements are useful
 for debugging. They can be removed once the init files are established
 to be working.</p>
+</div>
+<div class="card">
 <h3>Customizing the display of equations</h3>
 <p>The Maxima variables <code>display2d</code>, stardisp and linel
 allow for customization of the display of equations.</p>
-<p>
-<code>display2d</code> is a boolean controlling the formatting of
+<p><code>display2d</code> is a boolean controlling the formatting of
 displayed equations:</p>
-<pre>(%i1) display2d;
+<pre class="maxima">
+<span class="maxlabel">(%i1)</span> display2d;
 
-(%o1)                                TRUE
-(%i2) x/(y^2+z^2);
+<span class="maxlabel">(%o1)</span>                                TRUE
+<span class="maxlabel">(%i2)</span> x/(y^2+z^2);
 
                                        x
-(%o2)                               -------
+<span class="maxlabel">(%o2)</span>                               -------
                                      2    2
                                     z  + y
-(%i3) display2d:false;
+<span class="maxlabel">(%i3)</span> display2d:false;
 
-(%o3) FALSE
-(%i4) x/(y^2+z^2);
+<span class="maxlabel">(%o3)</span> FALSE
+<span class="maxlabel">(%i4)</span> x/(y^2+z^2);
 
-(%o4) x/(z^2+y^2)</pre>
-<p>
-<code>stardisp</code> controls whether spaces or <code>*</code>'s
+<span class="maxlabel">(%o4)</span> x/(z^2+y^2)
+</pre>
+<p><code>stardisp</code> controls whether spaces or <code>*</code>'s
 are used to represent multiplication:</p>
-<pre>(%i1) stardisp;
+<pre class="maxima">
+<span class="maxlabel">(%i1)</span> stardisp;
 
-(%o1)                                FALSE
-(%i2) a*b*c;
+<span class="maxlabel">(%o1)</span>                                FALSE
+<span class="maxlabel">(%i2)</span> a*b*c;
 
-(%o2)                                a b c
-(%i3) stardisp:true;
+<span class="maxlabel">(%o2)</span>                                a b c
+<span class="maxlabel">(%i3)</span> stardisp:true;
 
-(%o3)                                TRUE
-(%i4) a*b*c;
+<span class="maxlabel">(%o3)</span>                                TRUE
+<span class="maxlabel">(%i4)</span> a*b*c;
 
-(%o4)                                a*b*c</pre>
+<span class="maxlabel">(%o4)</span>                                a*b*c
+</pre>
 <p>
 <code>linel</code> controls the number of characters per line:</p>
-<pre>(%i1) linel;
+<pre class="maxima">
+<span class="maxlabel">(%i1)</span> linel;
 
-(%o1)                                 79
-(%i2) ratexpand((x+y+z)^3);
+<span class="maxlabel">(%o1)</span>                                 79
+<span class="maxlabel">(%i2)</span> ratexpand((x+y+z)^3);
 
        3        2        2      2                  2      3        2      2
-(%o2) z  + 3 y z  + 3 x z  + 3 y  z + 6 x y z + 3 x  z + y  + 3 x y  + 3 x  y
+<span class="maxlabel">(%o2)</span> z  + 3 y z  + 3 x z  + 3 y  z + 6 x y z + 3 x  z + y  + 3 x y  + 3 x  y
 
                                                                               3
                                                                            + x
-(%i3) linel:40;
+<span class="maxlabel">(%i3)</span> linel:40;
 
-(%o3)              40
-(%i4) ratexpand((x+y+z)^3);
+<span class="maxlabel">(%o3)</span>              40
+<span class="maxlabel">(%i4)</span> ratexpand((x+y+z)^3);
 
        3        2        2      2
-(%o4) z  + 3 y z  + 3 x z  + 3 y  z
+<span class="maxlabel">(%o4)</span> z  + 3 y z  + 3 x z  + 3 y  z
 
                 2      3        2
  + 6 x y z + 3 x  z + y  + 3 x y
 
       2      3
- + 3 x  y + x</pre>
-    </div>
-    <!-- End content column -->
-    <!-- Begin info and menu column -->
-    <div class="col-sm-3 col-md-4 hidden-print">
-      <!-- Begin menu list -->
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="./index.html">Home</a></li>
-        <li class="dropdown"><a class="dropdown-toggle"
-        data-toggle="dropdown" href="./documentation.html">Documentation
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="./documentation.html">Maxima Documentation</a></li>
-          <li><a href="./faq.html">FAQ</a></li>
-          <li><a href="./compalg.html">Computer Algebra Systems</a></li>
-          <li><a href="./lisp.html">Lisp Links</a></li>
-        </ul>
-        </li>
-        <li class="dropdown"><a class="dropdown-toggle"
-        data-toggle="dropdown" href="./project.html">Project
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="./project.html">Maxima project</a></li>
-          <li><a href="3rdpartycode">Third Party Code</a></li>
-          <li><a href="./relatedprojects.html">Related Projects</a></li>
-        </ul>
-        </li>
-        <li><a href="./download.html">Download</a></li>
-        <li><a href="./maximalist.html">Mailing Lists</a></li>
-      </ul>
-      <!-- End menu list -->
-    </div>
-    <!-- End info and menu column -->
-  </div>
-  <!-- End content row -->
++ 3 x  y + x
+</pre>
 </div>
-<!-- End page -->
-<br>
-<!-- Begin project info -->
-<footer>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-9 col-md-8 text-center">
-        <p>Questions about Maxima or this site: <a href="./maximalist.html">mailing
-        list</a></p>
-        <p><a href="https://sourceforge.net/projects/maxima" >Hosted at
-        Sourceforge</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- End project info -->
-<!-- Scripts section -->
-<script src="./js/jquery.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
+</div>
+<div class="rightcolumn">
+<div class="menu">
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="documentation.html">Documentation</a></li>
+  <li><a href="download.html">Downloads</a></li>
+  <li><a href="project.html">The Maxima Project</a></li>
+  <li><a href="maximalist.html">Mailing Lists</a></li>
+  <li><a href="faq.html">FAQ</a></li>
+  <li><a href="compalg.html">Computer Algebra Systems</a></li>
+  <li><a href="lisp.html">Maxima and Lisp</a></li>
+  <li><a href="3rdpartycode.html">Third Party Code</a></li>
+  <li><a href="relatedprojects.html">Related Projects</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Any questions about Maxima or this site should be asked in
+the <a href="maximalist.html">mailing list</a>.</p>
+<span>Last modification: 2022/03/29 11:22:57 UTC</span>
+</div>
 </body>
 </html>
