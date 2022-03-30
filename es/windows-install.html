@@ -1,171 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="HandheldFriendly" content="true">
-<meta name="copyright" content="© 2002–2019 Maxima CAS development team.">
-<meta name="keywords" content="Maxima, CAS, álgebra computacional, matemáticas, Lisp, computación simbólica">
-<title>Maxima - Instalación en Windows</title>
-<!-- This site uses Bootstrap http://getbootstrap.com -->
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="shortcut icon" href="../i/favicon.ico" media="all">
-<style type="text/css">
-.mx-content {background:#f2f2f2;color:#333;padding: 0 1.5em 1.5em 1.5em;}
-</style>
+<meta name="description" content="Maxima es un sistema de álgebra computacional bastante completo, escrito en Lisp, con énfasis en computación simbólica. Ha sido basado en el programa DOE-MACSYMA y se distribuye bajo la licencia de software libre GPL. Sus funcionalidades incluyen integración simbólica, gráficas 3D y resolución de ecuaciones diferenciales.">
+<meta name="keywords" content="Maxima, CAS, álgebra computacional, matemáticas, Lisp, computación simbólica, MACSYMA, GPL, software libre, ecuaciones diferenciales, gráficas">
+<title>Maxima &ndash; Instalación en Windows</title>
+<link rel="stylesheet" href="../maxima.css">
+<link rel="icon" type="../image/svg+xml" href="img/maxima.svg">
+<link rel="alternate icon" href="../img/favicon.ico">
 </head>
-<body style="padding-top:50px;" id="top">
-<a class="sr-only sr-only-focusable" href="#content">Saltar hasta el
-contenido principal</a>
-<!-- Begin navigation bar -->
-<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>                        
-      </button>
-      <a href="./index.html" class="navbar-brand"
-      style="padding: 0 0.75rem 0 1.5rem"><img src="../i/logo.png" width="56"
-      height="56" alt="Maxima" title="Go to homepage"></a>
-    </div>
-    <nav class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="./download.html">Descargar</a></li>
-        <li><a href="./documentation.html">Documentos</a></li>
-        <li><a href="./project.html">Proyecto</a></li>
-        <li><a href="#top" >Inicio de página</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<!-- End navigation bar -->
-<!-- Begin language menu -->
+<body>
+<div class="header">
+<img style="float:left" src="../img/maxima.svg">
+<h1>Maxima</h1>
+<p>Un sistema de álgebra computacional</p>
+</div>
+<div class="topnav">
+<a href="../windows-install.html">English</a>
+<a href="../pt/windows-install.html">Português</a>
+</div>
 <div class="row">
-  <p>&emsp;&emsp;Otros idiomas:
-    &nbsp;&nbsp;<a href="../windows-install.html">English</a>
-    &nbsp;&bullet;&nbsp;<a href="../pt/windows-install.html">Português</a>
-  </p>
+<div class="leftcolumn">
+<div class="card">
+<h2>Instalación en Windows</h2>
+<ol class="spacious">
+  <li>Descargue la versión mas reciente, que actualmente se encuentra
+  en: <a href="https://sourceforge.net/projects/maxima/files/Maxima-Windows/5.45.1-Windows/">5.45.1-Windows</a>. Deberá
+  descargar el primer fichero en la lista, que termina
+  en <code>win64.exe</code>, a menos que tenga una CPU muy antigua
+  para la cual necesitará la versión <code>win32.exe</code>.</li>
+  <li>Ponga a correr el fichero que descargó para iniciar el proceso
+  de instalación. Podrá demorar algún tiempo, porque el programa
+  instalador también instalará otros programas adicionales
+  independientes de Maxima.</li>
+  <li>Una vez concluido el proceso de instalación, busque el
+  directorio donde fue instalado Maxima, que será algo semejante
+  a: <code>C:\\maxima_5.45.1</code>. En ese directorio deberá existir
+  un subdirectorio <code>bin</code>, que contiene los programas
+  instalados.  Antes de ejecutar cualquiera de esos programas,
+  confirme que su antivirus ignorará los programas en ese
+  directorio. Si no está seguro de que así será, cree entonces una
+  copia del subdirectorio completo en outra parte del disco. Ocurre
+  muy a menudo que después de la primera ejecución de Maxima, el
+  antivirus elimina el programa por considerarlo un virus. La copia de
+  seguridad le permitirá recuperar el fichero eliminado, sin tener que
+  instalar Maxima nuevamente.</li>
+  <li>Antes de poner Maxima a correr, ejecute el
+  programa <strong>lispselector</strong> que encontrará en el mismo
+  directorio referido en el paso anterior. Seleccione
+  &quot;SBCL&quot;, que resolverá varios errores que pueden surgir
+  cuando se usa la versión &quot;Clisp&quot; que viene activa por
+  defecto.</li>
+  <li>Ensaye las tres interfaces de Maxima que encontrará en el
+  directorio <code>bin</code>: <strong>Maxima por línea de
+  comandos</strong>, <strong>Xmaxima</strong>
+  y <strong>Wxmaxima</strong>. Confirme que aparece el puntero
+  inicial <code>%i1</code> y que puede ejecutar comandos básicos de
+  Maxima.</li>
+  <li>Para confirmar que Maxima también puede acceder los programas
+  gráficos que utiliza, ejecute los dos comandos siguientes, que
+  deberán producir gráficas:
+  <pre class="maxima">
+  plot2d (x, [x,0,1]);
+  plotdf ([y,-x]);</pre></li>
+</ol>
 </div>
-<!-- End language menu -->
-<!-- Begin page -->
-<div class="container-fluid">
-  <!-- Begin content row -->
-  <div class="row">
-    <!-- Begin content column -->
-    <div class="col-sm-9 col-md-8 mx-content" id="content">
-      <h1>Instalación de Maxima en Windows</h1>
-      <ol>
-        <li>Descargue la versión mas reciente, que actualmente se encuentra en:
-          <a href="https://sourceforge.net/projects/maxima/files/Maxima-Windows/5.45.1-Windows/">5.45.1-Windows</a>. Deberá
-          descargar el primer fichero en la lista, que termina en
-          <code>win64.exe</code>, a menos que tenga una CPU muy antigua
-          para la cual necesitará la versión <code>win32.exe</code>.</li>
-        <li>Ponga a correr el fichero que descargó para iniciar el proceso de
-          instalación. Podrá demorar algún tiempo, porque el programa
-          instalador también instalará otros programas adicionales
-          independientes de Maxima.</li>
-        <li>Una vez concluido el proceso de instalación, busque el directorio
-          donde fue instalado Maxima, que será algo semejante a:
-          <code>C:\\maxima_5.45.1</code>. En ese directorio deberá existir un
-          subdirectorio <code>bin</code>, que contiene los programas instalados.
-          Antes de ejecutar cualquiera de esos programas, confirme que su
-          antivirus ignorará los programas en ese directorio. Si no está
-          seguro de que así será, cree entonces una copia del subdirectorio
-          completo en outra parte del disco. Ocurre muy a menudo que
-          después de la primera ejecución de Maxima, el antivirus elimina el
-          programa por considerarlo un virus. La copia de seguridad le
-          permitirá recuperar el fichero eliminado, sin tener que instalar
-          Maxima nuevamente.</li>
-        <li>Antes de poner Maxima a correr, ejecute el programa
-          <strong>lispselector</strong> que encontrará en el mismo directorio
-          referido en el paso anterior. Seleccione &quot;SBCL&quot;,
-          que resolverá varios errores que pueden surgir cuando se usa la
-          versión &quot;Clisp&quot; que viene activa por defecto.</li>
-        <li>Ensaye las tres interfaces de Maxima que encontrará en el
-          directorio <code>bin</code>:
-          <strong>Maxima por línea de comandos</strong>,
-          <strong>Xmaxima</strong> y <strong>Wxmaxima</strong>. Confirme
-          que aparece el puntero inicial <code>%i1</code> y que puede
-          ejecutar comandos básicos de Maxima.</li>
-        <li>Para confirmar que Maxima también puede acceder los programas
-          gráficos que utiliza, ejecute los dos comandos siguientes, que
-          deberán producir gráficas:<br>
-          <pre>
-            plot2d (x, [x,0,1]);
-            plotdf ([y,-x]);</pre>
-    </div>
-    <!-- End content column -->
-    <!-- Begin info and menu column -->
-    <div class="col-sm-3 col-md-4 hidden-print">
-      <!-- Begin info panel -->
-      <div class="panel panel-default text-info">
-        <div class="panel-heading">
-          <h4 class="panel-title">Versiones Recientes</h4>
-        </div>
-        <div class="panel-body bg-info" id="releases">
-          <p>Para ver las modificaciones principales, haga clic en el
-            número de la versión.</p>
-          <p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.45.1.md">5.45.1</a>: 21 de junio de 2021</p>
-          <p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.45.md">5.45.0</a>: 24 de mayo de 2021</p>
-          <p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.44.md">5.44.0</a>: 8 de mayo junio 2020</p>
-          <p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.43.md">5.43.0</a>: 31 de mayo de 2019</p>
-	  <p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.42.md">5.42.2</a>: 22 de enero de 2019</p>
-	  <p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.41.md">5.41.0</a>: 3 de octubre de 2017</p>
-	  <p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.40.md">5.40.0</a>: 30 de mayo de 2017</p>
-        </div>
-      </div>
-      <!--End info panel -->
-      <!-- Begin menu list -->
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="./index.html">Página principal</a></li>
-        <li class="dropdown"><a class="dropdown-toggle"
-        data-toggle="dropdown" href="./documentation.html">Documentos
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="./documentation.html">Manuales</a></li>
-          <li><a href="../faq.html">Preguntas Frecuentes</a></li>
-          <li><a href="./compalg.html">Algebra Computacional</a></li>
-          <li><a href="../lisp.html">Acerca de Lisp</a></li>
-        </ul>
-        </li>
-        <li class="dropdown"><a class="dropdown-toggle"
-        data-toggle="dropdown" href="./project.html">Proyecto
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="./project.html">Proyecto Maxima</a></li>
-          <li><a href="../3rdpartycode.html">Código de terceros</a></li>
-          <li><a href="./relatedprojects.html">Proyectos afines</a></li>
-        </ul>
-        </li>
-        <li><a href="./download.html">Descargar</a></li>
-        <li><a href="../maximalist.html">Listas de correo</a></li>
-      </ul>
-      <!-- End menu list -->
-    </div>
-    <!-- End info and menu column -->
-  </div>
-  <!-- End content row -->
 </div>
-<!-- End page -->
-<br>
-<!-- Begin project info -->
-<footer role="contentinfo">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-9 col-md-8 text-center">
-        <p>Preguntas sobre Maxima o este sitio: <a href="../maximalist.html">listas de correo</a></p>
-        <p><a href="https://sourceforge.net/projects/maxima">Alojado en
-        Sourceforge</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- End project info -->
-<!-- Scripts section -->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<div class="rightcolumn">
+<div class="menu">
+<ul>
+  <li><a href="index.html">Página principal</a></li>
+  <li><a href="../download.html">Download</a></li>
+  <li><a href="documentation.html">Manuales</a></li>
+  <li><a href="project.html">El proyecto Maxima</a></li>
+  <li><a href="../maximalist.html">Mailing Lists</a></li>
+  <li><a href="../faq.html">FAQ</a></li>
+  <li><a href="compalg.html">Algebra Computacional</a></li>
+  <li><a href="lisp.html">Maxima y Lisp</a></li>
+  <li><a href="3rdpartycode.html">Código de terceros</a></li>
+  <li><a href="relatedprojects.html">Proyectos afines</a></li>
+</ul>
+</div>
+<div class="card">
+<h3>Versiones Recientes</h3>
+<p>Para ver las modificaciones principales, haga clic sobre el número
+de la versión.</p>
+<p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.45.1.md">5.45.1</a>:
+21 de junio de 2021</p>
+<p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.45.md">5.45.0</a>:
+24 de mayo de 2021</p>
+<p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.44.md">5.44.0</a>:
+8 de junio de 2020</p>
+<p>5.43.2: 27 de enero de 2020</p>
+<p>5.43.1: 20 de enero de 2020</p>
+<p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.43.md">5.43.0</a>:
+31 de mayo de 2019</p>
+<p><a href="https://sourceforge.net/p/maxima/code/ci/master/tree/changelogs/ChangeLog-5.42.md">5.42.2</a>: 22 de enero de 2019</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Cualquier pregunta sobre Maxima o este sitio puede ser enviada para la
+<a href="maximalist.html">lista de correo</a>.</p>
+<span>Ultima modificación: 2022/03/29 15:41:58 UTC</span>
+</div>
 </body>
 </html>

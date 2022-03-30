@@ -1,226 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="HandheldFriendly" content="true">
-<meta name="copyright" content="© 2002–2015 Maxima CAS development team.">
-<meta name="keywords" content="Maxima, BCS, Bilgisayar Cebiri, Matematik, Lisp, Sembolik Hesaplama">
-<title>Maxima - Lisp Implementations</title>
-<!-- This site uses Bootstrap http://getbootstrap.com -->
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="shortcut icon" href="../i/favicon.ico" media="all">
-<style type="text/css">
-.mx-content {background:#f2f2f2;color:#333;padding: 0 1.5em 1.5em 1.5em;}
-</style>
+<meta name="description" content="Maxima sembolik hesaplama yeteneği
+ön plana çıkan, hemen hemen eksiksiz bir Bilgisayar Cebiri
+Sitemidir. Lisp dilinde yazılmıştır.  Maxima'nın temelini DOE-MACSYMA
+oluşturur ve GPL (General Public License= Genel Kanu Lisansı) özgür
+yazılım lisanslıdır.  Yetenkleri arasında sembolik İntegral
+hesaplamaları, 3 boyutlu grafik çizmi ve diferansiyel denklemlerin
+çöüzleri sayılabilir.">
+<meta name="keywords" content="Maxima, BCS, bilgisayar cebiri,
+matematik, Lisp, sembolik hesaplama, MACSYMA, GPL, özgür yazılım,
+diferansiyel denklemler, grafik çizimi">
+<title>Maxima'nın Lisp Uygulamaları</title>
+<link rel="stylesheet" href="../maxima.css">
+<link rel="icon" type="../image/svg+xml" href="img/maxima.svg">
+<link rel="alternate icon" href="../img/favicon.ico">
 </head>
-<body style="padding-top:50px;" id="top">
-<a class="sr-only sr-only-focusable" href="#content">Ana Menüye Geç</a>
-<!-- Begin navigation bar -->
-<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>                        
-      </button>
-      <a href="./index.html" class="navbar-brand"
-      style="padding: 0 0.75rem 0 1.5rem"><img src="../i/logo.png" width="56"
-      height="56" alt="Maxima"></a>
-    </div>
-    <nav class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="./download.html">İndir</a></li>
-        <li><a href="./documentation.html">Belgeler</a></li>
-        <li><a href="./project.html">Proje</a></li>
-        <li><a href="#top">Sayfa Başı</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<!-- End navigation bar -->
-<!-- Begin language menu -->
+<body>
+<div class="header">
+<img style="float:left" src="../img/maxima.svg">
+<h1>Maxima</h1>
+<p>Bir Bilgisayar Cebiri Sistemi</p>
+</div>
+<div class="topnav">
+<a href="../lisp.html">English</a>
+<a href="../es/lisp.html">Español</a>
+<a href="../ru/lisp.html">Русский</a>
+</div>
 <div class="row">
-  <p>&emsp;&emsp;Diğer diller:
-    &nbsp;&nbsp;<a href="../lisp.html">English</a>
-  </p>
+<div class="leftcolumn">
+<div class="card">
+<h2>Maxima'nın Lisp Uygulamaları</h2>
+<p>Maxima, SBCL, Clisp, CCL, GCL, CMUCL, ECL, Scieneer Common Lisp
+(SCL) ve Allegro Common Lisp (ACL) ile derlenebilir.</p>
+<p>Diğer "ANSI Common Lispleri" ne olan portlar sade-kolay olmalıdır
+ve eğer bir port üzerinde
+çalışıyorsanız <a href="/maximalist.html">Maxima E-posta Listesi</a>
+'ne ileti gönderebilirsiniz.</p>
+<p>Maxima derlendiğinde, <code>--enable-foolisp</code> formundaki bir
+argümanın komut dosyasına girilmesiyle ,"Lip uygulaması"
+seçilir. Burada &quot;foolisp&quot; lisp uygulmasının
+adıdır. <code>./configure --help</code>, (diğer seçenekler
+arasından) <code>configure</code>tarafından kabul edilmiş olan lisp
+uygulamalarının listesini gösterir.  Lisp türünü her zaman belirtin;
+"Configure" belirtilmemişse, Lisp türünü otomatik olarak denetlemeye
+çalışır.  Ancak otomatik denetlemenin hata verdiğini söyleyen
+bildirimler olmuştur.</p>
+<p>Clisp, SBCL ya da CMUCL kullanıldığında derlenmiş olan bir 'Maxima
+görseli' işlenebilir hale getirilebilir (kullanılan Lisp programının
+otonom kopyası gömülerek). İşlenebilir bir görsel (image) oluşturmak
+için <code>-exec</code> son eki <code>configure</code> "programı
+yapılandır"ının <code>--enable-foolisp</code> seçeneğine yazılarak
+eklenmelidir.</p>
+<p>Hız, bellek kullanımı,hata düzeltme komut satırı düzenleme ve
+yabancı fonksiyonlar arayüzü desteği gibi özelliklerle lisp
+uygulamaları çok farklı özelliklere sahiptir.Bazı lisp uygulamaları
+önceden kullanılan komutların geri çağırılarak tekrar kullanılmasına
+ve düzenlemesine olanak sağlayan "GNU Readline Library"'ı kullanır.
+Bu yeteneklere sahip olmayan uygulamalar için, Maxima'nın
+bünyesinde <a href="https://github.com/hanslub42/rlwrap">rlwrap</a>
+aracılığıyla satır-düzenleyici özellikleri
+bulunan <code>rmaxima</code> önyüzü bulunur.</p>
+<h3>SBCL</h3>
+<p><a href="http://www.sbcl.org/">Steel Bank Common Lisp</a> SBCL,
+CMUCL'ın kaynak kodları kullanılarak geliştirilmiş (fork=çatal) çok
+küçük ama önemli farklılıkları olan bir türevidir.  SBCL'i tekrar
+kurmak CMUCL'dan kolaydır.Linux,bir kaç BSD sistemi Solaris, Mac OS X
+ve MS Windows için SBCL uygulamaları vardır.</p>
+<p><code>rmaxima</code> 'nın SBCL ile kullanımı önerilir.</p>
+<h3>Clisp</h3>
+<p><a href="http://clisp.cons.org/">Clisp</a> "GNU Readline" desteği
+sayesinde, Clisp ile kurulduğunda, Maxima, gelişmiş komut satırı
+düzenleme yeteneklerine sahip olur.</p>
+<p>Clisp bayt-kodlarına dönüştürülür, sonuç olarak Clisp ile çalışan
+makine komutlarına dönüştürülen lisp komutlarına göre Maxima büyük
+ölçüde yavaş çalışır.  Clisp kayan sayı işlemlerini yazılım içinde
+hesaplar bunun sonucunda, Clisp ile kayan sayı işlemleri, bu işlemleri
+donanım komutlarıyla yapan Lisp uygulamalarına göre daha yavaş
+gerçekleşir.Öte yandan, Clisp, keyfi duyarlık tamsayı hesaplamaları
+(arbitrary-precision integer) için GMP kütüphanesini kullanır.</p>
+<p>MS Windows ve Unix-benzeri sistemler gibi daha bir çok platformlar
+için Clisp uygulamaları vardır.</p>
+<h3>GCL</h3>
+<p><a href="http://www.gnu.org/software/gcl/">GCL</a> 2.4.3 ile
+başlayan versiyonlar <code>readline</code> desteği ile
+kurulabilir. GCL ile kurulan Maxima gelişmiş komut satırı düzenleme
+yetenekleri kazanmış olur. GCL sayesinde Maxima daha hızlı işlem
+yapar.</p>
+<p>GCL'nin sadece ANSI ile uyumlu olan versiyonları Maxima ile
+çalışır.Bu yüzden GCL kurulduğunda <code>--enable-ansi</code> ile
+yapılandırılmaldır; yani yapılandırma
+kılavuzundaki <code>make</code>'ı çalıştırmadan önce <code>./configure
+--enable-ansi</code> yapılandırılmalıdır.  GCL ANSI uyumlu olup
+olmadığı ya da GCL çalıştığında ortaya çıkan başlığa bakarak
+anlaşılabilir.  Eğer ANSI uyumlu ise başlıkta "ANSI" görülmelidir.  Ek
+olarak, <code>FEATURES</code> özel değişkeni <code>:ANSI-CL</code>
+anahtar kelimesini içermelidir.</p>
+<p>MS Windows ve Unix-benzeri sistemler gibi daha bir çok platformlar
+için GCL uygulamaları vardır.</p>
+<h3>CCL</h3>
+<p><a href="http://ccl.clozure.com/">Clozure Common Lisp</a>, ya da
+kısaca CCL; eskiden OpenMCL olarak bilinirdi.  Linux MS Windows ve
+Macintosh için versiyonları vardır ve Maxima CCL ile derlenebilir.</p>
+<h3>CMUCL</h3>
+<p><a href="http://www.cons.org/cmucl/">CMUCL</a> Maxima'nın bulunduğu
+platformlar arasında hızı ile öne çıkan bir seçenektir. CMUCL 'un 18e
+ve 19a versiyonları hali hazırda kullanılmaktadır.CMUL 'un Unix ve
+benzeri platfromlarda çalışan uygulamaları vardır. (Windows'ta
+çalışmaz) </p> CMUL ile çalışmak için <p><code>rmaxima</code>
+önerilir.</p>
+<h3>ECL</h3>
+<p><a href="http://ecls.sourceforge.net/" >ECL</a> küçük fakat
+tamamlanmış bir Common Lisp uygulamasıdır.  Maxima'nı Android portu
+ECL ile oluşturulmuştur.</p>
+<h3>SCL ve Allegro CL</h3>
+<p><a href="http://www.scieneer.com/scl/">Scieneer Common Lisp</a>
+(SCL) bir dizi Linux ve Unix platformları için "hızlı bir alternatif"
+tir. <a href="http://franz.com/products/allegrocl/">Allegro Common
+Lisp</a> nesne tabanlı bir sistemdir.SCL 1.2.8 ve sonraki sürümleri
+desteklenir.  SCL sembol isimlerinde Maxima'da yaşanan harf boyutu
+sorunlarına çözümler sunan küçük\büyük harfe duyarlı bir
+versiyondur.Maxima bu iki Lisp uygulaması ile de derlenebilir.  ancak
+ticari olduğundan dolayı çok az test yapılmıştır.</p>
+<h3>Yararlı Lisp Siteleri</h3>
+<dl class="spacious">
+  <dt><a href="http://www.cliki.net/Common%20Lisp%20implementation">Common Lisp implementation</a></dt>
+  <dd>Geliştirilmekte olan Common Lisp uygulamalarının
+  karşılaştırılması</dd>
+  <dt><a href="http://www.lispworks.com/documentation/lw50/CLHS/Front/Contents.htm">CLHS</a></dt>
+  <dd>The Common Lisp Hyper Specification.</dd>
+  <dt><a href="http://common-lisp.net/tutorials/" >Common Lisp
+  Tutorials</a></dt>
+  <dd>Lisp öğrenmeye başlamak isteyenler için</dd>
+  <dt><a href="http://www.cliki.net/">CLiki</a></dt>
+  <dd>Kullanıcılar tarafından hazırlanmış Lisp Bilgi Linkleri</dd>
+</dl>
 </div>
-<!-- End language menu -->
-<!-- Begin page -->
-<div class="container-fluid">
-  <!-- Begin content row -->
-  <div class="row">
-    <!-- Begin content column -->
-    <div class="col-sm-9 col-md-8 mx-content" id="content">
-      <h1>Maxima'nın Lisp Uygulamaları</h1>
-      <p>Maxima, SBCL, Clisp, CCL, GCL, CMUCL, ECL, Scieneer Common
-      Lisp (SCL) ve Allegro Common Lisp (ACL) ile derlenebilir.</p>
-      <p>Diğer "ANSI Common Lispleri" ne olan portlar sade-kolay
-      olmalıdır ve eğer bir port üzerinde
-      çalışıyorsanız <a href="/maximalist.html">Maxima E-posta
-      Listesi</a> 'ne ileti gönderebilirsiniz.</p>
-      <p>Maxima derlendiğinde, <code>--enable-foolisp</code>
-      formundaki bir argümanın komut dosyasına girilmesiyle ,"Lip
-      uygulaması" seçilir. Burada &quot;foolisp&quot; lisp
-      uygulmasının adıdır. <code>./configure --help</code>, (diğer
-      seçenekler arasından) <code>configure</code>tarafından kabul
-      edilmiş olan lisp uygulamalarının listesini gösterir.  Lisp
-      türünü her zaman belirtin; "Configure" belirtilmemişse, Lisp
-      türünü otomatik olarak denetlemeye çalışır.  Ancak otomatik
-      denetlemenin hata verdiğini söyleyen bildirimler olmuştur.</p>
-      <p>Clisp, SBCL ya da CMUCL kullanıldığında derlenmiş olan bir
-      'Maxima görseli' işlenebilir hale getirilebilir (kullanılan Lisp
-      programının otonom kopyası gömülerek). İşlenebilir bir görsel
-      (image) oluşturmak için <code>-exec</code> son
-      eki <code>configure</code> "programı
-      yapılandır"ının <code>--enable-foolisp</code> seçeneğine
-      yazılarak eklenmelidir.</p>
-      <p>Hız, bellek kullanımı,hata düzeltme komut satırı düzenleme ve
-      yabancı fonksiyonlar arayüzü desteği gibi özelliklerle lisp
-      uygulamaları çok farklı özelliklere sahiptir.Bazı lisp
-      uygulamaları önceden kullanılan komutların geri çağırılarak
-      tekrar kullanılmasına ve düzenlemesine olanak sağlayan "GNU
-      Readline Library"'ı kullanır.  Bu yeteneklere sahip olmayan
-      uygulamalar için, Maxima'nın
-      bünyesinde <a href="https://github.com/hanslub42/rlwrap">rlwrap</a>
-      aracılığıyla satır-düzenleyici özellikleri
-      bulunan <code>rmaxima</code> önyüzü bulunur.</p>
-      <h2><abbr title="Steel Bank Common Lisp">SBCL</abbr></h2>
-      <p><a href="http://www.sbcl.org/">Steel Bank Common Lisp</a>
-      SBCL, CMUCL'ın kaynak kodları kullanılarak geliştirilmiş
-      (fork=çatal) çok küçük ama önemli farklılıkları olan bir
-      türevidir.  SBCL'i tekrar kurmak CMUCL'dan kolaydır.Linux,bir
-      kaç BSD sistemi Solaris, Mac OS X ve MS Windows için SBCL
-      uygulamaları vardır.</p>
-      <p><code>rmaxima</code> 'nın SBCL ile kullanımı önerilir.</p>
-      <h2>Clisp</h2>
-      <p><a href="http://clisp.cons.org/">Clisp</a> "GNU Readline"
-      desteği sayesinde, Clisp ile kurulduğunda, Maxima, gelişmiş
-      komut satırı düzenleme yeteneklerine sahip olur.</p>
-      <p>Clisp bayt-kodlarına dönüştürülür, sonuç olarak Clisp ile
-      çalışan makine komutlarına dönüştürülen lisp komutlarına göre
-      Maxima büyük ölçüde yavaş çalışır.  Clisp kayan sayı işlemlerini
-      yazılım içinde hesaplar bunun sonucunda, Clisp ile kayan sayı
-      işlemleri, bu işlemleri donanım komutlarıyla yapan Lisp
-      uygulamalarına göre daha yavaş gerçekleşir.Öte yandan, Clisp,
-      keyfi duyarlık tamsayı hesaplamaları (arbitrary-precision
-      integer) için GMP kütüphanesini kullanır.</p>
-      <p>MS Windows ve Unix-benzeri sistemler gibi daha bir çok
-      platformlar için Clisp uygulamaları vardır.</p>
-      <h2><abbr title="GNU Common Lisp">GCL</abbr></h2>
-      <p><a href="http://www.gnu.org/software/gcl/">GCL</a> 2.4.3 ile
-      başlayan versiyonlar <code>readline</code> desteği ile
-      kurulabilir. GCL ile kurulan Maxima gelişmiş komut satırı
-      düzenleme yetenekleri kazanmış olur. GCL sayesinde Maxima daha
-      hızlı işlem yapar.</p>
-      <p>GCL'nin sadece ANSI ile uyumlu olan versiyonları Maxima ile
-      çalışır.Bu yüzden GCL kurulduğunda <code>--enable-ansi</code>
-      ile yapılandırılmaldır; yani yapılandırma
-      kılavuzundaki <code>make</code>'ı çalıştırmadan
-      önce <code>./configure --enable-ansi</code> yapılandırılmalıdır.
-      GCL ANSI uyumlu olup olmadığı ya da GCL çalıştığında ortaya
-      çıkan başlığa bakarak anlaşılabilir.  Eğer ANSI uyumlu ise
-      başlıkta "ANSI" görülmelidir.  Ek olarak, <code>FEATURES</code>
-      özel değişkeni <code>:ANSI-CL</code> anahtar kelimesini
-      içermelidir.</p>
-      <p>MS Windows ve Unix-benzeri sistemler gibi daha bir çok
-      platformlar için GCL uygulamaları vardır.</p>
-      <h2><abbr title="Clozure Common Lisp">CCL</abbr></h2>
-      <p><a href="http://ccl.clozure.com/">Clozure Common Lisp</a>, ya
-      da kısaca CCL; eskiden OpenMCL olarak bilinirdi.  Linux MS
-      Windows ve Macintosh için versiyonları vardır ve Maxima CCL ile
-      derlenebilir.</p>
-      <h2>CMUCL</h2>
-      <p><a href="http://www.cons.org/cmucl/">CMUCL</a> Maxima'nın
-      bulunduğu platformlar arasında hızı ile öne çıkan bir
-      seçenektir. CMUCL 'un 18e ve 19a versiyonları hali hazırda
-      kullanılmaktadır.CMUL 'un Unix ve benzeri platfromlarda çalışan
-      uygulamaları vardır. (Windows'ta çalışmaz) </p> CMUL ile
-      çalışmak için <p><code>rmaxima</code> önerilir.</p>
-      <h2><abbr title="Embeddable Common Lisp">ECL</abbr></h2>
-      <p><a href="http://ecls.sourceforge.net/" >ECL</a> küçük fakat
-      tamamlanmış bir Common Lisp uygulamasıdır.  Maxima'nı Android
-      portu ECL ile oluşturulmuştur.</p>
-      <h2><abbr title="Scieneer Common Lisp">SCL</abbr> ve Allegro
-      CL</h2>
-      <p><a href="http://www.scieneer.com/scl/">Scieneer Common
-      Lisp</a> (SCL) bir dizi Linux ve Unix platformları için "hızlı
-      bir alternatif"
-      tir. <a href="http://franz.com/products/allegrocl/">Allegro
-      Common Lisp</a> nesne tabanlı bir sistemdir.SCL 1.2.8 ve sonraki
-      sürümleri desteklenir.  SCL sembol isimlerinde Maxima'da yaşanan
-      harf boyutu sorunlarına çözümler sunan küçük\büyük harfe duyarlı
-      bir versiyondur.Maxima bu iki Lisp uygulaması ile de
-      derlenebilir.  ancak ticari olduğundan dolayı çok az test
-      yapılmıştır.</p>
-      <h2>Yararlı Lisp Siteleri</h2>
-      <dl>
-        <dt><a href="http://www.cliki.net/Common%20Lisp%20implementation">Common Lisp implementation</a></dt>
-        <dd>Geliştirilmekte olan Common Lisp uygulamalarının
-        karşılaştırılması</dd><br>
-        <dt><a href="http://www.lispworks.com/documentation/lw50/CLHS/Front/Contents.htm">CLHS</a></dt>
-        <dd>The Common Lisp Hyper Specification.</dd><br>
-        <dt><a href="http://common-lisp.net/tutorials/" >Common Lisp
-        Tutorials</a></dt>
-        <dd>Lisp öğrenmeye başlamak isteyenler için</dd><br>
-        <dt><a href="http://www.cliki.net/">CLiki</a></dt>
-        <dd>Kullanıcılar tarafından hazırlanmış Lisp Bilgi Linkleri</dd>
-      </dl>
-    </div>
-    <!-- End content column -->
-    <!-- Begin info and menu column -->
-    <div class="col-sm-3 col-md-4 hidden-print">
-      <!-- Begin menu list -->
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="./index.html">Ana Sayfa</a></li>
-        <li class="dropdown"><a class="dropdown-toggle"
-        data-toggle="dropdown" href="./documentation.html">Belgeler
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="./documentation.html">Maxima Belgeleri</a></li>
-          <li><a href="./faq.html">SSS</a></li>
-          <li><a href="./compalg.html">Bilgisayar Cebiri Sistemleri</a></li>
-          <li class="active"><a name="lisp">Lisp Linkleri</a></li>
-        </ul>
-        </li>
-        <li class="dropdown"><a class="dropdown-toggle"
-        data-toggle="dropdown" href="./project.html">Proje
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="./project.html">Maxima project</a></li>
-          <li><a href="./3rdpartycode.html">Üçüncü Parti Kod</a></li>
-          <li><a href="./relatedprojects.html">İlgili Projeler</a></li>
-        </ul>
-        </li>
-        <li><a href="./download.html">İndir</a></li>
-        <li><a href="./maximalist.html">E-posta Listesi</a></li>
-      </ul>
-      <!-- End menu list -->
-    </div>
-    <!-- End info and menu column -->
-  </div>
-  <!-- End content row -->
 </div>
-<!-- End page -->
-<br>
-<!-- Begin project info -->
-<footer role="contentinfo">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-9 col-md-8 text-center">
-        <p>Maxima Hakkında Sorular ya da : <a href="./maximalist.html">E-posta Listesi
-        </a></p>
-        <p><a href="https://sourceforge.net/projects/maxima" >Hosted at
-        Sourceforge</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- End project info -->
-<!-- Scripts section -->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<div class="rightcolumn">
+<div class="menu">
+<ul>
+  <li><a href="index.html">Ana Sayfa</a></li>
+  <li><a href="download.html">İndir</a></li>
+  <li><a href="documentation.html">Belgeler</a></li>
+  <li><a href="project.html" >Maxima Projesi</a></li>
+  <li><a href="maximalist.html">E-posta listesi</a></li>
+  <li><a href="faq.html">SSS</a></li>
+  <li><a href="compalg.html">Bilgisayar Cebiri Sistemleri</a></li>
+  <li><a href="3rdpartycode.html">Üçüncü Parti Kod</a></li>
+  <li><a href="relatedprojects.html">İlgili Projeler</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Maxima veya bu site ile ilgili her türlü soru <a href="maximalist.html">posta listesinde</a> sorulmalıdır.</p>
+<span>Son değişiklik: 2022/03/30 13:47:12 UTC</span>
+</div>
 </body>
 </html>

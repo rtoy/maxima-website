@@ -1,771 +1,337 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="HandheldFriendly" content="true">
-<meta name="copyright" content="© 2002–2015 Maxima CAS development team.">
-<meta name="keywords" content="Maxima, BCS, Bilgisayar Cebiri, matematik, Lisp, sembolik hesap">
-<title>Maxima Sıkça Sorulan Sorular</title>
-<!-- This site uses Bootstrap http://getbootstrap.com -->
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="shortcut icon" href="../i/favicon.ico" media="all">
-<style type="text/css">
-.mx-content {background:#f2f2f2;color:#333;padding: 0 1.5em 1.5em 1.5em;}
-</style>
+<meta name="description" content="Maxima sembolik hesaplama yeteneği
+ön plana çıkan, hemen hemen eksiksiz bir Bilgisayar Cebiri
+Sitemidir. Lisp dilinde yazılmıştır.  Maxima'nın temelini DOE-MACSYMA
+oluşturur ve GPL (General Public License= Genel Kanu Lisansı) özgür
+yazılım lisanslıdır.  Yetenkleri arasında sembolik İntegral
+hesaplamaları, 3 boyutlu grafik çizmi ve diferansiyel denklemlerin
+çöüzleri sayılabilir.">
+<meta name="keywords" content="Maxima, BCS, bilgisayar cebiri,
+matematik, Lisp, sembolik hesaplama, MACSYMA, GPL, özgür yazılım,
+diferansiyel denklemler, grafik çizimi">
+<title>Maxima &ndash; Sıkça Sorulan Sorular</title>
+<link rel="stylesheet" href="../maxima.css">
+<link rel="icon" type="../image/svg+xml" href="img/maxima.svg">
+<link rel="alternate icon" href="../img/favicon.ico">
 </head>
-<body style="padding-top:50px;" id="top">
-<a class="sr-only sr-only-focusable" href="#content">Ana Menüye Geç</a>
-<!-- Begin navigation bar -->
-<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>                        
-      </button>
-      <a href="./index.html" class="navbar-brand"
-      style="padding: 0 0.75rem 0 1.5rem"><img src="../i/logo.png" width="56"
-      height="56" alt="Maxima"></a>
-    </div>
-    <nav class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="./download.html">İndir</a></li>
-        <li><a href="./documentation.html">Belgeler</a></li>
-        <li><a href="./project.html">Proje</a></li>
-        <li><a href="#top">Sayfa Başı</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<!-- End navigation bar -->
-<!-- Begin language menu -->
-<div class="row">
-  <p>&emsp;&emsp;Diğer diller:
-    &nbsp;&nbsp;<a href="../faq.html">English</a>
-  </p>
+<body>
+<div class="header">
+<img style="float:left" src="../img/maxima.svg">
+<h1>Maxima</h1>
+<p>Bir Bilgisayar Cebiri Sistemi</p>
 </div>
-<!-- End language menu -->
-<!-- Begin page -->
-<div class="container-fluid">
-  <!-- Begin content row -->
-  <div class="row">
-    <!-- Begin content column -->
-    <div class="col-sm-9 col-md-8 mx-content" id="content">
-      <h1>Maxima Hakkında Sıkça Sorulan Sorular</h1>
-      <ol>
-        <li>Maxima'ya Giriş ve Kurulum 
-        <ul>
-          <li><a data-toggle="modal" data-target="#question1_1">Maxima nedir ?</a></li>
-          <li><a data-toggle="modal" data-target="#question1_2">Maxima'nın
-          ne tür bir lisansı vardır?</a></li>
-          <li><a data-toggle="modal" data-target="#question1_3"> Maxima'yı
-          nasıl indirebilirim?</a></li>
-          <li><a data-toggle="modal" data-target="#question1_4">Maxima'yı
-          nasıl kurabilirim?</a></li>
-          <li><a data-toggle="modal" data-target="#question1_5">Bilmem gereken en önemli
-          Maxima linkleri nelerdir?</a></li>
-        </ul></li>
-        <li>Genel
-        <ul>
-          <li><a data-toggle="modal" data-target="#question2_1">Maxima projesini kimler gerçekleştiriyor?</a></li>
-          <li><a data-toggle="modal" data-target="#question2_2">Maxima özgür bir yazılım mı?</a></li> 
-          <li><a data-toggle="modal" data-target="#question2_3">
-          Müşterilerimin yada öğrencilerimin kolaylıkla
-          indirebilmeleri için Maxima'nın bir kopyasını yerel
-          sunucumdan gönderebilirmiyim? </a></li>
-                                                                          
-          <li><a data-toggle="modal"
-          data-target="#question2_4">Maxima'yı kim yazdı?</a></li>
-          <li><a data-toggle="modal" data-target="#question2_5">Macsyma, DOE-Macsyma, Symbolics Macsyma
-          ve Maxima arasındaki farklar nelerdir?</a></li>
-          <li><a data-toggle="modal" data-target="#question2_6">
-          Akademik bir içerikte Maxima'ya atıf yapmanın en uygun yolu nedir?</a></li>  
-        </ul></li>
-        <li>Lisp'le İlgili Konular
-        <ul>
-          <li><a data-toggle="modal" data-target="#question3_1">Maxima ile kullanılabilen
-          Lisp uygulamaları nelerdir?</a></li>
-        </ul></li>
-        <li>Kurulum Sorunları
-        <ul>
-          <li><a data-toggle="modal" data-target="#question4_1">
-          Maxima RPM dosyasını Linux' a kurarken
-          "&quot;maxima_exec&quot; is a missing dependency" hatası
-          oluşuyor.  Bunu nasıl çözebilirim?  </a></li>
-          <li><a data-toggle="modal" data-target="#question4_2">
-          Maxima'da RPM dosyalarını kurarken "maxima_exec" den başka
-          ögelerden 'bağımlılık (dependency) hataları' mesajları
-          alıyorum. Bunun anlamı nedir?</a></li>
-        </ul></li>
-        <li> Çalıştırma Sorunları
-        <ul>
-          <li><a data-toggle="modal" data-target="#question5_1">
-          Windows'ta Maxima Grafik Kulanıcı aryüzünü (GUI) (Xmaxima
-          veya WxMaxima), başlatabiliyorum fakat, bir zaman aşımı
-          mesajı alıyorum ve girdiğim ifadeler için Maxima'dan
-          herhangi bir yanıt alamıyorum.</a></li>
-          <li><a data-toggle="modal"
-          data-target="#question5_2">Linux'ta <tt>/etc/hosts</tt>
-          dosyasında 'an invalid entry for localhost' hata mesajı
-          alıyorum.</a></li>
-          <li><a data-toggle="modal" data-target="#question5_3">
-          MacOS'ta wxMaxima başlıyor ancak Maxima komutlarının
-          yürütülmesi yapılan her girişimde "&quot;Not connected to
-          maxima!&quot;" = "&quot;maxima'ya bağlanamadı!&quot;" rapor
-          ediliyor.</a></li>
-        </ul></li>
-      </ol>
-      <!-- Begin question1_1 -->
-      <div class="modal fade" id="question1_1" tabindex="-1"
-        role="dialog" aria-labelledby="label1_1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close"
-              data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-              class="sr-only">Close</span></button>
-              <p class="modal-title lead" id="label1_1"><em>Maxima nedir?</em></h4>
-            </div>
-            <div class="modal-body">
-              <p>Maxima, temelleri 1960 ların sonunda MIT de atılan 
-              <strong>DOE-Macsyma</strong>'nın bir türevidir.Macsyma
-              türevleri arasında, özgür yazılım (açık kaynak-açık kod)
-              özelliğinden dolayı akitif kullanıcı topluluğunun
-              gayretleriyle gelişimini devam ettiren tek sistemdir.
-              Macsyma,yeni nesil bilgisayar cebiri sistemlerinin ilk
-              örneğidir ve Maple ve Mathematica gibi programlara yol
-              göstermiştir.  Macsyma'nın bu özel verisyonu
-              (DOE-Macsyma) 1982'den 2001'de vefatına kadar William
-              Schelter tarafından sürdürüldü. 1998'de kaynak kodların
-              GPL (Genel Kamu Lisansı) ile kullanılması iznini
-              aldı. Maxima'nın varlığını sürdürmesi O'nun gayret ve
-              bilimsel yetenekleri sayesinde olmuştur.Bizler zamanını
-              ve yeteneklerini orijinal Macsyma kodlarının devamı ve
-              geliştirilmesi konusunda fedakarca kullanmasından dolayı
-              kendisine müteşekkiriz. Ölümünden dolayı bir grup
-              kullanıcı ve geliştirici-programcı bir araya geldi ve
-              Maxima'yı zinde tutmak için çabalıyorlar.  Maxima
-              sembolik integral,3B grafik çizimi, Adi Diferansiyel
-              Denklemleri gibi konularda yetenekli olması bağlamında
-              oldukça donanımlı ve gelişmiş bir yazılımdır.Ancak hala
-              hataların düzeltilmesi, temizlenmesi ve dokümantasyon
-              konularında yapılacak çok iş var.  Bu yeni özellikler
-              olmayacak anlamına gelmez. Ancak bu aşamaya gelmeden
-              önce yapılacak çok iş var ve yeni özellikler bizim
-              yoğunluk verdiğimiz alanın dışında kalıyor.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question1_1 -->
-     <!-- Begin question1_2 -->
-      <div class="modal fade" id="question1_2" tabindex="-1"
-        role="dialog" aria-labelledby="label1_2" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close"
-              data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label1_2"><em>Maxima'nın
-              ne tür bir lisansı vardır?</em></p>
-            </div>
-            <div class="modal-body">
-              <p>Maxima <a href="http://www.gnu.org/copyleft/gpl.html">GNU
-              Genel Kamu Lisansı (GPL)</a> ile lisanslanmıştır
-              ve <a href="https://sourceforge.net">SourceForge.net</a>
-              'de hizmete sunulmaktadır .</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question1_2 -->
-     <!-- Begin question1_3 -->
-      <div class="modal fade" id="question1_3" tabindex="-1"
-        role="dialog" aria-labelledby="label1_3" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label1_3"><em>Maxima'yı
-              nasıl indirebilirim?</em></p>
-            </div>
-            <div class="modal-body">
-              <p>Her durum için uygun indirme sayfası linkleri bulunan
-              <a href="./download.html">İndirme sayfası</a>ndaki
-              değişik seçenekler arasından seçerek indirebilirsiniz.
-              Maxima kodları, değişik işletim sistemleri için 'kaynak
-              kodu' ve önderlemeli ikili dosyalar (binary files)
-              olarak da elde edilebilir.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question1_3 -->
-     <!-- Begin question1_4 -->
-      <div class="modal fade" id="question1_4" tabindex="-1"
-        role="dialog" aria-labelledby="label1_4" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label1_4_">
-                <em>Maxima'yı bilgisayarıma nasıl kurabilirim?</em></p>
-            </div>
-            <div class="modal-body">
-              <p><a href="./download.html">İndirme sayfasında </a>
-              verilen yönlendirmeleri dikkate alarak,kullanmak
-              istediğiniz metod ve işletim sisteminize göre
-              kurabilirsiniz.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question1_4 -->
-     <!-- Begin question1_5 -->
-      <div class="modal fade" id="question1_5" tabindex="-1"
-        role="dialog" aria-labelledby="label1_5" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label1_5"><em>Bilmem
-              gereken en önemli Maxima linkleri
-              hangileridir?  </em></p>
-            </div>
-            <div class="modal-body">
-              <ul>
-                <li><a href="./index.html">Maxima Anasayfa</a>.</li>
-                <li><a
-                href="https://sourceforge.net/projects/maxima/">Maxima Proje Sayfası</a>.</li>
-                <li><a href="./maximalist.html">Maxima e-posta listesi</a>.</li>
-              </ul>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question1_5 -->
-     <!-- Begin question2_1 -->
-      <div class="modal fade" id="question2_1" tabindex="-1"
-        role="dialog" aria-labelledby="label2_1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label2_1"><em>Maxima
-              projesini kimler gerçekleştiriyor ?</em></p>
-            </div>
-            <div class="modal-body">
-              <p>William Schelter'ın ölümü üzerine bir grup Maxima
-              kullanıcı ve geliştirici, Maxima'nın geliştirilmesinin
-              devamı için bir araya geldi.Bugün itibariyle, kaynak
-              kodlarda değişiklik yapabilecek 27 kişilik bir
-              geliştirme grubu bulunuyor.Bu kişilerle ilişkiye
-              geçebilmenin yolu <a href="./maximalist.html">E-posta
-              listesi</a>dir.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question2_1 -->
-     <!-- Begin question2_2 -->
-      <div class="modal fade" id="question2_2" tabindex="-1"
-        role="dialog" aria-labelledby="label2_2" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label2_2"><em>Maxima
-              özgür bir yazılım mıdır?</em></p>
-            </div>
-            <div class="modal-body">
-              <p>Evet. Maxima GNU Genel Kamu Lisansı altında (Birleşik
-              Devletler Energy Bakanlığının koymuş olduğu
-              şartlar-kısıtlamalar dahilinde) yayınlanmaktadır. </p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question2_2 -->
-     <!-- Begin question2_3 -->
-      <div class="modal fade" id="question2_3" tabindex="-1"
-        role="dialog" aria-labelledby="label2_3" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead"
-                  id="label2_3"><em>Müşterilerim yada öğrencilerim
-                  kolaylıkla indirebilmeleri için Maxima'nın bir
-                  kopyasını yerel sunucumdan
-                  gönderebilirmiyim?</em></p>
-            </div>
-            <div class="modal-body">
-              <p>Evet. Telif hakkı uyarılarını göz önünde tutarak
-              Maxima'yı istediğiniz kişilere dağıtabilirsiniz.Ayrıca
-              yerel sunucunuza kaynak kodların bir kopyasını koyabilir
-              veya nereden indirilebileceğini gösteren bir link
-              verebilirsiniz.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question2_3 -->
-     <!-- Begin question2_4 -->
-      <div class="modal fade" id="question2_4" tabindex="-1"
-        role="dialog" aria-labelledby="label2_4" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label2_4">
-              <em> Maxima'yı kim yazdı?</em></p>
-            </div>
-            <div class="modal-body">
-              <p>Maxima, temelleri 1960 ların sonunda MIT de atılan 
-              <strong>DOE-Macsyma</strong>'nın bir türevidir.Macsyma
-              türevleri arasında, özgür yazılım (açık kaynak-açık kod)
-              özelliğinden dolayı aktif kullanıcı topluluğunun
-              gayretleriyle gelişimini devam ettiren tek (Macsyma
-              türevi) sistemdir. Macsyma,yeni nesil bilgisayar cebiri
-              sistemlerinin ilk örneğidir ve Maple ve Mathematica gibi
-              programlara yol göstermiştir.  Macsyma'nın bu özel
-              versiyonu (DOE-Macsyma) 1982'den 2001'de vefatına kadar
-              William Schelter tarafından sürdürüldü. 1998'de kaynak
-              kodların GPL (Genel Kamu Lisansı) ile kullanılması
-              iznini aldı.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Close</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question2_4 -->
-     <!-- Begin question2_5 -->
-      <div class="modal fade" id="question2_5" tabindex="-1"
-        role="dialog" aria-labelledby="label2_5" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label2_5"><em>Macsyma,
-              DOE-Macsyma, Symbolics Macsyma ve Maxima arasındaki
-              farklar nelerdir?</em></p>
-            </div>
-            <div class="modal-body">
-              <p>M.I.T de geliştirilen versiyon <em>Macsyma</em>
-              olarak adlandırıldı (altı bit karakter kodunda dosya
-              adları altı BÜYÜK harf ile sınırlandırıldığından MACSYM
-              ve MAXIMA takma isimleri de kullanıldı.)</p>
-              <p>'Symbolics Inc.' M.I.T den telif haklarını (lisans)
-              aldı ve "Macsyma" 'yı ticari bir marka olarak tescil
-              ettirdi (büyük olasılıkla bunu M. I. T.' nin izniyle
-              yaptı).</p>
-              <p>Macsyma, serbest bir şekilde elde edilebilen bir
-              program olacak şekilde sonlandırılınca, kaynak kodların
-              gerçekleştirilmesinde sponsorluk ve yüklenicilik olarak
-              birlikte oldukları DOE (Birleşik Devletler Enerji
-              Bakanlığına) hibe edilmesi için (çoğunluğu Richard
-              Fateman tarafından yapılan) M. I. T.'üzerinde bir baskı
-              oluştu.  Bunu üzerine DOE bu kodları bazı şartlar-
-              kısıtlamalar serbest bırakmıştır.</p>
-              <p>Bu kaynak tabanı DOE-Macsyma olarak adlandırlır.</p>
-              <p>DOE'nin, kaynak tabanının tersine Macsyma ismi
-              hakkında ne tür haklara sahip olduğu açık değildir.
-              Ancak, muhtemelen DOE-Macsyma yı ticari amaçları için
-              kullanmayanlar, isim konusunda herhangi bir tartışmaya
-              yol açmamak için Maxima ismini kullanmaya
-              başladılar.</p>
-              <p> Kısaca, Maxima DOE-Macsyma adı altında başlayan
-              sürümlerin en yeni adıdır.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question2_5 -->
-     <!-- Begin question2_6 -->
-      <div class="modal fade" id="question2_6" tabindex="-1"
-        role="dialog" aria-labelledby="label2_6" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label2_6"><em>Akademik
-              bir içerikte Maxima'ya atıf yapmanın en uygun yolu
-              nedir? </em></p>
-            </div>
-            <div class="modal-body">
-              <p>Şöyle bir şey öneririz:</p>
-              <blockquote>
-              <a href="http://maxima.sourceforge.net">Maxima.sourceforge.net</a>. Maxima,
-              bir Bilgisayar Cebiri Sistemi<br> Versiyon 5.34.1
-              (2014). <tt>http://maxima.sourceforge.net/</tt>
-              </blockquote>
-              <p>(Eğer başka bir versiyon kullanıyorsanız, ya da
-              versiyon numarası ve sürüm yılını yerleştirin).</p>
-              <p>Alıntılarınız için Bibtex kullanıyorsanız,
-              ifadelerini Bibtex veritabanına giriniz:</p>
+<div class="topnav">
+<a href="../faq.html">English</a>
+<a href="../ru/faq.html">Русский</a>
+</div>
+<div class="row">
+<div class="leftcolumn">
+<div class="card">
+<h2>Sıkça Sorulan Sorular</h2>
+<ol>
+  <li>Maxima'ya Giriş ve Kurulum 
+  <ul>
+    <li><a href="#question1_1">Maxima nedir ?</a></li>
+    <li><a href="#question1_2">Maxima'nın ne tür bir lisansı
+    vardır?</a></li>
+    <li><a href="#question1_3"> Maxima'yı nasıl
+    indirebilirim?</a></li>
+    <li><a href="#question1_4">Maxima'yı nasıl kurabilirim?</a></li>
+    <li><a href="#question1_5">Bilmem gereken en önemli Maxima
+    linkleri nelerdir?</a></li>
+  </ul></li>
+  <li>Genel
+  <ul>
+    <li><a href="#question2_1">Maxima projesini kimler gerçekleştiriyor?</a></li>
+    <li><a href="#question2_2">Maxima özgür bir yazılım mı?</a></li> 
+    <li><a href="#question2_3"> Müşterilerimin yada öğrencilerimin
+    kolaylıkla indirebilmeleri için Maxima'nın bir kopyasını yerel
+    sunucumdan gönderebilirmiyim? </a></li>
+    <li><a href="#question2_4">Maxima'yı kim yazdı?</a></li>
+    <li><a href="#question2_5">Macsyma, DOE-Macsyma, Symbolics Macsyma
+    ve Maxima arasındaki farklar nelerdir?</a></li>
+    <li><a href="#question2_6"> Akademik bir içerikte Maxima'ya atıf
+    yapmanın en uygun yolu nedir?</a></li>
+  </ul></li>
+  <li>Lisp'le İlgili Konular
+  <ul>
+    <li><a href="#question3_1">Maxima ile kullanılabilen Lisp
+    uygulamaları nelerdir?</a></li>
+  </ul></li>
+  <li>Kurulum Sorunları
+  <ul>
+    <li><a href="#question4_1">Maxima RPM dosyasını Linux' a kurarken
+    "&quot;maxima_exec&quot; is a missing dependency" hatası oluşuyor.
+    Bunu nasıl çözebilirim?  </a></li>
+    <li><a href="#question4_2">Maxima'da RPM dosyalarını kurarken
+    "maxima_exec" den başka ögelerden 'bağımlılık (dependency)
+    hataları' mesajları alıyorum. Bunun anlamı nedir?</a></li>
+  </ul></li>
+  <li>Çalıştırma Sorunları
+  <ul>
+    <li><a href="#question5_1">Windows'ta Maxima Grafik Kulanıcı
+    aryüzünü (GUI) (Xmaxima veya WxMaxima), başlatabiliyorum fakat,
+    bir zaman aşımı mesajı alıyorum ve girdiğim ifadeler için
+    Maxima'dan herhangi bir yanıt alamıyorum.</a></li>
+    <li><a href="#question5_2">Linux'ta <tt>/etc/hosts</tt> dosyasında
+    'an invalid entry for localhost' hata mesajı alıyorum.</a></li>
+    <li><a href="#question5_3">MacOS'ta wxMaxima başlıyor ancak Maxima
+    komutlarının yürütülmesi yapılan her girişimde "&quot;Not
+    connected to maxima!&quot;" = "&quot;maxima'ya bağlanamadı!&quot;"
+    rapor ediliyor.</a></li>
+  </ul></li>
+</ol>
+</div>
+<div class="card">
+<h3>1. Maxima'ya Giriş ve Kurulum</h3>
+<p id="question1_1">&cir; <em>Maxima nedir?</em></p>
+<p>Maxima, temelleri 1960 ların sonunda MIT de
+atılan <strong>DOE-Macsyma</strong>'nın bir türevidir.Macsyma
+türevleri arasında, özgür yazılım (açık kaynak-açık kod) özelliğinden
+dolayı akitif kullanıcı topluluğunun gayretleriyle gelişimini devam
+ettiren tek sistemdir.  Macsyma,yeni nesil bilgisayar cebiri
+sistemlerinin ilk örneğidir ve Maple ve Mathematica gibi programlara
+yol göstermiştir. Macsyma'nın bu özel verisyonu (DOE-Macsyma)
+1982'den 2001'de vefatına kadar William Schelter tarafından
+sürdürüldü. 1998'de kaynak kodların GPL (Genel Kamu Lisansı) ile
+kullanılması iznini aldı. Maxima'nın varlığını sürdürmesi O'nun gayret
+ve bilimsel yetenekleri sayesinde olmuştur.Bizler zamanını ve
+yeteneklerini orijinal Macsyma kodlarının devamı ve geliştirilmesi
+konusunda fedakarca kullanmasından dolayı kendisine
+müteşekkiriz. Ölümünden dolayı bir grup kullanıcı ve
+geliştirici-programcı bir araya geldi ve Maxima'yı zinde tutmak için
+çabalıyorlar. Maxima sembolik integral,3B grafik çizimi, Adi
+Diferansiyel Denklemleri gibi konularda yetenekli olması bağlamında
+oldukça donanımlı ve gelişmiş bir yazılımdır.Ancak hala hataların
+düzeltilmesi, temizlenmesi ve dokümantasyon konularında yapılacak çok
+iş var. Bu yeni özellikler olmayacak anlamına gelmez. Ancak bu
+aşamaya gelmeden önce yapılacak çok iş var ve yeni özellikler bizim
+yoğunluk verdiğimiz alanın dışında kalıyor.</p>
+<p id="question1_2">&cir; <em>Maxima'nın ne tür bir lisansı
+vardır?</em></p>
+<p>Maxima <a href="http://www.gnu.org/copyleft/gpl.html">GNU Genel
+Kamu Lisansı (GPL)</a> ile lisanslanmıştır
+ve <a href="https://sourceforge.net">SourceForge.net</a> 'de hizmete
+sunulmaktadır.</p>
+<p id="question1_3"><em>&cir; Maxima'yı nasıl indirebilirim?</em></p>
+<p>Her durum için uygun indirme sayfası linkleri
+bulunan <a href="./download.html">İndirme sayfası</a>ndaki değişik
+seçenekler arasından seçerek indirebilirsiniz.  Maxima kodları,
+değişik işletim sistemleri için 'kaynak kodu' ve önderlemeli ikili
+dosyalar (binary files) olarak da elde edilebilir.</p>
+<p id="question1_4">&cir; <em>Maxima'yı bilgisayarıma nasıl kurabilirim?</em></p>
+<p><a href="./download.html">İndirme sayfasında </a> verilen
+yönlendirmeleri dikkate alarak,kullanmak istediğiniz metod ve işletim
+sisteminize göre kurabilirsiniz.</p>
+<p id="question1_5">&cir; <em>Bilmem gereken en önemli Maxima linkleri
+hangileridir?</em></p>
+<ul class="spacious">
+  <li><a href="./index.html">Maxima Anasayfa</a>.</li>
+  <li><a href="https://sourceforge.net/projects/maxima/">Maxima Proje Sayfası</a>.</li>
+  <li><a href="./maximalist.html">Maxima e-posta listesi</a>.</li>
+</ul>
+</div>
+<div class="card">
+<h3>2. Genel</h3>
+<p id="question2_1">&cir; <em>Maxima projesini kimler gerçekleştiriyor
+?</em></p>
+<p>William Schelter'ın ölümü üzerine bir grup Maxima kullanıcı ve
+geliştirici, Maxima'nın geliştirilmesinin devamı için bir araya
+geldi.Bugün itibariyle, kaynak kodlarda değişiklik yapabilecek 27
+kişilik bir geliştirme grubu bulunuyor.Bu kişilerle ilişkiye
+geçebilmenin yolu <a href="./maximalist.html">E-posta
+listesi</a>dir.</p>
+<p id="question2_2"><em>&cir; Maxima özgür bir yazılım mıdır?</em></p>
+<p>Evet. Maxima GNU Genel Kamu Lisansı altında (Birleşik Devletler
+Energy Bakanlığının koymuş olduğu şartlar-kısıtlamalar dahilinde)
+yayınlanmaktadır. </p>
+<p id="question2_3">&cir; <em>Müşterilerim yada öğrencilerim
+kolaylıkla indirebilmeleri için Maxima'nın bir kopyasını yerel
+sunucumdan gönderebilirmiyim?</em></p>
+<p>Evet. Telif hakkı uyarılarını göz önünde tutarak Maxima'yı
+istediğiniz kişilere dağıtabilirsiniz.Ayrıca yerel sunucunuza kaynak
+kodların bir kopyasını koyabilir veya nereden indirilebileceğini
+gösteren bir link verebilirsiniz.</p>
+<p id="question2_4">&cir; <em>Maxima'yı kim yazdı?</em></p>
+<p>Maxima, temelleri 1960 ların sonunda MIT de
+atılan <strong>DOE-Macsyma</strong>'nın bir türevidir.Macsyma
+türevleri arasında, özgür yazılım (açık kaynak-açık kod) özelliğinden
+dolayı aktif kullanıcı topluluğunun gayretleriyle gelişimini devam
+ettiren tek (Macsyma türevi) sistemdir. Macsyma,yeni nesil bilgisayar
+cebiri sistemlerinin ilk örneğidir ve Maple ve Mathematica gibi
+programlara yol göstermiştir.  Macsyma'nın bu özel versiyonu
+(DOE-Macsyma) 1982'den 2001'de vefatına kadar William Schelter
+tarafından sürdürüldü. 1998'de kaynak kodların GPL (Genel Kamu
+Lisansı) ile kullanılması iznini aldı.</p>
+<p id="question2_5">&cir; <em>Macsyma, DOE-Macsyma, Symbolics Macsyma
+ve Maxima arasındaki farklar nelerdir?</em></p>
+<p>M.I.T de geliştirilen versiyon <em>Macsyma</em> olarak adlandırıldı
+(altı bit karakter kodunda dosya adları altı BÜYÜK harf ile
+sınırlandırıldığından MACSYM ve MAXIMA takma isimleri de
+kullanıldı.)</p>
+<p>'Symbolics Inc.' M.I.T den telif haklarını (lisans) aldı ve
+"Macsyma" 'yı ticari bir marka olarak tescil ettirdi (büyük olasılıkla
+bunu M. I. T.' nin izniyle yaptı).</p>
+<p>Macsyma, serbest bir şekilde elde edilebilen bir program olacak
+şekilde sonlandırılınca, kaynak kodların gerçekleştirilmesinde
+sponsorluk ve yüklenicilik olarak birlikte oldukları DOE (Birleşik
+Devletler Enerji Bakanlığına) hibe edilmesi için (çoğunluğu Richard
+Fateman tarafından yapılan) M. I. T.'üzerinde bir baskı oluştu.  Bunu
+üzerine DOE bu kodları bazı şartlar- kısıtlamalar serbest
+bırakmıştır.</p>
+<p>Bu kaynak tabanı DOE-Macsyma olarak adlandırlır.</p>
+<p>DOE'nin, kaynak tabanının tersine Macsyma ismi hakkında ne tür
+haklara sahip olduğu açık değildir.  Ancak, muhtemelen DOE-Macsyma yı
+ticari amaçları için kullanmayanlar, isim konusunda herhangi bir
+tartışmaya yol açmamak için Maxima ismini kullanmaya başladılar.</p>
+<p> Kısaca, Maxima DOE-Macsyma adı altında başlayan sürümlerin en yeni
+adıdır.</p>
+<p id="question2_6">&cir; <em>Akademik bir içerikte Maxima'ya atıf
+yapmanın en uygun yolu nedir?</em></p>
+<p>Şöyle bir şey öneririz:</p>
+<blockquote>
+<a href="http://maxima.sourceforge.net">Maxima.sourceforge.net</a>. Maxima,
+bir Bilgisayar Cebiri Sistemi<br> Versiyon 5.34.1
+(2014). <tt>http://maxima.sourceforge.net/</tt>
+</blockquote>
+<p>(Eğer başka bir versiyon kullanıyorsanız, ya da versiyon numarası
+ve sürüm yılını yerleştirin).</p>
+<p>Alıntılarınız için Bibtex kullanıyorsanız, ifadelerini Bibtex
+veritabanına giriniz:</p>
 <pre>@ELECTRONIC{maxima,
-  author = {Maxima},
-  year = {2014},
-  title = {Maxima, bir Bilgisayar Cebiri Sistemi. Versiyon 5.34.1},
-  address = {http://maxima.sourceforge.net/},
-  url = {http://maxima.sourceforge.net/},
-  owner = {maxima},
-  timestamp = {2014.09.08}
-}</pre> 
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question2_6 -->
-      <!-- Begin question3_1 -->
-      <div class="modal fade" id="question3_1" tabindex="-1"
-        role="dialog" aria-labelledby="label3_1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label3_1"><em>Maxima ile
-              kullanılabilen Lisp uygulamaları nelerdir? </em></p>
-            </div>
-            <div class="modal-body">
-              <p>Clisp, SBCL, CCL, GCL (ANSI-enabled only), CMUCL,
-              ECL, Scieneer Common Lisp (SCL) and Allegro Common Lisp
-              (ACL). Diğer ANSI Lisp versiyonlarına bağlantı kapıları
-              (ports) anlaşılması kolay olmalı ve uyumlu olmalı; bu
-              tür bir bağlantı kapıları (Port) konusunda çalışmak
-              isterseniz lütfen geliştirici takım ile irtibata
-              geçiniz. Ayrıca bakınız: <a href="../lisp.html">Lisp
-              Uygulamaları Sayfası</a>.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question3_1 -->
-      <!-- Begin question4_1 -->
-      <div class="modal fade" id="question4_1" tabindex="-1"
-        role="dialog" aria-labelledby="label4_1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label4_1"><em>wxMaxima
-              RPM dosyasını Linux' a kurarken "&quot;maxima_exec&quot;
-              is a missing dependency" hatası oluşuyor.  Bunu nasıl
-              çözebilirim?</em></p>
-            </div>
-            <div class="modal-body">
-              <p>En az iki rpm dosyası yüklemek zorundasınız:maxima ve
-              maxima_exec.SourceForge dosya yöneticisine tekrar dönün
-              ve bir <tt>maxima-exec</tt> dosyası indirin ve aynı
-              zamanda maxima paketi olarak kurulumunu yapın.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question4_1 -->
-      <!-- Begin question4_2 -->
-      <div class="modal fade" id="question4_2" tabindex="-1"
-        role="dialog" aria-labelledby="label4_2" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead"
-              id="label4_2"><em>Maxima'dan, RPM dosyalarını kurarken
-              "maxima_exec" den başka ögelerden 'bağımlılık
-              (dependency) hataları' mesajları alıyorum. Bunu anlamı
-              nedir? </em></p>
-            </div>
-            <div class="modal-body">
-              <p>Maxima RPM leri özel bir Linux sisteminde
-              oluşturuldu.  (RPM, LINUX Package dosyalarında standart
-              olarak kullanılan bir dosya uzantısıdır.)  Diğer
-              sistemler değişik kütüphanelerin farklı verisyonlarına
-              sahiptir. Maxima'yı kurmak için kütüphane biçimleri aynı
-              olmalıdır. Size özel Linux versiyonu için RPM
-              dosyalarını 'maxima ports' (Maxima kapıları) sayfasında
-              bulabilirsiniz. Maxima'yı sisteminizde tekrar
-              derleyerek, sisteminizin RPM dosyalarını
-              oluşturabilirsiniz.</p>
-              <p>Maxima'yı tekrar derleyebilmeniz için bir Lisp
-              uygulamasına gereksiminiz olacaktır. Biz Clisp 'i
-              öneriyoruz.Clisp i kurduktan sonra SF dosya
-              yöneticisinden Maxima <tt>src.rpm</tt> 'yı
-              indirin. Paketi açtıktan sonra RPM dosyalarını
-              oluşturmak için rpmbuild dosyasını çalıştırın:</p>
+author = {Maxima},
+year = {2014},
+title = {Maxima, bir Bilgisayar Cebiri Sistemi. Versiyon 5.34.1},
+address = {http://maxima.sourceforge.net/},
+url = {http://maxima.sourceforge.net/},
+owner = {maxima},
+timestamp = {2014.09.08}
+}</pre>
+</div>
+<div class="card">
+<h3>3. Lisp'le İlgili Konular</h3>
+<p id="question3_1">&cir; <em>Maxima ile kullanılabilen Lisp
+uygulamaları nelerdir? </em></p>
+<p>Clisp, SBCL, CCL, GCL (ANSI-enabled only), CMUCL, ECL, Scieneer
+Common Lisp (SCL) and Allegro Common Lisp (ACL). Diğer ANSI Lisp
+versiyonlarına bağlantı kapıları (ports) anlaşılması kolay olmalı ve
+uyumlu olmalı; bu tür bir bağlantı kapıları (Port) konusunda çalışmak
+isterseniz lütfen geliştirici takım ile irtibata geçiniz. Ayrıca
+bakınız: <a href="../lisp.html">Lisp Uygulamaları Sayfası</a>.</p>
+</div>
+<div class="card">
+<h3>4. Kurulum Sorunları</h3>
+<p id="question4_1">&cir; <em>wxMaxima RPM dosyasını Linux' a kurarken
+"&quot;maxima_exec&quot; is a missing dependency" hatası oluşuyor.
+Bunu nasıl çözebilirim?</em></p>
+<p>En az iki rpm dosyası yüklemek zorundasınız:maxima ve
+maxima_exec.SourceForge dosya yöneticisine tekrar dönün ve
+bir <tt>maxima-exec</tt> dosyası indirin ve aynı zamanda maxima paketi
+olarak kurulumunu yapın.</p>
+<p id="question4_2">&cir; <em>Maxima'dan, RPM dosyalarını kurarken
+"maxima_exec" den başka ögelerden 'bağımlılık (dependency) hataları'
+mesajları alıyorum. Bunu anlamı nedir?</em></p>
+<p>Maxima RPM leri özel bir Linux sisteminde oluşturuldu. (RPM, LINUX
+Package dosyalarında standart olarak kullanılan bir dosya
+uzantısıdır.) Diğer sistemler değişik kütüphanelerin farklı
+verisyonlarına sahiptir. Maxima'yı kurmak için kütüphane biçimleri
+aynı olmalıdır. Size özel Linux versiyonu için RPM dosyalarını 'maxima
+ports' (Maxima kapıları) sayfasında bulabilirsiniz. Maxima'yı
+sisteminizde tekrar derleyerek, sisteminizin RPM dosyalarını
+oluşturabilirsiniz.</p>
+<p>Maxima'yı tekrar derleyebilmeniz için bir Lisp uygulamasına
+gereksiminiz olacaktır. Biz Clisp 'i öneriyoruz.Clisp i kurduktan
+sonra SF dosya yöneticisinden Maxima <tt>src.rpm</tt> 'yı
+indirin. Paketi açtıktan sonra RPM dosyalarını oluşturmak için
+rpmbuild dosyasını çalıştırın:</p>
 <pre>$ sudo rpm -ih maxima-5.9.3.src.rpm
 $ cd /usr/src/local   # yada  RPM kaynak kodu nereye kurulduysa
 $ sudo rpmbuild -bb SPECS/maxima.spec</pre>
-              <p>Sonra <tt>/usr/src/local/RPMS</tt> 'ta oluşturulmuş
-              olan RPM dosyalarını kurun.</p>
-              <p>Sudo kullanıldığından dolayı <tt>/usr/src/local</tt>
-              'e dosyaları yazmak için kesin olarak ,hemen hemen süper
-              bir bilgisayar kullanıcısının (superuser) sahib olduğu
-              ayrıcalıklara ihtiyacınız olur. Muhtemelen sistem
-              yöneticisinin yardımına ihtiyacınız olur.</p>
-              <p>RPM dosyalarını oluşturursanız,Sourceforge dosya
-              yöneticisinde diğer kişilerin kullanımına
-              sunabiliriz. Oluşturduğunuz dosyalar başka bir Linux
-              türevi kullananlara yardımcı olabilir.</p>
-              <p><a href="./download.html">İndir</a> kısmındaki Kurulum
-              Notları Maxima'nın yeniden yapılandırılması hakkında bir
-              parça daha fazla bilgi
-              içerebilir.Özellikle <tt>README.lisps</tt>
-              ve <tt>README.rpms</tt>'teki linkleri takip edin.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question4_2 -->
-      <!-- Begin question5_1 -->
-      <div class="modal fade" id="question5_1" tabindex="-1"
-        role="dialog" aria-labelledby="label5_1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label5_1"><em>Windows'ta
-              Maxima Grafik Kulanıcı aryüzünü GUI (Xmaxima veya
-              WxMaxima), başlatabiliyorum fakat, bir zaman aşımı
-              mesajı (runtime error) alıyorum ve girdiğim ifadeler
-              için Maxima'dan herhangi bir yanıt alamıyorum.</em></p>
-            </div>
-            <div class="modal-body">
-              <dl class="dl-horizontal">
-                <dt>1. Sorun</dt>
-                <dd><em>Bloke edilmiş yuva (socket)</em>. Maxima GUI
-                (grafiksel kullanıcı arayüzü) hesaplama motoru ile bir
-                yuva (socket) aracılığyla konuşur.  (prize takılan fiş
-                gibi düşünün.)  Antivirus yada firewall (güvenlik
-                duvarı) programları bunu görür ve bloke etmeye
-                çalışır.  (Çünkü bazı kötü niyetli programlar da yuva
-                açarlar.)<br>
-                <strong>ÇÖzüm</strong>: Denetim Masası (control panel)
-                den antivirus yada güvenlik duvarı programlarını
-                bulun.  Onlar tarafından bloke edilmiş programlar
-                listesinden Maxima GUI'yi bulun ve blokeyi kaldırın.
-                GUI programı &quot;Tcl/Tk&quot;(Xmaxima için GUI araç
-                kutusunun adı) şeklinde görülebilir.</dd>
-                <dt>2.Sorun</dt>
-                <dd><em>Verilerin işlenmesinin Önlenmesi</em> (Data
-                Execution Prevention(DEP)). Bazı Lisp uygulamaları,
-                kodları, belleğin veri bölgesinde işlerler. Windows
-                DEP bunu görür ve bloke eder.(Çünkü bazı kötü niyetli
-                programlar da bu bölgeyi kullanır.)<br>
-                <strong>Çözüm</strong>: Maxima'nın bütün program
-                yolunu gerçekleştirilebilenler arasına dahil edin,
-                örneğin DEP dışında tutulacaklar listesine (Control
-                Panel → System → Advanced → Performance →
-                DEP) <tt>C:\Program
-                Files\Maxima-5.10.0\lib\maxima\5.10.0\binary-gcl\maxima.exe</tt>
-                'yi dahil edin.</dd>
-              </dl>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question5_1 -->
-      <!-- Begin question5_2 -->
-      <div class="modal fade" id="question5_2" tabindex="-1"
-        role="dialog" aria-labelledby="label5_2" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label5_2">
-              <em>Linux'ta <tt>/etc/hosts</tt> dosyasında 'an invalid
-              entry for localhost' hata mesajı alıyorum.</em></p>
-            </div>
-            <div class="modal-body">
-              <p><strong>ÇÖzüm</strong>: <tt>127.0.0.1 localhost</tt>
-              ile eşleşen bir giriş olduğundan emin olun. Aksi
-              takdirde, wxMaxima ve\veya XMaxima "localhost" u
-              geçersiz bir IP ye çözümleyemeyecektir ve sonunda hata
-              verecek ve &quot;maxima terminated&quot;mesajını
-              verecektir.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question5_2 -->
-      <!-- Begin question5_3 -->
-      <div class="modal fade" id="question5_3" tabindex="-1"
-        role="dialog" aria-labelledby="label5_3" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content mx-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span
-              aria-hidden="true">&times;</span><span
-              class="sr-only">Kapat</span></button>
-              <p class="modal-title lead" id="label5_3"><em>MacOS'ta
-              wxMaxima başlıyor ancak Maxima komutlarının yürütülmesi
-              yapılan her girişimde "&quot;Not connected to
-              maxima!&quot;" = "&quot;maxima'ya bağlanamadı!&quot;"
-              rapor ediliyor..</em></p>
-            </div>
-            <div class="modal-body">
-              <p>Yapacağınız en iyi şey bu durumu wxMaxima kullanıcı
-              forumunda paylaşmanız olacaktır. Maxima Clisp yada SBCL
-              ile derlendiği durumlarda wx Maxima nın çalışmadığını
-              içeren bildirimler bulunmaktadır. Eğer siz de bu türden
-              bir Lisp versiyonu kullanıyorsanız Maxima'yı CMUCL ile
-              derlemeyi deneyebilirsiniz.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"
-              data-dismiss="modal">Kapat</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End question5_3 -->
-    </div>
-    <!-- End content column -->
-    <!-- Begin info and menu column -->
-    <div class="col-sm-3 col-md-4 hidden-print">
-      <!-- Begin menu list -->
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="./index.html">Anasayfa</a></li>
-        <li class="dropdown"><a class="dropdown-toggle"
-        data-toggle="dropdown" href="./documentation.html">Belgeler
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="./documentation.html">Maxima Belgeleri</a></li>
-          <li class="active"><a name="faq">SSS</a></li>
-          <li><a href="./compalg.html">Bilgisayar Cebiri Sistemleri</a></li>
-          <li><a href="./lisp.html">Lisp Linkleri</a></li>
-        </ul>
-        </li>
-        <li class="dropdown"><a class="dropdown-toggle"
-        data-toggle="dropdown" href="./project.html">Proje
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="./project.html">Maxima Projesi</a></li>
-          <li><a href="./3rdpartycode.html">Üçüncü Parti Kodlar</a></li>
-          <li><a href="./relatedprojects.html">İlgili Projeler</a></li>
-        </ul>
-        </li>
-        <li><a href="./download.html">İndir</a></li>
-        <li><a href="./maximalist.html">E-posta listesi</a></li>
-      </ul>
-      <!-- End menu list -->
-    </div>
-    <!-- End info and menu column -->
-  </div>
-  <!-- End content row -->
+<p>Sonra <tt>/usr/src/local/RPMS</tt> 'ta oluşturulmuş olan RPM
+dosyalarını kurun.</p>
+<p>Sudo kullanıldığından dolayı <tt>/usr/src/local</tt> 'e dosyaları
+yazmak için kesin olarak ,hemen hemen süper bir bilgisayar
+kullanıcısının (superuser) sahib olduğu ayrıcalıklara ihtiyacınız
+olur. Muhtemelen sistem yöneticisinin yardımına ihtiyacınız olur.</p>
+<p>RPM dosyalarını oluşturursanız,Sourceforge dosya yöneticisinde
+diğer kişilerin kullanımına sunabiliriz. Oluşturduğunuz dosyalar başka
+bir Linux türevi kullananlara yardımcı olabilir.</p>
+<p><a href="./download.html">İndir</a> kısmındaki Kurulum Notları
+Maxima'nın yeniden yapılandırılması hakkında bir parça daha fazla
+bilgi içerebilir.Özellikle <tt>README.lisps</tt>
+ve <tt>README.rpms</tt>'teki linkleri takip edin.</p>
 </div>
-<!-- End page -->
-<br>
-<!-- Begin project info -->
-<footer role="contentinfo">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-9 col-md-8 text-center">
-        <p>Maxima Hakkında Sorular yada bu site: <a href="./maximalist.html">E-Posta Listesi</a></p>
-        <p><a href="https://sourceforge.net/projects/maxima" >Hosted at
-        Sourceforge</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- End project info -->
-<!-- Scripts section -->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<div class="card">
+<h3>5. Çalıştırma Sorunları</h3>
+<p id="question5_1">&cir; <em>Windows'ta Maxima Grafik Kulanıcı
+aryüzünü GUI (Xmaxima veya WxMaxima), başlatabiliyorum fakat, bir
+zaman aşımı mesajı (runtime error) alıyorum ve girdiğim ifadeler için
+Maxima'dan herhangi bir yanıt alamıyorum.</em></p>
+<dl class="spacious">
+  <dt><strong>1. Sorun.</strong> <em>Bloke edilmiş yuva (socket)</em>.</dt>
+  <dd>Maxima GUI (grafiksel kullanıcı arayüzü) hesaplama motoru ile
+  bir yuva (socket) aracılığyla konuşur.  (prize takılan fiş gibi
+  düşünün.)  Antivirus yada firewall (güvenlik duvarı) programları
+  bunu görür ve bloke etmeye çalışır.  (Çünkü bazı kötü niyetli
+  programlar da yuva açarlar.)<br>
+  <strong>ÇÖzüm</strong>: Denetim Masası (control panel) den antivirus
+  yada güvenlik duvarı programlarını bulun.  Onlar tarafından bloke
+  edilmiş programlar listesinden Maxima GUI'yi bulun ve blokeyi
+  kaldırın.  GUI programı &quot;Tcl/Tk&quot;(Xmaxima için GUI araç
+  kutusunun adı) şeklinde görülebilir.</dd>
+  <dt><strong>2. Sorun.</strong> <em>Verilerin işlenmesinin
+  Önlenmesi</em> (Data Execution Prevention(DEP)).</dt>
+  <dd>Bazı Lisp uygulamaları, kodları, belleğin veri bölgesinde
+  işlerler. Windows DEP bunu görür ve bloke eder.(Çünkü bazı kötü
+  niyetli programlar da bu bölgeyi kullanır.)<br>
+  <strong>Çözüm</strong>: Maxima'nın bütün program yolunu
+  gerçekleştirilebilenler arasına dahil edin, örneğin DEP dışında
+  tutulacaklar listesine (Control Panel → System → Advanced →
+  Performance → DEP) <code>C:\Program
+  Files\Maxima-5.10.0\lib\maxima\5.10.0\binary-gcl\maxima.exe</code>
+  'yi dahil edin.</dd>
+</dl>
+<p id="question5_2">&cir; <em>Linux'ta <tt>/etc/hosts</tt> dosyasında
+'an invalid entry for localhost' hata mesajı alıyorum.</em></p>
+<p><strong>ÇÖzüm</strong>: <tt>127.0.0.1 localhost</tt> ile eşleşen
+bir giriş olduğundan emin olun. Aksi takdirde, wxMaxima ve\veya
+XMaxima "localhost" u geçersiz bir IP ye çözümleyemeyecektir ve
+sonunda hata verecek ve &quot;maxima terminated&quot;mesajını
+verecektir.</p>
+<p id="question5_3">&cir; <em>MacOS'ta wxMaxima başlıyor ancak Maxima
+komutlarının yürütülmesi yapılan her girişimde "&quot;Not connected to
+maxima!&quot;" = "&quot;maxima'ya bağlanamadı!&quot;" rapor
+ediliyor..</em></p>
+<p>Yapacağınız en iyi şey bu durumu wxMaxima kullanıcı forumunda
+paylaşmanız olacaktır. Maxima Clisp yada SBCL ile derlendiği
+durumlarda wx Maxima nın çalışmadığını içeren bildirimler
+bulunmaktadır. Eğer siz de bu türden bir Lisp versiyonu
+kullanıyorsanız Maxima'yı CMUCL ile derlemeyi deneyebilirsiniz.</p>
+</div>
+</div>
+<div class="rightcolumn">
+<div class="menu">
+<ul>
+  <li><a href="index.html">Ana Sayfa</a></li>
+  <li><a href="download.html">İndir</a></li>
+  <li><a href="documentation.html">Belgeler</a></li>
+  <li><a href="project.html" >Maxima Projesi</a></li>
+  <li><a href="maximalist.html">E-posta listesi</a></li>
+  <li><a href="compalg.html">Bilgisayar Cebiri Sistemleri</a></li>
+  <li><a href="lisp.html">Lisp Linkleri</a></li>
+  <li><a href="3rdpartycode.html">Üçüncü Parti Kod</a></li>
+  <li><a href="relatedprojects.html">İlgili Projeler</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Maxima veya bu site ile ilgili her türlü soru <a href="maximalist.html">posta listesinde</a> sorulmalıdır.</p>
+<span>Son değişiklik: 2022/03/30 13:41:00 UTC</span>
+</div>
 </body>
 </html>
