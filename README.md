@@ -15,7 +15,7 @@ without any additional configuration or external files.
 A copy of this repository will even work locally in your computer, even
 if you don't have a Web server installed. This could be a handy way of
 keeping a local copy of all the information in the Website. All you need
-is a Web browser with Javascript enabled. Simply point your browser
+is a Web browser. Simply point your browser
 to file:///dir/index.html, where dir is the name of the directory where
 you retrieved this repository.
 
