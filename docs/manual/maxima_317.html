@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Package functs (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Functions and Variables for romberg</title>
 
-<meta name="description" content="Package functs (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Package functs (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Functions and Variables for romberg">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Functions and Variables for romberg">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_313.html" rel="up" title="simplification-pkg">
-<link href="maxima_318.html" rel="next" title="Package ineq">
-<link href="maxima_316.html" rel="prev" title="Package facexp">
+<link href="maxima_toc.html#Top" rel="up" title="Top">
+<link href="maxima_318.html#simplex_002dpkg" rel="next" title="simplex-pkg">
+<link href="maxima_316.html#romberg_002dpkg" rel="previous" title="romberg-pkg">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,425 +73,191 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Package-functs"></span><div class="header">
-<p>
-Next: <a href="maxima_318.html" accesskey="n" rel="next">Package ineq</a>, Previous: <a href="maxima_316.html" accesskey="p" rel="prev">Package facexp</a>, Up: <a href="maxima_313.html" accesskey="u" rel="up">simplification-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<span id="Package-functs-1"></span><h3 class="section">84.4 Package functs</h3>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Share-packages">Share packages</a>
-
-<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-</div>
-</p>
-<span id="rempart"></span><span id="Item_003a-simplifications_002fdeffn_002frempart"></span><dl>
-<dt id="index-rempart">Function: <strong>rempart</strong> <em>(<var>expr</var>, <var>n</var>)</em></dt>
-<dd><p>Removes part <var>n</var> from the expression <var>expr</var>.
-</p>
-<p>If <var>n</var> is a list of the form <code>[<var>l</var>, <var>m</var>]</code>
-then parts <var>l</var> thru <var>m</var> are removed.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="wronskian"></span><span id="Item_003a-simplifications_002fdeffn_002fwronskian"></span><dl>
-<dt id="index-wronskian">Function: <strong>wronskian</strong> <em>([<var>f_1</var>, ..., <var>f_n</var>], <var>x</var>)</em></dt>
-<dd><p>Returns the Wronskian matrix of the list of expressions [<var>f_1</var>, ..., <var>f_n</var>] in the variable <var>x</var>.
-The determinant of the Wronskian matrix is the Wronskian determinant of the list of expressions.
-</p>
-<p>To use <code>wronskian</code>, first <code>load(functs)</code>. Example:
-</p>
-<div class="example">
-<pre class="example">(%i1) load (&quot;functs&quot;)$
-</pre><pre class="example">(%i2) wronskian([f(x), g(x)],x);
-                    [   f(x)       g(x)    ]
-                    [                      ]
-(%o2)               [ d          d         ]
-                    [ -- (f(x))  -- (g(x)) ]
-                    [ dx         dx        ]
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Differential-calculus">Differential calculus</a>
-</div>
-</p>
-</dd></dl>
-
-
-<span id="tracematrix"></span><span id="Item_003a-simplifications_002fdeffn_002ftracematrix"></span><dl>
-<dt id="index-tracematrix">Function: <strong>tracematrix</strong> <em>(<var>M</var>)</em></dt>
-<dd><p>Returns the trace (sum of the diagonal elements) of matrix <var>M</var>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Matrices">Matrices</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="Item_003a-simplifications_002fdeffn_002frational"></span><dl>
-<dt id="index-rational">Function: <strong>rational</strong> <em>(<var>z</var>)</em></dt>
-<dd><p>Multiplies numerator and denominator of <var>z</var> by the complex conjugate of denominator,
-thus rationalizing the denominator.
-Returns canonical rational expression (CRE) form if given one, else returns general form.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p>
-</dd></dl>
-
-
-
-<span id="nonzeroandfreeof"></span><span id="Item_003a-simplifications_002fdeffn_002fnonzeroandfreeof"></span><dl>
-<dt id="index-nonzeroandfreeof">Function: <strong>nonzeroandfreeof</strong> <em>(<var>x</var>, <var>expr</var>)</em></dt>
-<dd><p>Returns <code>true</code> if <var>expr</var> is nonzero and <code>freeof (<var>x</var>, <var>expr</var>)</code> returns <code>true</code>.
-Returns <code>false</code> otherwise.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="Item_003a-simplifications_002fdeffn_002flinear"></span><dl>
-<dt id="index-linear">Function: <strong>linear</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
-<dd><p>When <var>expr</var> is an expression of the form <code><var>a</var>*<var>x</var> + <var>b</var></code>
-where <var>a</var> is nonzero, and <var>a</var> and <var>b</var> are free of <var>x</var>,
-<code>linear</code> returns a list of three equations, one for each of the three formal
-variables <var>b</var>, <var>a</var>, and <var>x</var>. Otherwise, <code>linear</code> returns <code>false</code>.
-</p>
-<p><code>load(antid)</code> loads this function.
-</p>
-<p>Example:
-</p>
-<div class="example">
-<pre class="example">(%i1) load (&quot;antid&quot;);
-(%o1)  /maxima/share/integration/antid.mac
-</pre><pre class="example">(%i2) linear ((1 - w)*(1 - x)*z, z);
-(%o2) [bargumentb = 0, aargumenta = (w - 1) x - w + 1, 
-                                                  xargumentx = z]
-</pre><pre class="example">(%i3) linear (cos(u - v) + cos(u + v), u);
-(%o3)                         false
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-antid">Package antid</a>
-
-<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="gcdivide"></span><span id="Item_003a-simplifications_002fdeffn_002fgcdivide"></span><dl>
-<dt id="index-gcdivide">Function: <strong>gcdivide</strong> <em>(<var>p</var>, <var>q</var>)</em></dt>
-<dd>
-<p>When the option variable <code>takegcd</code> is <code>true</code> which is the default,
-<code>gcdivide</code> divides the polynomials <var>p</var> and <var>q</var> by their greatest
-common divisor and returns the ratio of the results.  <code>gcdivde</code> calls the
-function <code><a href="maxima_76.html#ezgcd">ezgcd</a></code> to divide the polynomials by the greatest common divisor.
-</p>
-<p>When <code>takegcd</code> is <code>false</code>, <code>gcdivide</code> returns the ratio
-<code><var>p</var>/<var>q</var></code>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<p>See also <code><a href="maxima_76.html#ezgcd">ezgcd</a></code>, <code><a href="maxima_76.html#gcd">gcd</a></code>, <code><a href="maxima_76.html#gcdex">gcdex</a></code>, and
-<code><a href="maxima_253.html#poly_005fgcd">poly_gcd</a></code>.
-</p>
-<p>Example:
-</p>
-<div class="example">
-<pre class="example">(%i1) load(functs)$
-
-(%i2) p1:6*x^3+19*x^2+19*x+6; 
-                        3       2
-(%o2)                6 x  + 19 x  + 19 x + 6
-(%i3) p2:6*x^5+13*x^4+12*x^3+13*x^2+6*x;
-                  5       4       3       2
-(%o3)          6 x  + 13 x  + 12 x  + 13 x  + 6 x
-(%i4) gcdivide(p1, p2);
-                             x + 1
-(%o4)                        ------
-                              3
-                             x  + x
-(%i5) takegcd:false;
-(%o5)                         false
-(%i6) gcdivide(p1, p2);
-                       3       2
-                    6 x  + 19 x  + 19 x + 6
-(%o6)          ----------------------------------
-                  5       4       3       2
-               6 x  + 13 x  + 12 x  + 13 x  + 6 x
-(%i7) ratsimp(%);
-                             x + 1
-(%o7)                        ------
-                              3
-                             x  + x
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Polynomials">Polynomials</a>
-</div>
-</p></dd></dl>
-
-
-<span id="arithmetic"></span><span id="Item_003a-simplifications_002fdeffn_002farithmetic"></span><dl>
-<dt id="index-arithmetic">Function: <strong>arithmetic</strong> <em>(<var>a</var>, <var>d</var>, <var>n</var>)</em></dt>
-<dd><p>Returns the <var>n</var>-th term of the arithmetic series
-<code><var>a</var>, <var>a</var> + <var>d</var>, <var>a</var> + 2*<var>d</var>, ..., <var>a</var> + (<var>n</var> - 1)*<var>d</var></code>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Sums-and-products">Sums and products</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="geometric"></span><span id="Item_003a-simplifications_002fdeffn_002fgeometric"></span><dl>
-<dt id="index-geometric">Function: <strong>geometric</strong> <em>(<var>a</var>, <var>r</var>, <var>n</var>)</em></dt>
-<dd><p>Returns the <var>n</var>-th term of the geometric series
-<code><var>a</var>, <var>a</var>*<var>r</var>, <var>a</var>*<var>r</var>^2, ..., <var>a</var>*<var>r</var>^(<var>n</var> - 1)</code>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Sums-and-products">Sums and products</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="harmonic"></span><span id="Item_003a-simplifications_002fdeffn_002fharmonic"></span><dl>
-<dt id="index-harmonic">Function: <strong>harmonic</strong> <em>(<var>a</var>, <var>b</var>, <var>c</var>, <var>n</var>)</em></dt>
-<dd><p>Returns the <var>n</var>-th term of the harmonic series
-<code><var>a</var>/<var>b</var>, <var>a</var>/(<var>b</var> + <var>c</var>), <var>a</var>/(<var>b</var> + 2*<var>c</var>), ..., <var>a</var>/(<var>b</var> + (<var>n</var> - 1)*<var>c</var>)</code>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Sums-and-products">Sums and products</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="arithsum"></span><span id="Item_003a-simplifications_002fdeffn_002farithsum"></span><dl>
-<dt id="index-arithsum">Function: <strong>arithsum</strong> <em>(<var>a</var>, <var>d</var>, <var>n</var>)</em></dt>
-<dd><p>Returns the sum of the arithmetic series from 1 to <var>n</var>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Sums-and-products">Sums and products</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="geosum"></span><span id="Item_003a-simplifications_002fdeffn_002fgeosum"></span><dl>
-<dt id="index-geosum">Function: <strong>geosum</strong> <em>(<var>a</var>, <var>r</var>, <var>n</var>)</em></dt>
-<dd><p>Returns the sum of the geometric series from 1 to <var>n</var>.  If <var>n</var> is
-infinity (<code>inf</code>) then a sum is finite only if the absolute value
-of <var>r</var> is less than 1.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Sums-and-products">Sums and products</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="gaussprob"></span><span id="Item_003a-simplifications_002fdeffn_002fgaussprob"></span><dl>
-<dt id="index-gaussprob">Function: <strong>gaussprob</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Returns the Gaussian probability function
-<code>%e^(-<var>x</var>^2/2) / sqrt(2*%pi)</code>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="gd"></span><span id="Item_003a-simplifications_002fdeffn_002fgd"></span><dl>
-<dt id="index-gd">Function: <strong>gd</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Returns the Gudermannian function
-<code>2*atan(%e^x)-%pi/2</code>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="agd"></span><span id="Item_003a-simplifications_002fdeffn_002fagd"></span><dl>
-<dt id="index-agd">Function: <strong>agd</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Returns the inverse Gudermannian function
-<code>log (tan (%pi/4 + x/2))</code>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="vers"></span><span id="Item_003a-simplifications_002fdeffn_002fvers"></span><dl>
-<dt id="index-vers">Function: <strong>vers</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Returns the versed sine <code>1 - cos (x)</code>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="covers"></span><span id="Item_003a-simplifications_002fdeffn_002fcovers"></span><dl>
-<dt id="index-covers">Function: <strong>covers</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Returns the coversed sine <code>1 - sin (<var>x</var>)</code>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="exsec"></span><span id="Item_003a-simplifications_002fdeffn_002fexsec"></span><dl>
-<dt id="index-exsec">Function: <strong>exsec</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Returns the exsecant <code>sec (<var>x</var>) - 1</code>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="hav"></span><span id="Item_003a-simplifications_002fdeffn_002fhav"></span><dl>
-<dt id="index-hav">Function: <strong>hav</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Returns the haversine <code>(1 - cos(x))/2</code>.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="combination"></span><span id="Item_003a-simplifications_002fdeffn_002fcombination"></span><dl>
-<dt id="index-combination">Function: <strong>combination</strong> <em>(<var>n</var>, <var>r</var>)</em></dt>
-<dd><p>Returns the number of combinations of <var>n</var> objects
-taken <var>r</var> at a time.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="permutation"></span><span id="Item_003a-simplifications_002fdeffn_002fpermutation"></span><dl>
-<dt id="index-permutation">Function: <strong>permutation</strong> <em>(<var>n</var>, <var>r</var>)</em></dt>
-<dd><p>Returns the number of permutations of <var>r</var> objects
-selected from a set of <var>n</var> objects.
-</p>
-<p>To use this function write first <code>load(functs)</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-functs">Package functs</a>
-
-<a href="maxima_370.html#Category_003a-Mathematical-functions">Mathematical functions</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="Item_003a-simplifications_002fnode_002fPackage-ineq"></span><hr>
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Functions-and-Variables-for-romberg"></a>
 <div class="header">
 <p>
-Next: <a href="maxima_318.html" accesskey="n" rel="next">Package ineq</a>, Previous: <a href="maxima_316.html" accesskey="p" rel="prev">Package facexp</a>, Up: <a href="maxima_313.html" accesskey="u" rel="up">simplification-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_toc.html#Top" accesskey="p" rel="previous">Top</a>, Up: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Functions-and-Variables-for-romberg-1"></a>
+<h3 class="section">84.1 Functions and Variables for romberg</h3>
+
+<a name="romberg_005ffunction"></a><a name="Item_003a-romberg_002fdeffn_002fromberg"></a><dl>
+<dt><a name="index-romberg"></a>Function: <strong>romberg</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>romberg</tt> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>romberg</tt> (<var>F</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dd>
+<p>Computes a numerical integration by Romberg&rsquo;s method.
+</p>
+<p><code>romberg(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>
+returns an estimate of the integral <code>integrate(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>.
+<var>expr</var> must be an expression which evaluates to a floating point value
+when <var>x</var> is bound to a floating point value.
+</p>
+<p><code>romberg(<var>F</var>, <var>a</var>, <var>b</var>)</code>
+returns an estimate of the integral <code>integrate(<var>F</var>(x), x, <var>a</var>, <var>b</var>)</code>
+where <code>x</code> represents the unnamed, sole argument of <var>F</var>;
+the actual argument is not named <code>x</code>.
+<var>F</var> must be a Maxima or Lisp function which returns a floating point value
+when the argument is a floating point value.
+<var>F</var> may name a translated or compiled Maxima function.
+</p>
+<p>The accuracy of <code>romberg</code> is governed by the global variables
+<code>rombergabs</code> and <code>rombergtol</code>.
+<code>romberg</code> terminates successfully when
+the absolute difference between successive approximations is less than <code>rombergabs</code>,
+or the relative difference in successive approximations is less than <code>rombergtol</code>.
+Thus when <code>rombergabs</code> is 0.0 (the default)
+only the relative error test has any effect on <code>romberg</code>.
+</p>
+<p><code>romberg</code> halves the stepsize at most <code>rombergit</code> times before it gives up;
+the maximum number of function evaluations is therefore <code>2^rombergit</code>.
+If the error criterion established by <code>rombergabs</code> and <code>rombergtol</code>
+is not satisfied, <code>romberg</code> prints an error message.
+<code>romberg</code> always makes at least <code>rombergmin</code> iterations;
+this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
+</p>
+<p><code>romberg</code> repeatedly evaluates the integrand after binding the variable
+of integration to a specific value (and not before).
+This evaluation policy makes it possible to nest calls to <code>romberg</code>,
+to compute multidimensional integrals.
+However, the error calculations do not take the errors of nested integrations
+into account, so errors may be underestimated.
+Also, methods devised especially for multidimensional problems may yield
+the same accuracy with fewer function evaluations.
+</p>
+<p>See also <code><a href="maxima_99.html#Introduction-to-QUADPACK">Introduction to QUADPACK</a></code>, a collection of numerical integration functions.
+</p>
+<p>Examples:
+</p>
+<p>A 1-dimensional integration.
+</p><div class="example">
+<pre class="example">(%i1) f(x) := 1/((x - 1)^2 + 1/100) + 1/((x - 2)^2 + 1/1000)
+              + 1/((x - 3)^2 + 1/200);
+                    1                 1                1
+(%o1) f(x) := -------------- + --------------- + --------------
+                     2    1           2    1            2    1
+              (x - 1)  + ---   (x - 2)  + ----   (x - 3)  + ---
+                         100              1000              200
+</pre><pre class="example">(%i2) rombergtol : 1e-6;
+(%o2)                 9.999999999999999e-7
+</pre><pre class="example">(%i3) rombergit : 15;
+(%o3)                          15
+</pre><pre class="example">(%i4) estimate : romberg (f(x), x, -5, 5);
+(%o4)                   173.6730736617464
+</pre><pre class="example">(%i5) exact : integrate (f(x), x, -5, 5);
+        3/2          3/2      3/2          3/2
+(%o5) 10    atan(7 10   ) + 10    atan(3 10   )
+      3/2         9/2       3/2         5/2
+ + 5 2    atan(5 2   ) + 5 2    atan(5 2   ) + 10 atan(60)
+ + 10 atan(40)
+</pre><pre class="example">(%i6) abs (estimate - exact) / exact, numer;
+(%o6)                 7.552722451569877e-11
+</pre></div>
+
+<p>A 2-dimensional integration, implemented by nested calls to <code>romberg</code>.
+</p><div class="example">
+<pre class="example">(%i1) g(x, y) := x*y / (x + y);
+                                    x y
+(%o1)                   g(x, y) := -----
+                                   x + y
+</pre><pre class="example">(%i2) rombergtol : 1e-6;
+(%o2)                 9.999999999999999e-7
+</pre><pre class="example">(%i3) estimate : romberg (romberg (g(x, y), y, 0, x/2), x, 1, 3);
+(%o3)                  0.8193023962835647
+</pre><pre class="example">(%i4) assume (x &gt; 0);
+(%o4)                        [x &gt; 0]
+</pre><pre class="example">(%i5) integrate (integrate (g(x, y), y, 0, x/2), x, 1, 3);
+                                           3
+                                     2 log(-) - 1
+                    9                      2        9
+(%o5)      (- 9 log(-)) + 9 log(3) + ------------ + -
+                    2                     6         2
+</pre><pre class="example">(%i6) exact : radcan (%);
+                    26 log(3) - 26 log(2) - 13
+(%o6)             - --------------------------
+                                3
+</pre><pre class="example">(%i7) abs (estimate - exact) / exact, numer;
+(%o7)                 1.371197987185102e-10
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-romberg">Package romberg</a>
+&middot;<a href="maxima_378.html#Category_003a-Numerical-methods">Numerical methods</a>
+&middot;</div>
+</dd></dl>
+
+<a name="rombergabs"></a><a name="Item_003a-romberg_002fdefvr_002frombergabs"></a><dl>
+<dt><a name="index-rombergabs"></a>Option variable: <strong>rombergabs</strong></dt>
+<dd><p>Default value: 0.0
+</p>
+<p>The accuracy of <code>romberg</code> is governed by the global variables
+<code>rombergabs</code> and <code>rombergtol</code>.
+<code>romberg</code> terminates successfully when
+the absolute difference between successive approximations is less than <code>rombergabs</code>,
+or the relative difference in successive approximations is less than <code>rombergtol</code>.
+Thus when <code>rombergabs</code> is 0.0 (the default)
+only the relative error test has any effect on <code>romberg</code>.
+</p>
+<p>See also <code><a href="#rombergit">rombergit</a></code> and <code><a href="#rombergmin">rombergmin</a></code>.
+</p>
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-romberg">Package romberg</a>
+&middot;</div>
+</dd></dl>
+
+<a name="rombergit"></a><a name="Item_003a-romberg_002fdefvr_002frombergit"></a><dl>
+<dt><a name="index-rombergit"></a>Option variable: <strong>rombergit</strong></dt>
+<dd><p>Default value: 11
+</p>
+<p><code>romberg</code> halves the stepsize at most <code>rombergit</code> times before it gives up;
+the maximum number of function evaluations is therefore <code>2^rombergit</code>.
+<code>romberg</code> always makes at least <code>rombergmin</code> iterations;
+this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
+</p>
+<p>See also <code><a href="#rombergabs">rombergabs</a></code> and <code><a href="#rombergtol">rombergtol</a></code>.
+</p>
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-romberg">Package romberg</a>
+&middot;</div>
+</dd></dl>
+
+<a name="rombergmin"></a><a name="Item_003a-romberg_002fdefvr_002frombergmin"></a><dl>
+<dt><a name="index-rombergmin"></a>Option variable: <strong>rombergmin</strong></dt>
+<dd><p>Default value: 0
+</p>
+<p><code>romberg</code> always makes at least <code>rombergmin</code> iterations;
+this is a heuristic intended to prevent spurious termination when the integrand is oscillatory.
+</p>
+<p>See also <code><a href="#rombergit">rombergit</a></code>, <code><a href="#rombergabs">rombergabs</a></code>, and <code><a href="#rombergtol">rombergtol</a></code>.
+</p>
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-romberg">Package romberg</a>
+&middot;</div>
+</dd></dl>
+
+<a name="rombergtol"></a><a name="Item_003a-romberg_002fdefvr_002frombergtol"></a><dl>
+<dt><a name="index-rombergtol"></a>Option variable: <strong>rombergtol</strong></dt>
+<dd><p>Default value: 1e-4
+</p>
+<p>The accuracy of <code>romberg</code> is governed by the global variables
+<code>rombergabs</code> and <code>rombergtol</code>.
+<code>romberg</code> terminates successfully when
+the absolute difference between successive approximations is less than <code>rombergabs</code>,
+or the relative difference in successive approximations is less than <code>rombergtol</code>.
+Thus when <code>rombergabs</code> is 0.0 (the default)
+only the relative error test has any effect on <code>romberg</code>.
+</p>
+<p>See also <code><a href="#rombergit">rombergit</a></code> and <code><a href="#rombergmin">rombergmin</a></code>.
+</p>
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-romberg">Package romberg</a>
+&middot;</div>
+</dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_toc.html#Top" accesskey="p" rel="previous">Top</a>, Up: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

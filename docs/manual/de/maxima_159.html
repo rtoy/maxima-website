@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Makros</title>
+
+<meta name="description" content="Maxima Manual: Makros">
+<meta name="keywords" content="Maxima Manual: Makros">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_157.html#Funktionsdefinitionen" rel="up" title="Funktionsdefinitionen">
+<link href="maxima_160.html#Funktionen-und-Variablen-f_00fcr-Funktionsdefinitionen" rel="next" title="Funktionen und Variablen f&uuml;r Funktionsdefinitionen">
+<link href="maxima_158.html#Funktionen" rel="previous" title="Funktionen">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Makros"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_160.html#Funktionen-und-Variablen-f_00fcr-Funktionsdefinitionen" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r Funktionsdefinitionen</a>, Previous: <a href="maxima_158.html#Funktionen" accesskey="p" rel="previous">Funktionen</a>, Nach oben: <a href="maxima_157.html#Funktionsdefinitionen" accesskey="u" rel="up">Funktionsdefinitionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Makros-1"></a>
+<h3 class="section">25.2 Makros</h3>
+
+<a name="buildq"></a><a name="Item_003a-Function_002ede_002fdeffn_002fbuildq"></a><dl>
+<dt><a name="index-buildq"></a>Funktion: <strong>buildq</strong> <em>(<var>L</var>, <var>expr</var>)</em></dt>
+<dd>
+<p>Die Variablen der Liste <var>L</var> werden in den Ausdruck <var>expr</var> substituiert.
+Die Substitution wird parallel ausgef&uuml;hrt.  Das Ergebnis der Substitution wird
+vereinfacht, aber nicht ausgewertet.
+</p>
+<p>Die Elemente der Liste <var>L</var> sind Symbole oder Zuweisungen der Form
+<code><var>symbol</var>: <var>value</var></code>.  Die Zuweisungen werden parallel ausgewertet.
+Der Wert einer Variablen auf der rechten Seite einer Zuweisung ist der globale
+Wert in dem Kontext in dem <code>buildq</code> aufgerufen wird und nicht der lokale
+Wert einer vorhergehenden Zuweisung.  Erh&auml;lt eine Variable keinen Wert, dann 
+beh&auml;lt die Variable den globalen Wert.
+</p>
+<p>Dann werden die in der Liste <var>L</var> enthaltenen Variablen parallel in den 
+Ausdruck <var>expr</var> substituiert.
+</p>
+<p>Enth&auml;lt <var>expr</var> Ausdr&uuml;cke der Form <code>splice(<var>x</var>)</code>, muss die 
+Variable <var>x</var> eine Liste sein.  Die Liste wird in den Ausdruck eingef&uuml;gt.
+Siehe auch <code><a href="#splice">splice</a></code>.
+</p>
+<p>Variablen in in dem Ausdruck <var>expr</var>, die nicht in <var>L</var> enthalten sind,
+werden nicht durch einen Wert ersetzt, auch wenn es eine globale Variable mit
+demselben Namen gibt, da der Ausdruck nicht ausgewertet wird.
+</p>
+<p>Beispiele:
+</p>
+<p>Der Variablen <code>a</code> wird der Wert zugewiesen.  Die Variable <code>b</code> erh&auml;lt
+den globalen Wert.  Die Variable <code>c</code> hat keinen Wert.  Das Ergebnis ist
+ein nicht ausgewerteter Ausdruck.  Die Auswertung wird mit dem 
+<a href="maxima_45.html#g_t_0027_0027">Quote-Quote-Operator</a> <code>''</code> erzwungen.
+</p>
+<div class="example">
+<pre class="example">(%i1) (a: 17, b: 29, c: 1729)$
+(%i2) buildq ([a: x, b], a + b + c);
+(%o2)                      x + c + 29
+(%i3) ''%;
+(%o3)                       x + 1758
+</pre></div>
+
+<p><code>e</code> ist eine Liste, die einmal als Argument der Funktion <code>foo</code>
+vorliegt und zum anderen in die Argumentliste der Funktion <code>bar</code> 
+eingef&uuml;gt wird.
+</p>
+<div class="example">
+<pre class="example">(%i1) buildq ([e: [a, b, c]], foo (x, e, y));
+(%o1)                 foo(x, [a, b, c], y)
+(%i2) buildq ([e: [a, b, c]], bar (x, splice (e), y));
+(%o2)                  bar(x, a, b, c, y)
+</pre></div>
+
+<p>Das Ergebnis wird nach der Substitution vereinfacht, ansonsten h&auml;tten die
+beiden folgenden Beispiele dasselbe Ergebnis.
+</p>
+<div class="example">
+<pre class="example">(%i1) buildq ([e: [a, b, c]], splice (e) + splice (e));
+(%o1)                    2 c + 2 b + 2 a
+(%i2) buildq ([e: [a, b, c]], 2 * splice (e));
+(%o2)                        2 a b c
+</pre></div>
+
+<p>Die Variablen der Liste <var>L</var> erhalten ihren Wert parallel, ansonsten w&auml;re
+das erste Ergebnis <code>foo(b,b)</code>.  Substitutionen werden parallel 
+ausgef&uuml;hrt.  Im Gegensatz dazu werden die Substitutionen mit der Funktion 
+<code><a href="maxima_32.html#subst">subst</a></code> nacheinander ausgef&uuml;hrt.
+</p>
+<div class="example">
+<pre class="example">(%i1) buildq ([a: b, b: a], foo (a, b));
+(%o1)                       foo(b, a)
+(%i2) buildq ([u: v, v: w, w: x, x: y, y: z, z: u],
+              bar (u, v, w, x, y, z));
+(%o2)                 bar(v, w, x, y, z, u)
+(%i3) subst ([u=v, v=w, w=x, x=y, y=z, z=u],
+             bar (u, v, w, x, y, z));
+(%o3)                 bar(u, u, u, u, u, u)
+</pre></div>
+
+<p>Konstruktion einer Liste mit Gleichungen mit Variablen oder Ausdr&uuml;cken auf 
+der linken Seite und deren Werten auf der rechten Seite.  Die Funktion
+<code><a href="#macroexpand">macroexpand</a></code> expandiert das Makro <code>show_values</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) show_values ([L]) ::= buildq ([L], map (&quot;=&quot;, 'L, L))$
+(%i2) (a: 17, b: 29, c: 1729)$
+(%i3) show_values (a, b, c - a - b);
+(%o3)          [a = 17, b = 29, c - b - a = 1683]
+(%i4) macroexpand (show_values (a, b, c - a - b));
+(%o4)    map(=, '([a, b, c - b - a]), [a, b, c - b - a])
+</pre></div>
+
+<p>Konstruktion einer Funktion.
+</p>
+<div class="example">
+<pre class="example">(%i1) curry (f, [a]) :=
+        buildq ([f, a], lambda ([[x]], apply (f, append (a, x))))$
+(%i2) by3 : curry (&quot;*&quot;, 3);
+(%o2)        lambda([[x]], apply(*, append([3], x)))
+(%i3) by3 (a + b);
+(%o3)                       3 (b + a)
+</pre></div>
+</dd></dl>
+
+<a name="macroexpand"></a><a name="Item_003a-Function_002ede_002fdeffn_002fmacroexpand"></a><dl>
+<dt><a name="index-macroexpand"></a>Funktion: <strong>macroexpand</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Ist das Argument <var>expr</var> ein Makro, wird das Makro expandiert, ohne dass es 
+ausgewertet wird.  Ansonsten wird <var>expr</var> zur&uuml;ckgegeben.
+</p>
+<p>Ist die Expansion des Makros selbst ein Makro, wird dieses Makro wiederholt
+expandiert.
+</p>
+<p><code>macroexpand</code> wertet das Argument <var>expr</var> nicht aus.  Hat die Expansion
+des Makros Seiteneffekte, dann werden diese ausgef&uuml;hrt.
+</p>
+<p>Siehe auch <code><a href="maxima_39.html#g_t_003a_003a_003d">::=</a></code> und <code><a href="#macroexpand1">macroexpand1</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) g (x) ::= x / 99;
+                                    x
+(%o1)                      g(x) ::= --
+                                    99
+(%i2) h (x) ::= buildq ([x], g (x - a));
+(%o2)            h(x) ::= buildq([x], g(x - a))
+(%i3) a: 1234;
+(%o3)                         1234
+(%i4) macroexpand (h (y));
+                              y - a
+(%o4)                         -----
+                               99
+(%i5) h (y);
+                            y - 1234
+(%o5)                       --------
+                               99
+</pre></div>
+</dd></dl>
+
+<a name="macroexpand1"></a><a name="Item_003a-Function_002ede_002fdeffn_002fmacroexpand1"></a><dl>
+<dt><a name="index-macroexpand1"></a>Funktion: <strong>macroexpand1</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Gibt die Makro-Expansion von <var>expr</var> zur&uuml;ck, ohne das Ergebnis auszuwerten.
+Ist <var>expr</var> keine Makro-Funktion gibt <code>macroexpand1</code> das Argument
+<var>expr</var> zur&uuml;ck.
+</p>
+<p><code>macroexpand1</code> wertet das Argument nicht aus.  Hat die Expansion des Makros
+Seiteneffekte, dann werden diese ausgef&uuml;hrt.
+</p>
+<p>Enth&auml;lt die Expansion <var>expr</var> wiederum Makros, werden diese im Unterschied
+zur Funktion <code>macroexpand</code> nicht expandiert.
+</p>
+<p>Siehe auch <code><a href="maxima_39.html#g_t_003a_003a_003d">::=</a></code> und <code><a href="#macroexpand">macroexpand</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) g (x) ::= x / 99;
+                                    x
+(%o1)                      g(x) ::= --
+                                    99
+(%i2) h (x) ::= buildq ([x], g (x - a))$
+(%i3) a: 1234;
+(%o3)                         1234
+(%i4) macroexpand1 (h (y));
+(%o4)                       g(y - a)
+(%i5) h (y);
+                            y - 1234
+(%o5)                       --------
+                               99
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-Function_002ede_002fdefvr_002fmacroexpansion"></a><dl>
+<dt><a name="index-macroexpansion"></a>Optionsvariable: <strong>macroexpansion</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p><code>macroexpansion</code> kontrolliert die Expansion von Makros.
+</p>
+<dl compact="compact">
+<dt><code>false</code></dt>
+<dd><p>Die Expansion des Makros wird nicht f&uuml;r die aufrufende Funktion ersetzt.
+</p>
+</dd>
+<dt><code>expand</code></dt>
+<dd><p>Wird die Makro-Funktion das erste Mal ausgewertet, wird die Expansion des Makros
+gespeichert.  Weitere Aufrufe werten das Makro nicht erneut aus.  Seiteneffekte,
+wie Zuweisungen an globale Variablen, werden nur bei der ersten Auswertung 
+wirksam.  Die Expansion des Makros beeinflusst nicht andere Ausdr&uuml;cke, die das
+Makro ebenfalls aufrufen.
+</p>
+</dd>
+<dt><code>displace</code></dt>
+<dd><p>Wird die Makro-Funktion das erste mal ausgewertet, wird die Expansion des Makros
+in den aufrufenden Ausdruck eingesetzt.  Weitere Aufrufe werten das Makro nicht
+erneut aus.  Seiteneffekte, wie Zuweisungen an globale Variablen, werden nur bei
+der ersten Auswertung wirksam.  Die Expansion des Makros beeinflusst nicht 
+andere Ausdr&uuml;cke, die das Makro ebenfalls aufrufen.
+</p></dd>
+</dl>
+
+<p>Beispiele:
+</p>
+<p>Hat <code>macroexpansion</code> den Wert <code>false</code>, wird eine Makro-Funktion
+jedes mal aufgerufen, wenn der aufrufende Ausdruck ausgewertet wird.  Der
+aufrufende Ausdruck wird nicht modifiziert.
+</p>
+<div class="example">
+<pre class="example">(%i1) f (x) := h (x) / g (x);
+                                  h(x)
+(%o1)                     f(x) := ----
+                                  g(x)
+</pre><pre class="example">(%i2) g (x) ::= block (print (&quot;x + 99 is equal to&quot;, x),
+                       return (x + 99));
+</pre><pre class="example">(%o2) g(x) ::= block(print(&quot;x + 99 is equal to&quot;, x), 
+                                                  return(x + 99))
+(%i3) h (x) ::= block (print (&quot;x - 99 is equal to&quot;, x),
+                       return (x - 99));
+(%o3) h(x) ::= block(print(&quot;x - 99 is equal to&quot;, x), 
+                                                  return(x - 99))
+(%i4) macroexpansion: false;
+(%o4)                         false
+(%i5) f (a * b);
+x - 99 is equal to x 
+x + 99 is equal to x 
+                            a b - 99
+(%o5)                       --------
+                            a b + 99
+(%i6) dispfun (f);
+                                  h(x)
+(%t6)                     f(x) := ----
+                                  g(x)
+
+(%o6)                         done
+(%i7) f (a * b);
+x - 99 is equal to x 
+x + 99 is equal to x 
+                            a b - 99
+(%o7)                       --------
+                            a b + 99
+</pre></div>
+
+<p>Hat <code>macroexpansion</code> den Wert <code>expand</code>, wird eine Makro-Funktion nur
+einmal aufgerufen.  Der aufrufende Ausdruck wird nicht modifiziert.
+</p>
+<div class="example">
+<pre class="example">(%i1) f (x) := h (x) / g (x);
+                                  h(x)
+(%o1)                     f(x) := ----
+                                  g(x)
+(%i2) g (x) ::= block (print (&quot;x + 99 is equal to&quot;, x),
+                       return (x + 99));
+(%o2) g(x) ::= block(print(&quot;x + 99 is equal to&quot;, x), 
+                                                  return(x + 99))
+(%i3) h (x) ::= block (print (&quot;x - 99 is equal to&quot;, x),
+                       return (x - 99));
+(%o3) h(x) ::= block(print(&quot;x - 99 is equal to&quot;, x), 
+                                                  return(x - 99))
+(%i4) macroexpansion: expand;
+(%o4)                        expand
+(%i5) f (a * b);
+x - 99 is equal to x 
+x + 99 is equal to x
+</pre><pre class="example">                            a b - 99
+(%o5)                       --------
+                            a b + 99
+</pre><pre class="example">(%i6) dispfun (f);
+                                  h(x)
+(%t6)                     f(x) := ----
+                                  g(x)
+
+(%o6)                         done
+(%i7) f (a * b);
+                            a b - 99
+(%o7)                       --------
+                            a b + 99
+</pre></div>
+
+<p>Hat <code>macroexpansion</code> den Wert <code>displace</code>, wird eine Makro-Funktion
+nur einmal aufgerufen.  Der aufrufende Ausdruck wird modifiziert.
+</p>
+<div class="example">
+<pre class="example">(%i1) f (x) := h (x) / g (x);
+                                  h(x)
+(%o1)                     f(x) := ----
+                                  g(x)
+(%i2) g (x) ::= block (print (&quot;x + 99 is equal to&quot;, x),
+                       return (x + 99));
+(%o2) g(x) ::= block(print(&quot;x + 99 is equal to&quot;, x), 
+                                                  return(x + 99))
+(%i3) h (x) ::= block (print (&quot;x - 99 is equal to&quot;, x),
+                       return (x - 99));
+(%o3) h(x) ::= block(print(&quot;x - 99 is equal to&quot;, x), 
+                                                  return(x - 99))
+(%i4) macroexpansion: displace;
+(%o4)                       displace
+(%i5) f (a * b);
+x - 99 is equal to x 
+x + 99 is equal to x 
+                            a b - 99
+(%o5)                       --------
+                            a b + 99
+(%i6) dispfun (f);
+                                 x - 99
+(%t6)                    f(x) := ------
+                                 x + 99
+
+(%o6)                         done
+(%i7) f (a * b);
+                            a b - 99
+(%o7)                       --------
+                            a b + 99
+</pre></div>
+</dd></dl>
+
+<a name="macros"></a><a name="Item_003a-Function_002ede_002fdefvr_002fmacros"></a><dl>
+<dt><a name="index-macros"></a>Systemvariable: <strong>macros</strong></dt>
+<dd><p>Standardwert: <code>[]</code>
+</p>
+<p>Die Systemvariable <code>macros</code> ist eine Informationsliste, die die vom Nutzer
+mit dem Operator <code><a href="maxima_39.html#g_t_003a_003a_003d">::=</a></code> definierten Makros enth&auml;lt.  Wird das Makro mit
+einer der Funktionen <code><a href="maxima_9.html#kill">kill</a></code>, <code><a href="maxima_63.html#remove">remove</a></code> oder <code><a href="maxima_160.html#remfunction">remfunction</a></code>
+gel&ouml;scht, wird der Eintrag aus der Informationsliste entfernt.  Siehe auch die
+Systemvariable <code><a href="maxima_9.html#infolists">infolists</a></code>.
+</p></dd></dl>
+
+<a name="splice"></a><a name="Item_003a-Function_002ede_002fdeffn_002fsplice"></a><dl>
+<dt><a name="index-splice"></a>Funktion: <strong>splice</strong> <em>(<var>a</var>)</em></dt>
+<dd>
+<p>Die Funktion <code>splice</code> kann nur im Zusammenhang mit der Funktion 
+<code><a href="#buildq">buildq</a></code> verwendet werden.  Das Argument <var>a</var> bezeichnet eine Liste, die
+an Stelle von <code>splice(a)</code> in einen Ausdruck eingef&uuml;gt wird.  <var>a</var> kann
+nicht selbst eine Liste oder ein Ausdruck sein, der zu einer Liste auswertet.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) buildq ([x: [1, %pi, z - y]], foo (splice (x)) / length (x));
+                       foo(1, %pi, z - y)
+(%o1)                -----------------------
+                     length([1, %pi, z - y])
+(%i2) buildq ([x: [1, %pi]], &quot;/&quot; (splice (x)));
+                                1
+(%o2)                          ---
+                               %pi
+(%i3) matchfix (&quot;&lt;&gt;&quot;, &quot;&lt;&gt;&quot;);
+(%o3)                          &lt;&gt;
+(%i4) buildq ([x: [1, %pi, z - y]], &quot;&lt;&gt;&quot; (splice (x)));
+(%o4)                   &lt;&gt;1, %pi, z - y&lt;&gt;
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-Function_002ede_002fnode_002fFunktionen-und-Variablen-f_00fcr-Funktionsdefinitionen"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_160.html#Funktionen-und-Variablen-f_00fcr-Funktionsdefinitionen" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r Funktionsdefinitionen</a>, Previous: <a href="maxima_158.html#Funktionen" accesskey="p" rel="previous">Funktionen</a>, Nach oben: <a href="maxima_157.html#Funktionsdefinitionen" accesskey="u" rel="up">Funktionsdefinitionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

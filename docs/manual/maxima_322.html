@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Introduction to solve_rec (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Introduction to simplification</title>
 
-<meta name="description" content="Introduction to solve_rec (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Introduction to solve_rec (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Introduction to simplification">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Introduction to simplification">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_321.html" rel="up" title="solve_rec-pkg">
-<link href="maxima_323.html" rel="next" title="Functions and Variables for solve_rec">
-<link href="maxima_321.html" rel="prev" title="solve_rec-pkg">
+<link href="maxima_321.html#simplification_002dpkg" rel="up" title="simplification-pkg">
+<link href="maxima_323.html#Package-absimp" rel="next" title="Package absimp">
+<link href="maxima_321.html#simplification_002dpkg" rel="previous" title="simplification-pkg">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,43 +73,24 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Introduction-to-solve_005frec"></span><div class="header">
-<p>
-Next: <a href="maxima_323.html" accesskey="n" rel="next">Functions and Variables for solve_rec</a>, Previous: <a href="maxima_321.html" accesskey="p" rel="prev">solve_rec-pkg</a>, Up: <a href="maxima_321.html" accesskey="u" rel="up">solve_rec-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<span id="Introduction-to-solve_005frec-1"></span><h3 class="section">85.1 Introduction to solve_rec</h3>
-
-<p><code>solve_rec</code> is a package for solving linear recurrences with polynomial
-coefficients.
-</p>
-<p>A demo is available with <code>demo(&quot;solve_rec&quot;);</code>.
-</p>
-<p>Example:
-</p>
-<div class="example">
-<pre class="example">(%i1) load(&quot;solve_rec&quot;)$
-</pre><pre class="example">(%i2) solve_rec((n+4)*s[n+2] + s[n+1] - (n+1)*s[n], s[n]);
-                                    n
-                 %k  (2 n + 3) (- 1)          %k
-                   1                            2
-(%o2)       s  = -------------------- + ---------------
-             n     (n + 1) (n + 2)      (n + 1) (n + 2)
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Linear-recurrences">Linear recurrences</a>
-
-<a href="maxima_370.html#Category_003a-Share-packages">Share packages</a>
-
-<a href="maxima_370.html#Category_003a-Package-solve_005frec">Package solve_rec</a>
-</div>
-</p>
-<span id="Item_003a-solve_005frec_002fnode_002fFunctions-and-Variables-for-solve_005frec"></span><hr>
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introduction-to-simplification"></a>
 <div class="header">
 <p>
-Next: <a href="maxima_323.html" accesskey="n" rel="next">Functions and Variables for solve_rec</a>, Previous: <a href="maxima_321.html" accesskey="p" rel="prev">solve_rec-pkg</a>, Up: <a href="maxima_321.html" accesskey="u" rel="up">solve_rec-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_323.html#Package-absimp" accesskey="n" rel="next">Package absimp</a>, Previous: <a href="maxima_321.html#simplification_002dpkg" accesskey="p" rel="previous">simplification-pkg</a>, Up: <a href="maxima_321.html#simplification_002dpkg" accesskey="u" rel="up">simplification-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Introduction-to-simplification-1"></a>
+<h3 class="section">86.1 Introduction to simplification</h3>
+
+<p>The directory <code>maxima/share/simplification</code> contains several scripts
+which implement simplification rules and functions,
+and also some functions not related to simplification.
+</p>
+
+<a name="Item_003a-simplifications_002fnode_002fPackage-absimp"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_323.html#Package-absimp" accesskey="n" rel="next">Package absimp</a>, Previous: <a href="maxima_321.html#simplification_002dpkg" accesskey="p" rel="previous">simplification-pkg</a>, Up: <a href="maxima_321.html#simplification_002dpkg" accesskey="u" rel="up">simplification-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

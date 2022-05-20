@@ -1,1317 +1,769 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Oktober, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Maxima Manual: 45. ezunits</title>
+<title>Maxima Manual: Funktionen und Variablen f&uuml;r die Auswertung</title>
 
-<meta name="description" content="Maxima Manual: 45. ezunits">
-<meta name="keywords" content="Maxima Manual: 45. ezunits">
+<meta name="description" content="Maxima Manual: Funktionen und Variablen f&uuml;r die Auswertung">
+<meta name="keywords" content="Maxima Manual: Funktionen und Variablen f&uuml;r die Auswertung">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_43.html#Auswertung" rel="up" title="Auswertung">
+<link href="maxima_46.html#Vereinfachung" rel="next" title="Vereinfachung">
+<link href="maxima_44.html#Einf_00fchrung-in-die-Auswertung" rel="previous" title="Einf&uuml;hrung in die Auswertung">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="ezunits"></a>
-<a name="SEC271"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_44.html#SEC270" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC272" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_44.html#SEC268" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC275" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 45. ezunits </h1>
-
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC272">45.1 Introduction to ezunits</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC273">45.2 Introduction to physical_constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC274">45.3 Functions and Variables for ezunits</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Introduction-to-ezunits"></a>
-<a name="SEC272"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC271" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC273" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC271" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC271" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC275" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 45.1 Introduction to ezunits </h2>
-
-<p><code>ezunits</code> is a package for working with dimensional quantities,
-including some functions for dimensional analysis.
-<code>ezunits</code> can carry out arithmetic operations on dimensional quantities and unit conversions.
-The built-in units include Systeme Internationale (SI) and US customary units,
-and other units can be declared.
-See also <code>physical_constants</code>, a collection of physical constants.
-</p>
-<p><code>load(ezunits)</code> loads this package.
-<code>demo(ezunits)</code> displays several examples.
-The convenience function <code>known_units</code> returns a list of
-the built-in and user-declared units,
-while <code>display_known_unit_conversions</code> displays
-the set of known conversions in an easy-to-read format.
-</p>
-<p>An expression <em>a ` b</em> represents a dimensional quantity,
-with <code>a</code> indicating a nondimensional quantity and <code>b</code> indicating the dimensional units.
-A symbol can be used as a unit without declaring it as such;
-unit symbols need not have any special properties.
-The quantity and unit of an expression <em>a ` b</em> can
-be extracted by the <code>qty</code> and <code>units</code> functions, respectively.
-</p>
-<p>A symbol may be declared to be a dimensional quantity,
-with specified quantity or specified units or both.
-</p>
-<p>An expression <em>a ` b `` c</em> converts from unit <code>b</code> to unit <code>c</code>.
-<code>ezunits</code> has built-in conversions for SI base units,
-SI derived units, and some non-SI units.
-Unit conversions not already known to <code>ezunits</code> can be declared.
-The unit conversions known to <code>ezunits</code> are specified by the
-global variable <code>known_unit_conversions</code>,
-which comprises built-in and user-defined conversions.
-Conversions for products, quotients, and powers of units are
-derived from the set of known unit conversions.
-</p>
-<p>As Maxima generally prefers exact numbers (integers or rationals)
-to inexact (float or bigfloat),
-so <code>ezunits</code> preserves exact numbers when they appear
-in dimensional quantities.
-All built-in unit conversions are expressed in terms of exact numbers;
-inexact numbers in declared conversions are coerced to exact.
-</p>
-<p>There is no preferred system for display of units;
-input units are not converted to other units
-unless conversion is explicitly indicated.
-<code>ezunits</code> recognizes the prefixes m-, k-, M, and G-
-(for milli-, kilo-, mega-, and giga-)
-as applied to SI base units and SI derived units,
-but such prefixes are applied only when indicated by an explicit conversion.
-</p>
-<p>Arithmetic operations on dimensional quantities are carried out by
-conventional rules for such operations.
-</p>
-<ul class="toc">
-<li> <em>(x ` a) * (y ` b)</em> is equal to <em>(x * y) ` (a * b)</em>.
-</li><li> <em>(x ` a) + (y ` a)</em> is equal to <em>(x + y) ` a</em>.
-</li><li> <em>(x ` a)^y</em> is equal to <em>x^y ` a^y</em> when <code>y</code> is nondimensional.
-</li></ul>
-
-<p><code>ezunits</code> does not require that units in a sum have the same dimensions;
-such terms are not added together, and no error is reported.
-</p>
-<p><code>ezunits</code> includes functions for elementary dimensional analysis,
-namely the fundamental dimensions and fundamental units
-of a dimensional quantity,
-and computation of dimensionless quantities and natural units.
-The functions for dimensional analysis were adapted from similar
-functions in another package, written by Barton Willis.
-</p>
-<p>For the purpose of dimensional analysis,
-a list of fundamental dimensions and an associated list of fundamental units
-are maintained;
-by default the fundamental dimensions are
-length, mass, time, charge, temperature, and quantity,
-and the fundamental units are the associated SI units,
-but other fundamental dimensions and units can be declared.
-</p>
-
-<hr size="6">
-<a name="Introduction-to-physical_005fconstants"></a>
-<a name="SEC273"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC272" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC274" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC271" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC271" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC275" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 45.2 Introduction to physical_constants </h2>
-
-<p><code>physical_constants</code> is a collection of physical constants,
-copied from CODATA 2006 recommended values. [1]
-<code>load(physical_constants)</code> loads this package,
-and loads <code>ezunits</code> also, if it is not already loaded.
-</p>
-<p>A physical constant is represented as a symbol which has a property
-which is the constant value.
-The constant value is a dimensional quantity, as represented by <code>ezunits</code>.
-The function <code>constvalue</code> fetches the constant value;
-the constant value is not the ordinary value of the symbol,
-so symbols of physical constants persist in evaluated expressions until their
-values are fetched by <code>constvalue</code>.
-</p>
-<p><code>physical_constants</code> includes some auxilliary information,
-namely, a description string for each constant,
-an estimate of the error of its numerical value,
-and a property for TeX display.
-To identify physical constants, each symbol has the
-<code>physical_constant</code> property;
-<code>propvars(physical_constant)</code> therefore shows the list
-of all such symbols.
-</p>
-<p><code>physical_constants</code> comprises the following constants.
-</p>
-<dl compact="compact">
-<dt> <code>%c</code></dt>
-<dd><p>speed of light in vacuum
-</p></dd>
-<dt> <code>%mu_0</code></dt>
-<dd><p>magnetic constant
-</p></dd>
-<dt> <code>%e_0</code></dt>
-<dd><p>electric constant
-</p></dd>
-<dt> <code>%Z_0</code></dt>
-<dd><p>characteristic impedance of vacuum
-</p></dd>
-<dt> <code>%G</code></dt>
-<dd><p>Newtonian constant of gravitation
-</p></dd>
-<dt> <code>%h</code></dt>
-<dd><p>Planck constant
-</p></dd>
-<dt> <code>%h_bar</code></dt>
-<dd><p>Planck constant
-</p></dd>
-<dt> <code>%m_P</code></dt>
-<dd><p>Planck mass
-</p></dd>
-<dt> <code>%T_P</code></dt>
-<dd><p>Planck temperature
-</p></dd>
-<dt> <code>%l_P</code></dt>
-<dd><p>Planck length
-</p></dd>
-<dt> <code>%t_P</code></dt>
-<dd><p>Planck time
-</p></dd>
-<dt> <code>%%e</code></dt>
-<dd><p>elementary charge
-</p></dd>
-<dt> <code>%Phi_0</code></dt>
-<dd><p>magnetic flux quantum
-</p></dd>
-<dt> <code>%G_0</code></dt>
-<dd><p>conductance quantum
-</p></dd>
-<dt> <code>%K_J</code></dt>
-<dd><p>Josephson constant
-</p></dd>
-<dt> <code>%R_K</code></dt>
-<dd><p>von Klitzing constant
-</p></dd>
-<dt> <code>%mu_B</code></dt>
-<dd><p>Bohr magneton
-</p></dd>
-<dt> <code>%mu_N</code></dt>
-<dd><p>nuclear magneton
-</p></dd>
-<dt> <code>%alpha</code></dt>
-<dd><p>fine-structure constant
-</p></dd>
-<dt> <code>%R_inf</code></dt>
-<dd><p>Rydberg constant
-</p></dd>
-<dt> <code>%a_0</code></dt>
-<dd><p>Bohr radius
-</p></dd>
-<dt> <code>%E_h</code></dt>
-<dd><p>Hartree energy
-</p></dd>
-<dt> <code>%ratio_h_me</code></dt>
-<dd><p>quantum of circulation
-</p></dd>
-<dt> <code>%m_e</code></dt>
-<dd><p>electron mass
-</p></dd>
-<dt> <code>%N_A</code></dt>
-<dd><p>Avogadro constant
-</p></dd>
-<dt> <code>%m_u</code></dt>
-<dd><p>atomic mass constant
-</p></dd>
-<dt> <code>%F</code></dt>
-<dd><p>Faraday constant
-</p></dd>
-<dt> <code>%R</code></dt>
-<dd><p>molar gas constant
-</p></dd>
-<dt> <code>%%k</code></dt>
-<dd><p>Boltzmann constant
-</p></dd>
-<dt> <code>%V_m</code></dt>
-<dd><p>molar volume of ideal gas
-</p></dd>
-<dt> <code>%n_0</code></dt>
-<dd><p>Loschmidt constant
-</p></dd>
-<dt> <code>%ratio_S0_R</code></dt>
-<dd><p>Sackur-Tetrode constant (absolute entropy constant)
-</p></dd>
-<dt> <code>%sigma</code></dt>
-<dd><p>Stefan-Boltzmann constant
-</p></dd>
-<dt> <code>%c_1</code></dt>
-<dd><p>first radiation constant
-</p></dd>
-<dt> <code>%c_1L</code></dt>
-<dd><p>first radiation constant for spectral radiance
-</p></dd>
-<dt> <code>%c_2</code></dt>
-<dd><p>second radiation constant
-</p></dd>
-<dt> <code>%b</code></dt>
-<dd><p>Wien displacement law constant
-</p></dd>
-<dt> <code>%b_prime</code></dt>
-<dd><p>Wien displacement law constant
-</p></dd>
-</dl>
-
-<p>References:
-</p>
-<p>[1] <a href="http://physics.nist.gov/constants">http://physics.nist.gov/constants</a>
-</p>
-<p>Examples:
-</p>
-<p>The list of all symbols which have the <code>physical_constant</code> property.
-</p>
-<pre class="example">(%i1) load (physical_constants)$
-(%i2) propvars (physical_constant);
-(%o2) [%c, %mu_0, %e_0, %Z_0, %G, %h, %h_bar, %m_P, %T_P, %l_P, 
-%t_P, %%e, %Phi_0, %G_0, %K_J, %R_K, %mu_B, %mu_N, %alpha, 
-%R_inf, %a_0, %E_h, %ratio_h_me, %m_e, %N_A, %m_u, %F, %R, %%k, 
-%V_m, %n_0, %ratio_S0_R, %sigma, %c_1, %c_1L, %c_2, %b, %b_prime]
-</pre>
-<p>Properties of the physical constant <code>%c</code>.
-</p>
-<pre class="example">(%i1) load (physical_constants)$
-(%i2) constantp (%c);
-(%o2)                         true
-(%i3) get (%c, description);
-(%o3)               speed of light in vacuum
-(%i4) constvalue (%c);
-                                      m
-(%o4)                     299792458 ` -
-                                      s
-(%i5) get (%c, RSU);
-(%o5)                           0
-(%i6) tex (%c);
-$$c$$
-(%o6)                         false
-</pre>
-<p>The energy equivalent of 1 pound-mass.
-The symbol <code>%c</code> persists until its value is fetched by <code>constvalue</code>.
-</p>
-<pre class="example">(%i1) load (physical_constants)$
-(%i2) m * %c^2;
-                                2
-(%o2)                         %c  m
-(%i3) %, m = 1 ` lbm;
-                              2
-(%o3)                       %c  ` lbm
-(%i4) constvalue (%);
-                                            2
-                                       lbm m
-(%o4)              89875517873681764 ` ------
-                                          2
-                                         s
-(%i5) E : % `` J;
-Computing conversions to base units; may take a moment. 
-                     366838848464007200
-(%o5)                ------------------ ` J
-                             9
-(%i6) E `` GJ;
-                      458548560580009
-(%o6)                 --------------- ` GJ
-                         11250000
-(%i7) float (%);
-(%o7)              4.0759872051556356e+7 ` GJ
-</pre>
-
-<hr size="6">
-<a name="Functions-and-Variables-for-ezunits"></a>
-<a name="SEC274"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC273" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC275" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC271" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC271" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC275" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 45.3 Functions and Variables for ezunits </h2>
-
-<dl>
-<dt><u>Operator:</u> <b>`</b>
-<a name="IDX2124"></a>
-</dt>
-<dd><p>The dimensional quantity operator.
-An expression <em>a ` b</em> represents a dimensional quantity,
-with <code>a</code> indicating a nondimensional quantity and <code>b</code> indicating the dimensional units.
-A symbol can be used as a unit without declaring it as such;
-unit symbols need not have any special properties.
-The quantity and unit of an expression <em>a ` b</em> can
-be extracted by the <code>qty</code> and <code>units</code> functions, respectively.
-</p>
-<p>Arithmetic operations on dimensional quantities are carried out by
-conventional rules for such operations.
-</p>
-<ul class="toc">
-<li> <em>(x ` a) * (y ` b)</em> is equal to <em>(x * y) ` (a * b)</em>.
-</li><li> <em>(x ` a) + (y ` a)</em> is equal to <em>(x + y) ` a</em>.
-</li><li> <em>(x ` a)^y</em> is equal to <em>x^y ` a^y</em> when <code>y</code> is nondimensional.
-</li></ul>
-
-<p><code>ezunits</code> does not require that units in a sum have the same dimensions;
-such terms are not added together, and no error is reported.
-</p>
-<p><code>load(ezunits)</code> enables this operator.
-</p>
-<p>Examples:
-</p>
-<p>SI (Systeme Internationale) units.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) foo : 10 ` m;
-(%o2)                        10 ` m
-(%i3) qty (foo);
-(%o3)                          10
-(%i4) units (foo);
-(%o4)                           m
-(%i5) dimensions (foo);
-(%o5)                        length
-</pre>
-<p>&quot;Customary&quot; units.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) bar : x ` acre;
-(%o2)                       x ` acre
-(%i3) dimensions (bar);
-                                   2
-(%o3)                        length
-(%i4) fundamental_units (bar);
-                                2
-(%o4)                          m
-</pre>
-<p>Units ad hoc.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) baz : 3 ` sheep + 8 ` goat + 1 ` horse;
-(%o2)           8 ` goat + 3 ` sheep + 1 ` horse
-(%i3) subst ([sheep = 3*goat, horse = 10*goat], baz);
-(%o3)                       27 ` goat
-(%i4) baz2 : 1000`gallon/fortnight;
-                                gallon
-(%o4)                   1000 ` ---------
-                               fortnight
-(%i5) subst (fortnight = 14*day, baz2);
-                          500   gallon
-(%o5)                     --- ` ------
-                           7     day
-</pre>
-<p>Arithmetic operations on dimensional quantities.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) 100 ` kg + 200 ` kg;
-(%o2)                       300 ` kg
-(%i3) 100 ` m^3 - 100 ` m^3;
-                                  3
-(%o3)                        0 ` m
-(%i4) (10 ` kg) * (17 ` m/s^2);
-                                 kg m
-(%o4)                      170 ` ----
-                                   2
-                                  s
-(%i5) (x ` m) / (y ` s);
-                              x   m
-(%o5)                         - ` -
-                              y   s
-(%i6) (a ` m)^2;
-                              2    2
-(%o6)                        a  ` m
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Operator:</u> <b>`</b><i>`</i>
-<a name="IDX2125"></a>
-</dt>
-<dd><p>The unit conversion operator.
-An expression <em>a ` b `` c</em> converts from unit <code>b</code> to unit <code>c</code>.
-<code>ezunits</code> has built-in conversions for SI base units,
-SI derived units, and some non-SI units.
-Unit conversions not already known to <code>ezunits</code> can be declared.
-The unit conversions known to <code>ezunits</code> are specified by the
-global variable <code>known_unit_conversions</code>,
-which comprises built-in and user-defined conversions.
-Conversions for products, quotients, and powers of units are
-derived from the set of known unit conversions.
-</p>
-<p>There is no preferred system for display of units;
-input units are not converted to other units
-unless conversion is explicitly indicated.
-<code>ezunits</code> does not attempt to simplify units by prefixes
-(milli-, centi-, deci-, etc)
-unless such conversion is explicitly indicated.
-</p>
-<p><code>load(ezunits)</code> enables this operator.
-</p>
-<p>Examples:
-</p>
-<p>The set of known unit conversions.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) display2d : false$
-(%i3) known_unit_conversions;
-(%o3) {acre = 4840*yard^2,Btu = 1055*J,cfm = feet^3/minute,
-       cm = m/100,day = 86400*s,feet = 381*m/1250,ft = feet,
-       g = kg/1000,gallon = 757*l/200,GHz = 1000000000*Hz,
-       GOhm = 1000000000*Ohm,GPa = 1000000000*Pa,
-       GWb = 1000000000*Wb,Gg = 1000000*kg,Gm = 1000000000*m,
-       Gmol = 1000000*mol,Gs = 1000000000*s,ha = hectare,
-       hectare = 100*m^2,hour = 3600*s,Hz = 1/s,inch = feet/12,
-       km = 1000*m,kmol = 1000*mol,ks = 1000*s,l = liter,
-       lbf = pound_force,lbm = pound_mass,liter = m^3/1000,
-       metric_ton = Mg,mg = kg/1000000,MHz = 1000000*Hz,
-       microgram = kg/1000000000,micrometer = m/1000000,
-       micron = micrometer,microsecond = s/1000000,
-       mile = 5280*feet,minute = 60*s,mm = m/1000,
-       mmol = mol/1000,month = 2629800*s,MOhm = 1000000*Ohm,
-       MPa = 1000000*Pa,ms = s/1000,MWb = 1000000*Wb,
-       Mg = 1000*kg,Mm = 1000000*m,Mmol = 1000000000*mol,
-       Ms = 1000000*s,ns = s/1000000000,ounce = pound_mass/16,
-       oz = ounce,Ohm = s*J/C^2,
-       pound_force = 32*ft*pound_mass/s^2,
-       pound_mass = 200*kg/441,psi = pound_force/inch^2,
-       Pa = N/m^2,week = 604800*s,Wb = J/A,yard = 3*feet,
-       year = 31557600*s,C = s*A,F = C^2/J,GA = 1000000000*A,
-       GC = 1000000000*C,GF = 1000000000*F,GH = 1000000000*H,
-       GJ = 1000000000*J,GK = 1000000000*K,GN = 1000000000*N,
-       GS = 1000000000*S,GT = 1000000000*T,GV = 1000000000*V,
-       GW = 1000000000*W,H = J/A^2,J = m*N,kA = 1000*A,
-       kC = 1000*C,kF = 1000*F,kH = 1000*H,kHz = 1000*Hz,
-       kJ = 1000*J,kK = 1000*K,kN = 1000*N,kOhm = 1000*Ohm,
-       kPa = 1000*Pa,kS = 1000*S,kT = 1000*T,kV = 1000*V,
-       kW = 1000*W,kWb = 1000*Wb,mA = A/1000,mC = C/1000,
-       mF = F/1000,mH = H/1000,mHz = Hz/1000,mJ = J/1000,
-       mK = K/1000,mN = N/1000,mOhm = Ohm/1000,mPa = Pa/1000,
-       mS = S/1000,mT = T/1000,mV = V/1000,mW = W/1000,
-       mWb = Wb/1000,MA = 1000000*A,MC = 1000000*C,
-       MF = 1000000*F,MH = 1000000*H,MJ = 1000000*J,
-       MK = 1000000*K,MN = 1000000*N,MS = 1000000*S,
-       MT = 1000000*T,MV = 1000000*V,MW = 1000000*W,
-       N = kg*m/s^2,R = 5*K/9,S = 1/Ohm,T = J/(m^2*A),V = J/C,
-       W = J/s}
-</pre>
-<p>Elementary unit conversions.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) 1 ` ft `` m;
-Computing conversions to base units; may take a moment. 
-                            381
-(%o2)                       ---- ` m
-                            1250
-(%i3) %, numer;
-(%o3)                      0.3048 ` m
-(%i4) 1 ` kg `` lbm;
-                            441
-(%o4)                       --- ` lbm
-                            200
-(%i5) %, numer;
-(%o5)                      2.205 ` lbm
-(%i6) 1 ` W `` Btu/hour;
-                           720   Btu
-(%o6)                      --- ` ----
-                           211   hour
-(%i7) %, numer;
-                                        Btu
-(%o7)               3.412322274881517 ` ----
-                                        hour
-(%i8) 100 ` degC `` degF;
-(%o8)                      212 ` degF
-(%i9) -40 ` degF `` degC;
-(%o9)                     (- 40) ` degC
-(%i10) 1 ` acre*ft `` m^3;
-                        60228605349    3
-(%o10)                  ----------- ` m
-                         48828125
-(%i11) %, numer;
-                                          3
-(%o11)                1233.48183754752 ` m
-</pre>
-<p>Coercing quantities in feet and meters to one or the other.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) 100 ` m + 100 ` ft;
-(%o2)                  100 ` m + 100 ` ft
-(%i3) (100 ` m + 100 ` ft) `` ft;
-Computing conversions to base units; may take a moment. 
-                           163100
-(%o3)                      ------ ` ft
-                            381
-(%i4) %, numer;
-(%o4)                428.0839895013123 ` ft
-(%i5) (100 ` m + 100 ` ft) `` m;
-                            3262
-(%o5)                       ---- ` m
-                             25
-(%i6) %, numer;
-(%o6)                      130.48 ` m
-</pre>
-<p>Dimensional analysis to find fundamental dimensions and fundamental units.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) foo : 1 ` acre * ft;
-(%o2)                      1 ` acre ft
-(%i3) dimensions (foo);
-                                   3
-(%o3)                        length
-(%i4) fundamental_units (foo);
-                                3
-(%o4)                          m
-(%i5) foo `` m^3;
-Computing conversions to base units; may take a moment. 
-                        60228605349    3
-(%o5)                   ----------- ` m
-                         48828125
-(%i6) %, numer;
-                                          3
-(%o6)                 1233.48183754752 ` m
-</pre>
-<p>Declared unit conversions.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) declare_unit_conversion (MMBtu = 10^6*Btu, kW = 1000*W);
-(%o2)                         done
-(%i3) declare_unit_conversion (kWh = kW*hour, 
-                               MWh = 1000*kWh, bell = 1800*s);
-(%o3)                         done
-(%i4) 1 ` kW*s `` MWh;
-Computing conversions to base units; may take a moment. 
-                             1
-(%o4)                     ------- ` MWh
-                          3600000
-(%i5) 1 ` kW/m^2 `` MMBtu/bell/ft^2;
-                       1306449      MMBtu
-(%o5)                 ---------- ` --------
-                      8242187500          2
-                                   bell ft
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>constvalue</b><i> (<var>x</var>)</i>
-<a name="IDX2126"></a>
-</dt>
-<dt><u>Function:</u> <b>declare_constvalue</b><i> (<var>a</var>, <var>x</var>)</i>
-<a name="IDX2127"></a>
-</dt>
-<dd><p>Returns the declared constant value of a symbol,
-or value of an expression with declared constant values substituted for symbols.
-</p>
-<p>Constant values are declared by <code>declare_constvalue</code>.
-Note that constant values as recognized by <code>constvalue</code>
-are separate from values declared by <code>numerval</code> and
-recognized by <code>constantp</code>.
-</p>
-<p>The <code>physical_units</code> package declares constant values
-for a number of physical constants.
-</p>
-<p><code>load(ezunits)</code> loads these functions.
-</p>
-<p>Examples:
-</p>
-<p>Constant value of a physical constant.
-</p>
-<pre class="example">(%i1) load (physical_constants)$
-(%i2) constvalue (%G);
-                                     3
-                                    m
-(%o2)                    6.67428 ` -----
-                                       2
-                                   kg s
-(%i3) get ('%G, 'description);
-(%o3)           Newtonian constant of gravitation
-</pre>
-<p>Declaring a new constant.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) declare_constvalue (FOO, 100 ` lbm / acre);
-                                 lbm
-(%o2)                      100 ` ----
-                                 acre
-(%i3) FOO * (50 ` acre);
-(%o3)                     50 FOO ` acre
-(%i4) constvalue (%);
-(%o4)                      5000 ` lbm
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>units</b><i> (<var>x</var>)</i>
-<a name="IDX2128"></a>
-</dt>
-<dt><u>Function:</u> <b>declare_units</b><i> (<var>a</var>, <var>u</var>)</i>
-<a name="IDX2129"></a>
-</dt>
-<dd><p>Returns the units of a dimensional quantity <var>x</var>,
-or returns 1 if <var>x</var> is nondimensional.
-</p>
-<p><var>x</var> may be a literal dimensional expression <em>a ` b</em>,
-a symbol with declared units via <code>declare_units</code>, 
-or an expression containing either or both of those.
-</p>
-<p><code>declare_units</code> declares that <code>units(<var>a</var>)</code> should return <var>u</var>,
-where <var>u</var> is an expression.
-</p>
-<p><code>load(ezunits)</code> loads these functions.
-</p>
-<p>Examples:
-</p>
-<p><code>units</code> applied to literal dimensional expressions.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) foo : 100 ` kg;
-(%o2)                       100 ` kg
-(%i3) bar : x ` m/s;
-                                  m
-(%o3)                         x ` -
-                                  s
-(%i4) units (foo);
-(%o4)                          kg
-(%i5) units (bar);
-                                m
-(%o5)                           -
-                                s
-(%i6) units (foo * bar);
-                              kg m
-(%o6)                         ----
-                               s
-(%i7) units (foo / bar);
-                              kg s
-(%o7)                         ----
-                               m
-(%i8) units (foo^2);
-                                 2
-(%o8)                          kg
-</pre>
-<p><code>units</code> applied to symbols with declared units.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) units (aa);
-(%o2)                           1
-(%i3) declare_units (aa, J);
-(%o3)                           J
-(%i4) units (aa);
-(%o4)                           J
-(%i5) units (aa^2);
-                                2
-(%o5)                          J
-(%i6) foo : 100 ` kg;
-(%o6)                       100 ` kg
-(%i7) units (aa * foo);
-(%o7)                         kg J
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>qty</b><i> (<var>x</var>)</i>
-<a name="IDX2130"></a>
-</dt>
-<dt><u>Function:</u> <b>declare_qty</b><i> (<var>a</var>, <var>x</var>)</i>
-<a name="IDX2131"></a>
-</dt>
-<dd><p><code>qty</code> returns the nondimensional part of a dimensional quantity <var>x</var>,
-or returns <var>x</var> if <var>x</var> is nondimensional.
-<var>x</var> may be a literal dimensional expression <em>a ` b</em>,
-a symbol with declared quantity, 
-or an expression containing either or both of those.
-</p>
-<p><code>declare_qty</code> declares that <code>qty(<var>a</var>)</code> should return <var>x</var>,
-where <var>x</var> is a nondimensional quantity.
-</p>
-<p><code>load(ezunits)</code> loads these functions.
-</p>
-<p>Examples:
-</p>
-<p><code>qty</code> applied to literal dimensional expressions.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) foo : 100 ` kg;
-(%o2)                       100 ` kg
-(%i3) qty (foo);
-(%o3)                          100
-(%i4) bar : v ` m/s;
-                                  m
-(%o4)                         v ` -
-                                  s
-(%i5) foo * bar;
-                                  kg m
-(%o5)                     100 v ` ----
-                                   s
-(%i6) qty (foo * bar);
-(%o6)                         100 v
-</pre>
-<p><code>qty</code> applied to symbols with declared quantity.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) declare_qty (aa, xx);
-(%o2)                          xx
-(%i3) qty (aa);
-(%o3)                          xx
-(%i4) qty (aa^2);
-                                 2
-(%o4)                          xx
-(%i5) foo : 100 ` kg;
-(%o5)                       100 ` kg
-(%i6) qty (aa * foo);
-(%o6)                        100 xx
-</pre>
-</dd></dl>
-
-
-<dl>
-<dt><u>Function:</u> <b>unitp</b><i> (<var>x</var>)</i>
-<a name="IDX2132"></a>
-</dt>
-<dd><p>Returns <code>true</code> if <var>x</var> is a literal dimensional expression,
-a symbol declared dimensional,
-or an expression in which the main operator is declared dimensional.
-<code>unitp</code> returns <code>false</code> otherwise.
-</p>
-<p><code>load(ezunits)</code> loads this function.
-</p>
-<p>Examples:
-</p>
-<p><code>unitp</code> applied to a literal dimensional expression.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) unitp (100 ` kg);
-(%o2)                         true
-</pre>
-<p><code>unitp</code> applied to a symbol declared dimensional.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) unitp (foo);
-(%o2)                         false
-(%i3) declare (foo, dimensional);
-(%o3)                         done
-(%i4) unitp (foo);
-(%o4)                         true
-</pre>
-<p><code>unitp</code> applied to an expression in which the main operator is declared dimensional.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) unitp (bar (x, y, z));
-(%o2)                         false
-(%i3) declare (bar, dimensional);
-(%o3)                         done
-(%i4) unitp (bar (x, y, z));
-(%o4)                         true
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>declare_unit_conversion</b><i> (<var>u</var> = <var>v</var>, ...)</i>
-<a name="IDX2133"></a>
-</dt>
-<dd><p>Appends equations <var>u</var> = <var>v</var>, ... to the list of unit conversions
-known to the unit conversion operator <em>``</em>.
-<var>u</var> and <var>v</var> are both multiplicative terms,
-in which any variables are units,
-or both literal dimensional expressions.
-</p>
-<p>At present, it is necessary to express conversions such that
-the left-hand side of each equation is a simple unit
-(not a multiplicative expression)
-or a literal dimensional expression with the quantity equal to 1
-and the unit being a simple unit.
-This limitation might be relaxed in future versions.
-</p>
-<p><code>known_unit_conversions</code> is the list of known unit conversions.
-</p>
-<p><code>load(ezunits)</code> loads this function.
-</p>
-<p>Examples:
-</p>
-<p>Unit conversions expressed by equations of multiplicative terms.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) declare_unit_conversion (nautical_mile = 1852 * m, 
-                               fortnight = 14 * day);
-(%o2)                         done
-(%i3) 100 ` nautical_mile / fortnight `` m/s;
-Computing conversions to base units; may take a moment. 
-                            463    m
-(%o3)                       ---- ` -
-                            3024   s
-</pre>
-<p>Unit conversions expressed by equations of literal dimensional expressions.
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) declare_unit_conversion (1 ` fluid_ounce = 2 ` tablespoon);
-(%o2)                         done
-(%i3) declare_unit_conversion (1 ` tablespoon = 3 ` teaspoon);
-(%o3)                         done
-(%i4) 15 ` fluid_ounce `` teaspoon;
-Computing conversions to base units; may take a moment. 
-(%o4)                     90 ` teaspoon
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>declare_dimensions</b><i> (<var>a_1</var>, <var>d_1</var>, ..., <var>a_n</var>, <var>d_n</var>)</i>
-<a name="IDX2134"></a>
-</dt>
-<dt><u>Function:</u> <b>remove_dimensions</b><i> (<var>a_1</var>, ..., <var>a_n</var>)</i>
-<a name="IDX2135"></a>
-</dt>
-<dd><p><code>declare_dimensions</code> declares <var>a_1</var>, ..., <var>a_n</var>
-to have dimensions <var>d_1</var>, ..., <var>d_n</var>, respectively.
-</p>
-<p>Each <var>a_k</var> is a symbol or a list of symbols.
-If it is a list, then every symbol in <var>a_k</var> is declared to have dimension <var>d_k</var>.
-</p>
-<p><code>remove_dimensions</code> reverts the effect of <code>declare_dimensions</code>.
-</p>
-<p><code>load(ezunits)</code> loads these functions.
-</p>
-<p>Examples:
-</p>
-<pre class="example">(%i1) load (ezunits) $
-(%i2) declare_dimensions ([x, y, z], length, [t, u], time);
-(%o2)                         done
-(%i3) dimensions (y^2/u);
-                                   2
-                             length
-(%o3)                        -------
-                              time
-(%i4) fundamental_units (y^2/u);
-0 errors, 0 warnings
-                                2
-                               m
-(%o4)                          --
-                               s
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>declare_fundamental_dimensions</b><i> (<var>d_1</var>, <var>d_2</var>, <var>d_3</var>, ...)</i>
-<a name="IDX2136"></a>
-</dt>
-<dt><u>Function:</u> <b>remove_fundamental_dimensions</b><i> (<var>d_1</var>, <var>d_2</var>, <var>d_3</var>, ...)</i>
-<a name="IDX2137"></a>
-</dt>
-<dt><u>Global variable:</u> <b>fundamental_dimensions</b>
-<a name="IDX2138"></a>
-</dt>
-<dd><p><code>declare_fundamental_dimensions</code> declares fundamental dimensions.
-Symbols <var>d_1</var>, <var>d_2</var>, <var>d_3</var>, ... are appended to the list of
-fundamental dimensions, if they are not already on the list.
-</p>
-<p><code>remove_fundamental_dimensions</code> reverts the effect of <code>declare_fundamental_dimensions</code>.
-</p>
-<p><code>fundamental_dimensions</code> is the list of fundamental dimensions.
-By default, the list comprises several physical dimensions.
-</p>
-<p><code>load(ezunits)</code> loads these functions.
-</p>
-<p>Examples:
-</p>
-<pre class="example">(%i1) load (ezunits) $
-(%i2) fundamental_dimensions;
-(%o2) [length, mass, time, current, temperature, quantity]
-(%i3) declare_fundamental_dimensions (money, cattle, happiness);
-(%o3)                         done
-(%i4) fundamental_dimensions;
-(%o4) [length, mass, time, current, temperature, quantity, 
-                                        money, cattle, happiness]
-(%i5) remove_fundamental_dimensions (cattle, happiness);
-(%o5)                         done
-(%i6) fundamental_dimensions;
-(%o6) [length, mass, time, current, temperature, quantity, money]
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>declare_fundamental_units</b><i> (<var>u_1</var>, <var>d_1</var>, ..., <var>u_n</var>, <var>d_n</var>)</i>
-<a name="IDX2139"></a>
-</dt>
-<dt><u>Function:</u> <b>remove_fundamental_units</b><i> (<var>u_1</var>, ..., <var>u_n</var>)</i>
-<a name="IDX2140"></a>
-</dt>
-<dd><p><code>declare_fundamental_units</code> declares <var>u_1</var>, ..., <var>u_n</var>
-to have dimensions <var>d_1</var>, ..., <var>d_n</var>, respectively.
-All arguments must be symbols.
-</p>
-<p>After calling <code>declare_fundamental_units</code>,
-<code>dimensions(<var>u_k</var>)</code> returns <var>d_k</var> for each argument <var>u_1</var>, ..., <var>u_n</var>,
-and <code>fundamental_units(<var>d_k</var>)</code> returns <var>u_k</var> for each argument <var>d_1</var>, ..., <var>d_n</var>.
-</p>
-<p><code>remove_fundamental_units</code> reverts the effect of <code>declare_fundamental_units</code>.
-</p>
-<p><code>load(ezunits)</code> loads these functions.
-</p>
-<p>Examples:
-</p>
-<pre class="example">(%i1) load (ezunits) $
-(%i2) declare_fundamental_dimensions (money, cattle, happiness);
-(%o2)                         done
-(%i3) declare_fundamental_units (dollar, money, goat, 
-                                 cattle, smile, happiness);
-(%o3)                 [dollar, goat, smile]
-(%i4) dimensions (100 ` dollar/goat/km^2);
-                             money
-(%o4)                    --------------
-                                      2
-                         cattle length
-(%i5) dimensions (x ` smile/kg);
-                            happiness
-(%o5)                       ---------
-                              mass
-(%i6) fundamental_units (money*cattle/happiness);
-0 errors, 0 warnings
-                           dollar goat
-(%o6)                      -----------
-                              smile
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>dimensions</b><i> (<var>x</var>)</i>
-<a name="IDX2141"></a>
-</dt>
-<dt><u>Function:</u> <b>dimensions_as_list</b><i> (<var>x</var>)</i>
-<a name="IDX2142"></a>
-</dt>
-<dd><p><code>dimensions</code> returns the dimensions of the dimensional quantity <var>x</var>
-as an expression comprising products and powers of base dimensions.
-</p>
-<p><code>dimensions_as_list</code> returns the dimensions of the dimensional quantity <var>x</var>
-as a list, in which each element is an integer which indicates the power of the
-corresponding base dimension in the dimensions of <var>x</var>.
-</p>
-<p><code>load(ezunits)</code> loads these functions.
-</p>
-<p>Examples:
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) dimensions (1000 ` kg*m^2/s^3);
-                                2
-                          length  mass
-(%o2)                     ------------
-                                 3
-                             time
-(%i3) declare_units (foo, acre*ft/hour);
-                             acre ft
-(%o3)                        -------
-                              hour
-(%i4) dimensions (foo);
-                                   3
-                             length
-(%o4)                        -------
-                              time
-</pre>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) fundamental_dimensions;
-(%o2)  [length, mass, time, charge, temperature, quantity]
-(%i3) dimensions_as_list (1000 ` kg*m^2/s^3);
-(%o3)                 [2, 1, - 3, 0, 0, 0]
-(%i4) declare_units (foo, acre*ft/hour);
-                             acre ft
-(%o4)                        -------
-                              hour
-(%i5) dimensions_as_list (foo);
-(%o5)                 [3, 0, - 1, 0, 0, 0]
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>fundamental_units</b><i> (<var>x</var>)</i>
-<a name="IDX2143"></a>
-</dt>
-<dt><u>Function:</u> <b>fundamental_units</b><i> ()</i>
-<a name="IDX2144"></a>
-</dt>
-<dd><p><code>fundamental_units(<var>x</var>)</code> returns the units
-associated with the fundamental dimensions of <var>x</var>.
-as determined by <code>dimensions(<var>x</var>)</code>.
-</p>
-<p><var>x</var> may be a literal dimensional expression <em>a ` b</em>,
-a symbol with declared units via <code>declare_units</code>, 
-or an expression containing either or both of those.
-</p>
-<p><code>fundamental_units()</code> returns the list of all known fundamental units,
-as declared by <code>declare_fundamental_units</code>.
-</p>
-<p><code>load(ezunits)</code> loads this function.
-</p>
-<p>Examples:
-</p>
-<pre class="example">(%i1) load (ezunits)$
-(%i2) fundamental_units ();
-(%o2)                 [m, kg, s, A, K, mol]
-(%i3) fundamental_units (100 ` mile/hour);
-                                m
-(%o3)                           -
-                                s
-(%i4) declare_units (aa, g/foot^2);
-                                g
-(%o4)                         -----
-                                  2
-                              foot
-(%i5) fundamental_units (aa);
-                               kg
-(%o5)                          --
-                                2
-                               m
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>dimensionless</b><i> (<var>L</var>)</i>
-<a name="IDX2145"></a>
-</dt>
-<dd><p>Returns a basis for the dimensionless quantities which can be formed
-from a list <var>L</var> of dimensional quantities.
-</p>
-<p><code>load(ezunits)</code> loads this function.
-</p>
-<p>Examples:
-</p>
-<pre class="example">(%i1) load (ezunits) $
-(%i2) dimensionless ([x ` m, y ` m/s, z ` s]);
-0 errors, 0 warnings
-0 errors, 0 warnings
-                               y z
-(%o2)                         [---]
-                                x
-</pre>
-<p>Dimensionless quantities derived from fundamental physical quantities.
-Note that the first element on the list
-is proportional to the fine-structure constant.
-</p>
-<pre class="example">(%i1) load (ezunits) $
-(%i2) load (physical_constants) $
-(%i3) dimensionless([%h_bar, %m_e, %m_P, %%e, %c, %e_0]);
-0 errors, 0 warnings
-0 errors, 0 warnings
-                              2
-                           %%e        %m_e
-(%o3)                [--------------, ----]
-                      %c %e_0 %h_bar  %m_P
-</pre>
-</dd></dl>
-
-
-<dl>
-<dt><u>Function:</u> <b>natural_unit</b><i> (<var>expr</var>, [<var>v_1</var>, ..., <var>v_n</var>])</i>
-<a name="IDX2146"></a>
-</dt>
-<dd><p>Finds exponents <var>e_1</var>, ..., <var>e_n</var> such that
-<code>dimension(<var>expr</var>) = dimension(<var>v_1</var>^<var>e_1</var> ... <var>v_n</var>^<var>e_n</var>)</code>.
-</p>
-<p><code>load(ezunits)</code> loads this function.
-</p>
-<p>Examples:
-</p>
-
-</dd></dl>
-
-
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC271" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_46.html#SEC275" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Funktionen-und-Variablen-f_00fcr-die-Auswertung"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Oktober, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Previous: <a href="maxima_44.html#Einf_00fchrung-in-die-Auswertung" accesskey="p" rel="previous">Einf&uuml;hrung in die Auswertung</a>, Nach oben: <a href="maxima_43.html#Auswertung" accesskey="u" rel="up">Auswertung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-und-Variablen-fur-die-Auswertung"></a>
+<h3 class="section">8.2 Funktionen und Variablen f&uuml;r die Auswertung</h3>
 
+<a name="g_t_0027"></a><a name="index-Quote_002dOperator"></a>
+<a name="Item_003a-Evaluation_002ede_002fdeffn_002f_0027"></a><dl>
+<dt><a name="index-_0027"></a>Operator: <strong>'</strong></dt>
+<dd>
+<p>Der Quote-Operator <code>'</code> unterdr&uuml;ckt die Auswertung eines Symbols oder
+Ausdrucks.  Auf eine Funktion angewendet, unterdr&uuml;ckt der Quote-Operator die
+Auswertung der Funktion.  Die Auswertung der Argumente der Funktion wird nicht
+unterdr&uuml;ckt.  Das Ergebnis ist die Substantivform der Funktion.
 </p>
+<p>Wird der Quote-Operator auf einen eingeklammerten Ausdruck angewendet, wird die
+Auswertung aller Symbole und Funktionen innerhalb der Klammern unterdr&uuml;ckt.
+<code>'(f(x))</code> bedeutet, dass der Ausdruck <code>f(x)</code> nicht ausgewertet werden 
+soll.  <code>'f(x)</code> bedeutet, dass die Substantivform von <code>f</code> auf das 
+ausgewertete Argument <var>x</var> angewendet wird.
+</p>
+<p>Der Quote-Operator unterdr&uuml;ckt die Auswertung, aber nicht die Vereinfachung
+von Ausdr&uuml;cken.
+</p>
+<p>Substantivformen werden mit einem Hochkomma angezeigt, wenn die Optionsvariable 
+<code><a href="maxima_32.html#noundisp">noundisp</a></code> den Wert <code>true</code> hat.
+</p>
+<p>Siehe auch den <a href="#g_t_0027_0027">Quote-Quote-Operator</a> <code>'<!-- /@w -->'</code> und den
+Auswertungsschalter <code><a href="#nouns">nouns</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<p>Auf ein Symbol angewendet, unterdr&uuml;ckt der Quote-Operator die Auswertung des
+Symbols.
+</p>
+<div class="example">
+<pre class="example">(%i1) aa: 1024;
+(%o1)                         1024
+</pre><pre class="example">(%i2) aa^2;
+(%o2)                        1048576
+</pre><pre class="example">(%i3) 'aa^2;
+                                 2
+(%o3)                          aa
+(%i4) ''%;
+(%o4)                        1048576
+</pre></div>
+
+<p>Auf eine Funktion angewendet, unterdr&uuml;ckt der Quote-Operator die Auswertung
+der Funktion.  Das Ergebnis ist die Substantivform der Funktion.
+</p>
+<div class="example">
+<pre class="example">(%i1) x0: 5;
+(%o1)                           5
+(%i2) x1: 7;
+(%o2)                           7
+</pre><pre class="example">(%i3) integrate (x^2, x, x0, x1);
+                               218
+(%o3)                          ---
+                                3
+</pre><pre class="example">(%i4) 'integrate (x^2, x, x0, x1);
+</pre><pre class="example">                             7
+                            /
+                            [   2
+(%o4)                       I  x  dx
+                            ]
+                            /
+                             5
+</pre><pre class="example">(%i5) %, nouns;
+                               218
+(%o5)                          ---
+                                3
+</pre></div>
+
+<p>Wird der Quote-Operator auf einen eingeklammerten Ausdruck angewendet, wird die
+Auswertung aller Symbole und Funktionen innerhalb der Klammern unterdr&uuml;ckt.
+</p>
+<div class="example">
+<pre class="example">(%i1) aa: 1024;
+(%o1)                         1024
+(%i2) bb: 19;
+(%o2)                          19
+(%i3) sqrt(aa) + bb;
+(%o3)                          51
+(%i4) '(sqrt(aa) + bb);
+(%o4)                     bb + sqrt(aa)
+(%i5) ''%;
+(%o5)                          51
+</pre></div>
+
+<p>Der Quote-Operator unterdr&uuml;ckt nicht die Vereinfachung von Ausdr&uuml;cken.
+</p>
+<div class="example">
+<pre class="example">(%i1) sin (17 * %pi) + cos (17 * %pi);
+(%o1)                          - 1
+(%i2) '(sin (17 * %pi) + cos (17 * %pi));
+(%o2)                          - 1
+</pre></div>
+
+<p>Gleitkommarechnungen sind eine Vereinfachung und keine Auswertung.  Daher kann
+die Berechnung von <code>sin(1.0)</code> nicht mit dem Quote-Operator unterdr&uuml;ckt
+werden.
+</p>
+<div class="example">
+<pre class="example">(%i1) sin(1.0);
+(%o1)                          .8414709848078965
+(%i2) '(sin(1.0));
+(%o2)                          .8414709848078965
+</pre></div>
+</dd></dl>
+
+<a name="g_t_0027_0027"></a><a name="index-Quote_002dQuote_002dOperator"></a>
+<a name="Item_003a-Evaluation_002ede_002fdeffn_002f_0027_0027"></a><dl>
+<dt><a name="index-_0027_0027"></a>Operator: <strong>''</strong></dt>
+<dd>
+<p>Der Quote-Quote-Operator <code>'<!-- /@w -->'</code> (zwei Hochkommata) modifiziert die 
+Auswertung von Ausdr&uuml;cken, die von der Eingabe gelesen werden.
+</p>
+<p>Wird der Quote-Quote-Operator auf einen allgemeinen Ausdruck <var>expr</var>
+angewendet, wird der Ausdruck <var>expr</var> durch seinen Wert ersetzt.
+</p>
+<p>Wird der Quote-Quote-Operator auf den Operator eines Ausdruckes angewendet,
+&auml;ndert sich der Operator, wenn er in seiner Substantivform vorliegt, in die 
+Verbform.
+</p>
+<p>Der Quote-Quote-Operator wird vom Parser, der die Eingabe liest, sofort 
+angewendet und nicht im eingelesen Ausdruck gespeichert.  Daher kann die 
+Auswertung des Quote-Quote-Operators nicht durch einen weiteren Quote-Operator 
+verhindert werden.  Der Quote-Quote-Operator f&uuml;hrt zur Auswertung von
+Ausdr&uuml;cken, deren Auswertung unterdr&uuml;ckt ist.  Das ist der Fall f&uuml;r 
+Funktionsdefinitionen, Lambda-Ausdr&uuml;cke und Ausdr&uuml;cke, deren Auswertung
+durch den Quote-Operator verhindert wurde.
+</p>
+<p>Der Quote-Quote-Operator wird von den Befehlen <code><a href="maxima_76.html#batch">batch</a></code> und
+<code><a href="maxima_76.html#load">load</a></code> erkannt.
+</p>
+<p>Siehe auch den <a href="#g_t_0027">Quote-Operator</a> <code>'</code> und den Auswertungsschalter
+<code><a href="#nouns">nouns</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<p>Wird der Quote-Quote-Operator auf einen Ausdruck <var>expr</var> angewendet, wird 
+der Wert von <var>expr</var> in den Ausdruck eingesetzt.
+</p>
+<div class="example">
+<pre class="example">(%i1) expand ((a + b)^3);
+                     3        2      2      3
+(%o1)               b  + 3 a b  + 3 a  b + a
+(%i2) [_, ''_];
+                         3    3        2      2      3
+(%o2)     [expand((b + a) ), b  + 3 a b  + 3 a  b + a ]
+(%i3) [%i1, ''%i1];
+                         3    3        2      2      3
+(%o3)     [expand((b + a) ), b  + 3 a b  + 3 a  b + a ]
+(%i4) [aa : cc, bb : dd, cc : 17, dd : 29];
+(%o4)                   [cc, dd, 17, 29]
+(%i5) foo_1 (x) := aa - bb * x;
+(%o5)                 foo_1(x) := aa - bb x
+(%i6) foo_1 (10);
+(%o6)                      cc - 10 dd
+(%i7) ''%;
+(%o7)                         - 273
+(%i8) ''(foo_1 (10));
+(%o8)                         - 273
+</pre><pre class="example">(%i9) foo_2 (x) := ''aa - ''bb * x;
+(%o9)                 foo_2(x) := cc - dd x
+</pre><pre class="example">(%i10) foo_2 (10);
+(%o10)                        - 273
+(%i11) [x0 : x1, x1 : x2, x2 : x3];
+(%o11)                    [x1, x2, x3]
+(%i12) x0;
+(%o12)                         x1
+(%i13) ''x0;
+(%o13)                         x2
+(%i14) '' ''x0;
+(%o14)                         x3
+</pre></div>
+
+<p>Wird der Quote-Quote-Operator auf den Operator in einem Ausdruck angewendet,
+&auml;ndert sich der Operator von seiner Substantivform in die Verbform.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (foo, noun);
+(%o1)                         done
+(%i2) foo (x) := x - 1729;
+(%o2)                 ''foo(x) := x - 1729
+(%i3) foo (100);
+(%o3)                       foo(100)
+(%i4) ''foo (100);
+(%o4)                        - 1629
+</pre></div>
+
+<p>Der Quote-Quote-Operator wird vom Parser sofort auf den eingelesenen Ausdruck 
+angewendet und ist nicht Teil eines Maxima-Ausdrucks.
+</p>
+<div class="example">
+<pre class="example">(%i1) [aa : bb, cc : dd, bb : 1234, dd : 5678];
+(%o1)                 [bb, dd, 1234, 5678]
+(%i2) aa + cc;
+(%o2)                        dd + bb
+(%i3) display (_, op (_), args (_));
+                           _ = cc + aa
+
+                         op(cc + aa) = +
+
+                    args(cc + aa) = [cc, aa]
+
+(%o3)                         done
+(%i4) ''(aa + cc);
+(%o4)                         6912
+(%i5) display (_, op (_), args (_));
+</pre><pre class="example">                           _ = dd + bb
+
+                         op(dd + bb) = +
+
+                    args(dd + bb) = [dd, bb]
+</pre><pre class="example">(%o5)                         done
+</pre></div>
+
+<p>Der Quote-Quote-Operator bewirkt die Auswertung von Ausdr&uuml;cken, deren
+Auswertung unterdr&uuml;ckt ist wie in Funktionsdefinitionen, Lambda-Ausdr&uuml;cken 
+und Ausdr&uuml;cken, auf die der Quote-Operator angewendet wurde.
+</p>
+<div class="example">
+<pre class="example">(%i1) foo_1a (x) := ''(integrate (log (x), x));
+(%o1)               foo_1a(x) := x log(x) - x
+(%i2) foo_1b (x) := integrate (log (x), x);
+(%o2)           foo_1b(x) := integrate(log(x), x)
+(%i3) dispfun (foo_1a, foo_1b);
+(%t3)               foo_1a(x) := x log(x) - x
+
+(%t4)           foo_1b(x) := integrate(log(x), x)
+
+(%o4)                      [%t3, %t4]
+(%i5) integrate (log (x), x);
+(%o5)                     x log(x) - x
+(%i6) foo_2a (x) := ''%;
+(%o6)               foo_2a(x) := x log(x) - x
+(%i7) foo_2b (x) := %;
+(%o7)                    foo_2b(x) := %
+(%i8) dispfun (foo_2a, foo_2b);
+(%t8)               foo_2a(x) := x log(x) - x
+
+(%t9)                    foo_2b(x) := %
+
+(%o9)                      [%t8, %t9]
+(%i10) F : lambda ([u], diff (sin (u), u));
+(%o10)            lambda([u], diff(sin(u), u))
+(%i11) G : lambda ([u], ''(diff (sin (u), u)));
+(%o11)                 lambda([u], cos(u))
+(%i12) '(sum (a[k], k, 1, 3) + sum (b[k], k, 1, 3));
+(%o12)         sum(b , k, 1, 3) + sum(a , k, 1, 3)
+                    k                  k
+(%i13) '(''(sum (a[k], k, 1, 3)) + ''(sum (b[k], k, 1, 3)));
+(%o13)             b  + a  + b  + a  + b  + a
+                    3    3    2    2    1    1
+</pre></div>
+</dd></dl>
+
+<a name="ev"></a><a name="Item_003a-Evaluation_002ede_002fdeffn_002fev"></a><dl>
+<dt><a name="index-ev"></a>Funktion: <strong>ev</strong> <em>(<var>expr</var>, <var>arg_1</var>, &hellip;, <var>arg_n</var>)</em></dt>
+<dd>
+<p>Wertet den Ausdruck <var>expr</var> in einer Umgebung aus, die durch die Argumente
+<var>arg_1</var>, &hellip;, <var>arg_n</var> spezifiziert wird.  Die Argumente sind
+Optionsvariablen (Boolesche Variablen), Zuweisungen, Gleichungen und Funktionen.
+<code>ev</code> gibt das Ergebnis der Auswertung zur&uuml;ck.
+</p>
+<p>Die Auswertung wird in den folgenden Schritten durchgef&uuml;hrt:
+</p>
+<ol>
+<li> Zuerst wird die Umgebung gesetzt.  Dazu werden die Argumente <var>arg_1</var>,
+&hellip;, <var>arg_n</var> ausgewertet.  Folgende Argumente sind m&ouml;glich:
+
+<ul>
+<li> <code>simp</code> bewirkt, dass der Ausdruck <var>expr</var> vereinfacht wird.  Der Wert
+der Optionsvariablen <code><a href="maxima_48.html#simp">simp</a></code> wird dabei ignoriert.  Der Ausdruck wird also
+auch dann vereinfacht, wenn die Optionsvariable <var>simp</var> den Wert <code>false</code>
+hat.
+
+</li><li> <code>noeval</code> unterdr&uuml;ckt die Auswertungphase der Funktion <code>ev</code> (siehe 
+Schritt (4) unten).  Dies ist n&uuml;tzlich im Zusammenhang mit anderen Schaltern
+und um einen Ausdruck <var>expr</var> erneuert zu vereinfachen, ohne dass dieser
+ausgewertet wird.
+
+</li><li> <code>nouns</code> bewirkt die Auswertung von Substantivformen.  Solche 
+Substantivformen sind typischerweise nicht ausgewertete Funktionen wie 
+<code>'integrate</code> oder <code>'diff</code>, die im Ausdruck <var>expr</var> enthalten sind.
+
+</li><li> <code>expand</code> bewirkt die Expansion des Ausdruckes <var>expr</var>.  Siehe die 
+Funktion <code><a href="maxima_48.html#expand">expand</a></code>.
+
+</li><li> <code>expand</code>(<var>m</var>, <var>n</var>) bewirkt die Expansion des Ausdruckes <var>expr</var>, 
+wobei den Optionsvariablen <code><a href="maxima_48.html#maxposex">maxposex</a></code> und <code><a href="maxima_48.html#maxnegex">maxnegex</a></code> die Werte der
+Argumente <var>m</var> und <var>n</var> zugewiesen werden.  Siehe die Funktion
+<code><a href="maxima_48.html#expand">expand</a></code>.
+
+</li><li> <code>detout</code> bewirkt, dass bei der Berechnung von Inversen von Matrizen, die im
+Ausdruck <var>expr</var> enthalten sind, Determinanten den Matrizen vorangestellt
+und nicht elementweise in die Matrize hereinmultipliziert werden.
+
+</li><li> <code>diff</code> bewirkt, dass alle Ableitungen ausgef&uuml;hrt werden, die im Ausdruck
+<var>expr</var> enthalten sind.
+
+</li><li> <code>derivlist(<var>x</var>, <var>y</var>, <var>z</var>, ...)</code> bewirkt, dass die Ableitungen
+bez&uuml;glich der angegebenen Variablen <var>x</var>, <var>y</var>, <var>z</var>, &hellip;
+ausgef&uuml;hrt werden.
+
+</li><li> <code>risch</code> bewirkt das Integrale im Ausdruck <var>expr</var> mit dem
+Risch-Algorithmus berechnet werden.  Siehe <code>risch</code>.  Wird der Schalter
+<code><a href="#nouns">nouns</a></code> benutzt, wird der Standardalgorithmus f&uuml;r Integrale verwendet.
+
+</li><li> <code>float</code> bewirkt, dass rationale Zahlen in Gleitkommazahlen konvertiert 
+werden.
+
+</li><li> <code>numer</code> bewirkt, dass mathematische Funktionen mit numerischen Argumenten 
+ein Ergebnis in Gleitkommazahlen liefern.  Variablen in <code>expr</code>, denen
+numerische Werte zugewiesen wurden, werden durch diese ersetzt.  Der Schalter
+<code><a href="maxima_14.html#float">float</a></code> wird zus&auml;tzlich wirksam.
+
+</li><li> <code>pred</code> bewirkt, dass Aussagen zu <code>true</code> oder <code>false</code> ausgewertet 
+werden.
+
+</li><li> <code>eval</code> bewirkt eine zus&auml;tzliche Auswertung des Ausdrucks <var>expr</var>.
+(Siehe Schritt (5) unten).  <code>eval</code> kann mehrfach angewendet werden.  Jedes 
+Auftreten von <code>eval</code> f&uuml;hrt zu einer weiteren Auswertung.
+
+</li><li> <code>A</code>, wobei <code>A</code> ein Symbol ist, das als ein Auswertungsschalter
+<code><a href="#evflag">evflag</a></code> definiert ist.  W&auml;hrend der Auswertung des Ausdrucks <var>expr</var> 
+erh&auml;lt <code>A</code> den Wert <code>true</code>.
+
+</li><li> <code>V: expression</code> (oder alternativ <code>V=expression</code>) bewirkt, dass 
+<code>V</code> w&auml;hrend der Auswertung des Ausdrucks <var>expr</var> den Wert
+<code>expression</code> erh&auml;lt.  <code>V</code> kann auch eine Optionsvariable sein, die
+f&uuml;r die Auswertung den Wert <code>expression</code> erh&auml;lt.  Wenn mehr als ein 
+Argument der Funktion <code>ev</code> &uuml;bergeben wird, wird die Zuweisung der Werte
+parallel ausgef&uuml;hrt.  Wenn <code>V</code> kein Atom ist, wird anstatt einer
+Zuweisung eine Substitution ausgef&uuml;hrt.
+
+</li><li> <code>F</code>, wobei <code>F</code> der Name einer Funktion ist, die als eine
+Auswertungsfunktion (siehe <code><a href="#evfun">evfun</a></code>) definiert wurde.  <code>F</code> bewirkt,
+dass die Auswertungsfunktion auf den Ausdruck <var>expr</var> angewendet wird.
+
+</li><li> Jeder andere Funktionsname (zum Beispiel <code>sum</code>) bewirkt, dass jedes
+Auftreten dieser Funktion im Ausdruck <var>expr</var> ausgewertet wird.
+
+</li><li> Zus&auml;tzlich kann f&uuml;r die Auswertung von <var>expr</var> eine lokale Funktion
+<code>F(x) := expression</code> definiert werden.
+
+</li><li> Wird ein Symbol, eine indizierte Variable oder ein indizierter Ausdruck, der
+oben nicht genannt wurde, als Argument &uuml;bergeben, wird das Argument
+ausgewertet.  Wenn das Ergebnis eine Gleichung oder eine Zuweisung ist, werden
+die entsprechenden Zuweisungen und Substitutionen ausgef&uuml;hrt.  Wenn das
+Ergebnis eine Liste ist, werden die Elemente der Liste als zus&auml;tzliche
+Argumente von <code>ev</code> betrachtet.  Dies erlaubt, das eine Liste mit
+Gleichungen (zum Beispiel <code>[%t1, %t2]</code>, wobei <code>%t1</code> und <code>%t2</code> 
+Gleichungen sind) wie sie zum Beispiel von der Funktion <code><a href="maxima_103.html#solve">solve</a></code> erzeugt
+wird, als Argument verwendet werden kann.
+</li></ul>
+
+<p>Die Argumente der Funktion <code>ev</code> k&ouml;nnen in einer beliebigen Reihenfolge
+&uuml;bergeben werden.  Ausgenommen sind Gleichungen mit Substitutionen, die
+nacheinander von links nach rechts ausgewertet werden, sowie
+Auswertungsfunktionen, die verkettet werden.  So wird zum Beispiel
+<code>ev(<var>expr</var>, ratsimp, realpart)</code> zu
+<code>realpart(ratsimp(<var>expr</var>))</code>.
+</p>
+<p>Die Schalter <code><a href="maxima_48.html#simp">simp</a></code>, <code><a href="maxima_14.html#numer">numer</a></code>, <code><a href="maxima_14.html#float">float</a></code> und 
+<code><a href="maxima_109.html#detout">detout</a></code> sind auch Optionsvariablen, die lokal in einem Block oder global
+gesetzt werden k&ouml;nnen.
+</p>
+<p>Ist <var>expr</var> ein kanonischer rationaler Ausdruck (CRE = canonical rational
+expression), ist auch das Ergebnis der Funktion <code>ev</code> ein CRE-Ausdruck, 
+falls nicht die beiden Schalter <code>float</code> und <code>numer</code> den Wert 
+<code>true</code> haben.
+</p>
+</li><li> W&auml;hrend des Schritts (1) wird eine Liste der nicht indizierten Variablen
+erstellt, die auf der linken Seite von Gleichungen auftreten.  Die Gleichungen
+k&ouml;nnen dabei entweder als Argument oder als Wert eines Argumentes vorliegen.
+Variablen, die nicht in dieser Liste enthalten sind, werden durch ihre globalen 
+Werte ersetzt.  Davon ausgenommen sind Variablen, die eine Array-Funktion 
+repr&auml;sentieren.  Ist zum Beispiel <var>expr</var> eine Marke wie <code>%i2</code> im
+Beispiel unten oder das letzte Ergebnis <code>%</code>, so wird in diesem Schritt der
+globale Wert dieser Marke eingesetzt und die Bearbeitung durch <code>ev</code>
+fortgesetzt.
+
+</li><li> Wenn in den Argumenten Substitutionen aufgef&uuml;hrt sind, werden diese nun 
+ausgef&uuml;hrt.
+
+</li><li> Der resultierende Ausdruck wird erneut ausgewertet, au&szlig;er wenn <code>noeval</code> 
+unter den Argumente ist, und vereinfacht.  Die Funktionsaufrufe in <var>expr</var> 
+werden erst ausgef&uuml;hrt, wenn die enthaltenden Variablen ausgewertet sind.
+Dadurch verh&auml;lt sich <code>ev(F(x))</code> wie <code>F(ev(x))</code>.
+
+</li><li> F&uuml;r jedes Auftreten des Schalters <code>eval</code> in den Argumenten werden die 
+Schritte (3) und (4) wiederholt.
+</li></ol>
+
+<p>Anstatt der Anwendung der Funktion <code>ev</code> k&ouml;nnen alternativ der Ausdruck
+und die Argumente durch Kommata getrennt eingegeben werden:
+</p>
+<div class="example">
+<pre class="example"><var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>
+</pre></div>
+
+<p>Diese Kurzschreibweise ist jedoch als Teil eines anderen Ausdrucks, zum Beispiel
+in Funktionen oder Bl&ouml;cken nicht gestattet.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) sin(x) + cos(y) + (w+1)^2 + 'diff (sin(w), w);
+                                     d                    2
+(%o1)              cos(y) + sin(x) + -- (sin(w)) + (w + 1)
+                                     dw
+</pre><pre class="example">(%i2) ev (%, numer, expand, diff, x=2, y=1);
+                               2
+(%o2)                cos(w) + w  + 2 w + 2.449599732693821
+</pre></div>
+
+<p>Im folgenden Beispiel werden die Zuweisungen parallel durchgef&uuml;hrt.  Es wird
+die Kurzschreibweise der Funktion <code>ev</code> angewendet.
+</p>
+<div class="example">
+<pre class="example">(%i3) programmode: false;
+(%o3)                                false
+(%i4) x+y, x: a+y, y: 2;
+(%o4)                              y + a + 2
+(%i5) 2*x - 3*y = 3$
+(%i6) -3*x + 2*y = -4$
+(%i7) solve ([%o5, %o6]);
+Solution
+</pre><pre class="example">
+                                          1
+(%t7)                               y = - -
+                                          5
+</pre><pre class="example">
+                                         6
+(%t8)                                x = -
+                                         5
+(%o8)                            [[%t7, %t8]]
+(%i8) %o6, %o8;
+(%o8)                              - 4 = - 4
+(%i9) x + 1/x &gt; gamma (1/2);
+                                   1
+(%o9)                          x + - &gt; sqrt(%pi)
+                                   x
+(%i10) %, numer, x=1/2;
+(%o10)                      2.5 &gt; 1.772453850905516
+(%i11) %, pred;
+(%o11)                               true
+</pre></div>
+</dd></dl>
+
+<a name="eval"></a><a name="Item_003a-Evaluation_002ede_002fdefvr_002feval"></a><dl>
+<dt><a name="index-eval"></a>Auswertungsschalter: <strong>eval</strong></dt>
+<dd>
+<p>Als Argument des Kommandos <code>ev(expr, eval)</code> bewirkt <code>eval</code> eine
+zus&auml;tzliche Auswertung des Ausdrucks <code>expr</code>.
+</p>
+<p><code>eval</code> kann mehrfach auftreten.  Jedes Auftreten f&uuml;hrt zu einer
+zus&auml;tzlichen Auswertung.
+</p>
+<p>Siehe auch die Funktion <code><a href="#ev">ev</a></code> sowie die Auswertungsschalter
+<code><a href="#noeval">noeval</a></code> und <code><a href="#infeval">infeval</a></code>
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) [a:b,b:c,c:d,d:e];
+(%o1)                            [b, c, d, e]
+(%i2) a;
+(%o2)                                  b
+(%i3) ev(a);
+(%o3)                                  c
+(%i4) ev(a),eval;
+(%o4)                                  e
+(%i5) a,eval,eval;
+(%o5)                                  e
+</pre></div>
+</dd></dl>
+
+<a name="evflag"></a><a name="Item_003a-Evaluation_002ede_002fdefvr_002fevflag"></a><dl>
+<dt><a name="index-evflag"></a>Eigenschaft: <strong>evflag</strong></dt>
+<dd>
+<p>Wenn ein Symbol <var>x</var> die Eigenschaft eines Auswertungsschalters besitzt, sind
+die Ausdr&uuml;cke <code>ev(<var>expr</var>, <var>x</var>)</code> und <code><var>expr</var>, <var>x</var></code>&nbsp;
+&auml;quivalent zu <code>ev(<var>expr</var>, <var>x</var> = true)</code>.  W&auml;hrend der Auswertung
+von <var>expr</var> erh&auml;lt also <var>x</var> den Wert <code>true</code>.
+</p>
+<p>Mit <code>declare(<var>x</var>, evflag)</code> wird der Variablen <var>x</var> die
+<code>evflag</code>-Eigenschaft gegeben.  Siehe auch die Funktion
+<code><a href="maxima_63.html#declare">declare</a></code>.  Mit <code><a href="maxima_9.html#kill">kill</a></code> oder <code><a href="maxima_63.html#remove">remove</a></code> kann diese Eigenschaft
+wieder entfernt werden.  Siehe auch <code><a href="maxima_63.html#properties">properties</a></code> f&uuml;r die Anzeige von
+Eigenschaften.
+</p>
+<p>Folgende Optionsvariablen haben bereits die <code>evflag</code>-Eigenschaft:
+</p>
+<pre class="verbatim">   algebraic           cauchysum       demoivre         
+   dotscrules          %emode          %enumer     
+   exponentialize      exptisolate     factorflag
+   float               halfangles      infeval
+   isolate_wrt_times   keepfloat       letrat
+   listarith           logabs          logarc
+   logexpand           lognegint       
+   m1pbranch           numer_pbranch   programmode
+   radexpand           ratalgdenom     ratfac
+   ratmx               ratsimpexpons   simp
+   simpproduct         simpsum         sumexpand
+   trigexpand
+</pre>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) sin (1/2);
+                                 1
+(%o1)                        sin(-)
+                                 2
+(%i2) sin (1/2), float;
+(%o2)                   0.479425538604203
+(%i3) sin (1/2), float=true;
+(%o3)                   0.479425538604203
+(%i4) simp : false;
+(%o4)                         false
+(%i5) 1 + 1;
+(%o5)                         1 + 1
+(%i6) 1 + 1, simp;
+(%o6)                           2
+(%i7) simp : true;
+(%o7)                         true
+</pre><pre class="example">(%i8) sum (1/k^2, k, 1, inf);
+                            inf
+                            ====
+                            \     1
+(%o8)                        &gt;    --
+                            /      2
+                            ====  k
+                            k = 1
+</pre><pre class="example">(%i9) sum (1/k^2, k, 1, inf), simpsum;
+                                 2
+                              %pi
+(%o9)                         ----
+                               6
+(%i10) declare (aa, evflag);
+(%o10)                        done
+(%i11) if aa = true then YES else NO;
+(%o11)                         NO
+(%i12) if aa = true then YES else NO, aa;
+(%o12)                         YES
+</pre></div>
+</dd></dl>
+
+<a name="evfun"></a><a name="Item_003a-Evaluation_002ede_002fdefvr_002fevfun"></a><dl>
+<dt><a name="index-evfun"></a>Eigenschaft: <strong>evfun</strong></dt>
+<dd>
+<p>Wenn eine Funktion <var>F</var> die Eigenschaft <code>evfun</code> besitzt, sind die 
+Ausdr&uuml;cke <code>ev(<var>expr</var>, <var>F</var>)</code> und <code><var>expr</var>, <var>F</var></code>&nbsp;
+&auml;quivalent zu <code><var>F</var>(ev(<var>expr</var>))</code>.
+</p>
+<p>Zwei oder mehr <code>evfun</code>-Funktionen <var>F</var>, <var>G</var>, &hellip; werden in der 
+aufgef&uuml;hrten Reihenfolge auf den Ausdruck <var>expr</var> angewendet.
+</p>
+<p>Mit <code>declare(<var>F</var>, evfun)</code> wird der Funktion <var>F</var> die
+<code>evfun</code>-Eigenschaft gegeben.  Siehe auch die Funktion <code><a href="maxima_63.html#declare">declare</a></code>.<!-- /@w -->
+Mit <code><a href="maxima_9.html#kill">kill</a></code> oder <code><a href="maxima_63.html#remove">remove</a></code> kann diese Eigenschaft wieder entfernt
+werden.  Siehe auch <code><a href="maxima_63.html#properties">properties</a></code> f&uuml;r die Anzeige von Eigenschaften.
+</p>
+<p>Funktionen, die bereits die <code>evfun</code>-Eigenschaft besitzen, sind:
+</p>
+<pre class="verbatim">   bfloat          factor       fullratsimp
+   logcontract     polarform    radcan
+   ratexpand       ratsimp      rectform
+   rootscontract   trigexpand   trigreduce
+</pre>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) x^3 - 1;
+                              3
+(%o1)                        x  - 1
+(%i2) x^3 - 1, factor;
+</pre><pre class="example">                                2
+(%o2)                 (x - 1) (x  + x + 1)
+</pre><pre class="example">(%i3) factor (x^3 - 1);
+                                2
+(%o3)                 (x - 1) (x  + x + 1)
+(%i4) cos(4 * x) / sin(x)^4;
+                            cos(4 x)
+(%o4)                       --------
+                               4
+                            sin (x)
+(%i5) cos(4 * x) / sin(x)^4, trigexpand;
+                 4           2       2         4
+              sin (x) - 6 cos (x) sin (x) + cos (x)
+(%o5)         -------------------------------------
+                                4
+                             sin (x)
+(%i6) cos(4 * x) / sin(x)^4, trigexpand, ratexpand;
+</pre><pre class="example">                           2         4
+                      6 cos (x)   cos (x)
+(%o6)               - --------- + ------- + 1
+                          2          4
+                       sin (x)    sin (x)
+</pre><pre class="example">(%i7) ratexpand (trigexpand (cos(4 * x) / sin(x)^4));
+                           2         4
+                      6 cos (x)   cos (x)
+(%o7)               - --------- + ------- + 1
+                          2          4
+                       sin (x)    sin (x)
+(%i8) declare ([F, G], evfun);
+(%o8)                         done
+(%i9) (aa : bb, bb : cc, cc : dd);
+(%o9)                          dd
+(%i10) aa;
+(%o10)                         bb
+(%i11) aa, F;
+(%o11)                        F(cc)
+(%i12) F (aa);
+(%o12)                        F(bb)
+(%i13) F (ev (aa));
+(%o13)                        F(cc)
+(%i14) aa, F, G;
+(%o14)                      G(F(cc))
+(%i15) G (F (ev (aa)));
+(%o15)                      G(F(cc))
+</pre></div>
+</dd></dl>
+
+<a name="infeval"></a><a name="Item_003a-Evaluation_002ede_002fdefvr_002finfeval"></a><dl>
+<dt><a name="index-infeval"></a>Optionsvariable: <strong>infeval</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p><code>infeval</code> bewirkt, dass die Funktion <code><a href="#ev">ev</a></code> die Auswertung eines
+Ausdrucks solange wiederholt, bis dieser sich nicht mehr &auml;ndert.  Um zu
+verhindern, dass eine Variable in diesem Modus durch die Auswertung
+verschwindet, kann zum Beispiel f&uuml;r eine Variable <code>x</code> der Ausdruck
+<code>x='x</code> als Argument von <code>ev</code> einf&uuml;gt werden.  Ausdr&uuml;cke wie
+<code>ev(x, x=x+1, infeval)</code> f&uuml;hren in diesem Modus zu Endlosschleifen.
+</p>
+<p>Siehe auch die Auswertungsschalter <code><a href="#noeval">noeval</a></code> und <code><a href="#eval">eval</a></code>.
+</p></dd></dl>
+
+<a name="noeval"></a><a name="Item_003a-Evaluation_002ede_002fdefvr_002fnoeval"></a><dl>
+<dt><a name="index-noeval"></a>Auswertungsschalter: <strong>noeval</strong></dt>
+<dd>
+<p><code>noeval</code> unterdr&uuml;ckt die Auswertungsphase der Funktion <code><a href="#ev">ev</a></code>.<!-- /@w -->
+Der Schalter kann im Zusammenhang mit anderen Auswertungsschaltern genutzt
+werden, um einen Ausdruck erneut zu vereinfachen, ohne diesen auszuwerten.
+</p>
+<p>Siehe auch die Optionsvariable <code><a href="#infeval">infeval</a></code> und den Auswertungsschalter
+<code><a href="#eval">eval</a></code>.
+</p></dd></dl>
+
+<a name="nouns"></a><a name="Item_003a-Evaluation_002ede_002fdefvr_002fnouns"></a><dl>
+<dt><a name="index-nouns"></a>Auswertungsschalter: <strong>nouns</strong></dt>
+<dd>
+<p><code>nouns</code> ist ein Auswertungsschalter.  Wird dieser Schalter als eine Option
+der Funktion <code><a href="#ev">ev</a></code> genutzt, werden alle Substantivformen, die in dem
+Ausdruck enthalten sind, in Verbformen umgewandelt und ausgewertet.
+</p>
+<p>Siehe auch die Eigenschaft <code><a href="maxima_32.html#noun">noun</a></code> und die Funktionen <code><a href="maxima_32.html#nounify">nounify</a></code> und
+<code><a href="maxima_32.html#verbify">verbify</a></code>.
+</p></dd></dl>
+
+<a name="pred"></a><a name="Item_003a-Evaluation_002ede_002fdefvr_002fpred"></a><dl>
+<dt><a name="index-pred"></a>Auswertungsschalter: <strong>pred</strong></dt>
+<dd>
+<p>Wird <code>pred</code> als ein Argument der Funktion <code>ev</code> eingesetzt, werden
+Aussagen zu <code>true</code> oder <code>false</code> ausgewertet.  Siehe die Funktion
+<code><a href="#ev">ev</a></code>.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) 1 &lt; 2;
+(%o1)                                1 &lt; 2
+(%i2) 1 &lt; 2,pred;
+(%o2)                                true
+</pre></div>
+</dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_44.html#Einf_00fchrung-in-die-Auswertung" accesskey="p" rel="previous">Einf&uuml;hrung in die Auswertung</a>, Nach oben: <a href="maxima_43.html#Auswertung" accesskey="u" rel="up">Auswertung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

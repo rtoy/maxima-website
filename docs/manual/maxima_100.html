@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for QUADPACK (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Functions and Variables for QUADPACK</title>
 
-<meta name="description" content="Functions and Variables for QUADPACK (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Functions and Variables for QUADPACK (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Functions and Variables for QUADPACK">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Functions and Variables for QUADPACK">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_96.html" rel="up" title="Integration">
-<link href="maxima_101.html" rel="next" title="Equations">
-<link href="maxima_99.html" rel="prev" title="Introduction to QUADPACK">
+<link href="maxima_96.html#Integration" rel="up" title="Integration">
+<link href="maxima_101.html#Equations" rel="next" title="Equations">
+<link href="maxima_99.html#Introduction-to-QUADPACK" rel="previous" title="Introduction to QUADPACK">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,16 +73,18 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Functions-and-Variables-for-QUADPACK"></span><div class="header">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Functions-and-Variables-for-QUADPACK"></a>
+<div class="header">
 <p>
-Previous: <a href="maxima_99.html" accesskey="p" rel="prev">Introduction to QUADPACK</a>, Up: <a href="maxima_96.html" accesskey="u" rel="up">Integration</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_99.html#Introduction-to-QUADPACK" accesskey="p" rel="previous">Introduction to QUADPACK</a>, Up: <a href="maxima_96.html#Integration" accesskey="u" rel="up">Integration</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Functions-and-Variables-for-QUADPACK-1"></span><h3 class="section">19.4 Functions and Variables for QUADPACK</h3>
+<a name="Functions-and-Variables-for-QUADPACK-1"></a>
+<h3 class="section">19.4 Functions and Variables for QUADPACK</h3>
 
 
-<span id="quad_005fqag"></span><span id="Item_003a-Integration_002fdeffn_002fquad_005fqag"></span><dl>
-<dt id="index-quad_005fqag">Function: <strong>quad_qag</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qag</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>key</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qag</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>key</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<a name="quad_005fqag"></a><a name="Item_003a-Integration_002fdeffn_002fquad_005fqag"></a><dl>
+<dt><a name="index-quad_005fqag"></a>Function: <strong>quad_qag</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qag</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>key</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qag</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>key</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
 <dd>
 <p>Integration of a general function over a finite interval.  <code>quad_qag</code>
 implements a simple globally adaptive integrator using the strategy of Aind
@@ -157,16 +169,13 @@ maximum number of subintervals to use.  Default is 200.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_370.html#Category_003a-Package-quadpack">Package quadpack</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Numerical-methods">Numerical methods</a>
+&middot;<a href="maxima_378.html#Category_003a-Package-quadpack">Package quadpack</a>
+&middot;</div></dd></dl>
 
 
-<span id="quad_005fqags"></span><span id="Item_003a-Integration_002fdeffn_002fquad_005fqags"></span><dl>
-<dt id="index-quad_005fqags">Function: <strong>quad_qags</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qags</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qags</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<a name="quad_005fqags"></a><a name="Item_003a-Integration_002fdeffn_002fquad_005fqags"></a><dl>
+<dt><a name="index-quad_005fqags"></a>Function: <strong>quad_qags</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qags</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qags</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
 <dd>
 <p>Integration of a general function over a finite interval.
 <code>quad_qags</code> implements globally adaptive interval subdivision with
@@ -245,16 +254,13 @@ maximum number of subintervals to use.  Default is 200.
 <p>Note that <code>quad_qags</code> is more accurate and efficient than <code>quad_qag</code> for this integrand.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_370.html#Category_003a-Package-quadpack">Package quadpack</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Numerical-methods">Numerical methods</a>
+&middot;<a href="maxima_378.html#Category_003a-Package-quadpack">Package quadpack</a>
+&middot;</div></dd></dl>
 
 
-<span id="quad_005fqagi"></span><span id="Item_003a-Integration_002fdeffn_002fquad_005fqagi"></span><dl>
-<dt id="index-quad_005fqagi">Function: <strong>quad_qagi</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qagi</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qagi</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<a name="quad_005fqagi"></a><a name="Item_003a-Integration_002fdeffn_002fquad_005fqagi"></a><dl>
+<dt><a name="index-quad_005fqagi"></a>Function: <strong>quad_qagi</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qagi</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qagi</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
 <dd>
 <p>Integration of a general function over an infinite or semi-infinite interval.
 The interval is mapped onto a finite interval and
@@ -343,16 +349,13 @@ maximum number of subintervals to use.  Default is 200.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_370.html#Category_003a-Package-quadpack">Package quadpack</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Numerical-methods">Numerical methods</a>
+&middot;<a href="maxima_378.html#Category_003a-Package-quadpack">Package quadpack</a>
+&middot;</div></dd></dl>
 
 
-<span id="quad_005fqawc"></span><span id="Item_003a-Integration_002fdeffn_002fquad_005fqawc"></span><dl>
-<dt id="index-quad_005fqawc">Function: <strong>quad_qawc</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawc</tt> (<var>f(x)</var>, <var>x</var>, <var>c</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawc</tt> (<var>f</var>, <var>x</var>, <var>c</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<a name="quad_005fqawc"></a><a name="Item_003a-Integration_002fdeffn_002fquad_005fqawc"></a><dl>
+<dt><a name="index-quad_005fqawc"></a>Function: <strong>quad_qawc</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawc</tt> (<var>f(x)</var>, <var>x</var>, <var>c</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawc</tt> (<var>f</var>, <var>x</var>, <var>c</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
 <dd>
 <p>Computes the Cauchy principal value of <em>f(x)/(x - c)</em> over a finite
 interval.  The strategy is globally adaptive, and modified
@@ -446,16 +449,13 @@ Principal Value
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_370.html#Category_003a-Package-quadpack">Package quadpack</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Numerical-methods">Numerical methods</a>
+&middot;<a href="maxima_378.html#Category_003a-Package-quadpack">Package quadpack</a>
+&middot;</div></dd></dl>
 
 
-<span id="quad_005fqawf"></span><span id="Item_003a-Integration_002fdeffn_002fquad_005fqawf"></span><dl>
-<dt id="index-quad_005fqawf">Function: <strong>quad_qawf</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawf</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>omega</var>, <var>trig</var>, [<var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawf</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>omega</var>, <var>trig</var>, [<var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>])</em></dt>
+<a name="quad_005fqawf"></a><a name="Item_003a-Integration_002fdeffn_002fquad_005fqawf"></a><dl>
+<dt><a name="index-quad_005fqawf"></a>Function: <strong>quad_qawf</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawf</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>omega</var>, <var>trig</var>, [<var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawf</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>omega</var>, <var>trig</var>, [<var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>])</em></dt>
 <dd>
 <p>Calculates a Fourier cosine or Fourier sine transform on a semi-infinite
 interval using the Quadpack QAWF function.  The same approach as in
@@ -547,16 +547,13 @@ is 100.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_370.html#Category_003a-Package-quadpack">Package quadpack</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Numerical-methods">Numerical methods</a>
+&middot;<a href="maxima_378.html#Category_003a-Package-quadpack">Package quadpack</a>
+&middot;</div></dd></dl>
 
 
-<span id="quad_005fqawo"></span><span id="Item_003a-Integration_002fdeffn_002fquad_005fqawo"></span><dl>
-<dt id="index-quad_005fqawo">Function: <strong>quad_qawo</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawo</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>omega</var>, <var>trig</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawo</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>omega</var>, <var>trig</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>])</em></dt>
+<a name="quad_005fqawo"></a><a name="Item_003a-Integration_002fdeffn_002fquad_005fqawo"></a><dl>
+<dt><a name="index-quad_005fqawo"></a>Function: <strong>quad_qawo</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawo</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>omega</var>, <var>trig</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qawo</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>omega</var>, <var>trig</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>])</em></dt>
 <dd>
 <p>Integration of
 <em>cos (omega x) f(x)</em>
@@ -659,16 +656,13 @@ is 100.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_370.html#Category_003a-Package-quadpack">Package quadpack</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Numerical-methods">Numerical methods</a>
+&middot;<a href="maxima_378.html#Category_003a-Package-quadpack">Package quadpack</a>
+&middot;</div></dd></dl>
 
 
-<span id="quad_005fqaws"></span><span id="Item_003a-Integration_002fdeffn_002fquad_005fqaws"></span><dl>
-<dt id="index-quad_005fqaws">Function: <strong>quad_qaws</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qaws</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>alpha</var>, <var>beta</var>, <var>wfun</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qaws</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>alpha</var>, <var>beta</var>, <var>wfun</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<a name="quad_005fqaws"></a><a name="Item_003a-Integration_002fdeffn_002fquad_005fqaws"></a><dl>
+<dt><a name="index-quad_005fqaws"></a>Function: <strong>quad_qaws</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qaws</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>alpha</var>, <var>beta</var>, <var>wfun</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qaws</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>alpha</var>, <var>beta</var>, <var>wfun</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
 <dd>
 <p>Integration of <em>w(x) f(x)</em> over a finite interval, where <em>w(x)</em> is a
 certain algebraic or logarithmic function.  A globally adaptive subdivision
@@ -766,16 +760,13 @@ pos;
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_370.html#Category_003a-Package-quadpack">Package quadpack</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Numerical-methods">Numerical methods</a>
+&middot;<a href="maxima_378.html#Category_003a-Package-quadpack">Package quadpack</a>
+&middot;</div></dd></dl>
 
 
-<span id="quad_005fqagp"></span><span id="Item_003a-Integration_002fdeffn_002fquad_005fqagp"></span><dl>
-<dt id="index-quad_005fqagp">Function: <strong>quad_qagp</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qagp</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>points</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qagp</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>points</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<a name="quad_005fqagp"></a><a name="Item_003a-Integration_002fdeffn_002fquad_005fqagp"></a><dl>
+<dt><a name="index-quad_005fqagp"></a>Function: <strong>quad_qagp</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qagp</tt> (<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>points</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>]) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>quad_qagp</tt> (<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>points</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
 <dd>
 <p>Integration of a general function over a finite interval.
 <code>quad_qagp</code> implements globally adaptive interval subdivision with
@@ -861,15 +852,12 @@ these points to <code>quad_qagp</code>.  We also note that <code>quad_qagp</code
 more accurate and more efficient that <code><a href="#quad_005fqags">quad_qags</a></code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Numerical-methods">Numerical methods</a>
+&middot;<a href="maxima_378.html#Category_003a-Package-quadpack">Package quadpack</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_370.html#Category_003a-Package-quadpack">Package quadpack</a>
-</div>
-</p></dd></dl>
-
-<span id="quad_005fcontrol"></span><span id="Item_003a-Integration_002fdeffn_002fquad_005fcontrol"></span><dl>
-<dt id="index-quad_005fcontrol">Function: <strong>quad_control</strong> <em>(<var>parameter</var>, [<var>value</var>])</em></dt>
+<a name="quad_005fcontrol"></a><a name="Item_003a-Integration_002fdeffn_002fquad_005fcontrol"></a><dl>
+<dt><a name="index-quad_005fcontrol"></a>Function: <strong>quad_control</strong> <em>(<var>parameter</var>, [<var>value</var>])</em></dt>
 <dd>
 <p>Control error handling for quadpack.  The parameter should be one of
 the following symbols:
@@ -892,18 +880,15 @@ less, messages are suppressed.
 <var>parameter</var> is set to the given value.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_370.html#Category_003a-Package-quadpack">Package quadpack</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Numerical-methods">Numerical methods</a>
+&middot;<a href="maxima_378.html#Category_003a-Package-quadpack">Package quadpack</a>
+&middot;</div></dd></dl>
 
 
-<span id="Item_003a-include_002dmaxima_002fnode_002fEquations"></span><hr>
+<hr>
 <div class="header">
 <p>
-Previous: <a href="maxima_99.html" accesskey="p" rel="prev">Introduction to QUADPACK</a>, Up: <a href="maxima_96.html" accesskey="u" rel="up">Integration</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_99.html#Introduction-to-QUADPACK" accesskey="p" rel="previous">Introduction to QUADPACK</a>, Up: <a href="maxima_96.html#Integration" accesskey="u" rel="up">Integration</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

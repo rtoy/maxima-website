@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for Expressions (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Functions and Variables for Expressions</title>
 
-<meta name="description" content="Functions and Variables for Expressions (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Functions and Variables for Expressions (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Functions and Variables for Expressions">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Functions and Variables for Expressions">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_28.html" rel="up" title="Expressions">
-<link href="maxima_34.html" rel="next" title="Operators">
-<link href="maxima_32.html" rel="prev" title="Inequality">
+<link href="maxima_28.html#Expressions" rel="up" title="Expressions">
+<link href="maxima_34.html#Operators" rel="next" title="Operators">
+<link href="maxima_32.html#Inequality" rel="previous" title="Inequality">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,45 +73,42 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Functions-and-Variables-for-Expressions"></span><div class="header">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Functions-and-Variables-for-Expressions"></a>
+<div class="header">
 <p>
-Previous: <a href="maxima_32.html" accesskey="p" rel="prev">Inequality</a>, Up: <a href="maxima_28.html" accesskey="u" rel="up">Expressions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_32.html#Inequality" accesskey="p" rel="previous">Inequality</a>, Up: <a href="maxima_28.html#Expressions" accesskey="u" rel="up">Expressions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Functions-and-Variables-for-Expressions-1"></span><h3 class="section">6.5 Functions and Variables for Expressions</h3>
+<a name="Functions-and-Variables-for-Expressions-1"></a>
+<h3 class="section">6.5 Functions and Variables for Expressions</h3>
 
 
-<span id="alias"></span><span id="Item_003a-Expressions_002fdeffn_002falias"></span><dl>
-<dt id="index-alias">Function: <strong>alias</strong> <em>(<var>new_name_1</var>, <var>old_name_1</var>, &hellip;, <var>new_name_n</var>, <var>old_name_n</var>)</em></dt>
+<a name="alias"></a><a name="Item_003a-Expressions_002fdeffn_002falias"></a><dl>
+<dt><a name="index-alias"></a>Function: <strong>alias</strong> <em>(<var>new_name_1</var>, <var>old_name_1</var>, &hellip;, <var>new_name_n</var>, <var>old_name_n</var>)</em></dt>
 <dd>
 <p>provides an alternate name for a (user or system) function, variable, array,
 etc.  Any even number of arguments may be used.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
-</div>
-</p></dd></dl>
-
-<span id="aliases"></span><span id="Item_003a-Expressions_002fdefvr_002faliases"></span><dl>
-<dt id="index-aliases">System variable: <strong>aliases</strong></dt>
+<a name="aliases"></a><a name="Item_003a-Expressions_002fdefvr_002faliases"></a><dl>
+<dt><a name="index-aliases"></a>System variable: <strong>aliases</strong></dt>
 <dd><p>Default value: <code>[]</code>
 </p>
-<p><code>aliases</code> is the list of atoms which have an user defined alias (set up by
+<p><code>aliases</code> is the list of atoms which have a user defined alias (set up by
 the <code><a href="#alias">alias</a></code>, <code><a href="#ordergreat">ordergreat</a></code>, <code><a href="#orderless">orderless</a></code> functions or by
 declaring the atom a <code><a href="#noun">noun</a></code> with <code><a href="maxima_58.html#declare">declare</a></code>.)
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
-
-<a href="maxima_370.html#Category_003a-Global-variables">Global variables</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+&middot;<a href="maxima_378.html#Category_003a-Global-variables">Global variables</a>
+&middot;</div></dd></dl>
 
 
-<span id="allbut"></span><span id="Item_003a-Expressions_002fdefvr_002fallbut"></span><dl>
-<dt id="index-allbut">Keyword: <strong>allbut</strong></dt>
+<a name="allbut"></a><a name="Item_003a-Expressions_002fdefvr_002fallbut"></a><dl>
+<dt><a name="index-allbut"></a>Keyword: <strong>allbut</strong></dt>
 <dd>
 <p>works with the <code>part</code> commands (i.e.  <code><a href="#part">part</a></code>,<!-- /@w -->
 <code><a href="#inpart">inpart</a></code>, <code><a href="#substpart">substpart</a></code>, <code><a href="#substinpart">substinpart</a></code>,<!-- /@w -->
@@ -140,8 +147,8 @@ For example,
 &hellip;
 </p></dd></dl>
 
-<span id="args"></span><span id="Item_003a-Expressions_002fdeffn_002fargs"></span><dl>
-<dt id="index-args">Function: <strong>args</strong> <em>(<var>expr</var>)</em></dt>
+<a name="args"></a><a name="Item_003a-Expressions_002fdeffn_002fargs"></a><dl>
+<dt><a name="index-args"></a>Function: <strong>args</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Returns the list of arguments of <code>expr</code>, which may be any kind of
 expression other than an atom.  Only the arguments of the top-level operator
@@ -178,14 +185,12 @@ with <code>n</code> arguments args() can extract the list of terms in a sum:
 
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="atom"></span><span id="Item_003a-Expressions_002fdeffn_002fatom"></span><dl>
-<dt id="index-atom">Function: <strong>atom</strong> <em>(<var>expr</var>)</em></dt>
+<a name="atom"></a><a name="Item_003a-Expressions_002fdeffn_002fatom"></a><dl>
+<dt><a name="index-atom"></a>Function: <strong>atom</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Returns <code>true</code> if <var>expr</var> is atomic (i.e. a number, name or string) else
 <code>false</code>.  Thus <code>atom(5)</code> is <code>true</code> while <code>atom(a[1])</code> and
@@ -193,15 +198,12 @@ with <code>n</code> arguments args() can extract the list of terms in a sum:
 unbound).
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;<a href="maxima_378.html#Category_003a-Predicate-functions">Predicate functions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-
-<a href="maxima_370.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div>
-</p></dd></dl>
-
-<span id="box"></span><span id="Item_003a-Expressions_002fdeffn_002fbox"></span><dl>
-<dt id="index-box">Function: <strong>box</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>box</tt> (<var>expr</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>box</tt> (<var>expr</var>, <var>a</var>)</em></dt>
+<a name="box"></a><a name="Item_003a-Expressions_002fdeffn_002fbox"></a><dl>
+<dt><a name="index-box"></a>Function: <strong>box</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>box</tt> (<var>expr</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>box</tt> (<var>expr</var>, <var>a</var>)</em></dt>
 <dd>
 <p>Returns <var>expr</var> enclosed in a box.  The return value is an expression with
 <code>box</code> as the operator and <var>expr</var> as the argument.  A box is drawn on
@@ -255,13 +257,11 @@ computations. <code><a href="#rembox">rembox</a></code> removes the box again.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="boxchar"></span><span id="Item_003a-Expressions_002fdefvr_002fboxchar"></span><dl>
-<dt id="index-boxchar">Option variable: <strong>boxchar</strong></dt>
+<a name="boxchar"></a><a name="Item_003a-Expressions_002fdefvr_002fboxchar"></a><dl>
+<dt><a name="index-boxchar"></a>Option variable: <strong>boxchar</strong></dt>
 <dd><p>Default value: <code>&quot;</code>
 </p>
 <p><code>boxchar</code> is the character used to draw the box in the <code><a href="#box">box</a></code><!-- /@w -->
@@ -271,14 +271,12 @@ and in the <code><a href="#dpart">dpart</a></code> and <code><a href="#lpart">lp
 the drawing character is not stored with the box expression.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="collapse"></span><span id="Item_003a-Expressions_002fdeffn_002fcollapse"></span><dl>
-<dt id="index-collapse">Function: <strong>collapse</strong> <em>(<var>expr</var>)</em></dt>
+<a name="collapse"></a><a name="Item_003a-Expressions_002fdeffn_002fcollapse"></a><dl>
+<dt><a name="index-collapse"></a>Function: <strong>collapse</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Collapses <var>expr</var> by causing all of its common (i.e., equal) subexpressions
 to share (i.e., use the same cells), thereby saving space.  (<code>collapse</code> is
@@ -290,13 +288,11 @@ collapse the elements of the array <code>A</code> by doing
 <code>collapse (listarray ('A))</code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="copy"></span><span id="Item_003a-Expressions_002fdeffn_002fcopy"></span><dl>
-<dt id="index-copy">Function: <strong>copy</strong> <em>(<var>e</var>)</em></dt>
+<a name="copy"></a><a name="Item_003a-Expressions_002fdeffn_002fcopy"></a><dl>
+<dt><a name="index-copy"></a>Function: <strong>copy</strong> <em>(<var>e</var>)</em></dt>
 <dd>
 <p>Return a copy of the Maxima expression <var>e</var>.  Although <var>e</var> can be any
 Maxima expression, the copy function is the most useful when <var>e</var> is either 
@@ -327,14 +323,12 @@ a list or a matrix; consider:
 <p>This time, the assignment to <var>mm</var> does not change the value of <var>m</var>.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="disolate"></span><span id="Item_003a-Expressions_002fdeffn_002fdisolate"></span><dl>
-<dt id="index-disolate">Function: <strong>disolate</strong> <em>(<var>expr</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</em></dt>
+<a name="disolate"></a><a name="Item_003a-Expressions_002fdeffn_002fdisolate"></a><dl>
+<dt><a name="index-disolate"></a>Function: <strong>disolate</strong> <em>(<var>expr</var>, <var>x_1</var>, &hellip;, <var>x_n</var>)</em></dt>
 <dd>
 <p>is similar to <code><a href="#isolate">isolate</a></code><code> (<var>expr</var>, <var>x</var>)</code> except that it enables the
 user to isolate more than one variable simultaneously.  This might be useful,
@@ -344,13 +338,11 @@ variables.  This function is autoloaded from <samp>simplification/disol.mac</sam
 A demo is available by <code>demo(&quot;disol&quot;)$</code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="dispform"></span><span id="Item_003a-Expressions_002fdeffn_002fdispform"></span><dl>
-<dt id="index-dispform">Function: <strong>dispform</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>dispform</tt> (<var>expr</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>dispform</tt> (<var>expr</var>, all)</em></dt>
+<a name="dispform"></a><a name="Item_003a-Expressions_002fdeffn_002fdispform"></a><dl>
+<dt><a name="index-dispform"></a>Function: <strong>dispform</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>dispform</tt> (<var>expr</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>dispform</tt> (<var>expr</var>, all)</em></dt>
 <dd>
 <p>Returns the external representation of <var>expr</var>.
 </p>
@@ -408,14 +400,12 @@ while the external representation is &quot;square root of <code>x</code>&quot;.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="dpart"></span><span id="Item_003a-Expressions_002fdeffn_002fdpart"></span><dl>
-<dt id="index-dpart">Function: <strong>dpart</strong> <em>(<var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
+<a name="dpart"></a><a name="Item_003a-Expressions_002fdeffn_002fdpart"></a><dl>
+<dt><a name="index-dpart"></a>Function: <strong>dpart</strong> <em>(<var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
 <dd>
 <p>Selects the same subexpression as <code><a href="#part">part</a></code>, but instead of just returning
 that subexpression as its value, it returns the whole expression with the
@@ -433,26 +423,22 @@ expression.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="exptisolate"></span><span id="Item_003a-Expressions_002fdefvr_002fexptisolate"></span><dl>
-<dt id="index-exptisolate">Option variable: <strong>exptisolate</strong></dt>
+<a name="exptisolate"></a><a name="Item_003a-Expressions_002fdefvr_002fexptisolate"></a><dl>
+<dt><a name="index-exptisolate"></a>Option variable: <strong>exptisolate</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p><code>exptisolate</code>, when <code>true</code>, causes <code>isolate (expr, var)</code> to
 examine exponents of atoms (such as <code>%e</code>) which contain <code>var</code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="exptsubst"></span><span id="Item_003a-Expressions_002fdefvr_002fexptsubst"></span><dl>
-<dt id="index-exptsubst">Option variable: <strong>exptsubst</strong></dt>
+<a name="exptsubst"></a><a name="Item_003a-Expressions_002fdefvr_002fexptsubst"></a><dl>
+<dt><a name="index-exptsubst"></a>Option variable: <strong>exptsubst</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p><code>exptsubst</code>, when <code>true</code>, permits substitutions such as <code>y</code>
@@ -475,15 +461,12 @@ for <code>%e^x</code> in <code>%e^(a x)</code>.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
+&middot;<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Exponential-and-logarithm-functions">Exponential and logarithm functions</a>
-
-<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="freeof"></span><span id="Item_003a-Expressions_002fdeffn_002ffreeof"></span><dl>
-<dt id="index-freeof">Function: <strong>freeof</strong> <em>(<var>x_1</var>, &hellip;, <var>x_n</var>, <var>expr</var>)</em></dt>
+<a name="freeof"></a><a name="Item_003a-Expressions_002fdeffn_002ffreeof"></a><dl>
+<dt><a name="index-freeof"></a>Function: <strong>freeof</strong> <em>(<var>x_1</var>, &hellip;, <var>x_n</var>, <var>expr</var>)</em></dt>
 <dd>
 <p><code>freeof (<var>x_1</var>, <var>expr</var>)</code> returns <code>true</code> if no subexpression of
 <var>expr</var> is equal to <var>x_1</var> or if <var>x_1</var> occurs only as a dummy variable
@@ -582,13 +565,11 @@ An indefinite integral is not free of its variable of integration.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="inflag"></span><span id="Item_003a-Expressions_002fdefvr_002finflag"></span><dl>
-<dt id="index-inflag">Option variable: <strong>inflag</strong></dt>
+<a name="inflag"></a><a name="Item_003a-Expressions_002fdefvr_002finflag"></a><dl>
+<dt><a name="index-inflag"></a>Option variable: <strong>inflag</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>inflag</code> is <code>true</code>, functions for part extraction inspect the
@@ -608,14 +589,12 @@ is <code>false</code>.  (<code>first (y + x)</code> gives the same results.)
 <code><a href="#pickapart">pickapart</a></code>.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="inpart"></span><span id="Item_003a-Expressions_002fdeffn_002finpart"></span><dl>
-<dt id="index-inpart">Function: <strong>inpart</strong> <em>(<var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
+<a name="inpart"></a><a name="Item_003a-Expressions_002fdeffn_002finpart"></a><dl>
+<dt><a name="index-inpart"></a>Function: <strong>inpart</strong> <em>(<var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
 <dd>
 <p>is similar to <code><a href="#part">part</a></code> but works on the internal representation of the
 expression rather than the displayed form and thus may be faster since no
@@ -645,14 +624,12 @@ For example <code>... if inpart (%o9,0) = &quot;+&quot; then ...</code>.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="isolate"></span><span id="Item_003a-Expressions_002fdeffn_002fisolate"></span><dl>
-<dt id="index-isolate">Function: <strong>isolate</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<a name="isolate"></a><a name="Item_003a-Expressions_002fdeffn_002fisolate"></a><dl>
+<dt><a name="index-isolate"></a>Function: <strong>isolate</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
 <dd>
 <p>Returns <var>expr</var> with subexpressions which are sums and which do not contain
 <var>var</var> replaced by intermediate expression labels (these being atomic symbols
@@ -672,14 +649,12 @@ with respect to products.  See <code><a href="#isolate_005fwrt_005ftimes">isolat
 <p>Do <code>example (isolate)</code> for examples.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="isolate_005fwrt_005ftimes"></span><span id="Item_003a-Expressions_002fdefvr_002fisolate_005fwrt_005ftimes"></span><dl>
-<dt id="index-isolate_005fwrt_005ftimes">Option variable: <strong>isolate_wrt_times</strong></dt>
+<a name="isolate_005fwrt_005ftimes"></a><a name="Item_003a-Expressions_002fdefvr_002fisolate_005fwrt_005ftimes"></a><dl>
+<dt><a name="index-isolate_005fwrt_005ftimes"></a>Option variable: <strong>isolate_wrt_times</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>isolate_wrt_times</code> is <code>true</code>, <code>isolate</code> will also isolate
@@ -706,14 +681,12 @@ with respect to products.  E.g. compare both settings of the switch on
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="listconstvars"></span><span id="Item_003a-Expressions_002fdefvr_002flistconstvars"></span><dl>
-<dt id="index-listconstvars">Option variable: <strong>listconstvars</strong></dt>
+<a name="listconstvars"></a><a name="Item_003a-Expressions_002fdefvr_002flistconstvars"></a><dl>
+<dt><a name="index-listconstvars"></a>Option variable: <strong>listconstvars</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>listconstvars</code> is <code>true</code> the list returned by
@@ -725,13 +698,11 @@ for all variables declared as <code>constant</code>. The default is to
 omit constant variables from <code>listofvars</code> return value.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="listdummyvars"></span><span id="Item_003a-Expressions_002fdefvr_002flistdummyvars"></span><dl>
-<dt id="index-listdummyvars">Option variable: <strong>listdummyvars</strong></dt>
+<a name="listdummyvars"></a><a name="Item_003a-Expressions_002fdefvr_002flistdummyvars"></a><dl>
+<dt><a name="index-listdummyvars"></a>Option variable: <strong>listdummyvars</strong></dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>listdummyvars</code> is <code>false</code>, &quot;dummy variables&quot; in the expression
@@ -752,14 +723,12 @@ and the definite integration variable.)
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="listofvars"></span><span id="Item_003a-Expressions_002fdeffn_002flistofvars"></span><dl>
-<dt id="index-listofvars">Function: <strong>listofvars</strong> <em>(<var>expr</var>)</em></dt>
+<a name="listofvars"></a><a name="Item_003a-Expressions_002fdeffn_002flistofvars"></a><dl>
+<dt><a name="index-listofvars"></a>Function: <strong>listofvars</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Returns a list of the variables in <var>expr</var>.
 </p>
@@ -777,14 +746,12 @@ list it returns if they appear in <var>expr</var>.  The default is to omit these
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="lfreeof"></span><span id="Item_003a-Expressions_002fdeffn_002flfreeof"></span><dl>
-<dt id="index-lfreeof">Function: <strong>lfreeof</strong> <em>(<var>list</var>, <var>expr</var>)</em></dt>
+<a name="lfreeof"></a><a name="Item_003a-Expressions_002fdeffn_002flfreeof"></a><dl>
+<dt><a name="index-lfreeof"></a>Function: <strong>lfreeof</strong> <em>(<var>list</var>, <var>expr</var>)</em></dt>
 <dd>
 <p>For each member <var>m</var> of <var>list</var>, calls
 <code>freeof (<var>m</var>, <var>expr</var>)</code>.  It returns <code>false</code> if any call to
@@ -802,27 +769,23 @@ list it returns if they appear in <var>expr</var>.  The default is to omit these
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="lpart"></span><span id="Item_003a-Expressions_002fdeffn_002flpart"></span><dl>
-<dt id="index-lpart">Function: <strong>lpart</strong> <em>(<var>label</var>, <var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
+<a name="lpart"></a><a name="Item_003a-Expressions_002fdeffn_002flpart"></a><dl>
+<dt><a name="index-lpart"></a>Function: <strong>lpart</strong> <em>(<var>label</var>, <var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
 <dd>
 <p>is similar to <code><a href="#dpart">dpart</a></code> but uses a labelled box.  A labelled box is similar
 to the one produced by <code>dpart</code> but it has a name in the top line.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="mainvar"></span><span id="Item_003a-Expressions_002fdefvr_002fmainvar"></span><dl>
-<dt id="index-mainvar">Property: <strong>mainvar</strong></dt>
+<a name="mainvar"></a><a name="Item_003a-Expressions_002fdefvr_002fmainvar"></a><dl>
+<dt><a name="index-mainvar"></a>Property: <strong>mainvar</strong></dt>
 <dd>
 <p>You may declare variables to be <code>mainvar</code>.  The ordering scale for atoms is
 essentially: numbers <code>&lt;</code> constants (e.g., <code>%e</code>, <code>%pi</code>) <code>&lt;</code> scalars <code>&lt;</code> other
@@ -835,16 +798,13 @@ necessary if cancellation is to occur.  Also, if you save an expression in which
 <code>x</code> is a <code>mainvar</code>, you probably should also save <code>x</code>.)
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
-
-<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Declarations-and-inferences">Declarations and inferences</a>
+&middot;<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="noun"></span><span id="Item_003a-Expressions_002fdefvr_002fnoun"></span><dl>
-<dt id="index-noun">Property: <strong>noun</strong></dt>
+<a name="noun"></a><a name="Item_003a-Expressions_002fdefvr_002fnoun"></a><dl>
+<dt><a name="index-noun"></a>Property: <strong>noun</strong></dt>
 <dd>
 <p><code>noun</code> is one of the options of the <code><a href="maxima_58.html#declare">declare</a></code> command.  It makes a
 function so declared a &quot;noun&quot;, meaning that it won&rsquo;t be evaluated
@@ -866,14 +826,12 @@ automatically.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Nouns-and-verbs">Nouns and verbs</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Nouns-and-verbs">Nouns and verbs</a>
+&middot;</div></dd></dl>
 
 
-<span id="noundisp"></span><span id="Item_003a-Expressions_002fdefvr_002fnoundisp"></span><dl>
-<dt id="index-noundisp">Option variable: <strong>noundisp</strong></dt>
+<a name="noundisp"></a><a name="Item_003a-Expressions_002fdefvr_002fnoundisp"></a><dl>
+<dt><a name="index-noundisp"></a>Option variable: <strong>noundisp</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>noundisp</code> is <code>true</code>, nouns display with
@@ -881,16 +839,13 @@ a single quote.  This switch is always <code>true</code> when displaying functio
 definitions.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
-
-<a href="maxima_370.html#Category_003a-Nouns-and-verbs">Nouns and verbs</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+&middot;<a href="maxima_378.html#Category_003a-Nouns-and-verbs">Nouns and verbs</a>
+&middot;</div></dd></dl>
 
 
-<span id="nounify"></span><span id="Item_003a-Expressions_002fdeffn_002fnounify"></span><dl>
-<dt id="index-nounify">Function: <strong>nounify</strong> <em>(<var>f</var>)</em></dt>
+<a name="nounify"></a><a name="Item_003a-Expressions_002fdeffn_002fnounify"></a><dl>
+<dt><a name="index-nounify"></a>Function: <strong>nounify</strong> <em>(<var>f</var>)</em></dt>
 <dd>
 <p>Returns the noun form of the function name <var>f</var>.  This is
 needed if one wishes to refer to the name of a verb function as if it
@@ -901,14 +856,12 @@ the form returned if a function call is preceded by a quote.
 <p>See also <code><a href="#verbify">verbify</a></code>.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Nouns-and-verbs">Nouns and verbs</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Nouns-and-verbs">Nouns and verbs</a>
+&middot;</div></dd></dl>
 
 
-<span id="nterms"></span><span id="Item_003a-Expressions_002fdeffn_002fnterms"></span><dl>
-<dt id="index-nterms">Function: <strong>nterms</strong> <em>(<var>expr</var>)</em></dt>
+<a name="nterms"></a><a name="Item_003a-Expressions_002fdeffn_002fnterms"></a><dl>
+<dt><a name="index-nterms"></a>Function: <strong>nterms</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Returns the number of terms that <var>expr</var> would have if it were fully
 expanded out and no cancellations or combination of terms occurred.
@@ -917,14 +870,12 @@ Note that expressions like <code>sin (<var>expr</var>)</code>, <code>sqrt (<var>
 terms <var>expr</var> has (if it is a sum).
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="op"></span><span id="Item_003a-Expressions_002fdeffn_002fop"></span><dl>
-<dt id="index-op">Function: <strong>op</strong> <em>(<var>expr</var>)</em></dt>
+<a name="op"></a><a name="Item_003a-Expressions_002fdeffn_002fop"></a><dl>
+<dt><a name="index-op"></a>Function: <strong>op</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Returns the main operator of the expression <var>expr</var>.
 <code>op (<var>expr</var>)</code> is equivalent to <code>part (<var>expr</var>, 0)</code>.
@@ -974,16 +925,13 @@ and <code>op</code> returns a symbol.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-
-<a href="maxima_370.html#Category_003a-Operators">Operators</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;<a href="maxima_378.html#Category_003a-Operators">Operators</a>
+&middot;</div></dd></dl>
 
 
-<span id="operatorp"></span><span id="Item_003a-Expressions_002fdeffn_002foperatorp"></span><dl>
-<dt id="index-operatorp">Function: <strong>operatorp</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>operatorp</tt> (<var>expr</var>, <var>op</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>operatorp</tt> (<var>expr</var>, [<var>op_1</var>, &hellip;, <var>op_n</var>])</em></dt>
+<a name="operatorp"></a><a name="Item_003a-Expressions_002fdeffn_002foperatorp"></a><dl>
+<dt><a name="index-operatorp"></a>Function: <strong>operatorp</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>operatorp</tt> (<var>expr</var>, <var>op</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>operatorp</tt> (<var>expr</var>, [<var>op_1</var>, &hellip;, <var>op_n</var>])</em></dt>
 <dd>
 <p><code>operatorp (<var>expr</var>, <var>op</var>)</code> returns <code>true</code>
 if <var>op</var> is equal to the operator of <var>expr</var>.
@@ -993,16 +941,13 @@ if <var>op</var> is equal to the operator of <var>expr</var>.
 operator of <var>expr</var>.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Operators">Operators</a>
-
-<a href="maxima_370.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Operators">Operators</a>
+&middot;<a href="maxima_378.html#Category_003a-Predicate-functions">Predicate functions</a>
+&middot;</div></dd></dl>
 
 
-<span id="option_005fopsubst"></span><span id="Item_003a-Expressions_002fdefvr_002fopsubst"></span><dl>
-<dt id="index-opsubst-1">Option variable: <strong>opsubst</strong></dt>
+<a name="option_005fopsubst"></a><a name="Item_003a-Expressions_002fdefvr_002fopsubst"></a><dl>
+<dt><a name="index-opsubst-1"></a>Option variable: <strong>opsubst</strong></dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>opsubst</code> is <code>false</code>, <code><a href="#subst">subst</a></code> does not attempt to
@@ -1028,14 +973,12 @@ substitute into the operator of an expression.  E.g.,
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="optimize"></span><span id="Item_003a-Expressions_002fdeffn_002foptimize"></span><dl>
-<dt id="index-optimize">Function: <strong>optimize</strong> <em>(<var>expr</var>)</em></dt>
+<a name="optimize"></a><a name="Item_003a-Expressions_002fdeffn_002foptimize"></a><dl>
+<dt><a name="index-optimize"></a>Function: <strong>optimize</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Returns an expression that produces the same value and
 side effects as <var>expr</var> but does so more efficiently by avoiding the
@@ -1044,28 +987,24 @@ effect of &quot;collapsing&quot; its argument so that all common subexpressions
 are shared.  Do <code>example (optimize)</code> for examples.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="optimprefix"></span><span id="Item_003a-Expressions_002fdefvr_002foptimprefix"></span><dl>
-<dt id="index-optimprefix">Option variable: <strong>optimprefix</strong></dt>
+<a name="optimprefix"></a><a name="Item_003a-Expressions_002fdefvr_002foptimprefix"></a><dl>
+<dt><a name="index-optimprefix"></a>Option variable: <strong>optimprefix</strong></dt>
 <dd><p>Default value: <code>%</code>
 </p>
 <p><code>optimprefix</code> is the prefix used for generated symbols by
 the <code><a href="#optimize">optimize</a></code> command.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="ordergreat"></span><span id="orderless"></span><span id="Item_003a-Expressions_002fdeffn_002fordergreat"></span><dl>
-<dt id="index-ordergreat">Function: <strong>ordergreat</strong> <em>(<var>v_1</var>, &hellip;, <var>v_n</var>)</em></dt>
-<dd><span id="Item_003a-Expressions_002fdeffn_002forderless"></span></dd><dt id="index-orderless">Function: <strong>orderless</strong> <em>(<var>v_1</var>, &hellip;, <var>v_n</var>)</em></dt>
+<a name="ordergreat"></a><a name="orderless"></a><a name="Item_003a-Expressions_002fdeffn_002fordergreat"></a><dl>
+<dt><a name="index-ordergreat"></a>Function: <strong>ordergreat</strong> <em>(<var>v_1</var>, &hellip;, <var>v_n</var>)</em></dt>
+<dd><a name="Item_003a-Expressions_002fdeffn_002forderless"></a></dd><dt><a name="index-orderless"></a>Function: <strong>orderless</strong> <em>(<var>v_1</var>, &hellip;, <var>v_n</var>)</em></dt>
 <dd>
 <p><code>ordergreat</code> changes the canonical ordering of Maxima expressions
 such that <var>v_1</var> succeeds <var>v_2</var> succeeds &hellip;  succeeds <var>v_n</var>,
@@ -1083,14 +1022,12 @@ once each, unless <code>unorder</code> is called; only the last call to
 <p>See also <code><a href="#ordergreatp">ordergreatp</a></code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="ordergreatp"></span><span id="orderlessp"></span><span id="Item_003a-Expressions_002fdeffn_002fordergreatp"></span><dl>
-<dt id="index-ordergreatp">Function: <strong>ordergreatp</strong> <em>(<var>expr_1</var>, <var>expr_2</var>)</em></dt>
-<dd><span id="Item_003a-Expressions_002fdeffn_002forderlessp"></span></dd><dt id="index-orderlessp">Function: <strong>orderlessp</strong> <em>(<var>expr_1</var>, <var>expr_2</var>)</em></dt>
+<a name="ordergreatp"></a><a name="orderlessp"></a><a name="Item_003a-Expressions_002fdeffn_002fordergreatp"></a><dl>
+<dt><a name="index-ordergreatp"></a>Function: <strong>ordergreatp</strong> <em>(<var>expr_1</var>, <var>expr_2</var>)</em></dt>
+<dd><a name="Item_003a-Expressions_002fdeffn_002forderlessp"></a></dd><dt><a name="index-orderlessp"></a>Function: <strong>orderlessp</strong> <em>(<var>expr_1</var>, <var>expr_2</var>)</em></dt>
 <dd>
 <p><code>ordergreatp</code> returns <code>true</code> if <var>expr_1</var> succeeds <var>expr_2</var> in
 the canonical ordering of Maxima expressions, and <code>false</code> otherwise.
@@ -1179,16 +1116,13 @@ Note that <code>%pi</code> is not ordered according to its numerical value.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-
-<a href="maxima_370.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;<a href="maxima_378.html#Category_003a-Predicate-functions">Predicate functions</a>
+&middot;</div></dd></dl>
 
 
-<span id="part"></span><span id="Item_003a-Expressions_002fdeffn_002fpart"></span><dl>
-<dt id="index-part">Function: <strong>part</strong> <em>(<var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
+<a name="part"></a><a name="Item_003a-Expressions_002fdeffn_002fpart"></a><dl>
+<dt><a name="index-part"></a>Function: <strong>part</strong> <em>(<var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
 <dd>
 <p>Returns parts of the displayed form of <code>expr</code>.  It obtains the part of
 <code>expr</code> as specified by the indices <var>n_1</var>, &hellip;, <var>n_k</var>.  First
@@ -1227,14 +1161,12 @@ given.
 <p><code>example (part)</code> displays additional examples.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="partition"></span><span id="Item_003a-Expressions_002fdeffn_002fpartition"></span><dl>
-<dt id="index-partition">Function: <strong>partition</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<a name="partition"></a><a name="Item_003a-Expressions_002fdeffn_002fpartition"></a><dl>
+<dt><a name="index-partition"></a>Function: <strong>partition</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
 <dd>
 <p>Returns a list of two expressions.  They are (1) the factors of <var>expr</var>
 (if it is a product), the terms of <var>expr</var> (if it is a sum), or the list
@@ -1253,14 +1185,12 @@ or list which do.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="partswitch"></span><span id="Item_003a-Expressions_002fdefvr_002fpartswitch"></span><dl>
-<dt id="index-partswitch">Option variable: <strong>partswitch</strong></dt>
+<a name="partswitch"></a><a name="Item_003a-Expressions_002fdefvr_002fpartswitch"></a><dl>
+<dt><a name="index-partswitch"></a>Option variable: <strong>partswitch</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>partswitch</code> is <code>true</code>, <code>end</code> is returned
@@ -1268,13 +1198,11 @@ when a selected part of an expression doesn&rsquo;t exist, otherwise an
 error message is given.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="pickapart"></span><span id="Item_003a-Expressions_002fdeffn_002fpickapart"></span><dl>
-<dt id="index-pickapart">Function: <strong>pickapart</strong> <em>(<var>expr</var>, <var>n</var>)</em></dt>
+<a name="pickapart"></a><a name="Item_003a-Expressions_002fdeffn_002fpickapart"></a><dl>
+<dt><a name="index-pickapart"></a>Function: <strong>pickapart</strong> <em>(<var>expr</var>, <var>n</var>)</em></dt>
 <dd>
 <p>Assigns intermediate expression labels to subexpressions of <var>expr</var> at depth
 <var>n</var>, an integer.  Subexpressions at greater or lesser depths are not
@@ -1362,14 +1290,12 @@ intermediate expressions equivalent to the original expression <var>expr</var>.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="piece"></span><span id="Item_003a-Expressions_002fdefvr_002fpiece"></span><dl>
-<dt id="index-piece">System variable: <strong>piece</strong></dt>
+<a name="piece"></a><a name="Item_003a-Expressions_002fdefvr_002fpiece"></a><dl>
+<dt><a name="index-piece"></a>System variable: <strong>piece</strong></dt>
 <dd>
 <p>Holds the last expression selected when using the <code><a href="#part">part</a></code> functions.
 It is set during the execution of the function and thus may be referred to in
@@ -1377,13 +1303,11 @@ the function itself.
 </p>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="psubst"></span><span id="Item_003a-Expressions_002fdeffn_002fpsubst"></span><dl>
-<dt id="index-psubst">Function: <strong>psubst</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>psubst</tt> (<var>list</var>, <var>expr</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>psubst</tt> (<var>a</var>, <var>b</var>, <var>expr</var>)</em></dt>
+<a name="psubst"></a><a name="Item_003a-Expressions_002fdeffn_002fpsubst"></a><dl>
+<dt><a name="index-psubst"></a>Function: <strong>psubst</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>psubst</tt> (<var>list</var>, <var>expr</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>psubst</tt> (<var>a</var>, <var>b</var>, <var>expr</var>)</em></dt>
 <dd>
 <p><code>psubst(<var>a</var>, <var>b</var>, <var>expr</var>)</code> is similar to <code>subst</code>.  See
 <code><a href="#subst">subst</a></code>.
@@ -1408,13 +1332,11 @@ substitution.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="rembox"></span><span id="Item_003a-Expressions_002fdeffn_002frembox"></span><dl>
-<dt id="index-rembox">Function: <strong>rembox</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>rembox</tt> (<var>expr</var>, unlabelled) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>rembox</tt> (<var>expr</var>, <var>label</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>rembox</tt> (<var>expr</var>)</em></dt>
+<a name="rembox"></a><a name="Item_003a-Expressions_002fdeffn_002frembox"></a><dl>
+<dt><a name="index-rembox"></a>Function: <strong>rembox</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>rembox</tt> (<var>expr</var>, unlabelled) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>rembox</tt> (<var>expr</var>, <var>label</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>rembox</tt> (<var>expr</var>)</em></dt>
 <dd>
 <p>Removes boxes from <var>expr</var>.
 </p>
@@ -1473,13 +1395,11 @@ dpart: fell off the end.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="reveal"></span><span id="Item_003a-Expressions_002fdeffn_002freveal"></span><dl>
-<dt id="index-reveal">Function: <strong>reveal</strong> <em>(<var>expr</var>, <var>depth</var>)</em></dt>
+<a name="reveal"></a><a name="Item_003a-Expressions_002fdeffn_002freveal"></a><dl>
+<dt><a name="index-reveal"></a>Function: <strong>reveal</strong> <em>(<var>expr</var>, <var>depth</var>)</em></dt>
 <dd>
 <p>Replaces parts of <var>expr</var> at the specified integer <var>depth</var>
 with descriptive summaries.
@@ -1542,15 +1462,12 @@ elements of the list.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;<a href="maxima_378.html#Category_003a-Display-functions">Display functions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-
-<a href="maxima_370.html#Category_003a-Display-functions">Display functions</a>
-</div>
-</p></dd></dl>
-
-<span id="sqrtdenest"></span><span id="Item_003a-Expressions_002fdeffn_002fsqrtdenest"></span><dl>
-<dt id="index-sqrtdenest">Function: <strong>sqrtdenest</strong> <em>(<var>expr</var>)</em></dt>
+<a name="sqrtdenest"></a><a name="Item_003a-Expressions_002fdeffn_002fsqrtdenest"></a><dl>
+<dt><a name="index-sqrtdenest"></a>Function: <strong>sqrtdenest</strong> <em>(<var>expr</var>)</em></dt>
 <dd><p>Denests <code>sqrt</code> of simple, numerical, binomial surds, where possible.  E.g.
 </p>
 <div class="example">
@@ -1573,15 +1490,13 @@ elements of the list.
 <code>(19601-13860 sqrt(2))^(7/4)</code>.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div>
 </dd></dl>
 
 
-<span id="sublis"></span><span id="Item_003a-Expressions_002fdeffn_002fsublis"></span><dl>
-<dt id="index-sublis">Function: <strong>sublis</strong> <em>(<var>list</var>, <var>expr</var>)</em></dt>
+<a name="sublis"></a><a name="Item_003a-Expressions_002fdeffn_002fsublis"></a><dl>
+<dt><a name="index-sublis"></a>Function: <strong>sublis</strong> <em>(<var>list</var>, <var>expr</var>)</em></dt>
 <dd>
 <p>Makes multiple parallel substitutions into an expression.  <var>list</var> is a list
 of equations.  The left hand side of the equations must be an atom.
@@ -1599,13 +1514,11 @@ of equations.  The left hand side of the equations must be an atom.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="sublis_005fapply_005flambda"></span><span id="Item_003a-Expressions_002fdefvr_002fsublis_005fapply_005flambda"></span><dl>
-<dt id="index-sublis_005fapply_005flambda">Option variable: <strong>sublis_apply_lambda</strong></dt>
+<a name="sublis_005fapply_005flambda"></a><a name="Item_003a-Expressions_002fdefvr_002fsublis_005fapply_005flambda"></a><dl>
+<dt><a name="index-sublis_005fapply_005flambda"></a>Option variable: <strong>sublis_apply_lambda</strong></dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>Controls whether <code>lambda</code>&rsquo;s substituted are applied in simplification after
@@ -1613,13 +1526,11 @@ of equations.  The left hand side of the equations must be an atom.
 apply.  <code>true</code> means do the application.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="subnumsimp"></span><span id="Item_003a-Expressions_002fdefvr_002fsubnumsimp"></span><dl>
-<dt id="index-subnumsimp">Option variable: <strong>subnumsimp</strong></dt>
+<a name="subnumsimp"></a><a name="Item_003a-Expressions_002fdefvr_002fsubnumsimp"></a><dl>
+<dt><a name="index-subnumsimp"></a>Option variable: <strong>subnumsimp</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>If <code>true</code> then the functions <code><a href="#subst">subst</a></code> and <code><a href="#psubst">psubst</a></code> can substitute
@@ -1640,14 +1551,12 @@ subst: cannot substitute 100 for operator g in expression g
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="subst"></span><span id="Item_003a-Expressions_002fdeffn_002fsubst"></span><dl>
-<dt id="index-subst">Function: <strong>subst</strong> <em>(<var>a</var>, <var>b</var>, <var>c</var>)</em></dt>
+<a name="subst"></a><a name="Item_003a-Expressions_002fdeffn_002fsubst"></a><dl>
+<dt><a name="index-subst"></a>Function: <strong>subst</strong> <em>(<var>a</var>, <var>b</var>, <var>c</var>)</em></dt>
 <dd>
 <p>Substitutes <var>a</var> for <var>b</var> in <var>c</var>.  <var>b</var> must be an atom or a
 complete subexpression of <var>c</var>.  For example, <code>x+y+z</code> is a complete
@@ -1733,14 +1642,12 @@ following example:
 <p>For further examples, do <code>example (subst)</code>.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="substinpart"></span><span id="Item_003a-Expressions_002fdeffn_002fsubstinpart"></span><dl>
-<dt id="index-substinpart">Function: <strong>substinpart</strong> <em>(<var>x</var>, <var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
+<a name="substinpart"></a><a name="Item_003a-Expressions_002fdeffn_002fsubstinpart"></a><dl>
+<dt><a name="index-substinpart"></a>Function: <strong>substinpart</strong> <em>(<var>x</var>, <var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
 <dd>
 <p>Similar to <code><a href="#substpart">substpart</a></code>, but <code>substinpart</code> works on the
 internal representation of <var>expr</var>.
@@ -1803,14 +1710,12 @@ message is given.
 or <code><a href="#substpart">substpart</a></code> is the same as calling <code><a href="#inpart">inpart</a></code> or <code>substinpart</code>.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
 
-<span id="substpart"></span><span id="Item_003a-Expressions_002fdeffn_002fsubstpart"></span><dl>
-<dt id="index-substpart">Function: <strong>substpart</strong> <em>(<var>x</var>, <var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
+<a name="substpart"></a><a name="Item_003a-Expressions_002fdeffn_002fsubstpart"></a><dl>
+<dt><a name="index-substpart"></a>Function: <strong>substpart</strong> <em>(<var>x</var>, <var>expr</var>, <var>n_1</var>, &hellip;, <var>n_k</var>)</em></dt>
 <dd>
 <p>Substitutes <var>x</var> for the subexpression picked out by the rest of the
 arguments as in <code><a href="#part">part</a></code>.  It returns the new value of <var>expr</var>.  <var>x</var>
@@ -1842,26 +1747,22 @@ or <code>substpart</code> is the same as calling <code>inpart</code> or
 <code><a href="#substinpart">substinpart</a></code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="symbolp"></span><span id="Item_003a-Expressions_002fdeffn_002fsymbolp"></span><dl>
-<dt id="index-symbolp">Function: <strong>symbolp</strong> <em>(<var>expr</var>)</em></dt>
+<a name="symbolp"></a><a name="Item_003a-Expressions_002fdeffn_002fsymbolp"></a><dl>
+<dt><a name="index-symbolp"></a>Function: <strong>symbolp</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Returns <code>true</code> if <var>expr</var> is a symbol, else <code>false</code>.
 </p>
-<p>See also <a href="maxima_31.html">Identifiers</a>.
+<p>See also <a href="maxima_31.html#Identifiers">Identifiers</a>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Predicate-functions">Predicate functions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div>
-</p></dd></dl>
-
-<span id="unorder"></span><span id="Item_003a-Expressions_002fdeffn_002funorder"></span><dl>
-<dt id="index-unorder">Function: <strong>unorder</strong> <em>()</em></dt>
+<a name="unorder"></a><a name="Item_003a-Expressions_002fdeffn_002funorder"></a><dl>
+<dt><a name="index-unorder"></a>Function: <strong>unorder</strong> <em>()</em></dt>
 <dd>
 <p>Disables the aliasing created by the last use of the ordering commands 
 <code>ordergreat</code> and <code>orderless</code>.  <code>ordergreat</code> and <code>orderless</code> 
@@ -1899,13 +1800,11 @@ output <code>%o7</code>.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Expressions">Expressions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Expressions">Expressions</a>
-</div>
-</p></dd></dl>
-
-<span id="verbify"></span><span id="Item_003a-Expressions_002fdeffn_002fverbify"></span><dl>
-<dt id="index-verbify">Function: <strong>verbify</strong> <em>(<var>f</var>)</em></dt>
+<a name="verbify"></a><a name="Item_003a-Expressions_002fdeffn_002fverbify"></a><dl>
+<dt><a name="index-verbify"></a>Function: <strong>verbify</strong> <em>(<var>f</var>)</em></dt>
 <dd>
 <p>Returns the verb form of the function name <var>f</var>.
 See also <code>verb</code>, <code>noun</code>, and <code>nounify</code>.
@@ -1924,16 +1823,14 @@ $FOO
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Nouns-and-verbs">Nouns and verbs</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Nouns-and-verbs">Nouns and verbs</a>
+&middot;</div></dd></dl>
 
 
-<span id="Item_003a-include_002dmaxima_002fnode_002fOperators"></span><hr>
+<hr>
 <div class="header">
 <p>
-Previous: <a href="maxima_32.html" accesskey="p" rel="prev">Inequality</a>, Up: <a href="maxima_28.html" accesskey="u" rel="up">Expressions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_32.html#Inequality" accesskey="p" rel="previous">Inequality</a>, Up: <a href="maxima_28.html#Expressions" accesskey="u" rel="up">Expressions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

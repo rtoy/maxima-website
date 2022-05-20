@@ -1,0 +1,1562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para distribuciones continuas</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para distribuciones continuas">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para distribuciones continuas">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_194.html#distrib" rel="up" title="distrib">
+<link href="maxima_197.html#Funciones-y-variables-para-distribuciones-discretas" rel="next" title="Funciones y variables para distribuciones discretas">
+<link href="maxima_195.html#Introducci_00f3n-a-distrib" rel="previous" title="Introducción a distrib">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-distribuciones-continuas"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_197.html#Funciones-y-variables-para-distribuciones-discretas" accesskey="n" rel="next">Funciones y variables para distribuciones discretas</a>, Previous: <a href="maxima_195.html#Introducci_00f3n-a-distrib" accesskey="p" rel="previous">Introducción a distrib</a>, Subir: <a href="maxima_194.html#distrib" accesskey="u" rel="up">distrib</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-distribuciones-continuas-1"></a>
+<h3 class="section">46.2 Funciones y variables para distribuciones continuas</h3>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fnormal"></a><dl>
+<dt><a name="index-pdf_005fnormal"></a>Función: <strong>pdf_normal</strong> <em>(<var>x</var>,<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de la variable aleatoria <i>Normal</i><em>(m,s)</em>, con <em>s&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fnormal"></a><dl>
+<dt><a name="index-cdf_005fnormal"></a>Función: <strong>cdf_normal</strong> <em>(<var>x</var>,<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de la variable aleatoria <i>Normal</i><em>(m,s)</em>, con <em>s&gt;0</em>. Esta función se define en términos de la función de error,  <code>erf</code>, de Maxima.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_normal(x,m,s);
+                                    x - m
+                              erf(---------)
+                                  sqrt(2) s    1
+(%o2)                         -------------- + -
+                                    2          2
+</pre></div>
+
+<p>Véase también <code>erf</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fnormal"></a><dl>
+<dt><a name="index-quantile_005fnormal"></a>Función: <strong>quantile_normal</strong> <em>(<var>q</var>,<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Normal</i><em>(m,s)</em>, con <em>s&gt;0</em>; en otras palabras, es la inversa de  <code>cdf_normal</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) quantile_normal(95/100,0,1);
+                                      9
+(%o2)             sqrt(2) inverse_erf(--)
+                                      10
+(%i3) float(%);
+(%o3)               1.644853626951472
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fnormal"></a><dl>
+<dt><a name="index-mean_005fnormal"></a>Función: <strong>mean_normal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Normal</i><em>(m,s)</em>, con <em>s&gt;0</em>, es decir <var>m</var>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fnormal"></a><dl>
+<dt><a name="index-var_005fnormal"></a>Función: <strong>var_normal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Normal</i><em>(m,s)</em>, con <em>s&gt;0</em>, es decir <var>s^2</var>.
+</p></dd></dl>
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fnormal"></a><dl>
+<dt><a name="index-std_005fnormal"></a>Función: <strong>std_normal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Normal</i><em>(m,s)</em>, con <em>s&gt;0</em>, es decir <var>s</var>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fnormal"></a><dl>
+<dt><a name="index-skewness_005fnormal"></a>Función: <strong>skewness_normal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Normal</i><em>(m,s)</em>, con <em>s&gt;0</em>, que es siempre igual a 0. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fnormal"></a><dl>
+<dt><a name="index-kurtosis_005fnormal"></a>Función: <strong>kurtosis_normal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis de una variable aleatoria <i>Normal</i><em>(m,s)</em>, con <em>s&gt;0</em>, que es siempre igual a 0. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fnormal"></a><dl>
+<dt><a name="index-random_005fnormal"></a>Función: <strong>random_normal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dt><a name="index-random_005fnormal-1"></a>Función: <strong>random_normal</strong> <em>(<var>m</var>,<var>s</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Normal</i><em>(m,s)</em>, con <em>s&gt;0</em>. Llamando a <code>random_normal</code> con un tercer argumento <var>n</var>, se simula una muestra aleatoria de tamaño <var>n</var>.
+</p>
+<p>El algoritmo de simulación es el de Box-Mueller, tal como está descrito en Knuth, D.E. (1981) <var>Seminumerical Algorithms. The Art of Computer Programming.</var> Addison-Wesley.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fstudent_005ft"></a><dl>
+<dt><a name="index-pdf_005fstudent_005ft"></a>Función: <strong>pdf_student_t</strong> <em>(<var>x</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de Student <em>t(n)</em>, con <em>n&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fstudent_005ft"></a><dl>
+<dt><a name="index-cdf_005fstudent_005ft"></a>Función: <strong>cdf_student_t</strong> <em>(<var>x</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de Student <em>t(n)</em>, con <em>n&gt;0</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_student_t(1/2, 7/3);
+</pre><pre class="example">                                         7  1  28
+             beta_incomplete_regularized(-, -, --)
+                                         6  2  31
+(%o2)    1 - -------------------------------------
+                               2
+</pre><pre class="example">(%i3) float(%);
+(%o3)                .6698450596140415
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fstudent_005ft"></a><dl>
+<dt><a name="index-quantile_005fstudent_005ft"></a>Función: <strong>quantile_student_t</strong> <em>(<var>q</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de Student <em>t(n)</em>, con <em>n&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_student_t</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fstudent_005ft"></a><dl>
+<dt><a name="index-mean_005fstudent_005ft"></a>Función: <strong>mean_student_t</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve la media de una variable aleatoria de Student <em>t(n)</em>, con <em>n&gt;0</em>, que vale siempre 0. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fstudent_005ft"></a><dl>
+<dt><a name="index-var_005fstudent_005ft"></a>Función: <strong>var_student_t</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve la varianza de una variable aleatoria de Student <em>t(n)</em>, con <em>n&gt;2</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) var_student_t(n);
+                                n
+(%o2)                         -----
+                              n - 2
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fstudent_005ft"></a><dl>
+<dt><a name="index-std_005fstudent_005ft"></a>Función: <strong>std_student_t</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de una variable aleatoria de Student <em>t(n)</em>, con <em>n&gt;2</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fstudent_005ft"></a><dl>
+<dt><a name="index-skewness_005fstudent_005ft"></a>Función: <strong>skewness_student_t</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de Student <em>t(n)</em>, con <em>n&gt;3</em>, que vale siempre 0. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fstudent_005ft"></a><dl>
+<dt><a name="index-kurtosis_005fstudent_005ft"></a>Función: <strong>kurtosis_student_t</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria de Student <em>t(n)</em>, con <em>n&gt;4</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fstudent_005ft"></a><dl>
+<dt><a name="index-random_005fstudent_005ft"></a>Función: <strong>random_student_t</strong> <em>(<var>n</var>)</em></dt>
+<dt><a name="index-random_005fstudent_005ft-1"></a>Función: <strong>random_student_t</strong> <em>(<var>n</var>,<var>m</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio <em>t(n)</em>, con <em>n&gt;0</em>. Llamando a <code>random_student_t</code> con un segundo argumento <var>m</var>, se obtiene una muestra aleatoria simulada de tamaño <var>m</var>.
+</p>
+<p>El algoritmo utilizado está basado en el hecho de que si <var>Z</var> es una variable aleatoria normal <em>N(0,1)</em> y <em>S^2</em> es una chi cuadrada de <var>n</var> grados de libertad, <em>Chi^2(n)</em>, entonces
+</p><div class="example">
+<pre class="example">                           Z
+                 X = -------------
+                     /   2  \ 1/2
+                     |  S   |
+                     | ---  |
+                     \  n   /
+</pre></div>
+
+<p>es una variable aleatoria de Student de <var>n</var> grados de libertad, <em>t(n)</em>.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fnoncentral_005fstudent_005ft"></a><dl>
+<dt><a name="index-pdf_005fnoncentral_005fstudent_005ft"></a>Función: <strong>pdf_noncentral_student_t</strong> <em>(<var>x</var>,<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria no central de Student <em>nc_t(n,ncp)</em>, con <em>n&gt;0</em> grados de libertad y parámetro de no centralidad <em>ncp</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+<p>En ocasiones es necesario hacer algún trabajo extra para obtener el resultado final.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) expand(pdf_noncentral_student_t(3,5,0.1));
+                           7/2                         7/2
+      0.04296414417400905 5      1.323650307289301e-6 5
+(%o2) ------------------------ + -------------------------
+         3/2   5/2                       sqrt(%pi)
+        2    14    sqrt(%pi)
+                                                        7/2
+                                   1.94793720435093e-4 5
+                                 + ------------------------
+                                             %pi
+(%i3) float(%);
+(%o3)          .02080593159405669
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fnoncentral_005fstudent_005ft"></a><dl>
+<dt><a name="index-cdf_005fnoncentral_005fstudent_005ft"></a>Función: <strong>cdf_noncentral_student_t</strong> <em>(<var>x</var>,<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria no central de Student <em>nc_t(n,ncp)</em>, con <em>n&gt;0</em> grados de libertad y parámetro de no centralidad <em>ncp</em>. Esta función no tiene expresión compacta y se calcula numéricamente. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_noncentral_student_t(-2,5,-5);
+(%o2)          .9952030093319743
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fnoncentral_005fstudent_005ft"></a><dl>
+<dt><a name="index-quantile_005fnoncentral_005fstudent_005ft"></a>Función: <strong>quantile_noncentral_student_t</strong> <em>(<var>q</var>,<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria no central de Student <em>nc_t(n,ncp)</em>, con <em>n&gt;0</em> grados de libertad y parámetro de no centralidad <em>ncp</em>; en otras palabras, se trata de la inversa de <code>cdf_noncentral_student_t</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fnoncentral_005fstudent_005ft"></a><dl>
+<dt><a name="index-mean_005fnoncentral_005fstudent_005ft"></a>Función: <strong>mean_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve la media de una variable aleatoria no central de Student <em>nc_t(n,ncp)</em>, con <em>n&gt;1</em> grados de libertad y parámetro de no centralidad <em>ncp</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) mean_noncentral_student_t(df,k);
+                   df - 1
+             gamma(------) sqrt(df) k
+                     2
+(%o2)        ------------------------
+                              df
+                sqrt(2) gamma(--)
+                              2
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fnoncentral_005fstudent_005ft"></a><dl>
+<dt><a name="index-var_005fnoncentral_005fstudent_005ft"></a>Función: <strong>var_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve la varianza de una variable aleatoria no central de Student <em>nc_t(n,ncp)</em>, con <em>n&gt;2</em> grados de libertad y parámetro de no centralidad <em>ncp</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fnoncentral_005fstudent_005ft"></a><dl>
+<dt><a name="index-std_005fnoncentral_005fstudent_005ft"></a>Función: <strong>std_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de una variable aleatoria no central de Student <em>nc_t(n,ncp)</em>, con <em>n&gt;2</em> grados de libertad y parámetro de no centralidad <em>ncp</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fnoncentral_005fstudent_005ft"></a><dl>
+<dt><a name="index-skewness_005fnoncentral_005fstudent_005ft"></a>Función: <strong>skewness_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria no central de Student <em>nc_t(n,ncp)</em>, con <em>n&gt;3</em> grados de libertad y parámetro de no centralidad <em>ncp</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fnoncentral_005fstudent_005ft"></a><dl>
+<dt><a name="index-kurtosis_005fnoncentral_005fstudent_005ft"></a>Función: <strong>kurtosis_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis de una variable aleatoria no central de Student <em>nc_t(n,ncp)</em>, con <em>n&gt;4</em> grados de libertad y parámetro de no centralidad <em>ncp</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fnoncentral_005fstudent_005ft"></a><dl>
+<dt><a name="index-random_005fnoncentral_005fstudent_005ft"></a>Función: <strong>random_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dt><a name="index-random_005fnoncentral_005fstudent_005ft-1"></a>Función: <strong>random_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>,<var>m</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio <em>nc_t(n,ncp)</em>, con <em>n&gt;0</em>. Llamando a <code>random_noncentral_student_t</code> con un tercer argumento <var>m</var>, se obtiene una muestra aleatoria simulada de tamaño <var>m</var>.
+</p>
+<p>El algoritmo utilizado está basado en el hecho de que si <var>X</var> es una variable aleatoria normal <em>N(ncp,1)</em> y <em>S^2</em> es una chi cuadrada de <var>n</var> grados de libertad, <em>Chi^2(n)</em>, entonces
+</p><div class="example">
+<pre class="example">                           X
+                 U = -------------
+                     /   2  \ 1/2
+                     |  S   |
+                     | ---  |
+                     \  n   /
+</pre></div>
+
+<p>es una variable aleatoria no central de Student de <var>n</var> grados de libertad y parámetro de no centralidad <em>ncp</em>, <em>nc_t(n,ncp)</em>.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fchi2"></a><dl>
+<dt><a name="index-pdf_005fchi2"></a>Función: <strong>pdf_chi2</strong> <em>(<var>x</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria chi-cuadrado <em>Chi^2(n)</em>, con <em>n&gt;0</em>. La variable aleatoria <em>Chi^2(n)</em> equivale a una <i>Gamma</i><em>(n/2,2)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) pdf_chi2(x,n);
+                         n/2 - 1   - x/2
+                        x        %e
+(%o2)                   ----------------
+                          n/2       n
+                         2    gamma(-)
+                                    2
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fchi2"></a><dl>
+<dt><a name="index-cdf_005fchi2"></a>Función: <strong>cdf_chi2</strong> <em>(<var>x</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria chi-cuadrado <em>Chi^2(n)</em>, con <em>n&gt;0</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_chi2(3,4);
+                                               3
+(%o2)      1 - gamma_incomplete_regularized(2, -)
+                                               2
+(%i3) float(%);
+(%o3)               .4421745996289256
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fchi2"></a><dl>
+<dt><a name="index-quantile_005fchi2"></a>Función: <strong>quantile_chi2</strong> <em>(<var>q</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <em>Chi^2(n)</em>, con <em>n&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_chi2</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>.
+</p>
+<p>Esta función no tiene expresión compacta y se calcula numéricamente.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) quantile_chi2(0.99,9);
+(%o2)                   21.66599433346194
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fchi2"></a><dl>
+<dt><a name="index-mean_005fchi2"></a>Función: <strong>mean_chi2</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria  <em>Chi^2(n)</em>, con <em>n&gt;0</em>.
+</p>
+<p>La variable aleatoria <em>Chi^2(n)</em> equivale a una <i>Gamma</i><em>(n/2,2)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) mean_chi2(n);
+(%o2)                           n
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fchi2"></a><dl>
+<dt><a name="index-var_005fchi2"></a>Función: <strong>var_chi2</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria  <em>Chi^2(n)</em>, con <em>n&gt;0</em>.
+</p>
+<p>La variable aleatoria <em>Chi^2(n)</em> equivale a una <i>Gamma</i><em>(n/2,2)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) var_chi2(n);
+(%o2)                          2 n
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fchi2"></a><dl>
+<dt><a name="index-std_005fchi2"></a>Función: <strong>std_chi2</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria  <em>Chi^2(n)</em>, con <em>n&gt;0</em>.
+</p>
+<p>La variable aleatoria <em>Chi^2(n)</em> equivale a una <i>Gamma</i><em>(n/2,2)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) std_chi2(n);
+(%o2)                    sqrt(2) sqrt(n)
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fchi2"></a><dl>
+<dt><a name="index-skewness_005fchi2"></a>Función: <strong>skewness_chi2</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria  <em>Chi^2(n)</em>, con <em>n&gt;0</em>.
+</p>
+<p>La variable aleatoria <em>Chi^2(n)</em> equivale a una <i>Gamma</i><em>(n/2,2)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) skewness_chi2(n);
+</pre><pre class="example">                                     3/2
+                                    2
+(%o2)                              -------
+                                   sqrt(n)
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fchi2"></a><dl>
+<dt><a name="index-kurtosis_005fchi2"></a>Función: <strong>kurtosis_chi2</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria  <em>Chi^2(n)</em>, con <em>n&gt;0</em>.
+</p>
+<p>La variable aleatoria <em>Chi^2(n)</em> equivale a una <i>Gamma</i><em>(n/2,2)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) kurtosis_chi2(n);
+                               12
+(%o2)                          --
+                               n
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fchi2"></a><dl>
+<dt><a name="index-random_005fchi2"></a>Función: <strong>random_chi2</strong> <em>(<var>n</var>)</em></dt>
+<dt><a name="index-random_005fchi2-1"></a>Función: <strong>random_chi2</strong> <em>(<var>n</var>,<var>m</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <em>Chi^2(n)</em>, con <em>n&gt;0</em>. Llamando a <code>random_chi2</code> con un segundo argumento <var>m</var>, se simulará una muestra aleatoria de tamaño <var>m</var>.
+</p>
+<p>La simulación está basada en el algoritmo de Ahrens-Cheng. Véase <code>random_gamma</code> para más detalles.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fnoncentral_005fchi2"></a><dl>
+<dt><a name="index-pdf_005fnoncentral_005fchi2"></a>Función: <strong>pdf_noncentral_chi2</strong> <em>(<var>x</var>,<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria chi-cuadrado no centrada <em>nc_Chi^2(n,ncp)</em>, con <em>n&gt;0</em> y parámetro de no centralidad <em>ncp&gt;=0</em>. Para hacer uso de esta función ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fnoncentral_005fchi2"></a><dl>
+<dt><a name="index-cdf_005fnoncentral_005fchi2"></a>Función: <strong>cdf_noncentral_chi2</strong> <em>(<var>x</var>,<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria chi-cuadrado no centrada <em>nc_Chi^2(n,ncp)</em>, con <em>n&gt;0</em> y parámetro de no centralidad <em>ncp&gt;=0</em>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fnoncentral_005fchi2"></a><dl>
+<dt><a name="index-quantile_005fnoncentral_005fchi2"></a>Función: <strong>quantile_noncentral_chi2</strong> <em>(<var>q</var>,<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria chi-cuadrado no centrada <em>nc_Chi^2(n,ncp)</em>, con <em>n&gt;0</em> y parámetro de no centralidad <em>ncp&gt;=0</em>; en otras palabras, se trata de la inversa de  <code>cdf_noncentral_chi2</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>.
+</p>
+<p>Esta función no tiene expresión compacta y se calcula numéricamente.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fnoncentral_005fchi2"></a><dl>
+<dt><a name="index-mean_005fnoncentral_005fchi2"></a>Función: <strong>mean_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria chi-cuadrado no centrada <em>nc_Chi^2(n,ncp)</em>, con <em>n&gt;0</em> y parámetro de no centralidad <em>ncp&gt;=0</em>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fnoncentral_005fchi2"></a><dl>
+<dt><a name="index-var_005fnoncentral_005fchi2"></a>Función: <strong>var_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria chi-cuadrado no centrada  <em>nc_Chi^2(n,ncp)</em>, con <em>n&gt;0</em> y parámetro de no centralidad <em>ncp&gt;=0</em>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fnoncentral_005fchi2"></a><dl>
+<dt><a name="index-std_005fnoncentral_005fchi2"></a>Función: <strong>std_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria chi-cuadrado no centrada  <em>nc_Chi^2(n,ncp)</em>, con <em>n&gt;0</em> y parámetro de no centralidad <em>ncp&gt;=0</em>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fnoncentral_005fchi2"></a><dl>
+<dt><a name="index-skewness_005fnoncentral_005fchi2"></a>Función: <strong>skewness_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria chi-cuadrado no centrada  <em>nc_Chi^2(n,ncp)</em>, con <em>n&gt;0</em> y parámetro de no centralidad <em>ncp&gt;=0</em>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fnoncentral_005fchi2"></a><dl>
+<dt><a name="index-kurtosis_005fnoncentral_005fchi2"></a>Función: <strong>kurtosis_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria chi-cuadrado no centrada <em>nc_Chi^2(n,ncp)</em>, con <em>n&gt;0</em> y parámetro de no centralidad <em>ncp&gt;=0</em>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fnoncentral_005fchi2"></a><dl>
+<dt><a name="index-random_005fnoncentral_005fchi2"></a>Función: <strong>random_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em></dt>
+<dt><a name="index-random_005fnoncentral_005fchi2-1"></a>Función: <strong>random_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>,<var>m</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <em>nc_Chi^2(n,ncp)</em>, con <em>n&gt;0</em> y parámetro de no centralidad <em>ncp&gt;=0</em>. Llamando a <code>random_noncentral_chi2</code> con un tercer argumento <var>m</var>, se simulará una muestra aleatoria de tamaño <var>m</var>.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005ff"></a><dl>
+<dt><a name="index-pdf_005ff"></a>Función: <strong>pdf_f</strong> <em>(<var>x</var>,<var>m</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria  <i>F</i><em>(m,n)</em>, con <em>m,n&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005ff"></a><dl>
+<dt><a name="index-cdf_005ff"></a>Función: <strong>cdf_f</strong> <em>(<var>x</var>,<var>m</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria  <i>F</i><em>(m,n)</em>, con <em>m,n&gt;0</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_f(2,3,9/4);
+                                         9  3  3
+(%o2)    1 - beta_incomplete_regularized(-, -, --)
+                                         8  2  11
+(%i3) float(%);
+(%o3)                 0.66756728179008
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005ff"></a><dl>
+<dt><a name="index-quantile_005ff"></a>Función: <strong>quantile_f</strong> <em>(<var>q</var>,<var>m</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria  <i>F</i><em>(m,n)</em>, con <em>m,n&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_f</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) quantile_f(2/5,sqrt(3),5);
+                               2
+(%o2)               quantile_f(-, sqrt(3), 5)
+                               5
+(%i3) %,numer;
+(%o3)                   0.518947838573693
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005ff"></a><dl>
+<dt><a name="index-mean_005ff"></a>Función: <strong>mean_f</strong> <em>(<var>m</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria  <i>F</i><em>(m,n)</em>, con <em>m&gt;0, n&gt;2</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005ff"></a><dl>
+<dt><a name="index-var_005ff"></a>Función: <strong>var_f</strong> <em>(<var>m</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria  <i>F</i><em>(m,n)</em>, con <em>m&gt;0, n&gt;4</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005ff"></a><dl>
+<dt><a name="index-std_005ff"></a>Función: <strong>std_f</strong> <em>(<var>m</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria  <i>F</i><em>(m,n)</em>, con <em>m&gt;0, n&gt;4</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005ff"></a><dl>
+<dt><a name="index-skewness_005ff"></a>Función: <strong>skewness_f</strong> <em>(<var>m</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria  <i>F</i><em>(m,n)</em>, con <em>m&gt;0, n&gt;6</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005ff"></a><dl>
+<dt><a name="index-kurtosis_005ff"></a>Función: <strong>kurtosis_f</strong> <em>(<var>m</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria  <i>F</i><em>(m,n)</em>, con <em>m&gt;0, n&gt;8</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005ff"></a><dl>
+<dt><a name="index-random_005ff"></a>Función: <strong>random_f</strong> <em>(<var>m</var>,<var>n</var>)</em></dt>
+<dt><a name="index-random_005ff-1"></a>Función: <strong>random_f</strong> <em>(<var>m</var>,<var>n</var>,<var>k</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>F</i><em>(m,n)</em>, con <em>m,n&gt;0</em>. Llamando a  <code>random_f</code> con un tercer argumento <var>k</var>, se simulará una muestra aleatoria de tamaño <var>k</var>.
+</p>
+<p>El algoritmo de simulación está basado en el hecho de que si <var>X</var> es una variable aleatoria <em>Chi^2(m)</em> y <em>Y</em> es una <em>Chi^2(n)</em>, entonces
+</p><div class="example">
+<pre class="example">                        n X
+                    F = ---
+                        m Y
+</pre></div>
+
+<p>es una variable aleatoria <em>F</em> con <var>m</var> y <var>n</var> grados de libertad, <i>F</i><em>(m,n)</em>.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fexp"></a><dl>
+<dt><a name="index-pdf_005fexp"></a>Función: <strong>pdf_exp</strong> <em>(<var>x</var>,<var>m</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria <i>Exponencial</i><em>(m)</em>, con <em>m&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em>(m)</em> equivale a una <i>Weibull</i><em>(1,1/m)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) pdf_exp(x,m);
+                                - m x
+(%o2)                       m %e
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fexp"></a><dl>
+<dt><a name="index-cdf_005fexp"></a>Función: <strong>cdf_exp</strong> <em>(<var>x</var>,<var>m</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria <i>Exponencial</i><em>(m)</em>, con <em>m&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em>(m)</em> equivale a una <i>Weibull</i><em>(1,1/m)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_exp(x,m);
+                                 - m x
+(%o2)                      1 - %e
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fexp"></a><dl>
+<dt><a name="index-quantile_005fexp"></a>Función: <strong>quantile_exp</strong> <em>(<var>q</var>,<var>m</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Exponencial</i><em>(m)</em>, con <em>m&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_exp</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em>(m)</em> equivale a una <i>Weibull</i><em>(1,1/m)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) quantile_exp(0.56,5);
+(%o2)                   .1641961104139661
+(%i3) quantile_exp(0.56,m);
+                                            1
+(%o3)             quantile_weibull(0.56, 1, -)
+                                            m
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fexp"></a><dl>
+<dt><a name="index-mean_005fexp"></a>Función: <strong>mean_exp</strong> <em>(<var>m</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Exponencial</i><em>(m)</em>, con <em>m&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em>(m)</em> equivale a una <i>Weibull</i><em>(1,1/m)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) mean_exp(m);
+                                1
+(%o2)                           -
+                                m
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fexp"></a><dl>
+<dt><a name="index-var_005fexp"></a>Función: <strong>var_exp</strong> <em>(<var>m</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Exponencial</i><em>(m)</em>, con <em>m&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em>(m)</em> equivale a una <i>Weibull</i><em>(1,1/m)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) var_exp(m);
+                               1
+(%o2)                          --
+                                2
+                               m
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fexp"></a><dl>
+<dt><a name="index-std_005fexp"></a>Función: <strong>std_exp</strong> <em>(<var>m</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Exponencial</i><em>(m)</em>, con <em>m&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em>(m)</em> equivale a una <i>Weibull</i><em>(1,1/m)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) std_exp(m);
+                                1
+(%o2)                           -
+                                m
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fexp"></a><dl>
+<dt><a name="index-skewness_005fexp"></a>Función: <strong>skewness_exp</strong> <em>(<var>m</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Exponencial</i><em>(m)</em>, con <em>m&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em>(m)</em> equivale a una <i>Weibull</i><em>(1,1/m)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) skewness_exp(m);
+(%o2)                           2
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fexp"></a><dl>
+<dt><a name="index-kurtosis_005fexp"></a>Función: <strong>kurtosis_exp</strong> <em>(<var>m</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria <i>Exponencial</i><em>(m)</em>, con <em>m&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em>(m)</em> equivale a una <i>Weibull</i><em>(1,1/m)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) kurtosis_exp(m);
+(%o3)                           6
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fexp"></a><dl>
+<dt><a name="index-random_005fexp"></a>Función: <strong>random_exp</strong> <em>(<var>m</var>)</em></dt>
+<dt><a name="index-random_005fexp-1"></a>Función: <strong>random_exp</strong> <em>(<var>m</var>,<var>k</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Exponencial</i><em>(m)</em>, con <em>m&gt;0</em>. Llamando a <code>random_exp2</code> con un segundo argumento <var>k</var>, se simulará una muestra aleatoria de tamaño <var>k</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005flognormal"></a><dl>
+<dt><a name="index-pdf_005flognormal"></a>Función: <strong>pdf_lognormal</strong> <em>(<var>x</var>,<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria <i>Lognormal</i><em>(m,s)</em>, con <em>s&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005flognormal"></a><dl>
+<dt><a name="index-cdf_005flognormal"></a>Función: <strong>cdf_lognormal</strong> <em>(<var>x</var>,<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria <i>Lognormal</i><em>(m,s)</em>, con <em>s&gt;0</em>.   Esta función se define en términos de la función de error, <code>erf</code>, de Maxima.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) assume(x&gt;0, s&gt;0)$  cdf_lognormal(x,m,s);
+</pre><pre class="example">                           log(x) - m
+                       erf(----------)
+                           sqrt(2) s     1
+(%o2)                  --------------- + -
+                              2          2
+</pre></div>
+
+<p>Véase también <code>erf</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005flognormal"></a><dl>
+<dt><a name="index-quantile_005flognormal"></a>Función: <strong>quantile_lognormal</strong> <em>(<var>q</var>,<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Lognormal</i><em>(m,s)</em>, con <em>s&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_lognormal</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005flognormal"></a><dl>
+<dt><a name="index-mean_005flognormal"></a>Función: <strong>mean_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Lognormal</i><em>(m,s)</em>, con <em>s&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005flognormal"></a><dl>
+<dt><a name="index-var_005flognormal"></a>Función: <strong>var_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Lognormal</i><em>(m,s)</em>, con <em>s&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005flognormal"></a><dl>
+<dt><a name="index-std_005flognormal"></a>Función: <strong>std_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Lognormal</i><em>(m,s)</em>, con <em>s&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005flognormal"></a><dl>
+<dt><a name="index-skewness_005flognormal"></a>Función: <strong>skewness_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Lognormal</i><em>(m,s)</em>, con <em>s&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005flognormal"></a><dl>
+<dt><a name="index-kurtosis_005flognormal"></a>Función: <strong>kurtosis_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria <i>Lognormal</i><em>(m,s)</em>, con <em>s&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005flognormal"></a><dl>
+<dt><a name="index-random_005flognormal"></a>Función: <strong>random_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em></dt>
+<dt><a name="index-random_005flognormal-1"></a>Función: <strong>random_lognormal</strong> <em>(<var>m</var>,<var>s</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Lognormal</i><em>(m,s)</em>, con <em>s&gt;0</em>. Llamando a <code>random_lognormal</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño <var>n</var>.
+</p>
+<p>Las variables lognormales se simulan mediante variables normales. Véase <code>random_normal</code> para más detalles.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fgamma"></a><dl>
+<dt><a name="index-pdf_005fgamma"></a>Función: <strong>pdf_gamma</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria <i>Gamma</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fgamma"></a><dl>
+<dt><a name="index-cdf_005fgamma"></a>Función: <strong>cdf_gamma</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria <i>Gamma</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. 
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_gamma(3,5,21);
+                                              1
+(%o2)     1 - gamma_incomplete_regularized(5, -)
+                                              7
+(%i3) float(%);
+(%o3)              4.402663157376807E-7
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fgamma"></a><dl>
+<dt><a name="index-quantile_005fgamma"></a>Función: <strong>quantile_gamma</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Gamma</i><em>(a,b)</em>, con <em>a,b&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_gamma</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fgamma"></a><dl>
+<dt><a name="index-mean_005fgamma"></a>Función: <strong>mean_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Gamma</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fgamma"></a><dl>
+<dt><a name="index-var_005fgamma"></a>Función: <strong>var_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Gamma</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fgamma"></a><dl>
+<dt><a name="index-std_005fgamma"></a>Función: <strong>std_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Gamma</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fgamma"></a><dl>
+<dt><a name="index-skewness_005fgamma"></a>Función: <strong>skewness_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Gamma</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fgamma"></a><dl>
+<dt><a name="index-kurtosis_005fgamma"></a>Función: <strong>kurtosis_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria <i>Gamma</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fgamma"></a><dl>
+<dt><a name="index-random_005fgamma"></a>Función: <strong>random_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dt><a name="index-random_005fgamma-1"></a>Función: <strong>random_gamma</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Gamma</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Llamando a <code>random_gamma</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño <var>n</var>.
+</p>
+<p>El algoritmo de simulación es una combinación de dos procedimientos, según sea el valor del parámetro <var>a</var>:
+</p>
+<p>Para <em>a&gt;=1</em>, Cheng, R.C.H. y Feast, G.M. (1979). <var>Some simple gamma variate generators</var>. Appl. Stat., 28, 3, 290-295.
+</p>
+<p>Para <em>0&lt;a&lt;1</em>, Ahrens, J.H. y Dieter, U. (1974). <var>Computer methods for sampling from gamma, beta, poisson and binomial distributions</var>. Computing, 12, 223-246.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fbeta"></a><dl>
+<dt><a name="index-pdf_005fbeta"></a>Función: <strong>pdf_beta</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria <i>Beta</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fbeta"></a><dl>
+<dt><a name="index-cdf_005fbeta"></a>Función: <strong>cdf_beta</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria <i>Beta</i><em>(a,b)</em>, con <em>a,b&gt;0</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_beta(1/3,15,2);
+                             11
+(%o2)                     --------
+                          14348907
+(%i3) float(%);
+(%o3)              7.666089131388195E-7
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fbeta"></a><dl>
+<dt><a name="index-quantile_005fbeta"></a>Función: <strong>quantile_beta</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Beta</i><em>(a,b)</em>, con <em>a,b&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_beta</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fbeta"></a><dl>
+<dt><a name="index-mean_005fbeta"></a>Función: <strong>mean_beta</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Beta</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fbeta"></a><dl>
+<dt><a name="index-var_005fbeta"></a>Función: <strong>var_beta</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Beta</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fbeta"></a><dl>
+<dt><a name="index-std_005fbeta"></a>Función: <strong>std_beta</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Beta</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fbeta"></a><dl>
+<dt><a name="index-skewness_005fbeta"></a>Función: <strong>skewness_beta</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Beta</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fbeta"></a><dl>
+<dt><a name="index-kurtosis_005fbeta"></a>Función: <strong>kurtosis_beta</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis de una variable aleatoria <i>Beta</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fbeta"></a><dl>
+<dt><a name="index-random_005fbeta"></a>Función: <strong>random_beta</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dt><a name="index-random_005fbeta-1"></a>Función: <strong>random_beta</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio <i>Beta</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Llamando a <code>random_beta</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación es el decrito en Cheng, R.C.H. (1978). <var>Generating Beta Variates with Nonintegral Shape Parameters</var>. Communications of the ACM, 21:317-322.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fcontinuous_005funiform"></a><dl>
+<dt><a name="index-pdf_005fcontinuous_005funiform"></a>Función: <strong>pdf_continuous_uniform</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria  <i>Uniforme Continua</i><em>(a,b)</em>, con <em>a&lt;b</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fcontinuous_005funiform"></a><dl>
+<dt><a name="index-cdf_005fcontinuous_005funiform"></a>Función: <strong>cdf_continuous_uniform</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria  <i>Uniforme Continua</i><em>(a,b)</em>, con <em>a&lt;b</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fcontinuous_005funiform"></a><dl>
+<dt><a name="index-quantile_005fcontinuous_005funiform"></a>Función: <strong>quantile_continuous_uniform</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria  <i>Uniforme Continua</i><em>(a,b)</em>, con <em>a&lt;b</em>; en otras palabras, se trata de la inversa de  <code>cdf_continuous_uniform</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fcontinuous_005funiform"></a><dl>
+<dt><a name="index-mean_005fcontinuous_005funiform"></a>Función: <strong>mean_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria  <i>Uniforme Continua</i><em>(a,b)</em>, con <em>a&lt;b</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fcontinuous_005funiform"></a><dl>
+<dt><a name="index-var_005fcontinuous_005funiform"></a>Función: <strong>var_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria  <i>Uniforme Continua</i><em>(a,b)</em>, con <em>a&lt;b</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fcontinuous_005funiform"></a><dl>
+<dt><a name="index-std_005fcontinuous_005funiform"></a>Función: <strong>std_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria  <i>Uniforme Continua</i><em>(a,b)</em>, con <em>a&lt;b</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fcontinuous_005funiform"></a><dl>
+<dt><a name="index-skewness_005fcontinuous_005funiform"></a>Función: <strong>skewness_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria  <i>Uniforme Continua</i><em>(a,b)</em>, con <em>a&lt;b</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fcontinuous_005funiform"></a><dl>
+<dt><a name="index-kurtosis_005fcontinuous_005funiform"></a>Función: <strong>kurtosis_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria  <i>Uniforme Continua</i><em>(a,b)</em>, con <em>a&lt;b</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fcontinuous_005funiform"></a><dl>
+<dt><a name="index-random_005fcontinuous_005funiform"></a>Función: <strong>random_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dt><a name="index-random_005fcontinuous_005funiform-1"></a>Función: <strong>random_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Uniforme Continuo</i><em>(a,b)</em>, con <em>a&lt;b</em>. Llamando a <code>random_continuous_uniform</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>Esta función es una aplicación directa de la función  <code>random</code> de Maxima.
+</p>
+<p>Véase también <code>random</code>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005flogistic"></a><dl>
+<dt><a name="index-pdf_005flogistic"></a>Función: <strong>pdf_logistic</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria <i>Logística</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005flogistic"></a><dl>
+<dt><a name="index-cdf_005flogistic"></a>Función: <strong>cdf_logistic</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria <i>Logística</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005flogistic"></a><dl>
+<dt><a name="index-quantile_005flogistic"></a>Función: <strong>quantile_logistic</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Logística</i><em>(a,b)</em>, con <em>b&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_logistic</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005flogistic"></a><dl>
+<dt><a name="index-mean_005flogistic"></a>Función: <strong>mean_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Logística</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005flogistic"></a><dl>
+<dt><a name="index-var_005flogistic"></a>Función: <strong>var_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Logística</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005flogistic"></a><dl>
+<dt><a name="index-std_005flogistic"></a>Función: <strong>std_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Logística</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005flogistic"></a><dl>
+<dt><a name="index-skewness_005flogistic"></a>Función: <strong>skewness_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Logística</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005flogistic"></a><dl>
+<dt><a name="index-kurtosis_005flogistic"></a>Función: <strong>kurtosis_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria <i>Logística</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005flogistic"></a><dl>
+<dt><a name="index-random_005flogistic"></a>Función: <strong>random_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dt><a name="index-random_005flogistic-1"></a>Función: <strong>random_logistic</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Logístico</i><em>(a,b)</em>, con <em>b&gt;0</em>. Llamando a  <code>random_logistic</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fpareto"></a><dl>
+<dt><a name="index-pdf_005fpareto"></a>Función: <strong>pdf_pareto</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Pareto</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fpareto"></a><dl>
+<dt><a name="index-cdf_005fpareto"></a>Función: <strong>cdf_pareto</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Pareto</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fpareto"></a><dl>
+<dt><a name="index-quantile_005fpareto"></a>Función: <strong>quantile_pareto</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Pareto</i><em>(a,b)</em>, con <em>a,b&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_pareto</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fpareto"></a><dl>
+<dt><a name="index-mean_005fpareto"></a>Función: <strong>mean_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria de <i>Pareto</i><em>(a,b)</em>, con <em>a&gt;1,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fpareto"></a><dl>
+<dt><a name="index-var_005fpareto"></a>Función: <strong>var_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria de <i>Pareto</i><em>(a,b)</em>, con <em>a&gt;2,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fpareto"></a><dl>
+<dt><a name="index-std_005fpareto"></a>Función: <strong>std_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria de <i>Pareto</i><em>(a,b)</em>, con <em>a&gt;2,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fpareto"></a><dl>
+<dt><a name="index-skewness_005fpareto"></a>Función: <strong>skewness_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de <i>Pareto</i><em>(a,b)</em>, con <em>a&gt;3,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fpareto"></a><dl>
+<dt><a name="index-kurtosis_005fpareto"></a>Función: <strong>kurtosis_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis de una variable aleatoria de <i>Pareto</i><em>(a,b)</em>, con <em>a&gt;4,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fpareto"></a><dl>
+<dt><a name="index-random_005fpareto"></a>Función: <strong>random_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dt><a name="index-random_005fpareto-1"></a>Función: <strong>random_pareto</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Pareto</i><em>(a,b)</em>, con <em>a&gt;0,b&gt;0</em>. Llamando a  <code>random_pareto</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fweibull"></a><dl>
+<dt><a name="index-pdf_005fweibull"></a>Función: <strong>pdf_weibull</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Weibull</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fweibull"></a><dl>
+<dt><a name="index-cdf_005fweibull"></a>Función: <strong>cdf_weibull</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Weibull</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fweibull"></a><dl>
+<dt><a name="index-quantile_005fweibull"></a>Función: <strong>quantile_weibull</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Weibull</i><em>(a,b)</em>, con <em>a,b&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_weibull</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fweibull"></a><dl>
+<dt><a name="index-mean_005fweibull"></a>Función: <strong>mean_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria de <i>Weibull</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fweibull"></a><dl>
+<dt><a name="index-var_005fweibull"></a>Función: <strong>var_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria de <i>Weibull</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fweibull"></a><dl>
+<dt><a name="index-std_005fweibull"></a>Función: <strong>std_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria de <i>Weibull</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fweibull"></a><dl>
+<dt><a name="index-skewness_005fweibull"></a>Función: <strong>skewness_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de <i>Weibull</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fweibull"></a><dl>
+<dt><a name="index-kurtosis_005fweibull"></a>Función: <strong>kurtosis_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria de <i>Weibull</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fweibull"></a><dl>
+<dt><a name="index-random_005fweibull"></a>Función: <strong>random_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dt><a name="index-random_005fweibull-1"></a>Función: <strong>random_weibull</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Weibull</i><em>(a,b)</em>, con <em>a,b&gt;0</em>. Llamando a  <code>random_weibull</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005frayleigh"></a><dl>
+<dt><a name="index-pdf_005frayleigh"></a>Función: <strong>pdf_rayleigh</strong> <em>(<var>x</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Rayleigh</i><em>(b)</em>, con <em>b&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em>(b)</em> equivale a una <i>Weibull</i><em>(2,1/b)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) pdf_rayleigh(x,b);
+                                    2  2
+                           2     - b  x
+(%o2)                   2 b  x %e
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005frayleigh"></a><dl>
+<dt><a name="index-cdf_005frayleigh"></a>Función: <strong>cdf_rayleigh</strong> <em>(<var>x</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Rayleigh</i><em>(b)</em>, con <em>b&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em>(b)</em> equivale a una <i>Weibull</i><em>(2,1/b)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_rayleigh(x,b);
+                                   2  2
+                                - b  x
+(%o2)                     1 - %e
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005frayleigh"></a><dl>
+<dt><a name="index-quantile_005frayleigh"></a>Función: <strong>quantile_rayleigh</strong> <em>(<var>q</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Rayleigh</i><em>(b)</em>, con <em>b&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_rayleigh</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em>(b)</em> equivale a una <i>Weibull</i><em>(2,1/b)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) quantile_rayleigh(0.99,b);
+                        2.145966026289347
+(%o2)                   -----------------
+                                b
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005frayleigh"></a><dl>
+<dt><a name="index-mean_005frayleigh"></a>Función: <strong>mean_rayleigh</strong> <em>(<var>b</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria de <i>Rayleigh</i><em>(b)</em>, con <em>b&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em>(b)</em> equivale a una <i>Weibull</i><em>(2,1/b)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) mean_rayleigh(b);
+                            sqrt(%pi)
+(%o2)                       ---------
+                               2 b
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005frayleigh"></a><dl>
+<dt><a name="index-var_005frayleigh"></a>Función: <strong>var_rayleigh</strong> <em>(<var>b</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria de <i>Rayleigh</i><em>(b)</em>, con <em>b&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em>(b)</em> equivale a una <i>Weibull</i><em>(2,1/b)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) var_rayleigh(b);
+                                 %pi
+                             1 - ---
+                                  4
+(%o2)                        -------
+                                2
+                               b
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005frayleigh"></a><dl>
+<dt><a name="index-std_005frayleigh"></a>Función: <strong>std_rayleigh</strong> <em>(<var>b</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria de <i>Rayleigh</i><em>(b)</em>, con <em>b&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em>(b)</em> equivale a una <i>Weibull</i><em>(2,1/b)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) std_rayleigh(b);
+                                   %pi
+                          sqrt(1 - ---)
+                                    4
+(%o2)                     -------------
+                                b
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005frayleigh"></a><dl>
+<dt><a name="index-skewness_005frayleigh"></a>Función: <strong>skewness_rayleigh</strong> <em>(<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de <i>Rayleigh</i><em>(b)</em>, con <em>b&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em>(b)</em> equivale a una <i>Weibull</i><em>(2,1/b)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) skewness_rayleigh(b);
+                         3/2
+                      %pi      3 sqrt(%pi)
+                      ------ - -----------
+                        4           4
+(%o2)                 --------------------
+                               %pi 3/2
+                          (1 - ---)
+                                4
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005frayleigh"></a><dl>
+<dt><a name="index-kurtosis_005frayleigh"></a>Función: <strong>kurtosis_rayleigh</strong> <em>(<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria de <i>Rayleigh</i><em>(b)</em>, con <em>b&gt;0</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em>(b)</em> equivale a una <i>Weibull</i><em>(2,1/b)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) kurtosis_rayleigh(b);
+                                  2
+                             3 %pi
+                         2 - ------
+                               16
+(%o2)                    ---------- - 3
+                              %pi 2
+                         (1 - ---)
+                               4
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005frayleigh"></a><dl>
+<dt><a name="index-random_005frayleigh"></a>Función: <strong>random_rayleigh</strong> <em>(<var>b</var>)</em></dt>
+<dt><a name="index-random_005frayleigh-1"></a>Función: <strong>random_rayleigh</strong> <em>(<var>b</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Rayleigh</i><em>(b)</em>, con <em>b&gt;0</em>. Llamando a  <code>random_rayleigh</code> con un segundo argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005flaplace"></a><dl>
+<dt><a name="index-pdf_005flaplace"></a>Función: <strong>pdf_laplace</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Laplace</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005flaplace"></a><dl>
+<dt><a name="index-cdf_005flaplace"></a>Función: <strong>cdf_laplace</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Laplace</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005flaplace"></a><dl>
+<dt><a name="index-quantile_005flaplace"></a>Función: <strong>quantile_laplace</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Laplace</i><em>(a,b)</em>, con <em>b&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_laplace</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005flaplace"></a><dl>
+<dt><a name="index-mean_005flaplace"></a>Función: <strong>mean_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria de <i>Laplace</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005flaplace"></a><dl>
+<dt><a name="index-var_005flaplace"></a>Función: <strong>var_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria de <i>Laplace</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005flaplace"></a><dl>
+<dt><a name="index-std_005flaplace"></a>Función: <strong>std_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria de <i>Laplace</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005flaplace"></a><dl>
+<dt><a name="index-skewness_005flaplace"></a>Función: <strong>skewness_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de <i>Laplace</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005flaplace"></a><dl>
+<dt><a name="index-kurtosis_005flaplace"></a>Función: <strong>kurtosis_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria de <i>Laplace</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005flaplace"></a><dl>
+<dt><a name="index-random_005flaplace"></a>Función: <strong>random_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dt><a name="index-random_005flaplace-1"></a>Función: <strong>random_laplace</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Laplace</i><em>(a,b)</em>, con <em>b&gt;0</em>. Llamando a  <code>random_laplace</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fcauchy"></a><dl>
+<dt><a name="index-pdf_005fcauchy"></a>Función: <strong>pdf_cauchy</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Cauchy</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fcauchy"></a><dl>
+<dt><a name="index-cdf_005fcauchy"></a>Función: <strong>cdf_cauchy</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Cauchy</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fcauchy"></a><dl>
+<dt><a name="index-quantile_005fcauchy"></a>Función: <strong>quantile_cauchy</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Cauchy</i><em>(a,b)</em>, con <em>b&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_cauchy</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fcauchy"></a><dl>
+<dt><a name="index-random_005fcauchy"></a>Función: <strong>random_cauchy</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dt><a name="index-random_005fcauchy-1"></a>Función: <strong>random_cauchy</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Cauchy</i><em>(a,b)</em>, con <em>b&gt;0</em>. Llamando a  <code>random_cauchy</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fgumbel"></a><dl>
+<dt><a name="index-pdf_005fgumbel"></a>Función: <strong>pdf_gumbel</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Gumbel</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fgumbel"></a><dl>
+<dt><a name="index-cdf_005fgumbel"></a>Función: <strong>cdf_gumbel</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Gumbel</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fgumbel"></a><dl>
+<dt><a name="index-quantile_005fgumbel"></a>Función: <strong>quantile_gumbel</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Gumbel</i><em>(a,b)</em>, con <em>b&gt;0</em>; en otras palabras, se trata de la inversa de  <code>cdf_gumbel</code>. El argumento <var>q</var> debe ser un número de <em>[0,1]</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fgumbel"></a><dl>
+<dt><a name="index-mean_005fgumbel"></a>Función: <strong>mean_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la media de  una variable aleatoria de <i>Gumbel</i><em>(a,b)</em>, con <em>b&gt;0</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) mean_gumbel(a,b);
+(%o2)                     %gamma b + a
+</pre></div>
+<p>donde el símbolo <code>%gamma</code> representa la constante de Euler-Mascheroni. Véase también <code>%gamma</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fgumbel"></a><dl>
+<dt><a name="index-var_005fgumbel"></a>Función: <strong>var_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria de <i>Gumbel</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fgumbel"></a><dl>
+<dt><a name="index-std_005fgumbel"></a>Función: <strong>std_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria de <i>Gumbel</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fgumbel"></a><dl>
+<dt><a name="index-skewness_005fgumbel"></a>Función: <strong>skewness_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de <i>Gumbel</i><em>(a,b)</em>, con <em>b&gt;0</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) skewness_gumbel(a,b);
+                                  3/2
+                               2 6    zeta(3)
+(%o2)                          --------------
+                                       3
+                                    %pi
+</pre></div>
+<p>donde <code>zeta</code> representa la función zeta de Riemann.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fgumbel"></a><dl>
+<dt><a name="index-kurtosis_005fgumbel"></a>Función: <strong>kurtosis_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dd><p>Devuelve el coeficiente de curtosis de una variable aleatoria de <i>Gumbel</i><em>(a,b)</em>, con <em>b&gt;0</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fgumbel"></a><dl>
+<dt><a name="index-random_005fgumbel"></a>Función: <strong>random_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em></dt>
+<dt><a name="index-random_005fgumbel-1"></a>Función: <strong>random_gumbel</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Gumbel</i><em>(a,b)</em>, con <em>b&gt;0</em>. Llamando a  <code>random_gumbel</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fnode_002fFunciones-y-variables-para-distribuciones-discretas"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_197.html#Funciones-y-variables-para-distribuciones-discretas" accesskey="n" rel="next">Funciones y variables para distribuciones discretas</a>, Previous: <a href="maxima_195.html#Introducci_00f3n-a-distrib" accesskey="p" rel="previous">Introducción a distrib</a>, Subir: <a href="maxima_194.html#distrib" accesskey="u" rel="up">distrib</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

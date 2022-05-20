@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Initialisierung von Maxima</title>
+
+<meta name="description" content="Maxima Manual: Initialisierung von Maxima">
+<meta name="keywords" content="Maxima Manual: Initialisierung von Maxima">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_161.html#Laufzeitumgebung" rel="up" title="Laufzeitumgebung">
+<link href="maxima_163.html#Interrupts" rel="next" title="Interrupts">
+<link href="maxima_161.html#Laufzeitumgebung" rel="previous" title="Laufzeitumgebung">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Initialisierung-von-Maxima"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_163.html#Interrupts" accesskey="n" rel="next">Interrupts</a>, Previous: <a href="maxima_161.html#Laufzeitumgebung" accesskey="p" rel="previous">Laufzeitumgebung</a>, Nach oben: <a href="maxima_161.html#Laufzeitumgebung" accesskey="u" rel="up">Laufzeitumgebung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Initialisierung-von-Maxima-1"></a>
+<h3 class="section">26.1 Initialisierung von Maxima</h3>
+
+<a name="index-maxima_002dinit_002emac"></a>
+<a name="index-maxima_002dinit_002elisp"></a>
+
+<p>Wenn Maxima startet, werden die beiden Dateien <code>maxima-init.mac</code> und
+<code>maxima-init.lisp</code> automatisch geladen, sofern diese vorhanden sind.  Die
+Datei <code>maxima-init.mac</code> wird mit der Funktion <code><a href="maxima_76.html#batchload">batchload</a></code> von Maxima
+geladen und kann beliebige Maxima-Ausdr&uuml;cke enthalten, die beim Starten von
+Maxima ausgef&uuml;hrt werden.  Die Datei <code>maxima-init.lisp</code> wird mit der
+Funktion <code><a href="maxima_76.html#load">load</a></code> geladen und kann entsprechende Lisp-Anweisungen enthalten.
+Beide Dateien erlauben es dem Nutzer, globale Variablen zu setzen, Funktionen zu
+definieren oder sonstige Aktionen auszuf&uuml;hren, um zum Beispiel die
+Maxima-Umgebung anzupassen.
+</p>
+<p>Die Dateien <code>maxima-init.mac</code> und <code>maxima-init.lisp</code> k&ouml;nnen in jedem
+Verzeichnis abgelegt werden, das von der Funktion <code><a href="maxima_76.html#file_005fsearch">file_search</a></code> gefunden
+wird.  &Uuml;blicherweise wird das Verzeichnis gew&auml;hlt, das in der
+Optionsvariablen <code><a href="maxima_164.html#maxima_005fuserdir">maxima_userdir</a></code> enthalten ist und die von Maxima beim
+Starten entsprechend dem Betriebssystem mit einem Standardwert initialisiert
+wird.
+</p>
+<p>Beispiel:
+</p>
+<p>Im Folgenden wird ein Beispiel f&uuml;r den Inhalt einer Datei
+<code>maxima-init.mac</code> gezeigt.  In diesem Beispiel werden einige globale
+Werte auf neue Anfangswerte gesetzt.
+</p>
+<div class="example">
+<pre class="example">/* maxima-init.mac */
+print(&quot; Lade &quot;, file_search(&quot;maxima-init.mac&quot;), &quot; ...&quot;)$
+linel:65$      /* 65 Zeichen pro Zeile */
+leftjust:true$ /* Linksb&uuml;ndige Ausgabe */
+algebraic:true$ /* Vereinfache algebraische Zahlen */
+fpprec:25$      /* gro&szlig;e Gleitkommazahlen mit 25 Stellen */
+print (&quot; maxima-init.mac ist geladen.&quot;)$
+</pre></div>
+
+<p>Die Optionsvariable <code>maxima_userdir</code> enth&auml;lt ein geeignetes Verzeichnis,
+um die Datei <code>maxima-init.mac</code> abzulegen.  Mit der Funktion
+<code>file_search</code> kann gepr&uuml;ft werden, ob die Datei von Maxima gefunden wird.
+</p>
+<div class="example">
+<pre class="example">(%i1) maxima_userdir;
+(%o1)                 /home/dieter/.maxima
+(%i2) file_search(&quot;maxima-init.mac&quot;);
+(%o2)         /home/dieter/.maxima/maxima-init.mac
+</pre></div>
+
+<p>Im Folgenden wird Maxima mit einer Datei <code>maxima-init.mac</code> gestartet, die
+die oben angegebenen Maxima Kommandos enth&auml;lt.
+</p>
+<div class="example">
+<pre class="example">dieter@dieter:~/Maxima/maxima$ rmaxima
+Maxima 5.25.1 http://maxima.sourceforge.net
+Mit Lisp SBCL 1.0.53
+Lizensiert unter der GNU Public License. Siehe die Datei COPYING.
+Gewidmet dem Andenken an William Schelter.
+Die Funktion bug_report() gibt Informationen zum Berichten von Fehlern.
+ Lade  /home/dieter/.maxima/maxima-init.mac  ... 
+ maxima-init.mac ist geladen. 
+(%i1) 
+</pre></div>
+
+<p>Die Sitzung wird fortgesetzt, die Variablen enthalten die gew&uuml;nschten neuen
+Standardwerte und die Anzeige ist linksb&uuml;ndig formatiert.
+</p>
+<div class="example">
+<pre class="example">(%i1) linel;
+(%o1) 65
+(%i2) algebraic;
+(%o2) true
+(%i3) fpprec;
+(%o3) 25
+</pre></div>
+
+<p><em>Hinweis:</em>
+</p>
+<p>Mit dem Kommando <code><a href="maxima_9.html#reset">reset</a></code> werden die Optionsvariablen nicht auf die Werte
+der Datei <code>maxima-init.mac</code> zur&uuml;ckgesetzt, sondern auf die
+urspr&uuml;nglichen in Maxima festgelegten Standardwerte.  Wird das Kommando
+<code><a href="maxima_9.html#kill">kill</a></code> ausgef&uuml;hrt, gehen weiterhin alle in der Initialisierungsdatei
+definierten Variablen und Funktionen verloren.  In beiden F&auml;llen muss die
+Datei <code>maxima-init.mac</code> erneut zum Beispiel mit der Funktion
+<code><a href="maxima_76.html#load">load</a></code> geladen werden.
+</p>
+<p>Die obige Sitzung wird fortgesetzt.  Die Variablen werden mit <code>reset</code>
+zur&uuml;ckgesetzt.  Dann wird die Datei <code>maxima-init.mac</code> mit der Funktion
+<code>load</code> geladen.
+</p>
+<div class="example">
+<pre class="example">(%i4) reset();
+(%o1) [features, fpprec, _, __, labels, %, linenum, algebraic, 
+                                   tr-unique, leftjust, lispdisp]
+(%i2) fpprec;
+(%o2)                          16
+(%i3) load(&quot;maxima-init.mac&quot;);
+ Lade  /home/dieter/.maxima/maxima-init.mac  ... 
+ maxima-init.mac ist geladen. 
+(%o3) /home/dieter/.maxima/maxima-init.mac
+(%i4) fpprec;
+(%o4) 25
+</pre></div>
+
+<p>Die obigen Ausf&uuml;hrungen treffen auf gleiche Weise auf die Datei
+<code>maxima-init.lisp</code> zu, wobei in diesem Fall die Datei Lisp-Anweisungen
+enth&auml;lt.
+</p>
+<p>Beispiel:
+</p>
+<p>Das folgende Beispiel zeigt die &Uuml;bersetzung des obigen Beispiels f&uuml;r die
+Datei <code>maxima-init.mac</code> in Lisp-Anweisungen.
+</p>
+<div class="example">
+<pre class="example">;;; maxima-init.lisp
+(format t &quot; Lade ~A ...~%&quot; ($file_search &quot;maxima-init.lisp&quot;))
+(setq $linel 65)
+(setq $leftjust t)
+(setq $algebraic t)
+(setq $fpprec 25)
+(fpprec1 nil $fpprec)
+(format t &quot; maxima-init.lisp ist geladen.~%&quot;)
+</pre></div>
+
+<p>Die Datei <code>maxima-init.lisp</code> ist im besonderen dazu geeignet, einen
+Patch in Maxima einzuspielen, um einen Programmierfehler zu beheben.
+</p>
+<a name="Item_003a-Runtime_002ede_002fnode_002fInterrupts"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_163.html#Interrupts" accesskey="n" rel="next">Interrupts</a>, Previous: <a href="maxima_161.html#Laufzeitumgebung" accesskey="p" rel="previous">Laufzeitumgebung</a>, Nach oben: <a href="maxima_161.html#Laufzeitumgebung" accesskey="u" rel="up">Laufzeitumgebung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

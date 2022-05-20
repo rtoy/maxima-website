@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Functions and Variables for dynamics</title>
+
+<meta name="description" content="Maxima Manual: Functions and Variables for dynamics">
+<meta name="keywords" content="Maxima Manual: Functions and Variables for dynamics">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_225.html#dynamics" rel="up" title="dynamics">
+<link href="maxima_228.html#ezunits" rel="next" title="ezunits">
+<link href="maxima_226.html#Introduction-to-dynamics" rel="previous" title="Introduction to dynamics">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Functions-and-Variables-for-dynamics"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_226.html#Introduction-to-dynamics" accesskey="p" rel="previous">Introduction to dynamics</a>, Nach oben: <a href="maxima_225.html#dynamics" accesskey="u" rel="up">dynamics</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Functions-and-Variables-for-dynamics-1"></a>
+<h3 class="section">44.2 Functions and Variables for dynamics</h3>
+
+<a name="Item_003a-dynamics_002ede_002fdeffn_002fchaosgame"></a><dl>
+<dt><a name="index-chaosgame"></a>Function: <strong>chaosgame</strong> <em>(<code>[[</code><var>x1</var>, <var>y1</var><code>]</code>, &hellip;, <code>[</code><var>xm</var>, <var>ym</var><code>]]</code>, <code>[</code><var>x0</var>, <var>y0</var><code>]</code>, <var>b</var>, <var>n</var>, &hellip;, options, &hellip;)</em></dt>
+<dd>
+<p>Implements the so-called chaos game: the initial point (<var>x0</var>,
+<var>y0</var>) is plotted and then one of the <var>m</var> points
+<code>[</code><var>x1</var>, <var>y1</var><code>]</code>, ..., <code>[</code><var>xm</var>, <var>ym</var><code>]</code>
+will be selected at random.  The next point plotted will be on the
+segment from the previous point plotted to the point chosen randomly, at a
+distance from the random point which will be <var>b</var> times that segment&rsquo;s
+length.  The procedure is repeated <var>n</var> times.
+</p></dd></dl>
+
+<a name="Item_003a-dynamics_002ede_002fdeffn_002fevolution"></a><dl>
+<dt><a name="index-evolution"></a>Function: <strong>evolution</strong> <em>(<var>F</var>, <var>y0</var>, <var>n</var>, &hellip;, options, &hellip;)</em></dt>
+<dd>
+<p>Draws <var>n+1</var> points in a two-dimensional graph, where the horizontal
+coordinates of the points are the integers 0, 1, 2, &hellip;, <var>n</var>, and
+the vertical coordinates are the corresponding values <var>y(n)</var> of the
+sequence defined by the recurrence relation
+</p><div class="example">
+<pre class="example">        y(n+1) = F(y(n))
+</pre></div>
+
+<p>With initial value <var>y(0)</var> equal to <var>y0</var>.  <var>F</var> must be an
+expression that depends only on one variable (in the example, it
+depend on <var>y</var>, but any other variable can be used),
+<var>y0</var> must be a real number and <var>n</var> must be a positive integer.
+</p></dd></dl>
+
+<a name="Item_003a-dynamics_002ede_002fdeffn_002fevolution2d"></a><dl>
+<dt><a name="index-evolution2d"></a>Function: <strong>evolution2d</strong> <em>(<code>[</code><var>F</var>, <var>G</var><code>]</code>, <code>[</code><var>u</var>, <var>v</var><code>]</code>, <code>[</code><var>u0</var>, <var>y0</var><code>]</code>, <var>n</var>, &hellip;, options, &hellip;)</em></dt>
+<dd>
+<p>Shows, in a two-dimensional plot, the first <var>n+1</var> points in the
+sequence of points defined by the two-dimensional discrete dynamical
+system with recurrence relations
+</p><div class="example">
+<pre class="example">        u(n+1) = F(u(n), v(n))    v(n+1) = G(u(n), v(n))
+</pre></div>
+
+<p>With initial values <var>u0</var> and <var>v0</var>.  <var>F</var> and <var>G</var> must be
+two expressions that depend only on two variables, <var>u</var> and
+<var>v</var>, which must be named explicitely in a list.
+</p></dd></dl>
+
+<a name="Item_003a-dynamics_002ede_002fdeffn_002fifs"></a><dl>
+<dt><a name="index-ifs"></a>Function: <strong>ifs</strong> <em>(<code>[</code><var>r1</var>, &hellip;, <var>rm</var><code>]</code>, <code>[</code><var>A1</var>, &hellip;, <var>Am</var><code>]</code>, <code>[[</code><var>x1</var>, <var>y1</var><code>]</code>, &hellip;, <code>[</code><var>xm</var>, <var>ym</var><code>]]</code>, <code>[</code><var>x0</var>, <var>y0</var><code>]</code>, <var>n</var>, &hellip;, options, &hellip;)</em></dt>
+<dd>
+<p>Implements the Iterated Function System method.  This method is similar
+to the method described in the function <code>chaosgame</code>, but instead of
+shrinking the segment from the current point to the randomly chosen
+point, the 2 components of that segment will be multiplied by the 2 by 2
+matrix <var>Ai</var> that corresponds to the point chosen randomly.
+</p>
+<p>The random choice of one of the <var>m</var> attractive points can be made with
+a non-uniform probability distribution defined by the weights
+<var>r1</var>, &hellip;, <var>rm</var>.  Those weights are given in cumulative form; for 
+instance if there are 3 points with probabilities 0.2, 0.5 and
+0.3, the weights <var>r1</var>, <var>r2</var> and <var>r3</var> could be 2, 7 and 10.
+</p></dd></dl>
+
+
+<a name="Item_003a-dynamics_002ede_002fdeffn_002forbits"></a><dl>
+<dt><a name="index-orbits"></a>Function: <strong>orbits</strong> <em>(<var>F</var>, <var>y0</var>, <var>n1</var>, <var>n2</var>, [<var>x</var>, <var>x0</var>, <var>xf</var>, <var>xstep</var>], &hellip;, options, &hellip;)</em></dt>
+<dd>
+<p>Draws the orbits diagram for a family of one-dimensional
+discrete dynamical systems, with one parameter <var>x</var>; that kind of
+diagram is used to study the bifurcations of an one-dimensional discrete
+system.
+</p>
+<p>The function <var>F(y)</var> defines a sequence with a starting value of
+<var>y0</var>, as in the case of the function <code>evolution</code>, but in this
+case that function will also depend on a parameter <var>x</var> that will
+take values in the interval from <var>x0</var> to <var>xf</var> with increments of
+<var>xstep</var>. Each value used for the parameter <var>x</var> is shown on the
+horizontal axis. The vertical axis will show the <var>n2</var> values
+of the sequence <var>y(n1+1)</var>,..., <var>y(n1+n2+1)</var> obtained after letting
+the sequence evolve <var>n1</var> iterations.
+</p></dd></dl>
+
+<a name="Item_003a-dynamics_002ede_002fdeffn_002frk"></a><dl>
+<dt><a name="index-rk"></a>Function: <strong>rk</strong> <em>(<var>ODE</var>, <var>var</var>, <var>initial</var>, <var>domain</var>)</em></dt>
+<dt><a name="index-rk-1"></a>Function: <strong>rk</strong> <em>([<var>ODE1</var>, &hellip;, <var>ODEm</var>], [<var>v1</var>, &hellip;, <var>vm</var>], [<var>init1</var>, &hellip;, <var>initm</var>], <var>domain</var>)</em></dt>
+<dd>
+<p>The first form solves numerically one first-order ordinary differential
+equation, and the second form solves a system of m of those equations,
+using the 4th order Runge-Kutta method.  <var>var</var> represents the dependent
+variable.  <var>ODE</var> must be an expression that depends only on the independent
+and dependent variables and defines the derivative of the dependent
+variable with respect to the independent variable.
+</p>
+<p>The independent variable is specified with <code>domain</code>, which must be a
+list of four elements as, for instance:
+</p><div class="example">
+<pre class="example">[t, 0, 10, 0.1]
+</pre></div>
+<p>the first element of the list identifies the independent variable, the
+second and third elements are the initial and final values for that
+variable, and the last element sets the increments that should be used
+within that interval.
+</p>
+<p>If <var>m</var> equations are going to be solved, there should be <var>m</var>
+dependent variables <var>v1</var>, <var>v2</var>, &hellip;, <var>vm</var>.  The initial values
+for those variables will be <var>init1</var>, <var>init2</var>, &hellip;, <var>initm</var>.
+There will still be just one independent variable defined by <code>domain</code>,
+as in the previous case.  <var>ODE1</var>, &hellip;, <var>ODEm</var> are the expressions
+that define the derivatives of each dependent variable in
+terms of the independent variable.  The only variables that may appear in
+those expressions are the independent variable and any of the dependent
+variables.  It is important to give the derivatives <var>ODE1</var>, &hellip;,
+<var>ODEm</var> in the list in exactly the same order used for the dependent
+variables; for instance, the third element in the list will be interpreted
+as the derivative of the third dependent variable.
+</p>
+<p>The program will try to integrate the equations from the initial value
+of the independent variable until its last value, using constant
+increments.  If at some step one of the dependent variables takes an
+absolute value too large, the integration will be interrupted at that
+point.  The result will be a list with as many elements as the number of
+iterations made.  Each element in the results list is itself another list
+with <var>m</var>+1 elements: the value of the independent variable, followed
+by the values of the dependent variables corresponding to that point.
+</p></dd></dl>
+
+<a name="Item_003a-dynamics_002ede_002fdeffn_002fstaircase"></a><dl>
+<dt><a name="index-staircase"></a>Function: <strong>staircase</strong> <em>(<var>F</var>, <var>y0</var>, <var>n</var>, &hellip;, options, &hellip;)</em></dt>
+<dd>
+<p>Draws a staircase diagram for the sequence defined by the recurrence
+relation
+</p><div class="example">
+<pre class="example">        y(n+1) = F(y(n))
+</pre></div>
+
+<p>The interpretation and allowed values of the input parameters is the
+same as for the function <code>evolution</code>.  A staircase diagram consists
+of a plot of the function <var>F(y)</var>, together with the line
+<var>G(y)</var> <code>=</code> <var>y</var>.  A vertical segment is drawn from the
+point (<var>y0</var>, <var>y0</var>) on that line until the point where it
+intersects the function <var>F</var>.  From that point a horizontal segment is
+drawn until it reaches the point (<var>y1</var>, <var>y1</var>) on the line, and
+the procedure is repeated <var>n</var> times until the point (<var>yn</var>, <var>yn</var>)
+is reached.
+</p></dd></dl>
+
+<p><b>Options</b>
+</p>
+<p>Each option is a list of two or more items.  The first item is the name
+of the option, and the remainder comprises the arguments for the option.
+</p>
+<p>The options accepted by the functions <code>evolution</code>, <code>evolution2d</code>,
+<code>staircase</code>, <code>orbits</code>, <code>ifs</code> and <code>chaosgame</code> are the same
+as the options for <code>plot2d</code>.  In addition to those options, <code>orbits</code>
+accepts and extra option <var>pixels</var> that sets up the maximum number of
+different points that will be represented in the vertical direction.
+</p>
+<p><b>Examples</b>
+</p>
+<p>Graphical representation and staircase diagram for the sequence:
+2, cos(2), cos(cos(2)),...
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;dynamics&quot;)$
+
+(%i2) evolution(cos(y), 2, 11);
+
+(%i3) staircase(cos(y), 1, 11, [y, 0, 1.2]);
+</pre></div>
+
+<img src="./figures/dynamics1.png" alt="./figures/dynamics1">
+<img src="./figures/dynamics2.png" alt="./figures/dynamics2">
+
+<p>If your system is slow, you&rsquo;ll have to reduce the number of iterations in
+the following examples.  And if the dots appear too small in your
+monitor, you might want to try a different style, such as
+<code>[</code><var>style</var>,<code>[</code><var>points</var>,0.8<code>]]</code>.
+</p>
+<p>Orbits diagram for the quadratic map, with a parameter <var>a</var>.
+</p><div class="example">
+<pre class="example">        x(n+1) = a + x(n)^2
+</pre></div>
+
+<div class="example">
+<pre class="example">(%i4) orbits(x^2+a, 0, 50, 200, [a, -2, 0.25], [style, dots]);
+</pre></div>
+
+<img src="./figures/dynamics3.png" alt="./figures/dynamics3">
+
+<p>To enlarge the region around the lower bifurcation near x <code>=</code> -1.25 use:
+</p><div class="example">
+<pre class="example">(%i5) orbits(x^2+a, 0, 100, 400, [a,-1,-1.53], [x,-1.6,-0.8],
+             [nticks, 400], [style,dots]);
+</pre></div>
+
+<img src="./figures/dynamics4.png" alt="./figures/dynamics4">
+
+<p>Evolution of a two-dimensional system that leads to a fractal:
+</p>
+<div class="example">
+<pre class="example">(%i6) f: 0.6*x*(1+2*x)+0.8*y*(x-1)-y^2-0.9$
+
+(%i7) g: 0.1*x*(1-6*x+4*y)+0.1*y*(1+9*y)-0.4$
+
+(%i8) evolution2d([f,g], [x,y], [-0.5,0], 50000, [style,dots]);
+</pre></div>
+
+<img src="./figures/dynamics5.png" alt="./figures/dynamics5">
+
+<p>And an enlargement of a small region in that fractal:
+</p>
+<div class="example">
+<pre class="example">(%i9) evolution2d([f,g], [x,y], [-0.5,0], 300000, [x,-0.8,-0.6],
+                  [y,-0.4,-0.2], [style, dots]);
+</pre></div>
+
+<img src="./figures/dynamics6.png" alt="./figures/dynamics6">
+
+<p>A plot of Sierpinsky&rsquo;s triangle, obtained with the chaos game:
+</p>
+<div class="example">
+<pre class="example">(%i9) chaosgame([[0, 0], [1, 0], [0.5, sqrt(3)/2]], [0.1, 0.1], 1/2,
+                 30000, [style, dots]);
+</pre></div>
+
+<img src="./figures/dynamics7.png" alt="./figures/dynamics7">
+
+<p>Barnsley&rsquo;s fern, obtained with an Iterated Function System:
+</p>
+<div class="example">
+<pre class="example">(%i10) a1: matrix([0.85,0.04],[-0.04,0.85])$
+
+(%i11) a2: matrix([0.2,-0.26],[0.23,0.22])$
+
+(%i12) a3: matrix([-0.15,0.28],[0.26,0.24])$
+
+(%i13) a4: matrix([0,0],[0,0.16])$
+
+(%i14) p1: [0,1.6]$
+
+(%i15) p2: [0,1.6]$
+
+(%i16) p3: [0,0.44]$
+
+(%i17) p4: [0,0]$
+
+(%i18) w: [85,92,99,100]$
+
+(%i19) ifs(w, [a1,a2,a3,a4], [p1,p2,p3,p4], [5,0], 50000, [style,dots]);
+</pre></div>
+
+<img src="./figures/dynamics8.png" alt="./figures/dynamics8">
+
+
+<p>To solve numerically the differential equation
+</p>
+<div class="example">
+<pre class="example">          dx/dt = t - x^2
+</pre></div>
+
+<p>With initial value x(t=0) = 1, in the interval of t from 0 to 8 and with
+increments of 0.1 for t, use:
+</p>
+<div class="example">
+<pre class="example">(%i20) results: rk(t-x^2,x,1,[t,0,8,0.1])$
+</pre></div>
+
+<p>the results will be saved in the list <code>results</code>.
+</p>
+<p>To solve numerically the system:
+</p>
+<div class="example">
+<pre class="example">        dx/dt = 4-x^2-4*y^2     dy/dt = y^2-x^2+1
+</pre></div>
+
+<p>for t between 0 and 4, and with values of -1.25 and 0.75 for x and y at t=0:
+</p>
+<div class="example">
+<pre class="example">(%i21) sol: rk([4-x^2-4*y^2,y^2-x^2+1],[x,y],[-1.25,0.75],[t,0,4,0.02])$
+</pre></div>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_226.html#Introduction-to-dynamics" accesskey="p" rel="previous">Introduction to dynamics</a>, Nach oben: <a href="maxima_225.html#dynamics" accesskey="u" rel="up">dynamics</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

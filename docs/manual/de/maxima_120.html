@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Torsion und Nichtmetrizit&auml;t</title>
+
+<meta name="description" content="Maxima Manual: Torsion und Nichtmetrizit&auml;t">
+<meta name="keywords" content="Maxima Manual: Torsion und Nichtmetrizit&auml;t">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" rel="up" title="Funktionen und Variablen f&uuml;r itensor">
+<link href="maxima_121.html#Gra_00dfmann_002dAlgebra" rel="next" title="Gra&szlig;mann-Algebra">
+<link href="maxima_119.html#Begleitende-Vielbeine" rel="previous" title="Begleitende Vielbeine">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Torsion-und-Nichtmetrizit_00e4t"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_121.html#Gra_00dfmann_002dAlgebra" accesskey="n" rel="next">Gra&szlig;mann-Algebra</a>, Previous: <a href="maxima_119.html#Begleitende-Vielbeine" accesskey="p" rel="previous">Begleitende Vielbeine</a>, Nach oben: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Torsion-und-Nichtmetrizitat"></a>
+<h4 class="subsubsection">20.2.2.6 Torsion und Nichtmetrizit&auml;t</h4>
+
+<p>Maxima can now take into account torsion and nonmetricity.  When the flag
+<code>itorsion_flag</code> is set to <code>true</code>, the contribution of torsion
+is added to the connection coefficients.  Similarly, when the flag
+<code>inonmet_flag</code> is true, nonmetricity components are included.
+</p>
+<a name="inm"></a><a name="Item_003a-Itensor_002ede_002fdefvr_002finm"></a><dl>
+<dt><a name="index-inm"></a>Variable: <strong>inm</strong></dt>
+<dd>
+<p>The nonmetricity vector. Conformal nonmetricity is defined through the
+covariant derivative of the metric tensor. Normally zero, the metric
+tensor&rsquo;s covariant derivative will evaluate to the following when
+<code>inonmet_flag</code> is set to <code>true</code>:
+</p>
+<div class="example">
+<pre class="example">g     =- g  inm
+ ij;k     ij   k
+</pre></div>
+</dd></dl>
+
+<a name="inmc1"></a><a name="Item_003a-Itensor_002ede_002fdefvr_002finmc1"></a><dl>
+<dt><a name="index-inmc1"></a>Variable: <strong>inmc1</strong></dt>
+<dd>
+<p>Covariant permutation of the nonmetricity vector components. Defined as
+</p>
+<div class="example">
+<pre class="example">           g   inm  - inm  g   - g   inm
+            ab    c      a  bc    ac    b
+inmc1    = ------------------------------
+     abc                 2
+</pre></div>
+
+<p>(Substitute <code>ifg</code> in place of <code>g</code> if a frame metric is used.)
+</p></dd></dl>
+
+<a name="inmc2"></a><a name="Item_003a-Itensor_002ede_002fdefvr_002finmc2"></a><dl>
+<dt><a name="index-inmc2"></a>Variable: <strong>inmc2</strong></dt>
+<dd>
+<p>Contravariant permutation of the nonmetricity vector components. Used
+in the connection coefficients if <code>inonmet_flag</code> is <code>true</code>. Defined
+as:
+</p>
+<div class="example">
+<pre class="example">                      c         c         cd
+          -inm  kdelta  - kdelta  inm  + g   inm  g
+     c        a       b         a    b          d  ab
+inmc2   = -------------------------------------------
+     ab                        2
+</pre></div>
+
+<p>(Substitute <code>ifg</code> in place of <code>g</code> if a frame metric is used.)
+</p></dd></dl>
+
+<a name="ikt1"></a><a name="Item_003a-Itensor_002ede_002fdefvr_002fikt1"></a><dl>
+<dt><a name="index-ikt1"></a>Variable: <strong>ikt1</strong></dt>
+<dd>
+<p>Covariant permutation of the torsion tensor (also known as contorsion).
+Defined as:
+</p>
+<div class="example">
+<pre class="example">                  d           d       d
+          -g   itr  - g    itr   - itr   g
+            ad    cb    bd    ca      ab  cd
+ikt1    = ----------------------------------
+    abc                   2
+</pre></div>
+
+<p>(Substitute <code>ifg</code> in place of <code>g</code> if a frame metric is used.)
+</p></dd></dl>
+
+<a name="ikt2"></a><a name="Item_003a-Itensor_002ede_002fdefvr_002fikt2"></a><dl>
+<dt><a name="index-ikt2"></a>Variable: <strong>ikt2</strong></dt>
+<dd>
+<p>Contravariant permutation of the torsion tensor (also known as contorsion).
+Defined as:
+</p>
+<div class="example">
+<pre class="example">    c     cd
+ikt2   = g   ikt1
+    ab           abd
+</pre></div>
+
+<p>(Substitute <code>ifg</code> in place of <code>g</code> if a frame metric is used.)
+</p></dd></dl>
+
+<a name="itr"></a><a name="Item_003a-Itensor_002ede_002fdefvr_002fitr"></a><dl>
+<dt><a name="index-itr"></a>Variable: <strong>itr</strong></dt>
+<dd>
+<p>The torsion tensor. For a metric with torsion, repeated covariant
+differentiation on a scalar function will not commute, as demonstrated
+by the following example:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) imetric:g;
+(%o2)                                  g
+(%i3) covdiff( covdiff( f( [], []), i), j)
+                      - covdiff( covdiff( f( [], []), j), i)$
+(%i4) ishow(%)$
+                                   %4              %2
+(%t4)                    f    ichr2    - f    ichr2
+                          ,%4      j i    ,%2      i j
+(%i5) canform(%);
+(%o5)                                  0
+(%i6) itorsion_flag:true;
+(%o6)                                true
+(%i7) covdiff( covdiff( f( [], []), i), j)
+                      - covdiff( covdiff( f( [], []), j), i)$
+(%i8) ishow(%)$
+                           %8             %6
+(%t8)             f    icc2    - f    icc2    - f     + f
+                   ,%8     j i    ,%6     i j    ,j i    ,i j
+(%i9) ishow(canform(%))$
+                                   %1             %1
+(%t9)                     f    icc2    - f    icc2
+                           ,%1     j i    ,%1     i j
+(%i10) ishow(canform(ev(%,icc2)))$
+</pre><pre class="example">                                   %1             %1
+(%t10)                    f    ikt2    - f    ikt2
+                           ,%1     i j    ,%1     j i
+</pre><pre class="example">(%i11) ishow(canform(ev(%,ikt2)))$
+                      %2 %1                    %2 %1
+(%t11)          f    g      ikt1       - f    g      ikt1
+                 ,%2            i j %1    ,%2            j i %1
+(%i12) ishow(factor(canform(rename(expand(ev(%,ikt1))))))$
+                           %3 %2            %1       %1
+                     f    g      g      (itr    - itr   )
+                      ,%3         %2 %1     j i      i j
+(%t12)               ------------------------------------
+                                      2
+(%i13) decsym(itr,2,1,[anti(all)],[]);
+(%o13)                               done
+(%i14) defcon(g,g,kdelta);
+(%o14)                               done
+(%i15) subst(g,nounify(g),%th(3))$
+(%i16) ishow(canform(contract(%)))$
+                                           %1
+(%t16)                           - f    itr
+                                    ,%1    i j
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-Itensor_002ede_002fnode_002fGra_00dfmann_002dAlgebra"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_121.html#Gra_00dfmann_002dAlgebra" accesskey="n" rel="next">Gra&szlig;mann-Algebra</a>, Previous: <a href="maxima_119.html#Begleitende-Vielbeine" accesskey="p" rel="previous">Begleitende Vielbeine</a>, Nach oben: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

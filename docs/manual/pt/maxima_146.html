@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Introdução a distrib</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Introdução a distrib">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Introdução a distrib">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_145.html#distrib" rel="up" title="distrib">
+<link href="maxima_147.html#Defini_00e7_00f5es-para-distribui_00e7_00f5es-cont_00ednuas" rel="next" title="Definições para distribuições contínuas">
+<link href="maxima_145.html#distrib" rel="previous" title="distrib">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introdu_00e7_00e3o-a-distrib"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_147.html#Defini_00e7_00f5es-para-distribui_00e7_00f5es-cont_00ednuas" accesskey="n" rel="next">Definições para distribuições contínuas</a>, Previous: <a href="maxima_145.html#distrib" accesskey="p" rel="previous">distrib</a>, Acima: <a href="maxima_145.html#distrib" accesskey="u" rel="up">distrib</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introducao-a-distrib"></a>
+<h3 class="section">46.1 Introdução a distrib</h3>
+
+
+<p>Pacote <code>distrib</code> contém um conjunto de funções para fazer cálculos 
+envolvendo probabilidades de modelos de uma única variável estatística e de 
+ambos os tipos discreta e contínua. 
+</p>
+<p>O que segue é um curto resumo de definiçoes básicas
+relacionadas à teoria das probabilidades.
+</p>
+<p>Seja <em>f(x)</em> a <var>função densidade de probabilidade</var> absoluta 
+de uma variável aleatória contínua <em>X</em>. A <var>função 
+distribuição de probabilidade</var> é definida como
+</p><div class="example">
+<pre class="example">                       x
+                      /
+                      [
+               F(x) = I     f(u) du
+                      ]
+                      /
+                       minf
+</pre></div>
+<p>que é igual à probabilidade <var>Pr(X &lt;= x)</var>.
+</p>
+<p>O valor <var>médio</var> é um parâmetro de localização e está definido como
+</p><div class="example">
+<pre class="example">                     inf
+                    /
+                    [
+           E[X]  =  I   x f(x) dx
+                    ]
+                    /
+                     minf
+</pre></div>
+
+<p>A <var>variância</var> é uma medida de variação,
+</p><div class="example">
+<pre class="example">                 inf
+                /
+                [                    2
+         V[X] = I     f(x) (x - E[X])  dx
+                ]
+                /
+                 minf
+</pre></div>
+<p>que é um número real positivo. A raíz quadrada da variância é o
+<var>desvio padrão</var>, <em>D[X]=sqrt(V[X])</em>, e esse <var>desvio padrão</var>
+é outra medida de variação.
+</p>
+<p>O <var>coeficiente de assimetria</var> é uma medida de não simetria,
+</p><div class="example">
+<pre class="example">                 inf
+                /
+            1   [                    3
+  SK[X] = ----- I     f(x) (x - E[X])  dx
+              3 ]
+          D[X]  /
+                 minf
+</pre></div>
+
+<p>E o <var>coeficiente de curtose</var> mede o grau de achatamento de uma distribuição,
+</p><div class="example">
+<pre class="example">                 inf
+                /
+            1   [                    4
+  KU[X] = ----- I     f(x) (x - E[X])  dx - 3
+              4 ]
+          D[X]  /
+                 minf
+</pre></div>
+<p>Se <em>X</em> for gaussiana, <em>KU[X]=0</em>. De facto, ambos assimetria e curtose são
+parâmetros de ajuste usados para medir a não gaussianidade de uma distribuição.
+</p>
+<p>Se a variável aleatória <em>X</em> for discreta, a função densidade
+de probabilidade, ou simplesmente <var>probabilidade</var>, <em>f(x)</em> toma valores
+positivos dentro de certos conjuntos contáveis de números <em>x_i</em>,
+e zero em caso contrário. Nesse caso, a função
+distribuição de probabilidade é
+</p><div class="example">
+<pre class="example">                       ====
+                       \
+                F(x) =  &gt;    f(x )
+                       /        i
+                       ====
+                      x &lt;= x
+                       i
+</pre></div>
+
+<p>A média, variância, desvio padrão, coeficiente de assimetria e coeficiente de curtose tomam a forma
+</p><div class="example">
+<pre class="example">                       ====
+                       \
+                E[X] =  &gt;  x  f(x ) ,
+                       /    i    i
+                       ====
+                        x 
+                         i
+</pre></div>
+
+<div class="example">
+<pre class="example">                ====
+                \                     2
+        V[X] =   &gt;    f(x ) (x - E[X])  ,
+                /        i    i
+                ====
+                 x
+                  i
+</pre></div>
+
+<div class="example">
+<pre class="example">               D[X] = sqrt(V[X]),
+</pre></div>
+
+<div class="example">
+<pre class="example">                     ====
+              1      \                     3
+  SK[X] =  -------    &gt;    f(x ) (x - E[X])  
+           D[X]^3    /        i    i
+                     ====
+                      x
+                       i
+</pre></div>
+<p>and
+</p><div class="example">
+<pre class="example">                     ====
+              1      \                     4
+  KU[X] =  -------    &gt;    f(x ) (x - E[X])   - 3 ,
+           D[X]^4    /        i    i
+                     ====
+                      x
+                       i
+</pre></div>
+<p>respectively.
+</p>
+<p>O Pacote <code>distrib</code> inclui funções para simulação de
+variáveis estatísticas pseudo-aleatórias. Algumas dessas funções
+fazem uso de variáveis opcionais que indicam o algoritmo a ser usado.
+O método inverso genérico (baseado no facto que se
+<var>u</var> for um número aleatório uniforme no intervalo <em>(0,1)</em>,
+então <var>F^(-1)(u)</var> é uma variável estatística pseudo-aleatória
+com distribuição <em>F</em>) está implementada para a maioria dos casos;
+isso é um método subóptimo em termos de cronometragem, mas útil para
+fazer comparações com outros algoritmos. Nesse exemplo, a
+<code>perandom_formance</code> dos algoritmos <code>ahrens_cheng</code> e
+<code>inverse</code> em simular  variáveis chi-quadradas (letra grega &quot;chi&quot;) 
+são comparadas por meio de seus histogramas:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;distrib&quot;)$
+(%i2) load(&quot;descriptive&quot;)$
+(%i3) showtime: true$
+Evaluation took 0.00 seconds (0.00 elapsed) using 32 bytes.
+(%i4) random_chi2_algorithm: 'ahrens_cheng$ histogram(random_chi2(10,500))$
+Evaluation took 0.00 seconds (0.00 elapsed) using 40 bytes.
+Evaluation took 0.69 seconds (0.71 elapsed) using 5.694 MB.
+(%i6) random_chi2_algorithm: 'inverse$ histogram(random_chi2(10,500))$
+Evaluation took 0.00 seconds (0.00 elapsed) using 32 bytes.
+Evaluation took 10.15 seconds (10.17 elapsed) using 322.098 MB.
+</pre></div>
+
+<p>Com o objectivo de fazer comparações visuais entre algoritmos para uma
+variável estatística discreta, a função <code>barsplot</code> do pacote
+<code>descriptive</code> pode ser usada.
+</p>
+<p>Note que algum trabalho resta para ser realizado, uma vez que essas funções
+de simulação não foram ainda verificadas pelos mais rigorosamente
+melhores dos testes de ajuste.
+</p>
+<p>Por favor, consulte um manual introdutório sobre probabilidade e estatística
+para maiores informações sobre todo esse material matemático.
+</p>
+<p>Existe uma convenção de nome no pacote <code>distrib</code>. Todo nome de
+função tem duas partes, a primeira faz referência à função
+ou ao parâmetro que queremos calcular,
+</p><div class="example">
+<pre class="example">Funções:
+   função densidade de probabilidade            (pdf_*)
+   função distribuição de probabilidade       (cdf_*)
+   Quartil                    (quantile_*)
+   Média                        (mean_*)
+   Variância                    (var_*)
+   Desvio padrão          (std_*)
+   Coeficiente de assimetria        (skewness_*)
+   Coeficiente de curtose        (kurtosis_*)
+   Variável estatística pseudo-aleatória              (random_*)
+</pre></div>
+
+<p>A segunda parte é uma referência explícita ao modelo probabilístico,
+</p><div class="example">
+<pre class="example">Distribuíções contínuas:
+   Normal              (*normal)
+   Student             (*student_t)
+   Chi^2               (*chi2)
+   F                   (*f)
+   Exponencial         (*exp)
+   Lognormal           (*lognormal)
+   Gama               (*gamma)
+   Beta                (*beta)
+   contínua uniforme  (*continuous_uniform)
+   Logística            (*logistic)
+   Pareto              (*pareto)
+   Weibull             (*weibull)
+   Rayleigh            (*rayleigh)
+   Laplace             (*laplace)
+   Cauchy              (*cauchy)
+   Gumbel              (*gumbel)
+
+Distribuições discretas:
+   Binomial             (*binomial)
+   Poisson              (*poisson)
+   Bernoulli            (*bernoulli)
+   Geométrica            (*geometric)
+   discreta uniforme     (*discrete_uniform)
+   hipergeométrica       (*hypergeometric)
+   Binomial Negativa    (*negative_binomial)
+</pre></div>
+
+<p>Por exemplo, <code>pdf_student_t(x,n)</code> é a função densidade de
+probabilidade da distribuição de Student com <var>n</var> graus de liberdade,
+<code>std_pareto(a,b)</code> é o desvio padrão da distribuição de
+Pareto com parâmetros <var>a</var> e <var>b</var> e <code>kurtosis_poisson(m)</code>
+é o coeficiente de curtose da distribuição de Poisson com média <var>m</var>.
+</p>
+
+<p>Para poder usar o pacote <code>distrib</code> precisa primeiro carregá-lo
+escrevendo
+</p><div class="example">
+<pre class="example">(%i1) load(&quot;distrib&quot;)$
+</pre></div>
+
+<p>Para comentários, melhorias ou sugestões, por favor contacte o autor em
+<var>&rsquo;mario AT edu DOT xunta DOT es&rsquo;</var>.
+</p>
+<a name="Item_003a-distrib_002fnode_002fDefini_00e7_00f5es-para-distribui_00e7_00f5es-cont_00ednuas"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_147.html#Defini_00e7_00f5es-para-distribui_00e7_00f5es-cont_00ednuas" accesskey="n" rel="next">Definições para distribuições contínuas</a>, Previous: <a href="maxima_145.html#distrib" accesskey="p" rel="previous">distrib</a>, Acima: <a href="maxima_145.html#distrib" accesskey="u" rel="up">distrib</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

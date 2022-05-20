@@ -1,37 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on diciembre, 30 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual de Maxima 5.35.1: 9. Simplificación</title>
+<title>Manual de Maxima 5.46.0: Funciones y variables para la impresión</title>
 
-<meta name="description" content="Manual de Maxima 5.35.1: 9. Simplificación">
-<meta name="keywords" content="Manual de Maxima 5.35.1: 9. Simplificación">
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para la impresión">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para la impresión">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_6.html#L_00ednea-de-comandos" rel="up" title="Línea de comandos">
+<link href="maxima_10.html#Tipos-de-datos-y-estructuras" rel="next" title="Tipos de datos y estructuras">
+<link href="maxima_8.html#Funciones-y-variables-para-la-l_00ednea-de-comandos" rel="previous" title="Funciones y variables para la línea de comandos">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
 h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
@@ -52,978 +62,704 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="../figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-la-impresi_00f3n"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_8.html#Funciones-y-variables-para-la-l_00ednea-de-comandos" accesskey="p" rel="previous">Funciones y variables para la línea de comandos</a>, Subir: <a href="maxima_6.html#L_00ednea-de-comandos" accesskey="u" rel="up">Línea de comandos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
 
-<a name="Simplificaci_00f3n"></a>
-<a name="SEC56"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_8.html#SEC55" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC57" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_8.html#SEC50" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_10.html#SEC59" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 9. Simplificación </h1>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC57">9.1 Introducción a la simplificación</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC58">9.2 Funciones y variables para simplificación</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
-</td></tr>
-</table>
+<a name="Funciones-y-variables-para-la-impresion"></a>
+<h3 class="section">4.3 Funciones y variables para la impresión</h3>
 
 
-
-<hr size="6">
-<a name="Introducci_00f3n-a-la-simplificaci_00f3n"></a>
-<a name="SEC57"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC56" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC58" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC56" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC56" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_10.html#SEC59" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 9.1 Introducción a la simplificación </h2>
-
-<p>Tras la evaluación de una expresión se procede a su simplificación. Las
-funciones matemáticas que involucran cálculos simbólicos y las expresiones con
-operadores aritméticos no son evaluadas, sino simplificadas, para lo cual Maxima
-las representa internamente en forma nominal; de ahí que el 
-cálculo numérico de una suma o de una multiplicación no se considera una
-evaluación, sino una simplificación. La evaluación de una expresión
-puede inhibirse con el operador de comilla simple (<code>'</code>) y su simplificación
-se puede controlar con el valor asignado a la variable opcional <code>simp</code>.
-</p>
-<p>En el siguiente ejemplo, se evita la simplificación con el operador de comilla
-simple, siendo el resultado una expresión nominal. A continuación, se inhibe la
-simplificación tras la evaluación de la derivada, dejando sin reducir el resultado
-a <code>2*x</code>.
-</p>
-<pre class="example">(%i1) 'diff(x*x,x);
-                             d    2
-(%o1)                        -- (x )
-                             dx
-(%i2) simp:false;
-(%o2)                         false
-(%i3) diff(x*x,x);
-(%o3)                       1 x + 1 x
-</pre>
-<p>Para cada función u operador matemático dispone Maxima de una rutina interna
-que será utilizada para su simplificación siempre que se la encuentre en una
-expresión. Estas rutinas implementan propiedades simétricas, valores especiales
-de las funciones y otras propiedades y reglas. La gran cantidad de variables
-opcionales permiten mantener bajo control la simplificación de funciones y
-operadores.
-</p>
-<p>Veamos un ejemplo. La simplificación de la función exponencial <code>exp</code>
-se controla con las siguientes variables opcionales: <code>%enumer</code>, <code>%emode</code>,
-<code>%e_to_numlog</code>, <code>code</code>, <code>logsimp</code> y <code>demoivre</code>.
-En el primer caso la expresión con la función exponencial no se simplifica,
-pero en el segundo se reduce a <code>%i*%pi/2</code>.
-</p>
-<pre class="example">(%i1) exp(x+%i*%pi/2), %emode:false;
-                                %i %pi
-                            x + ------
-                                  2
-(%o1)                     %e
-(%i2) exp(x+%i*%pi/2), %emode:true;
-                                  x
-(%o2)                        %i %e
-</pre>
-<p>Junto con la simplificación aislada de funciones y operadores que Maxima
-realiza de forma automática, existen también funciones como <code>expand</code>
-o <code>radcan</code> que realizan sobre las expresiones simplificaciones 
-especiales. Sigue un ejemplo:
-</p>
-<pre class="example">(%i1) (log(x+x^2)-log(x))^a/log(1+x)^(a/2);
-                           2               a
-                     (log(x  + x) - log(x))
-(%o1)                -----------------------
-                                    a/2
-                          log(x + 1)
-(%i2) radcan(%);
-                                    a/2
-(%o2)                     log(x + 1)
-</pre>
-<p>A un operador o función se le pueden asignar propiedades tales como la 
-linealidad, la simetría u otras. Maxima tiene en cuenta
-estas propiedades durante la simplificación. Por ejemplo, la instrucción
-<code>declare(f, oddfun)</code> declara la función como impar, con lo que
-Maxima sabrá que las formas <code>f(-x)</code> y <code>-f(x)</code> son equivalentes,
-llevando a cabo la reducción oportuna. 
-</p>
-<p>Las siguientes propiedades están en la lista <code>opproperties</code> y controlan
-la simplificación de funciones y operadores:
-</p>
-<pre class="verbatim">   additive        lassociative     oddfun
-   antisymmetric   linear           outative
-   commutative     multiplicative   rassociative
-   evenfun         nary             symmetric
-</pre>
-<p>Tanto las propiedades como los hechos (o hipótesis) establecidos por el
-usuario dentro de un contexto influyen sobre el proceso de simplificación.
-Para más detalles véase el capítulo sobre la base de datos
-de Maxima.
-</p>
-<p>La función seno reduce los múltiplos enteros de <code>%pi</code> al valor cero.
-En este ejemplo se muestra cómo al dotar al símbolo
-<code>n</code> de la propiedad de ser entero, la función se simplifica de la forma
-apropiada.
-</p>
-<pre class="example">(%i1) sin(n*%pi);
-(%o1)                      sin(%pi n)
-(%i2) declare(n, integer);
-(%o2)                         done
-(%i3) sin(n*%pi);
-(%o3)                           0
-</pre>
-<p>Si las técnicas anteriores no devuelven el resultado esperado por el usuario,
-éste puede extender a voluntad las reglas que pueda aplicar Maxima; para más
-información al respecto, véase el capítulo dedicado a las
-reglas y patrones.
-</p>
-
-
-
-
-
-
-
-
-
-
-<hr size="6">
-<a name="Funciones-y-variables-para-simplificaci_00f3n"></a>
-<a name="SEC58"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC57" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_10.html#SEC59" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC56" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC56" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_10.html#SEC59" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 9.2 Funciones y variables para simplificación </h2>
-
-
-<dl>
-<dt><u>Propiedad:</u> <b>additive</b>
-<a name="IDX288"></a>
-</dt>
-<dd><p>Si <code>declare(f,additive)</code> ha sido ejecutado, entonces: 
-</p>
-<p>(1) Si <code>f</code> es univariado, cada vez que el simplificador encuentre
-<code>f</code> aplicada a una suma, <code>f</code> será distribuida bajo esta suma. Por ejemplo, <code>f(x+y)</code> se simplificará a <code>f(x)+f(y)</code>. 
-</p>
-<p>(2) Si <code>f</code> es una función de 2 o más argumentos, aditivamente es definida como aditiva en el primer argumento de <code>f</code>, como en el caso de <code>sum</code> o <code>integrate</code>. Por ejemplo, <code>f(h(x)+g(x),x)</code> se simplificará a <code>f(h(x),x)+f(g(x),x)</code>. Esta simplificación no ocurre cuando <code>f</code> se aplica a expresiones de la forma <code>sum(x[i],i,lower-limit,upper-limit)</code>.
-</p>
-<p>Ejemplo:
-</p>
-<pre class="example">(%i1) F3 (a + b + c);
-(%o1)                     F3(c + b + a)
-(%i2) declare (F3, additive);
-(%o2)                         done
-(%i3) F3 (a + b + c);
-(%o3)                 F3(c) + F3(b) + F3(a)
-</pre></dd></dl>
-
-
-<dl>
-<dt><u>Propiedad:</u> <b>antisymmetric</b>
-<a name="IDX289"></a>
-</dt>
-<dd><p>Si <code>declare(h,antisymmetric)</code> es ejecutado, esto dice al 
-simplificador que <code>h</code> es antisimétrico. E.g. <code>h(x,z,y)</code> será 
-simplificado a <code>-h(x,y,z)</code>. Que es, el producto de (-1)^n por el resultado 
-dado por <code>symmetric</code> o <code>commutative</code>, donde n es el número de intercambios 
-necesarios de dos argumentos para convertirle a esta forma.  
-</p>
-<p>Ejemplos:
-</p>
-<pre class="example">(%i1) S (b, a);
-(%o1)                        S(b, a)
-(%i2) declare (S, symmetric);
-(%o2)                         done
-(%i3) S (b, a);
-(%o3)                        S(a, b)
-(%i4) S (a, c, e, d, b);
-(%o4)                   S(a, b, c, d, e)
-(%i5) T (b, a);
-(%o5)                        T(b, a)
-(%i6) declare (T, antisymmetric);
-(%o6)                         done
-(%i7) T (b, a);
-(%o7)                       - T(a, b)
-(%i8) T (a, c, e, d, b);
-(%o8)                   T(a, b, c, d, e)
-</pre></dd></dl>
-
-
-<dl>
-<dt><u>Función:</u> <b>combine</b><i> (<var>expr</var>)</i>
-<a name="IDX290"></a>
-</dt>
-<dd><p>Simplifica la suma <var>expr</var> combinando términos de con igual denominador reduciéndolos a un único término.
-</p>
-</dd></dl>
-
-
-
-<dl>
-<dt><u>Propiedad:</u> <b>commutative</b>
-<a name="IDX291"></a>
-</dt>
-<dd><p>Si <code>declare(h,commutative)</code> es ejecutado, le dice al simplificador
-que <code>h</code> es una función conmutaiva. Por ejemplo, <code>h(x,z,y)</code> se simplificará a <code>h(x,y,z)</code>. Esto es lo mismo que <code>symmetric</code>. 
-</p>
-</dd></dl>
-
-
-<dl>
-<dt><u>Función:</u> <b>demoivre</b><i> (<var>expr</var>)</i>
-<a name="IDX292"></a>
-</dt>
-<dt><u>Variable opcional:</u> <b>demoivre</b>
-<a name="IDX293"></a>
-</dt>
-<dd><p>La función <code>demoivre (expr)</code> convierte una expresión sin modificar la variable global <code>demoivre</code>.
-</p>
-<p>Cuando <code>demoivre</code> vale <code>true</code>, los exponenciales complejos se convierten en expresiones equivalentes pero en términos de las funciones trigonométricas:
-<code>exp (a + b*%i)</code> se reduce a <code>%e^a * (cos(b) + %i*sin(b))</code>
-si <code>b</code> no contiene a <code>%i</code>. Las expresiones <code>a</code> y <code>b</code> no se expanden.
-</p>
-<p>El valor por defecto de <code>demoivre</code> es <code>false</code>.
-</p>
-<p>La función <code>exponentialize</code> convierte funciones trigonométricas e hiperbólicas a la forma exponencial, por lo que  <code>demoivre</code> y <code>exponentialize</code> no pueden valer <code>true</code> al mismo tiempo.
-</p>
-</dd></dl>
-
-
-<dl>
-<dt><u>Función:</u> <b>distrib</b><i> (<var>expr</var>)</i>
-<a name="IDX294"></a>
-</dt>
-<dd><p>Distribuye sumas sobre productos. Difiere de <code>expand</code>
-en que trabaja sólo al nivel superior de una expresión, siendo más rápida que <code>expand</code>.  Difiere de  <code>multthru</code> en que expande todas las sumas del nivel superior.
-</p>
-<p>Ejemplos:
-</p>
-<pre class="example">(%i1) distrib ((a+b) * (c+d));
-(%o1)                 b d + a d + b c + a c
-(%i2) multthru ((a+b) * (c+d));
-(%o2)                 (b + a) d + (b + a) c
-(%i3) distrib (1/((a+b) * (c+d)));
-                                1
-(%o3)                    ---------------
-                         (b + a) (d + c)
-(%i4) expand (1/((a+b) * (c+d)), 1, 0);
-                                1
-(%o4)                 ---------------------
-                      b d + a d + b c + a c
-</pre>
-</dd></dl>
-
-
-
-<dl>
-<dt><u>Variable opcional:</u> <b>distribute_over</b>
-<a name="IDX295"></a>
-</dt>
-<dd><p>Valor por defecto: <code>true</code>
-</p>
-<p><code>distribute_over</code> controla la distribución de funciones sobre
-estructuras como listas, matrices y ecuaciones. Actualmente, no todas
-las funciones de Maxima tienen esta propiedad. Es posible consultar si
-una función tiene esta propiedad con la instrucción <code>properties</code>.
-</p>
-<p>La propiedad distributiva se desactiva asignándole a <code>distribute_over</code>
-el valor <code>false</code>.
-</p>
-<p>Ejemplos:
-</p>
-<p>La función <code>sin</code> se distribuye sobre una lista:
-</p>
-<pre class="example">(%i1) sin([x,1,1.0]);
-(%o1)                 [sin(x), sin(1), .8414709848078965]
-</pre>
-<p><code>mod</code> es una función de dos argumentos que se distribuye sobre listas.
-La distribución sobre listas anidadas también es posible.
-</p>
-<pre class="example">(%i2) mod([x,11,2*a],10);
-(%o2)                    [mod(x, 10), 1, 2 mod(a, 5)]
-(%i3) mod([[x,y,z],11,2*a],10);
-(%o3)       [[mod(x, 10), mod(y, 10), mod(z, 10)], 1, 2 mod(a, 5)]
-</pre>
-<p>Distribución de la función <code>floor</code> sobre una matriz y una
-ecuación.
-</p>
-<pre class="example">(%i4) floor(matrix([a,b],[c,d]));
-                            [ floor(a)  floor(b) ]
-(%o4)                       [                    ]
-                            [ floor(c)  floor(d) ]
-(%i5) floor(a=b);
-(%o5)                         floor(a) = floor(b)
-</pre>
-<p>Funciones con más de un argumento se distribuyen sobre cualquiera
-de sus argumentos, o sobre todos ellos.
-</p>
-<pre class="example">(%i6) expintegral_e([1,2],[x,y]);
-(%o6) [[expintegral_e(1, x), expintegral_e(1, y)], 
-       [expintegral_e(2, x), expintegral_e(2, y)]]
-</pre>
-<p>Comprueba si una función tiene la propiedad <code>distribute_over</code>:
-</p>
-<pre class="example">(%i7) properties(abs);
-(%o7) [integral, distributes over bags, noun, rule, gradef]
-</pre></dd></dl>
-
-
-<dl>
-<dt><u>Variable opcional:</u> <b>domain</b>
-<a name="IDX296"></a>
-</dt>
-<dd><p>Valor por defecto: <code>real</code>
-</p>
-<p>Si <code>domain</code> vale <code>complex</code>, <code>sqrt (x^2)</code> permanecerá como
-<code>sqrt (x^2)</code> en lugar de devolver <code>abs(x)</code>.
-</p>
-
-</dd></dl>
-
-
-<dl>
-<dt><u>Propiedad:</u> <b>evenfun</b>
-<a name="IDX297"></a>
-</dt>
-<dt><u>Propiedad:</u> <b>oddfun</b>
-<a name="IDX298"></a>
-</dt>
-<dd><p><code>declare(f, evenfun</code> o <code>declare(f, oddfun)</code> indican a Maxima que reconozca
-la función <code>f</code> como par o impar, respectivamente.
-</p>
-<p>Ejemplos:
-</p>
-<pre class="example">(%i1) o (- x) + o (x);
-(%o1)                     o(x) + o(- x)
-(%i2) declare (o, oddfun);
-(%o2)                         done
-(%i3) o (- x) + o (x);
-(%o3)                           0
-(%i4) e (- x) - e (x);
-(%o4)                     e(- x) - e(x)
-(%i5) declare (e, evenfun);
-(%o5)                         done
-(%i6) e (- x) - e (x);
-(%o6)                           0
-</pre></dd></dl>
-
-
-
-
-<dl>
-<dt><u>Función:</u> <b>expand</b><i> (<var>expr</var>)</i>
-<a name="IDX299"></a>
-</dt>
-<dt><u>Función:</u> <b>expand</b><i> (<var>expr</var>, <var>p</var>, <var>n</var>)</i>
-<a name="IDX300"></a>
-</dt>
-<dd><p>Expande la expresión <var>expr</var>. Los productos de sumas y de sumas con exponentes se multiplican, los numeradores de las expresiones racionales que son sumas se separan en sus respectivos términos, y las multiplicaciones (tanto las que son conmutativas como las que no) se distribuyen sobre las sumas en todos los niveles de <var>expr</var>.
-</p>
-<p>En el caso de los polinomios es más aconsejable utilizar <code>ratexpand</code>, que utiliza un algoritmo más eficiente.
-</p>
-<p>Las variables <code>maxnegex</code> y <code>maxposex</code> controlan los máximos exponentes negativos y positivos que se van a expandir.
-</p>
-<p>La llamada <code>expand (<var>expr</var>, <var>p</var>, <var>n</var>)</code> expande <var>expr</var> asignando a <code>maxposex</code> el valor <var>p</var> y a <code>maxnegex</code> el <var>n</var>. Esto es útil para expandir sólo parte de la expresión.
-</p>
-<p>La variable <code>expon</code> guarda el mayor exponente negativo que será expandido automáticamente, independientemente de <code>expand</code>. Por ejemplo, si <code>expon</code> vale 4 entonces <code>(x+1)^(-5)</code> no se expandirá automáticamente.
-</p>
-<p>La variable <code>expop</code> guarda el mayor exponente positivo que será expandido automáticamente.  Así, <code>(x+1)^3</code> se expandirá automáticamente sólo si <code>expop</code> es mayor o igual que 3. Si se quiere expandir <code>(x+1)^n</code>, siendo <code>n</code> mayor que <code>expop</code>, entonces <code>expand ((x+1)^n)</code> se desarrollará sólo si <code>maxposex</code> no es menor que <code>n</code>.
-</p>
-<p><code>expand(expr, 0, 0)</code> provoca que se vuelva a simplificar <code>expr</code>.
-<code>expr</code> no se vuelve a evaluar. A diferencia de <code>ev(expr, noeval)</code>,
-se elimina la representación canónica de la expresión. 
-Véase también <code>ev</code>.
-</p>
-<p>La variable <code>expand</code> utilizada con <code>ev</code> provocará una expansión.
-</p>
-<p>El fichero <tt>`share/simplification/facexp.mac'</tt>
-contiene algunas funciones relacionadas con <code>expand</code> (en concreto, <code>facsum</code>, <code>factorfacsum</code>
-y <code>collectterms</code>, que se cargan automáticamente) y variables (<code>nextlayerfactor</code>
-y <code>facsum_combine</code>) que permiten al usuario estructurar las expresiones controlando la expansión.
-En  <tt>`simplification/facexp.usg'</tt> se pueden encontrar breves descripciones de estas funciones.
-Se accederá a una demostración con la instrucción <code>demo(&quot;facexp&quot;)</code>.
-</p>
-<p>Ejemplo:
-</p>
-<pre class="example">(%i1) expr:(x+1)^2*(y+1)^3;
-                                      2        3
-(%o1)                          (x + 1)  (y + 1)
-(%i2) expand(expr);
-       2  3        3    3      2  2        2      2      2
-(%o2) x  y  + 2 x y  + y  + 3 x  y  + 6 x y  + 3 y  + 3 x  y
-                                                 2
-                                + 6 x y + 3 y + x  + 2 x + 1
-
-(%i3) expand(expr,2);
-                      2        3              3          3
-(%o3)                x  (y + 1)  + 2 x (y + 1)  + (y + 1)
-
-(%i4) expr:(x+1)^-2*(y+1)^3;
-                                          3
-                                   (y + 1)
-(%o4)                              --------
-                                          2
-                                   (x + 1)
-(%i5) expand(expr);
-                 3               2
-                y             3 y            3 y             1
-(%o5)      ------------ + ------------ + ------------ + ------------
-            2              2              2              2
-           x  + 2 x + 1   x  + 2 x + 1   x  + 2 x + 1   x  + 2 x + 1
-
-(%i6) expand(expr,2,2);
-                                          3
-                                   (y + 1)
-(%o6)                            ------------
-                                  2
-                                 x  + 2 x + 1
-</pre>
-<p>Vuelve a simplificar una expresión pero sin expansión:
-</p>
-<pre class="example">(%i7) expr:(1+x)^2*sin(x);
-                                       2
-(%o7)                           (x + 1)  sin(x)
-(%i8) exponentialize:true;
-(%o8)                                true
-(%i9) expand(expr,0,0);
-                                   2    %i x     - %i x
-                         %i (x + 1)  (%e     - %e      )
-(%o9)                  - -------------------------------
-                                        2
-</pre></dd></dl>
-
-
-
-<dl>
-<dt><u>Función:</u> <b>expandwrt</b><i> (<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</i>
-<a name="IDX301"></a>
-</dt>
-<dd><p>Expande la expresión <code>expr</code> con respecto a las variables <var>x_1</var>, ..., <var>x_n</var>.
-Todos los productos que contengan a las variables aparecen explícitamente. El resultado que se obtenga no tendr'a productos de sumas de expresiones que contengan a las variables. Los argumentos  <var>x_1</var>, ..., <var>x_n</var>
-pueden ser variables, operadores o expresiones.
-</p>
-<p>Por defecto, no se expanden los denominadores, pero esto puede cambiarse mediante el uso de la variable <code>expandwrt_denom</code>.
-</p>
-<p>Esta función se carga automáticamente de <tt>`simplification/stopex.mac'</tt>.
-</p>
-</dd></dl>
-
-
-<dl>
-<dt><u>Variable opcional:</u> <b>expandwrt_denom</b>
-<a name="IDX302"></a>
-</dt>
+<a name="Item_003a-Command_002ees_002fdefvr_002f_0025edispflag"></a><dl>
+<dt><a name="index-_0025edispflag"></a>Variable opcional: <strong>%edispflag</strong></dt>
 <dd><p>Valor por defecto: <code>false</code>
 </p>
-<p>La variable <code>expandwrt_denom</code> controla el tratamiento de las expresiones racinales por parte de <code>expandwrt</code>. Si vale <code>true</code>, se expandirán tanto el numerador como el denominador de la expresión respecto de los argumentos de <code>expandwrt</code>, pero si <code>expandwrt_denom</code> vale <code>false</code>, sólo se expandirá el numerador.
-</p>
-</dd></dl>
-
-
-<dl>
-<dt><u>Función:</u> <b>expandwrt_factored</b><i> (<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</i>
-<a name="IDX303"></a>
-</dt>
-<dd><p>Es similar a <code>expandwrt</code>, pero trata a las expresiones que son productos de una forma algo diferente. La función
-<code>expandwrt_factored</code> expande sólo aquellos factores de <code>expr</code> que contienen a las variables <var>x_1</var>, ..., <var>x_n</var>.
-</p>
-<p>Esta función se carga automáticamente de <tt>`simplification/stopex.mac'</tt>.
-</p>
-</dd></dl>
-
-
-<dl>
-<dt><u>Variable opcional:</u> <b>expon</b>
-<a name="IDX304"></a>
-</dt>
-<dd><p>Valor por defecto: 0
-</p>
-<p>La variable <code>expon</code> guarda el mayor exponente negativo que será expandido automáticamente, independientemente de <code>expand</code>. Por ejemplo, si <code>expon</code> vale 4 entonces <code>(x+1)^(-5)</code> no se expandirá automáticamente.
-</p>
-</dd></dl>
-
-
-
-<dl>
-<dt><u>Función:</u> <b>exponentialize</b><i> (<var>expr</var>)</i>
-<a name="IDX305"></a>
-</dt>
-<dt><u>Variable opcional:</u> <b>exponentialize</b>
-<a name="IDX306"></a>
-</dt>
-<dd><p>La función <code>exponentialize (expr)</code> convierte las funciones trigonométricas e hiperbólicas de <var>expr</var> a exponenciales, sin alterar la variable global <code>exponentialize</code>.
-</p>
-<p>Cuando la variable <code>exponentialize</code> vale <code>true</code>, todas las funciones trigonométricas e hiperbólicas se convierten a forma exponencial. El valor por defecto es <code>false</code>.
-</p>
-<p>La función <code>demoivre</code> convierte funciones trigonométricas e hiperbólicas a la forma exponencial, por lo que  <code>demoivre</code> y <code>exponentialize</code> no pueden valer <code>true</code> al mismo tiempo.
-</p>
-</dd></dl>
-
-
-
-<dl>
-<dt><u>Variable opcional:</u> <b>expop</b>
-<a name="IDX307"></a>
-</dt>
-<dd><p>Valor por defecto: 0
-</p>
-<p>La variable <code>expop</code> guarda el mayor exponente positivo que será expandido automáticamente.  Así, <code>(x+1)^3</code> se expandirá automáticamente sólo si <code>expop</code> es mayor o igual que 3. Si se quiere expandir <code>(x+1)^n</code>, siendo <code>n</code> mayor que <code>expop</code>, entonces <code>expand ((x+1)^n)</code> se desarrollará sólo si <code>maxposex</code> no es menor que <code>n</code>.
-</p>
-</dd></dl>
-
-
-<dl>
-<dt><u>Propiedad:</u> <b>lassociative</b>
-<a name="IDX308"></a>
-</dt>
-<dd><p>La instrucción <code>declare (g, lassociative)</code> le indica al simplificador de Maxima que <code>g</code> es asociativo por la izquierda.  Por ejemplo, <code>g (g (a, b), g (c, d))</code>se reduce a <code>g (g (g (a, b), c), d)</code>.
-</p>
-</dd></dl>
-
-
-<dl>
-<dt><u>Propiedad:</u> <b>linear</b>
-<a name="IDX309"></a>
-</dt>
-<dd><p>Es una de las propiedades de operadores de Maxima. Si la función 
-univariante <code>f</code> se declara lineal, la expansión de  <code>f(x + y)</code> 
-produce <code>f(x) + f(y)</code>, <code>f(a*x)</code> produce <code>a*f(x)</code> si <code>a</code> 
-es una constante.  Si la función tiene dos o más argumentos, la linealidad 
-se interpreta como la de <code>sum</code> o <code>integrate</code>, esto es, 
-<code>f (a*x + b, x)</code> produce <code>a*f(x,x) + b*f(1,x)</code> si <code>a</code> y <code>b</code> 
-no contienen a <code>x</code>.
-</p>
-<p><code>linear</code> equivale a <code>additive</code> y <code>outative</code>.
-Véase también <code>opproperties</code>.
+<p>Si <code>%edispflag</code> vale <code>true</code>, Maxima muestra <code>%e</code> elevado
+a un exponente negativo como un cociente. Por ejemplo, <code>%e^-x</code> se
+muestra como <code>1/%e^x</code>. Véase también <code>exptdispflag</code>.
 </p>
 <p>Ejemplo:
 </p>
-<pre class="example">(%i1) 'sum (F(k) + G(k), k, 1, inf);
-                       inf
-                       ====
-                       \
-(%o1)                   &gt;    (G(k) + F(k))
-                       /
-                       ====
-                       k = 1
-(%i2) declare (nounify (sum), linear);
-(%o2)                         done
-(%i3) 'sum (F(k) + G(k), k, 1, inf);
-                     inf          inf
-                     ====         ====
-                     \            \
-(%o3)                 &gt;    G(k) +  &gt;    F(k)
-                     /            /
-                     ====         ====
-                     k = 1        k = 1
-</pre></dd></dl>
-
-
-<dl>
-<dt><u>Variable opcional:</u> <b>maxnegex</b>
-<a name="IDX310"></a>
-</dt>
-<dd><p>Valor por defecto: 1000
-</p>
-<p>La variable <code>maxnegex</code> es el mayor exponente negativo que expandirá la función <code>expand</code>. Véase también <code>maxposex</code>.
-</p>
+<div class="example">
+<pre class="example">(%i1) %e^-10;
+                               - 10
+(%o1)                        %e
+(%i2) %edispflag:true$
+(%i3) %e^-10;
+                               1
+(%o3)                         ----
+                                10
+                              %e
+</pre></div>
 </dd></dl>
 
 
 
-<dl>
-<dt><u>Variable opcional:</u> <b>maxposex</b>
-<a name="IDX311"></a>
-</dt>
-<dd><p>Valor por defecto: 1000
+<a name="Item_003a-Command_002ees_002fdefvr_002fabsboxchar"></a><dl>
+<dt><a name="index-absboxchar"></a>Variable opcional: <strong>absboxchar</strong></dt>
+<dd><p>Valor por defecto: <code>!</code>
 </p>
-<p>La variable <code>maxposex</code> es el mayor exponenteque expandirá la función <code>expand</code>. Véase también <code>maxnegex</code>.
-</p>
-</dd></dl>
-
-
-
-<dl>
-<dt><u>Propiedad:</u> <b>multiplicative</b>
-<a name="IDX312"></a>
-</dt>
-<dd><p>La instrucción <code>declare (f, multiplicative)</code> indica al simplificador de Maxima que <code>f</code> is multiplicativa.
-</p>
-<ol>
-<li>
-Si <code>f</code> es univariante, cada vez que el simplificador encuentre a <code>f</code> aplicad a un producto, <code>f</code> se distribuirá sobre ese producto.  Por ejemplo, <code>f(x*y)</code> se reduciría a <code>f(x)*f(y)</code>.
-</li><li>
-Si <code>f</code> es una función de 2 o más argumentos, la multiplicabilidad se define como multiplicabilidad para el primer argumento de <code>f</code>, de modo que <code>f (g(x) * h(x), x)</code> se reduciría a <code>f (g(x) ,x) * f (h(x), x)</code>.
-</li></ol>
-
-<p>Esta transformación no se realiza cuando <code>f</code> se aplica a expresiones de la forma <code>product (x[i], i, m, n)</code>.
+<p>La variable <code>absboxchar</code> es el carácter utilizado para representar el valor absoluto de una expresión que ocupa más de una línea de altura.
 </p>
 <p>Ejemplo:
 </p>
-<pre class="example">(%i1) F2 (a * b * c);
-(%o1)                       F2(a b c)
-(%i2) declare (F2, multiplicative);
-(%o2)                         done
-(%i3) F2 (a * b * c);
-(%o3)                   F2(a) F2(b) F2(c)
-</pre></dd></dl>
+<div class="example">
+<pre class="example">(%i1) abs((x^3+1));
+                            ! 3    !
+(%o1)                       !x  + 1!
+</pre></div>
+</dd></dl>
 
 
-
-
-<dl>
-<dt><u>Función:</u> <b>multthru</b><i> (<var>expr</var>)</i>
-<a name="IDX313"></a>
-</dt>
-<dt><u>Función:</u> <b>multthru</b><i> (<var>expr_1</var>, <var>expr_2</var>)</i>
-<a name="IDX314"></a>
-</dt>
-<dd><p>Multiplica un factor (que debería ser una suma) de <var>expr</var> por los otros factores de <var>expr</var>.  Esto es, <var>expr</var> es <code><var>f_1</var> <var>f_2</var> ... <var>f_n</var></code>, donde al menos un factor, por ejemplo <var>f_i</var>, es una suma de términos.  Cada término en esta suma se multiplica por los otros factores del producto, excepto el propio <var>f_i</var>. La función  <code>multthru</code> no expande sumas elevadas a exponentes, siendo el método más rápido para distribuir productos (sean o no conmutativos) sobre sumas. Puesto que los cocientes se representan como productos, puede utilizarse<code>multthru</code> para dividir sumas entre productos.
+<a name="Item_003a-Command_002ees_002fdeffn_002fdisp"></a><dl>
+<dt><a name="index-disp"></a>Función: <strong>disp</strong> <em>(<var>expr_1</var>, <var>expr_2</var>, ...)</em></dt>
+<dd>
+<p>Es como <code>display</code> pero sólo se muestran los valores de
+los argumentos, no las ecuaciones. Es útil para argumentos 
+complicados que no tienen nombre o en situaciones en las que 
+solamente es de interés el valor del argumento pero no su nombre.
 </p>
-<p>La llamada <code>multthru (<var>expr_1</var>, <var>expr_2</var>)</code> multiplica cada término de <var>expr_2</var> (que debería ser una suma o una ecuación) por <var>expr_1</var>.  Si <var>expr_1</var> no es ella misma una suma, entonces la llamada es equivalente a <code>multthru (<var>expr_1</var>*<var>expr_2</var>)</code>.
+<p>Véanse también <code>ldisp</code> y <code>print</code>.
 </p>
-<pre class="example">(%i1) x/(x-y)^2 - 1/(x-y) - f(x)/(x-y)^3;
-                      1        x         f(x)
-(%o1)             - ----- + -------- - --------
-                    x - y          2          3
-                            (x - y)    (x - y)
-(%i2) multthru ((x-y)^3, %);
-                           2
-(%o2)             - (x - y)  + x (x - y) - f(x)
-(%i3) ratexpand (%);
-                           2
-(%o3)                   - y  + x y - f(x)
-(%i4) ((a+b)^10*s^2 + 2*a*b*s + (a*b)^2)/(a*b*s^2);
-                        10  2              2  2
-                 (b + a)   s  + 2 a b s + a  b
-(%o4)            ------------------------------
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) b[1,2]:x-x^2$
+(%i2) x:123$
+(%i3) disp(x, b[1,2], sin(1.0));
+                               123
+
                                   2
-                             a b s
-(%i5) multthru (%);  /* note that this does not expand (b+a)^10 */
-                                        10
-                       2   a b   (b + a)
-(%o5)                  - + --- + ---------
-                       s    2       a b
-                           s
-(%i6) multthru (a.(b+c.(d+e)+f));
-(%o6)            a . f + a . c . (e + d) + a . b
-(%i7) expand (a.(b+c.(d+e)+f));
-(%o7)         a . f + a . c . e + a . c . d + a . b
-</pre>
+                             x - x
+
+                        .8414709848078965
+
+(%o3)                         done
+</pre></div>
 </dd></dl>
 
 
-<dl>
-<dt><u>Propiedad:</u> <b>nary</b>
-<a name="IDX315"></a>
-</dt>
-<dd><p><code>declare(f, nary)</code> le indica a Maxima que reconozca la función <code>f</code>
-como n-aria.
+<a name="Item_003a-Command_002ees_002fdeffn_002fdisplay"></a><dl>
+<dt><a name="index-display"></a>Función: <strong>display</strong> <em>(<var>expr_1</var>, <var>expr_2</var>, ...)</em></dt>
+<dd>
+<p>Muestra las ecuaciones cuyos miembros izquierdos son 
+<var>expr_i</var> sin evaluar y cuyos miembros derechos son los 
+valores de las expresiones. Esta función es útil en los 
+bloques y en las sentencias <code>for</code> para mostrar resultados 
+intermedios.  Los argumentos de <code>display</code> suelen ser átomos, 
+variables subindicadas o llamadas a funciones.
 </p>
-<p>La declaración <code>nary</code> no equivale a invocar la función 
-<code>function_nary, nary</code>. El único efecto de <code>declare(f, nary)</code> 
-es indicar al simplificador de Maxima que aplane expresiones anidadas,
-como simplificar <code>foo(x, foo(y, z))</code> a <code>foo(x, y, z)</code>.
-Véase también <code>declare</code>.
+<p>Véanse también <code>ldisplay</code>, <code>disp</code> y <code>ldisp</code>.
 </p>
-<p>Ejemplo:
+<p>Ejemplos:
 </p>
-<pre class="example">(%i1) H (H (a, b), H (c, H (d, e)));
-(%o1)               H(H(a, b), H(c, H(d, e)))
-(%i2) declare (H, nary);
-(%o2)                         done
-(%i3) H (H (a, b), H (c, H (d, e)));
-(%o3)                   H(a, b, c, d, e)
-</pre></dd></dl>
+<div class="example">
+<pre class="example">(%i1) b[1,2]:x-x^2$
+(%i2) x:123$
+(%i3) display(x, b[1,2], sin(1.0));
+                             x = 123
+
+                                      2
+                         b     = x - x
+                          1, 2
+
+                  sin(1.0) = .8414709848078965
+
+(%o3)                         done
+</pre></div>
+</dd></dl>
 
 
-
-<dl>
-<dt><u>Variable opcional:</u> <b>negdistrib</b>
-<a name="IDX316"></a>
-</dt>
+<a name="Item_003a-Command_002ees_002fdefvr_002fdisplay2d"></a><dl>
+<dt><a name="index-display2d"></a>Variable opcional: <strong>display2d</strong></dt>
 <dd><p>Valor por defecto: <code>true</code>
 </p>
-<p>Si <code>negdistrib</code> vale <code>true</code>, -1 se distribuye sobre una expresión.  Por ejemplo, <code>-(x + y)</code> se transforma en <code>- y - x</code>.  Dándole el valor <code>false</code> se mostrará <code>- (x + y)</code> tal cual. Esto puede ser útil, pero también peligroso; al igual que el indicador <code>simp</code>, no conviene asignarle el valor <code>false</code>.
+<p>Si <code>display2d</code> vale <code>false</code>, la salida por consola es
+una cadena unidimensional, en lugar de una expresión bidimensional.
 </p>
-</dd></dl>
-
-
-<dl>
-<dt><u>Variable del sistema:</u> <b>opproperties</b>
-<a name="IDX317"></a>
-</dt>
-<dd><p>La variable <code>opproperties</code> es la lista con las propiedades especiales de los operadores reconocidas por el simplificador de Maxima:
-<code>linear</code>, <code>additive</code>, <code>multiplicative</code>, <code>outative</code>, <code>evenfun</code>,
-<code>oddfun</code>, <code>commutative</code>, <code>symmetric</code>, <code>antisymmetric</code>, <code>nary</code>, 
-<code>lassociative</code>, <code>rassociative</code>.
-</p>
-</dd></dl>
-
-
-
-<dl>
-<dt><u>Propiedad:</u> <b>outative</b>
-<a name="IDX318"></a>
-</dt>
-<dd><p>La instrucción <code>declare (f, outative)</code> le indica al simplificador de Maxima 
-que los factores constantes del argumento de la función <code>f</code> pueden ser 
-extraídos.
-</p>
-<ol>
-<li>
-Si <code>f</code> es univariante, cada vez que el simplificador se encuentra con <code>f</code> 
-aplicada a un producto, éste será particionado en factores que son constantes y 
-factores que no lo son, siendo entonces los constantes extraídos de la 
-función.  Por ejemplo, <code>f(a*x)</code> se reducirá a <code>a*f(x)</code> siendo <code>a</code> 
-una constante. Las constantes no atómicas no serán extraídas.
-</li><li>
-Si <code>f</code> es una función de 2 o más argumentos, esta propiedad se define como 
-en  <code>sum</code> o <code>integrate</code>, esto es, <code>f (a*g(x), x)</code> se reducirá a 
-<code>a * f(g(x), x)</code> si <code>a</code> no contiene a <code>x</code>.
-</li></ol>
-
-<p>Las funciones <code>sum</code>, <code>integrate</code> y <code>limit</code> han sido todas declaradas 
-con la propiedad <code>outative</code>.
+<p>Véase también <code>leftjust</code> para cambiar la justificación a
+la izquierda o el centrado de la ecuación.
 </p>
 <p>Ejemplo:
 </p>
-<pre class="example">(%i1) F1 (100 * x);
-(%o1)                       F1(100 x)
-(%i2) declare (F1, outative);
+<div class="example">
+<pre class="example">(%i1) x/(x^2+1);
+                               x
+(%o1)                        ------
+                              2
+                             x  + 1
+(%i2) display2d:false$
+(%i3) x/(x^2+1);
+(%o3) x/(x^2+1)
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-Command_002ees_002fdefvr_002fdisplay_005fformat_005finternal"></a><dl>
+<dt><a name="index-display_005fformat_005finternal"></a>Variable opcional: <strong>display_format_internal</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>display_format_internal</code> vale <code>true</code>,
+las expresiones se muestran sin ser transformadas de manera que oculten su representación matemática interna. Se representa lo que la función <code>inpart</code> devolvería, en oposición a <code>part</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">User     part       inpart
+a-b;      a - b     a + (- 1) b
+
+           a            - 1
+a/b;       -         a b
+           b
+                       1/2
+sqrt(x);   sqrt(x)    x
+
+          4 X        4
+X*4/3;    ---        - X
+           3         3
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-Command_002ees_002fdeffn_002fdispterms"></a><dl>
+<dt><a name="index-dispterms"></a>Función: <strong>dispterms</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Muestra <var>expr</var> en partes, una debajo de la otra.
+Esto es, primero se muestra el operador de <var>expr</var>, luego 
+cada término si se trata de una suma, o cada factor si es un 
+producto, o si no se muestra separadamente la parte de una expresión 
+más general. Es útil si <var>expr</var> es demasiado grande para 
+representarla de otra forma.  Por ejemplo, si <code>P1</code>, <code>P2</code>, ...  
+son expresiones muy grandes, entonces el programa de representación 
+puede superar el espacio de almacenamiento tratando de mostrar 
+<code>P1 + P2 + ...</code> todo junto.  Sin embargo, <code>dispterms (P1 + P2 + ...)</code> 
+muestra <code>P1</code>, debajo  <code>P2</code>, etc.  Cuando una expresión exponencial 
+es demasiado ancha para ser representada como <code>A^B</code>, si no se utiliza 
+<code>dispterms</code>, entonces aparecerá como <code>expt (A, B)</code> (o como 
+<code>ncexpt (A, B)</code>, en lugar de <code>A^^B</code>).
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) dispterms(2*a*sin(x)+%e^x);
+
++
+
+2 a sin(x)
+
+  x
+%e
+
+(%o1)                         done
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-Command_002ees_002fdeffn_002fexpt"></a><dl>
+<dt><a name="index-expt"></a>Símbolo especial: <strong>expt</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd><a name="Item_003a-Command_002ees_002fdeffn_002fncexpt"></a></dd><dt><a name="index-ncexpt"></a>Símbolo especial: <strong>ncexpt</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Si una expresión exponencial es demasiado ancha para ser mostrada como <code><var>a</var>^<var>b</var></code> aparecerá como <code>expt (<var>a</var>, <var>b</var>)</code> (o como <code>ncexpt (<var>a</var>, <var>b</var>)</code> en lugar de <code><var>a</var>^^<var>b</var></code>).
+</p>
+<p>Las funciones <code>expt</code> y <code>ncexpt</code> no se reconocen en una entrada.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Command_002ees_002fdefvr_002fexptdispflag"></a><dl>
+<dt><a name="index-exptdispflag"></a>Variable opcional: <strong>exptdispflag</strong></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>Si <code>exptdispflag</code> vale <code>true</code>, Maxima muestra las expresiones con 
+exponentes negativos como cocientes. Véase también <code>%edispflag</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) exptdispflag:true;
+(%o1)                         true
+(%i2) 10^-x;
+                                1
+(%o2)                          ---
+                                 x
+                               10
+(%i3) exptdispflag:false;
+(%o3)                         false
+(%i4) 10^-x;
+                                - x
+(%o4)                         10
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-Command_002ees_002fdeffn_002fgrind"></a><dl>
+<dt><a name="index-grind"></a>Función: <strong>grind</strong> <em>(<var>expr</var>)</em></dt>
+<dt><a name="index-grind-1"></a>Variable opcional: <strong>grind</strong></dt>
+<dd><p>La función <code>grind</code> imprime <var>expr</var>
+en la consola en un formato admisible como entrada para Maxima. La función 
+<code>grind</code> devuelve siempre <code>done</code>.
+</p>
+<p>Cuando <var>expr</var> es el nombre de una función o macro, <code>grind</code>
+muestra la definición de la función o de la macro en lugar de sólo
+su nombre.
+</p>
+<p>Véase también <code>string</code>, que devuelve una cadena en lugar de imprimir la salida. La función
+<code>grind</code> intenta imprimir la expresión de forma que sea lago más sencilla de leer que la salida de <code>string</code>.
+</p>
+<p>Cuando la variable <code>grind</code> vale <code>true</code>,
+la salida de <code>string</code> y <code>stringout</code> tienen el mismo formato que la de <code>grind</code>;
+en caso contrario no se formatea la salida de esas funciones.
+El valor por defecto de la variable <code>grind</code> es <code>false</code>.
+</p>
+<p>La variable <code>grind</code> también se puede utilizar como  argumento en <code>playback</code>.
+Si <code>grind</code> está presente,
+<code>playback</code> imprime las expresiones de entrada en el mismo formato que lo hace la función <code>grind</code>;
+en caso contrario no se formatean la expresiones de entrada.
+</p>
+<p>La función <code>grind</code> evalúa sus argumentos.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) aa + 1729;
+(%o1)                       aa + 1729
+(%i2) grind (%);
+aa+1729$
 (%o2)                         done
-(%i3) F1 (100 * x);
-(%o3)                       100 F1(x)
-(%i4) declare (zz, constant);
+(%i3) [aa, 1729, aa + 1729];
+(%o3)                 [aa, 1729, aa + 1729]
+(%i4) grind (%);
+[aa,1729,aa+1729]$
 (%o4)                         done
-(%i5) F1 (zz * y);
-(%o5)                       zz F1(y)
-</pre></dd></dl>
+(%i5) matrix ([aa, 17], [29, bb]);
+                           [ aa  17 ]
+(%o5)                      [        ]
+                           [ 29  bb ]
+(%i6) grind (%);
+matrix([aa,17],[29,bb])$
+(%o6)                         done
+(%i7) set (aa, 17, 29, bb);
+(%o7)                   {17, 29, aa, bb}
+(%i8) grind (%);
+{17,29,aa,bb}$
+(%o8)                         done
+(%i9) exp (aa / (bb + 17)^29);
+                                aa
+                            -----------
+                                     29
+                            (bb + 17)
+(%o9)                     %e
+(%i10) grind (%);
+%e^(aa/(bb+17)^29)$
+(%o10)                        done
+(%i11) expr: expand ((aa + bb)^10);
+         10           9        2   8         3   7         4   6
+(%o11) bb   + 10 aa bb  + 45 aa  bb  + 120 aa  bb  + 210 aa  bb
+         5   5         6   4         7   3        8   2
+ + 252 aa  bb  + 210 aa  bb  + 120 aa  bb  + 45 aa  bb
+        9        10
+ + 10 aa  bb + aa
+(%i12) grind (expr);
+bb^10+10*aa*bb^9+45*aa^2*bb^8+120*aa^3*bb^7+210*aa^4*bb^6
+     +252*aa^5*bb^5+210*aa^6*bb^4+120*aa^7*bb^3+45*aa^8*bb^2
+     +10*aa^9*bb+aa^10$
+(%o12)                        done
+(%i13) string (expr);
+(%o13) bb^10+10*aa*bb^9+45*aa^2*bb^8+120*aa^3*bb^7+210*aa^4*bb^6\
++252*aa^5*bb^5+210*aa^6*bb^4+120*aa^7*bb^3+45*aa^8*bb^2+10*aa^9*\
+bb+aa^10
+(%i14) cholesky (A):= block ([n : length (A), L : copymatrix (A),
+  p : makelist (0, i, 1, length (A))], for i thru n do
+  for j : i thru n do
+  (x : L[i, j], x : x - sum (L[j, k] * L[i, k], k, 1, i - 1),
+  if i = j then p[i] : 1 / sqrt(x) else L[j, i] : x * p[i]),
+  for i thru n do L[i, i] : 1 / p[i],
+  for i thru n do for j : i + 1 thru n do L[i, j] : 0, L)$
+(%i15) grind (cholesky);
+cholesky(A):=block(
+         [n:length(A),L:copymatrix(A),
+          p:makelist(0,i,1,length(A))],
+         for i thru n do
+             (for j from i thru n do
+                  (x:L[i,j],x:x-sum(L[j,k]*L[i,k],k,1,i-1),
+                   if i = j then p[i]:1/sqrt(x)
+                       else L[j,i]:x*p[i])),
+         for i thru n do L[i,i]:1/p[i],
+         for i thru n do (for j from i+1 thru n do L[i,j]:0),L)$
+(%o15)                        done
+(%i16) string (fundef (cholesky));
+(%o16) cholesky(A):=block([n:length(A),L:copymatrix(A),p:makelis\
+t(0,i,1,length(A))],for i thru n do (for j from i thru n do (x:L\
+[i,j],x:x-sum(L[j,k]*L[i,k],k,1,i-1),if i = j then p[i]:1/sqrt(x\
+) else L[j,i]:x*p[i])),for i thru n do L[i,i]:1/p[i],for i thru \
+n do (for j from i+1 thru n do L[i,j]:0),L)
+</pre></div>
+</dd></dl>
 
 
 
-<dl>
-<dt><u>Función:</u> <b>radcan</b><i> (<var>expr</var>)</i>
-<a name="IDX319"></a>
-</dt>
-<dd><p>Simplifica la expresión <var>expr</var>, que puede contener logaritmos, exponenciales y
-radicales, convirtiéndola a una forma canónica, lo que significa que todas las expresiones funcionalmente equivalentes
-se reducen a una forma única.  Ciertas expresiones, sin embargo, son reducidas por <code>radcan</code> a una forma regular, lo que significa que dos expresiones equivalentes no tienen necesariamente el mismo aspecto, pero su diferencia puede ser reducida por <code>radcan</code> a cero.
+
+<a name="Item_003a-Command_002ees_002fdefvr_002fibase"></a><dl>
+<dt><a name="index-ibase"></a>Variable opcional: <strong>ibase</strong></dt>
+<dd><p>Valor por defecto: <code>10</code>
 </p>
-<p>Con algunas expresiones <code>radcan</code> puede consunir mucho tiempo. Este es el coste por explorar ciertas relaciones entre las componentes de la expresión para simplificaciones basadas en factorizaciones y expansiones parciales de fracciones de exponentes.  
+<p><code>ibase</code> es la base en la que Maxima lee valores enteros.
+</p>
+<p>A <code>ibase</code> se le puede asignar cualquier entero entre
+2 y 36 (base decimal), ambos inclusive.
+Si <code>ibase</code> es mayor que 10,
+las cifras a utilizar serán los dígitos de
+0 a 9, junto con las letras del alfabeto A, B, C, ..., 
+tantas como sean necesarias para completar la base <code>ibase</code>.
+Las letras se interpretarán como cifras sólo cuando el 
+primer dígito sea un valor entre 9.
+Es indiferente hacer uso de letras mayúsculas o minúsculas.
+Las cifras para la base 36, la mayor posible, son los 
+dígitos numéricos de 0 a 9 y las letras desde
+la A hasta la Z.
+</p>
+<p>Cualquiera que sea el valor de <code>ibase</code>, si un entero termina
+con un punto decimal, se interpretará en base 10.
+</p>
+<p>Véase también <code>obase</code>.
 </p>
 <p>Ejemplos:
 </p>
-<pre class="example">(%i1) radcan((log(x+x^2)-log(x))^a/log(1+x)^(a/2));
-                                           a/2
-(%o1)                            log(x + 1)
+<p><code>ibase</code> menor que 10.
+</p>
+<div class="example">
+<pre class="example">(%i1) ibase : 2 $
+(%i2) obase;
+(%o2)                          10
+(%i3) 1111111111111111;
+(%o3)                         65535
+</pre></div>
 
-(%i2) radcan((log(1+2*a^x+a^(2*x))/log(1+a^x)));
-(%o2)                                  2
+<p><code>ibase</code> mayor que 10.
+Las letras se interpretan como dígitos sólo
+si el primer dígito es una cifra entre 0 y 9.
+</p>
+<div class="example">
+<pre class="example">(%i1) ibase : 16 $
+(%i2) obase;
+(%o2)                          10
+(%i3) 1000;
+(%o3)                         4096
+(%i4) abcd;
+(%o4)                         abcd
+(%i5) symbolp (abcd);
+(%o5)                         true
+(%i6) 0abcd;
+(%o6)                         43981
+(%i7) symbolp (0abcd);
+(%o7)                         false
+</pre></div>
 
-(%i3) radcan((%e^x-1)/(1+%e^(x/2)));
-                                     x/2
-(%o3)                              %e    - 1
-</pre>
+<p>Independientemente del valor de <code>ibase</code>, si el entero
+termina con un punto decimal, se interpretará en base
+diez.
+</p>
+<div class="example">
+<pre class="example">(%i1) ibase : 36 $
+(%i2) obase;
+(%o2)                          10
+(%i3) 1234;
+(%o3)                         49360
+(%i4) 1234.;
+(%o4)                         1234
+</pre></div>
 </dd></dl>
 
 
 
-<dl>
-<dt><u>Variable opcional:</u> <b>radexpand</b>
-<a name="IDX320"></a>
-</dt>
-<dd><p>Valor por defecto: <code>true</code>
+<a name="Item_003a-Command_002ees_002fdeffn_002fldisp"></a><dl>
+<dt><a name="index-ldisp"></a>Función: <strong>ldisp</strong> <em>(<var>expr_1</var>, ..., <var>expr_n</var>)</em></dt>
+<dd><p>Muestra las expresiones <var>expr_1</var>, ..., <var>expr_n</var> en la consola con el formato de salida;
+<code>ldisp</code> asigna una etiqueta a cada argumento y devuelve la lista de etiquetas.
 </p>
-<p>La variable <code>radexpand</code> controla algunas simplificaciones de radicales.
+<p>Véanse también <code>disp</code>, <code>display</code> y <code>ldisplay</code>.
 </p>
-<p>Si <code>radexpand</code> vale <code>all</code>, las raíces <var>n</var>-ésimas de los factores de un producto que sean potencias de <var>n</var> se extraen del símbolo radical. Por ejemplo, si <code>radexpand</code> vale <code>all</code>, <code>sqrt (16*x^2)</code> se reduce a <code>4*x</code>.
-</p>
-<p>Más concretamente, considérese <code>sqrt (x^2)</code>.
-</p><ul>
-<li>
-Si <code>radexpand</code> vale <code>all</code> o se ha ejecutado <code>assume (x &gt; 0)</code>, 
-<code>sqrt(x^2)</code> se reduce a <code>x</code>.
-</li><li>
-Si <code>radexpand</code> vale <code>true</code> y <code>domain</code> es <code>real</code> (su valor por defecto), 
-<code>sqrt(x^2)</code> se reduce a <code>abs(x)</code>.
-</li><li>
-Si <code>radexpand</code> vale <code>false</code> o <code>radexpand</code> vale <code>true</code> y <code>domain</code> es <code>complex</code>, 
-<code>sqrt(x^2)</code> no se simplifica.
-</li></ul>
+<div class="example">
+<pre class="example">(%i1) e: (a+b)^3;
+                                   3
+(%o1)                       (b + a)
+(%i2) f: expand (e);
+                     3        2      2      3
+(%o2)               b  + 3 a b  + 3 a  b + a
+(%i3) ldisp (e, f);
+                                   3
+(%t3)                       (b + a)
 
-<p>Nótese que  <code>domain</code> sólo se tiene en cuenta si <code>radexpand</code> vale <code>true</code>.
-</p>
+                     3        2      2      3
+(%t4)               b  + 3 a b  + 3 a  b + a
+
+(%o4)                      [%t3, %t4]
+(%i4) %t3;
+                                   3
+(%o4)                       (b + a)
+(%i5) %t4;
+                     3        2      2      3
+(%o5)               b  + 3 a b  + 3 a  b + a
+</pre></div>
+
 </dd></dl>
 
 
 
-<dl>
-<dt><u>Propiedad:</u> <b>rassociative</b>
-<a name="IDX321"></a>
-</dt>
-<dd><p>La instrucción <code>declare (g, rassociative)</code> le indica al simplificador de Maxima que <code>g</code> es asociativa por la derecha.  Por ejemplo, <code>g(g(a, b), g(c, d))</code> se reduce a <code>g(a, g(b, g(c, d)))</code>.
+<a name="Item_003a-Command_002ees_002fdeffn_002fldisplay"></a><dl>
+<dt><a name="index-ldisplay"></a>Función: <strong>ldisplay</strong> <em>(<var>expr_1</var>, ..., <var>expr_n</var>)</em></dt>
+<dd><p>Muestra las expresiones <var>expr_1</var>, ..., <var>expr_n</var> en la consola con el formato de salida.
+Cad expresión se muestra como una ecuación de la forma <code>lhs = rhs</code>
+en la que <code>lhs</code> es uno de los argumentos de <code>ldisplay</code>
+y <code>rhs</code> su valor. Normalmente, cada argumento será el nombre de una variable. La función
+<code>ldisp</code> asigna una etiqueta a cada ecuación y devuelve la lista de etiquetas.
+</p>
+<p>Véanse también <code>disp</code>, <code>display</code> y <code>ldisp</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) e: (a+b)^3;
+                                   3
+(%o1)                       (b + a)
+(%i2) f: expand (e);
+                     3        2      2      3
+(%o2)               b  + 3 a b  + 3 a  b + a
+(%i3) ldisplay (e, f);
+                                     3
+(%t3)                     e = (b + a)
+
+                       3        2      2      3
+(%t4)             f = b  + 3 a b  + 3 a  b + a
+
+(%o4)                      [%t3, %t4]
+(%i4) %t3;
+                                     3
+(%o4)                     e = (b + a)
+(%i5) %t4;
+                       3        2      2      3
+(%o5)             f = b  + 3 a b  + 3 a  b + a
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-Command_002ees_002fdefvr_002flinel"></a><dl>
+<dt><a name="index-linel"></a>Variable opcional: <strong>linel</strong></dt>
+<dd><p>Valor por defecto: <code>79</code>
+</p>
+<p>La variable <code>linel</code> es la anchura (medida en número de caracteres) de la consola que se le da a Maxima para que muestre las expresiones. A <code>linel</code> se le puede asignar cualquier valor, pero si éste es muy pequeño o grande resultará de poca utilidad. El texto que impriman las funciones internas de Maxima, como los mensajes de error y las salidas de la función <code>describe</code>, no se ve afectado por el valor de <code>linel</code>.
 </p>
 </dd></dl>
 
 
-<dl>
-<dt><u>Función:</u> <b>scsimp</b><i> (<var>expr</var>, <var>rule_1</var>, ..., <var>rule_n</var>)</i>
-<a name="IDX322"></a>
-</dt>
-<dd><p>Es el &quot;Sequential Comparative Simplification&quot; (método debido a Stoute).
-La función <code>scsimp</code> intenta simplificar <var>expr</var> de acuerdo con las reglas <var>rule_1</var>, ..., <var>rule_n</var>.
-Si se obtiene una expresión más pequeña, el proceso se repite. En caso contrario, después de que se hayan intentado todas las simplificaciones, devuelve la respuesta original.
+<a name="Item_003a-Command_002ees_002fdefvr_002flispdisp"></a><dl>
+<dt><a name="index-lispdisp"></a>Variable opcional: <strong>lispdisp</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
 </p>
-<p>La instrucción <code>example (scsimp)</code> muestra algunos ejemplos.
-</p>
-</dd></dl>
-
-
-
-<dl>
-<dt><u>Variable opcional:</u> <b>simp</b>
-<a name="IDX323"></a>
-</dt>
-<dd><p>Valor por defecto: <code>true</code>
-</p>
-<p>La variable <code>simp</code> activa y desactiva la simplificación.
-La simplificación está activada por defecto. La variable <code>simp</code>
-también es reconocida por la función <code>ev</code> como variable de entorno.
-Véase también <code>ev</code>.
-</p>
-<p>Cuando <code>simp</code> se utiliza en un entorno <code>ev</code> con el valor <code>false</code>,
-la simplificación se evita sólo durante la fase de evaluación de una
-expresión. La variable no evita la simplificación que sigue a la fase de
-evaluación.
+<p>Si <code>lispdisp</code> vale <code>true</code>, los símbolos de Lisp se muestran precedidos del carácter de interrogación <code>?</code>. En caso contrario, los símbolos de Lisp se muestran sin esta marca.
 </p>
 <p>Ejemplos:
 </p>
-<p>La simplificación se suspende globalmente. La expresión <code>sin(1.0)</code>
-no se simplifica a su valor numérico. La variable de entorno <code>simp</code>
-conmuta el estado de la simplificación.
-</p>
-<pre class="example">(%i1) simp:false;
-(%o1)                                false
-(%i2) sin(1.0);
-(%o2)                              sin(1.0)
-(%i3) sin(1.0),simp;
-(%o3)                          .8414709848078965
-</pre>
-<p>La simplificación se vuelve a activar. La variable de entorno <code>simp</code>
-no puede suprimir totalmente la simplificación. El resultado muestra una
-expresión simplificada, pero la variable <code>x</code> guarda como valor una
-expresión sin simplificar, porque la asignación se realizó durante 
-la fase de evaluación de la expresión.
-</p>
-<pre class="example">(%i4) simp:true;
-(%o4)                                true
-(%i5) x:sin(1.0),simp:false;
-(%o5)                          .8414709848078965
-(%i6) :lisp $X
-((%SIN) 1.0)
-</pre></dd></dl>
+<div class="example">
+<pre class="example">(%i1) lispdisp: false$
+(%i2) ?foo + ?bar;
+(%o2)                       foo + bar
+(%i3) lispdisp: true$
+(%i4) ?foo + ?bar;
+(%o4)                      ?foo + ?bar
+</pre></div>
+
+</dd></dl>
 
 
-
-<dl>
-<dt><u>Propiedad:</u> <b>symmetric</b>
-<a name="IDX324"></a>
-</dt>
-<dd><p>La instrucción <code>declare (h, symmetric)</code> le indica al simplificador de  Maxima que <code>h</code> es una función simétrica.  Por ejemplo, <code>h (x, z, y)</code>  se reduce a <code>h (x, y, z)</code>.
+<a name="Item_003a-Command_002ees_002fdefvr_002fnegsumdispflag"></a><dl>
+<dt><a name="index-negsumdispflag"></a>Variable opcional: <strong>negsumdispflag</strong></dt>
+<dd><p>Valor por defecto: <code>true</code>
 </p>
-<p>El nombre <code>commutative</code> es sinónimo de <code>symmetric</code>.
+<p>Si <code>negsumdispflag</code> vale <code>true</code>, <code>x - y</code> se muestra como <code>x - y</code>
+en lugar de <code>- y + x</code>.  Dándole el valor <code>false</code> se realiza un análisis adicional para que no se representen de forma muy diferente dos expresiones similares.  Una aplicación puede ser para que <code>a + %i*b</code> y <code>a - %i*b</code> se representen ambas de la misma manera.
 </p>
 </dd></dl>
 
 
-
-<dl>
-<dt><u>Función:</u> <b>xthru</b><i> (<var>expr</var>)</i>
-<a name="IDX325"></a>
-</dt>
-<dd><p>Combina todos los términos de <var>expr</var> (la cual debe ser una suma) sobre un común denominador sin expandir productos ni sumas elevadas a exponentes al modo que lo hace <code>ratsimp</code>. La función <code>xthru</code> cancela factores comunes en el numerador y denominador de expresiones racionales, pero sólo si los factores son explícitos.
+<a name="Item_003a-Command_002ees_002fdefvr_002fobase"></a><dl>
+<dt><a name="index-obase"></a>Variable opcional: <strong>obase</strong></dt>
+<dd><p>Valor por defecto: <code>10</code>
 </p>
-<p>En ocasiones puede ser útil el uso de <code>xthru</code> antes de la llamada a <code>ratsimp</code> a fin de cancelar factores explícitos del máximo común divisor del numerador y denominador y así simplificar la expresión a la que se va a aplicar <code>ratsimp</code>.
+<p><code>obase</code> es la base en la que Maxima imprime los números enteros.
 </p>
-<pre class="example">(%i1) ((x+2)^20 - 2*y)/(x+y)^20 + (x+y)^(-19) - x/(x+y)^20;
- xthru (%);
-                                20
-                 1       (x + 2)   - 2 y       x
-(%o1)        --------- + --------------- - ---------
-                    19             20             20
-             (y + x)        (y + x)        (y + x)
-</pre>
+<p>A <code>obase</code> se le puede asignar cualquier entero entre
+2 y 36 (base decimal), ambos inclusive.
+Si <code>obase</code> es mayor que 10,
+las cifras a utilizar serán los dígitos de
+0 a 9, junto con las letras del alfabeto A, B, C, ..., 
+tantas como sean necesarias para completar la base <code>obase</code>.
+Si el primer dígito resulta ser una letra, se le
+añadirá el cero como prefijo.
+Las cifras para la base 36, la mayor posible, son los 
+dígitos numéricos de 0 a 9 y las letras desde
+la A hasta la Z.
+</p>
+<p>Véase también <code>ibase</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) obase : 2;
+(%o1)                          10
+(%i2) 2^8 - 1;
+(%o10)                      11111111
+(%i3) obase : 8;
+(%o3)                          10
+(%i4) 8^8 - 1;
+(%o4)                       77777777
+(%i5) obase : 16;
+(%o5)                          10
+(%i6) 16^8 - 1;
+(%o6)                       0FFFFFFFF
+(%i7) obase : 36;
+(%o7)                          10
+(%i8) 36^8 - 1;
+(%o8)                       0ZZZZZZZZ
+</pre></div>
 </dd></dl>
 
 
+<a name="Item_003a-Command_002ees_002fdefvr_002fpfeformat"></a><dl>
+<dt><a name="index-pfeformat"></a>Variable opcional: <strong>pfeformat</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>pfeformat</code> vale <code>true</code>, una fracción de enteros será mostrada con el carácter de barra inclinada <code>/</code> entre ellos.
+</p>
 
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC56" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_10.html#SEC59" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<div class="example">
+<pre class="example">(%i1) pfeformat: false$
+(%i2) 2^16/7^3;
+                              65536
+(%o2)                         -----
+                               343
+(%i3) (a+b)/8;
+                              b + a
+(%o3)                         -----
+                                8
+(%i4) pfeformat: true$ 
+(%i5) 2^16/7^3;
+(%o5)                       65536/343
+(%i6) (a+b)/8;
+(%o6)                      1/8 (b + a)
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-Command_002ees_002fdefvr_002fpowerdisp"></a><dl>
+<dt><a name="index-powerdisp"></a>Variable opcional: <strong>powerdisp</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>powerdisp</code> vale <code>true</code>, se muestran las sumas con sus términos ordenados de menor a mayor potencia. Así, un polinomio se presenta como una serie de potencias truncada con el término constante al principio y el de mayor potencia al final.
+</p>
+<p>Por defecto, los términos de una suma se muestran en el orden de las potencias decrecientes.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) powerdisp:true;
+(%o1)                         true
+(%i2) x^2+x^3+x^4;
+                           2    3    4
+(%o2)                     x  + x  + x
+(%i3) powerdisp:false;
+(%o3)                         false
+(%i4) x^2+x^3+x^4;
+                           4    3    2
+(%o4)                     x  + x  + x
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-Command_002ees_002fdeffn_002fprint"></a><dl>
+<dt><a name="index-print"></a>Función: <strong>print</strong> <em>(<var>expr_1</var>, ..., <var>expr_n</var>)</em></dt>
+<dd><p>Evalúa y muestra las expresiones  <var>expr_1</var>, ..., <var>expr_n</var> secuencialmente de izquierda a derecha, comenzando la impresión por el borde izquierdo de la consola.
+</p>
+<p>El valor devuelto por <code>print</code> es el valor de su último argumento. La función <code>print</code> no genera etiquetas para las expresiones intermedias.
+</p>
+<p>Véanse también <code>display</code>, <code>disp</code>, <code>ldisplay</code> y <code>ldisp</code>, que muestran una expresión por línea, mientras que <code>print</code> trata de mostrar dos o más expresiones por línea.
+</p>
+<p>Para mostrar el contenido de un archivo véase <code>printfile</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) r: print (&quot;(a+b)^3 is&quot;, expand ((a+b)^3), &quot;log (a^10/b) is&quot;,
+      radcan (log (a^10/b)))$
+            3        2      2      3
+(a+b)^3 is b  + 3 a b  + 3 a  b + a  log (a^10/b) is 
+
+                                              10 log(a) - log(b) 
+(%i2) r;
+(%o2)                  10 log(a) - log(b)
+(%i3) disp (&quot;(a+b)^3 is&quot;, expand ((a+b)^3), &quot;log (a^10/b) is&quot;,
+      radcan (log (a^10/b)))$
+                           (a+b)^3 is
+
+                     3        2      2      3
+                    b  + 3 a b  + 3 a  b + a
+
+                         log (a^10/b) is
+
+                       10 log(a) - log(b)
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-Command_002ees_002fdefvr_002fsqrtdispflag"></a><dl>
+<dt><a name="index-sqrtdispflag"></a>Variable opcional: <strong>sqrtdispflag</strong></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>Si <code>sqrtdispflag</code> vale <code>false</code>, hará que <code>sqrt</code> se muestre con el exponente 1/2.
+</p></dd></dl>
+
+
+<a name="Item_003a-Command_002ees_002fdefvr_002fstardisp"></a><dl>
+<dt><a name="index-stardisp"></a>Variable opcional: <strong>stardisp</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>stardisp</code> vale <code>true</code>, la multiplicación se muestra con un asterisco <code>*</code> entre los operandos.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Command_002ees_002fdefvr_002fttyoff"></a><dl>
+<dt><a name="index-ttyoff"></a>Variable opcional: <strong>ttyoff</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>ttyoff</code> vale <code>true</code>, no se muestran las expresiones resultantes, pero éstas se calculan de todos modos y se les asignan etiquetas. Véase <code>labels</code>.
+</p>
+<p>El texto que escriban las funciones internas de Maxima, tales como los mensajes de error y las salidas de <code>describe</code>,
+no se ven afectadas por <code>ttyoff</code>.
+</p>
+</dd></dl>
+
+
+<hr>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>diciembre, 30 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Previous: <a href="maxima_8.html#Funciones-y-variables-para-la-l_00ednea-de-comandos" accesskey="p" rel="previous">Funciones y variables para la línea de comandos</a>, Subir: <a href="maxima_6.html#L_00ednea-de-comandos" accesskey="u" rel="up">Línea de comandos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
 
-</p>
+
+
 </body>
 </html>

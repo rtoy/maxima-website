@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Introducción a QUADPACK</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Introducción a QUADPACK">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Introducción a QUADPACK">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_97.html#Integraci_00f3n" rel="up" title="Integración">
+<link href="maxima_101.html#Funciones-y-variables-para-QUADPACK" rel="next" title="Funciones y variables para QUADPACK">
+<link href="maxima_99.html#Funciones-y-variables-para-integraci_00f3n" rel="previous" title="Funciones y variables para integración">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introducci_00f3n-a-QUADPACK"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_101.html#Funciones-y-variables-para-QUADPACK" accesskey="n" rel="next">Funciones y variables para QUADPACK</a>, Previous: <a href="maxima_99.html#Funciones-y-variables-para-integraci_00f3n" accesskey="p" rel="previous">Funciones y variables para integración</a>, Subir: <a href="maxima_97.html#Integraci_00f3n" accesskey="u" rel="up">Integración</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introduccion-a-QUADPACK"></a>
+<h3 class="section">19.3 Introducción a QUADPACK</h3>
+
+
+<p>QUADPACK es un conjunto de funciones para el cálculo numérico de
+integrales definidas de una variable. Se creó a partir de un trabajo conjunto de
+R. Piessens <a name="DOCF1" href="#FOOT1"><sup>1</sup></a>,
+E. de Doncker <a name="DOCF2" href="#FOOT2"><sup>2</sup></a>,
+C. Ueberhuber <a name="DOCF3" href="#FOOT3"><sup>3</sup></a>,
+and D. Kahaner <a name="DOCF4" href="#FOOT4"><sup>4</sup></a>.
+</p>
+<p>La librería QUADPACK incluida en Maxima es una traducción automática
+(mediante el programa <code>f2cl</code>) del código fuente Fortran de QUADPACK tal como
+se encuentra en la SLATEC Common Mathematical Library,Versión 4.1 <a name="DOCF5" href="#FOOT5"><sup>5</sup></a>.
+La librería SLATEC está fechada en julio de 1993,
+pero las funciones QUADPACK fueron escritas algunos años antes.
+Hay otra versión de QUADPACK en Netlib <a name="DOCF6" href="#FOOT6"><sup>6</sup></a>,
+pero no está claro hasta qué punto difiere de la que forma parte de la
+librería SLATEC.
+</p>
+<p>Las funciones QUADPACK incluidas en Maxima son todas automáticas,
+en el sentido de que estas funciones intentan calcular sus resultados
+con una exactitud especificada, requiriendo un número indeterminado 
+de evaluaciones de funciones.
+La traducción a Lisp que Maxima hace de QUADPACK incluye también
+algunas funciones que no son automáticas, pero que no son accesibles 
+desde el nivel de Maxima.
+</p>
+<p>Se puede encontrar más información sobre QUADPACK  en el libro
+<a name="DOCF7" href="#FOOT7"><sup>7</sup></a>.
+</p>
+<a name="Perspectiva-general"></a>
+<h4 class="subsection">19.3.1 Perspectiva general</h4>
+
+<dl compact="compact">
+<dt><code>quad_qag</code></dt>
+<dd><p>Integración de una función general en un intervalo finito.
+La función <code>quad_qag</code> implementa un integrador global 
+adaptativo simple utilizando una estrategia de Aind (Piessens, 1973).
+Se puede escoger entre seis pares de fórmulas de cuadratura de
+Gauss-Kronrod para la regla de evaluación.
+Las reglas de rango superior son útiles en los casos en los que
+los integrandos tienen un alto grado de oscilación.
+</p>
+</dd>
+<dt><code>quad_qags</code></dt>
+<dd><p>Integración de una función general en un intervalo finito.
+La función <code>quad_qags</code> implementa la subdivisión de intervalos 
+global adaptativa con extrapolación (de Doncker, 1978) mediante
+el algoritmo Epsilon  (Wynn, 1956).
+</p>
+</dd>
+<dt><code>quad_qagi</code></dt>
+<dd><p>Integración de una función general en un intervalo infinito o semi-infinito.
+El intervalo se proyecta sobre un intervalo finito y luego se aplica la
+misma estrategia que en <code>quad_qags</code>.
+</p>
+</dd>
+<dt><code>quad_qawo</code></dt>
+<dd><p>Integración de <em>cos(omega x) f(x)</em> o <em>sin(omega x) f(x)</em> en un
+intervalo finito, siendo <em>omega</em> una constante. La regla de 
+evaluación se basa en la técnica modificada de Clenshaw-Curtis.
+La función <code>quad_qawo</code> aplica la subdivisión adaptativa con extrapolación, 
+de forma similar a <code>quad_qags</code>.
+</p>
+</dd>
+<dt><code>quad_qawf</code></dt>
+<dd><p>Calcula la transformada seno o coseno de Fourier en un intervalo semi-infinito.
+Se aplica el mismo método que en <code>quad_qawo</code> a sucesivos intervalos
+finitos, acelerando la convergencia mediante el algoritmo Epsilon (Wynn, 1956).
+</p>
+</dd>
+<dt><code>quad_qaws</code></dt>
+<dd><p>Integración de <em>w(x) f(x)</em> en un intervalo finito <em>[a, b]</em>,
+siendo <em>w</em> una función de la forma <em>(x - a)^alpha (b - x)^beta v(x)</em>,
+con  <em>v(x)</em> igual a 1, a <em>log(x - a)</em>, a <em>log(b - x)</em> o a
+<em>log(x - a) log(b - x)</em> y con <em>alpha &gt; -1</em>, y <em>beta &gt; -1</em>.
+Se aplica una estrategia de subdivisión adaptativa global,
+con integración de Clenshaw-Curtis modificada en los subintervalos que
+contienen a <em>a</em> y a <em>b</em>.
+</p>
+</dd>
+<dt><code>quad_qawc</code></dt>
+<dd><p>Calcula el valor principal de Cauchy de <em>f(x)/(x - c)</em> en un
+intervalo finito <em>(a, b)</em> para una <em>c</em> dada.
+La estrategia es global adaptativa, utilizando la integración de 
+Clenshaw-Curtis modificada en los subintervalos que contienen a <em>x = c</em>.
+</p>
+</dd>
+<dt><code>quad_qagp</code></dt>
+<dd><p>Básicamente hace lo mismo que <code>quad_qags</code>, pero los puntos de singularidad
+o discontinuidad deben ser aportados por el usuario. Esto hace que el cálculo
+de una buena solución sea más fácil para el integrador.
+</p></dd>
+</dl>
+
+<a name="Item_003a-Integration_002ees_002fnode_002fFunciones-y-variables-para-QUADPACK"></a><div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Notas al pie</h4>
+
+<h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
+<p>Applied Mathematics and Programming Division, K.U. Leuven</p>
+<h3><a name="FOOT2" href="#DOCF2">(2)</a></h3>
+<p>Applied Mathematics and Programming Division, K.U. Leuven</p>
+<h3><a name="FOOT3" href="#DOCF3">(3)</a></h3>
+<p>Institut f&uuml;r Mathematik, T.U. Wien</p>
+<h3><a name="FOOT4" href="#DOCF4">(4)</a></h3>
+<p>National Bureau of Standards, Washington, D.C., U.S.A</p>
+<h3><a name="FOOT5" href="#DOCF5">(5)</a></h3>
+<p><a href="http://www.netlib.org/slatec">http://www.netlib.org/slatec</a></p>
+<h3><a name="FOOT6" href="#DOCF6">(6)</a></h3>
+<p><a href="http://www.netlib.org/quadpack">http://www.netlib.org/quadpack</a></p>
+<h3><a name="FOOT7" href="#DOCF7">(7)</a></h3>
+<p>R. Piessens, E. de Doncker-Kapenga, C.W. Uberhuber, and D.K. Kahaner.
+<i>QUADPACK: A Subroutine Package for Automatic Integration.</i>
+Berlin: Springer-Verlag, 1983, ISBN 0387125531.</p>
+</div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_101.html#Funciones-y-variables-para-QUADPACK" accesskey="n" rel="next">Funciones y variables para QUADPACK</a>, Previous: <a href="maxima_99.html#Funciones-y-variables-para-integraci_00f3n" accesskey="p" rel="previous">Funciones y variables para integración</a>, Subir: <a href="maxima_97.html#Integraci_00f3n" accesskey="u" rel="up">Integración</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

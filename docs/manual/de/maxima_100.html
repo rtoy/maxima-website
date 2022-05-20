@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Einf&uuml;hrung in Polynome</title>
+
+<meta name="description" content="Maxima Manual: Einf&uuml;hrung in Polynome">
+<meta name="keywords" content="Maxima Manual: Einf&uuml;hrung in Polynome">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_99.html#Polynome" rel="up" title="Polynome">
+<link href="maxima_101.html#Funktionen-und-Variablen-f_00fcr-Polynome" rel="next" title="Funktionen und Variablen f&uuml;r Polynome">
+<link href="maxima_99.html#Polynome" rel="previous" title="Polynome">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Einf_00fchrung-in-Polynome"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_101.html#Funktionen-und-Variablen-f_00fcr-Polynome" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r Polynome</a>, Previous: <a href="maxima_99.html#Polynome" accesskey="p" rel="previous">Polynome</a>, Nach oben: <a href="maxima_99.html#Polynome" accesskey="u" rel="up">Polynome</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Einfuhrung-in-Polynome"></a>
+<h3 class="section">17.1 Einf&uuml;hrung in Polynome</h3>
+
+<p>Polynome werden in einer allgemeinen Darstellung oder in einer kanonischen
+Darstellung (CRE - Cannonical Rational Expressions) gespeichert.  Die 
+CRE-Darstellung ist die Standardform f&uuml;r Operationen mit Polynomen und wird
+intern von Funktionen wie <code><a href="maxima_101.html#factor">factor</a></code> oder <code><a href="maxima_101.html#ratsimp">ratsimp</a></code> verwendet.
+</p>
+<p>Ausdr&uuml;cke in einer CRE-Form sind besonders f&uuml;r die Darstellung von Polynomen
+und rationalen Funktionen geeignet.  Die CRE-Form nimmt eine Ordnung der
+Variablen an.  Polynome werden rekursiv als eine Liste definiert, die als
+ersten Eintrag den Namen der Variablen und als n&auml;chste Eintr&auml;ge die 
+Exponenten und Koeffizienten der Variablen enthalten.  Der Koeffizient kann
+eine Zahl oder wiederum ein Polynom sein.  Zum Beispiel hat das Polynom
+<code>3*x^2-1</code> die Darstellung <code>(X 2 3 0 -1)</code> und das Polynom 
+<code>2*x*y+x-3</code> die Darstellung <code>(Y 1 (X 1 2) 0 (X 1 1 0 -3))</code>, wenn 
+<code>y</code> die Hauptvariable des Polynoms ist.  Ist <var>x</var> die Hauptvariable des
+Polynoms, dann ist die Darstellung <code>(X 1 (Y 1 2 0 1) 0 -3)</code>.
+</p>
+<p>Die Ordnung der Variablen ist in der Regel umgekehrt alphabetisch.  Die
+Variablen m&uuml;ssen keine Atome sein.  Alle Ausdr&uuml;cke, die nicht die Operatoren
+<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> oder <code>^</code> enthalten, werden in einer
+CRE-Darstellung als &quot;Variable&quot; angenommen.  Zum Beispiel sind <code>x</code>, 
+<code>sqrt(x)</code> und <code>sin(x+1)</code> die CRE-Variablen des Ausdrucks
+<code>x+sin(x+1)+2*SQRT(x)+1</code>.  Wird vom Nutzer keine abweichende Ordnung der 
+Variablen mit der Funktion <code><a href="maxima_101.html#ratvars">ratvars</a></code> definiert, nimmt Maxima eine 
+alphabetische Ordnung der Variablen an.
+</p>
+<p>Im Allgemeinen werden rationale Funktionen in einer CRE-Form dargestellt, die
+keinen gemeinsamen Faktor im Z&auml;hler und Nenner haben.  Die interne Darstellung
+ist ein Paar von Polynomen, die jeweils den Z&auml;hler und den Nenner darstellen.
+Diesem Paar geht eine Liste mit der Ordnung der Variablen im Ausdruck voraus.
+Ein Ausdruck in einer CRE-Form oder der CRE-Formen enth&auml;lt, wird in der 
+Ausgabe mit dem Symbol <code>/R/</code> gekennzeichnet.  Mit der Funktion
+<code><a href="maxima_101.html#rat">rat</a></code> k&ouml;nnen allgemeine Ausdr&uuml;cke in eine CRE-Form transformiert
+werden.  Umgekehrt wird ein Ausdruck in einer CRE-Form mit der Funktion
+<code><a href="maxima_101.html#ratdisrep">ratdisrep</a></code> in eine allgemeine Form transformiert.
+</p>
+<p>F&uuml;r die Darstellung von Taylor-Polynomen der Funktion <code><a href="maxima_85.html#taylor">taylor</a></code> wird eine
+erweiterte CRE-Form verwendet.  In dieser Darstellung k&ouml;nnen die Exponenten
+von Polynomen auch rationale Zahlen sein.  Weiterhin k&ouml;nnen die Koeffizienten
+rationale Funktionen sein.  Die erweiterte CRE-Form enth&auml;lt auch Informationen
+&uuml;ber den Grad des Polynoms.  In der Ausgabe wird die erweiterte CRE-Form mit
+dem Symbol <code>/T/</code> bezeichnet.
+</p>
+<a name="Item_003a-Polynomials_002ede_002fnode_002fFunktionen-und-Variablen-f_00fcr-Polynome"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_101.html#Funktionen-und-Variablen-f_00fcr-Polynome" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r Polynome</a>, Previous: <a href="maxima_99.html#Polynome" accesskey="p" rel="previous">Polynome</a>, Nach oben: <a href="maxima_99.html#Polynome" accesskey="u" rel="up">Polynome</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

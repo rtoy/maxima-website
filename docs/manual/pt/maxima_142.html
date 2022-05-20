@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Definições para gráficos estatísticos</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Definições para gráficos estatísticos">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições para gráficos estatísticos">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_137.html#descriptive" rel="up" title="descriptive">
+<link href="maxima_143.html#diag" rel="next" title="diag">
+<link href="maxima_141.html#Defini_00e7_00f5es-espec_00edficas-para-estat_00edstica-descritiva-de-v_00e1rias-vari_00e1veis" rel="previous" title="Definições específicas para estatística descritiva de várias variáveis">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-para-gr_00e1ficos-estat_00edsticos"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_141.html#Defini_00e7_00f5es-espec_00edficas-para-estat_00edstica-descritiva-de-v_00e1rias-vari_00e1veis" accesskey="p" rel="previous">Definições específicas para estatística descritiva de várias variáveis</a>, Acima: <a href="maxima_137.html#descriptive" accesskey="u" rel="up">descriptive</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-para-graficos-estatisticos"></a>
+<h3 class="section">44.5 Definições para gráficos estatísticos</h3>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fdataplot"></a><dl>
+<dt><a name="index-dataplot"></a>Função: <strong>dataplot</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-dataplot-1"></a>Função: <strong>dataplot</strong> <em>(<var>lista</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</em></dt>
+<dt><a name="index-dataplot-2"></a>Função: <strong>dataplot</strong> <em>(<var>matriz</var>)</em></dt>
+<dt><a name="index-dataplot-3"></a>Função: <strong>dataplot</strong> <em>(<var>matriz</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</em></dt>
+<dd><p>A função <code>dataplot</code> permite visualização directa de dados de amostra, ambas d uma única variável (<var>lista</var>) e de várias variáveis (<var>matriz</var>). Fornecendo valores para as seguintes <var>opções</var> que são alguns aspéctos de impressão que podem ser controlados:
+</p>
+<ul>
+<li> <code>'outputdev</code>, o valor padrão é <code>&quot;x&quot;</code>, indica o formato de dispositivo/ficheiro da figura de saída; valores correctos são <code>&quot;x&quot;</code>, <code>&quot;eps&quot;</code> e <code>&quot;png&quot;</code>, para a tela, formato de ficheiro postscript e formato de ficheiro png, respectivamente.
+
+</li><li> <code>'maintitle</code>, o valor padrão é <code>&quot;&quot;</code>, é o título principal entre aspas duplas.
+
+</li><li> <code>'axisnames</code>, o valor padrão é <code>[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]</code>, é uma lista de nomes dos eixos <code>x</code>, <code>y</code> e <code>z</code>.
+
+</li><li> <code>'joined</code>, o valor padrão é <code>false</code>, um valor lógico para seleccionar pontos em 2D para serem unidos ou isolados.
+
+</li><li> <code>'picturescales</code>, o valor padrão é <code>[1.0, 1.0]</code>, factor de proporcionalidade para o tamanho do gráfico.
+
+</li><li> <code>'threedim</code>, o valor padrão é <code>true</code>, diz ao Maxima se ou monta-se o gráfico de uma matriz de três colunas como um diagrama 3D ou se monta-se o gráfico como um diagrama de dispersão de várias variáveis. Veja exemplos abaixo.
+
+</li><li> <code>'axisrot</code>, o valor padrão é <code>[60, 30]</code>, modifica o ponto de visualização quando <code>'threedim</code> for escolhido para <code>true</code> dados forem armazenados em uma matriz de três colunas. O primeiro número é o ângulo de rotação do eixo <var>x</var>, e o segundo número é o angulo de rotação do eixo <var>z</var>-axis, ambas as medidas em graus.
+
+</li><li> <code>'nclasses</code>, o valor padrão é <code>10</code>, é o número de classes para histogramas na diagonal de gráficos de dispersão de várias variáveis.
+
+</li><li> <code>'pointstyle</code>, o valor padrão é <code>1</code>, é um inteiro que indica como mostrar pontos de amostra.
+
+</li></ul>
+
+<p>Por exemplo, com a seguite entrada um gráfico simples dos primeiros vinte dígitos de <code>%pi</code> é requisitado e a saída é armazenada em um ficheiro no formato eps.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) dataplot (makelist (s1[k], k, 1, 20), 'pointstyle = 3)$
+</pre></div>
+
+<p>Note que dados unidimensionais são colocados no gráfico como uma série de tempo. No caso seguinte, ocorre a mesma coisa só que com mais dados e com mais configurações,
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) dataplot (makelist (s1[k], k, 1, 50), 'maintitle = &quot;Primeiros dígitos de pi&quot;,
+ 'axisnames = [&quot;ordem do dígito&quot;, &quot;valor do dígito&quot;], 'pointstyle = 2,
+ 'joined = true)$
+</pre></div>
+
+<p>A função <code>dataplot</code> pode ser usada para montar gráficos de pontos no plano. O exemplo seguinte é gráfico de dispersão de pares de pontos de velocidades de vento para o primeira e para o quinta estação meteorológica,
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i4) dataplot (submatrix (s2, 2, 3, 4), 'pointstyle = 2,
+ 'maintitle = &quot;Pares de medidas de velocidade do vento em nós&quot;,
+ 'axisnames = [&quot;Velocidade do vento em A&quot;, &quot;Velocidade do vento em E&quot;])$
+</pre></div>
+
+<p>Se pontos forem armazenados em uma matriz de duas colunas, <code>dataplot</code> pode montar o gráfico desses pontos directamente, mas se eles forem formatados em uma lista de pares, essa lista deve ser transformada em uma matriz como no seguinte exemplo.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) x : [[-1, 2], [5, 7], [5, -3], [-6, -9], [-4, 6]]$
+(%i3) dataplot (apply ('matrix, x), 'maintitle = &quot;Pontos&quot;,
+ 'joined = true, 'axisnames = [&quot;&quot;, &quot;&quot;], 'picturescales = [0.5, 1.0])$
+</pre></div>
+
+<p>Pontos no espaço tridimensional podem ser vistos como uma projeção no plano. Nesse exemplo, o gráfico de velocidades do vento correspondendo a três estações meteorológicas são requisitados, primeiramente em um gráfico em 3D e a seguir em um gráfico de dispersào de várias variáveis.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i4) /* 3D plot */ dataplot (submatrix (s2, 4, 5), 'pointstyle = 2,
+ 'maintitle = &quot;Pares de medidas de velocidades do vento em nós&quot;,
+ 'axisnames = [&quot;Estação A&quot;, &quot;Estação B&quot;, &quot;Estação C&quot;])$
+(%i5) /* Gráfico de dispersão de várias variáveis */ dataplot (submatrix (s2, 4, 5),
+ 'nclasses = 6, 'threedim = false)$
+</pre></div>
+<p>Note que no último exemplo, o número de classes no histogramas da diagonal é escolhido para 6, e aquela opção <code>'threedim</code> for escolhida para <code>false</code>.
+</p>
+<p>Para mais que três dimensões somente gráficos de dispersão de várias variáveis são possível, como em
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i4) dataplot (s2)$
+</pre></div>
+</dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fhistogram"></a><dl>
+<dt><a name="index-histogram"></a>Função: <strong>histogram</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-histogram-1"></a>Função: <strong>histogram</strong> <em>(<var>lista</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</em></dt>
+<dt><a name="index-histogram-2"></a>Função: <strong>histogram</strong> <em>(<var>one_column_matrix</var>)</em></dt>
+<dt><a name="index-histogram-3"></a>Função: <strong>histogram</strong> <em>(<var>one_column_matrix</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</em></dt>
+<dd><p>Essa função monta um gráfico de um histograma. Dados de amostras devem ser armazenados em uma lista de números ou em uma matriz de uma coluna. Fornecendo valores para as seguintes <var>opções</var> alguns aspéctos do gráfico podem ser controlados:
+</p>
+<ul>
+<li> <code>'outputdev</code>, o valor padrão é <code>&quot;x&quot;</code>, indica o formato de ficheiro da figura de saída; valores correctos são <code>&quot;x&quot;</code>, <code>&quot;eps&quot;</code> e <code>&quot;png&quot;</code>, para a tela, formato de ficheiro postscript e formato de ficheiro png, respectivamente.
+
+</li><li> <code>'maintitle</code>, o valor padrão é <code>&quot;&quot;</code>, é o título principal entre aspas duplas.
+
+</li><li> <code>'axisnames</code>, o valor padrão é <code>[&quot;x&quot;, &quot;Fr.&quot;]</code>, é uma lista de nomes dos eixos <code>x</code> e <code>y</code>.
+
+</li><li> <code>'picturescales</code>, o valor padrão é <code>[1.0, 1.0]</code>, factor de proporcionalidade para o tamanho do gráfico.
+
+</li><li> <code>'nclasses</code>, o valor padrão é <code>10</code>, é o número de classes ou o número de barras.
+
+</li><li> <code>'relbarwidth</code>, o valor padrão é <code>0.9</code>, um número decimao entre 0 e 1 para controlar a largura das barras.
+
+</li><li> <code>'barcolor</code>, o valor padrão é <code>1</code>, um inteiro para indicar a cor das barras.
+
+</li><li> <code>'colorintensity</code>, o valor padrão é <code>1</code>, um número decimal entre 0 e 1 para estabelecer a intensidade da cor.
+
+</li></ul>
+
+<p>Nos próximos dois exemplos, histogramas são requisitados para os primeiros 100 dígitos do número <code>%pi</code> e para velocidades do vento na terceira estação meteorológica.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) histogram (s1, 'maintitle = &quot;dígitos de pi&quot;, 'axisnames = [&quot;&quot;, &quot;Frequência absoluta&quot;],
+ 'relbarwidth = 0.2, 'barcolor = 3, 'colorintensity = 0.6)$
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) histogram (col (s2, 3), 'colorintensity = 0.3)$
+</pre></div>
+<p>Note tque no primeiro caso, <code>s1</code> é uma lista  e o segundo exemplo, <code>col(s2,3)</code> é uma matriz.
+</p>
+<p>Veja também a função <code>barsplot</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fbarsplot"></a><dl>
+<dt><a name="index-barsplot"></a>Função: <strong>barsplot</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-barsplot-1"></a>Função: <strong>barsplot</strong> <em>(<var>lista</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</em></dt>
+<dt><a name="index-barsplot-2"></a>Função: <strong>barsplot</strong> <em>(<var>one_column_matrix</var>)</em></dt>
+<dt><a name="index-barsplot-3"></a>Função: <strong>barsplot</strong> <em>(<var>one_column_matrix</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</em></dt>
+<dd><p>Similar a <code>histogram</code> mas para variáveis estatísticas, numéricas ou divididas em categorias. As opções estão abaixo,
+</p>
+<ul>
+<li> <code>'outputdev</code>, o valor padrão é <code>&quot;x&quot;</code>, indica o formato de ficheiro da figura de saída; valores correctos são <code>&quot;x&quot;</code>, <code>&quot;eps&quot;</code> e <code>&quot;png&quot;</code>, para a tela, formato de ficheiro postscript e formato de ficheiro png, respectivamente.
+
+</li><li> <code>'maintitle</code>, o valor padrão é <code>&quot;&quot;</code>, é o título principal entre aspas duplas.
+
+</li><li> <code>'axisnames</code>, o valor padrão é <code>[&quot;x&quot;, &quot;Fr.&quot;]</code>, é uma lista de nomes dos eixos <code>x</code> e <code>y</code>.
+
+</li><li> <code>'picturescales</code>, o valor padrão é <code>[1.0, 1.0]</code>, factor de proporcionalidade para o tamanho do gráfico.
+
+</li><li> <code>'relbarwidth</code>, o valor padrão é <code>0.9</code>, um número decimao entre 0 e 1 para controlar a largura das barras.
+
+</li><li> <code>'barcolor</code>, o valor padrão é <code>1</code>, um inteiro para indicar a cor das barras.
+
+</li><li> <code>'colorintensity</code>, o valor padrão é <code>1</code>, um número decimal entre 0 e 1 para estabelecer a intensidade da cor.
+
+
+</li></ul>
+
+<p>Esse exemplo monta um gráfico de barras para os grupos <code>A</code> e <code>B</code> de pacientes na amostra <code>s3</code>,
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
+(%i4) barsplot (col (s3, 1), 'maintitle = &quot;Grupos de pacientes&quot;,
+ 'axisnames = [&quot;Grupo&quot;, &quot;# de indivíduos&quot;], 'colorintensity = 0.2)$
+</pre></div>
+<p>A primeira coluna na amostra <code>s3</code> armazena os valores das categorias <code>A</code> e <code>B</code>, também conhecidos algumas vezes como factores. Por outro lado, os números inteiros positivos na segunda coluna sào idades, em anos, que se comportam como variável discreta, então podemos montar um gráfico as freqyuências absolutas para esses valores,
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s3 : read_matrix (file_search (&quot;biomed.data&quot;))$
+(%i4) barsplot (col (s3, 2), 'maintitle = &quot;Idades&quot;,
+ 'axisnames = [&quot;Anos&quot;, &quot;# dos indivíduos&quot;], 'colorintensity = 0.2,
+ 'relbarwidth = 0.6)$
+</pre></div>
+
+
+<p>Veja também a função <code>histogram</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fboxplot"></a><dl>
+<dt><a name="index-boxplot"></a>Função: <strong>boxplot</strong> <em>(<var>data</var>)</em></dt>
+<dt><a name="index-boxplot-1"></a>Função: <strong>boxplot</strong> <em>(<var>data</var>, <var>opção_1</var>, <var>opção_2</var>, ...)</em></dt>
+<dd><p>Essa função monta diagramas em caixas. O argumento <var>data</var> pode ser uma lista, que não é de grande interesse, uma vez que esses diagramas são principalmente usados para comparação entre diferentes amostras, ou uma matriz, eentão é possível comparar dois ou mais componentes de uma variável estatística de várias variáveis. Mas é também permitido <var>data</var> se uma lista de amostras com tamanhos diferentes de amostra, de facto essa é aa única função no pacote <code>descriptive</code> que admite esse tipo de estrutura de dados. Veja o exemplo abaixo.  Abaixo etão as opções,
+</p>
+<ul>
+<li> <code>'outputdev</code>, o valor padrão é <code>&quot;x&quot;</code>, indica o formato de ficheiro da figura de saída; valores correctos são <code>&quot;x&quot;</code>, <code>&quot;eps&quot;</code> e <code>&quot;png&quot;</code>, para a tela, formato de ficheiro postscript e formato de ficheiro png, respectivamente.
+
+</li><li> <code>'maintitle</code>, o valor padrão é <code>&quot;&quot;</code>, é o título principal entre aspas duplas.
+
+</li><li> <code>'axisnames</code>, o valor padrão é <code>[&quot;sample&quot;, &quot;y&quot;]</code>, é uma lista de nomes dos eixos <code>x</code> e <code>y</code>.
+
+</li><li> <code>'picturescales</code>, o valor padrão é <code>[1.0, 1.0]</code>, factor de proporcionalidade para o tamanho do gráfico.
+
+</li></ul>
+
+<p>Examples:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i4) boxplot (s2, 'maintitle = &quot;Velocidade do vento em nós&quot;,
+ 'axisnames = [&quot;Estação do ano&quot;, &quot;&quot;])$
+(%i5) A :
+ [[6, 4, 6, 2, 4, 8, 6, 4, 6, 4, 3, 2],
+  [8, 10, 7, 9, 12, 8, 10],
+  [16, 13, 17, 12, 11, 18, 13, 18, 14, 12]]$
+(%i6) boxplot (A)$
+</pre></div>
+</dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_141.html#Defini_00e7_00f5es-espec_00edficas-para-estat_00edstica-descritiva-de-v_00e1rias-vari_00e1veis" accesskey="p" rel="previous">Definições específicas para estatística descritiva de várias variáveis</a>, Acima: <a href="maxima_137.html#descriptive" accesskey="u" rel="up">descriptive</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

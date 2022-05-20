@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones para la resolución numérica de ecuaciones</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones para la resolución numérica de ecuaciones">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones para la resolución numérica de ecuaciones">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_107.html#M_00e9todos-num_00e9ricos" rel="up" title="Métodos numéricos">
+<link href="maxima_111.html#Introducci_00f3n-a-la-resoluci_00f3n-num_00e9rica-de-ecuaciones-diferenciales" rel="next" title="Introducción a la resolución numérica de ecuaciones diferenciales">
+<link href="maxima_109.html#Funciones-y-variables-para-la-transformada-r_00e1pida-de-Fourier" rel="previous" title="Funciones y variables para la transformada rápida de Fourier">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-para-la-resoluci_00f3n-num_00e9rica-de-ecuaciones"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_111.html#Introducci_00f3n-a-la-resoluci_00f3n-num_00e9rica-de-ecuaciones-diferenciales" accesskey="n" rel="next">Introducción a la resolución numérica de ecuaciones diferenciales</a>, Previous: <a href="maxima_109.html#Funciones-y-variables-para-la-transformada-r_00e1pida-de-Fourier" accesskey="p" rel="previous">Funciones y variables para la transformada rápida de Fourier</a>, Subir: <a href="maxima_107.html#M_00e9todos-num_00e9ricos" accesskey="u" rel="up">Métodos numéricos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-para-la-resolucion-numerica-de-ecuaciones"></a>
+<h3 class="section">22.3 Funciones para la resolución numérica de ecuaciones</h3>
+
+
+
+<a name="Item_003a-Numerical_002ees_002fdeffn_002fhorner"></a><dl>
+<dt><a name="index-horner"></a>Función: <strong>horner</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<dt><a name="index-horner-1"></a>Función: <strong>horner</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Cambia el formato de <var>expr</var> según la regla de Horner utilizando <var>x</var> como variable principal, si ésta se especifica. El argumento <code>x</code> se puede omitir, en cuyo caso se considerará como variable principal la de <var>expr</var> en su formato racional canónico (CRE).
+</p>
+<p>La función <code>horner</code> puede mejorar las estabilidad si <code>expr</code> va a ser numéricamente evaluada. También es útil si Maxima se utiliza para generar programas que serán ejecutados en Fortran. Véase también <code>stringout</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: 1e-155*x^2 - 5.5*x + 5.2e155;
+                           2
+(%o1)            1.0E-155 x  - 5.5 x + 5.2E+155
+(%i2) expr2: horner (%, x), keepfloat: true;
+(%o2)            (1.0E-155 x - 5.5) x + 5.2E+155
+(%i3) ev (expr, x=1e155);
+Maxima encountered a Lisp error:
+
+ floating point overflow
+
+Automatically continuing.
+To reenable the Lisp debugger set *debugger-hook* to nil.
+(%i4) ev (expr2, x=1e155);
+(%o4)                       7.0E+154
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-Numerical_002ees_002fdeffn_002ffind_005froot"></a><dl>
+<dt><a name="index-find_005froot"></a>Función: <strong>find_root</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>abserr</var>, <var>relerr</var>])</em></dt>
+<dt><a name="index-find_005froot-1"></a>Función: <strong>find_root</strong> <em>(<var>f</var>, <var>a</var>, <var>b</var>, [<var>abserr</var>, <var>relerr</var>])</em></dt>
+<dd><a name="Item_003a-Numerical_002ees_002fdeffn_002fbf_005ffind_005froot"></a></dd><dt><a name="index-bf_005ffind_005froot"></a>Función: <strong>bf_find_root</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>abserr</var>, <var>relerr</var>])</em></dt>
+<dt><a name="index-bf_005ffind_005froot-1"></a>Función: <strong>bf_find_root</strong> <em>(<var>f</var>, <var>a</var>, <var>b</var>, [<var>abserr</var>, <var>relerr</var>])</em></dt>
+<dd><a name="Item_003a-Numerical_002ees_002fdeffn_002ffind_005froot_005ferror"></a></dd><dt><a name="index-find_005froot_005ferror"></a>Variable opcional: <strong>find_root_error</strong></dt>
+<dd><a name="Item_003a-Numerical_002ees_002fdeffn_002ffind_005froot_005fabs"></a></dd><dt><a name="index-find_005froot_005fabs"></a>Variable opcional: <strong>find_root_abs</strong></dt>
+<dd><a name="Item_003a-Numerical_002ees_002fdeffn_002ffind_005froot_005frel"></a></dd><dt><a name="index-find_005froot_005frel"></a>Variable opcional: <strong>find_root_rel</strong></dt>
+<dd>
+<p>Calcula una raíz de la expresión <var>expr</var> o de
+la función <var>f</var> en el intervalo cerrado <em>[<var>a</var>, <var>b</var>]</em>.
+La expresión <var>expr</var> puede ser una ecuación, en cuyo caso 
+<code>find_root</code> busca una raíz de
+<code>lhs(<var>expr</var>) - rhs(<var>expr</var>)</code>.
+</p>
+<p>Dado que Maxima puede evaluar <var>expr</var> o <var>f</var> en 
+<em>[<var>a</var>, <var>b</var>]</em>, entonces, si <var>expr</var> o <var>f</var> es
+continua, <code>find_root</code> encuentrará la raíz
+buscada, o raíces, en caso de existir varias.
+</p>
+<p>La función <code>find_root</code> aplica al principio la
+búsqueda por bipartición. Si la expresión es lo suficientemente
+suave, entonces <code>find_root</code> aplicará el método
+de interpolación lineal.
+</p>
+<p><code>bf_find_root</code> es una versión de <code>find_root</code> para números
+reales de precisión arbitraria (bigfloat). La función se 
+evalúa utilizando la aritmética de estos números, devolviendo
+un resultado numérico de este tipo. En cualquier otro aspecto,
+<code>bf_find_root</code> es idéntica a <code>find_root</code>, siendo la
+explicación que sigue igualmente válida para <code>bf_find_root</code>. 
+</p>
+<p>La precisión de <code>find_root</code> está controlada por <code>abserr</code> y
+<code>relerr</code>, que son claves opcionales para <code>find_root</code>. 
+Estas claves toman la forma <code>key=val</code>. Las claves disponibles son:
+</p>
+<dl compact="compact">
+<dt><code>abserr</code></dt>
+<dd><p>Error absoluto deseado de la función en la raíz. El
+valor por defecto es <code>find_root_abs</code>. 
+</p></dd>
+<dt><code>relerr</code></dt>
+<dd><p>Error relativo deseado de la raíz. El valor por defecto
+es <code>find_root_rel</code>.
+</p></dd>
+</dl>
+
+<p><code>find_root</code> se detiene cuando la función alcanza un valor menor o
+igual que <code>abserr</code>, o si las sucesivas aproximaciones <var>x_0</var>, <var>x_1</var>
+difieren en no más que <code>relerr * max(abs(x_0), abs(x_1))</code>. Los
+valores por defecto de <code>find_root_abs</code> y <code>find_root_rel</code> son
+ambos cero.
+</p>
+<p><code>find_root</code> espera que la función en cuestión tenga signos
+diferentes en los extremos del intervalo.
+Si la función toma valores numéricos en ambos extremos y estos
+números son del mismo signo, entonces
+el comportamiento de <code>find_root</code> se controla con <code>find_root_error</code>.
+Cuando <code>find_root_error</code> vale <code>true</code>, <code>find_root</code>
+devuelve un mensaje de error; en caso contrario, <code>find_root</code>
+devuelve el valor de <code>find_root_error</code>. El valor por defecto
+de <code>find_root_error</code> es <code>true</code>.
+</p>
+<p>Si en algún momento del proceso de búsqueda <var>f</var> alcanza un valor
+no numérico, <code>find_root</code> devuelve una expresión parcialmente evaluada.
+</p>
+<p>Se ignora el orden de <var>a</var> y <var>b</var>; la región de búsqueda es
+<em>[min(<var>a</var>, <var>b</var>), max(<var>a</var>, <var>b</var>)]</em>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) f(x) := sin(x) - x/2;
+                                        x
+(%o1)                  f(x) := sin(x) - -
+                                        2
+(%i2) find_root (sin(x) - x/2, x, 0.1, %pi);
+(%o2)                   1.895494267033981
+(%i3) find_root (sin(x) = x/2, x, 0.1, %pi);
+(%o3)                   1.895494267033981
+(%i4) find_root (f(x), x, 0.1, %pi);
+(%o4)                   1.895494267033981
+(%i5) find_root (f, 0.1, %pi);
+(%o5)                   1.895494267033981
+(%i6) find_root (exp(x) = y, x, 0, 100);
+                            x
+(%o6)           find_root(%e  = y, x, 0.0, 100.0)
+(%i7) find_root (exp(x) = y, x, 0, 100), y = 10;
+(%o7)                   2.302585092994046
+(%i8) log (10.0);
+(%o8)                   2.302585092994046
+(%i9) fpprec:32;
+(%o9)                           32
+(%i10) bf_find_root (exp(x) = y, x, 0, 100), y = 10;
+(%o10)                  2.3025850929940456840179914546844b0
+(%i11) log(10b0);
+(%o11)                  2.3025850929940456840179914546844b0
+</pre></div>
+
+</dd></dl>
+
+
+
+<a name="Item_003a-Numerical_002ees_002fdeffn_002fnewton"></a><dl>
+<dt><a name="index-newton"></a>Función: <strong>newton</strong> <em>(<var>expr</var>, <var>x</var>, <var>x_0</var>, <var>eps</var>)</em></dt>
+<dd><p>Devuelve una solución aproximada de <code><var>expr</var> = 0</code> obtenida
+por el método de Newton, considerando <var>expr</var> como una función
+de una variable, <var>x</var>.
+La búsqueda comienza con <code><var>x</var> = <var>x_0</var></code> y continúa
+hasta que se verifique <code>abs(<var>expr</var>) &lt; <var>eps</var></code>, donde
+<var>expr</var> se evalúa con el valor actual de <var>x</var>.
+</p>
+<p>La función <code>newton</code> permite que en <var>expr</var> haya variables
+no definidas, siempre y cuando la condición de terminación
+<code>abs(<var>expr</var>) &lt; <var>eps</var></code> pueda reducirse a un valor
+lógico <code>true</code> o <code>false</code>; de este modo, no es necesario
+que <var>expr</var> tome un valor numérico.
+</p>
+<p>Ejecútese <code>load(&quot;newton1&quot;)</code> para cargar esta función.
+</p>
+<p>Véanse también <code>realroots</code>, <code>allroots</code>, <code>find_root</code> y <code>mnewton</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;newton1&quot;);
+(%o1) /usr/share/maxima/5.10.0cvs/share/numeric/newton1.mac
+(%i2) newton (cos (u), u, 1, 1/100);
+(%o2)                   1.570675277161251
+(%i3) ev (cos (u), u = %);
+(%o3)                 1.2104963335033528E-4
+(%i4) assume (a &gt; 0);
+(%o4)                        [a &gt; 0]
+(%i5) newton (x^2 - a^2, x, a/2, a^2/100);
+(%o5)                  1.00030487804878 a
+(%i6) ev (x^2 - a^2, x = %);
+                                           2
+(%o6)                6.098490481853958E-4 a
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+<a name="Item_003a-Numerical_002ees_002fnode_002fIntroducci_00f3n-a-la-resoluci_00f3n-num_00e9rica-de-ecuaciones-diferenciales"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_111.html#Introducci_00f3n-a-la-resoluci_00f3n-num_00e9rica-de-ecuaciones-diferenciales" accesskey="n" rel="next">Introducción a la resolución numérica de ecuaciones diferenciales</a>, Previous: <a href="maxima_109.html#Funciones-y-variables-para-la-transformada-r_00e1pida-de-Fourier" accesskey="p" rel="previous">Funciones y variables para la transformada rápida de Fourier</a>, Subir: <a href="maxima_107.html#M_00e9todos-num_00e9ricos" accesskey="u" rel="up">Métodos numéricos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

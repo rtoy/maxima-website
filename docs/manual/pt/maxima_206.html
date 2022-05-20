@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Definições para stirling</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Definições para stirling">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições para stirling">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_205.html#stirling" rel="up" title="stirling">
+<link href="maxima_207.html#stringproc" rel="next" title="stringproc">
+<link href="maxima_205.html#stirling" rel="previous" title="stirling">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-para-stirling"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_205.html#stirling" accesskey="p" rel="previous">stirling</a>, Acima: <a href="maxima_205.html#stirling" accesskey="u" rel="up">stirling</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-para-stirling"></a>
+<h3 class="section">68.1 Definições para stirling</h3>
+
+<a name="Item_003a-stirling_002fdeffn_002fstirling"></a><dl>
+<dt><a name="index-stirling"></a>Função: <strong>stirling</strong> <em>(<var>z</var>,<var>n</var>)</em></dt>
+<dd><p>Substitui <code>gamma(x)</code> pela fórmula de Stirling <em>O(1/x^(2n-1))</em>. Quando <var>n</var> for
+um inteiro estritamente negativo, sinaliza um erro.
+</p>
+<p>Referência: Abramowitz &amp; Stegun, &quot; Handbook of mathematical functions&quot;, 6.1.40.
+</p>
+<p>Exemplos:
+</p><div class="example">
+<pre class="example">(%i1) load (&quot;stirling&quot;)$
+
+(%i2) stirling(gamma(%alpha+x)/gamma(x),1);
+       1/2 - x             x + %alpha - 1/2
+(%o2) x        (x + %alpha)
+                                   1           1
+                            --------------- - ---- - %alpha
+                            12 (x + %alpha)   12 x
+                          %e
+(%i3) taylor(%,x,inf,1);
+                    %alpha       2    %alpha
+          %alpha   x       %alpha  - x       %alpha
+(%o3)/T/ x       + -------------------------------- + . . .
+                                 2 x
+(%i4) map('factor,%);
+                                       %alpha - 1
+         %alpha   (%alpha - 1) %alpha x
+(%o4)   x       + -------------------------------
+                                  2
+</pre></div>
+
+<p>A função <code>stirling</code> conhece a diferença entre a variável <var>gamma</var> e
+a função <code>gamma</code>:
+</p>
+<div class="example">
+<pre class="example">(%i5) stirling(gamma + gamma(x),0);
+                                    x - 1/2   - x
+(%o5)    gamma + sqrt(2) sqrt(%pi) x        %e
+(%i6) stirling(gamma(y) + gamma(x),0);
+                         y - 1/2   - y
+(%o6) sqrt(2) sqrt(%pi) y        %e
+                                              x - 1/2   - x
+                         + sqrt(2) sqrt(%pi) x        %e
+</pre></div>
+
+<p>Para usar essa função escreva primeiro <code>load(&quot;stirling&quot;)</code>.
+</p></dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_205.html#stirling" accesskey="p" rel="previous">stirling</a>, Acima: <a href="maxima_205.html#stirling" accesskey="u" rel="up">stirling</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

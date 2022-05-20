@@ -1,241 +1,216 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Outubro, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual do Maxima: 55. implicit_plot</title>
+<title>Manual do Maxima: Funções e Variáveis Definidas para Funções Elípticas</title>
 
-<meta name="description" content="Manual do Maxima: 55. implicit_plot">
-<meta name="keywords" content="Manual do Maxima: 55. implicit_plot">
+<meta name="description" content="Manual do Maxima: Funções e Variáveis Definidas para Funções Elípticas">
+<meta name="keywords" content="Manual do Maxima: Funções e Variáveis Definidas para Funções Elípticas">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_toc.html#Top" rel="up" title="Top">
+<link href="maxima_56.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Integrais-El_00edpticas" rel="next" title="Funções e Variáveis Definidas para Integrais Elípticas">
+<link href="maxima_54.html#Introdu_00e7_00e3o-a-Fun_00e7_00f5es-El_00edpticas-e-Integrais" rel="previous" title="Introdução a Funções Elípticas e Integrais">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="implicit_005fplot"></a>
-<a name="SEC217"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_54.html#SEC216" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC218" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_54.html#SEC215" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_56.html#SEC219" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 55. implicit_plot </h1>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC218">55.1 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para implicit_plot</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-implicit_005fplot"></a>
-<a name="SEC218"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC217" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_56.html#SEC219" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC217" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC217" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_56.html#SEC219" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 55.1 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para implicit_plot </h2>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>implicit_plot</b><i> (<var>expr</var>, <var>x_range</var>, <var>y_range</var>)</i>
-<a name="IDX1855"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>implicit_plot</b><i> ([<var>expr_1</var>, ..., <var>expr_n</var>], <var>x_range</var>, <var>y_range</var>)</i>
-<a name="IDX1856"></a>
-</dt>
-<dd><p>Mostra na tela um gr&aacute;fico de uma ou mais express&otilde;es na forma
-impl&iacute;cita. <var>expr</var> &eacute; a express&atilde;o a ser montado o gr&aacute;fico, <var>x_range</var> o
-intervalo do eixo do eixo horizontal e <var>y_range</var> o intervalo do eixo
-vertical. <code>implicit_plot</code> somente trabalha com o driver do
-gnuplot. <code>implicit_plot</code> respeita as escolhas globais para o driver do
-gnuplot escolhidas por meio da fun&ccedil;&atilde;o <var>set_plot_option</var>. Op&ccedil;&otilde;es podem tamb;em serem passadas para
-a fun&ccedil;&atilde;o <code>implicit_plot</code> como argumentos opcionais.
-</p>
-<p><code>implicit_plot</code> trabalha por meio de mudan&ccedil;as de sinal de trilha sobre a &aacute;rea
-fornecida atrav&eacute;s de <var>x_range</var> e <var>y_range</var> e pode falhar em express&otilde;es
-complicadas.
-</p>
-<p><code>load(implicit_plot)</code> torna essa fun&ccedil;&atilde;o dispon&iacute;vel para uso.
-</p>
-<p>Exemplo:
-</p><pre class="example">(%i1) load(implicit_plot)$
-(%i2) implicit_plot (x^2 = y^3 - 3*y + 1, [x, -4, 4], [y, -4, 4])$
-</pre>
-<p><div class="image"><img src="./../figures/plotting3.png" alt="../figures/plotting3"></div>
-</p>
-</dd></dl>
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC217" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_56.html#SEC219" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Fun_00e7_00f5es-El_00edpticas"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Outubro, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Pr&oacute;ximo: <a href="maxima_56.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Integrais-El_00edpticas" accesskey="n" rel="next">Funções e Variáveis Definidas para Integrais Elípticas</a>, Previous: <a href="maxima_54.html#Introdu_00e7_00e3o-a-Fun_00e7_00f5es-El_00edpticas-e-Integrais" accesskey="p" rel="previous">Introdução a Funções Elípticas e Integrais</a>, Acima: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
 
-</p>
+<a name="Funcoes-e-Variaveis-Definidas-para-Funcoes-Elipticas"></a>
+<h3 class="section">17.2 Funções e Variáveis Definidas para Funções Elípticas</h3>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fsn"></a><dl>
+<dt><a name="index-jacobi_005fsn"></a>Função: <strong>jacobi_sn</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A Função elíptica Jacobiana <em>sn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fcn"></a><dl>
+<dt><a name="index-jacobi_005fcn"></a>Função: <strong>jacobi_cn</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A função elíptica Jacobiana <em>cn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fdn"></a><dl>
+<dt><a name="index-jacobi_005fdn"></a>Função: <strong>jacobi_dn</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A função elíptica Jacobiana <em>dn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fns"></a><dl>
+<dt><a name="index-jacobi_005fns"></a>Função: <strong>jacobi_ns</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A função elíptica Jacobiana <em>ns(u,m) = 1/sn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fsc"></a><dl>
+<dt><a name="index-jacobi_005fsc"></a>Função: <strong>jacobi_sc</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A função elíptica Jacobiana <em>sc(u,m) = sn(u,m)/cn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fsd"></a><dl>
+<dt><a name="index-jacobi_005fsd"></a>Função: <strong>jacobi_sd</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A função elíptica Jacobiana <em>sd(u,m) = sn(u,m)/dn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fnc"></a><dl>
+<dt><a name="index-jacobi_005fnc"></a>Função: <strong>jacobi_nc</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A função elíptica Jacobiana <em>nc(u,m) = 1/cn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fcs"></a><dl>
+<dt><a name="index-jacobi_005fcs"></a>Função: <strong>jacobi_cs</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A função elíptica Jacobiana <em>cs(u,m) = cn(u,m)/sn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fcd"></a><dl>
+<dt><a name="index-jacobi_005fcd"></a>Função: <strong>jacobi_cd</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A função elíptica Jacobiana <em>cd(u,m) = cn(u,m)/dn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fnd"></a><dl>
+<dt><a name="index-jacobi_005fnd"></a>Função: <strong>jacobi_nd</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A função elíptica Jacobiana <em>nc(u,m) = 1/cn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fds"></a><dl>
+<dt><a name="index-jacobi_005fds"></a>Função: <strong>jacobi_ds</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A função elíptica Jacobiana <em>ds(u,m) = dn(u,m)/sn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002fjacobi_005fdc"></a><dl>
+<dt><a name="index-jacobi_005fdc"></a>Função: <strong>jacobi_dc</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A função elíptica Jacobiana <em>dc(u,m) = dn(u,m)/cn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fsn"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fsn"></a>Função: <strong>inverse_jacobi_sn</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>sn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fcn"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fcn"></a>Função: <strong>inverse_jacobi_cn</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>cn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fdn"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fdn"></a>Função: <strong>inverse_jacobi_dn</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>dn(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fns"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fns"></a>Função: <strong>inverse_jacobi_ns</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>ns(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fsc"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fsc"></a>Função: <strong>inverse_jacobi_sc</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>sc(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fsd"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fsd"></a>Função: <strong>inverse_jacobi_sd</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>sd(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fnc"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fnc"></a>Função: <strong>inverse_jacobi_nc</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>nc(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fcs"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fcs"></a>Função: <strong>inverse_jacobi_cs</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>cs(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fcd"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fcd"></a>Função: <strong>inverse_jacobi_cd</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>cd(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fnd"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fnd"></a>Função: <strong>inverse_jacobi_nd</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>nc(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fds"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fds"></a>Função: <strong>inverse_jacobi_ds</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>ds(u,m)</em>.
+</p></dd></dl>
+
+<a name="Item_003a-Elliptic_002fdeffn_002finverse_005fjacobi_005fdc"></a><dl>
+<dt><a name="index-inverse_005fjacobi_005fdc"></a>Função: <strong>inverse_jacobi_dc</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dd><p>A inversa da função elíptica Jacobiana <em>dc(u,m)</em>.
+</p></dd></dl>
+
+
+<a name="Item_003a-Elliptic_002fnode_002fFun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Integrais-El_00edpticas"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_56.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Integrais-El_00edpticas" accesskey="n" rel="next">Funções e Variáveis Definidas para Integrais Elípticas</a>, Previous: <a href="maxima_54.html#Introdu_00e7_00e3o-a-Fun_00e7_00f5es-El_00edpticas-e-Integrais" accesskey="p" rel="previous">Introdução a Funções Elípticas e Integrais</a>, Acima: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
 </body>
 </html>

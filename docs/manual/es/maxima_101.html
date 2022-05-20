@@ -1,0 +1,856 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para QUADPACK</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para QUADPACK">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para QUADPACK">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_97.html#Integraci_00f3n" rel="up" title="Integración">
+<link href="maxima_102.html#Ecuaciones" rel="next" title="Ecuaciones">
+<link href="maxima_100.html#Introducci_00f3n-a-QUADPACK" rel="previous" title="Introducción a QUADPACK">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-QUADPACK"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_100.html#Introducci_00f3n-a-QUADPACK" accesskey="p" rel="previous">Introducción a QUADPACK</a>, Subir: <a href="maxima_97.html#Integraci_00f3n" accesskey="u" rel="up">Integración</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-QUADPACK-1"></a>
+<h3 class="section">19.4 Funciones y variables para QUADPACK</h3>
+
+<a name="Item_003a-Integration_002ees_002fdeffn_002fquad_005fqag"></a><dl>
+<dt><a name="index-quad_005fqag"></a>Función: <strong>quad_qag</strong> <em>(<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>key</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dt><a name="index-quad_005fqag-1"></a>Función: <strong>quad_qag</strong> <em>(<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>key</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dd><p>Integración de una función general en un intervalo finito.
+La función <code>quad_qag</code> implementa un integrador global 
+adaptativo simple utilizando una estrategia de Aind (Piessens, 1973).
+Se puede escoger entre seis pares de fórmulas de cuadratura de
+Gauss-Kronrod para la regla de evaluación.
+Las reglas de rango superior son útiles en los casos en los que
+los integrandos tienen un alto grado de oscilación.
+</p>
+<p>La función <code>quad_qag</code> calcula numéricamente la integral
+</p>
+<p><em>integrate (f(x), x, a, b)</em>
+</p>
+<p>utilizando un integrador adaptativo simple.
+</p>
+<p>La función a integrar es <var>f(x)</var>, con variable independiente <var>x</var>,
+siendo el intervalo de integración el comprendido entre <var>a</var> y <var>b</var>.
+El argumento <var>key</var> indica el integrador a utilizar y debe ser un número
+entero entre 1 y 6, ambos inclusive.  El valor de <var>key</var> selecciona el
+orden de la regla de integración de Gauss-Kronrod.
+Las reglas de rango superior son útiles en los casos en los que
+los integrandos tienen un alto grado de oscilación.
+</p>
+<p>El integrando se puede especificar con el nombre de una función u operador de Maxima 
+o de Lisp, como una expresión lambda o como una expresión general de Maxima.
+</p>
+<p>La integración numérica se hace de forma adaptativa particionando la región de integración en subintervalos hasta conseguir la precisión requerida.
+</p>
+<p>Los argumentos opcionales pueden especificarse en cualquier orden. 
+Todos ellos toman la forma <code>key=val</code>. Tales argumentos son:
+</p>
+<dl compact="compact">
+<dt><code>epsrel</code></dt>
+<dd><p>Error relativo deseado de la aproximación. El valor por defecto es 1d-8.
+</p></dd>
+<dt><code>epsabs</code></dt>
+<dd><p>Error absoluto deseado de la aproximación. El valor por defecto es 0.
+</p></dd>
+<dt><code>limit</code></dt>
+<dd><p>Tamaño del array interno utilizado para realizar la cuadratura. 
+<var>limit</var> es el número máximo de subintervalos
+a utilizar. El valor por defecto es 200.
+</p></dd>
+</dl>
+
+<p>La función <code>quad_qag</code> devuelve una lista de cuatro elementos:
+</p>
+<ul>
+<li> la aproximación a la integral,
+</li><li> el error absoluto estimado de la aproximación, 
+</li><li> el número de evaluaciones del integrando,
+</li><li> un código de error.
+</li></ul>
+
+<p>El código de error (el cuarto elemento del resultado) puede tener los siguientes valores:
+</p>
+<dl compact="compact">
+<dt><code>0</code></dt>
+<dd><p>si no ha habido problemas; 
+</p></dd>
+<dt><code>1</code></dt>
+<dd><p>si se utilizaron demasiados intervalos;
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>si se encontró un número excesivo de errores de redondeo;
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p>si el integrando ha tenido un comportamiento extraño frente a la integración;
+</p></dd>
+<dt><code>6</code></dt>
+<dd><p>si los argumentos de entrada no son válidos.
+</p></dd>
+</dl>
+
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) quad_qag (x^(1/2)*log(1/x), x, 0, 1, 3, 'epsrel=5d-8);
+(%o1)    [.4444444444492108, 3.1700968502883E-9, 961, 0]
+(%i2) integrate (x^(1/2)*log(1/x), x, 0, 1);
+                                4
+(%o2)                           -
+                                9
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-Integration_002ees_002fdeffn_002fquad_005fqags"></a><dl>
+<dt><a name="index-quad_005fqags"></a>Función: <strong>quad_qags</strong> <em>(<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dt><a name="index-quad_005fqags-1"></a>Función: <strong>quad_qags</strong> <em>(<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dd><p>Integración de una función general en un intervalo finito.
+La función <code>quad_qags</code> implementa la subdivisión de intervalos 
+global adaptativa con extrapolación (de Doncker, 1978) mediante
+el algoritmo Epsilon  (Wynn, 1956).
+</p>
+<p>La función <code>quad_qags</code> calcula la integral
+</p>
+<p><em>integrate (f(x), x, a, b)</em>
+</p>
+<p>La función a integrar es <var>f(x)</var>, de variable independiente <var>x</var>, 
+siendo el intervalo de integración el comprendido entre <var>a</var> y <var>b</var>.
+</p>
+<p>El integrando se puede especificar con el nombre de una función u operador de Maxima 
+o de Lisp, como una expresión lambda o como una expresión general de Maxima.
+</p>
+<p>Los argumentos opcionales pueden especificarse en cualquier orden. 
+Todos ellos toman la forma <code>key=val</code>. Tales argumentos son:
+</p>
+<dl compact="compact">
+<dt><code>epsrel</code></dt>
+<dd><p>Error relativo deseado de la aproximación. El valor por defecto es 1d-8.
+</p></dd>
+<dt><code>epsabs</code></dt>
+<dd><p>Error absoluto deseado de la aproximación. El valor por defecto es 0.
+</p></dd>
+<dt><code>limit</code></dt>
+<dd><p>Tamaño del array interno utilizado para realizar la cuadratura. 
+<var>limit</var> es el número máximo de subintervalos
+a utilizar. El valor por defecto es 200.
+</p></dd>
+</dl>
+
+<p>La función <code>quad_qags</code> devuelve una lista de cuatro elementos:
+</p>
+<ul>
+<li> la aproximación a la integral,
+</li><li> el error absoluto estimado de la aproximación, 
+</li><li> el número de evaluaciones del integrando,
+</li><li> un código de error.
+</li></ul>
+
+<p>El código de error (el cuarto elemento del resultado) puede tener los siguientes valores:
+</p>
+<dl compact="compact">
+<dt><code>0</code></dt>
+<dd><p>si no ha habido problemas; 
+</p></dd>
+<dt><code>1</code></dt>
+<dd><p>si se utilizaron demasiados intervalos;
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>si se encontró un número excesivo de errores de redondeo;
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p>si el integrando ha tenido un comportamiento extraño frente a la integración;
+</p></dd>
+<dt><code>4</code></dt>
+<dd><p>fallo de convergencia;
+</p></dd>
+<dt><code>5</code></dt>
+<dd><p>la integral es probablemente divergente o de convergencia lenta;
+</p></dd>
+<dt><code>6</code></dt>
+<dd><p>si los argumentos de entrada no son válidos.
+</p></dd>
+</dl>
+
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) quad_qags (x^(1/2)*log(1/x), x, 0, 1, 'epsrel=1d-10);
+(%o1)   [.4444444444444448, 1.11022302462516E-15, 315, 0]
+</pre></div>
+
+<p>Nótese que <code>quad_qags</code> es más precisa y eficiente que <code>quad_qag</code> para este integrando.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Integration_002ees_002fdeffn_002fquad_005fqagi"></a><dl>
+<dt><a name="index-quad_005fqagi"></a>Función: <strong>quad_qagi</strong> <em>(<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dt><a name="index-quad_005fqagi-1"></a>Función: <strong>quad_qagi</strong> <em>(<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dd>
+<p>Integración de una función general en un intervalo infinito o semi-infinito.
+El intervalo se proyecta sobre un intervalo finito y luego se aplica la
+misma estrategia que en <code>quad_qags</code>.
+</p>
+<p>La función <code>quad_qagi</code> calcula cualquiera las siguientes integrales:
+</p>
+<p><em>integrate (f(x), x, a, inf)</em>
+</p>
+<p><em>integrate (f(x), x, minf, a)</em>
+</p>
+<p><em>integrate (f(x), x, minf, inf)</em>
+</p>
+<p>utilizando la rutina QAGI de Quadpack QAGI. La función a integrar es <var>f(x)</var>, con variable independiente <var>x</var>, siendo el intervalo de integración de rango infinito.
+</p>
+<p>El integrando se puede especificar con el nombre de una función u operador de Maxima 
+o de Lisp, como una expresión lambda o como una expresión general de Maxima.
+</p>
+<p>Uno de los límites de integración debe ser infinito. De no ser
+así, <code>quad_qagi</code> devolverá una forma nominal.
+</p>
+<p>Los argumentos opcionales pueden especificarse en cualquier orden. 
+Todos ellos toman la forma <code>key=val</code>. Tales argumentos son:
+</p>
+<dl compact="compact">
+<dt><code>epsrel</code></dt>
+<dd><p>Error relativo deseado de la aproximación. El valor por defecto es 1d-8.
+</p></dd>
+<dt><code>epsabs</code></dt>
+<dd><p>Error absoluto deseado de la aproximación. El valor por defecto es 0.
+</p></dd>
+<dt><code>limit</code></dt>
+<dd><p>Tamaño del array interno utilizado para realizar la cuadratura. 
+<var>limit</var> es el número máximo de subintervalos
+a utilizar. El valor por defecto es 200.
+</p></dd>
+</dl>
+
+<p>La función <code>quad_qagi</code> devuelve una lista de cuatro elementos:
+</p>
+<ul>
+<li> la aproximación a la integral,
+</li><li> el error absoluto estimado de la aproximación, 
+</li><li> el número de evaluaciones del integrando,
+</li><li> un código de error.
+</li></ul>
+
+<p>El código de error (el cuarto elemento del resultado) puede tener los siguientes valores:
+</p>
+<dl compact="compact">
+<dt><code>0</code></dt>
+<dd><p>si no ha habido problemas; 
+</p></dd>
+<dt><code>1</code></dt>
+<dd><p>si se utilizaron demasiados intervalos;
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>si se encontró un número excesivo de errores de redondeo;
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p>si el integrando ha tenido un comportamiento extraño frente a la integración;
+</p></dd>
+<dt><code>4</code></dt>
+<dd><p>fallo de convergencia;
+</p></dd>
+<dt><code>5</code></dt>
+<dd><p>la integral es probablemente divergente o de convergencia lenta;
+</p></dd>
+<dt><code>6</code></dt>
+<dd><p>si los argumentos de entrada no son válidos.
+</p></dd>
+</dl>
+
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) quad_qagi (x^2*exp(-4*x), x, 0, inf, 'epsrel=1d-8);
+(%o1)        [0.03125, 2.95916102995002E-11, 105, 0]
+(%i2) integrate (x^2*exp(-4*x), x, 0, inf);
+                               1
+(%o2)                          --
+                               32
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Integration_002ees_002fdeffn_002fquad_005fqawc"></a><dl>
+<dt><a name="index-quad_005fqawc"></a>Función: <strong>quad_qawc</strong> <em>(<var>f(x)</var>, <var>x</var>, <var>c</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dt><a name="index-quad_005fqawc-1"></a>Función: <strong>quad_qawc</strong> <em>(<var>f</var>, <var>x</var>, <var>c</var>, <var>a</var>, <var>b</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dd><p>Calcula el valor principal de Cauchy de <em>f(x)/(x - c)</em> en un
+intervalo finito <em>(a, b)</em> para una <em>c</em> dada.
+La estrategia es global adaptativa, utilizando la integración de 
+Clenshaw-Curtis modificada en los subintervalos que contienen a <em>x = c</em>.
+</p>
+<p>La función <code>quad_qawc</code> calcula el valor principal de Cauchy de
+</p>
+<p><em>integrate (f(x)/(x - c), x, a, b)</em>
+</p>
+<p>utilizando la rutina QAWC de Quadpack.  La función a integrar es
+<code><var>f(x)</var>/(<var>x</var> - <var>c</var>)</code>, con variable independiente <var>x</var>, siendo el intervalo de integración el comprendido entre <var>a</var> y <var>b</var>.
+</p>
+<p>El integrando se puede especificar con el nombre de una función u operador de Maxima 
+o de Lisp, como una expresión lambda o como una expresión general de Maxima.
+</p>
+<p>Los argumentos opcionales pueden especificarse en cualquier orden. 
+Todos ellos toman la forma <code>key=val</code>. Tales argumentos son:
+</p>
+<dl compact="compact">
+<dt><code>epsrel</code></dt>
+<dd><p>Error relativo deseado de la aproximación. El valor por defecto es 1d-8.
+</p></dd>
+<dt><code>epsabs</code></dt>
+<dd><p>Error absoluto deseado de la aproximación. El valor por defecto es 0.
+</p></dd>
+<dt><code>limit</code></dt>
+<dd><p>Tamaño del array interno utilizado para realizar la cuadratura. 
+<var>limit</var> es el número máximo de subintervalos
+a utilizar. El valor por defecto es 200.
+</p></dd>
+</dl>
+
+<p><code>quad_qawc</code> returns a list of four elements:
+</p>
+<ul>
+<li> la aproximación a la integral,
+</li><li> el error absoluto estimado de la aproximación, 
+</li><li> el número de evaluaciones del integrando,
+</li><li> un código de error.
+</li></ul>
+
+<p>El código de error (el cuarto elemento del resultado) puede tener los siguientes valores:
+</p>
+<dl compact="compact">
+<dt><code>0</code></dt>
+<dd><p>si no ha habido problemas; 
+</p></dd>
+<dt><code>1</code></dt>
+<dd><p>si se utilizaron demasiados intervalos;
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>si se encontró un número excesivo de errores de redondeo;
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p>si el integrando ha tenido un comportamiento extraño frente a la integración;
+</p></dd>
+<dt><code>6</code></dt>
+<dd><p>si los argumentos de entrada no son válidos.
+</p></dd>
+</dl>
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) quad_qawc (2^(-5)*((x-1)^2+4^(-5))^(-1), x, 2, 0, 5,
+                 'epsrel=1d-7);
+(%o1)    [- 3.130120337415925, 1.306830140249558E-8, 495, 0]
+(%i2) integrate (2^(-alpha)*(((x-1)^2 + 4^(-alpha))*(x-2))^(-1),
+                 x, 0, 5);
+Principal Value
+        alpha        9 4                 9
+       4      log(-------------- + --------------)
+                   alpha + 3        alpha + 3
+                  4          + 4   4          + 4
+(%o2) (-------------------------------------------
+                         alpha
+                      2 4      + 2
+    3 alpha                   3 alpha
+    -------                   -------
+       2          alpha/2        2              alpha/2
+   4        atan(4       )   4        atan(- 4 4       )
+ - ----------------------- + ---------------------------)
+          alpha                       alpha
+         4      + 1                  4      + 1
+  alpha
+/2
+(%i3) ev (%, alpha=5, numer);
+(%o3)                    - 3.130120337415917
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Integration_002ees_002fdeffn_002fquad_005fqawf"></a><dl>
+<dt><a name="index-quad_005fqawf"></a>Función: <strong>quad_qawf</strong> <em>(<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>omega</var>, <var>trig</var>, [<var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>])</em></dt>
+<dt><a name="index-quad_005fqawf-1"></a>Función: <strong>quad_qawf</strong> <em>(<var>f</var>, <var>x</var>, <var>a</var>, <var>omega</var>, <var>trig</var>, [<var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>])</em></dt>
+<dd><p>Calcula la transformada seno o coseno de Fourier en un intervalo semi-infinito.
+Se aplica el mismo método que en <code>quad_qawo</code> a sucesivos intervalos
+finitos, acelerando la convergencia mediante el algoritmo Epsilon (Wynn, 1956).
+</p>
+<p>La función <code>quad_qawf</code> calcula la integral
+</p>
+<p><em>integrate (f(x)*w(x), x, a, inf)</em>
+</p>
+<p>La función peso <em>w</em> se selecciona mediante <var>trig</var>:
+</p>
+<dl compact="compact">
+<dt><code>cos</code></dt>
+<dd><p><em>w(x) = cos (omega x)</em>
+</p></dd>
+<dt><code>sin</code></dt>
+<dd><p><em>w(x) = sin (omega x)</em>
+</p></dd>
+</dl>
+
+
+<p>El integrando se puede especificar con el nombre de una función u operador de Maxima 
+o de Lisp, como una expresión lambda o como una expresión general de Maxima
+</p>
+<p>Los argumentos opcionales pueden especificarse en cualquier orden. 
+Todos ellos toman la forma <code>key=val</code>. Tales argumentos son:
+</p>
+<dl compact="compact">
+<dt><code>epsabs</code></dt>
+<dd><p>El error absoluto deseado para la aproximación. El valor por defecto es 1d-10.
+</p></dd>
+<dt><code>limit</code></dt>
+<dd><p>Tamaño del arreglo interno de trabajo.  (<var>limit</var> - <var>limlst</var>)/2 es el número máximo de subintervalos para la partición. El valor por defecto es 200.
+</p></dd>
+<dt><code>maxp1</code></dt>
+<dd><p>Número máximo de momentos de Chebyshev. Debe ser mayor que 0.  El valor por defecto es 100.
+</p></dd>
+<dt><code>limlst</code></dt>
+<dd><p>Cota superior del número de ciclos. Debe ser mayor o igual que 3.  El valor por defecto es 10.
+</p></dd>
+</dl>
+
+<p><code>quad_qawf</code> returns a list of four elements:
+</p>
+<ul>
+<li> la aproximación a la integral,
+</li><li> el error absoluto estimado de la aproximación, 
+</li><li> el número de evaluaciones del integrando,
+</li><li> un código de error.
+</li></ul>
+
+<p>El código de error (el cuarto elemento del resultado) puede tener los siguientes valores:
+</p>
+<dl compact="compact">
+<dt><code>0</code></dt>
+<dd><p>si no ha habido problemas; 
+</p></dd>
+<dt><code>1</code></dt>
+<dd><p>si se utilizaron demasiados intervalos;
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>si se encontró un número excesivo de errores de redondeo;
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p>si el integrando ha tenido un comportamiento extraño frente a la integración;
+</p></dd>
+<dt><code>6</code></dt>
+<dd><p>si los argumentos de entrada no son válidos.
+</p></dd>
+</dl>
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) quad_qawf (exp(-x^2), x, 0, 1, 'cos, 'epsabs=1d-9);
+(%o1)   [.6901942235215714, 2.84846300257552E-11, 215, 0]
+(%i2) integrate (exp(-x^2)*cos(x), x, 0, inf);
+                          - 1/4
+                        %e      sqrt(%pi)
+(%o2)                   -----------------
+                                2
+(%i3) ev (%, numer);
+(%o3)                   .6901942235215714
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Integration_002ees_002fdeffn_002fquad_005fqawo"></a><dl>
+<dt><a name="index-quad_005fqawo"></a>Función: <strong>quad_qawo</strong> <em>(<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>omega</var>, <var>trig</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>])</em></dt>
+<dt><a name="index-quad_005fqawo-1"></a>Función: <strong>quad_qawo</strong> <em>(<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>omega</var>, <var>trig</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>, <var>maxp1</var>, <var>limlst</var>])</em></dt>
+<dd><p>Integración de <em>cos(omega x) f(x)</em> o <em>sin(omega x) f(x)</em> en un
+intervalo finito, siendo <em>omega</em> una constante. La regla de 
+evaluación se basa en la técnica modificada de Clenshaw-Curtis.
+La función <code>quad_qawo</code> aplica la subdivisión adaptativa con extrapolación, 
+de forma similar a <code>quad_qags</code>.
+</p>
+<p>La función <code>quad_qawo</code> realiza la integración utilizando la rutina QAWO de Quadpack:
+</p>
+<p><em>integrate (f(x)*w(x), x, a, b)</em>
+</p>
+<p>La función peso <em>w</em> se selecciona mediante <var>trig</var>:
+</p>
+<dl compact="compact">
+<dt><code>cos</code></dt>
+<dd><p><em>w(x) = cos (omega x)</em>
+</p></dd>
+<dt><code>sin</code></dt>
+<dd><p><em>w(x) = sin (omega x)</em>
+</p></dd>
+</dl>
+
+<p>El integrando se puede especificar con el nombre de una función u operador de Maxima 
+o de Lisp, como una expresión lambda o como una expresión general de Maxima
+</p>
+<p>Los argumentos opcionales pueden especificarse en cualquier orden. 
+Todos ellos toman la forma <code>key=val</code>. Tales argumentos son:
+</p>
+<dl compact="compact">
+<dt><code>epsrel</code></dt>
+<dd><p>El error absoluto deseado para la aproximación. El valor por defecto es 1d-8.
+</p></dd>
+<dt><code>epsabs</code></dt>
+<dd><p>Error absoluto deseado de la aproximación. El valor por defecto es 0.
+</p></dd>
+<dt><code>limit</code></dt>
+<dd><p>Tamaño del arreglo interno de trabajo. <var>limit</var>/2 es el número máximo de subintervalos para la partición. El valor por defecto es 200.
+</p></dd>
+<dt><code>maxp1</code></dt>
+<dd><p>Número máximo de momentos de Chebyshev. Debe ser mayor que 0.  El valor por defecto es 100.
+</p></dd>
+<dt><code>limlst</code></dt>
+<dd><p>Cota superior del número de ciclos. Debe ser mayor o igual que 3.  El valor por defecto es 10.
+</p></dd>
+</dl>
+
+<p><code>quad_qawo</code> returns a list of four elements:
+</p>
+<ul>
+<li> la aproximación a la integral,
+</li><li> el error absoluto estimado de la aproximación, 
+</li><li> el número de evaluaciones del integrando,
+</li><li> un código de error.
+</li></ul>
+
+<p>El código de error (el cuarto elemento del resultado) puede tener los siguientes valores:
+</p>
+<dl compact="compact">
+<dt><code>0</code></dt>
+<dd><p>si no ha habido problemas; 
+</p></dd>
+<dt><code>1</code></dt>
+<dd><p>si se utilizaron demasiados intervalos;
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>si se encontró un número excesivo de errores de redondeo;
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p>si el integrando ha tenido un comportamiento extraño frente a la integración;
+</p></dd>
+<dt><code>6</code></dt>
+<dd><p>si los argumentos de entrada no son válidos.
+</p></dd>
+</dl>
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) quad_qawo (x^(-1/2)*exp(-2^(-2)*x), x, 1d-8, 20*2^2, 1, cos);
+(%o1)     [1.376043389877692, 4.72710759424899E-11, 765, 0]
+(%i2) rectform (integrate (x^(-1/2)*exp(-2^(-alpha)*x) * cos(x),
+                           x, 0, inf));
+                   alpha/2 - 1/2            2 alpha
+        sqrt(%pi) 2              sqrt(sqrt(2        + 1) + 1)
+(%o2)   -----------------------------------------------------
+                               2 alpha
+                         sqrt(2        + 1)
+(%i3) ev (%, alpha=2, numer);
+(%o3)                     1.376043390090716
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Integration_002ees_002fdeffn_002fquad_005fqaws"></a><dl>
+<dt><a name="index-quad_005fqaws"></a>Función: <strong>quad_qaws</strong> <em>(<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>alpha</var>, <var>beta</var>, <var>wfun</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dt><a name="index-quad_005fqaws-1"></a>Función: <strong>quad_qaws</strong> <em>(<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>alpha</var>, <var>beta</var>, <var>wfun</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dd><p>Integración de <em>w(x) f(x)</em> en un intervalo finito <em>[a, b]</em>,
+siendo <em>w</em> una función de la forma <em>(x - a)^alpha (b - x)^beta v(x)</em>,
+con  <em>v(x)</em> igual a 1, a <em>log(x - a)</em>, a <em>log(b - x)</em> o a
+<em>log(x - a) log(b - x)</em> y con <em>alpha &gt; -1</em>, y <em>beta &gt; -1</em>.
+Se aplica una estrategia de subdivisión adaptativa global,
+con integración de Clenshaw-Curtis modificada en los subintervalos que
+contienen a <em>a</em> y a <em>b</em>.
+</p>
+<p>La función <code>quad_qaws</code> realiza la integración utizando la rutina QAWS de Quadpack:
+</p>
+<p><em>integrate (f(x)*w(x), x, a, b)</em>
+</p>
+<p>La función peso <em>w</em> se selecciona mediante <var>wfun</var>:
+</p>
+<dl compact="compact">
+<dt><code>1</code></dt>
+<dd><p><em>w(x) = (x - a)^alfa (b - x)^beta</em>
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p><em>w(x) = (x - a)^alfa (b - x)^beta log(x - a)</em>
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p><em>w(x) = (x - a)^alfa (b - x)^beta log(b - x)</em>
+</p></dd>
+<dt><code>4</code></dt>
+<dd><p><em>w(x) = (x - a)^alfa (b - x)^beta log(x - a) log(b - x)</em>
+</p></dd>
+</dl>
+
+<p>El integrando se puede especificar con el nombre de una función u operador de Maxima 
+o de Lisp, como una expresión lambda o como una expresión general de Maxima
+</p>
+<p>Los argumentos opcionales pueden especificarse en cualquier orden. 
+Todos ellos toman la forma <code>key=val</code>. Tales argumentos son:
+</p>
+<dl compact="compact">
+<dt><code>epsrel</code></dt>
+<dd><p>El error absoluto deseado para la aproximación. El valor por defecto es 1d-8.
+</p></dd>
+<dt><code>epsabs</code></dt>
+<dd><p>Error absoluto deseado de la aproximación. El valor por defecto es 0.
+</p></dd>
+<dt><code>limit</code></dt>
+<dd><p>Tamaño del array interno utilizado para realizar la cuadratura. 
+(<var>limit</var> - <var>limlst</var>)/2 es el número máximo de subintervalos
+a utilizar. El valor por defecto es 200.
+</p></dd>
+</dl>
+
+<p><code>quad_qaws</code> returns a list of four elements:
+</p>
+<ul>
+<li> la aproximación a la integral,
+</li><li> el error absoluto estimado de la aproximación, 
+</li><li> el número de evaluaciones del integrando,
+</li><li> un código de error.
+</li></ul>
+
+<p>El código de error (el cuarto elemento del resultado) puede tener los siguientes valores:
+</p>
+<dl compact="compact">
+<dt><code>0</code></dt>
+<dd><p>si no ha habido problemas; 
+</p></dd>
+<dt><code>1</code></dt>
+<dd><p>si se utilizaron demasiados intervalos;
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>si se encontró un número excesivo de errores de redondeo;
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p>si el integrando ha tenido un comportamiento extraño frente a la integración;
+</p></dd>
+<dt><code>6</code></dt>
+<dd><p>si los argumentos de entrada no son válidos.
+</p></dd>
+</dl>
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) quad_qaws (1/(x+1+2^(-4)), x, -1, 1, -0.5, -0.5, 1,
+                 'epsabs=1d-9);
+(%o1)     [8.750097361672832, 1.24321522715422E-10, 170, 0]
+(%i2) integrate ((1-x*x)^(-1/2)/(x+1+2^(-alpha)), x, -1, 1);
+       alpha
+Is  4 2      - 1  positive, negative, or zero?
+
+pos;
+                          alpha         alpha
+                   2 %pi 2      sqrt(2 2      + 1)
+(%o2)              -------------------------------
+                               alpha
+                            4 2      + 2
+(%i3) ev (%, alpha=4, numer);
+(%o3)                     8.750097361672829
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-Integration_002ees_002fdeffn_002fquad_005fqagp"></a><dl>
+<dt><a name="index-quad_005fqagp"></a>Fución: <strong>quad_qagp</strong> <em>(<var>f(x)</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>points</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dt><a name="index-quad_005fqagp-1"></a>Fución: <strong>quad_qagp</strong> <em>(<var>f</var>, <var>x</var>, <var>a</var>, <var>b</var>, <var>points</var>, [<var>epsrel</var>, <var>epsabs</var>, <var>limit</var>])</em></dt>
+<dd>
+<p>Integra una función general sobre un intervalo acotado. La función
+<code>quad_qagp</code> implementa un método adaptativo global de subdivisión
+del intervalo con extrapolación (de Doncker, 1978) basado en el algoritmo
+Epsilon (Wynn, 1956).
+</p>
+<p><code>quad_qagp</code> calcula la integral
+</p>
+<p><em>integrate (f(x), x, a, b)</em>
+</p>
+<p>La función a integrar es <var>f(x)</var>, con variable independiente
+<var>x</var>, en el intervalo limitado por <var>a</var> y <var>b</var>.
+</p>
+<p>El integrando puede especificarse mediante el nombre de una función de
+Maxima o de Lisp o un operador, como una expresión lambda de Maxima, o
+como una expresión general de Maxima.
+</p>
+<p>Para ayudar al integrador, el usuario debe aportar una lista de puntos 
+donde el integrando es singular o discontinuo.
+</p>
+<p>Las opciones se suministran como argumentos y se pueden escribir en
+cualquier orden. Deben tomar la forma <code>opción=valor</code>. Las 
+opciones son:
+</p>
+<dl compact="compact">
+<dt><code>epsrel</code></dt>
+<dd><p>Error relativo de aproximación deseado. Valor por defecto es 1d-8.
+</p></dd>
+<dt><code>epsabs</code></dt>
+<dd><p>Error absoluto de aproximación deseado. Valor por defecto es 0.
+</p></dd>
+<dt><code>limit</code></dt>
+<dd><p>Tamaño del array interno de trabajo. <var>limit</var> es el máximo
+número de subintervalos a utilizar. Valor por defecto es 200.
+</p></dd>
+</dl>
+
+<p><code>quad_qagp</code> devuelve una lista con cuatro elementos:
+</p>
+<ul>
+<li> una aproximación a la integral,
+</li><li> el error absoluto estimado de la aproximación,
+</li><li> el número de evaluaciones del integrando,
+</li><li> un código de error.
+</li></ul>
+
+<p>El código de error (cuarto elemento de la lista devuelta) puede tener los
+siguientes valores:
+</p>
+<dl compact="compact">
+<dt><code>0</code></dt>
+<dd><p>no se encontraron errores;
+</p></dd>
+<dt><code>1</code></dt>
+<dd><p>se han hecho demasiados subintervalos;
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>se detectó un error de redondeo muy grande;
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p>se ha observado un comportamiento del integrando extremadamente malo;
+</p></dd>
+<dt><code>4</code></dt>
+<dd><p>fallo de convergencia;
+</p></dd>
+<dt><code>5</code></dt>
+<dd><p>la integral es probablemente divergengente o converge muy lentamente;
+</p></dd>
+<dt><code>6</code></dt>
+<dd><p>entrada inválida.
+</p></dd>
+</dl>
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) quad_qagp(x^3*log(abs((x^2-1)*(x^2-2))),x,0,3,[1,sqrt(2)]);
+(%o1)   [52.74074838347143, 2.6247632689546663e-7, 1029, 0]
+</pre><pre class="example">(%i2) quad_qags(x^3*log(abs((x^2-1)*(x^2-2))), x, 0, 3);
+(%o2)   [52.74074847951494, 4.088443219529836e-7, 1869, 0]
+</pre></div>
+
+<p>El integrando tiene singularidades en <code>1</code> y <code>sqrt(2)</code>, de manera que
+suministramos estos puntos a <code>quad_qagp</code>. También se observa que <code>quad_qagp</code>
+es más exacto y eficiente que <code>quad_qags</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-Integration_002ees_002fdeffn_002fquad_005fcontrol"></a><dl>
+<dt><a name="index-quad_005fcontrol"></a>Fución: <strong>quad_control</strong> <em>(<var>parameter</var>, [<var>value</var>])</em></dt>
+<dd>
+<p>Controla la gestión de los errores de <code>QUADPACK</code>. El parámetro debe
+ser uno de los siguientes símbolos:
+</p>
+<dl compact="compact">
+<dt><code>current_error</code></dt>
+<dd><p>El número de error actual.
+</p></dd>
+<dt><code>control</code></dt>
+<dd><p>Controla si los mensajes se imprimen o no. Si el valor es cero o menor,
+los mensajes se suprimen.
+</p></dd>
+<dt><code>max_message</code></dt>
+<dd><p>El máximo número de veces que se imprime cualquier mensaje.
+</p></dd>
+</dl>
+
+<p>Si no se da <var>value</var>, entonces se devuelve el valor actual asociado a
+<var>parameter</var>. En cambio, si se da <var>value</var>, se hace la asignación
+correspondiente a <var>parameter</var>, adquiriendo este nuevo valor.
+</p></dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_100.html#Introducci_00f3n-a-QUADPACK" accesskey="p" rel="previous">Introducción a QUADPACK</a>, Subir: <a href="maxima_97.html#Integraci_00f3n" accesskey="u" rel="up">Integración</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

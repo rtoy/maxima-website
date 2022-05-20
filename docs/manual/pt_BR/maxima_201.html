@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima: Funções e Variáveis Definidas para plotdf</title>
+
+<meta name="description" content="Manual do Maxima: Funções e Variáveis Definidas para plotdf">
+<meta name="keywords" content="Manual do Maxima: Funções e Variáveis Definidas para plotdf">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_199.html#plotdf" rel="up" title="plotdf">
+<link href="maxima_202.html#romberg" rel="next" title="romberg">
+<link href="maxima_200.html#Introdu_00e7_00e3o-a-plotdf" rel="previous" title="Introdução a plotdf">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-plotdf"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_200.html#Introdu_00e7_00e3o-a-plotdf" accesskey="p" rel="previous">Introdução a plotdf</a>, Acima: <a href="maxima_199.html#plotdf" accesskey="u" rel="up">plotdf</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funcoes-e-Variaveis-Definidas-para-plotdf"></a>
+<h3 class="section">66.2 Funções e Variáveis Definidas para plotdf</h3>
+
+<a name="Item_003a-plotdf_002fdeffn_002fplotdf"></a><dl>
+<dt><a name="index-plotdf"></a>Função: <strong>plotdf</strong> <em>(<var>dydx</var>,...opções...)</em></dt>
+<dt><a name="index-plotdf-1"></a>Função: <strong>plotdf</strong> <em>(<code>[</code><var>dxdt</var>,<var>dydt</var><code>]</code>,...opções...)</em></dt>
+<dd>
+<p>Mostra um campo de direção em duas dimensões <var>x</var> e <var>y</var>.
+</p>
+<p><var>dydx</var>, <var>dxdt</var> e <var>dydt</var> são expressões que dependem
+de <var>x</var> e <var>y</var>. Adicionalmente para essas duas variáveis, as
+expressões podem também depender de um conjunto de parâmetros, com valores
+numéricos fornecidos com os <code>parâmetros</code> opção (a sintaxe de opção é
+fornecida abaixo), ou com um intervalo de valores permitidos especificados por meio de uma
+opção <var>sliders</var>.
+</p>
+<p>Muitas outras opções podem ser fornecidas dentro do comando, ou selecionadas no
+menu. Curvas integrais podem ser obtidas por meio de um clique no gráfico, ou
+com a opção <code>trajectory_at</code>. A direção da integração
+pode ser controlada com a opção <code>direction</code>, que pode ter
+valores de <em>forward</em> (adiante), <em>backward</em>(para trás) or <em>both</em> (ambos). O número de
+passos de integração é fornecido por meio de <code>nsteps</code> e o intervalo de tempo
+entre eles é escolhido com a opção <code>tstep</code>. O método de Adams
+Moulton é usado para a integração; é também possível alternar para um
+método adaptativo de Runge-Kutta de quarta ordem.
+</p>
+<p><b>Menu da janela do gráfico:</b>
+</p>
+<p>O menu na janela do gráfico tem as seguintes opções: <em>Zoom</em>, irá
+modificar o comportamento do mouse de forma que seja permitido a você aproximar uma
+região do gráfico por meio de um clique nessa região como o botão esquerdo. Cada clique próximo a um
+ponto do gráfico amplia esse gráfico, mantendo o contro no ponto onde você
+clicou. Mantendo a tecla <tt class="key">Shift</tt> pressioada enquanto clica, afasta para a
+ampliação anterior. Para continuar calculando trajetórias quando você clica
+sobre um ponto, selecione <em>Integrate</em> a partir do menu.
+</p>
+<p>A opção <em>Config</em> no menu pode ser usada para mudar a(s) EDO(s) em
+uso e para várias outras escolhas. Após as mudanças de configuração serem feitas,
+a opção do menu <em>Replot</em> estará selecionada, para ativar as novas
+escolhas.  Se um par de coordenadas for fornecido em um campo
+<em>Trajectory at</em> na caixa de diálogo <em>Config</em> do menu, e a
+tecla <tt class="key">enter</tt> fo pressionada, uma nova curva integral será mostrada,
+adicionalmente com as outras já mostradas. Quando <em>Replot</em> está selecionada, somente
+a última curva integral fornecida será mostrada.
+</p>
+<p>Mantendo o botão direito do mouse pressionado enquanto o cursor é movido, pode ser
+usado para arrastar as laterais do gráfico para cima ou para baixo. Parâmetros
+adicionais tais como o número de passos, o valor inicial de <var>t</var>
+e os centros de x e y e raios, podem ser escolhidos no menu Config.
+</p>
+<p>Uma cópia do gráfico pode ser impressa para uma impressora Postscript, ou gravada como um
+arquivo postscript, usando a opção <em>Save</em> do menu. Para alternar entre
+imprimir e gravar para um arquivo Postscript, <em>Print Options</em> pode ser
+selecionada na janela de diálogo de <em>Config</em>. Após as escolhas na
+janela de diálogo <em>Save</em> serem fornecidas, &quot;Save&rdquo; deve ser selecionada no primeiro
+menu, para cirar o arquivo ou imprimir o gráfico.
+</p>
+<p><b>Opções de gráfico:</b>
+</p>
+<p>O comando <code>plotdf</code> pode incluir muitos comandos, cada comando é
+uma lista de dois ou mais itens.  O primeiro item é o nome da opção,
+e o restante compreende o valor ou valores atribuídos à opção.
+</p>
+<p>As opçõesque são reconhecidas por <code>plotdf</code> são as seguintes:
+</p>
+<ul>
+<li> <em>tstep</em> define o comprimento dos incrementos sobre a
+variável independente <var>t</var>, usado para calcular uma curva integral. Se somente
+uma expressão <var>dydx</var> for fornecida a <code>plotdf</code>, a variável
+<var>x</var> será diretamente proporcional a <var>t</var>.
+O valor padrão é 0.1.
+
+</li><li> <em>nsteps</em> define o número de passos de comprimento <code>tstep</code>
+que será usando para a variável independente, para calcular uma curva
+integral.
+O valor padrão é 100.
+
+</li><li> <em>direction</em> define a direção da variável
+independente que será seguida para calcular uma curva integral. Possíveis
+valores são <code>forward</code>, para fazer a variável independente aumentar
+<code>nsteps</code> vezes, com incrementos de <code>tstep</code>, <code>backward</code>, para
+fazer a variável independente diminuir, ou <code>both</code> que irá conduzir a
+um curva integral que amplia <code>nsteps</code> adiante, e <code>nsteps</code>
+para trás. As palavras chave <code>right</code> e <code>left</code> podem ser usadas como
+sinonimos para <code>forward</code> e <code>backward</code>.
+O valor padrão é <code>both</code>.
+
+</li><li> <em>tinitial</em> define o valor inicial da variável <var>t</var> usada
+para calcular curva integral. Uma vez que equações diferenciais forem
+autônomas, aquela esxolha irá aparecer somente no gráfico das curvas como
+funções de <var>t</var>. 
+O valor padrão é 0.
+
+</li><li> <em>versus_t</em> é usado para criar uma segunda janela de gráfico, com um
+gráfico de uma curva integral, como duas funções <var>x</var>, <var>y</var>, da
+variável independente <var>t</var>. Se para <code>versus_t</code> for atribuído qualquer valor
+diferente de 0, a segunda janela de gráfico será mostrada. A segunda
+janela de gráfico inclui outro menu, semelhante ao menu da janela de gráfico
+principal.
+O valor padrão é 0.
+
+</li><li> <em>trajectory_at</em> define as coordenadas <var>xinitial</var> e
+<var>yinitial</var> para o ponto de partida de uma curva integral.
+A opção está vazia por padrão.
+
+</li><li> <em>parameters</em> define uma lista de parâmetros, e seus
+valores numéricos, usados na definição das equações
+diferenciais. O nome e valores dos parâmetros devem ser fornecidos em uma
+seq&uuml;ência de caracteres com uma seq&uuml;ência de pares  <code>nome=valor</code> separados por vírgula.
+
+</li><li> <em>sliders</em> define uma lista de parâmetros que será modificada
+interativamente usando botões de deslizamento, e o intervalo de variação desses
+parâmetros. Os nomes e intervalos dos parâmetros devem ser fornecidos in a
+seq&uuml;ência de caracteres com uma seq&uuml;ência de elementos  <code>name=min:max</code> separados por vírgula.
+
+</li><li> <em>xfun</em> define uma seq&uuml;ência de caracteres com uma seq&uuml;ência de funções separadas com
+ponto e vírgula <var>x</var> para serem mostradas, no topo do campo de direção.
+Essas funções irão ser passadas pelo Tcl e não pelo Maxima.
+
+</li><li> <em>xradius</em> é metade do comprimento do intervalo dos valores que
+irão ser mostrados na direção x.
+O valor padrão é 10.
+
+</li><li> <em>yradius</em> é metade do comprimento do intervalo dos valores que
+irão ser mostrados na direção y.
+O valor padrão é 10.
+
+</li><li> <em>xcenter</em> é a coordenada x do ponto no centro do
+gráfico.
+O valor padrão é 0.
+
+</li><li> <em>ycenter</em> é a coordenada y do ponto no centro do
+gráfico.
+O valor padrão é 0.
+
+</li><li> <em>width</em> define a largura da janela do gráfico, em pixels.
+O valor padrão é 500.
+
+</li><li> <em>height</em> define a altura da janela do gráfico, em pixels.
+O valor padrão é 500.
+</li></ul>
+
+<p><b>Exemplos:</b>
+</p>
+<p>NOTA: Dependendo da interface usada para executar o Maxima, as funções que
+usam <code>openmath</code>, em particular <code>plotdf</code>, podem possivelmente disparar um erro se
+erminarem com ponto e vírgula e não com um sinal de dólar. Para evitar
+problemas, usamos um sinal de dólar em todos os exemplos abaixo.
+</p>  
+<ul>
+<li> Para mostrar o campo de direção da equação diferencial <em>y' = exp(-x) + y</em> e a solução que vai em toda a extensão do intervalo <em>(2, -0.1)</em>:
+<div class="example">
+<pre class="example">(%i1) load(&quot;plotdf&quot;)$
+
+(%i2) plotdf(exp(-x)+y,[trajectory_at,2,-0.1]);
+</pre></div>
+
+<img src="./figures/plotdf1.png" alt="./figures/plotdf1">
+
+</li><li> Para obter o campo de direção para a equação <em>diff(y,x) = x - y^2</em> e a solução com condição inicial <em>y(-1) = 3</em>, podemos usar o comando:
+<div class="example">
+<pre class="example">(%i3) plotdf(x-y^2,[xfun,&quot;sqrt(x);-sqrt(x)&quot;],
+          [trajectory_at,-1,3], [direction,forward],
+          [yradius,5],[xcenter,6]);
+</pre></div>
+<p>O gráfico também mostra a função <em>y = sqrt(x)</em>. 
+</p>
+<img src="./figures/plotdf2.png" alt="./figures/plotdf2">
+
+</li><li> O seguinte exemplo mostra o campo de direção de um oscilador harmônico,
+definido pelas duas equações <em>dx/dt = y</em> e <em>dy/dt = -k*x/m</em>,
+e a curva integral em todo o intervalo <em>(x,y) = (6,0)</em>, com um botão de deslizamento que
+irá permitir a você mudar o valor de <em>m</em> interativamente (<em>k</em> está
+fixado em 2):
+<div class="example">
+<pre class="example">(%i4) plotdf([y,-k*x/m],[parameters,&quot;m=2,k=2&quot;],
+            [sliders,&quot;m=1:5&quot;], [trajectory_at,6,0]);
+</pre></div>
+
+<img src="./figures/plotdf3.png" alt="./figures/plotdf3">
+
+</li><li> Para montar o gráfico do campo de direção da equação de Duffing, <em>m*x''+c*x'+k*x+b*x^3 = 0</em>, introduzimos a variável <em>y=x'</em> e usamos:
+<div class="example">
+<pre class="example">(%i5) plotdf([y,-(k*x + c*y + b*x^3)/m],
+              [parameters,&quot;k=-1,m=1.0,c=0,b=1&quot;],
+              [sliders,&quot;k=-2:2,m=-1:1&quot;],[tstep,0.1]);
+</pre></div>
+
+<img src="./figures/plotdf4.png" alt="./figures/plotdf4">
+
+</li><li> O campo de direção para um pêdulo amortecido, incluindo a
+solução para as condições iniciais fornecidas, com um botão de deslizamento que
+pode ser usado para mudar o valor da massa <em>m</em>, e com um gráfico das
+duas  variáveis de estado como uma função do tempo:
+
+<div class="example">
+<pre class="example">(%i6) plotdf([y,-g*sin(x)/l - b*y/m/l],
+         [parameters,&quot;g=9.8,l=0.5,m=0.3,b=0.05&quot;],
+         [trajectory_at,1.05,-9],[tstep,0.01],
+         [xradius,6],[yradius,14],
+         [xcenter,-4],[direction,forward],[nsteps,300],
+         [sliders,&quot;m=0.1:1&quot;], [versus_t,1]);
+</pre></div>
+
+<img src="./figures/plotdf5.png" alt="./figures/plotdf5"><img src="./figures/plotdf6.png" alt="./figures/plotdf6">
+
+</li></ul>
+
+</dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_200.html#Introdu_00e7_00e3o-a-plotdf" accesskey="p" rel="previous">Introdução a plotdf</a>, Acima: <a href="maxima_199.html#plotdf" accesskey="u" rel="up">plotdf</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

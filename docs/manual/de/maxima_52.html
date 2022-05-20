@@ -1,265 +1,448 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Oktober, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Maxima Manual: 52. groups</title>
+<title>Maxima Manual: Funktionen der Kombinatorik</title>
 
-<meta name="description" content="Maxima Manual: 52. groups">
-<meta name="keywords" content="Maxima Manual: 52. groups">
+<meta name="description" content="Maxima Manual: Funktionen der Kombinatorik">
+<meta name="keywords" content="Maxima Manual: Funktionen der Kombinatorik">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_49.html#Mathematische-Funktionen" rel="up" title="Mathematische Funktionen">
+<link href="maxima_53.html#Wurzel_002d-Exponential_002d-und-Logarithmusfunktion" rel="next" title="Wurzel- Exponential- und Logarithmusfunktion">
+<link href="maxima_51.html#Funktionen-f_00fcr-komplexe-Zahlen" rel="previous" title="Funktionen f&uuml;r komplexe Zahlen">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funktionen-der-Kombinatorik"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_53.html#Wurzel_002d-Exponential_002d-und-Logarithmusfunktion" accesskey="n" rel="next">Wurzel- Exponential- und Logarithmusfunktion</a>, Previous: <a href="maxima_51.html#Funktionen-f_00fcr-komplexe-Zahlen" accesskey="p" rel="previous">Funktionen f&uuml;r komplexe Zahlen</a>, Nach oben: <a href="maxima_49.html#Mathematische-Funktionen" accesskey="u" rel="up">Mathematische Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-der-Kombinatorik-1"></a>
+<h3 class="section">10.3 Funktionen der Kombinatorik</h3>
 
-<a name="groups"></a>
-<a name="SEC305"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_51.html#SEC304" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC306" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_51.html#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_53.html#SEC307" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 52. groups </h1>
-
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC306">52.1 Functions and Variables for Groups</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Functions-and-Variables-for-Groups"></a>
-<a name="SEC306"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC305" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_53.html#SEC307" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC305" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC305" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_53.html#SEC307" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 52.1 Functions and Variables for Groups </h2>
-
-<dl>
-<dt><u>Function:</u> <b>todd_coxeter</b><i> (<var>relations</var>, <var>subgroup</var>)</i>
-<a name="IDX2402"></a>
-</dt>
-<dt><u>Function:</u> <b>todd_coxeter</b><i> (<var>relations</var>)</i>
-<a name="IDX2403"></a>
-</dt>
-<dd><p>Find the order of G/H where G is the Free Group modulo <var>relations</var>, and H 
-is the subgroup of G generated by <var>subgroup</var>.  <var>subgroup</var> is an optional
-argument, defaulting to [].  In doing this it produces a multiplication table 
-for the right action of G on G/H, where the cosets are enumerated 
-[H,Hg2,Hg3,...].  This can be seen internally in the variable 
-<code>todd_coxeter_state</code>.
+<a name="g_t_0021_0021"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002f_0021_0021"></a><dl>
+<dt><a name="index-_0021_0021"></a>Operator: <strong>!!</strong></dt>
+<dd>
+<p>Ist der Operator der doppelten Fakult&auml;t.
 </p>
-<p>Example:
+<p>F&uuml;r eine positive ganze Zahl <code>n</code>, wird <code>n!!</code> zu dem Produkt
+<code>n (n-2) (n-4) (n-6) ... (n - 2 (k-1))</code> vereinfacht, wobei <code>k</code> gleich
+<code>floor(n/2)</code> ist und <code><a href="maxima_50.html#floor">floor</a></code> die gr&ouml;&szlig;te ganze Zahl als Ergebnis
+hat, die kleiner oder gleich <code>n/2</code> ist.
 </p>
-<pre class="example">(%i1) symet(n):=create_list(
-        if (j - i) = 1 then (p(i,j))^^3 else
-            if (not i = j) then (p(i,j))^^2 else
-                p(i,i) , j, 1, n-1, i, 1, j);
-                                                       &lt;3&gt;
-(%o1) symet(n) := create_list(if j - i = 1 then p(i, j)
-
-                                &lt;2&gt;
- else (if not i = j then p(i, j)    else p(i, i)), j, 1, n - 1,
-
-i, 1, j)
-(%i2) p(i,j) := concat(x,i).concat(x,j);
-(%o2)        p(i, j) := concat(x, i) . concat(x, j)
-(%i3) symet(5);
-         &lt;2&gt;           &lt;3&gt;    &lt;2&gt;           &lt;2&gt;           &lt;3&gt;
-(%o3) [x1   , (x1 . x2)   , x2   , (x1 . x3)   , (x2 . x3)   ,
-
-            &lt;2&gt;           &lt;2&gt;           &lt;2&gt;           &lt;3&gt;    &lt;2&gt;
-          x3   , (x1 . x4)   , (x2 . x4)   , (x3 . x4)   , x4   ]
-(%i4) todd_coxeter(%o3);
-
-Rows tried 426
-(%o4)                          120
-(%i5) todd_coxeter(%o3,[x1]);
-
-Rows tried 213
-(%o5)                          60
-(%i6) todd_coxeter(%o3,[x1,x2]);
-
-Rows tried 71
-(%o6)                          20
-</pre>
+<p>F&uuml;r ein Argument <code>n</code>, das keine ganze positive Zahl ist, gibt <code>n!!</code>
+die Substantivform <code>genfact(n, n/2,2)</code> zur&uuml;ck.  Siehe die Funktion
+<code><a href="#genfact">genfact</a></code>.
+</p>
+<p>Die Verallgemeinerung der doppelten Fakult&auml;t f&uuml;r reelle und komplexe Zahlen
+ist als die Funktion <code><a href="#double_005ffactorial">double_factorial</a></code> implementiert.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) [0!!, 1!!, 2!!, 3!!, 4!!, 5!!, 6!!, 7!!, 8!!];
+(%o1)           [1, 1, 2, 3, 8, 15, 48, 105, 384]
+(%i2) 1.5!!;
+(%o2)                  genfact(1.5, 0, 2)
+(%i3) x!!;
+                                   x
+(%o3)                   genfact(x, -, 2)
+                                   2
+</pre></div>
 </dd></dl>
 
+<a name="binomial"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fbinomial"></a><dl>
+<dt><a name="index-binomial"></a>Funktion: <strong>binomial</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dd>
+<p>Ist der Binominialkoeffizient, der definiert ist als
+</p><div class="example">
+<pre class="example">                                  x!
+             binomial(x, y) = -----------
+                              (x - y)! y!
+</pre></div>
 
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC305" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_53.html#SEC307" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Oktober, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
-
+<p>Die Funktion <code>binomial</code> ist f&uuml;r das numerische und symbolische Rechnen
+geeignet.
 </p>
+<p>Sind die Argumente <var>x</var> oder <var>y</var> ganze Zahlen, wird der
+Binominialkoeffizient zu einer ganzen Zahl vereinfacht.  Sind die Argumente
+<var>x</var> und <var>y</var> reelle oder komplexe Gleitkommazahlen, wird der
+Binominialkoeffizient mit der entsprechenden verallgemeinerten Fakult&auml;t
+berechnet.  Siehe auch <code><a href="#factorial">factorial</a></code> und <code><a href="maxima_140.html#gamma">gamma</a></code>.
+</p>
+<p>Ist das Argument <var>y</var> oder die Differenz <var>x-y</var> eine ganz Zahl, wird
+der Binominialkoeffizient zu einem Polynom vereinfacht.
+</p>
+<p>Mit den Funktionen <code><a href="maxima_140.html#makefact">makefact</a></code> oder <code><a href="maxima_140.html#makegamma">makegamma</a></code> werden
+Binominialkoeffizienten in einem Ausdruck durch &auml;quivalente Ausdr&uuml;cke mit
+der Fakult&auml;t oder der Gammafunktion ersetzt.
+</p>
+<p>Maxima kennt die Ableitung des Binominialkoeffizienten nach den Argumenten
+<var>x</var> und <var>y</var>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) binomial(11, 7);
+(%o1)                          330
+(%i2) binomial(%i, 1.5);
+(%o2)       .3693753994635863 %i - .7573400496142132
+(%i3) binomial(x, 3);
+                        (x - 2) (x - 1) x
+(%o3)                   -----------------
+                                6
+(%i4) binomial(x+3, 3);
+                     (x + 1) (x + 2) (x + 3)
+(%o4)                -----------------------
+                                6
+(%i5) makefact(binomial(x,y));
+                               x!
+(%o5)                      -----------
+                           (x - y)! y!
+
+(%i6) diff(binomial(x,y), y);
+(%o6)  - binomial(x, y) (psi (y + 1) - psi (- y + x + 1))
+                            0             0
+</pre></div>
+</dd></dl>
+
+<a name="double_005ffactorial"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fdouble_005ffactorial"></a><dl>
+<dt><a name="index-double_005ffactorial"></a>Funktion: <strong>double_factorial</strong> <em>(z)</em></dt>
+<dd>
+<p>Ist die doppelte Fakult&auml;t, die allgemein definiert ist als
+</p><div class="example">
+<pre class="example">               2  1/4 (1 - cos(z %pi))  z/2       z
+             (---)                     2    gamma(- + 1)
+              %pi                                 2
+</pre></div>
+
+<p>Die Funktion <code>double_factorial</code> ist f&uuml;r das numerische und symbolische
+Rechnen geeignet.  Ist das Argument <var>z</var> eine ganze Zahl, eine
+Gleitkommazahl, eine gro&szlig;e Gleitkommazahl oder eine komplexe Gleitkommazahl,
+dann wird ein numerisches Ergebnis berechnet.  F&uuml;r eine positive ganze Zahl
+ist das Ergebnis gleich dem Ergebnis des Operators der doppelten Fakult&auml;t
+<code><a href="#g_t_0021_0021">!!</a></code>.  F&uuml;r rationale Zahlen ist das Ergebnis eine Substantivform.
+</p>
+<p>F&uuml;r negative gerade ganze Zahlen ist die Funktion <code>double_factorial</code>
+nicht definiert.
+</p>
+<p>Hat die Optionsvariable <code><a href="#factorial_005fexpand">factorial_expand</a></code> den Wert <code>true</code>, 
+vereinfacht Maxima <code>double_factorial</code> f&uuml;r das Argument <code>n-1</code> und
+f&uuml;r Argumente <code>n+2*k</code>, wobei <code>k</code> eine ganze Zahl ist.
+</p>
+<p>Maxima kennt die Ableitung der Funktion <code>double_factorial</code>.
+</p>
+<p><code>double_factorial</code> wird automatisch auf die Elemente von Listen und
+Matrizen sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<p>Numerische Ergebnisse f&uuml;r ganze Zahlen, Gleitkommazahlen und komplexen
+Gleitkommazahlen.
+</p>
+<div class="example">
+<pre class="example">(%i1) double_factorial([-3, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+(%o1) [- 1, 1, 1, 1, 2, 3, 8, 15, 48, 105, 384, 945, 3840]
+
+(%i2) double_factorial([1.5, 1.5b0, 0.5+%i, 0.5b0+%i]);
+(%o2) [1.380662681753386, 1.380662681753387b0,
+.4186422526242637 - .7218816624466643 %i, 
+4.186422526242633b-1 - 7.218816624466641b-1 %i]
+</pre></div>
+
+<p>Vereinfachungen, wenn die Optionsvariable <code><a href="#factorial_005fexpand">factorial_expand</a></code> den Wert
+<code>true</code> hat.
+</p>
+<div class="example">
+<pre class="example">(%i3) factorial_expand:true;
+(%o3)                         true
+(%i4) double_factorial(n-1);
+                               n!
+(%o4)                  -------------------
+                       double_factorial(n)
+(%i5) double_factorial(n+4);
+(%o5)          (n + 2) (n + 4) double_factorial(n)
+(%i6) double_factorial(n-4);
+</pre><pre class="example">                       double_factorial(n)
+(%o6)                  -------------------
+                            (n - 2) n
+</pre></div>
+
+<p>Die Ableitung der Funktion <code>double_factorial</code>.
+</p>
+<div class="example">
+<pre class="example">(%i7) diff(double_factorial(x), x);
+                                     2
+                            %pi log(---) sin(%pi x)
+                                    %pi                    x
+(%o7) (double_factorial(x) (----------------------- + psi (- + 1)
+                                       2                 0 2
+                                                     + log(2)))/2
+</pre></div>
+</dd></dl>
+
+<a name="factcomb"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002ffactcomb"></a><dl>
+<dt><a name="index-factcomb"></a>Funktion: <strong>factcomb</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Fasst Faktoren mit Fakult&auml;ten im Ausdruck <var>expr</var> zusammen.  Zum Beispiel
+wird <code>(n+1)*n!</code> zu <code>(n+1)!</code> zusammengefasst.
+</p>
+<p>Hat die Optionsvariable <code><a href="#sumsplitfact">sumsplitfact</a></code> den Wert <code>false</code>, wird nach
+der Vereinfachung mit <code>factcomb</code> die Funktion <code><a href="#minfactorial">minfactorial</a></code> auf den 
+Ausdruck <var>expr</var> angewendet.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: ((n+1)*n!)/(n+2)!;
+                           (n + 1) n!
+(%o1)                      ----------
+                            (n + 2)!
+(%i2) factcomb(expr);
+</pre><pre class="example">                            (n + 1)!
+(%o2)                       --------
+                            (n + 2)!
+</pre><pre class="example">(%i3) factcomb(expr), sumsplitfact:false;
+                                1
+(%o3)                         -----
+                              n + 2
+</pre></div>
+</dd></dl>
+
+<a name="factorial"></a><a name="g_t_0021"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002ffactorial"></a><dl>
+<dt><a name="index-factorial"></a>Funktion: <strong>factorial</strong> <em>(<var>z</var>)</em></dt>
+<dd><a name="Item_003a-MathFunctions_002ede_002fdeffn_002f_0021"></a></dd><dt><a name="index-_0021"></a>Operator: <strong>!</strong></dt>
+<dd>
+<p>Die Funktion <code>factorial</code> ist f&uuml;r das numerische und symbolische Rechnen
+der Fakult&auml;t geeignet.  Der Operator der Fakult&auml;t <code>!</code>, ist identisch
+mit der Funktion <code>factorial</code>.
+</p>
+<p>F&uuml;r eine ganze Zahl <code>n</code>, vereinfacht <code>n!</code> zum Produkt der ganzen
+Zahlen von 1 bis einschlie&szlig;lich <code>n</code>.  <code>0!</code> vereinfacht zu 1.
+F&uuml;r reelle und komplexe Gleitkommazahlen wird <code>z!</code> mit der
+Verallgemeinerung <code>gamma(z+1)</code> berechnet.  Siehe die Funktion
+<code><a href="maxima_140.html#gamma">gamma</a></code>.  F&uuml;r eine halbzahlige rationale Zahl <code>n/2</code>, vereinfacht
+<code>(n/2)!</code> zu einem rationalen Faktor multipliziert mit <code>sqrt(%pi)</code>.
+</p>
+<p>Die Optionsvariable <code><a href="#factlim">factlim</a></code> enth&auml;lt die gr&ouml;&szlig;te Zahl, f&uuml;r die
+die Fakult&auml;t einer ganzen Zahl numerisch berechnet wird.  Ist das Argument
+der Fakult&auml;t eine rationale Zahl, wird von Maxima die Funktion
+<code><a href="maxima_140.html#gamma">gamma</a></code> f&uuml;r die numerische Berechnung aufgerufen.  In diesem Fall ist
+<code>gammalim - 1</code> der gr&ouml;&szlig;te Nenner, f&uuml;r den die Fakult&auml;t vereinfacht
+wird.  Siehe <code><a href="maxima_140.html#gammalim">gammalim</a></code>.
+</p>
+<p>Hat die Optionsvariable <code><a href="#factorial_005fexpand">factorial_expand</a></code> den Wert <code>true</code>, wird die
+Fakult&auml;t von Argumenten der Form <code>(n+k)!</code> oder <code>(n-k)!</code> vereinfacht,
+wobei <code>k</code> eine ganze Zahl ist.
+</p>
+<p>Mit den Funktionen <code><a href="#minfactorial">minfactorial</a></code> und <code><a href="#factcomb">factcomb</a></code> k&ouml;nnen Fakult&auml;ten
+in Ausdr&uuml;cken vereinfacht werden.
+</p>
+<p>Die Funktion <code><a href="maxima_140.html#makegamma">makegamma</a></code> ersetzt Fakult&auml;ten in einem Ausdruck durch die
+Gammafunktion <code><a href="maxima_140.html#gamma">gamma</a></code>.  Umgekehrt ersetzt die Funktion
+<code><a href="maxima_140.html#makefact">makefact</a></code> Binomialkoeffizienten und die Gammafunktion in einem Ausdruck
+durch Fakult&auml;ten.
+</p>
+<p>Maxima kennt die Ableitung der Fakult&auml;t und die Grenzwerte der Fakult&auml;t
+f&uuml;r spezielle Werte wie negative ganze Zahlen.
+</p>
+<p>Siehe auch die Gammfunktion <code><a href="maxima_140.html#gamma">gamma</a></code> und den Binomialkoeffizienten
+<code><a href="#binomial">binomial</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<p>Die Fakult&auml;t einer ganzen Zahl wird zu einer exakten Zahl vereinfacht, wenn
+das Argument nicht gr&ouml;&szlig;er als <code>factlim</code> ist.  Die Fakult&auml;t f&uuml;r 
+reelle und komplexe Zahlen wird als Gleitkommazahl berechnet.
+</p>
+<div class="example">
+<pre class="example">(%i1) factlim:10;
+(%o1)                          10
+(%i2) [0!, (7/2)!, 8!, 20!];
+                     105 sqrt(%pi)
+(%o2)            [1, -------------, 40320, 20!]
+                          16
+(%i3) [4.77!, (1.0+%i)!];
+(%o3) [81.44668037931197, .3430658398165451 %i
+                                             + .6529654964201663]
+(%i4) [2.86b0!, (1.0b0+%i)!];
+(%o4) [5.046635586910012b0, 3.430658398165454b-1 %i
+                                          + 6.529654964201667b-1]
+</pre></div>
+
+<p>Die Fakult&auml;t von numerischen Konstanten oder eines konstanten Ausdrucks wird
+numerisch berechnet, wenn die Konstante oder der Ausdruck zu einer Zahl
+ausgewertet werden kann.
+</p>
+<div class="example">
+<pre class="example">(%i1) [(%i + 1)!, %pi!, %e!, (cos(1) + sin(1))!];
+(%o1)      [(%i + 1)!, %pi!, %e!, (sin(1) + cos(1))!]
+(%i2) ev (%, numer, %enumer);
+(%o2) [.3430658398165451 %i + .6529654964201663, 
+         7.188082728976031, 4.260820476357003, 1.227580202486819]
+</pre></div>
+
+<p>Fakult&auml;ten werden vereinfacht und nicht ausgewertet.  Daher wird die
+Fakult&auml;t auch dann berechnet, wenn die Auswertung mit dem
+<a href="maxima_45.html#g_t_0027">Quote-Operator</a> <code>'</code> unterdr&uuml;ckt ist.
+</p>
+<div class="example">
+<pre class="example">(%i1) '([0!, (7/2)!, 4.77!, 8!, 20!]);
+            105 sqrt(%pi)
+(%o1)   [1, -------------, 81.44668037931197, 40320, 20!]
+                 16
+</pre></div>
+
+<p>Maxima kennt die Ableitung der Fakult&auml;t.
+</p>
+<div class="example">
+<pre class="example">(%i1) diff(x!, x);
+(%o1)                    x! psi (x + 1)
+                               0
+</pre></div>
+
+<p>Die Optionsvariable <code>factorial_expand</code> kontrolliert die Expansion und
+Vereinfachung von Ausdr&uuml;cken, die die Fakult&auml;t enthalten.
+</p>
+<div class="example">
+<pre class="example">(%i1) (n+1)!/n!,factorial_expand:true;
+(%o1)                         n + 1
+</pre></div>
+</dd></dl>
+
+<a name="factlim"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002ffactlim"></a><dl>
+<dt><a name="index-factlim"></a>Optionsvariable: <strong>factlim</strong></dt>
+<dd><p>Standardwert: 100000
+</p>
+<p>Die Optionsvariable <code>factlim</code> spezifiziert die gr&ouml;&szlig;te ganze Zahl, 
+f&uuml;r die die Fakult&auml;t einer ganzen Zahl numerisch berechnet wird.  Hat
+<code>factlim</code> den Wert -1, wird die Fakult&auml;t f&uuml;r jede ganze Zahl
+berechnet.  Siehe die Funktion <code><a href="#factorial">factorial</a></code>.
+</p></dd></dl>
+
+<a name="factorial_005fexpand"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002ffactorial_005fexpand"></a><dl>
+<dt><a name="index-factorial_005fexpand"></a>Optionsvariable: <strong>factorial_expand</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p>Die Optionsvariable <code>factorial_expand</code> kontrolliert die Vereinfachung von
+Ausdr&uuml;cken wie <code>(n+k)!</code> oder <code>(n-k)!</code>, wobei <code>k</code> eine
+ganze Zahl ist.  Siehe <code><a href="#factorial">factorial</a></code> f&uuml;r ein Beispiel.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#minfactorial">minfactorial</a></code> und <code><a href="#factcomb">factcomb</a></code> f&uuml;r die
+Vereinfachung von Ausdr&uuml;cken mit der Fakult&auml;t.
+</p></dd></dl>
+
+<a name="genfact"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fgenfact"></a><dl>
+<dt><a name="index-genfact"></a>Funktion: <strong>genfact</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dd>
+<p>Gibt die verallgemeinerte Fakult&auml;t zur&uuml;ck, die als <code>x (x-z) (x - 2 z) 
+... (x - (y - 1) z)</code> definiert ist.  Ist <var>x</var> eine ganze Zahl, dann
+entspricht <code>genfact(x, x, 1)</code> der Fakult&auml;t <code>x!</code> und 
+<code>genfact(x, x/2, 2)</code> der doppelten Fakult&auml;t <code>x!!</code>.  Siehe auch die 
+Funktionen <code><a href="#factorial">factorial</a></code> und <code><a href="#double_005ffactorial">double_factorial</a></code> sowie die Operatoren
+<code><a href="#g_t_0021">!</a></code> und <code><a href="#g_t_0021_0021">!!</a></code>.
+</p></dd></dl>
+
+<a name="minfactorial"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fminfactorial"></a><dl>
+<dt><a name="index-minfactorial"></a>Funktion: <strong>minfactorial</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Die Funktion <code>minfactorial</code> vereinfacht Fakult&auml;ten <code><a href="#factorial">factorial</a></code> in
+dem Ausdruck <var>epxr</var>, die sich um eine ganze Zahl voneinander unterscheiden.
+Siehe auch die Funktion <code><a href="#factcomb">factcomb</a></code>, um Fakult&auml;ten zusammenzufassen,
+sowie die Optionsvariable <code><a href="#factorial_005fexpand">factorial_expand</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) n!/(n+2)!;
+                               n!
+(%o1)                       --------
+                            (n + 2)!
+(%i2) minfactorial (%);
+                                1
+(%o2)                    ---------------
+                         (n + 1) (n + 2)
+</pre></div>
+</dd></dl>
+
+<a name="sumsplitfact"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002fsumsplitfact"></a><dl>
+<dt><a name="index-sumsplitfact"></a>Optionsvariable: <strong>sumsplitfact</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+<p>Hat die Optionsvariable <code>sumsplitfact</code> den Wert <code>false</code>, wird von
+der Funktion <code>factcomb</code> nach der Zusammenfassung von Fakult&auml;ten die
+Funktion <code><a href="#minfactorial">minfactorial</a></code> angewendet.  Siehe die Funktion
+<code><a href="#factcomb">factcomb</a></code> f&uuml;r ein Beispiel.
+</p></dd></dl>
+
+<a name="Item_003a-MathFunctions_002ede_002fnode_002fWurzel_002d-Exponential_002d-und-Logarithmusfunktion"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_53.html#Wurzel_002d-Exponential_002d-und-Logarithmusfunktion" accesskey="n" rel="next">Wurzel- Exponential- und Logarithmusfunktion</a>, Previous: <a href="maxima_51.html#Funktionen-f_00fcr-komplexe-Zahlen" accesskey="p" rel="previous">Funktionen f&uuml;r komplexe Zahlen</a>, Nach oben: <a href="maxima_49.html#Mathematische-Funktionen" accesskey="u" rel="up">Mathematische Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

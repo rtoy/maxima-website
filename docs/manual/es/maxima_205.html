@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para drawdf</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para drawdf">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para drawdf">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_203.html#drawdf" rel="up" title="drawdf">
+<link href="maxima_206.html#dynamics" rel="next" title="dynamics">
+<link href="maxima_204.html#Introducci_00f3n-a-drawdf" rel="previous" title="Introducción a drawdf">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-drawdf"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_204.html#Introducci_00f3n-a-drawdf" accesskey="p" rel="previous">Introducción a drawdf</a>, Subir: <a href="maxima_203.html#drawdf" accesskey="u" rel="up">drawdf</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-drawdf-1"></a>
+<h3 class="section">48.2 Funciones y variables para drawdf</h3>
+
+<a name="Funciones-3"></a>
+<h4 class="subsection">48.2.1 Funciones</h4>
+
+<a name="Item_003a-drawdf_002fdeffn_002fdrawdf"></a><dl>
+<dt><a name="index-drawdf"></a>Función: <strong>drawdf</strong> <em>(<var>dydx</var>, ...options and objects...)</em></dt>
+<dt><a name="index-drawdf-1"></a>Función: <strong>drawdf</strong> <em>(<var>dvdu</var>, <code>[</code><var>u</var>,<var>v</var><code>]</code>, ...opciones y objetos...)</em></dt>
+<dt><a name="index-drawdf-2"></a>Función: <strong>drawdf</strong> <em>(<var>dvdu</var>, <code>[</code><var>u</var>,<var>umin</var>,<var>umax</var><code>]</code>, <code>[</code><var>v</var>,<var>vmin</var>,<var>vmax</var><code>]</code>, ...opciones y objetos...)</em></dt>
+<dt><a name="index-drawdf-3"></a>Función: <strong>drawdf</strong> <em>(<code>[</code><var>dxdt</var>,<var>dydt</var><code>]</code>, ...opciones y objetos...)</em></dt>
+<dt><a name="index-drawdf-4"></a>Función: <strong>drawdf</strong> <em>(<code>[</code><var>dudt</var>,<var>dvdt</var><code>]</code>, <code>[</code><var>u</var>,<var>v</var><code>]</code>, ...opciones y objetos...)</em></dt>
+<dt><a name="index-drawdf-5"></a>Función: <strong>drawdf</strong> <em>(<code>[</code><var>dudt</var>,<var>dvdt</var><code>]</code>, <code>[</code><var>u</var>,<var>umin</var>,<var>umax</var><code>]</code>, <code>[</code><var>v</var>,<var>vmin</var>,<var>vmax</var><code>]</code>, ...opciones y objetos...)</em></dt>
+<dd>
+<p>La función <code>drawdf</code> dibuja un campo de direcciones 2D, incluyendo
+opcionalmente curvas asociadas a soluciones particulares, así
+como otros objeto gráficos del paquete <code>draw</code>.
+</p>
+<p>El primer argumento especifica la(s) derivada(s), el cual debe estar
+formado por una expresión o una lista de dos expresiones. <var>dydx</var>, <var>dxdt</var> y
+<var>dydt</var> son expresiones que dependen de <var>x</var> y <var>y</var>.
+<var>dvdu</var>, <var>dudt</var> y <var>dvdt</var> son expresiones que dependen de
+<var>u</var> y <var>v</var>.
+</p>
+<p>Si las variables independiente y dependiente no son <var>x</var> e <var>y</var>,
+sus nombres deben especificarse a continuación de las derivadas,
+bien como una lista de dos nombres,
+<code>[</code><var>u</var>,<var>v</var><code>]</code>, o como dos listas de la forma
+<code>[</code><var>u</var>,<var>umin</var>,<var>umax</var><code>]</code> y
+<code>[</code><var>v</var>,<var>vmin</var>,<var>vmax</var><code>]</code>.
+</p>
+<p>El resto de argumentos son <i>opciones gráficas</i>, <i>objetos gráficos</i>,
+o listas conteniendo elementos de ambos tipos. El conjunto de opciones y
+objetos gráficos soportados por <code>drawdf</code> incluye los soportados
+por <code>draw2d</code> y <code>gr2d</code> del paquete <code>draw</code>.
+</p>
+<p>Los argumentos se iterpretan secuencialmente: las <i>opciones gráficas</i>
+afectan a todos los <i>objetos gráficos</i> que le siguen. Además,
+los <i>objetos gráficos</i> se dibujan en el orden en el que se
+especifican, pudiendo tapar otros gráficos dibujados con anterioridad.
+Algunas <i>opciones gráficas</i> afectan al aspecto general de la escena.
+</p>
+<p>Los nuevos <i>objetos gráficos</i> que se definen en <code>drawdf</code> son:
+<code>solns_at</code>, <code>points_at</code>, <code>saddles_at</code>, <code>soln_at</code>,
+<code>point_at</code> y <code>saddle_at</code>.
+</p>
+<p>Las nuevas <i>opciones gráficas</i> que se definen en <code>drawdf</code> son:
+<code>field_degree</code>, <code>soln_arrows</code>, <code>field_arrows</code>,
+<code>field_grid</code>, <code>field_color</code>, <code>show_field</code>,
+<code>tstep</code>, <code>nsteps</code>, <code>duration</code>, <code>direction</code>,
+<code>field_tstep</code>, <code>field_nsteps</code> y <code>field_duration</code>.
+</p>
+<p><i>Objetos gráficos</i> que se heredan del paquete <code>draw</code> incluyen:
+<code>explicit</code>, <code>implicit</code>, <code>parametric</code>,
+<code>polygon</code>, <code>points</code>, <code>vector</code>, <code>label</code> y cualesquiera
+otros soportados por <code>draw2d</code> y <code>gr2d</code>.
+</p>
+<p><i>Opciones gráficas</i> que se heredan del paquete <code>draw</code> incluyen:
+<code>points_joined</code>, <code>color</code>,
+<code>point_type</code>, <code>point_size</code>, <code>line_width</code>,
+<code>line_type</code>, <code>key</code>, <code>title</code>, <code>xlabel</code>,
+<code>ylabel</code>, <code>user_preamble</code>, <code>terminal</code>,
+<code>dimensions</code>, <code>file_name</code> y cualesquiera
+otros soportados por <code>draw2d</code> y <code>gr2d</code>.
+</p>
+<p>Véase también <code>draw2d</code>. 
+</p>
+<p>Los usuarios de wxMaxima y Imaxima pueden hacer uso también <code>wxdrawdf</code>,
+que es idéntica a <code>drawdf</code>, pero que inserta el gráfico en el 
+propio documento utilizando la función <code>wxdraw</code>.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;drawdf&quot;)</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;drawdf&quot;)$
+(%i2) drawdf(exp(-x)+y)$        /* default vars: x,y */
+(%i3) drawdf(exp(-t)+y, [t,y])$ /* default range: [-10,10] */
+(%i4) drawdf([y,-9*sin(x)-y/5], [x,1,5], [y,-2,2])$
+</pre></div>
+
+<p>A efectos de compatibilidad, <code>drawdf</code> acepta la mayor
+parte de parámetros soportados por <code>plotdf</code>.
+</p>
+<div class="example">
+<pre class="example">(%i5) drawdf(2*cos(t)-1+y, [t,y], [t,-5,10], [y,-4,9],
+             [trajectory_at,0,0])$
+</pre></div>
+
+<p><code>soln_at</code> y <code>solns_at</code> dibujan soluciones particulares
+que pasen por los puntos especificados, utilizando el integrador
+numérico de Runge Kutta de cuarto orden.
+</p>
+<div class="example">
+<pre class="example">(%i6) drawdf(2*cos(t)-1+y, [t,-5,10], [y,-4,9],
+             solns_at([0,0.1],[0,-0.1]),
+             color=blue, soln_at(0,0))$
+</pre></div>
+
+<p><code>field_degree=2</code> hace que el campo se componga de <i>splines</i>
+cuadráticos basados en las derivadas de primer y segundo orden en
+cada punto de la malla. 
+<code>field_grid=[</code><var>COLS</var>,<var>ROWS</var><code>]</code> 
+especifica el número de columnas y filas a utilizar en la malla.
+</p>
+<div class="example">
+<pre class="example">(%i7) drawdf(2*cos(t)-1+y, [t,-5,10], [y,-4,9],
+             field_degree=2, field_grid=[20,15],
+             solns_at([0,0.1],[0,-0.1]),
+             color=blue, soln_at(0,0))$
+</pre></div>
+
+<p><code>soln_arrows=true</code> añade flechas a las soluciones particulares y,
+por defecto, las borra. También cambia los colores por defecto para 
+destacar las curvas de las soluciones particulares.
+</p>
+<div class="example">
+<pre class="example">(%i8) drawdf(2*cos(t)-1+y, [t,-5,10], [y,-4,9],
+             soln_arrows=true,
+             solns_at([0,0.1],[0,-0.1],[0,0]))$
+</pre></div>
+
+<p><code>duration=40</code> especifica el intervalo temporal de la integración
+numérica, cuyo valor por defecto es 10. La integración se detendrá
+automáticamente si la solución se aparta mucho de la región a dibujar,
+o si la derivada se vuelve compleja o infinita. Aquí también
+hacemos <code>field_degree=2</code> para dibujar <i>splines</i> cuadráticos. Las
+ecuaciones de este ejemplo modelizan un sistema depredador-presa.
+</p>
+<div class="example">
+<pre class="example">(%i9) drawdf([x*(1-x-y), y*(3/4-y-x/2)], [x,0,1.1], [y,0,1],
+             field_degree=2, duration=40,
+             soln_arrows=true, point_at(1/2,1/2),
+             solns_at([0.1,0.2], [0.2,0.1], [1,0.8], [0.8,1],
+                      [0.1,0.1], [0.6,0.05], [0.05,0.4],
+                      [1,0.01], [0.01,0.75]))$
+</pre></div>
+
+<p><code>field_degree='solns</code> hace que el campo se componga de muchas
+pequeñas soluciones calculadas a partir del Runge Kutta
+de cuarto orden.
+</p>
+<div class="example">
+<pre class="example">(%i10) drawdf([x*(1-x-y), y*(3/4-y-x/2)], [x,0,1.1], [y,0,1],
+              field_degree='solns, duration=40,
+              soln_arrows=true, point_at(1/2,1/2),
+              solns_at([0.1,0.2], [0.2,0.1], [1,0.8],
+                       [0.8,1], [0.1,0.1], [0.6,0.05],
+                       [0.05,0.4], [1,0.01], [0.01,0.75]))$
+</pre></div>
+
+<p><code>saddles_at</code> trata de linearizar automáticamente la ecuación
+en cada punto de silla y dibujar la solución numérica correspondiente
+a cada vector propio, incluyendo las separatrices. <code>tstep=0.05</code> establece
+el salto temporal máximo para el integrador numérico, cuyo valor por
+defecto es 0.1. Las siguientes ecuaciones modelizan un péndulo amortiguado.
+</p>
+<div class="example">
+<pre class="example">(%i11) drawdf([y,-9*sin(x)-y/5], tstep=0.05,
+              soln_arrows=true, point_size=0.5,
+              points_at([0,0], [2*%pi,0], [-2*%pi,0]),
+              field_degree='solns,
+              saddles_at([%pi,0], [-%pi,0]))$
+</pre></div>
+
+<p><code>show_field=false</code> elimina el campo completamente.
+</p>
+<div class="example">
+<pre class="example">(%i12) drawdf([y,-9*sin(x)-y/5], tstep=0.05,
+              show_field=false, soln_arrows=true,
+              point_size=0.5,
+              points_at([0,0], [2*%pi,0], [-2*%pi,0]),
+              saddles_at([3*%pi,0], [-3*%pi,0],
+                         [%pi,0], [-%pi,0]))$
+</pre></div>
+
+<p><code>drawdf</code> pasa todos los parámetros que no reconoce a <code>draw2d</code>
+o <code>gr2d</code>, permitiendo combinar la potencia del paquete <code>draw</code>
+con <code>drawdf</code>.
+</p>
+<div class="example">
+<pre class="example">(%i13) drawdf(x^2+y^2, [x,-2,2], [y,-2,2], field_color=gray,
+              key=&quot;soln 1&quot;, color=black, soln_at(0,0),
+              key=&quot;soln 2&quot;, color=red, soln_at(0,1),
+              key=&quot;isocline&quot;, color=green, line_width=2,
+              nticks=100, parametric(cos(t),sin(t),t,0,2*%pi))$
+</pre></div>
+
+<p><code>drawdf</code> acepta listas anidadas de opciones y objetos gráficos,
+permitiendo el uso de <code>makelist</code> y otras funciones de forma más
+flexible para generar gráficos.
+</p>
+<div class="example">
+<pre class="example">(%i14) colors : ['red,'blue,'purple,'orange,'green]$
+(%i15) drawdf([x-x*y/2, (x*y - 3*y)/4],
+              [x,2.5,3.5], [y,1.5,2.5],
+              field_color = gray,
+              makelist([ key   = concat(&quot;soln&quot;,k),
+                         color = colors[k],
+                         soln_at(3, 2 + k/20) ],
+                       k,1,5))$
+</pre></div>
+
+</dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_204.html#Introducci_00f3n-a-drawdf" accesskey="p" rel="previous">Introducción a drawdf</a>, Subir: <a href="maxima_203.html#drawdf" accesskey="u" rel="up">drawdf</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

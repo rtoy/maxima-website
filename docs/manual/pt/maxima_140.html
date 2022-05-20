@@ -1,0 +1,731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Definições para estatística descritiva</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Definições para estatística descritiva">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições para estatística descritiva">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_137.html#descriptive" rel="up" title="descriptive">
+<link href="maxima_141.html#Defini_00e7_00f5es-espec_00edficas-para-estat_00edstica-descritiva-de-v_00e1rias-vari_00e1veis" rel="next" title="Definições específicas para estatística descritiva de várias variáveis">
+<link href="maxima_139.html#Defini_00e7_00f5es-para-manipula_00e7_00e3o-da-dados" rel="previous" title="Definições para manipulação da dados">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-para-estat_00edstica-descritiva"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_141.html#Defini_00e7_00f5es-espec_00edficas-para-estat_00edstica-descritiva-de-v_00e1rias-vari_00e1veis" accesskey="n" rel="next">Definições específicas para estatística descritiva de várias variáveis</a>, Previous: <a href="maxima_139.html#Defini_00e7_00f5es-para-manipula_00e7_00e3o-da-dados" accesskey="p" rel="previous">Definições para manipulação da dados</a>, Acima: <a href="maxima_137.html#descriptive" accesskey="u" rel="up">descriptive</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-para-estatistica-descritiva"></a>
+<h3 class="section">44.3 Definições para estatística descritiva</h3>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fmean"></a><dl>
+<dt><a name="index-mean"></a>Função: <strong>mean</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-mean-1"></a>Função: <strong>mean</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>Essa função calcula a média de uma amostra, definida como
+</p><div class="example">
+<pre class="example">                       n
+                     ====
+             _   1   \
+             x = -    &gt;    x
+                 n   /      i
+                     ====
+                     i = 1
+</pre></div>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) mean (s1);
+                               471
+(%o4)                          ---
+                               100
+(%i5) %, numer;
+(%o5)                         4.71
+(%i6) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i7) mean (s2);
+(%o7)     [9.9485, 10.1607, 10.8685, 15.7166, 14.8441]
+</pre></div>
+</dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fvar"></a><dl>
+<dt><a name="index-var"></a>Função: <strong>var</strong> <em>(<var>list</var>)</em></dt>
+<dt><a name="index-var-1"></a>Função: <strong>var</strong> <em>(<var>matrix</var>)</em></dt>
+<dd><p>This is the sample variance, defined as
+</p><div class="example">
+<pre class="example">                     n
+                   ====
+           2   1   \          _ 2
+          s  = -    &gt;    (x - x)
+               n   /       i
+                   ====
+                   i = 1
+</pre></div>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) var (s1), numer;
+(%o4)                   8.425899999999999
+</pre></div>
+
+<p>See also function <code>var1</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fvar1"></a><dl>
+<dt><a name="index-var1"></a>Função: <strong>var1</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-var1-1"></a>Função: <strong>var1</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>Essa função calcula a variância da amostra, definida como
+</p><div class="example">
+<pre class="example">                     n
+                   ====
+               1   \          _ 2
+              ---   &gt;    (x - x)
+              n-1  /       i
+                   ====
+                   i = 1
+</pre></div>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) var1 (s1), numer;
+(%o4)                    8.5110101010101
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) var1 (s2);
+(%o6) [17.39586540404041, 15.13912778787879, 15.63204924242424, 
+                            32.50152569696971, 24.66977392929294]
+</pre></div>
+
+<p>See also function <code>var</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fstd"></a><dl>
+<dt><a name="index-std"></a>Função: <strong>std</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-std-1"></a>Função: <strong>std</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>A raíz quadrada da função <code>var</code>, a variância com denominador <em>n</em>.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) std (s1), numer;
+(%o4)                   2.902740084816414
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) std (s2);
+(%o6) [4.149928523480858, 3.871399812729241, 3.933920277534866, 
+                            5.672434260526957, 4.941970881136392]
+</pre></div>
+
+<p>Veja também as funções <code>var</code> e <code>std1</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fstd1"></a><dl>
+<dt><a name="index-std1"></a>Função: <strong>std1</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-std1-1"></a>Função: <strong>std1</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>É a raíz quadrada da função <code>var1</code>, a variância com denominador <em>n-1</em>.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) std1 (s1), numer;
+(%o4)                   2.917363553109228
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) std1 (s2);
+(%o6) [4.17083509672109, 3.89090320978032, 3.953738641137555, 
+                            5.701010936401517, 4.966867617451963]
+</pre></div>
+
+<p>Veja também as funções <code>var1</code> e <code>std</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fnoncentral_005fmoment"></a><dl>
+<dt><a name="index-noncentral_005fmoment"></a>Função: <strong>noncentral_moment</strong> <em>(<var>lista</var>, <var>k</var>)</em></dt>
+<dt><a name="index-noncentral_005fmoment-1"></a>Função: <strong>noncentral_moment</strong> <em>(<var>matriz</var>, <var>k</var>)</em></dt>
+<dd><p>O momento não central de ordem <em>k</em>, definido como
+</p><div class="example">
+<pre class="example">                       n
+                     ====
+                 1   \      k
+                 -    &gt;    x
+                 n   /      i
+                     ====
+                     i = 1
+</pre></div>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) noncentral_moment (s1, 1), numer; /* the mean */
+(%o4)                         4.71
+(%i6) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i7) noncentral_moment (s2, 5);
+(%o7) [319793.8724761506, 320532.1923892463, 391249.5621381556, 
+                            2502278.205988911, 1691881.797742255]
+</pre></div>
+
+<p>Veja também a função <code>central_moment</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fcentral_005fmoment"></a><dl>
+<dt><a name="index-central_005fmoment"></a>Função: <strong>central_moment</strong> <em>(<var>lista</var>, <var>k</var>)</em></dt>
+<dt><a name="index-central_005fmoment-1"></a>Função: <strong>central_moment</strong> <em>(<var>matriz</var>, <var>k</var>)</em></dt>
+<dd><p>O momento central de ordem <em>k</em>, definido como
+</p><div class="example">
+<pre class="example">                    n
+                  ====
+              1   \          _ k
+              -    &gt;    (x - x)
+              n   /       i
+                  ====
+                  i = 1
+</pre></div>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) central_moment (s1, 2), numer; /* a variância */
+(%o4)                   8.425899999999999
+(%i6) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i7) central_moment (s2, 3);
+(%o7) [11.29584771375004, 16.97988248298583, 5.626661952750102, 
+                             37.5986572057918, 25.85981904394192]
+</pre></div>
+
+<p>Veja também as funções <code>central_moment</code> e <code>mean</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fcv"></a><dl>
+<dt><a name="index-cv"></a>Função: <strong>cv</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-cv-1"></a>Função: <strong>cv</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>O coeficiente de variação é o quociente entre o desvio padrão da amostra (<code>std</code>) e a média <code>mean</code>,
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) cv (s1), numer;
+(%o4)                   .6193977819764815
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) cv (s2);
+(%o6) [.4192426091090204, .3829365309260502, 0.363779605385983, 
+                            .3627381836021478, .3346021393989506]
+</pre></div>
+
+<p>Veja também as funções <code>std</code> e <code>mean</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fmini"></a><dl>
+<dt><a name="index-mini"></a>Função: <strong>mini</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-mini-1"></a>Função: <strong>mini</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>É o valor mínimo da amostra <var>lista</var>,
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) mini (s1);
+(%o4)                           0
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) mini (s2);
+(%o6)             [0.58, 0.5, 2.67, 5.25, 5.17]
+</pre></div>
+
+<p>Veja também função <code>maxi</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fmaxi"></a><dl>
+<dt><a name="index-maxi"></a>Função: <strong>maxi</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-maxi-1"></a>Função: <strong>maxi</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>É o valor máximo da amostra <var>lista</var>,
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) maxi (s1);
+(%o4)                           9
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) maxi (s2);
+(%o6)          [20.25, 21.46, 20.04, 29.63, 27.63]
+</pre></div>
+
+<p>Veja também a função <code>mini</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002frange"></a><dl>
+<dt><a name="index-range"></a>Função: <strong>range</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-range-1"></a>Função: <strong>range</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>A amplitude é a diferença entre os valores de maximo e de mínimo.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) range (s1);
+(%o4)                           9
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) range (s2);
+(%o6)          [19.67, 20.96, 17.37, 24.38, 22.46]
+</pre></div>
+</dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fquantile"></a><dl>
+<dt><a name="index-quantile"></a>Função: <strong>quantile</strong> <em>(<var>lista</var>, <var>p</var>)</em></dt>
+<dt><a name="index-quantile-1"></a>Função: <strong>quantile</strong> <em>(<var>matriz</var>, <var>p</var>)</em></dt>
+<dd><p>É o <var>p</var>-<code>quantile</code> (quantil de ordem <var>p</var>), com <var>p</var> sendo um número em <em>[0, 1]</em> (intervalo fechado), da amostra <var>lista</var>.
+Embora exista muitas Definições para quantil de uma amostra (Hyndman, R. J., Fan, Y. (1996) <var>Sample quantiles in statistical packages</var>. American Statistician, 50, 361-365), aquela que se baseia em interpolação linear é a que foi implementada no pacote <code>descriptive</code>.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) /* 1st and 3rd quartiles */ [quantile (s1, 1/4), quantile (s1, 3/4)], numer;
+(%o4)                      [2.0, 7.25]
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) quantile (s2, 1/4);
+(%o6)    [7.2575, 7.477500000000001, 7.82, 11.28, 11.48]
+</pre></div>
+</dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fmedian"></a><dl>
+<dt><a name="index-median"></a>Função: <strong>median</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-median-1"></a>Função: <strong>median</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>Uma vez que a amostra está ordenada, se o tamanho da amostra for ímpar a mediana é o valor central, de outra forma a mediana será a média dos dois valores centrais.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) median (s1);
+                                9
+(%o4)                           -
+                                2
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) median (s2);
+(%o6)         [10.06, 9.855, 10.73, 15.48, 14.105]
+</pre></div>
+
+<p>A mediana é o 1/2-<code>quantil</code>.
+</p>
+<p>Veja também function <code>quantile</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fqrange"></a><dl>
+<dt><a name="index-qrange"></a>Função: <strong>qrange</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-qrange-1"></a>Função: <strong>qrange</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>A amplitude do interquartil é a diferença entre o terceiro e o primeiro quartil, <code>quantile(<var>lista</var>,3/4) - quantile(<var>lista</var>,1/4)</code>,
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) qrange (s1);
+                               21
+(%o4)                          --
+                               4
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) qrange (s2);
+(%o6) [5.385, 5.572499999999998, 6.0225, 8.729999999999999, 
+                                               6.650000000000002]
+</pre></div>
+
+<p>Veja também a função <code>quantile</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fmean_005fdeviation"></a><dl>
+<dt><a name="index-mean_005fdeviation"></a>Função: <strong>mean_deviation</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-mean_005fdeviation-1"></a>Função: <strong>mean_deviation</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>O desvio médio, definido como
+</p><div class="example">
+<pre class="example">                     n
+                   ====
+               1   \          _
+               -    &gt;    |x - x|
+               n   /       i
+                   ====
+                   i = 1
+</pre></div>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) mean_deviation (s1);
+                               51
+(%o4)                          --
+                               20
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) mean_deviation (s2);
+(%o6) [3.287959999999999, 3.075342, 3.23907, 4.715664000000001, 
+                                               4.028546000000002]
+</pre></div>
+
+<p>Veja também a função <code>mean</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fmedian_005fdeviation"></a><dl>
+<dt><a name="index-median_005fdeviation"></a>Função: <strong>median_deviation</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-median_005fdeviation-1"></a>Função: <strong>median_deviation</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>O desvio da mediana, definido como
+</p><div class="example">
+<pre class="example">                 n
+               ====
+           1   \
+           -    &gt;    |x - med|
+           n   /       i
+               ====
+               i = 1
+</pre></div>
+<p>onde <code>med</code> é a mediana da <var>lista</var>.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) median_deviation (s1);
+                                5
+(%o4)                           -
+                                2
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) median_deviation (s2);
+(%o6)           [2.75, 2.755, 3.08, 4.315, 3.31]
+</pre></div>
+
+<p>Veja também a função <code>mean</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fharmonic_005fmean"></a><dl>
+<dt><a name="index-harmonic_005fmean"></a>Função: <strong>harmonic_mean</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-harmonic_005fmean-1"></a>Função: <strong>harmonic_mean</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>A média harm&ocirc;nica, definida como
+</p><div class="example">
+<pre class="example">                  n
+               --------
+                n
+               ====
+               \     1
+                &gt;    --
+               /     x
+               ====   i
+               i = 1
+</pre></div>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) y : [5, 7, 2, 5, 9, 5, 6, 4, 9, 2, 4, 2, 5]$
+(%i4) harmonic_mean (y), numer;
+(%o4)                   3.901858027632205
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) harmonic_mean (s2);
+(%o6) [6.948015590052786, 7.391967752360356, 9.055658197151745, 
+                            13.44199028193692, 13.01439145898509]
+</pre></div>
+
+<p>Veja também as funções <code>mean</code> e <code>geometric_mean</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fgeometric_005fmean"></a><dl>
+<dt><a name="index-geometric_005fmean"></a>Função: <strong>geometric_mean</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-geometric_005fmean-1"></a>Função: <strong>geometric_mean</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>A média geométrica, definida como
+</p><div class="example">
+<pre class="example">                 /  n      \ 1/n
+                 | /===\   |
+                 |  ! !    |
+                 |  ! !  x |
+                 |  ! !   i|
+                 | i = 1   |
+                 \         /
+</pre></div>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) y : [5, 7, 2, 5, 9, 5, 6, 4, 9, 2, 4, 2, 5]$
+(%i4) geometric_mean (y), numer;
+(%o4)                   4.454845412337012
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) geometric_mean (s2);
+(%o6) [8.82476274347979, 9.22652604739361, 10.0442675714889, 
+                            14.61274126349021, 13.96184163444275]
+</pre></div>
+
+<p>Veja também as funções <code>mean</code> e <code>harmonic_mean</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fkurtosis"></a><dl>
+<dt><a name="index-kurtosis"></a>Função: <strong>kurtosis</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-kurtosis-1"></a>Função: <strong>kurtosis</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>O coeficiente de curtose, definido como
+</p><div class="example">
+<pre class="example">                    n
+                  ====
+            1     \          _ 4
+           ----    &gt;    (x - x)  - 3
+              4   /       i
+           n s    ====
+                  i = 1
+</pre></div>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) kurtosis (s1), numer;
+(%o4)                  - 1.273247946514421
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) kurtosis (s2);
+(%o6) [- .2715445622195385, 0.119998784429451, 
+   - .4275233490482866, - .6405361979019522, - .4952382132352935]
+</pre></div>
+
+<p>Veja também as funções <code>mean</code>, <code>var</code> e <code>skewness</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fskewness"></a><dl>
+<dt><a name="index-skewness"></a>Função: <strong>skewness</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-skewness-1"></a>Função: <strong>skewness</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>O coeficiente de assimetria, definido como
+</p><div class="example">
+<pre class="example">                    n
+                  ====
+            1     \          _ 3
+           ----    &gt;    (x - x)
+              3   /       i
+           n s    ====
+                  i = 1
+</pre></div>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) skewness (s1), numer;
+(%o4)                  .009196180476450306
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) skewness (s2);
+(%o6) [.1580509020000979, .2926379232061854, .09242174416107717, 
+                            .2059984348148687, .2142520248890832]
+</pre></div>
+
+<p>Veja também as funções <code>mean</code>, <code>var</code> e <code>kurtosis</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fpearson_005fskewness"></a><dl>
+<dt><a name="index-pearson_005fskewness"></a>Função: <strong>pearson_skewness</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-pearson_005fskewness-1"></a>Função: <strong>pearson_skewness</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>O coeficiente de assimetria de pearson, definido como 
+</p><div class="example">
+<pre class="example">                _
+             3 (x - med)
+             -----------
+                  s
+</pre></div>
+<p>onde <var>med</var> é a mediana de <var>lista</var>.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) pearson_skewness (s1), numer;
+(%o4)                   .2159484029093895
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) pearson_skewness (s2);
+(%o6) [- .08019976629211892, .2357036272952649, 
+         .1050904062491204, .1245042340592368, .4464181795804519]
+</pre></div>
+
+<p>Veja também as funções <code>mean</code>, <code>var</code> e <code>median</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fquartile_005fskewness"></a><dl>
+<dt><a name="index-quartile_005fskewness"></a>Função: <strong>quartile_skewness</strong> <em>(<var>lista</var>)</em></dt>
+<dt><a name="index-quartile_005fskewness-1"></a>Função: <strong>quartile_skewness</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>O coeficiented de assimetria do quartil, definido como 
+</p><div class="example">
+<pre class="example">               c    - 2 c    + c
+                3/4      1/2    1/4
+               --------------------
+                   c    - c
+                    3/4    1/4
+</pre></div>
+<p>onde <em>c_p</em> é o quartil de ordem <var>p</var> da amostra <var>lista</var>.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i4) quartile_skewness (s1), numer;
+(%o4)                  .04761904761904762
+(%i5) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i6) quartile_skewness (s2);
+(%o6) [- 0.0408542246982353, .1467025572005382, 
+       0.0336239103362392, .03780068728522298, 0.210526315789474]
+</pre></div>
+
+<p>Veja também a função <code>quantile</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fnode_002fDefini_00e7_00f5es-espec_00edficas-para-estat_00edstica-descritiva-de-v_00e1rias-vari_00e1veis"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_141.html#Defini_00e7_00f5es-espec_00edficas-para-estat_00edstica-descritiva-de-v_00e1rias-vari_00e1veis" accesskey="n" rel="next">Definições específicas para estatística descritiva de várias variáveis</a>, Previous: <a href="maxima_139.html#Defini_00e7_00f5es-para-manipula_00e7_00e3o-da-dados" accesskey="p" rel="previous">Definições para manipulação da dados</a>, Acima: <a href="maxima_137.html#descriptive" accesskey="u" rel="up">descriptive</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

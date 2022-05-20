@@ -1,0 +1,1175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para stats</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para stats">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para stats">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_toc.html#Top" rel="up" title="Top">
+<link href="maxima_288.html#Funciones-y-variables-para-distribuciones-especiales" rel="next" title="Funciones y variables para distribuciones especiales">
+<link href="maxima_286.html#Funciones-y-variables-para-inference_005fresult" rel="previous" title="Funciones y variables para inference_result">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-stats"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_288.html#Funciones-y-variables-para-distribuciones-especiales" accesskey="n" rel="next">Funciones y variables para distribuciones especiales</a>, Previous: <a href="maxima_286.html#Funciones-y-variables-para-inference_005fresult" accesskey="p" rel="previous">Funciones y variables para inference_result</a>, Subir: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-stats-1"></a>
+<h3 class="section">74.3 Funciones y variables para stats</h3>
+
+
+<a name="Item_003a-stats_002fdefvr_002fstats_005fnumer"></a><dl>
+<dt><a name="index-stats_005fnumer"></a>Variable opcional: <strong>stats_numer</strong></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>Cuando <code>stats_numer</code> vale <code>true</code>, las funciones de inferencia
+estadística devuelven sus resultados en formato decimal de
+coma flotante. Cuando vale <code>false</code>, los resultados se devuelven en
+formato simbólico y racional.
+</p></dd></dl>
+
+
+<a name="Item_003a-stats_002fdeffn_002ftest_005fmean"></a><dl>
+<dt><a name="index-test_005fmean"></a>Función: <strong>test_mean</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-test_005fmean-1"></a>Función: <strong>test_mean</strong> <em>(<var>x</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>Es el test <var>t</var> de la media. El argumento <var>x</var> es una lista o matriz
+columna con los datos de una muestra unidimensional. También realiza el
+test asintótico basado en el <i>Teorema Central del límite</i>
+si se le asigna a la opción <code>'asymptotic</code> el valor <code>true</code>.
+</p>
+<p>Opciones:
+</p>
+<ul>
+<li> <code>'mean</code>, valor por defecto <code>0</code>, es el valor de la media a contrastar.
+
+</li><li> <code>'alternative</code>, valor por defecto <code>'twosided</code>, es la hipótesis alternativa;
+valores válidos son: <code>'twosided</code>, <code>'greater</code> y <code>'less</code>.
+
+</li><li> <code>'dev</code>, valor por defecto <code>'unknown</code>, este es el valor de la desviación
+típica cuando se conoce; valores válidos son: <code>'unknown</code> o una
+expresión con valor positivo.
+
+</li><li> <code>'conflevel</code>, valor por defecto <code>95/100</code>, nivel de confianza para el intervalo de confianza;
+debe ser una expresión que tome un valor en el intervalo (0,1).
+
+</li><li> <code>'asymptotic</code>, valor por defecto <code>false</code>, indica si debe realizar el test
+exacto basado en la <var>t</var> de Student, o el asintótico basado en el
+<i>Teorema Central del límite</i>; valores válidos son <code>true</code> y <code>false</code>.
+
+</li></ul>
+
+<p>El resultado devuelto por la función  <code>test_mean</code> es un objeto
+<code>inference_result</code> con los siguientes apartados:
+</p>
+<ol>
+<li> <code>'mean_estimate</code>: la media muestral.
+
+</li><li> <code>'conf_level</code>: nivel de confianza seleccionado por el usuario.
+
+</li><li> <code>'conf_interval</code>: intervalo de confianza para la media poblacional.
+
+</li><li> <code>'method</code>: procedimiento de inferencia.
+
+</li><li> <code>'hypotheses</code>: hipótesis nula y alternativa a ser contrastada.
+
+</li><li> <code>'statistic</code>: valor del estadístico de contraste utilizado para probar la hipótesis.
+
+</li><li> <code>'distribution</code>: distribución del estadístico de contraste, junto con su(s) parámetro(s).
+
+</li><li> <code>'p_value</code>: <em>p</em>-valor del test.
+
+</li></ol>
+
+<p>Ejemplos:
+</p>
+<p>Realiza el contraste exacto <var>t</var> con varianza desconocida. La
+hipótesis nula es <em>H_0: mean=50</em>, frente a la alternativa
+unilátera <em>H_1: mean&lt;50</em>; de acuerdo con los resultados,
+no hay evidencia para rechazar <em>H_0</em>, pues el <em>p</em>-valor
+es muy grande.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) data: [78,64,35,45,45,75,43,74,42,42]$
+(%i3) test_mean(data,'conflevel=0.9,'alternative='less,'mean=50);
+          |                 MEAN TEST
+          |
+          |            mean_estimate = 54.3
+          |
+          |              conf_level = 0.9
+          |
+          | conf_interval = [minf, 61.51314273502712]
+          |
+(%o3)     |  method = Exact t-test. Unknown variance.
+          |
+          | hypotheses = H0: mean = 50 , H1: mean &lt; 50
+          |
+          |       statistic = .8244705235071678
+          |
+          |       distribution = [student_t, 9]
+          |
+          |        p_value = .7845100411786889
+</pre></div>
+
+<p>En esta ocasión Maxima realiza un test asintótico. La hipótesis
+nula es <em>H_0: equal(mean, 50)</em> frente a la alternativa bilátera <em>H_1: not equal(mean, 50)</em>;
+de acuerdo con los resultados, <em>H_0</em> debe rechazarse en favor de
+la alternativa <em>H_1</em>, pues el <em>p</em>-valor es muy pequeño. 
+Nótese que, tal como indica la componente <code>Method</code>, este
+procedimiento sólo puede aplicarse en muestras grandes.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) test_mean([36,118,52,87,35,256,56,178,57,57,89,34,25,98,35,
+              98,41,45,198,54,79,63,35,45,44,75,42,75,45,45,
+              45,51,123,54,151],
+              'asymptotic=true,'mean=50);
+          |                       MEAN TEST
+          |
+          |           mean_estimate = 74.88571428571429
+          |
+          |                   conf_level = 0.95
+          |
+          | conf_interval = [57.72848600856194, 92.04294256286663]
+          |
+(%o2)     |    method = Large sample z-test. Unknown variance.
+          |
+          |       hypotheses = H0: mean = 50 , H1: mean # 50
+          |
+          |             statistic = 2.842831192874313
+          |
+          |             distribution = [normal, 0, 1]
+          |
+          |             p_value = .004471474652002261
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002ftest_005fmeans_005fdifference"></a><dl>
+<dt><a name="index-test_005fmeans_005fdifference"></a>Función: <strong>test_means_difference</strong> <em>(<var>x1</var>, <var>x2</var>)</em></dt>
+<dt><a name="index-test_005fmeans_005fdifference-1"></a>Función: <strong>test_means_difference</strong> <em>(<var>x1</var>, <var>x2</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>Este es el test <var>t</var> para la diferencia de medias con muestras.
+Los argumentos <var>x1</var> y <var>x2</var> son listas o matrices columna
+que contienen dos muestras independientes. En caso de varianzas
+diferentes y desconocidas (véanse las opciones <code>'dev1</code>,
+<code>'dev2</code> y <code>'varequal</code> más abajo) los grados de libertad
+se calculan mediante la aproximación de Welch.
+También realiza el test asintótico basado en el
+<i>Teorema Central del límite</i> si se le asigna a 
+la opción <code>'asymptotic</code> el valor <code>true</code>.
+</p>
+<p>Opciones:
+</p>
+<ul>
+<li> <code>'alternative</code>, valor por defecto <code>'twosided</code>, es la hipótesis alternativa;
+valores válidos son: <code>'twosided</code>, <code>'greater</code> y <code>'less</code>.
+
+</li><li> <code>'dev1</code>, valor por defecto <code>'unknown</code>, es el valor de la desviación 
+típica de la muestra <var>x1</var> cuando se conoce; valores válidos 
+son: <code>'unknown</code> o una expresión positiva.
+
+</li><li> <code>'dev2</code>, valor por defecto <code>'unknown</code>, es el valor de la desviación 
+típica de la muestra <var>x2</var> cuando se conoce; valores válidos 
+son: <code>'unknown</code> o una expresión positiva.
+
+</li><li> <code>'varequal</code>, valor por defecto <code>false</code>, indica si las varianzas deben considerarse iguales o no; esta opción sólo toma efecto cuando <code>'dev1</code> y/o <code>'dev2</code> tienen el valor <code>'unknown</code>.
+
+</li><li> <code>'conflevel</code>, valor por defecto <code>95/100</code>, nivel de confianza para el
+intervalo de confianza; debe ser una expresión que tome un valor en el intervalo (0,1).
+
+</li><li> <code>'asymptotic</code>, valor por defecto <code>false</code>, indica si debe realizar el test
+exacto basado en la <var>t</var> de Student, o el asintótico basado en el
+<i>Teorema Central del límite</i>; valores válidos son <code>true</code> y <code>false</code>.
+
+</li></ul>
+
+<p>El resultado devuelto por la función  <code>test_means_difference</code> es un objeto
+<code>inference_result</code> con los siguientes apartados:
+</p>
+<ol>
+<li> <code>'diff_estimate</code>: el estimador de la diferencia de medias.
+
+</li><li> <code>'conf_level</code>: nivel de confianza seleccionado por el usuario.
+
+</li><li> <code>'conf_interval</code>: intervalo de confianza para la diferencia de medias.
+
+</li><li> <code>'method</code>: procedimiento de inferencia.
+
+</li><li> <code>'hypotheses</code>: hipótesis nula y alternativa a ser contrastada.
+
+</li><li> <code>'statistic</code>: valor del estadístico de contraste utilizado para probar la hipótesis.
+
+</li><li> <code>'distribution</code>: distribución del estadístico de contraste, junto con su(s) parámetro(s).
+
+</li><li> <code>'p_value</code>: <em>p</em>-valor del test.
+
+</li></ol>
+
+<p>Ejemplos:
+</p>
+<p>La igualdad de medias se contrasta con dos pequeñas muestras
+<var>x</var> y <var>y</var>, contra la alternativa <em>H_1: m_1&gt;m_2</em>,
+siendo <em>m_1</em> y <em>m_2</em> las medias poblacionales; las
+varianzas son desconocidas y se supone que diferentes.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+(%i3) y: [1.2,6.9,38.7,20.4,17.2]$
+(%i4) test_means_difference(x,y,'alternative='greater);
+            |              DIFFERENCE OF MEANS TEST
+            |
+            |         diff_estimate = 20.31999999999999
+            |
+            |                 conf_level = 0.95
+            |
+            |    conf_interval = [- .04597417812882298, inf]
+            |
+(%o4)       |        method = Exact t-test. Welch approx.
+            |
+            | hypotheses = H0: mean1 = mean2 , H1: mean1 &gt; mean2
+            |
+            |           statistic = 1.838004300728477
+            |
+            |    distribution = [student_t, 8.62758740184604]
+            |
+            |            p_value = .05032746527991905
+</pre></div>
+
+<p>El mismo test que antes, pero ahora se suponen las varianzas
+iguales.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+(%i3) y: matrix([1.2],[6.9],[38.7],[20.4],[17.2])$
+(%i4) test_means_difference(x,y,
+                            'alternative='greater,
+                            'varequal=true);
+            |              DIFFERENCE OF MEANS TEST
+            |
+            |         diff_estimate = 20.31999999999999
+            |
+            |                 conf_level = 0.95
+            |
+            |     conf_interval = [- .7722627696897568, inf]
+            |
+(%o4)       |   method = Exact t-test. Unknown equal variances
+            |
+            | hypotheses = H0: mean1 = mean2 , H1: mean1 &gt; mean2
+            |
+            |           statistic = 1.765996124515009
+            |
+            |           distribution = [student_t, 9]
+            |
+            |            p_value = .05560320992529344
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002ftest_005fvariance"></a><dl>
+<dt><a name="index-test_005fvariance"></a>Función: <strong>test_variance</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-test_005fvariance-1"></a>Función: <strong>test_variance</strong> <em>(<var>x</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>Este es el test <var>chi^2</var> de la varianza. El argumento <var>x</var>
+es una lista o matriz columna con los datos de una muestra unidimensional
+extraída de una población normal.
+</p>
+<p>Opciones:
+</p>
+<ul>
+<li> <code>'mean</code>, valor por defecto <code>'unknown</code>, es la media de la población, si se conoce.
+
+</li><li> <code>'alternative</code>, valor por defecto <code>'twosided</code>, es la hipótesis alternativa;
+valores válidos son: <code>'twosided</code>, <code>'greater</code> y <code>'less</code>.
+
+</li><li> <code>'variance</code>, valor por defecto <code>1</code>, este es el valor (positivo) de la varianza a contrastar.
+
+</li><li> <code>'conflevel</code>, valor por defecto <code>95/100</code>, nivel de confianza para el intervalo de confianza;
+debe ser una expresión que tome un valor en el intervalo (0,1).
+
+</li></ul>
+
+<p>El resultado devuelto por la función  <code>test_variance</code> es un objeto
+<code>inference_result</code> con los siguientes apartados:
+</p>
+<ol>
+<li> <code>'var_estimate</code>: la varianza muestral.
+
+</li><li> <code>'conf_level</code>: nivel de confianza seleccionado por el usuario.
+
+</li><li> <code>'conf_interval</code>: intervalo de confianza para la varianza poblacional.
+
+</li><li> <code>'method</code>: procedimiento de inferencia.
+
+</li><li> <code>'hypotheses</code>: hipótesis nula y alternativa a ser contrastada.
+
+</li><li> <code>'statistic</code>: valor del estadístico de contraste utilizado para probar la hipótesis.
+
+</li><li> <code>'distribution</code>: distribución del estadístico de contraste, junto con su parámetro.
+
+</li><li> <code>'p_value</code>: <em>p</em>-valor del test.
+
+</li></ol>
+
+<p>Ejemplos:
+</p>
+<p>Se contrasta si la varianza de una población de media desconocida
+es igual o mayor que 200.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [203,229,215,220,223,233,208,228,209]$
+(%i3) test_variance(x,'alternative='greater,'variance=200);
+             |                  VARIANCE TEST
+             |
+             |              var_estimate = 110.75
+             |
+             |                conf_level = 0.95
+             |
+             |     conf_interval = [57.13433376937479, inf]
+             |
+(%o3)        | method = Variance Chi-square test. Unknown mean.
+             |
+             |    hypotheses = H0: var = 200 , H1: var &gt; 200
+             |
+             |                 statistic = 4.43
+             |
+             |             distribution = [chi2, 8]
+             |
+             |           p_value = .8163948512777689
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002ftest_005fvariance_005fratio"></a><dl>
+<dt><a name="index-test_005fvariance_005fratio"></a>Función: <strong>test_variance_ratio</strong> <em>(<var>x1</var>, <var>x2</var>)</em></dt>
+<dt><a name="index-test_005fvariance_005fratio-1"></a>Función: <strong>test_variance_ratio</strong> <em>(<var>x1</var>, <var>x2</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>Este es el test <var>F</var> del cociente de las varianzas para dos
+poblaciones normales. Los argumentos <var>x1</var> y <var>x2</var> son listas
+o matrices columna que contienen los datos de dos muestras 
+independientes.
+</p>
+<p>Opciones:
+</p>
+<ul>
+<li> <code>'alternative</code>, valor por defecto <code>'twosided</code>, es la hipótesis alternativa;
+valores válidos son: <code>'twosided</code>, <code>'greater</code> y <code>'less</code>.
+
+</li><li> <code>'mean1</code>, valor por defecto <code>'unknown</code>, es la media de la población de la
+que procede <var>x1</var> cuando se conoce.
+
+</li><li> <code>'mean2</code>, valor por defecto <code>'unknown</code>, es la media de la población de la
+que procede <var>x2</var> cuando se conoce.
+
+</li><li> <code>'conflevel</code>, valor por defecto <code>95/100</code>, nivel de confianza para el intervalo
+de confianza del cociente; debe ser una expresión que tome un valor en el intervalo (0,1).
+
+</li></ul>
+
+<p>El resultado devuelto por la función  <code>test_variance_ratio</code> es un objeto
+<code>inference_result</code> con los siguientes resultados
+</p>
+<ol>
+<li> <code>'ratio_estimate</code>: el cociente de varianzas muestral.
+
+</li><li> <code>'conf_level</code>: nivel de confianza seleccionado por el usuario.
+
+</li><li> <code>'conf_interval</code>: intervalo de confianza para el cociente de varianzas.
+
+</li><li> <code>'method</code>: procedimiento de inferencia.
+
+</li><li> <code>'hypotheses</code>: hipótesis nula y alternativa a ser contrastada.
+
+</li><li> <code>'statistic</code>: valor del estadístico de contraste utilizado para probar la hipótesis.
+
+</li><li> <code>'distribution</code>: distribución del estadístico de contraste, junto con sus parámetros.
+
+</li><li> <code>'p_value</code>: <em>p</em>-valor del test.
+
+</li></ol>
+
+
+<p>Ejemplos:
+</p>
+<p>Se contrasta la igualdad de varianzas de dos poblaciones normales frente
+a la alternativa de que la primera es mayor que la segunda.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+(%i3) y: [1.2,6.9,38.7,20.4,17.2]$
+(%i4) test_variance_ratio(x,y,'alternative='greater);
+              |              VARIANCE RATIO TEST
+              |
+              |       ratio_estimate = 2.316933391522034
+              |
+              |               conf_level = 0.95
+              |
+              |    conf_interval = [.3703504689507268, inf]
+              |
+(%o4)         | method = Variance ratio F-test. Unknown means.
+              |
+              | hypotheses = H0: var1 = var2 , H1: var1 &gt; var2
+              |
+              |         statistic = 2.316933391522034
+              |
+              |            distribution = [f, 5, 4]
+              |
+              |          p_value = .2179269692254457
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002ftest_005fproportion"></a><dl>
+<dt><a name="index-test_005fproportion"></a>Función: <strong>test_proportion</strong> <em>(<var>x</var>, <var>n</var>)</em></dt>
+<dt><a name="index-test_005fproportion-1"></a>Función: <strong>test_proportion</strong> <em>(<var>x</var>, <var>n</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>Inferencias sobre una proporción. El argumento <var>x</var> es el
+número de éxitos observados en <var>n</var> pruebas de Bernoulli
+con probabilidad desconocida.
+</p>
+<p>Opciones:
+</p>
+<ul>
+<li> <code>'proportion</code>, valor por defecto <code>1/2</code>, es el valor de la
+probabilidad a contrastar.
+
+</li><li> <code>'alternative</code>, valor por defecto <code>'twosided</code>, es la hipótesis alternativa;
+valores válidos son: <code>'twosided</code>, <code>'greater</code> y <code>'less</code>.
+
+</li><li> <code>'conflevel</code>, valor por defecto <code>95/100</code>, nivel de confianza para el intervalo
+de confianza; debe ser una expresión que tome un valor en el intervalo (0,1).
+
+</li><li> <code>'asymptotic</code>, valor por defecto <code>false</code>, indica si debe realizar el test
+exacto basado en la binomial, o el asintótico basado en el
+<i>Teorema Central del límite</i>; valores válidos son <code>true</code> y <code>false</code>.
+
+</li><li> <code>'correct</code>, valor por defecto <code>true</code>, indica si se aplica o no la
+corrección de Yates.
+
+</li></ul>
+
+<p>El resultado devuelto por la función <code>test_proportion</code> es un objeto
+<code>inference_result</code> con los siguientes apartados:
+</p>
+<ol>
+<li> <code>'sample_proportion</code>: proporción muestral.
+
+</li><li> <code>'conf_level</code>: nivel de confianza seleccionado.
+
+</li><li> <code>'conf_interval</code>: intervalo de confianza de Wilson para la proporción.
+
+</li><li> <code>'method</code>: procedimiento de inferencia.
+
+</li><li> <code>'hypotheses</code>: hipótesis nula y alternativa a ser contrastada.
+
+</li><li> <code>'statistic</code>: valor del estadístico de contraste utilizado
+para probar la hipótesis.
+
+</li><li> <code>'distribution</code>: distribución del estadístico de contraste, junto con sus parámetros.
+
+</li><li> <code>'p_value</code>: <em>p</em>-valor del test.
+
+</li></ol>
+
+<p>Ejemplos:
+</p>
+<p>Realiza un contraste exacto. La hipótesis nula es <em>H_0: p=1/2</em> 
+y la alternativa unilátera es <em>H_1: p&lt;1/2</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) test_proportion(45, 103, alternative = less);
+         |            PROPORTION TEST              
+         |                                         
+         | sample_proportion = .4368932038834951   
+         |                                         
+         |           conf_level = 0.95             
+         |                                         
+         | conf_interval = [0, 0.522714149150231]  
+         |                                         
+(%o2)    |     method = Exact binomial test.       
+         |                                         
+         | hypotheses = H0: p = 0.5 , H1: p &lt; 0.5  
+         |                                         
+         |             statistic = 45              
+         |                                         
+         |  distribution = [binomial, 103, 0.5]    
+         |                                         
+         |      p_value = .1184509388901454 
+</pre></div>
+
+<p>Un contraste asintótico bilátero. El nivel de confianza es 99/100.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) fpprintprec:7$
+(%i3) test_proportion(45, 103, 
+                  conflevel = 99/100, asymptotic=true);
+      |                 PROPORTION TEST                  
+      |                                                  
+      |           sample_proportion = .43689             
+      |                                                  
+      |                conf_level = 0.99                 
+      |                                                  
+      |        conf_interval = [.31422, .56749]          
+      |                                                  
+(%o3) | method = Asympthotic test with Yates correction. 
+      |                                                  
+      |     hypotheses = H0: p = 0.5 , H1: p # 0.5       
+      |                                                  
+      |               statistic = .43689                 
+      |                                                  
+      |      distribution = [normal, 0.5, .048872]       
+      |                                                  
+      |                p_value = .19662
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002ftest_005fproportions_005fdifference"></a><dl>
+<dt><a name="index-test_005fproportions_005fdifference"></a>Función: <strong>test_proportions_difference</strong> <em>(<var>x1</var>, <var>n1</var>, <var>x2</var>, <var>n2</var>)</em></dt>
+<dt><a name="index-test_005fproportions_005fdifference-1"></a>Función: <strong>test_proportions_difference</strong> <em>(<var>x1</var>, <var>n1</var>, <var>x2</var>, <var>n2</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>Inferencias sobre la diferencia de dos proporciones. El argumento <var>x1</var> 
+es el número de éxitos en <var>n1</var> experimentos de Bernoulli en la
+primera población y <var>x2</var> y <var>n2</var> son los valores correspondientes
+para la segunda población. Las muestras son independientes y el contraste
+es asintótico.
+</p>
+<p>Opciones:
+</p>
+<ul>
+<li> <code>'alternative</code>, valor por defecto <code>'twosided</code>, es la hipótesis alternativa;
+valores válidos son:: <code>'twosided</code> (<code>p1 # p2</code>), <code>'greater</code> (<code>p1 &gt; p2</code>)
+and <code>'less</code> (<code>p1 &lt; p2</code>).
+
+</li><li> <code>'conflevel</code>, valor por defecto <code>95/100</code>, nivel de confianza para el intervalo
+de confianza; debe ser una expresión que tome un valor en el intervalo (0,1).
+
+</li><li> <code>'correct</code>, valor por defecto <code>true</code>, indica si se aplica o no la
+corrección de Yates.
+
+</li></ul>
+
+<p>El resultado devuelto por la función <code>test_proportions_difference</code> es un objeto
+<code>inference_result</code> con los siguientes apartados:
+</p>
+<ol>
+<li> <code>'proportions</code>: lista con las dos proporciones muestrales.
+
+</li><li> <code>'conf_level</code>: nivel de confianza seleccionado.
+
+</li><li> <code>'conf_interval</code>: intervalo de confianza para la diferencia de proporciones <code>p1 - p2</code>.
+
+</li><li> <code>'method</code>: procedimiento de inferencia y mensaje de aviso en caso de que
+alguno de los tamaños muestrales sea menor de 10.
+
+</li><li> <code>'hypotheses</code>: hipótesis nula y alternativa a ser contrastada.
+
+</li><li> <code>'statistic</code>: valor del estadístico de contraste utilizado
+para probar la hipótesis.
+
+</li><li> <code>'distribution</code>: distribución del estadístico de contraste, junto con sus parámetros.
+
+</li><li> <code>'p_value</code>: <em>p</em>-valor del test.
+
+</li></ol>
+
+<p>Ejemplos:
+</p>
+<p>Una máquina produce 10 piezas defectuosas en un lote de 250.
+Después de ciertas tareas de mantenimiento, produce 4 piezas
+defectuosas de un lote de 150. A fin de saber si la tarea de 
+mantenimiento produjo alguna mejora, se contrasta la hipótesis
+nula <code>H0:p1=p2</code> contra la alternativa <code>H0:p1&gt;p2</code>,
+donde <code>p1</code> y <code>p2</code> son las probabilidades de que un
+artículo producido por la máquina sea defectuoso,
+antes y después de la reparación. De acuerdo con el p valor, no hay
+evidencia suficiente para aceptar la alternativa.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) fpprintprec:7$
+(%i3) test_proportions_difference(10, 250, 4, 150,
+                                alternative = greater);
+      |       DIFFERENCE OF PROPORTIONS TEST         
+      |                                              
+      |       proportions = [0.04, .02666667]        
+      |                                              
+      |              conf_level = 0.95               
+      |                                              
+      |      conf_interval = [- .02172761, 1]        
+      |                                              
+(%o3) | method = Asymptotic test. Yates correction.  
+      |                                              
+      |   hypotheses = H0: p1 = p2 , H1: p1 &gt; p2     
+      |                                              
+      |            statistic = .01333333             
+      |                                              
+      |    distribution = [normal, 0, .01898069]     
+      |                                              
+      |             p_value = .2411936 
+</pre></div>
+
+<p>Desviación típica exacta de la
+distribución normal asintótica con datos
+desconocidos.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) stats_numer: false$
+(%i3) sol: test_proportions_difference(x1,n1,x2,n2)$
+(%i4) last(take_inference('distribution,sol));
+               1    1                  x2 + x1
+              (-- + --) (x2 + x1) (1 - -------)
+               n2   n1                 n2 + n1
+(%o4)    sqrt(---------------------------------)
+                           n2 + n1
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002ftest_005fsign"></a><dl>
+<dt><a name="index-test_005fsign"></a>Función: <strong>test_sign</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-test_005fsign-1"></a>Función: <strong>test_sign</strong> <em>(<var>x</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>Este es el test no paramétrico de los signos para contrastes
+sobre la mediana de una población continua. El argumento <var>x</var>
+es una lista o matriz columna que contiene los datos de una muestra
+unidimensional.
+</p>
+<p>Opciones:
+</p>
+<ul>
+<li> <code>'alternative</code>, valor por defecto <code>'twosided</code>, es la hipótesis alternativa;
+valores válidos son: <code>'twosided</code>, <code>'greater</code> y <code>'less</code>.
+
+</li><li> <code>'median</code>, valor por defecto <code>0</code>, es el valor de la mediana a contrastar.
+
+</li></ul>
+
+<p>El resultado devuelto por la función <code>test_sign</code> es un objeto
+<code>inference_result</code> con los siguientes apartados:
+</p>
+<ol>
+<li> <code>'med_estimate</code>: la mediana muestral.
+
+</li><li> <code>'method</code>: procedimiento de inferencia.
+
+</li><li> <code>'hypotheses</code>: hipótesis nula y alternativa a ser contrastada.
+
+</li><li> <code>'statistic</code>: valor del estadístico de contraste utilizado para probar la hipótesis.
+
+</li><li> <code>'distribution</code>: distribución del estadístico de contraste, junto con sus parámetros.
+
+</li><li> <code>'p_value</code>: <em>p</em>-valor del test.
+
+</li></ol>
+
+<p>Ejemplos:
+</p>
+<p>Contrasta si la mediana de la población de la que se ha extraido
+la muestra es 6, frente a la alternativa <em>H_1: median &gt; 6</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [2,0.1,7,1.8,4,2.3,5.6,7.4,5.1,6.1,6]$
+(%i3) test_sign(x,'median=6,'alternative='greater);
+               |                  SIGN TEST
+               |
+               |              med_estimate = 5.1
+               |
+               |      method = Non parametric sign test.
+               |
+(%o3)          | hypotheses = H0: median = 6 , H1: median &gt; 6
+               |
+               |                statistic = 7
+               |
+               |      distribution = [binomial, 10, 0.5]
+               |
+               |         p_value = .05468749999999989
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002ftest_005fsigned_005frank"></a><dl>
+<dt><a name="index-test_005fsigned_005frank"></a>Función: <strong>test_signed_rank</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-test_005fsigned_005frank-1"></a>Función: <strong>test_signed_rank</strong> <em>(<var>x</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>Este el test de los rangos signados de Wilcoxon para hacer inferencias sobre
+la mediana de una población continua. El argumento <var>x</var> es una lista
+o matriz columna que contiene los datos de una muestra unidimensional.
+Realiza la aproximación normal si el tamaño muestral es mayor que 20,
+o si en la muestra aparece algún cero o hay empates.
+</p>
+<p>Véanse también <code>pdf_rank_test</code> y <code>cdf_rank_test</code>.
+</p>
+
+<p>Opciones:
+</p>
+<ul>
+<li> <code>'median</code>, valor por defecto <code>0</code>, es el valor de la mediana a ser contrastado.
+
+</li><li> <code>'alternative</code>, valor por defecto <code>'twosided</code>, es la hipótesis alternativa;
+valores válidos son: <code>'twosided</code>, <code>'greater</code> y <code>'less</code>.
+
+</li></ul>
+
+<p>El resultado devuelto por la función  <code>test_signed_rank</code> es
+un objeto <code>inference_result</code> con los siguientes apartados:
+</p>
+<ol>
+<li> <code>'med_estimate</code>: la mediana muestral.
+
+</li><li> <code>'method</code>: procedimiento de inferencia.
+
+</li><li> <code>'hypotheses</code>: hipótesis nula y alternativa a ser contrastada.
+
+</li><li> <code>'statistic</code>: valor del estadístico de contraste utilizado para probar la hipótesis.
+
+</li><li> <code>'distribution</code>: distribución del estadístico de contraste, junto con su(s) parámetro(s).
+
+</li><li> <code>'p_value</code>: <em>p</em>-valor del test.
+
+</li></ol>
+
+<p>Ejemplos:
+</p>
+<p>Contrasta la hipótesis nula <em>H_0: median = 15</em> frente 
+a la alternativa <em>H_1: median &gt; 15</em>. Este test es exacto, 
+puesto que no hay empates.
+</p>
+
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [17.1,15.9,13.7,13.4,15.5,17.6]$
+(%i3) test_signed_rank(x,median=15,alternative=greater);
+                 |             SIGNED RANK TEST
+                 |
+                 |           med_estimate = 15.7
+                 |
+                 |           method = Exact test
+                 |
+(%o3)            | hypotheses = H0: med = 15 , H1: med &gt; 15
+                 |
+                 |              statistic = 14
+                 |
+                 |     distribution = [signed_rank, 6]
+                 |
+                 |            p_value = 0.28125
+</pre></div>
+
+<p>Contrasta la hipótesis nula <em>H_0: equal(median, 2.5)</em> frente 
+a la alternativa <em>H_1: not equal(median, 2.5)</em>. Este es un test asintótico,
+debido a la presencia de empates.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) y:[1.9,2.3,2.6,1.9,1.6,3.3,4.2,4,2.4,2.9,1.5,3,2.9,4.2,3.1]$
+(%i3) test_signed_rank(y,median=2.5);
+             |                 SIGNED RANK TEST
+             |
+             |                med_estimate = 2.9
+             |
+             |          method = Asymptotic test. Ties
+             |
+(%o3)        |    hypotheses = H0: med = 2.5 , H1: med # 2.5
+             |
+             |                 statistic = 76.5
+             |
+             | distribution = [normal, 60.5, 17.58195097251724]
+             |
+             |           p_value = .3628097734643669
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002ftest_005frank_005fsum"></a><dl>
+<dt><a name="index-test_005frank_005fsum"></a>Función: <strong>test_rank_sum</strong> <em>(<var>x1</var>, <var>x2</var>)</em></dt>
+<dt><a name="index-test_005frank_005fsum-1"></a>Función: <strong>test_rank_sum</strong> <em>(<var>x1</var>, <var>x2</var>, <var>option</var>)</em></dt>
+<dd>
+<p>Este es el test de Wilcoxon-Mann-Whitney para comparar las medianas
+de dos poblaciones continuas. Los dos primeros argumentos <var>x1</var>
+y <var>x2</var> son listas o matrices columna con los datos de dos
+muestras independientes. Realiza la aproximación normal si
+alguna de las muestras tiene tamaño mayor que 10, o si hay
+empates.
+</p>
+
+<p>Opción:
+</p>
+<ul>
+<li> <code>'alternative</code>, valor por defecto <code>'twosided</code>, es la hipótesis alternativa;
+valores válidos son: <code>'twosided</code>, <code>'greater</code> y <code>'less</code>.
+
+</li></ul>
+
+<p>El resultado devuelto por la función  <code>test_rank_sum</code>
+es un objeto <code>inference_result</code> con los siguientes apartados:
+</p>
+<ol>
+<li> <code>'method</code>: procedimiento de inferencia.
+
+</li><li> <code>'hypotheses</code>: hipótesis nula y alternativa a ser contrastada.
+
+</li><li> <code>'statistic</code>: valor del estadístico de contraste utilizado para probar la hipótesis.
+
+</li><li> <code>'distribution</code>: distribución del estadístico de contraste, junto con sus parámetros.
+
+</li><li> <code>'p_value</code>: <em>p</em>-valor del test.
+
+</li></ol>
+
+<p>Ejemplos:
+</p>
+<p>Contrasta si dos poblaciones tiene medianas similares. Al ser los tamaños
+muestrales pequeños, se realiza el test exacto.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x:[12,15,17,38,42,10,23,35,28]$
+(%i3) y:[21,18,25,14,52,65,40,43]$
+(%i4) test_rank_sum(x,y);
+              |                 RANK SUM TEST
+              |
+              |              method = Exact test
+              |
+              | hypotheses = H0: med1 = med2 , H1: med1 # med2
+(%o4)         |
+              |                 statistic = 22
+              |
+              |        distribution = [rank_sum, 9, 8]
+              |
+              |          p_value = .1995886466474702
+</pre></div>
+
+<p>Ahora, con muestras mayores y empates, el procedimiento
+realiza la aproximación normal. La hipótesis
+alternativa es <em>H_1: median1 &lt; median2</em>.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [39,42,35,13,10,23,15,20,17,27]$
+(%i3) y: [20,52,66,19,41,32,44,25,14,39,43,35,19,56,27,15]$
+(%i4) test_rank_sum(x,y,'alternative='less);
+             |                  RANK SUM TEST
+             |
+             |          method = Asymptotic test. Ties
+             |
+             |  hypotheses = H0: med1 = med2 , H1: med1 &lt; med2
+(%o4)        |
+             |                 statistic = 48.5
+             |
+             | distribution = [normal, 79.5, 18.95419580097078]
+             |
+             |           p_value = .05096985666598441
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002ftest_005fnormality"></a><dl>
+<dt><a name="index-test_005fnormality"></a>Función: <strong>test_normality</strong> <em>(<var>x</var>)</em></dt>
+<dd>
+<p>Test de Shapiro-Wilk para el contraste de normalidad. El argumento
+<var>x</var> es una lista de números, con tamaño muestral mayor que 2
+y menor o igual que 5000; bajo cualesquiera otras condiciones, la
+función <code>test_normality</code> emite un mensaje de error.
+</p>
+<p>Referencia:
+</p>
+<p>[1] Algorithm AS R94, Applied Statistics (1995), vol.44, no.4, 547-551
+</p>
+<p>El resultado devuelto por la función <code>test_normality</code> es
+un objeto <code>inference_result</code> con los siguientes apartados:
+</p>
+
+<ol>
+<li> <code>'statistic</code>: valor del estadístico <var>W</var>.
+
+</li><li> <code>'p_value</code>: <em>p</em>-valor bajo la hipótesis de normalidad.
+
+</li></ol>
+
+<p>Ejemplos:
+</p>
+<p>Contrasta la normalidad de una población a partir de una muestra
+de tamaño 9.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x:[12,15,17,38,42,10,23,35,28]$
+(%i3) test_normality(x);
+                       |      SHAPIRO - WILK TEST
+                       |
+(%o3)                  | statistic = .9251055695162436
+                       |
+                       |  p_value = .4361763918860381
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002flinear_005fregression"></a><dl>
+<dt><a name="index-linear_005fregression"></a>Función: <strong>linear_regression</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-linear_005fregression-1"></a>Función: <strong>linear_regression</strong> <em>(<var>x</var> <var>option</var>)</em></dt>
+<dd>
+<p>Regresión lineal múltiple, 
+<em>y_i = b0 + b1*x_1i + b2*x_2i + ... + bk*x_ki + u_i</em>,
+donde <em>u_i</em> son variables aleatorias independientes 
+<em>N(0,sigma)</em>. El argumento <var>x</var> debe ser una matriz 
+con más de una columna. La última columna se considera
+que son las respuestas (<em>y_i</em>).
+</p>
+<p>Opción:
+</p>
+<ul>
+<li> <code>'conflevel</code>, valor por defecto <code>95/100</code>, nivel de
+confianza para los intervalos de confianza; debe ser una expresión 
+que tome un valor en el intervalo (0,1).
+</li></ul>
+
+<p>El resultado devuelto por la función <code>linear_regression</code> es
+un objeto <code>inference_result</code> de Maxima con los siguientes campos:
+</p>
+<ol>
+<li> <code>'b_estimation</code>: estimadores de los coeficientes de regresión.
+
+</li><li> <code>'b_covariances</code>: matriz de covarianzas de los estimadores
+de los coeficientes de regresión.
+
+</li><li> <code>b_conf_int</code>: intervalos de confianza para los coeficientes de regresión.
+
+</li><li> <code>b_statistics</code>: estadísticos para los contrastes
+de los coeficientes.
+
+</li><li> <code>b_p_values</code>: p-valores para los contrastes de los coeficientes.
+
+</li><li> <code>b_distribution</code>: distribución de probabilidad para
+los contrastes de los coeficientes.
+
+</li><li> <code>v_estimation</code>: estimador insesgado de la varianza.
+
+</li><li> <code>v_conf_int</code>: intervalo de confianza de la varianza.
+
+</li><li> <code>v_distribution</code>: distribución de probabilidad para
+el contraste de la varianza.
+
+</li><li> <code>residuals</code>: residuos.
+
+</li><li> <code>adc</code>: coeficiente de determinación ajustado.
+
+</li><li> <code>aic</code>: Criterio de información de Akaike.
+
+</li><li> <code>bic</code>: Criterio de información de Bayes.
+
+</li></ol>
+
+<p>Solamente los apartados 1, 4, 5, 6, 7, 8, 9 y 11, en este orden, 
+se muestran por defecto. El resto permanecen ocultos hasta que
+el usuario haga uso de las funciones <code>items_inference</code>
+y <code>take_inference</code>.
+</p>
+<p>Ejemplo:
+</p>
+<p>Ajustando un modelo lineal a una muestra tridimensional. La 
+última columna se considera que son las respuestas (<em>y_i</em>).
+</p>
+<div class="example">
+<pre class="example">(%i2) load(&quot;stats&quot;)$
+(%i3) X:matrix(
+    [58,111,64],[84,131,78],[78,158,83],
+    [81,147,88],[82,121,89],[102,165,99],
+    [85,174,101],[102,169,102])$
+(%i4) fpprintprec: 4$
+(%i5) res: linear_regression(X);
+             |       LINEAR REGRESSION MODEL         
+             |                                       
+             | b_estimation = [9.054, .5203, .2397]  
+             |                                       
+             | b_statistics = [.6051, 2.246, 1.74]   
+             |                                       
+             | b_p_values = [.5715, .07466, .1423]   
+             |                                       
+(%o5)        |   b_distribution = [student_t, 5]     
+             |                                       
+             |         v_estimation = 35.27          
+             |                                       
+             |     v_conf_int = [13.74, 212.2]       
+             |                                       
+             |      v_distribution = [chi2, 5]       
+             |                                       
+             |             adc = .7922               
+(%i6) items_inference(res);
+(%o6) [b_estimation, b_covariances, b_conf_int, b_statistics, 
+b_p_values, b_distribution, v_estimation, v_conf_int, 
+v_distribution, residuals, adc, aic, bic]
+(%i7) take_inference('b_covariances, res);
+                  [  223.9    - 1.12   - .8532  ]
+                  [                             ]
+(%o7)             [ - 1.12    .05367   - .02305 ]
+                  [                             ]
+                  [ - .8532  - .02305   .01898  ]
+(%i8) take_inference('bic, res);
+(%o8)                          30.98
+(%i9) load(&quot;draw&quot;)$
+(%i10) draw2d(
+    points_joined = true,
+    grid = true,
+    points(take_inference('residuals, res)) )$
+</pre></div>
+</dd></dl>
+
+
+
+
+
+
+<a name="Item_003a-stats_002fnode_002fFunciones-y-variables-para-distribuciones-especiales"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_288.html#Funciones-y-variables-para-distribuciones-especiales" accesskey="n" rel="next">Funciones y variables para distribuciones especiales</a>, Previous: <a href="maxima_286.html#Funciones-y-variables-para-inference_005fresult" accesskey="p" rel="previous">Funciones y variables para inference_result</a>, Subir: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

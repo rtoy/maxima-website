@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for Program Flow (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Functions and Variables for Program Flow</title>
 
-<meta name="description" content="Functions and Variables for Program Flow (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Functions and Variables for Program Flow (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Functions and Variables for Program Flow">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Functions and Variables for Program Flow">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_165.html" rel="up" title="Program Flow">
-<link href="maxima_170.html" rel="next" title="Debugging">
-<link href="maxima_168.html" rel="prev" title="Introduction to Program Flow">
+<link href="maxima_165.html#Program-Flow" rel="up" title="Program Flow">
+<link href="maxima_170.html#Debugging" rel="next" title="Debugging">
+<link href="maxima_168.html#Introduction-to-Program-Flow" rel="previous" title="Introduction to Program Flow">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,15 +73,17 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Functions-and-Variables-for-Program-Flow"></span><div class="header">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Functions-and-Variables-for-Program-Flow"></a>
+<div class="header">
 <p>
-Previous: <a href="maxima_168.html" accesskey="p" rel="prev">Introduction to Program Flow</a>, Up: <a href="maxima_165.html" accesskey="u" rel="up">Program Flow</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_168.html#Introduction-to-Program-Flow" accesskey="p" rel="previous">Introduction to Program Flow</a>, Up: <a href="maxima_165.html#Program-Flow" accesskey="u" rel="up">Program Flow</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Functions-and-Variables-for-Program-Flow-1"></span><h3 class="section">37.4 Functions and Variables for Program Flow</h3>
+<a name="Functions-and-Variables-for-Program-Flow-1"></a>
+<h3 class="section">37.4 Functions and Variables for Program Flow</h3>
 
-<span id="backtrace"></span><span id="Item_003a-Program_002fdeffn_002fbacktrace"></span><dl>
-<dt id="index-backtrace">Function: <strong>backtrace</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>backtrace</tt> () <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>backtrace</tt> (<var>n</var>)</em></dt>
+<a name="backtrace"></a><a name="Item_003a-Program_002fdeffn_002fbacktrace"></a><dl>
+<dt><a name="index-backtrace"></a>Function: <strong>backtrace</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>backtrace</tt> () <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>backtrace</tt> (<var>n</var>)</em></dt>
 <dd>
 <p>Prints the call stack, that is, the list of functions which
 called the currently active function.
@@ -126,21 +138,19 @@ functions, including the currently active function.
 </li></ul>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Debugging">Debugging</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Debugging">Debugging</a>
-</div>
-</p></dd></dl>
-
-<span id="do"></span><span id="while"></span><span id="unless"></span><span id="for"></span><span id="from"></span><span id="thru"></span><span id="step"></span><span id="next"></span><span id="in"></span><span id="Item_003a-Program_002fdeffn_002fdo"></span><dl>
-<dt id="index-do">Special operator: <strong>do</strong></dt>
-<dd><span id="Item_003a-Program_002fdeffn_002fwhile"></span></dd><dt id="index-while">Special operator: <strong>while</strong></dt>
-<dd><span id="Item_003a-Program_002fdeffn_002funless"></span></dd><dt id="index-unless">Special operator: <strong>unless</strong></dt>
-<dd><span id="Item_003a-Program_002fdeffn_002ffor"></span></dd><dt id="index-for">Special operator: <strong>for</strong></dt>
-<dd><span id="Item_003a-Program_002fdeffn_002ffrom"></span></dd><dt id="index-from">Special operator: <strong>from</strong></dt>
-<dd><span id="Item_003a-Program_002fdeffn_002fthru"></span></dd><dt id="index-thru">Special operator: <strong>thru</strong></dt>
-<dd><span id="Item_003a-Program_002fdeffn_002fstep"></span></dd><dt id="index-step">Special operator: <strong>step</strong></dt>
-<dd><span id="Item_003a-Program_002fdeffn_002fnext"></span></dd><dt id="index-next">Special operator: <strong>next</strong></dt>
-<dd><span id="Item_003a-Program_002fdeffn_002fin"></span></dd><dt id="index-in">Special operator: <strong>in</strong></dt>
+<a name="do"></a><a name="while"></a><a name="unless"></a><a name="for"></a><a name="from"></a><a name="thru"></a><a name="step"></a><a name="next"></a><a name="in"></a><a name="Item_003a-Program_002fdeffn_002fdo"></a><dl>
+<dt><a name="index-do"></a>Special operator: <strong>do</strong></dt>
+<dd><a name="Item_003a-Program_002fdeffn_002fwhile"></a></dd><dt><a name="index-while"></a>Special operator: <strong>while</strong></dt>
+<dd><a name="Item_003a-Program_002fdeffn_002funless"></a></dd><dt><a name="index-unless"></a>Special operator: <strong>unless</strong></dt>
+<dd><a name="Item_003a-Program_002fdeffn_002ffor"></a></dd><dt><a name="index-for"></a>Special operator: <strong>for</strong></dt>
+<dd><a name="Item_003a-Program_002fdeffn_002ffrom"></a></dd><dt><a name="index-from"></a>Special operator: <strong>from</strong></dt>
+<dd><a name="Item_003a-Program_002fdeffn_002fthru"></a></dd><dt><a name="index-thru"></a>Special operator: <strong>thru</strong></dt>
+<dd><a name="Item_003a-Program_002fdeffn_002fstep"></a></dd><dt><a name="index-step"></a>Special operator: <strong>step</strong></dt>
+<dd><a name="Item_003a-Program_002fdeffn_002fnext"></a></dd><dt><a name="index-next"></a>Special operator: <strong>next</strong></dt>
+<dd><a name="Item_003a-Program_002fdeffn_002fin"></a></dd><dt><a name="index-in"></a>Special operator: <strong>in</strong></dt>
 <dd>
 <p>The <code>do</code> statement is used for performing iteration. The general
 form of the <code>do</code> statements maxima supports is:
@@ -157,7 +167,7 @@ form of the <code>do</code> statements maxima supports is:
 
 <p>If the loop is expected to generate a list as output the command
 <code><a href="maxima_21.html#makelist">makelist</a></code> may be the appropriate command to use instead,
-See <a href="maxima_22.html">Performance considerations for Lists</a>.
+See <a href="maxima_22.html#Performance-considerations-for-Lists">Performance considerations for Lists</a>.
 </p>
 <p><var>initial_value</var>, <var>increment</var>, <var>limit</var>, and <var>body</var> can be any
 expression. <var>list</var> is a list.  If the increment is 1 then &quot;<code>step 1</code>&quot;
@@ -353,13 +363,11 @@ non-atomic expression, and successive parts are taken.)
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Programming">Programming</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Programming">Programming</a>
-</div>
-</p></dd></dl>
-
-<span id="errcatch"></span><span id="Item_003a-Program_002fdeffn_002ferrcatch"></span><dl>
-<dt id="index-errcatch">Function: <strong>errcatch</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<a name="errcatch"></a><a name="Item_003a-Program_002fdeffn_002ferrcatch"></a><dl>
+<dt><a name="index-errcatch"></a>Function: <strong>errcatch</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
 <dd>
 <p>Evaluates <var>expr_1</var>, &hellip;, <var>expr_n</var> one by one and
 returns <code>[<var>expr_n</var>]</code> (a list) if no error occurs.  If an
@@ -374,14 +382,12 @@ would terminate the <code>batch</code> if the error weren&rsquo;t caught.
 <p>See also <code><a href="#errormsg">errormsg</a></code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Programming">Programming</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Programming">Programming</a>
-</div>
-</p></dd></dl>
-
-<span id="error"></span><span id="Item_003a-Program_002fdeffn_002ferror"></span><dl>
-<dt id="index-error">Function: <strong>error</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
-<dt id="index-error-1">System variable: <strong>error</strong></dt>
+<a name="error"></a><a name="Item_003a-Program_002fdeffn_002ferror"></a><dl>
+<dt><a name="index-error"></a>Function: <strong>error</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dt><a name="index-error-1"></a>System variable: <strong>error</strong></dt>
 <dd>
 <p>Evaluates and prints <var>expr_1</var>, &hellip;, <var>expr_n</var>,
 and then causes an error return to top level Maxima
@@ -396,13 +402,11 @@ and the remaining elements are the values of any non-string arguments.
 This is effectively reprinting the most recent error message.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Programming">Programming</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Programming">Programming</a>
-</div>
-</p></dd></dl>
-
-<span id="warning"></span><span id="Item_003a-Program_002fdeffn_002fwarning"></span><dl>
-<dt id="index-warning">Function: <strong>warning</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<a name="warning"></a><a name="Item_003a-Program_002fdeffn_002fwarning"></a><dl>
+<dt><a name="index-warning"></a>Function: <strong>warning</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
 <dd>
 <p>Evaluates and prints <var>expr_1</var>, &hellip;, <var>expr_n</var>,
 as a warning message that is formatted in a standard way so a maxima front-end
@@ -411,13 +415,11 @@ may be able to recognize the warning and to format it accordingly.
 <p>The function <code>warning</code> always returns false.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Programming">Programming</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Programming">Programming</a>
-</div>
-</p></dd></dl>
-
-<span id="error_005fsize"></span><span id="Item_003a-Program_002fdefvr_002ferror_005fsize"></span><dl>
-<dt id="index-error_005fsize">Option variable: <strong>error_size</strong></dt>
+<a name="error_005fsize"></a><a name="Item_003a-Program_002fdefvr_002ferror_005fsize"></a><dl>
+<dt><a name="index-error_005fsize"></a>Option variable: <strong>error_size</strong></dt>
 <dd><p>Default value: 60
 </p>
 <p><code>error_size</code> modifies error messages according to the size of expressions
@@ -463,15 +465,12 @@ Example expression is --------------
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Debugging">Debugging</a>
+&middot;<a href="maxima_378.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Debugging">Debugging</a>
-
-<a href="maxima_370.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
-</div>
-</p></dd></dl>
-
-<span id="error_005fsyms"></span><span id="Item_003a-Program_002fdefvr_002ferror_005fsyms"></span><dl>
-<dt id="index-error_005fsyms">Option variable: <strong>error_syms</strong></dt>
+<a name="error_005fsyms"></a><a name="Item_003a-Program_002fdefvr_002ferror_005fsyms"></a><dl>
+<dt><a name="index-error_005fsyms"></a>Option variable: <strong>error_syms</strong></dt>
 <dd><p>Default value: <code>[errexp1, errexp2, errexp3]</code>
 </p>
 <p>In error messages, expressions larger than <code><a href="#error_005fsize">error_size</a></code> are replaced by
@@ -486,28 +485,23 @@ symbol equivalent to <code>concat ('errexp, <var>n</var>)</code>.
 <p>See also <code><a href="#error">error</a></code> and <code><a href="#error_005fsize">error_size</a></code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Debugging">Debugging</a>
+&middot;<a href="maxima_378.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Debugging">Debugging</a>
-
-<a href="maxima_370.html#Category_003a-Display-flags-and-variables">Display flags and variables</a>
-</div>
-</p></dd></dl>
-
-<span id="errormsg_005ffn"></span><span id="Item_003a-Program_002fdeffn_002ferrormsg"></span><dl>
-<dt id="index-errormsg">Function: <strong>errormsg</strong> <em>()</em></dt>
+<a name="errormsg_005ffn"></a><a name="Item_003a-Program_002fdeffn_002ferrormsg"></a><dl>
+<dt><a name="index-errormsg"></a>Function: <strong>errormsg</strong> <em>()</em></dt>
 <dd>
 <p>Reprints the most recent error message.
 The variable <code>error</code> holds the message,
 and <code><a href="#errormsg">errormsg</a></code> formats and prints it.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Programming">Programming</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Programming">Programming</a>
-</div>
-</p></dd></dl>
-
-<span id="errormsg"></span><span id="Item_003a-Program_002fdefvr_002ferrormsg"></span><dl>
-<dt id="index-errormsg-1">Option variable: <strong>errormsg</strong></dt>
+<a name="errormsg"></a><a name="Item_003a-Program_002fdefvr_002ferrormsg"></a><dl>
+<dt><a name="index-errormsg-1"></a>Option variable: <strong>errormsg</strong></dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>false</code> the output of error messages is suppressed.
@@ -545,13 +539,11 @@ value of errormsg is false
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Programming">Programming</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Programming">Programming</a>
-</div>
-</p></dd></dl>
-
-<span id="go"></span><span id="Item_003a-Program_002fdeffn_002fgo"></span><dl>
-<dt id="index-go">Function: <strong>go</strong> <em>(<var>tag</var>)</em></dt>
+<a name="go"></a><a name="Item_003a-Program_002fdeffn_002fgo"></a><dl>
+<dt><a name="index-go"></a>Function: <strong>go</strong> <em>(<var>tag</var>)</em></dt>
 <dd>
 <p>is used within a <code><a href="maxima_164.html#block">block</a></code> to transfer control to the statement
 of the block which is tagged with the argument to <code>go</code>.  To tag a
@@ -567,14 +559,12 @@ the <code>block</code>.  For example:
 other than the one containing the <code>go</code>.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Programming">Programming</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Programming">Programming</a>
+&middot;</div></dd></dl>
 
 
-<span id="if"></span><span id="Item_003a-Program_002fdeffn_002fif"></span><dl>
-<dt id="index-if">Special operator: <strong>if</strong></dt>
+<a name="if"></a><a name="Item_003a-Program_002fdeffn_002fif"></a><dl>
+<dt><a name="index-if"></a>Special operator: <strong>if</strong></dt>
 <dd>
 <p>Represents conditional evaluation.  Various forms of <code>if</code> expressions are
 recognized.
@@ -632,16 +622,13 @@ not                  not         logical prefix
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Programming">Programming</a>
-
-<a href="maxima_370.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Programming">Programming</a>
+&middot;<a href="maxima_378.html#Category_003a-Predicate-functions">Predicate functions</a>
+&middot;</div></dd></dl>
 
 
-<span id="map"></span><span id="Item_003a-Program_002fdeffn_002fmap"></span><dl>
-<dt id="index-map">Function: <strong>map</strong> <em>(<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<a name="map"></a><a name="Item_003a-Program_002fdeffn_002fmap"></a><dl>
+<dt><a name="index-map"></a>Function: <strong>map</strong> <em>(<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
 <dd>
 <p>Returns an expression whose leading operator is the same as that of the
 expressions <var>expr_1</var>, &hellip;, <var>expr_n</var> but whose subparts are the
@@ -684,27 +671,24 @@ exhaustion of list storage space in the course of the computation.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Function-application">Function application</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Function-application">Function application</a>
-</div>
-</p></dd></dl>
-
-<span id="mapatom"></span><span id="Item_003a-Program_002fdeffn_002fmapatom"></span><dl>
-<dt id="index-mapatom">Function: <strong>mapatom</strong> <em>(<var>expr</var>)</em></dt>
+<a name="mapatom"></a><a name="Item_003a-Program_002fdeffn_002fmapatom"></a><dl>
+<dt><a name="index-mapatom"></a>Function: <strong>mapatom</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Returns <code>true</code> if and only if <var>expr</var> is treated by the mapping
 routines as an atom.  &quot;Mapatoms&quot; are atoms, numbers
-(including rational numbers), and subscripted variables.
+(including rational numbers), subscripted variables and structure
+references.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Predicate-functions">Predicate functions</a>
+&middot;</div></dd></dl>
 
 
-<span id="maperror"></span><span id="Item_003a-Program_002fdefvr_002fmaperror"></span><dl>
-<dt id="index-maperror">Option variable: <strong>maperror</strong></dt>
+<a name="maperror"></a><a name="Item_003a-Program_002fdefvr_002fmaperror"></a><dl>
+<dt><a name="index-maperror"></a>Option variable: <strong>maperror</strong></dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>maperror</code> is <code>false</code>, causes all of the mapping functions,
@@ -723,13 +707,11 @@ not all the same type of object.
 is displayed in the above two instances.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Function-application">Function application</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Function-application">Function application</a>
-</div>
-</p></dd></dl>
-
-<span id="mapprint"></span><span id="Item_003a-Program_002fdefvr_002fmapprint"></span><dl>
-<dt id="index-mapprint">Option variable: <strong>mapprint</strong></dt>
+<a name="mapprint"></a><a name="Item_003a-Program_002fdefvr_002fmapprint"></a><dl>
+<dt><a name="index-mapprint"></a>Option variable: <strong>mapprint</strong></dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>mapprint</code> is <code>true</code>, various information messages from
@@ -740,14 +722,12 @@ situations.  These include situations where <code>map</code> would use
 <p>If <code><a href="#mapprint">mapprint</a></code> is <code>false</code>, these messages are suppressed.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Function-application">Function application</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Function-application">Function application</a>
+&middot;</div></dd></dl>
 
 
-<span id="maplist"></span><span id="Item_003a-Program_002fdeffn_002fmaplist"></span><dl>
-<dt id="index-maplist">Function: <strong>maplist</strong> <em>(<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<a name="maplist"></a><a name="Item_003a-Program_002fdeffn_002fmaplist"></a><dl>
+<dt><a name="index-maplist"></a>Function: <strong>maplist</strong> <em>(<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
 <dd>
 <p>Returns a list of the applications of <var>f</var> to the parts of the expressions
 <var>expr_1</var>, &hellip;, <var>expr_n</var>.  <var>f</var> is the name of a function, or a
@@ -758,14 +738,12 @@ which returns an expression with the same main operator as <var>expr_i</var> has
 (except for simplifications and the case where <code><a href="#map">map</a></code> does an <code><a href="maxima_164.html#apply">apply</a></code>).
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Function-application">Function application</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Function-application">Function application</a>
+&middot;</div></dd></dl>
 
 
-<span id="prederror"></span><span id="Item_003a-Program_002fdefvr_002fprederror"></span><dl>
-<dt id="index-prederror">Option variable: <strong>prederror</strong></dt>
+<a name="prederror"></a><a name="Item_003a-Program_002fdefvr_002fprederror"></a><dl>
+<dt><a name="index-prederror"></a>Option variable: <strong>prederror</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>prederror</code> is <code>true</code>, an error message is displayed whenever the
@@ -780,16 +758,13 @@ however, <code>maybe</code> is supported in translated code.
 <p>See also <code><a href="maxima_59.html#is">is</a></code> and <code><a href="maxima_59.html#maybe">maybe</a></code>.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Programming">Programming</a>
-
-<a href="maxima_370.html#Category_003a-Predicate-functions">Predicate functions</a>
-</div>
-</p>
+Categories:<a href="maxima_378.html#Category_003a-Programming">Programming</a>
+&middot;<a href="maxima_378.html#Category_003a-Predicate-functions">Predicate functions</a>
+&middot;</div>
 </dd></dl>
 
-<span id="return"></span><span id="Item_003a-Program_002fdeffn_002freturn"></span><dl>
-<dt id="index-return">Function: <strong>return</strong> <em>(<var>value</var>)</em></dt>
+<a name="return"></a><a name="Item_003a-Program_002fdeffn_002freturn"></a><dl>
+<dt><a name="index-return"></a>Function: <strong>return</strong> <em>(<var>value</var>)</em></dt>
 <dd><p>May be used to exit explicitly from the current <code><a href="maxima_164.html#block">block</a></code>, <code><a href="#while">while</a></code>,
 <code><a href="#for">for</a></code> or <code><a href="#do">do</a></code> loop bringing its argument. It therefore can be compared
 with the <code>return</code> statement found in other programming languages but it yields
@@ -827,13 +802,11 @@ statement from C.
 <p>See also <code><a href="#for">for</a></code>, <code><a href="#while">while</a></code>, <code><a href="#do">do</a></code> and <code><a href="maxima_164.html#block">block</a></code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Programming">Programming</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Programming">Programming</a>
-</div>
-</p></dd></dl>
-
-<span id="scanmap"></span><span id="Item_003a-Program_002fdeffn_002fscanmap"></span><dl>
-<dt id="index-scanmap">Function: <strong>scanmap</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>scanmap</tt> (<var>f</var>, <var>expr</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>scanmap</tt> (<var>f</var>, <var>expr</var>, bottomup)</em></dt>
+<a name="scanmap"></a><a name="Item_003a-Program_002fdeffn_002fscanmap"></a><dl>
+<dt><a name="index-scanmap"></a>Function: <strong>scanmap</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>scanmap</tt> (<var>f</var>, <var>expr</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>scanmap</tt> (<var>f</var>, <var>expr</var>, bottomup)</em></dt>
 <dd>
 <p>Recursively applies <var>f</var> to <var>expr</var>, in a top
 down manner.  This is most useful when complete factorization is
@@ -883,26 +856,22 @@ scanmap(f,a*x+b,bottomup) -&gt; f(a)*f(x)+f(b)
 ways.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Function-application">Function application</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Function-application">Function application</a>
-</div>
-</p></dd></dl>
-
-<span id="throw"></span><span id="Item_003a-Program_002fdeffn_002fthrow"></span><dl>
-<dt id="index-throw">Function: <strong>throw</strong> <em>(<var>expr</var>)</em></dt>
+<a name="throw"></a><a name="Item_003a-Program_002fdeffn_002fthrow"></a><dl>
+<dt><a name="index-throw"></a>Function: <strong>throw</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Evaluates <var>expr</var> and throws the value back to the most recent
 <code><a href="maxima_164.html#catch">catch</a></code>.  <code>throw</code> is used with <code>catch</code> as a nonlocal return
 mechanism.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Programming">Programming</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Programming">Programming</a>
-</div>
-</p></dd></dl>
-
-<span id="outermap"></span><span id="Item_003a-Program_002fdeffn_002foutermap"></span><dl>
-<dt id="index-outermap">Function: <strong>outermap</strong> <em>(<var>f</var>, <var>a_1</var>, &hellip;, <var>a_n</var>)</em></dt>
+<a name="outermap"></a><a name="Item_003a-Program_002fdeffn_002foutermap"></a><dl>
+<dt><a name="index-outermap"></a>Function: <strong>outermap</strong> <em>(<var>f</var>, <var>a_1</var>, &hellip;, <var>a_n</var>)</em></dt>
 <dd>
 <p>Applies the function <var>f</var> to each one of the elements of the outer product
 <var>a_1</var> cross <var>a_2</var> &hellip; cross <var>a_n</var>.
@@ -1032,16 +1001,14 @@ while <code>cartesian_product</code> does not.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Function-application">Function application</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Function-application">Function application</a>
+&middot;</div></dd></dl>
 
 
-<span id="Item_003a-include_002dmaxima_002fnode_002fDebugging"></span><hr>
+<hr>
 <div class="header">
 <p>
-Previous: <a href="maxima_168.html" accesskey="p" rel="prev">Introduction to Program Flow</a>, Up: <a href="maxima_165.html" accesskey="u" rel="up">Program Flow</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_168.html#Introduction-to-Program-Flow" accesskey="p" rel="previous">Introduction to Program Flow</a>, Up: <a href="maxima_165.html#Program-Flow" accesskey="u" rel="up">Program Flow</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

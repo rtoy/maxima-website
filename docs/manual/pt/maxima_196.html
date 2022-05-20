@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Definições para simplification</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Definições para simplification">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições para simplification">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_194.html#simplification" rel="up" title="simplification">
+<link href="maxima_197.html#solve_005frec" rel="next" title="solve_rec">
+<link href="maxima_195.html#Introdu_00e7_00e3o-a-simplification" rel="previous" title="Introdução a simplification">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-para-simplification"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_195.html#Introdu_00e7_00e3o-a-simplification" accesskey="p" rel="previous">Introdução a simplification</a>, Acima: <a href="maxima_194.html#simplification" accesskey="u" rel="up">simplification</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-para-simplification"></a>
+<h3 class="section">65.2 Definições para simplification</h3>
+
+
+<a name="Package-absimp"></a>
+<h4 class="subsection">65.2.1 Package absimp</h4>
+
+<p>O pacote <code>absimp</code> contém regras de comparação de sequências decaractere que
+extendem as regras internas de simplificação para as funções <code>abs</code> e
+<code>signum</code>.
+<code>absimp</code> respeita as relações
+estabelecidas com a função interna <code>assume</code> e por meio de declarações tais
+como <code>modedeclare (m, even, n, odd)</code>  para inteiros paes ou ímpares.
+</p>
+<p><code>absimp</code> define as funções <code>unitramp</code> e <code>unitstep</code>
+em termos de <code>abs</code> e <code>signum</code>.
+</p>
+<p><code>load (&quot;absimp&quot;)</code> torna esse pacote disponível para uso.
+<code>demo (absimp)</code> faz uma demonstração desse pacote.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;absimp&quot;)$
+(%i2) (abs (x))^2;
+                                       2
+(%o2)                                 x
+(%i3) diff (abs (x), x);
+                                      x
+(%o3)                               ------
+                                    abs(x)
+(%i4) cosh (abs (x));
+(%o4)                               cosh(x)
+</pre></div>
+
+
+
+<a name="Package-facexp"></a>
+<h4 class="subsection">65.2.2 Package facexp</h4>
+
+<p>O pacote <code>facexp</code> contém muitas funções relacionadas a simplificações que
+fornecem ao utilizador a habilidade de estruturar expressões por meio de expansão
+controlada.   Essa capacidade é especialmente útil quando a expressão
+contém variáveis que possuem significado físico, porque é muitas vezes verdadeiro
+que a forma mais econ&ocirc;mica de uma tal expressão pode ser obtida por meio de
+uma expansão completa da expressão com relação a essas variáveis, e então
+factorizar seus coeficientes.  Apesar de ser verdadeiro que esse procedimento é
+fácil de realizar usando as funções padrão do Maxima, ajustes
+adicionais podem se desejáveis, e esses toques finais podem ser
+mais difíceis de aplicar.
+</p>
+<p>A função <code>facsum</code>  e suas formas relacionadas
+fornecem um meio conveniente de controlar a estrutura de expressões
+por esse caminho.  Outra função, <code>collectterms</code>, pode ser usada para adicionar duas ou
+mais expressões que já tenham sido simplificadas para essa forma, sem
+resimplificar a expressão completa novamente.  Essa função pode ser
+útil quando expressões forem muito grandes.
+</p>
+
+<p><code>load (&quot;facexp&quot;)</code> torna dispon;ivel para uso esse pacote.
+<code>demo (facexp)</code> faz uma demonstração desse pacote.
+</p>
+<a name="Item_003a-simplifications_002fdeffn_002ffacsum"></a><dl>
+<dt><a name="index-facsum"></a>Função: <strong>facsum</strong> <em>(<var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>)</em></dt>
+<dd><p>Retorna uma forma de <var>expr</var>  que depende dos
+argumentos <var>arg_1</var>, ..., <var>arg_n</var>.
+Os argumentos podem ser quaisquer formas adequadas para <code>ratvars</code>, ou eles podem ser
+listas  de tais formas.  Se os argumentos não forem listas, então a forma
+retornada é completamente expandida com relação aos argumentos,  e os
+coeficientes dos argumentos foram factorizados.  Esses coeficientes são
+livres dos argumentos, excepto talvez no sentido não racional.
+</p>
+<p>Se quaisquer dos argumentos forem listas, então todas as tais listas são combinadas
+em uma lista simples,   e em lugar de chamar <code>factor</code>   sobre os
+coeficientes  dos  argumentos,  <code>facsum</code>  chama a si mesma sobre esses
+coeficientes, usando  essa nova lista simples que foi construída como o novo
+argumento listo  para essa chamada recursiva.  Esse processo pode ser repetido para um
+quantidade arbitrária de repetições por através do aninhamento dos elementos desejados nas listas.
+</p>
+<p>É possível que alguém possa querer usar <code>facsum</code> com relação a subexpressões
+mais complicadas,  tal como  <code>log (x + y)</code>.  Tais argumentos são
+também permitidos.   Sem especificação de variável,  por exemplo
+<code>facsum (<var>expr</var>)</code>, o resultado retornado é o mesmo que o que é retornado por meio de
+<code>ratsimp (<var>expr</var>)</code>.
+</p>
+<p>Ocasionalmente o utilizador pode querer obter quaisquer das formas abaixo
+para expressões que são especificadas somente por meio de seus operadores líderes.
+Por exemplo, alguém pode querer usar <code>facsum</code> com relação a todos os <code>log</code>&rsquo;s.  Nessa
+situação, alguém pode incluir no meio dos argumentos ou o código
+dos <code>log</code>&rsquo;s eespecíficos que devem ser tratados po esse caminho ou alternativamente a
+expressão  <code>operator (log)</code> ou a expressão <code>'operator (log)</code>.   Se alguém quiser usar
+<code>facsum</code> na expressão <var>expr</var> com relação aos operadores <var>op_1</var>, ..., <var>op_n</var>,
+pode-se avaliar <code>facsum (<var>expr</var>, operator (<var>op_1</var>, ..., <var>op_n</var>))</code>.
+A forma <code>operator</code> pode também aparecer dentro de uma lista de argumentos.
+</p>
+<p>Adicionalmente,  a escolha de comutadores <code>facsum_combine</code>  e
+<code>nextlayerfactor</code> pode afectar o ressultado de <code>facsum</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdefvr_002fnextlayerfactor"></a><dl>
+<dt><a name="index-nextlayerfactor"></a>Variável global: <strong>nextlayerfactor</strong></dt>
+<dd><p>Valor por omissão: <code>false</code>
+</p>
+<p>Quando <code>nextlayerfactor</code> for <code>true</code>, chamadas recursivas a <code>facsum</code>
+são aplicdas aos factores da forma factorizada dos
+coeficientes dos argumentos.
+</p>
+<p>Quando <code>nextlayerfactor</code> for <code>false</code>, <code>facsum</code> é aplicada a
+cada coeficiente como um todo mesmo se chamadas recursivas a <code>facsum</code> acontecerem.
+</p>
+<p>A inclusão do átomo
+<code>nextlayerfactor</code> na lista argumento de <code>facsum</code>  tem o efieto de
+<code>nextlayerfactor: true</code>, mas para o próximo nível da expressão <i>somente</i>.
+Uma vez que <code>nextlayerfactor</code> é sempre associado ou a <code>true</code> ou a  <code>false</code>, <code>nextlayerfactor</code>
+deve ser apresentada com apóstrofo simples mesmo que <code>nextlayerfactor</code> apareça na lista de argumento de <code>facsum</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdefvr_002ffacsum_005fcombine"></a><dl>
+<dt><a name="index-facsum_005fcombine"></a>Variável global: <strong>facsum_combine</strong></dt>
+<dd><p>Valor por omissão: <code>true</code>
+</p>
+<p><code>facsum_combine</code> controla a forma do resultado final retornada por meio de
+<code>facsum</code>  quando seu argumento é um quociente de polinómios.   Se
+<code>facsum_combine</code> for <code>false</code>  então a forma será retornada como um somatório
+completametne expandido como descrito acima,  mas se <code>true</code>,  então a expressão
+retornada é uma razão de polinómios, com cada polinómio na forma
+descrita acima.
+</p>
+<p>A escolha de <code>true</code> desse comutador é útil quando se
+deseja para <code>facsum</code> ambos o dumerador e o denominador de uma expressão
+racional,  mas não se deseja que o denominador seja multiplicado
+de forma completa pelos termos do numerador.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002ffactorfacsum"></a><dl>
+<dt><a name="index-factorfacsum"></a>Função: <strong>factorfacsum</strong> <em>(<var>expr</var>, <var>arg_1</var>, ... <var>arg_n</var>)</em></dt>
+<dd><p>Retorna uma forma de <var>expr</var>  que é
+obtida por meio de chamada a <code>facsum</code> sobre os factores de <var>expr</var> com <var>arg_1</var>, ... <var>arg_n</var> como
+argumentos.  Se qualqeur dos factores de <var>expr</var> estiver elevado a um expoente, ambos
+o factor e o expoente irão ser processados por esse meio.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fcollectterms"></a><dl>
+<dt><a name="index-collectterms"></a>Função: <strong>collectterms</strong> <em>(<var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>)</em></dt>
+<dd><p>Se muitas expressões tiverem sido
+simplificadas com <code>facsum</code>, <code>factorfacsum</code>,  <code>factenexpand</code>,  <code>facexpten</code> ou
+com <code>factorfacexpten</code>,  e elas estão para serem adicionadas umas às outras, pode ser
+desejável combiná-las usando a função <code>collecterms</code>.
+<code>collecterms</code> pode pegar como argumentos todos os argumentos que podem ser
+fornecidos para essas outras funções associadas com excessão de
+<code>nextlayerfactor</code>, que não tem efeito sobre <code>collectterms</code>.  A vantagem
+de <code>collectterms</code>  está em que <code>collectterms</code> retorna uma forma similar a <code>facsum</code>, mas
+uma vez que <code>collectterms</code> está adicionando forma que já tenham sido processadas por <code>facsum</code>,
+<code>collectterms</code> não precisa repetir aquele esforço.   Essa capacidade é
+especialmente útil quando a expressão a ser somada for muito grande.
+</p></dd></dl>
+
+
+<a name="Pacote-functs"></a>
+<h4 class="subsection">65.2.3 Pacote functs</h4>
+
+<a name="Item_003a-simplifications_002fdeffn_002frempart"></a><dl>
+<dt><a name="index-rempart"></a>Função: <strong>rempart</strong> <em>(<var>expr</var>, <var>n</var>)</em></dt>
+<dd><p>Remove a parte <var>n</var> da expressão <var>expr</var>.
+</p>
+<p>Se <var>n</var> é uma lsita da forma <code>[<var>l</var>, <var>m</var>]</code>
+então as partes de <var>l</var> até <var>m</var> são removidas.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fwronskian"></a><dl>
+<dt><a name="index-wronskian"></a>Função: <strong>wronskian</strong> <em>([<var>f_1</var>, ..., <var>f_n</var>], <var>x</var>)</em></dt>
+<dd><p>Retorna a matriz Wronskiana das funções <var>f_1</var>, ..., <var>f_n</var> na variável <var>x</var>.
+</p>
+<p><var>f_1</var>, ..., <var>f_n</var> pode ser o nome de funções definidas pelo utilizador,
+ou expressões na variável <var>x</var>.
+</p>
+<p>O determinante da matriz Wronskiana é o determinante Wronskiano do conjunto de funções.
+As funções são linearmente independentes entre si se seu determinante for igual a zero.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-simplifications_002fdeffn_002ftracematrix"></a><dl>
+<dt><a name="index-tracematrix"></a>Função: <strong>tracematrix</strong> <em>(<var>M</var>)</em></dt>
+<dd><p>Retorna o traço (somatório dos elementos da diagonal principal) da matriz <var>M</var>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002frational"></a><dl>
+<dt><a name="index-rational"></a>Função: <strong>rational</strong> <em>(<code>z</code>)</em></dt>
+<dd><p>Multiplica o numerador e o denominador de <var>z</var> pelo complexo conjugado do denominador,
+racionando dessa forma o denominador complexo.
+Retorna a forma de expressão racional canónica (CRE) se fornecida uma CRE, caso contrário retorna a forma geral.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-simplifications_002fdeffn_002fnonzeroandfreeof"></a><dl>
+<dt><a name="index-nonzeroandfreeof"></a>Função: <strong>nonzeroandfreeof</strong> <em>(<var>x</var>, <var>expr</var>)</em></dt>
+<dd><p>Retorna <code>true</code> se <var>expr</var> for diferente de zero e <code>freeof (<var>x</var>, <var>expr</var>)</code> retorna <code>true</code>.
+Retorna <code>false</code> de outra forma.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002flinear"></a><dl>
+<dt><a name="index-linear"></a>Função: <strong>linear</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<dd><p>Quando <var>expr</var> for uma expressão linear na variável <var>x</var>,
+<code>linear</code> retorna <code><var>a</var>*<var>x</var> + <var>b</var></code> onde <var>a</var> é diferente de zero,
+e <var>a</var> e <var>b</var> são livres de <var>x</var>.
+De outra forma, <code>linear</code> retorna <var>expr</var>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fgcdivide"></a><dl>
+<dt><a name="index-gcdivide"></a>Função: <strong>gcdivide</strong> <em>(<var>p</var>, <var>q</var>)</em></dt>
+<dd><p>Quando <code>takegcd</code> for <code>true</code>,
+<code>gcdivide</code> divide os polinómios <var>p</var> e <var>q</var> por seu maior divisor comum (MDC)
+e retorna a razão dos resultados.
+</p>
+<p>Quando <code>takegcd</code> for <code>false</code>,
+<code>gcdivide</code> retorna a razão <code><var>p</var>/<var>q</var></code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-simplifications_002fdeffn_002farithmetic"></a><dl>
+<dt><a name="index-arithmetic"></a>Função: <strong>arithmetic</strong> <em>(<var>a</var>, <var>d</var>, <var>n</var>)</em></dt>
+<dd><p>Retorna o <var>n</var>-ésiomo termo da série aritmética
+<code><var>a</var>, <var>a</var> + <var>d</var>, <var>a</var> + 2*<var>d</var>, ..., <var>a</var> + (<var>n</var> - 1)*<var>d</var></code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fgeometric"></a><dl>
+<dt><a name="index-geometric"></a>Função: <strong>geometric</strong> <em>(<var>a</var>, <var>r</var>, <var>n</var>)</em></dt>
+<dd><p>Retorna o <var>n</var>-ésimo termo da série geométrica
+<code><var>a</var>, <var>a</var>*<var>r</var>, <var>a</var>*<var>r</var>^2, ..., <var>a</var>*<var>r</var>^(<var>n</var> - 1)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fharmonic"></a><dl>
+<dt><a name="index-harmonic"></a>Função: <strong>harmonic</strong> <em>(<var>a</var>, <var>b</var>, <var>c</var>, <var>n</var>)</em></dt>
+<dd><p>Retorna o <var>n</var>-ésimo termo da série harm&ocirc;nica
+<code><var>a</var>/<var>b</var>, <var>a</var>/(<var>b</var> + <var>c</var>), <var>a</var>/(<var>b</var> + 2*<var>c</var>), ..., <var>a</var>/(<var>b</var> + (<var>n</var> - 1)*<var>c</var>)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002farithsum"></a><dl>
+<dt><a name="index-arithsum"></a>Função: <strong>arithsum</strong> <em>(<var>a</var>, <var>d</var>, <var>n</var>)</em></dt>
+<dd><p>Retorna a soma dos elementos da série aritmética de 1 a <var>n</var>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fgeosum"></a><dl>
+<dt><a name="index-geosum"></a>Função: <strong>geosum</strong> <em>(<var>a</var>, <var>r</var>, <var>n</var>)</em></dt>
+<dd><p>Retorna a soma dos elementos da série geométrica de 1 a <var>n</var>.  Se <var>n</var> for
+infinito (<code>inf</code>) então a soma será finita se e somente se o valor absoluto
+de <var>r</var> for menor que 1.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fgaussprob"></a><dl>
+<dt><a name="index-gaussprob"></a>Função: <strong>gaussprob</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Retorna a função de probalilidade de Gauss
+<code>%e^(-<var>x</var>^2/2) / sqrt(2*%pi)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fgd"></a><dl>
+<dt><a name="index-gd"></a>Função: <strong>gd</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Retorna a função de Gudermann
+<code>2 * atan(%e^<var>x</var> - %pi/2)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fagd"></a><dl>
+<dt><a name="index-agd"></a>Função: <strong>agd</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Retorna o inverso da função de Gudermann
+<code>log (tan (%pi/4 + x/2)))</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fvers"></a><dl>
+<dt><a name="index-vers"></a>Função: <strong>vers</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Retorna o <i>sinus versus</i> <code>1 - cos (x)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fcovers"></a><dl>
+<dt><a name="index-covers"></a>Função: <strong>covers</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Retorna o <i>sinus versus</i> do complemento <code>1 - sin (<var>x</var>)</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fexsec"></a><dl>
+<dt><a name="index-exsec"></a>Função: <strong>exsec</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Retorna a parte externa da secante <code>sec (<var>x</var>) - 1</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fhav"></a><dl>
+<dt><a name="index-hav"></a>Função: <strong>hav</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Retorna o semi-<i>sinus versus</i> <code>(1 - cos(x))/2</code>.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fcombination"></a><dl>
+<dt><a name="index-combination"></a>Função: <strong>combination</strong> <em>(<var>n</var>, <var>r</var>)</em></dt>
+<dd><p>Retorna o número de combinações de <var>n</var> objectos
+tomados em grupos de <var>r</var> elementos.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fpermutation"></a><dl>
+<dt><a name="index-permutation"></a>Função: <strong>permutation</strong> <em>(<var>n</var>, <var>r</var>)</em></dt>
+<dd><p>Retorna o número de permutações de <var>r</var> objectos
+seleccionados de um conjunto de <var>n</var> objectos.
+</p>
+<p>Para usar essa função escreva primeiramente <code>load(&quot;functs&quot;)</code>.
+</p></dd></dl>
+
+<a name="Package-ineq"></a>
+<h4 class="subsection">65.2.4 Package ineq</h4>
+
+<p>O pacote <code>ineq</code> contém regras de simplificação
+para desigualdades.
+</p>
+<p>Sessão exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;ineq&quot;)$
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+(%i2) a&gt;=4;  /* uma desigualdade exemplo */
+(%o2)                               a &gt;= 4
+(%i3) (b&gt;c)+%; /* adiciona uma segunda e estrita desigualdade */
+(%o3)                            b + a &gt; c + 4
+(%i4) 7*(x&lt;y); /* multiplica por um número positivo */
+(%o4)                              7 x &lt; 7 y
+(%i5) -2*(x&gt;=3*z); /* multiplica por um número negativo */
+(%o5)                           - 2 x &lt;= - 6 z
+(%i6) (1+a^2)*(1/(1+a^2)&lt;=1); /* Maxima sabe que 1+a^2 &gt; 0 */
+                                        2
+(%o6)                             1 &lt;= a  + 1
+(%i7) assume(x&gt;0)$ x*(2&lt;3); /* assumindo x&gt;0 */
+(%o7)                              2 x &lt; 3 x
+(%i8) a&gt;=b; /* outa desigualdade */
+(%o8)                               a &gt;= b
+(%i9) 3+%; /* adiciona alguma coisa à desigualdade imediatamente acima */
+(%o9)                           a + 3 &gt;= b + 3
+(%i10) %-3; /* retirando essa alguma coisa */
+(%o10)                              a &gt;= b
+(%i11) a&gt;=c-b; /* ainda outra desigualdade */
+(%o11)                            a &gt;= c - b
+(%i12) b+%; /* adiciona b a ambos os lados da desigualdade */
+(%o12)                            b + a &gt;= c
+(%i13) %-c; /* subtrai c de ambos os lados */
+(%o13)                         - c + b + a &gt;= 0
+(%i14) -%;  /* multiplica por -1 */
+(%o14)                          c - b - a &lt;= 0
+(%i15) (z-1)^2&gt;-2*z; /* determinando a verdade de uma assertiva */
+                                      2
+(%o15)                         (z - 1)  &gt; - 2 z
+(%i16) expand(%)+2*z; /* expandindo essa assertiva e adicionado 2*z a ambos os lados */
+                                   2
+(%o16)                            z  + 1 &gt; 0
+(%i17) %,pred;
+(%o17)                               true
+</pre></div>
+
+<p>Seja cuidadoso com o uso dos parêntesis
+em torno de desigualdades: quando o utilizador digita <code>(A &gt; B) + (C = 5)</code> o
+resltado é <code>A + C &gt; B + 5</code>, mas <code>A &gt; B + C = 5</code> é um erro de sintaxe,
+e <code>(A &gt; B + C) = 5</code> é alguma coisa completametne diferente.
+</p>
+<p>Faça <code>disprule (all)</code> para ver uma lista completa
+das definições de regras.
+</p>
+<p>O utilizador será questionado se o Maxima for
+incapaz de decidir o sinal de uma quantidade multiplicando uma desigualdade.
+</p>
+<p>O mais comum recurso estranho é ilustrado por:
+</p>
+<div class="example">
+<pre class="example">(%i1) eq: a &gt; b;
+(%o1)                                a &gt; b
+(%i2) 2*eq;
+(%o2)                              2 (a &gt; b)
+(%i3) % - eq;
+(%o3)                                a &gt; b
+</pre></div>
+
+<p>Outro problema é 0 vezes uma desigualdade; o padrão para isso
+acontecer é 0 ter sido colocado à esquerda sozinho. Contudo, se
+digitar <code>X*<var>some_inequality</var></code> e Maxima perguntar sobre o sinal
+de <code>X</code> e responder <code>zero</code> (ou <code>z</code>), o programa retorna
+<code>X*<var>some_inequality</var></code> e não utiliza a
+informação que <code>X</code> é 0. Pode usar <code>ev (%, x:
+0)</code> em casos semelhantes a esse; a base de dados irá somente ser usada
+para propósitos de comparação em decisões, e não
+para o propósito de avaliação de <code>X</code>.
+</p>
+<p>O utilizador pode notar uma resposta lenta quando esse pacote é
+disponibilizado para uso, como o simplificador é forçado
+a examinar mais regras do precisaria sem esse pacote, então pode
+desejar remover essas regras após fazer uso delas. Faça
+<code>kill (rules)</code> para eliminar todas as regras (incluindo qualquer
+regra que possa ter definido); ou pode ser mais selectivo
+eliminando somente algumas delas; ou use <code>remrule</code> sobre uma regra
+específica.
+</p>
+<p>Note que se disponibilizar esse pacote para ser usado, após definir
+suas próprias regras, irá sobrescrever as suas regras que possuirem
+nomes identicos a nomes contidos nas regras do pacote. As regras no
+pacote são: <code>*rule1</code>, ..., <code>*rule8</code>, <code>+rule1</code>, ...,
+<code>+rule18</code>, e deve colocar o nome de regra entre aspas duplas
+ao referir-se a eles, como em <code>remrule (&quot;+&quot;, &quot;+rule1&quot;)</code> para
+especificamente remover a primeira regra sobre <code>&quot;+&quot;</code> ou
+<code>disprule (&quot;*rule2&quot;)</code> para mostrar a definição da
+segunda regra multiplicativa.
+</p>
+
+<a name="Package-rducon"></a>
+<h4 class="subsection">65.2.5 Package rducon</h4>
+
+<a name="Item_003a-simplifications_002fdeffn_002freduce_005fconsts"></a><dl>
+<dt><a name="index-reduce_005fconsts"></a>Função: <strong>reduce_consts</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Substitui subexpressões constantes de <var>expr</var> com
+construída com átomos constantes, gravando a definição de todas essas
+constantes construídas na lista de equações <code>const_eqns</code>, e
+retornando a expressão modificada <var>expr</var>.  Essas partes de <var>expr</var> são constantes que
+retornam <code>true</code> quando operadas por meio da função <code>constantp</code>.  Consequêntemente,
+antes de usar <code>reduce_consts</code>, se pode fazer
+</p>
+<div class="example">
+<pre class="example">declare ([<var>objecto que vai receber a propriedade constante</var>], constant)$
+</pre></div>
+
+<p>para escolher a base de dados das quantidades constantes ocorrendo em suas
+expressões.
+</p>
+<p>Se está a planear gerar saídas em Fortran após esses
+cálculos simbólicos, uma das primeiras secções de
+código pode ser o cálculo de todas as constantes.  Para gerar esse
+segmento de código, faça
+</p>
+<div class="example">
+<pre class="example">map ('fortran, const_eqns)$
+</pre></div>
+
+<p>Variables como <code>const_eqns</code> que afectam <code>reduce_consts</code> são:
+</p>
+<p><code>const_prefix</code> (valor padrão: <code>xx</code>) é a sequência de caracteres usada para prefixar todos
+os símbolos gerados por <code>reduce_consts</code> para representar subexpressões constantes.
+</p>
+<p><code>const_counter</code> (valor padrão: 1) é o índice inteiro usado para gerar símbolos
+únicos para representar cada subexpressão constante emcontrada por <code>reduce_consts</code>.
+</p>
+<p><code>load (&quot;rducon&quot;)</code> torna essa função disponível para uso.
+<code>demo (rducon)</code> faz uma demonstração dessa função.
+</p></dd></dl>
+
+
+<a name="Pacote-scifac"></a>
+<h4 class="subsection">65.2.6 Pacote scifac</h4>
+
+<a name="Item_003a-simplifications_002fdeffn_002fgcfac"></a><dl>
+<dt><a name="index-gcfac"></a>Função: <strong>gcfac</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p><code>gcfac</code> função de factorização que tenta aplicar a mesma heurística que
+cientístas aplicam em tentativas de fazer expressões extremamente simples.  <code>gcfac</code> está limitada
+a factorizações monomiais.  Para um somatório, <code>gcfac</code> faz o seguinte:
+</p>
+<ol>
+<li> Factores sobre os inteiros.
+</li><li> Coloca em evidência o maior expoente de termos ocorrendo como
+coeficientes, independentemente da complexidade dos termos.
+</li><li> Usa (1) e (2) em factorizações de pares de termos adjascentes.
+</li><li> Repetidamente e recursivamente aplica essas técnicas até que
+a expressão não mais mude.
+</li></ol>
+
+<p>O item (3) não necessáriamente faz uma tarefa óptima factorização
+par a par devido à dificuldade combinatória natural de encontrar
+qual de todas dos possíveis rearranjos de pares retorna o mais
+compacto resultado de factorização de um par.
+</p>
+<p><code>load (&quot;scifac&quot;)</code> torna essa função disponível para uso.
+<code>demo (scifac)</code> faz uma demonstração dessa função.
+</p></dd></dl>
+
+<a name="Pacote-sqdnst"></a>
+<h4 class="subsection">65.2.7 Pacote sqdnst</h4>
+
+<a name="Item_003a-simplifications_002fdeffn_002fsqrtdenest"></a><dl>
+<dt><a name="index-sqrtdenest"></a>Função: <strong>sqrtdenest</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Desaninha <code>sqrt</code> de simples, numérico, bin&ocirc;mios de raízes irracionais de números racionais , onde for possível.  E.g.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;sqdnst&quot;)$
+(%i2) sqrt(sqrt(3)/2+1)/sqrt(11*sqrt(2)-12);
+                                    sqrt(3)
+                               sqrt(------- + 1)
+                                       2
+(%o2)                        ---------------------
+                             sqrt(11 sqrt(2) - 12)
+(%i3) sqrtdenest(%);
+                                  sqrt(3)   1
+                                  ------- + -
+                                     2      2
+(%o3)                            -------------
+                                    1/4    3/4
+                                 3 2    - 2
+</pre></div>
+
+<p>Algumas vezes isso ajuda na hora de aplicar <code>sqrtdenest</code> mais que uma vez, sobre coisas como
+<code>(19601-13860 sqrt(2))^(7/4)</code>.
+</p>
+<p><code>load (&quot;sqdnst&quot;)</code> Torna essa função disponível para uso.
+</p></dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_195.html#Introdu_00e7_00e3o-a-simplification" accesskey="p" rel="previous">Introdução a simplification</a>, Acima: <a href="maxima_194.html#simplification" accesskey="u" rel="up">simplification</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

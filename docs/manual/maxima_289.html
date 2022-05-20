@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Introduction to ODEPACK (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: numericalio-pkg</title>
 
-<meta name="description" content="Introduction to ODEPACK (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Introduction to ODEPACK (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: numericalio-pkg">
+<meta name="keywords" content="Maxima 5.46.0 Manual: numericalio-pkg">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_288.html" rel="up" title="odepack-pkg">
-<link href="maxima_290.html" rel="next" title="Getting Started with ODEPACK">
-<link href="maxima_288.html" rel="prev" title="odepack-pkg">
+<link href="maxima_toc.html#Top" rel="up" title="Top">
+<link href="maxima_290.html#Introduction-to-numericalio" rel="next" title="Introduction to numericalio">
+<link href="maxima_288.html#Functions-and-Variables-for-mnewton" rel="previous" title="Functions and Variables for mnewton">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,57 +73,27 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Introduction-to-ODEPACK"></span><div class="header">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="numericalio_002dpkg"></a>
+<div class="header">
 <p>
-Next: <a href="maxima_290.html" accesskey="n" rel="next">Getting Started with ODEPACK</a>, Previous: <a href="maxima_284.html" accesskey="p" rel="prev">numericalio-pkg</a>, Up: <a href="maxima_288.html" accesskey="u" rel="up">odepack-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_293.html#odepack_002dpkg" accesskey="n" rel="next">odepack-pkg</a>, Previous: <a href="maxima_286.html#mnewton_002dpkg" accesskey="p" rel="previous">mnewton-pkg</a>, Up: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Introduction-to-ODEPACK-1"></span><h3 class="section">76.1 Introduction to ODEPACK</h3>
-
-<blockquote>
-<p>ODEPACK is a collection of Fortran solvers for the initial value
-problem for ordinary differential equation systems.  It consists of nine
-solvers, namely a basic solver called LSODE and eight variants of it &ndash;
-LSODES, LSODA, LSODAR, LSODPK, LSODKR, LSODI, LSOIBT, and LSODIS.
-The collection is suitable for both stiff and nonstiff systems.  It
-includes solvers for systems given in explicit form, dy/dt = f(t,y),
-and also solvers for systems given in linearly implicit form, 
-A(t,y) dy/dt = g(t,y).  Two of the solvers use general sparse matrix
-solvers for the linear systems that arise.  Two others use iterative
-(preconditioned Krylov) methods instead of direct methods for these
-linear systems.  The most recent addition is LSODIS, which solves
-implicit problems with general sparse treatment of all matrices involved.
-</p></blockquote>
-<p><a id="DOCF9" href="#FOOT9"><sup>9</sup></a>
-</p>
-<p>References:
-[1] Fortran Code is from <a href="https://www.netlib.org/odepack/">https://www.netlib.org/odepack/</a>
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_370.html#Category_003a-Share-packages">Share packages</a>
-
-<a href="maxima_370.html#Category_003a-Package-odepack">Package odepack</a>
-</div>
-</p>
-<span id="Item_003a-odepack_002fnode_002fGetting-Started-with-ODEPACK"></span><table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="maxima_290.html" accesskey="1">Getting Started with ODEPACK</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<a name="numericalio-1"></a>
+<h2 class="chapter">76 numericalio</h2>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="maxima_290.html#Introduction-to-numericalio" accesskey="1">Introduction to numericalio</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="maxima_291.html#Functions-and-Variables-for-plain_002dtext-input-and-output" accesskey="2">Functions and Variables for plain-text input and output</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="maxima_292.html#Functions-and-Variables-for-binary-input-and-output" accesskey="3">Functions and Variables for binary input and output</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<div class="footnote">
-<hr>
-<h4 class="footnotes-heading">Footnotes</h4>
-
-<h5><a id="FOOT9" href="#DOCF9">(9)</a></h3>
-<p>From <a href="https://www.netlib.org/odepack/opkd-sum">https://www.netlib.org/odepack/opkd-sum</a></p>
-</div>
-<hr>
+<a name="numericalio"></a><a name="Item_003a-numericalio_002fnode_002fIntroduction-to-numericalio"></a><hr>
 <div class="header">
 <p>
-Next: <a href="maxima_290.html" accesskey="n" rel="next">Getting Started with ODEPACK</a>, Previous: <a href="maxima_284.html" accesskey="p" rel="prev">numericalio-pkg</a>, Up: <a href="maxima_288.html" accesskey="u" rel="up">odepack-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_293.html#odepack_002dpkg" accesskey="n" rel="next">odepack-pkg</a>, Previous: <a href="maxima_286.html#mnewton_002dpkg" accesskey="p" rel="previous">mnewton-pkg</a>, Up: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

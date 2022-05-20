@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Schriftzeichen</title>
+
+<meta name="description" content="Maxima Manual: Schriftzeichen">
+<meta name="keywords" content="Maxima Manual: Schriftzeichen">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_316.html#stringproc" rel="up" title="stringproc">
+<link href="maxima_320.html#Verarbeitung-von-Zeichenketten" rel="next" title="Verarbeitung von Zeichenketten">
+<link href="maxima_318.html#Ein_002d-und-Ausgabe" rel="previous" title="Ein- und Ausgabe">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Schriftzeichen"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_320.html#Verarbeitung-von-Zeichenketten" accesskey="n" rel="next">Verarbeitung von Zeichenketten</a>, Previous: <a href="maxima_318.html#Ein_002d-und-Ausgabe" accesskey="p" rel="previous">Ein- und Ausgabe</a>, Nach oben: <a href="maxima_316.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Schriftzeichen-1"></a>
+<h3 class="section">73.3 Schriftzeichen</h3>
+
+<p>In Maxima sind Schriftzeichen Zeichenketten der L&auml;nge 1.
+</p>
+<a name="adjust_005fexternal_005fformat"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fadjust_005fexternal_005fformat"></a><dl>
+<dt><a name="index-adjust_005fexternal_005fformat"></a>Function: <strong>adjust_external_format</strong> <em>() </em></dt>
+<dd>
+<p>Gibt Informationen zum aktuellen externen Format des Lisp Lesers aus 
+und in dem Fall, dass die Kodierung des externen Formats nicht mit der 
+Kodierung der Anwendung, in der Maxima l&auml;uft, &uuml;bereinstimmt, 
+versucht <code>adjust_external_format</code>, die Kodierung anzupassen 
+oder gibt entsprechende Hilfen oder Anleitungen aus. 
+<code>adjust_external_format</code> gibt <code>true</code> zur&uuml;ck, wenn das externe 
+Format ge&auml;ndert wurde und <code>false</code>, wenn nicht.
+</p>
+<p>Funktionen wie <a href="#cint">cint</a>, <a href="#unicode">unicode</a>, <a href="maxima_321.html#octets_005fto_005fstring">octets_to_string</a> 
+und <a href="maxima_321.html#string_005fto_005foctets">string_to_octets</a> ben&ouml;tigen UTF-8 als das externe Format 
+des Lisp Lesers, um &uuml;ber dem vollst&auml;ndigen Bereich der Unicode-Zeichen 
+korrekt arbeiten zu k&ouml;nnen.
+</p>
+<p>Beispiele (Maxima in Windows, M&auml;rz 2016): 
+Die Verwendung von <code>adjust_external_format</code> in dem Fall, dass das 
+externe Format nicht mit der Kodierung der Anwendung, in der Maxima l&auml;uft, 
+&uuml;bereinstimmt.
+</p>
+<p>1. Maxima in der Kommandozeile
+</p>
+<p>F&uuml;r die Sitzung in einem Terminal wird empfohlen, ein mit SBCL kompiliertes 
+Maxima zu verwenden. Unicode wird hier standardm&auml;&szlig;ig unterst&uuml;tzt 
+und ein Aufruf von <code>adjust_external_format</code> ist nicht notwendig. 
+</p>
+<p>Falls Maxima mit CLISP oder GCL kompiliert wurde, wird empfohlen, 
+die Kodierung des Terminals von CP850 in CP1252 abzu&auml;ndern. 
+<code>adjust_external_format</code> gibt eine entsprechende Hilfe aus.
+</p>
+<p>CCL liest UTF-8, obwohl der Input vom Terminal standardm&auml;&szlig;ig in CP850 
+kodiert ist. CP1252 wird jedoch von CCL nicht unterst&uuml;tzt. 
+<code>adjust_external_format</code> gibt deshalb eine Anleitung aus, 
+wie die Kodierung des Terminals und die des externen Formats beide 
+auf ISO-8859-1 abge&auml;ndert werden k&ouml;nnen.
+</p>
+<p>2. wxMaxima
+</p>
+<p>In wxMaxima liest SBCL standardm&auml;&szlig;ig CP1252.
+Der Input von der Anwendung (wxMaxima) ist jedoch UTF-8-kodiert. 
+Hier ist eine Anpassung erforderlich. 
+</p>
+<p>Ein Aufruf von <code>adjust_external_format</code> und ein Neustart von Maxima 
+&auml;ndern das standardm&auml;&szlig;ige externe Format auf UTF-8.
+</p>
+<div class="example">
+<pre class="example">(%i1)adjust_external_format();
+The line
+(setf sb-impl::*default-external-format* :utf-8)
+has been appended to the init file
+C:/Users/Username/.sbclrc
+Please restart Maxima to set the external format to UTF-8.
+(%i1) false
+</pre></div>
+
+<p>Maxima wird neu gestartet.
+</p>
+<div class="example">
+<pre class="example">(%i1) adjust_external_format();
+The external format is currently UTF-8
+and has not been changed.
+(%i1) false
+</pre></div>
+
+</dd></dl>
+
+<a name="alphacharp"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002falphacharp"></a><dl>
+<dt><a name="index-alphacharp"></a>Function: <strong>alphacharp</strong> <em>(<var>char</var>)</em></dt>
+<dd>
+<p>Gibt <code>true</code> zur&uuml;ck, falls <var>char</var> ein Buchstabe eines Alphabets ist. 
+</p>
+<p>Um ein Nicht-US-ASCII-Zeichen als Buchstaben eines Alphabets erkennen zu k&ouml;nnen, 
+muss das unter Maxima liegende Lisp Unicode voll unterst&uuml;tzen. 
+So wird z.B. ein Umlaut mit SBCL in GNU/Linux als Buchstabe erkannt, 
+mit GCL jedoch nicht. 
+(In Windows muss ein mit SBCL kompiliertes Maxima auf UTF-8 umgestellt worden sein. 
+Siehe hierzu <a href="#adjust_005fexternal_005fformat">adjust_external_format</a>.)
+</p>
+<p>Beispiele:
+</p>
+<p>Das unter Maxima liegende Lisp (SBCL, GNU/Linux) kann das eingegebene Zeichen 
+in ein Lisp-Schriftzeichen umwandeln und untersuchen.
+</p>
+<div class="example">
+<pre class="example">(%i1) alphacharp(&quot;&uuml;&quot;);
+(%o1)                          true
+</pre></div>
+
+<p>Mit GCL ist dies nicht m&ouml;glich. Es kommt zu einem Fehlerabbruch.
+</p>
+<div class="example">
+<pre class="example">(%i1) alphacharp(&quot;u&quot;);
+(%o1)                          true
+(%i2) alphacharp(&quot;&uuml;&quot;);
+
+package stringproc: &uuml; cannot be converted into a Lisp character.
+ -- an error.
+</pre></div>
+
+</dd></dl>
+
+<a name="alphanumericp"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002falphanumericp"></a><dl>
+<dt><a name="index-alphanumericp"></a>Function: <strong>alphanumericp</strong> <em>(<var>char</var>)</em></dt>
+<dd>
+<p>Gibt <code>true</code> zur&uuml;ck, falls <var>char</var> ein Buchstabe eines Alphabets 
+oder ein Zahlzeichen ist 
+(als Zahlzeichen werden hier nur entprechende US-ASCII-Zeichen betrachtet).
+</p>
+<p>Hinweis: Siehe Bemerkungen zu <a href="#alphacharp">alphacharp</a>. 
+</p>
+</dd></dl>
+
+<a name="ascii"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fascii"></a><dl>
+<dt><a name="index-ascii"></a>Funktion: <strong>ascii</strong> <em>(<var>int</var>)</em></dt>
+<dd>
+<p>Gibt das US-ASCII-Zeichen zur&uuml;ck, das der Ganzzahl <var>int</var> entspricht. 
+<var>int</var> muss dabei kleiner als <code>128</code> sein.
+</p>
+<p>Siehe <a href="#unicode">unicode</a> f&uuml;r die Umwandlung von Codepunkten gr&ouml;&szlig;er <code>127</code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) for n from 0 thru 127 do ( 
+        ch: ascii(n), 
+        if alphacharp(ch) then sprint(ch),
+        if n = 96 then newline() )$
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+a b c d e f g h i j k l m n o p q r s t u v w x y z
+</pre></div>
+
+</dd></dl>
+
+<a name="cequal"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fcequal"></a><dl>
+<dt><a name="index-cequal"></a>Function: <strong>cequal</strong> <em>(<var>char_1</var>, <var>char_2</var>)</em></dt>
+<dd>
+<p>Gibt <code>true</code> zur&uuml;ck, falls <var>char_1</var> und <var>char_2</var> ein 
+und das selbe Schriftzeichen sind.
+</p>
+</dd></dl>
+
+<a name="cequalignore"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fcequalignore"></a><dl>
+<dt><a name="index-cequalignore"></a>Function: <strong>cequalignore</strong> <em>(<var>char_1</var>, <var>char_2</var>)</em></dt>
+<dd>
+<p>Arbeitet wie <a href="#cequal">cequal</a>, ignoriert jedoch die Gro&szlig;- und Kleinschreibung,  
+was f&uuml;r Nicht-US-ASCII-Zeichen nur m&ouml;glich ist, wenn das unter Maxima liegende 
+Lisp einen Buchstaben auch als Buchstaben eines Alphabets erkennen kann.
+Siehe hierzu die Bemerkungen zu <a href="#alphacharp">alphacharp</a>. 
+</p>
+</dd></dl>
+
+<a name="cgreaterp"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fcgreaterp"></a><dl>
+<dt><a name="index-cgreaterp"></a>Function: <strong>cgreaterp</strong> <em>(<var>char_1</var>, <var>char_2</var>)</em></dt>
+<dd>
+<p>Gibt <code>true</code> zur&uuml;ck, wenn der Codepunkt des Zeichens <var>char_1</var> 
+gr&ouml;&szlig;er ist als der des Zeichens <var>char_2</var>.
+</p>
+</dd></dl>
+
+<a name="cgreaterpignore"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fcgreaterpignore"></a><dl>
+<dt><a name="index-cgreaterpignore"></a>Funktion: <strong>cgreaterpignore</strong> <em>(<var>char_1</var>, <var>char_2</var>)</em></dt>
+<dd>
+<p>Arbeitet wie <a href="#cgreaterp">cgreaterp</a>, ignoriert jedoch die Gro&szlig;- und Kleinschreibung,  
+was f&uuml;r Nicht-US-ASCII-Zeichen nur m&ouml;glich ist, wenn das unter Maxima liegende 
+Lisp einen Buchstaben auch als Buchstaben eines Alphabets erkennen kann.
+Siehe hierzu die Bemerkungen zu <a href="#alphacharp">alphacharp</a>. 
+</p>
+</dd></dl>
+
+<a name="charp"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fcharp"></a><dl>
+<dt><a name="index-charp"></a>Funktion: <strong>charp</strong> <em>(<var>obj</var>)</em></dt>
+<dd>
+<p>Gibt <code>true</code> zur&uuml;ck, wenn <var>obj</var> ein Schriftzeichen ist.
+</p>
+<p>Beispiel: Siehe Einf&uuml;hrung.
+</p>
+</dd></dl>
+
+<a name="cint"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fcint"></a><dl>
+<dt><a name="index-cint"></a>Funktion: <strong>cint</strong> <em>(<var>char</var>)</em></dt>
+<dd>
+<p>Gibt den Unicode Codepunkt des Arguments <var>char</var> zur&uuml;ck, das ein 
+Schriftzeichen sein muss, d.h. eine Zeichenkette der L&auml;nge <code>1</code>.
+</p>
+<p>Beispiele: Der hexadedimale Codepunkt von Schriftzeichen 
+(Maxima kompiliert mit SBCL in GNU/Linux). 
+</p>
+<div class="example">
+<pre class="example">(%i1) obase: 16.$
+(%i2) map(cint, [&quot;$&quot;,&quot;&pound;&quot;,&quot;&euro;&quot;]);
+(%o2)                           [24, 0A3, 20AC]
+</pre></div>
+
+<p>Warnung: In Windows ist es nicht m&ouml;glich, Schriftzeichen, 
+die Codepunkten gr&ouml;&szlig;er 16 Bit entsprechen, in wxMaxima einzugeben, 
+wenn Maxima mit SBCL kompiliert wurde und das aktuelle externe Format nicht UTF-8 ist. 
+Siehe <a href="#adjust_005fexternal_005fformat">adjust_external_format</a> f&uuml;r weitere Informationen.
+</p>
+
+<p>CMUCL verarbeitet solche Zeichen nicht als ein einziges Zeichen und <code>cint</code> 
+gibt dann <code>false</code> zur&uuml;ck. 
+Als Ausweg kann hier die Umwandlung von Schriftzeichen in Codepunkte &uuml;ber 
+UTF-8-Oktette dienen: <br>
+<code>utf8_to_unicode(string_to_octets(character));</code>
+</p>
+
+<p>Siehe <a href="#utf8_005fto_005funicode">utf8_to_unicode</a>, <a href="maxima_321.html#string_005fto_005foctets">string_to_octets</a>.
+</p>
+</dd></dl>
+
+<a name="clessp"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fclessp"></a><dl>
+<dt><a name="index-clessp"></a>Function: <strong>clessp</strong> <em>(<var>char_1</var>, <var>char_2</var>)</em></dt>
+<dd>
+<p>Gibt <code>true</code> zur&uuml;ck, wenn der Codepunkt des Zeichens <var>char_1</var> 
+kleiner ist als der des Zeichens <var>char_2</var>.
+</p>
+</dd></dl>
+
+<a name="clesspignore"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fclesspignore"></a><dl>
+<dt><a name="index-clesspignore"></a>Funktion: <strong>clesspignore</strong> <em>(<var>char_1</var>, <var>char_2</var>)</em></dt>
+<dd>
+<p>Arbeitet wie <a href="#clessp">clessp</a>, ignoriert jedoch die Gro&szlig;- und Kleinschreibung,  
+was f&uuml;r Nicht-US-ASCII-Zeichen nur m&ouml;glich ist, wenn das unter Maxima liegende 
+Lisp einen Buchstaben auch als Buchstaben eines Alphabets erkennen kann.
+Siehe hierzu die Bemerkungen zu <a href="#alphacharp">alphacharp</a>. 
+</p>
+</dd></dl>
+
+<a name="constituent"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fconstituent"></a><dl>
+<dt><a name="index-constituent"></a>Funktion: <strong>constituent</strong> <em>(<var>char</var>)</em></dt>
+<dd>
+<p>Gibt <code>true</code> zur&uuml;ck, wenn <var>char</var> ein graphisches Schriftzeichen, 
+aber kein Leerzeichen ist. 
+Ein graphisches Schriftzeichen ist ein Leerzeichen oder ein Zeichen, das man sehen kann. 
+(<code>constituent</code> wurde definiert von Paul Graham.
+Siehe Paul Graham, ANSI Common Lisp, 1996, Seite 67.)
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) for n from 0 thru 255 do ( 
+tmp: ascii(n), if constituent(tmp) then sprint(tmp) )$
+! &quot; #  %  ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ? @ A B
+C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c
+d e f g h i j k l m n o p q r s t u v w x y z { | } ~
+</pre></div>
+
+<p>Hinweis: Siehe Bemerkungen zu <a href="#alphacharp">alphacharp</a>. 
+</p>
+</dd></dl>
+
+
+<a name="digitcharp"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fdigitcharp"></a><dl>
+<dt><a name="index-digitcharp"></a>Funktion: <strong>digitcharp</strong> <em>(<var>char</var>)</em></dt>
+<dd>
+<p>Gibt <code>true</code> zur&uuml;ck, wenn <var>char</var> ein Zahlzeichen ist, 
+wobei als Zahlzeichen hier nur entsprechende US-ASCII-Zeichen betrachtet werden.
+</p>
+</dd></dl>
+
+
+<a name="lowercasep"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002flowercasep"></a><dl>
+<dt><a name="index-lowercasep"></a>Funktion: <strong>lowercasep</strong> <em>(<var>char</var>)</em></dt>
+<dd>
+<p>Gibt <code>true</code> zur&uuml;ck, wenn <var>char</var> ein Kleinbuchstabe ist.
+</p>
+<p>Hinweis: Siehe Bemerkungen zu <a href="#alphacharp">alphacharp</a>. 
+</p>
+</dd></dl>
+
+<a name="newline_005fvariable"></a><a name="Item_003a-stringproc_002ede_002fdefvr_002fnewline"></a><dl>
+<dt><a name="index-newline-2"></a>Variable: <strong>newline</strong></dt>
+<dd>
+<p>Das Steuerzeichen f&uuml;r den Zeilenvorschub (ASCII-Zeichen 10).
+</p>
+</dd></dl>
+
+<a name="space"></a><a name="Item_003a-stringproc_002ede_002fdefvr_002fspace"></a><dl>
+<dt><a name="index-space"></a>Variable: <strong>space</strong></dt>
+<dd>
+<p>Das Leerzeichen.
+</p>
+</dd></dl>
+
+<a name="tab"></a><a name="Item_003a-stringproc_002ede_002fdefvr_002ftab"></a><dl>
+<dt><a name="index-tab"></a>Variable: <strong>tab</strong></dt>
+<dd>
+<p>Das Tabulatorzeichen.
+</p>
+</dd></dl>
+
+<a name="unicode"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002funicode"></a><dl>
+<dt><a name="index-unicode"></a>Funktion: <strong>unicode</strong> <em>(<var>arg</var>) </em></dt>
+<dd>
+<p>Gibt das durch <var>arg</var> definierte Schriftzeichen zur&uuml;ck. 
+<var>arg</var> kann ein Unicode Codepunkt oder auch eine Zeichenkette mit einem Namen sein, 
+falls das unter Maxima liegende Lisp Unicode vollst&auml;ndig unterst&uuml;tzt.
+</p>
+<p>Beispiel: Durch hexadezimale Codepunkte definierte Schriftzeichen
+(Maxima kompiliert mit SBCL in GNU/Linux). 
+</p>
+<div class="example">
+<pre class="example">(%i1) ibase: 16.$
+(%i2) map(unicode, [24, 0A3, 20AC]);
+(%o2)                            [$, &pound;, &euro;]
+</pre></div>
+
+<p>Warnung: In wxMaxima in Windows ist es nicht m&ouml;glich, 
+Codepunkte gr&ouml;&szlig;er 16 Bit in Schriftzeichen umzuwandeln,
+wenn Maxima mit SBCL kompiliert wurde 
+und das aktuelle externe Format nicht UTF-8 ist. 
+Siehe <a href="#adjust_005fexternal_005fformat">adjust_external_format</a> f&uuml;r weitere Informationen.
+</p>
+
+<p>CMUCL verarbeitet keine Codepunkte gr&ouml;&szlig;er 16 Bit.
+<code>unicode</code> gibt dann <code>false</code> zur&uuml;ck. 
+Als Ausweg kann hier die Umwandlung der Codepunkte in Schriftzeichen &uuml;ber 
+UTF-8-Oktette dienen: 
+</p>
+<p><code>octets_to_string(unicode_to_utf8(code_point));</code>
+</p>
+
+<p>Siehe <a href="maxima_321.html#octets_005fto_005fstring">octets_to_string</a>, <a href="#unicode_005fto_005futf8">unicode_to_utf8</a>.
+</p>
+<p>Falls das unter Maxima liegende Lisp Unicode vollst&auml;ndig unterst&uuml;tzt, 
+kann ein Schriftzeichen durch seinen Namen angegeben werden.
+</p>
+<p>Das folgende Beispiel ist mit ECL, CLISP und SBCL m&ouml;glich, wobei mit SBCL in 
+wxMaxima in Windows das externe Format auf UTF-8 gesetzt werden muss.
+<code>unicode(name)</code> wird auch von CMUCL unterst&uuml;tzt, jedoch wieder beschr&auml;nkt 
+auf 16-Bit-Zeichen.
+</p>
+<p>Die Zeichenkette als Argument f&uuml;r <code>unicode</code> muss prinzipiell die sein, 
+die <code>printf</code> mit der Spezifikation &quot;~@c&quot; zur&uuml;ck gibt,  
+jedoch, wie unten gezeigt, ohne den Pr&auml;fix &quot;#\&quot;. 
+Unterstriche k&ouml;nnen durch Leerzeichen und Gro&szlig;- durch Kleinbuchstaben 
+ersetzt werden.
+</p>
+<p>Beispiel (fortgesetzt): Ein Schriftzeichen ist durch seinen Namen gegeben 
+(Maxima kompiliert mit SBCL in GNU/Linux). 
+</p>
+<div class="example">
+<pre class="example">(%i3) printf(false, &quot;~@c&quot;, unicode(0DF));
+(%o3)                    #\LATIN_SMALL_LETTER_SHARP_S
+(%i4) unicode(&quot;LATIN_SMALL_LETTER_SHARP_S&quot;);
+(%o4)                                  &szlig;
+(%i5) unicode(&quot;Latin small letter sharp S&quot;);
+(%o5)                                  &szlig;
+</pre></div>
+
+</dd></dl>
+
+<a name="unicode_005fto_005futf8"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002funicode_005fto_005futf8"></a><dl>
+<dt><a name="index-unicode_005fto_005futf8"></a>Funktion: <strong>unicode_to_utf8</strong> <em>(<var>code_point</var>) </em></dt>
+<dd>
+<p>Gibt eine Liste mit UTF-8-Code zur&uuml;ck, der dem Unicode <var>code_point</var> entspricht. 
+</p>
+<p>Beispiel: Umwandlung von Unicode Codepunkten in UTF-8 und umgekehrt. 
+</p>
+<div class="example">
+<pre class="example">(%i1) ibase: obase: 16.$
+(%i2) map(cint, [&quot;$&quot;,&quot;&pound;&quot;,&quot;&euro;&quot;]);
+(%o2)                           [24, 0A3, 20AC]
+(%i3) map(unicode_to_utf8, %);
+(%o3)                 [[24], [0C2, 0A3], [0E2, 82, 0AC]]
+(%i4) map(utf8_to_unicode, %);
+(%o4)                           [24, 0A3, 20AC]
+</pre></div>
+
+</dd></dl>
+
+<a name="uppercasep"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fuppercasep"></a><dl>
+<dt><a name="index-uppercasep"></a>Funktion: <strong>uppercasep</strong> <em>(<var>char</var>)</em></dt>
+<dd>
+<p>Gibt <code>true</code> zur&uuml;ck, wenn <var>char</var> ein Gro&szlig;buchstabe ist.
+</p>
+<p>Hinweis: Siehe Bemerkungen zu <a href="#alphacharp">alphacharp</a>. 
+</p>
+</dd></dl>
+
+<a name="us_005fascii_005fonly"></a><a name="Item_003a-stringproc_002ede_002fdefvr_002fus_005fascii_005fonly"></a><dl>
+<dt><a name="index-us_005fascii_005fonly"></a>Variable: <strong>us_ascii_only</strong></dt>
+<dd>
+<p>Diese Optionsvariable beeinflusst Maxima, wenn die Zeichenkodierung der 
+Anwendung, in der Maxima l&auml;uft, UTF-8 ist, das externe Format des Lisp Readers 
+jedoch nicht.
+</p>
+<p>In GNU/Linux trifft dies zu, wenn Maxima mit GCL kompiliert wurde und 
+in Windows in wxMaxima in GCL- und SBCL-Versionen. 
+Es wird empfohlen, in der SBCL-Version das externe Format in UTF-8 abzu&auml;ndern. 
+Eine Festlegung von <code>us_ascii_only</code> wird damit unn&ouml;tig. 
+Siehe <a href="#adjust_005fexternal_005fformat">adjust_external_format</a> f&uuml;r Details. 
+</p>
+<p><code>us_ascii_only</code> ist standardm&auml;&szlig;ig <code>false</code>. 
+Maxima analysiert dann (d.h. in der oben beschriebenen Situation) selbst die UTF-8-Kodierung.
+</p>
+<p>Wurde <code>us_ascii_only</code> auf <code>true</code> gesetzt, wird angenommen, dass alle 
+Zeichenketten, die als Argumente f&uuml;r Funktionen des Pakets <code>stringproc</code> 
+verwendet werden, nur ausschlie&szlig;lich US-ASCII-Zeichen enthalten. 
+Durch diese Vereinbarung wird die UTF-8-Analyse des Inputs &uuml;berfl&uuml;ssig 
+und Zeichenketten k&ouml;nnen effizienter verarbeitet werden.
+</p>
+</dd></dl>
+
+<a name="utf8_005fto_005funicode"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002futf8_005fto_005funicode"></a><dl>
+<dt><a name="index-utf8_005fto_005funicode"></a>Function: <strong>utf8_to_unicode</strong> <em>(<var>list</var>) </em></dt>
+<dd>
+<p>Gibt den Unicode Codepunkt zur&uuml;ck, der der Liste <var>list</var> entspricht, 
+die die UTF-8-Kodierung eines einzelnen Schriftzeichens enthalten muss.
+</p>
+<p>Beispiel: Siehe <a href="#unicode_005fto_005futf8">unicode_to_utf8</a>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002ede_002fnode_002fVerarbeitung-von-Zeichenketten"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_320.html#Verarbeitung-von-Zeichenketten" accesskey="n" rel="next">Verarbeitung von Zeichenketten</a>, Previous: <a href="maxima_318.html#Ein_002d-und-Ausgabe" accesskey="p" rel="previous">Ein- und Ausgabe</a>, Nach oben: <a href="maxima_316.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

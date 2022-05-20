@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Paquete facexp</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Paquete facexp">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Paquete facexp">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_272.html#simplification" rel="up" title="simplification">
+<link href="maxima_276.html#Paquete-functs" rel="next" title="Paquete functs">
+<link href="maxima_274.html#Paquete-absimp" rel="previous" title="Paquete absimp">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Paquete-facexp"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_276.html#Paquete-functs" accesskey="n" rel="next">Paquete functs</a>, Previous: <a href="maxima_274.html#Paquete-absimp" accesskey="p" rel="previous">Paquete absimp</a>, Subir: <a href="maxima_272.html#simplification" accesskey="u" rel="up">simplification</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Paquete-facexp-1"></a>
+<h3 class="section">72.3 Paquete facexp</h3>
+
+<p>El paquete <code>facexp</code> contiene varias funciones que le aportan al
+usuario la posibilidad de estructurar expresiones controlando su
+expansión. Esta capacidad es especialmente útil cuando la 
+expresión contiene variables con significado físico,
+ya que se suele dar el caso de que la forma más sencilla para estas
+expresiones se obtiene cuando se expanden respecto de estas variables
+y luego se factoriza respecto de sus coeficientes. Si bien es cierto que
+este procedimiento no es difícil de llevar a cabo con las 
+funciones estándar de Maxima, pueden ser necesarios algunos retoques
+adicionales que sí pueden ser más difíciles
+de hacer.
+</p>
+<p>La función <code>facsum</code> y sus formas relacionadas proporcionan un 
+método para controlar la estructura de expresiones. La función 
+<code>collectterms</code> puede usarse para añadir dos o más 
+expresiones que ya hayan sido simplificadas de la forma indicada,
+sin necesidad de volver a simplificar la expresión completa.
+Esta función puede ser útil cuando las expresiones sean
+largas.
+</p>
+
+<p>La instrucción <code>load (&quot;facexp&quot;)</code> carga este paquete y <code>demo (facexp)</code>
+hace una demostración sobre su uso.
+</p>
+
+
+<a name="Item_003a-simplifications_002fdeffn_002ffacsum"></a><dl>
+<dt><a name="index-facsum"></a>Función: <strong>facsum</strong> <em>(<var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>)</em></dt>
+<dd>
+<p>Devuelve una expresión equivalente a <var>expr</var>, la cual
+depende de los argumentos <var>arg_1</var>, ..., <var>arg_n</var>, y 
+éstos pueden ser de cualquiera de las formas aceptables
+para <code>ratvars</code>, o listas de estas formas. Si los
+argumentos no son listas, la forma devuelta se expande
+completamente con respecto de los argumentos, siendo los
+coeficientes de tales argumentos factorizados. Estos
+coeficientes no contienen a ninguno de los argumentos,
+excepto quizás de una forma no racional.
+</p>
+<p>En caso de que cualquiera de los argumentos sea una lista, entonces
+todos ellos se combinan en una única lista, y en lugar de llamar
+a <code>factor</code> para los coeficientes de los argumentos, <code>facsum</code>
+se llama a sí misma utilizando esta nueva lista única
+como lista de argumentos.
+</p>
+<p>Es posible que se quiera utilizar <code>facsum</code> con respecto a
+expresiones más complicadas, tales como <code>log (x + y)</code>. Estos
+argumentos son también admisibles.
+</p>
+<p>En ocasiones puede ser necesario obtener cualquiera de las formas
+anteriores especificadas por sus operadores principales. Por ejemplo,
+se puede querer aplicar <code>facsum</code> con respecto a todos los 
+<code>log</code>; en este caso, se puede incluir entre los argumentos bien
+los <code>log</code> específicos que se quieran tratar de esta
+manera, bien la expresión <code>operator (log)</code> o <code>'operator (log)</code>.
+Si se quiere aplicar <code>facsum</code> a <var>expr</var> con respecto a los 
+operadores <var>op_1</var>, ..., <var>op_n</var>, se debe evaluar 
+<code>facsum (<var>expr</var>, operator (<var>op_1</var>, ..., <var>op_n</var>))</code>.
+La forma <code>operator</code> puede aparecer también dentro de las
+listas de argumentos.
+</p>
+<p>Además, dándole valores a las variables opcionales <code>facsum_combine</code>
+y <code>nextlayerfactor</code> se puede controlar el resultado de <code>facsum</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdefvr_002fnextlayerfactor"></a><dl>
+<dt><a name="index-nextlayerfactor"></a>Variable global: <strong>nextlayerfactor</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>nextlayerfactor</code> vale <code>true</code>, las llamadas recursivas de
+<code>facsum</code> se aplican a los factores de la forma factorizada de los
+coeficientes de los argumentos.
+</p>
+<p>Si vale <code>false</code>, <code>facsum</code> se aplica a cada coeficiente como
+un todo cada vez que se efectúen llamadas recursivas a <code>facsum</code>.
+</p>
+<p>La inclusión del átomo <code>nextlayerfactor</code> en la lista de 
+argumentos de <code>facsum</code> tiene el mismo efecto que 
+<code>nextlayerfactor: true</code>, pero <i>solamente</i> para el siguiente
+nivel de la expresión. Puesto que <code>nextlayerfactor</code> toma
+siempre uno de los valores <code>true</code> o  <code>false</code>, debe aparecer
+comentado (comilla simple) cada vez que aparezca en la lista de 
+argumentos de <code>facsum</code>.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdefvr_002ffacsum_005fcombine"></a><dl>
+<dt><a name="index-facsum_005fcombine"></a>Variable global: <strong>facsum_combine</strong></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>La variable <code>facsum_combine</code> controla la forma del resultado final
+devuelto por <code>facsum</code> si su argumento es un cociente de polinomios.
+Si <code>facsum_combine</code> vale <code>false</code>, el resultado será una suma
+completamente expandida, pero si vale <code>true</code>, la expresión devuelta
+es un cociente de polinomios.
+</p>
+
+</dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002ffactorfacsum"></a><dl>
+<dt><a name="index-factorfacsum"></a>Función: <strong>factorfacsum</strong> <em>(<var>expr</var>, <var>arg_1</var>, ... <var>arg_n</var>)</em></dt>
+<dd><p>Devuelve una expresión equivalente a <var>expr</var> obtenida aplicando
+<code>facsum</code> a los factores de <var>expr</var>, de argumentos
+<var>arg_1</var>, ... <var>arg_n</var>. Si alguno de los factores de <var>expr</var> se 
+eleva a una potencia, tanto el factor como el exponente se procesarán de
+esta manera.
+</p></dd></dl>
+
+<a name="Item_003a-simplifications_002fdeffn_002fcollectterms"></a><dl>
+<dt><a name="index-collectterms"></a>Función: <strong>collectterms</strong> <em>(<var>expr</var>, <var>arg_1</var>, &hellip;, <var>arg_n</var>)</em></dt>
+<dd><p>Si algunas expresiones fueron ya simplificadas con <code>facsum</code>, <code>factorfacsum</code>,
+<code>factenexpand</code>,  <code>facexpten</code> o <code>factorfacexpten</code>, debiendo ser 
+luego sumadas, puede ser conveniente combinarlas utilizando la función
+<code>collecterms</code>, la cual admite como argumentos todos aquéllos que se
+puedan pasar a las anteriormente citadas funciones, con la excepción de
+<code>nextlayerfactor</code>, que no tiene efecto alguno sobre <code>collectterms</code>.
+La ventaja de <code>collectterms</code> es que devuelve una forma similar a la de
+<code>facsum</code>, pero debido a que suma expresiones que ya han sido previamente
+procesadas, no necesita repetir esta operación, lo cual 
+resulta ser especialmente útil cuando las expresiones a sumar son muy
+grandes.
+</p></dd></dl>
+
+
+
+
+
+
+
+
+
+<a name="Item_003a-simplifications_002fnode_002fPaquete-functs"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_276.html#Paquete-functs" accesskey="n" rel="next">Paquete functs</a>, Previous: <a href="maxima_274.html#Paquete-absimp" accesskey="p" rel="previous">Paquete absimp</a>, Subir: <a href="maxima_272.html#simplification" accesskey="u" rel="up">simplification</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

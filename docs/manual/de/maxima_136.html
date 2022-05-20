@@ -1,0 +1,673 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Bessel-Funktionen</title>
+
+<meta name="description" content="Maxima Manual: Bessel-Funktionen">
+<meta name="keywords" content="Maxima Manual: Bessel-Funktionen">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_135.html#Bessel_002dFunktionen-und-verwandte-Funktionen" rel="up" title="Bessel-Funktionen und verwandte Funktionen">
+<link href="maxima_137.html#Hankel_002dFunktionen" rel="next" title="Hankel-Funktionen">
+<link href="maxima_135.html#Bessel_002dFunktionen-und-verwandte-Funktionen" rel="previous" title="Bessel-Funktionen und verwandte Funktionen">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Bessel_002dFunktionen"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_137.html#Hankel_002dFunktionen" accesskey="n" rel="next">Hankel-Funktionen</a>, Previous: <a href="maxima_135.html#Bessel_002dFunktionen-und-verwandte-Funktionen" accesskey="p" rel="previous">Bessel-Funktionen und verwandte Funktionen</a>, Nach oben: <a href="maxima_135.html#Bessel_002dFunktionen-und-verwandte-Funktionen" accesskey="u" rel="up">Bessel-Funktionen und verwandte Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Bessel_002dFunktionen-1"></a>
+<h4 class="subsection">22.2.1 Bessel-Funktionen</h4>
+
+<a name="bessel_005fj"></a><a name="Item_003a-Special_002ede_002fdeffn_002fbessel_005fj"></a><dl>
+<dt><a name="index-bessel_005fj"></a>Funktion: <strong>bessel_j</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>Die Bessel-Funktion der ersten Art der Ordnung <em>v</em> mit dem Argument
+<em>z</em>.  <code>bessel_j</code> ist definiert als
+</p>
+<div class="example">
+<pre class="example">               inf
+               ====             k
+               \           (- 1)           z 2 k + v
+      J (z) =   &gt;    -------------------  (-)
+       v       /     k! gamma(v + k + 1)   2
+               ====
+               k = 0
+</pre></div>
+
+<p>Die Reihenentwicklung wird nicht f&uuml;r die numerische Berechnung genutzt.
+</p>
+<p>Die Bessel-Funktion <code>bessel_j</code> ist f&uuml;r das numerische und symbolische
+Rechnen geeignet.
+</p>
+<p>Maxima berechnet <code>bessel_j</code> numerisch f&uuml;r reelle und komplexe
+Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
+<code><a href="maxima_14.html#float">float</a></code> oder der Optionsvariablen <code><a href="maxima_14.html#numer">numer</a></code> kann die numerische
+Auswertung erzwungen werden, wenn die Argumente ganze oder rationale Zahlen
+sind.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht
+implementiert.  In diesem Fall gibt Maxima eine Substantivform zur&uuml;ck.
+</p>
+<p><code>bessel_j</code> hat die folgenden Eigenschaften, die mit mit der Funktion
+<code><a href="maxima_63.html#properties">properties</a></code> angezeigt werden und auf das symbolische Rechnen Einfluss
+haben:
+</p>
+<dl compact="compact">
+<dt><code>conjugate function</code></dt>
+<dd><p><code>bessel_j</code> hat Spiegelsymmetrie, wenn das Argument <var>z</var> keine negative
+reelle Zahl ist.  Die Spiegelsymmetrie wird zum Beispiel von der Funktion
+<code><a href="maxima_51.html#conjugate">conjugate</a></code> f&uuml;r die Vereinfachung eines Ausdrucks genutzt.
+</p></dd>
+<dt><code>complex characteristic</code></dt>
+<dd><p>Maxima kennt den Realteil und den Imagin&auml;rteil von <code>bessel_j</code> f&uuml;r
+spezielle Argumente <em>v</em> und <em>z</em>.
+</p></dd>
+<dt><code>limit function</code></dt>
+<dd><p>Maxima kennt spezielle Grenzwerte der Funktion <code>bessel_j</code>.
+</p></dd>
+<dt><code>integral</code></dt>
+<dd><p>Maxima kennt das Integral der Funktion <code>bessel_j</code> f&uuml;r die
+Integrationsvariable <em>z</em>.
+</p></dd>
+<dt><code>gradef</code></dt>
+<dd><p>Maxima kennt die Ableitungen der Funktion <code>bessel_j</code> nach den
+Argumenten <em>v</em> und <em>z</em>.
+</p></dd>
+</dl>
+
+<p>Die Vereinfachung der Bessel-Funktion <code>bessel_j</code> wird von den folgenden
+Optionsvariablen kontrolliert:
+</p>
+<dl compact="compact">
+<dt><code>distribute_over</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code> den Wert <code>true</code> und sind
+die Argumente von <code>bessel_j</code> eine Matrix, Liste oder Gleichung wird die
+Funktion auf die Elemente oder beiden Seiten der Gleichung angewendet.  Der
+Standardwert ist <code>true</code>.
+</p></dd>
+<dt><code>besselexpand</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code> den Wert <code>true</code>, wird
+<code>bessel_j</code> mit einer halbzahligen Ordnung <em>v</em> als Sinus- und
+Kosinusfunktionen entwickelt.
+</p></dd>
+<dt><code>bessel_reduce</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="#bessel_005freduce">bessel_reduce</a></code> den Wert <code>true</code>, wird
+<code>bessel_j</code> mit einer ganzzahligen Ordnung <em>n</em> nach Bessel-Funktionen
+<code>bessel_j</code> mit der niedrigsten Ordnung <code>0</code> und <code>1</code> entwickelt.
+</p></dd>
+<dt><code>hypergeometric_representation</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="maxima_142.html#hypergeometric_005frepresentation">hypergeometric_representation</a></code> den Wert
+<code>true</code>, dann wird <code>bessel_j</code> als hypergeometrische Funktion
+dargestellt.
+</p></dd>
+</dl>
+
+<p>Weiterhin kennt Maxima die geraden und ungeraden Symmetrieeigenschaften von
+<code>bessel_j</code>.  F&uuml;r eine ganze Zahl <em>n</em> vereinfacht daher
+<code>bessel_j(-n, z)</code> zu <code>(-1)^n bessel_j(n, z)</code>.
+</p>
+<p>Maxima kennt noch die Funktion <code><a href="maxima_288.html#spherical_005fbessel_005fj">spherical_bessel_j</a></code>, die im Paket
+<code>orthopoly</code> definiert ist.   Siehe auch die anderen Bessel-Funktionen
+<code><a href="#bessel_005fy">bessel_y</a></code>, <code><a href="#bessel_005fi">bessel_i</a></code> und <code><a href="#bessel_005fk">bessel_k</a></code> sowie die
+weiteren mit den Bessel-Funktionen verwandten Funktionen wie die
+Hankel-Funktionen in <a href="maxima_137.html#Hankel_002dFunktionen">Hankel-Funktionen</a>, Airy-Funktionen in
+<a href="maxima_138.html#Airy_002dFunktionen">Airy-Funktionen</a> und Struve-Funktionen in <a href="maxima_139.html#Struve_002dFunktionen">Struve-Funktionen</a>.
+</p>
+<p>Beispiele:
+</p>
+<p>Numerisches Rechnen mit der Bessel-Funktion.  F&uuml;r gro&szlig;e Gleitkommazahlen
+ist die numerische Berechnung nicht implementiert.
+</p>
+<div class="example">
+<pre class="example">(%i1) bessel_j(1,[0.5, 0.5+%i]);
+(%o1) [.2422684576748739, .5124137767280905 %i
+                                             + .3392601907198862]
+(%i2) bessel_j(1,[0.5b0, 0.5b0+%i]);
+(%o2)    [bessel_j(1, 5.0b-1), bessel_j(1, %i + 5.0b-1)]
+</pre></div>
+
+<p>Vereinfachungen der Bessel-Funktion mit den Optionsvariablen <code>besselexpand</code>
+und <code>bessel_reduce</code>.
+</p>
+<div class="example">
+<pre class="example">(%i3) bessel_j(1/2,x), besselexpand:true;
+                         sqrt(2) sin(x)
+(%o3)                   -----------------
+                        sqrt(%pi) sqrt(x)
+(%i4) bessel_j(3,x), bessel_reduce:true;
+         2 bessel_j(1, x)
+      4 (---------------- - bessel_j(0, x))
+                x
+(%o4) ------------------------------------- - bessel_j(1, x)
+                        x
+</pre></div>
+
+<p>Ableitungen und Integrale der Bessel-Funktion.  Das letzte Beispiel zeigt
+die Laplace-Transformation der Bessel-Funktion mit der Funktion
+<code><a href="maxima_93.html#laplace">laplace</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i5) diff(bessel_j(2,x), x);
+</pre><pre class="example">                 bessel_j(1, x) - bessel_j(3, x)
+(%o5)            -------------------------------
+                                2
+</pre><pre class="example">(%i6) diff(bessel_j(v,x), x);
+             bessel_j(v - 1, x) - bessel_j(v + 1, x)
+(%o6)        ---------------------------------------
+                                2
+(%i7) integrate(bessel_j(v,x), x);
+(%o7) 
+                                               2
+                    v   1    v   3            x    - v - 1  v + 1
+    hypergeometric([- + -], [- + -, v + 1], - --) 2        x
+                    2   2    2   2            4
+    -------------------------------------------------------------
+                         v   1
+                        (- + -) gamma(v + 1)
+                         2   2
+(%i8) laplace(bessel_j(2,t), t, s);
+                                1       2
+                      (1 - sqrt(-- + 1))  s
+                                 2
+                                s
+(%o8)                 ---------------------
+                               1
+                          sqrt(-- + 1)
+                                2
+                               s
+</pre></div>
+
+<p>Bessel-Funktionen als L&ouml;sung einer linearen Differentialgleichung zweiter
+Ordnung.
+</p>
+<div class="example">
+<pre class="example">(%i1) depends(y, x);
+(%o1)                        [y(x)]
+(%i2) declare(n, integer);
+(%o2)                         done
+(%i3) 'diff(y, x, 2)*x^2 + 'diff(y, x)*x + y*(x^2-n^2) = 0;
+                                2
+                     2    2    d y  2   dy
+(%o3)            y (x  - n ) + --- x  + -- x = 0
+                                 2      dx
+                               dx
+(%i4) ode2(%, y, x);
+(%o4)      y = %k2 bessel_y(n, x) + %k1 bessel_j(n, x)
+</pre></div>
+</dd></dl>
+
+<a name="bessel_005fy"></a><a name="Item_003a-Special_002ede_002fdeffn_002fbessel_005fy"></a><dl>
+<dt><a name="index-bessel_005fy"></a>Funktion: <strong>bessel_y</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>Die Bessel-Funktion der zweiten Art der Ordnung <em>v</em> mit dem Argument
+<em>z</em>.  <code>bessel_y</code> ist definiert als
+</p>
+<div class="example">
+<pre class="example">              cos(%pi v) J (z) - J   (z)
+                          v       - v
+      Y (z) = --------------------------
+       v              sin(%pi v)
+</pre></div>
+
+<p>f&uuml;r den Fall, dass <em>v</em> keine ganze Zahl ist.  Ist <em>v</em> eine ganze
+Zahl <em>n</em>, dann wird die Bessel-Funktion <code>bessel_y</code> wie folgt als
+ein Grenzwert definiert
+</p>
+<div class="example">
+<pre class="example">      Y (z) = limit  Y (z)
+       n      v -&gt; n  v
+</pre></div>
+
+<p>Die Bessel-Funktion <code>bessel_y</code> ist f&uuml;r das numerische und symbolische
+Rechnen geeignet.
+</p>
+<p>Maxima berechnet <code>bessel_y</code> numerisch f&uuml;r reelle und komplexe
+Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
+<code><a href="maxima_14.html#float">float</a></code> oder der Optionsvariablen <code><a href="maxima_14.html#numer">numer</a></code> kann die numerische
+Auswertung erzwungen werden, wenn die Argumente ganze oder rationale Zahlen
+sind.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht
+implementiert.  In diesem Fall gibt Maxima eine Substantivform zur&uuml;ck.
+</p>
+<p><code>bessel_y</code> hat die folgenden Eigenschaften, die mit mit der Funktion
+<code><a href="maxima_63.html#properties">properties</a></code> angezeigt werden und auf das symbolische Rechnen Einfluss
+haben:
+</p>
+<dl compact="compact">
+<dt><code>conjugate function</code></dt>
+<dd><p><code>bessel_y</code> hat Spiegelsymmetrie, wenn das Argument <var>z</var> keine negative
+reelle Zahl ist.  Die Spiegelsymmetrie wird zum Beispiel von der Funktion
+<code><a href="maxima_51.html#conjugate">conjugate</a></code> f&uuml;r die Vereinfachung eines Ausdrucks genutzt.
+</p></dd>
+<dt><code>complex characteristic</code></dt>
+<dd><p>Maxima kennt den Realteil und den Imagin&auml;rteil von <code>bessel_y</code> f&uuml;r
+spezielle Argumente <em>v</em> und <em>z</em>.
+</p></dd>
+<dt><code>limit function</code></dt>
+<dd><p>Maxima kennt spezielle Grenzwerte der Funktion <code>bessel_y</code>.
+</p></dd>
+<dt><code>integral</code></dt>
+<dd><p>Maxima kennt das Integral der Funktion <code>bessel_y</code> f&uuml;r die
+Integrationsvariable <em>z</em>.
+</p></dd>
+<dt><code>gradef</code></dt>
+<dd><p>Maxima kennt die Ableitungen der Funktion <code>bessel_y</code> nach den
+Argumenten <em>v</em> und <em>z</em>.
+</p></dd>
+</dl>
+
+<p>Die Vereinfachung der Bessel-Funktion <code>bessel_y</code> wird von den folgenden
+Optionsvariablen kontrolliert:
+</p>
+<dl compact="compact">
+<dt><code>distribute_over</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code> den Wert <code>true</code> und sind
+die Argumente von <code>bessel_y</code> eine Matrix, Liste oder Gleichung wird die
+Funktion auf die Elemente oder beiden Seiten der Gleichung angewendet.  Der
+Standardwert ist <code>true</code>.
+</p></dd>
+<dt><code>besselexpand</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code> den Wert <code>true</code>, wird
+<code>bessel_y</code> mit einer halbzahligen Ordnung <em>v</em> als Sinus- und
+Kosinusfunktionen entwickelt.
+</p></dd>
+<dt><code>bessel_reduce</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="#bessel_005freduce">bessel_reduce</a></code> den Wert <code>true</code>, wird
+<code>bessel_y</code> mit einer ganzzahligen Ordnung <em>n</em> nach Bessel-Funktionen
+<code>bessel_y</code> mit der niedrigsten Ordnung <code>0</code> und <code>1</code> entwickelt.
+</p></dd>
+<dt><code>hypergeometric_representation</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="maxima_142.html#hypergeometric_005frepresentation">hypergeometric_representation</a></code> den Wert
+<code>true</code>, dann wird <code>bessel_y</code> als hypergeometrische Funktion
+dargestellt.  Es ist zu beachten, dass die hypergeometrische Funktion nur f&uuml;r
+eine nicht ganzzahlige Ordnung <em>v</em> g&uuml;ltig ist.
+</p></dd>
+</dl>
+
+<p>Weiterhin kennt Maxima die geraden und ungeraden Symmetrieeigenschaften von
+<code>bessel_y</code>.  F&uuml;r eine ganze Zahl <em>n</em> vereinfacht daher
+<code>bessel_y(-n, z)</code> zu <code>(-1)^n bessel_y(n, z)</code>.
+</p>
+<p>Maxima kennt noch die Funktion <code><a href="maxima_288.html#spherical_005fbessel_005fy">spherical_bessel_y</a></code>, die im Paket
+<code>orthopoly</code> definiert ist.   Siehe auch die anderen Bessel-Funktionen
+<code><a href="#bessel_005fj">bessel_j</a></code>, <code><a href="#bessel_005fi">bessel_i</a></code> und <code><a href="#bessel_005fk">bessel_k</a></code> sowie die
+weiteren mit den Bessel-Funktionen verwandten Funktionen wie die
+Hankel-Funktionen in <a href="maxima_137.html#Hankel_002dFunktionen">Hankel-Funktionen</a>, Airy-Funktionen in
+<a href="maxima_138.html#Airy_002dFunktionen">Airy-Funktionen</a> und Struve-Funktionen in <a href="maxima_139.html#Struve_002dFunktionen">Struve-Funktionen</a>.
+</p>
+<p>Siehe die Funktion <code><a href="#bessel_005fj">bessel_j</a></code> f&uuml;r Beispiele mit Bessel-Funktionen.
+</p></dd></dl>
+
+<a name="bessel_005fi"></a><a name="Item_003a-Special_002ede_002fdeffn_002fbessel_005fi"></a><dl>
+<dt><a name="index-bessel_005fi"></a>Funktion: <strong>bessel_i</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>Die modifizierte Bessel-Funktion der ersten Art der Ordnung <em>v</em> mit dem 
+Argument <em>v</em>.  <code>bessel_i</code> ist definiert als
+</p>
+<div class="example">
+<pre class="example">               inf
+               ====
+               \              1            z 2 k + v
+      I (z) =   &gt;    -------------------  (-)
+       v       /     k! gamma(v + k + 1)   2
+               ====
+               k = 0
+</pre></div>
+
+<p>Die Reihenentwicklung wird nicht f&uuml;r die numerische Berechnung genutzt.
+</p>
+<p>Die Bessel-Funktion <code>bessel_i</code> ist f&uuml;r das numerische und symbolische
+Rechnen geeignet.
+</p>
+<p>Maxima berechnet <code>bessel_i</code> numerisch f&uuml;r reelle und komplexe
+Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
+<code><a href="maxima_14.html#float">float</a></code> oder der Optionsvariablen <code><a href="maxima_14.html#numer">numer</a></code> kann die numerische
+Auswertung erzwungen werden, wenn die Argumente ganze oder rationale Zahlen
+sind.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht
+implementiert.  In diesem Fall gibt Maxima eine Substantivform zur&uuml;ck.
+</p>
+<p><code>bessel_i</code> hat die folgenden Eigenschaften, die mit mit der Funktion
+<code><a href="maxima_63.html#properties">properties</a></code> angezeigt werden und auf das symbolische Rechnen Einfluss
+haben:
+</p>
+<dl compact="compact">
+<dt><code>conjugate function</code></dt>
+<dd><p><code>bessel_i</code> hat Spiegelsymmetrie, wenn das Argument <var>z</var> keine negative
+reelle Zahl ist.  Die Spiegelsymmetrie wird zum Beispiel von der Funktion
+<code><a href="maxima_51.html#conjugate">conjugate</a></code> f&uuml;r die Vereinfachung eines Ausdrucks genutzt.
+</p></dd>
+<dt><code>complex characteristic</code></dt>
+<dd><p>Maxima kennt den Realteil und den Imagin&auml;rteil von <code>bessel_i</code> f&uuml;r
+spezielle Argumente <em>v</em> und <em>z</em>.
+</p></dd>
+<dt><code>limit function</code></dt>
+<dd><p>Maxima kennt spezielle Grenzwerte der Funktion <code>bessel_i</code>.
+</p></dd>
+<dt><code>integral</code></dt>
+<dd><p>Maxima kennt das Integral der Funktion <code>bessel_i</code> f&uuml;r die
+Integrationsvariable <em>z</em>.
+</p></dd>
+<dt><code>gradef</code></dt>
+<dd><p>Maxima kennt die Ableitungen der Funktion <code>bessel_i</code> nach den
+Argumenten <em>v</em> und <em>z</em>.
+</p></dd>
+</dl>
+
+<p>Die Vereinfachung der Bessel-Funktion <code>bessel_i</code> wird von den folgenden
+Optionsvariablen kontrolliert:
+</p>
+<dl compact="compact">
+<dt><code>distribute_over</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code> den Wert <code>true</code> und sind
+die Argumente von <code>bessel_i</code> eine Matrix, Liste oder Gleichung wird die
+Funktion auf die Elemente oder beiden Seiten der Gleichung angewendet.  Der
+Standardwert ist <code>true</code>.
+</p></dd>
+<dt><code>besselexpand</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code> den Wert <code>true</code>, wird
+<code>bessel_i</code> mit einer halbzahligen Ordnung <em>v</em> als Hyperbelfunktionen
+entwickelt.
+</p></dd>
+<dt><code>bessel_reduce</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="#bessel_005freduce">bessel_reduce</a></code> den Wert <code>true</code>, wird
+<code>bessel_i</code> mit einer ganzzahligen Ordnung <em>n</em> nach Bessel-Funktionen
+<code>bessel_i</code> mit der niedrigsten Ordnung <code>0</code> und <code>1</code> entwickelt.
+</p></dd>
+<dt><code>hypergeometric_representation</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="maxima_142.html#hypergeometric_005frepresentation">hypergeometric_representation</a></code> den Wert
+<code>true</code>, dann wird <code>bessel_i</code> als hypergeometrische Funktion
+dargestellt.
+</p></dd>
+</dl>
+
+<p>Weiterhin kennt Maxima die geraden und ungeraden Symmetrieeigenschaften von
+<code>bessel_i</code>.  F&uuml;r eine ganze Zahl <em>n</em> vereinfacht daher
+<code>bessel_i(-n, z)</code> zu <code>bessel_i(n, z)</code>.
+</p>
+<p>Siehe auch die anderen Bessel-Funktionen <code><a href="#bessel_005fj">bessel_j</a></code>,<!-- /@w -->
+<code><a href="#bessel_005fy">bessel_y</a></code> und <code><a href="#bessel_005fk">bessel_k</a></code> sowie die weiteren mit den Bessel-Funktionen
+verwandten Funktionen wie die Hankel-Funktionen in <a href="maxima_137.html#Hankel_002dFunktionen">Hankel-Funktionen</a>,
+Airy-Funktionen in <a href="maxima_138.html#Airy_002dFunktionen">Airy-Funktionen</a> und Struve-Funktionen in
+<a href="maxima_139.html#Struve_002dFunktionen">Struve-Funktionen</a>.
+</p>
+<p>Siehe die Funktion <code><a href="#bessel_005fj">bessel_j</a></code> f&uuml;r Beispiele mit Bessel-Funktionen.
+</p></dd></dl>
+
+<a name="bessel_005fk"></a><a name="Item_003a-Special_002ede_002fdeffn_002fbessel_005fk"></a><dl>
+<dt><a name="index-bessel_005fk"></a>Funktion: <strong>bessel_k</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>Die modifizierte Bessel-Funktion der zweiten Art der Ordnung <em>v</em> mit dem
+Argument <em>z</em>.  <code>bessel_k</code> ist definiert als
+</p>
+<div class="example">
+<pre class="example">              %pi csc(%pi u) (I   (z) - I (z))
+                               - v       u
+      K (z) = --------------------------------
+       v                     2
+</pre></div>
+
+<p>f&uuml;r den Fall, dass <em>v</em> keine ganze Zahl ist.  Ist <em>v</em> eine ganze
+Zahl <em>n</em>, dann wird die Bessel-Funktion <code>bessel_k</code> wie folgt als
+Grenzwert definiert
+</p>
+<div class="example">
+<pre class="example">(%o5) K (z) = limit  K (z)
+       n      v -&gt; n  v
+</pre></div>
+
+<p>Die Bessel-Funktion <code>bessel_k</code> ist f&uuml;r das numerische und symbolische
+Rechnen geeignet.
+</p>
+<p>Maxima berechnet <code>bessel_k</code> numerisch f&uuml;r reelle und komplexe
+Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
+<code><a href="maxima_14.html#float">float</a></code> oder der Optionsvariablen <code><a href="maxima_14.html#numer">numer</a></code> kann die numerische
+Auswertung erzwungen werden, wenn die Argumente ganze oder rationale Zahlen
+sind.  Die numerische Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht
+implementiert.  In diesem Fall gibt Maxima eine Substantivform zur&uuml;ck.
+</p>
+<p><code>bessel_k</code> hat die folgenden Eigenschaften, die mit mit der Funktion
+<code><a href="maxima_63.html#properties">properties</a></code> angezeigt werden und auf das symbolische Rechnen Einfluss
+haben:
+</p>
+<dl compact="compact">
+<dt><code>conjugate function</code></dt>
+<dd><p><code>bessel_k</code> hat Spiegelsymmetrie, wenn das Argument <var>z</var> keine negative
+reelle Zahl ist.  Die Spiegelsymmetrie wird zum Beispiel von der Funktion
+<code><a href="maxima_51.html#conjugate">conjugate</a></code> f&uuml;r die Vereinfachung eines Ausdrucks genutzt.
+</p></dd>
+<dt><code>complex characteristic</code></dt>
+<dd><p>Maxima kennt den Realteil und den Imagin&auml;rteil von <code>bessel_k</code> f&uuml;r
+spezielle Argumente <em>v</em> und <em>z</em>.
+</p></dd>
+<dt><code>limit function</code></dt>
+<dd><p>Maxima kennt spezielle Grenzwerte der Funktion <code>bessel_k</code>.
+</p></dd>
+<dt><code>integral</code></dt>
+<dd><p>Maxima kennt das Integral der Funktion <code>bessel_k</code> f&uuml;r die
+Integrationsvariable <em>z</em>.
+</p></dd>
+<dt><code>gradef</code></dt>
+<dd><p>Maxima kennt die Ableitungen der Funktion <code>bessel_k</code> nach den
+Argumenten <em>v</em> und <em>z</em>.
+</p></dd>
+</dl>
+
+<p>Die Vereinfachung der Bessel-Funktion <code>bessel_k</code> wird von den folgenden
+Optionsvariablen kontrolliert:
+</p>
+<dl compact="compact">
+<dt><code>distribute_over</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code> den Wert <code>true</code> und sind
+die Argumente von <code>bessel_k</code> eine Matrix, Liste oder Gleichung wird die
+Funktion auf die Elemente oder beiden Seiten der Gleichung angewendet.  Der
+Standardwert ist <code>true</code>.
+</p></dd>
+<dt><code>besselexpand</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="#besselexpand">besselexpand</a></code> den Wert <code>true</code>, wird
+<code>bessel_k</code> mit einer halbzahligen Ordnung <em>v</em> als Exponentialfunktion
+entwickelt.
+</p></dd>
+<dt><code>bessel_reduce</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="#bessel_005freduce">bessel_reduce</a></code> den Wert <code>true</code>, wird
+<code>bessel_k</code> mit einer ganzzahligen Ordnung <em>n</em> nach Bessel-Funktionen
+<code>bessel_k</code> mit der niedrigsten Ordnung <code>0</code> und <code>1</code> entwickelt.
+</p></dd>
+<dt><code>hypergeometric_representation</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="maxima_142.html#hypergeometric_005frepresentation">hypergeometric_representation</a></code> den Wert
+<code>true</code>, dann wird <code>bessel_k</code> als hypergeometrische Funktion
+dargestellt.  Es ist zu beachten, dass die hypergeometrische Funktion nur f&uuml;r
+eine nicht ganzzahlige Ordnung <em>v</em> g&uuml;ltig ist.
+</p></dd>
+</dl>
+
+<p>Weiterhin kennt Maxima die geraden und ungeraden Symmetrieeigenschaften von
+<code>bessel_k</code>.  F&uuml;r eine ganze Zahl <em>n</em> vereinfacht daher
+<code>bessel_k(-n, z)</code> zu <code>bessel_y(n, z)</code>.
+</p>
+<p>Siehe auch die anderen Bessel-Funktionen <code><a href="#bessel_005fj">bessel_j</a></code>, <code><a href="#bessel_005fy">bessel_y</a></code>
+und <code><a href="#bessel_005fi">bessel_i</a></code> sowie die weiteren mit den Bessel-Funktionen verwandten
+Funktionen wie die Hankel-Funktionen in <a href="maxima_137.html#Hankel_002dFunktionen">Hankel-Funktionen</a>, Airy-Funktionen
+in <a href="maxima_138.html#Airy_002dFunktionen">Airy-Funktionen</a> und Struve-Funktionen in <a href="maxima_139.html#Struve_002dFunktionen">Struve-Funktionen</a>.
+</p>
+<p>Siehe die Funktion <code><a href="#bessel_005fj">bessel_j</a></code> f&uuml;r Beispiele mit Bessel-Funktionen.
+</p></dd></dl>
+
+<a name="bessel_005freduce"></a><a name="Item_003a-Special_002ede_002fdefvr_002fbessel_005freduce"></a><dl>
+<dt><a name="index-bessel_005freduce"></a>Optionsvariable: <strong>bessel_reduce</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p>Hat die Optionsvariable <code>bessel_reduce</code> den Wert <code>true</code>, werden 
+Bessel-Funktionen mit einer ganzzahligen Ordnung <em>n</em> nach Bessel-Funktionen
+mit der niedrigsten Ordnung <em>0</em> und <em>1</em> entwickelt.
+</p></dd></dl>
+
+<a name="besselexpand"></a><a name="Item_003a-Special_002ede_002fdefvr_002fbesselexpand"></a><dl>
+<dt><a name="index-besselexpand"></a>Optionsvariable: <strong>besselexpand</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p>Hat die Optionsvariable <code>besselexpand</code> den Wert <code>true</code>, werden
+Bessel-Funktion mit einer halbzahligen Ordnung <em>v</em> als Sinus-,
+Kosinus-, Hyperbel- oder Exponentialfunktionen entwickelt.  Die Optionsvariable
+<code>besselexpand</code> kontrolliert auch die Entwicklung der Hankel-Funktionen
+<code><a href="maxima_137.html#hankel_005f1">hankel_1</a></code> und <code><a href="maxima_137.html#hankel_005f2">hankel_2</a></code> sowie der Struve-Funktionen <code><a href="maxima_139.html#struve_005fh">struve_h</a></code>
+und <code><a href="maxima_139.html#struve_005fl">struve_l</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) besselexpand: false$
+
+(%i2) bessel_j(3/2, z);
+                                  3
+(%o2)                    bessel_j(-, z)
+                                  2
+(%i3) besselexpand: true$
+
+(%i4) bessel_j(3/2, z);
+                                 sin(z)   cos(z)
+                sqrt(2) sqrt(z) (------ - ------)
+                                    2       z
+                                   z
+(%o4)           ---------------------------------
+                            sqrt(%pi)
+</pre></div>
+
+<p>Weitere Beispiele f&uuml;r die Entwicklungen der Funktionen <code><a href="#bessel_005fk">bessel_k</a></code> und
+<code><a href="maxima_139.html#struve_005fh">struve_h</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i5) bessel_k(3/2, z);
+                                1        - z
+                     sqrt(%pi) (- + 1) %e
+                                z
+(%o5)                -----------------------
+                         sqrt(2) sqrt(z)
+
+(%i6) struve_h(3/2, z);
+                                           2
+                  2 z sin(z) + 2 cos(z) - z  - 2
+(%o6)           - ------------------------------
+                                         3/2
+                      sqrt(2) sqrt(%pi) z
+</pre></div>
+</dd></dl>
+
+<a name="scaled_005fbessel_005fi"></a><a name="Item_003a-Special_002ede_002fdeffn_002fscaled_005fbessel_005fi"></a><dl>
+<dt><a name="index-scaled_005fbessel_005fi"></a>Funktion: <strong>scaled_bessel_i</strong> <em>(<var>v</var>, <var>z</var>) </em></dt>
+<dd>
+<p>Die skalierte modifizierte Bessel-Funktion der ersten Art der Ordnung
+<em>v</em> mit dem Argument <em>z</em>.  Diese ist definiert als
+</p>
+<div class="example">
+<pre class="example">                                                - abs(z)
+      scaled_bessel_i(v, z) = bessel_i(v, z) %e
+</pre></div>
+
+<p><code>scaled_bessel_i</code> liefert ein numerisches Ergebnis, wenn die Argumente 
+<em>v</em> und <em>z</em> Zahlen sind.  Die Funktion kann geeignet sein, wenn
+<code>bessel_i</code> f&uuml;r gro&szlig;e Argumente <em>z</em> numerisch berechnet werden
+soll.  Ganze, rationale oder gro&szlig;e Gleitkommazahlen werden in
+Gleitkommazahlen mit doppelter Genauigkeit umgewandelt.  Sind die Argumente
+keine Zahlen, wird ein vereinfachter Ausdruck mit der Funktion
+<code><a href="#bessel_005fi">bessel_i</a></code> zur&uuml;ckgegeben.
+</p>
+<p><code>scaled_bessel_i</code> ist eine Verbfunktion, die nicht f&uuml;r das symbolische
+Rechnen geeignet ist.  F&uuml;r das symbolische Rechnen ist die Funktion
+<code><a href="#bessel_005fi">bessel_i</a></code> zu verwenden.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) scaled_bessel_i(1, 50);
+(%o1)                  .05599312389289544
+(%i2) scaled_bessel_i(1/2, 50);
+(%o2)                  .05641895835477567
+(%i3) scaled_bessel_i(v, x);
+                                     - abs(x)
+(%o3)               bessel_i(v, x) %e
+</pre></div>
+</dd></dl>
+
+<a name="scaled_005fbessel_005fi0"></a><a name="Item_003a-Special_002ede_002fdeffn_002fscaled_005fbessel_005fi0"></a><dl>
+<dt><a name="index-scaled_005fbessel_005fi0"></a>Funktion: <strong>scaled_bessel_i0</strong> <em>(<var>z</var>)</em></dt>
+<dd>
+<p>Entspricht <code>scaled_bessel_i(0,z)</code>.  Siehe <code><a href="#scaled_005fbessel_005fi">scaled_bessel_i</a></code>.
+</p></dd></dl>
+
+<a name="scaled_005fbessel_005fi1"></a><a name="Item_003a-Special_002ede_002fdeffn_002fscaled_005fbessel_005fi1"></a><dl>
+<dt><a name="index-scaled_005fbessel_005fi1"></a>Funktion: <strong>scaled_bessel_i1</strong> <em>(<var>z</var>) </em></dt>
+<dd>
+<p>Entspricht <code>scaled_bessel_i(1,z)</code>.  Siehe <code><a href="#scaled_005fbessel_005fi">scaled_bessel_i</a></code>.
+</p></dd></dl>
+
+<a name="Item_003a-Special_002ede_002fnode_002fHankel_002dFunktionen"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_137.html#Hankel_002dFunktionen" accesskey="n" rel="next">Hankel-Funktionen</a>, Previous: <a href="maxima_135.html#Bessel_002dFunktionen-und-verwandte-Funktionen" accesskey="p" rel="previous">Bessel-Funktionen und verwandte Funktionen</a>, Nach oben: <a href="maxima_135.html#Bessel_002dFunktionen-und-verwandte-Funktionen" accesskey="u" rel="up">Bessel-Funktionen und verwandte Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

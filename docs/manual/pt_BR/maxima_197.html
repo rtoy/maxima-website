@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima: Introdução a polinômios ortogonais</title>
+
+<meta name="description" content="Manual do Maxima: Introdução a polinômios ortogonais">
+<meta name="keywords" content="Manual do Maxima: Introdução a polinômios ortogonais">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_196.html#orthopoly" rel="up" title="orthopoly">
+<link href="maxima_198.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-polin_00f4mios-ortogonais" rel="next" title="Funções e Variáveis Definidas para polinômios ortogonais">
+<link href="maxima_196.html#orthopoly" rel="previous" title="orthopoly">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introdu_00e7_00e3o-a-polin_00f4mios-ortogonais"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_198.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-polin_00f4mios-ortogonais" accesskey="n" rel="next">Funções e Variáveis Definidas para polinômios ortogonais</a>, Previous: <a href="maxima_196.html#orthopoly" accesskey="p" rel="previous">orthopoly</a>, Acima: <a href="maxima_196.html#orthopoly" accesskey="u" rel="up">orthopoly</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introducao-a-polinomios-ortogonais"></a>
+<h3 class="section">65.1 Introdução a polinômios ortogonais</h3>
+
+<p><code>orthopoly</code> é um pacote para avaliação simbólica e numérica de
+muitos tipos de polinômios ortogonais, incluindo polinômios de Chebyshev,
+Laguerre, Hermite, Jacobi, Legendre, e ultraesférico
+(Gegenbauer). Adicionalmentey, <code>orthopoly</code> inclui suporte funções esféricas segundo o critério de
+Bessel, esféricas segundo o critério de Hankel, e funções harmônica esféricas.
+</p>
+<p>Em sua maior parte, <code>orthopoly</code> segue as convenções de Abramowitz e Stegun
+<i>Handbook of Mathematical Functions</i>, Chapter 22 (10th printing, December 1972);
+adicionalmente, usamos Gradshteyn e Ryzhik, 
+<i>Table of Integrals, Series, and Products</i> (1980 corrected and 
+enlarged edition), e Eugen Merzbacher <i>Quantum Mechanics</i> (2nd edition, 1970).
+</p>
+
+
+<p>Barton Willis da University de Nebraska e Kearney (UNK) escreveu
+o pacote <code>orthopoly</code> e sua documetação. O pacote 
+é liberado segundo a licença pública geral GNU (GPL).
+</p>
+<a name="Iniciando-com-orthopoly"></a>
+<h4 class="subsection">65.1.1 Iniciando com orthopoly</h4>
+
+<p><code>load (&quot;orthopoly&quot;)</code> torna o pacote <code>orthopoly</code> disponível para uso.
+</p>
+<p>Para encontrar o polinômio de Legendre de terceira ordem,
+</p>
+<div class="example">
+<pre class="example">(%i1) legendre_p (3, x);
+                      3             2
+             5 (1 - x)    15 (1 - x)
+(%o1)      - ---------- + ----------- - 6 (1 - x) + 1
+                 2             2
+</pre></div>
+
+<p>Para expressar esse polinômio como uma soma de potências de <var>x</var>, aplique <var>ratsimp</var> ou <var>rat</var>
+para o resultado anterior.
+</p>
+<div class="example">
+<pre class="example">(%i2) [ratsimp (%), rat (%)];
+                        3           3
+                     5 x  - 3 x  5 x  - 3 x
+(%o2)/R/            [----------, ----------]
+                         2           2
+</pre></div>
+
+<p>Alternativamente, faça o segundo argumento  para <code>legendre_p</code> (sua variável &ldquo;principal&rdquo;) 
+uma expressão racional canônica (CRE)  usando <code>rat(x)</code> em lugar de somente <code>x</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) legendre_p (3, rat (x));
+                              3
+                           5 x  - 3 x
+(%o1)/R/                   ----------
+                               2
+</pre></div>
+
+<p>Para avaliação em ponto flutuante, <code>orthopoly</code> usa uma análise de erro durante a execução
+para estimar uma associação superior para o erro. Por exemplo,
+</p>
+<div class="example">
+<pre class="example">(%i1) jacobi_p (150, 2, 3, 0.2);
+(%o1) interval(- 0.062017037936715, 1.533267919277521E-11)
+</pre></div>
+
+<p>intervalos possuem a forma <code>interval (<var>c</var>, <var>r</var>)</code>, onde <var>c</var> é o
+centro e <var>r</var> é o raio do intervalo. Uma vez que Maxima
+não suporta aritmética sobre intervalos, em algumas situações, tais
+como em gráficos, você vai querer suprimir o erro e sair somente com o
+centro do intervalo. Para fazer isso, escolha a variável de
+opção <code>orthopoly_returns_intervals</code> para <code>false</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) orthopoly_returns_intervals : false;
+(%o1)                         false
+(%i2) jacobi_p (150, 2, 3, 0.2);
+(%o2)                  - 0.062017037936715
+</pre></div>
+
+<p>Veja a seção veja <a href="#Avalia_00e7_00e3o-em-Ponto-Flutuante">Avaliação em Ponto Flutuante</a> para maiores informaçõesfor more information.
+</p>
+<p>Muitas funções em <code>orthopoly</code> possuem uma propriedade <code>gradef</code>; dessa forma
+</p>
+<div class="example">
+<pre class="example">(%i1) diff (hermite (n, x), x);
+(%o1)                     2 n H     (x)
+                               n - 1
+(%i2) diff (gen_laguerre (n, a, x), x);
+              (a)               (a)
+           n L   (x) - (n + a) L     (x) unit_step(n)
+              n                 n - 1
+(%o2)      ------------------------------------------
+                               x
+</pre></div>
+
+<p>A função de um único passo no segundo exemplo previne um erro que poderia
+de outra forma surgir através da avaliação de <var>n</var> para 0.
+</p>
+<div class="example">
+<pre class="example">(%i3) ev (%, n = 0);
+(%o3)                           0
+</pre></div>
+
+<p>A propriedade <code>gradef</code> somente aplica para a variável &ldquo;principal&rdquo;; dderivadas com
+relação a outros argumentos usualmente resultam em uma mensagem de erro; por exemplo
+</p>
+<div class="example">
+<pre class="example">(%i1) diff (hermite (n, x), x);
+(%o1)                     2 n H     (x)
+                               n - 1
+(%i2) diff (hermite (n, x), n);
+
+Maxima doesn't know the derivative of hermite with respect the first argument
+ -- an error.  Quitting.  To debug this try debugmode(true);
+</pre></div>
+
+<p>Geralmente, funções em <code>orthopoly</code> mapeiam sobre listas e matrizes. Para
+o mapeamento para avaliação total, as variáveis de opção 
+<code>doallmxops</code> e <code>listarith</code> devem ambas serem <code>true</code> (o valor padrão).
+Para ilustrar o mapeamento sobre matrizes, considere
+</p>
+<div class="example">
+<pre class="example">(%i1) hermite (2, x);
+                                     2
+(%o1)                    - 2 (1 - 2 x )
+(%i2) m : matrix ([0, x], [y, 0]);
+                            [ 0  x ]
+(%o2)                       [      ]
+                            [ y  0 ]
+(%i3) hermite (2, m);
+               [                             2  ]
+               [      - 2        - 2 (1 - 2 x ) ]
+(%o3)          [                                ]
+               [             2                  ]
+               [ - 2 (1 - 2 y )       - 2       ]
+</pre></div>
+
+<p>No segundo exemplo, o elemento <code>i, j</code> do valor
+é <code>hermite (2, m[i,j])</code>; isso não é o mesmo que calcular
+<code>-2 + 4 m . m</code>, como visto no próximo exemplo.
+</p>
+<div class="example">
+<pre class="example">(%i4) -2 * matrix ([1, 0], [0, 1]) + 4 * m . m;
+                    [ 4 x y - 2      0     ]
+(%o4)               [                      ]
+                    [     0      4 x y - 2 ]
+</pre></div>
+
+<p>Se você avaliar uma função em um ponto fora do seu domínio, geralmente
+<code>orthopoly</code> retorna uma função não avaliada. Por exemplo,
+</p>
+<div class="example">
+<pre class="example">(%i1) legendre_p (2/3, x);
+(%o1)                        P   (x)
+                              2/3
+</pre></div>
+
+<p><code>orthopoly</code> suporta tradução em TeX; <code>orthopoly</code> também faz saídas
+bidimensionais em um terminal.
+</p>
+<div class="example">
+<pre class="example">(%i1) spherical_harmonic (l, m, theta, phi);
+                          m
+(%o1)                    Y (theta, phi)
+                          l
+(%i2) tex (%);
+$$Y_{l}^{m}\left(\vartheta,\varphi\right)$$
+(%o2)                         false
+(%i3) jacobi_p (n, a, a - b, x/2);
+                          (a, a - b) x
+(%o3)                    P          (-)
+                          n          2
+(%i4) tex (%);
+$$P_{n}^{\left(a,a-b\right)}\left({{x}\over{2}}\right)$$
+(%o4)                         false
+</pre></div>
+
+<a name="Limitations"></a>
+<h4 class="subsection">65.1.2 Limitations</h4>
+
+<p>Quando uma expressão envolve muitos polinômios ortogonais com
+ordens simbólicas, é possível que a expressão atualmente
+tenda para zero, e ainda ocorre também que Maxima estar incapacitado de simplificar essa expressão para zero. Se você
+faz uma divisão por tal quantidade que tende a zero, você pode estar em apuros. Por exemplo,
+a seguinte expressão tende para zero para inteiros <var>n</var> maiores que 1, e ainda ocorre também que  Maxima
+está incapacitado de simplificar essa expressão para zero.
+</p>
+<div class="example">
+<pre class="example">(%i1) (2*n - 1) * legendre_p (n - 1, x) * x - n * legendre_p (n, x) + (1 - n) * legendre_p (n - 2, x);
+(%o1)  (2 n - 1) P     (x) x - n P (x) + (1 - n) P     (x)
+                  n - 1           n               n - 2
+</pre></div>
+
+<p>Para um <var>n</var> específico, podemos reduzir a expressão a zero.
+</p>
+<div class="example">
+<pre class="example">(%i2) ev (% ,n = 10, ratsimp);
+(%o2)                           0
+</pre></div>
+
+<p>Geralmente, a forma polinomial de um polinômio ortogonal esteja adequada de forma hostil
+para avaliaçao em ponto flutuante. Aqui está um exemplo.
+</p>
+<div class="example">
+<pre class="example">(%i1) p : jacobi_p (100, 2, 3, x)$
+
+(%i2) subst (0.2, x, p);
+(%o2)                3.4442767023833592E+35
+(%i3) jacobi_p (100, 2, 3, 0.2);
+(%o3)  interval(0.18413609135169, 6.8990300925815987E-12)
+(%i4) float(jacobi_p (100, 2, 3, 2/10));
+(%o4)                   0.18413609135169
+</pre></div>
+
+<p>O verdadeiro valor está em torno de 0.184; ess calculo suporta erro de 
+cancelamento por extremo subtrativo.Expandindo o polinômio e então
+avaliando, fornecendo um melhor resultado.
+</p><div class="example">
+<pre class="example">(%i5) p : expand(p)$
+(%i6) subst (0.2, x, p);
+(%o6) 0.18413609766122982
+</pre></div>
+
+<p>Essa não é uma regra geral; expandindo o polinômio não resulta sempre 
+em expressões que são melhores adaptadas a avaliação numérica.
+Com grande folga, o melhor caminho para fazer avaliação numérica é fazer um ou mais
+argumentos da função serem números em ponto flutuante. Em função disso, 
+algorítmos especializados em ponto flutuante são usados para avaliação.
+</p>
+<p>A função <code>float</code> do Maxima é até certo ponto indiscriminada; se você aplicar 
+<code>float</code> a uma expressão envolvendo um polinômio ortogonal com um
+grau simbólico ou um parâmetro de ordem, esses parâmetos (inteiros) podem ser 
+convertido em números em ponto flutuante; após o que, a expressão não irá avaliar 
+completamente. Considere
+</p>
+<div class="example">
+<pre class="example">(%i1) assoc_legendre_p (n, 1, x);
+                               1
+(%o1)                         P (x)
+                               n
+(%i2) float (%);
+                              1.0
+(%o2)                        P   (x)
+                              n
+(%i3) ev (%, n=2, x=0.9);
+                             1.0
+(%o3)                       P   (0.9)
+                             2
+</pre></div>
+
+<p>A expressão em (%o3) não irá avaliar para um número em ponto flutuante; <code>orthopoly</code> não
+reconhece valores em ponto flutuante em lugares onde deve haver valores inteiros. Similarmente, 
+avaliação numérica da função <code>pochhammer</code> para ordens que
+excedam <code>pochhammer_max_index</code> pode ser perturbador; considere
+</p>
+<div class="example">
+<pre class="example">(%i1) x :  pochhammer (1, 10), pochhammer_max_index : 5;
+(%o1)                         (1)
+                                 10
+</pre></div>
+
+<p>Aplicando <code>float</code> não avalia <var>x</var> para um número em ponto flutuante
+</p>
+<div class="example">
+<pre class="example">(%i2) float (x);
+(%o2)                       (1.0)
+                                 10.0
+</pre></div>
+
+<p>Para avaliar <var>x</var> para um número em ponto flutuante, você irá precisar associar
+<code>pochhammer_max_index</code> a 11 ou mais e aplicar <code>float</code> a <var>x</var>.
+</p>
+<div class="example">
+<pre class="example">(%i3) float (x), pochhammer_max_index : 11;
+(%o3)                       3628800.0
+</pre></div>
+
+<p>O valor padrão de <code>pochhammer_max_index</code> é 100;
+modifique esse valor após chama <code>orthopoly</code>.
+</p>
+<p>Finalmente, tenha consciência que os livros citados nas referências adotam diferentes definições de 
+polinômios ortogonais; geralmente adotamos as convenções 
+citadas nas convenções de Abramowitz e Stegun.
+</p>
+<p>Antes de você suspeitar de um erro no pacote <code>orthopoly</code>, verifique alguns casos especiais 
+para determinar se suas definições coincidem com aquelas usadas por <code>orthopoly</code>. 
+Definitions muitas vezes diferem por uma normalização; ocasionalmente, autores
+utilizam versões &ldquo;modificadas&rdquo; das funções que fazem a família
+ortogonal sobre um intervalo diferente do intervalo <em>(-1, 1)</em>. Para definir, por exemplo,
+um polinômio de Legendre que é ortogonal a <em>(0, 1)</em>, defina
+</p>
+<div class="example">
+<pre class="example">(%i1) shifted_legendre_p (n, x) := legendre_p (n, 2*x - 1)$
+
+(%i2) shifted_legendre_p (2, rat (x));
+                            2
+(%o2)/R/                 6 x  - 6 x + 1
+(%i3) legendre_p (2, rat (x));
+                               2
+                            3 x  - 1
+(%o3)/R/                    --------
+                               2
+</pre></div>
+
+<a name="Avalia_00e7_00e3o-em-Ponto-Flutuante"></a><a name="Avaliacao-em-Ponto-Flutuante"></a>
+<h4 class="subsection">65.1.3 Avaliação em Ponto Flutuante</h4>
+
+<p>Muitas funções em <code>orthopoly</code> utilizam análise de erro durante a execução para 
+estimar o erro em avaliações em ponto flutuante; as 
+exceções são funções de Bessel esféricas e os polinômios associados de
+Legendre do segundo tipo. Para avaliações numéricas, as funções 
+de Bessel esféricas chamam funções da coleção de programas <code>SLATEC</code>. Nenhum método especializado é usado
+para avaliação numérica dos polinômios associados  de Legendre do
+segundo tipo.
+</p>
+<p>A análise de erro durante a execução ignora erros que são de segunda ordem ou maior
+na máquina (também conhecida como perda de algarismos). A análise de erro durante a execução também
+ignora alguns poucos outros tipos de erro. É possível (embora não provável) 
+que o erro atual exceda o estimado.
+</p>
+<p>Intervalos possuem a forma <code>interval (<var>c</var>, <var>r</var>)</code>, onde <var>c</var> é o centro 
+do intervalo e <var>r</var> é seu raio. O 
+centro de um intervalo pode sr um número complexo, e o raio é sempre um número real positivo.
+</p>
+<p>Aqui está um exemplo.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) fpprec : 50$
+
+(%i2) y0 : jacobi_p (100, 2, 3, 0.2);
+(%o2) interval(0.1841360913516871, 6.8990300925815987E-12)
+(%i3) y1 : bfloat (jacobi_p (100, 2, 3, 1/5));
+(%o3) 1.8413609135168563091370224958913493690868904463668b-1
+</pre></div>
+
+<p>Vamos testar o quanto o erro atual é é menor que o erro estimado
+</p>
+<div class="example">
+<pre class="example">(%i4) is (abs (part (y0, 1) - y1) &lt; part (y0, 2));
+(%o4)                         true
+</pre></div>
+
+<p>Realmente, por esse exemplo o erro estimado é um maior que
+o erro verdadeiro.
+</p>
+<p>Maxima não suporta aritmética sobre intervalos.
+</p>
+<div class="example">
+<pre class="example">(%i1) legendre_p (7, 0.1) + legendre_p (8, 0.1);
+(%o1) interval(0.18032072148437508, 3.1477135311021797E-15)
+        + interval(- 0.19949294375000004, 3.3769353084291579E-15)
+</pre></div>
+
+<p>Um usuário pode definir operadores aritméticos que fazem matemática de intervalos. Para
+definir adição de intervalos, podemos definir
+</p>
+<div class="example">
+<pre class="example">(%i1) infix (&quot;@+&quot;)$
+
+(%i2) &quot;@+&quot;(x,y) := interval (part (x, 1) + part (y, 1), part (x, 2) + part (y, 2))$
+
+(%i3) legendre_p (7, 0.1) @+ legendre_p (8, 0.1);
+(%o3) interval(- 0.019172222265624955, 6.5246488395313372E-15)
+</pre></div>
+
+<p>As rotinas eseciais em ponto flutuante são chamadas quando os argumentos
+forem complexos.  Por exemplo,
+</p>
+<div class="example">
+<pre class="example">(%i1) legendre_p (10, 2 + 3.0*%i);
+(%o1) interval(- 3.876378825E+7 %i - 6.0787748E+7, 
+                                           1.2089173052721777E-6)
+</pre></div>
+
+<p>Let&rsquo;s compare this to the true value.
+</p>
+<div class="example">
+<pre class="example">(%i1) float (expand (legendre_p (10, 2 + 3*%i)));
+(%o1)          - 3.876378825E+7 %i - 6.0787748E+7
+</pre></div>
+
+<p>Adicionalmente, quando os argumentos forem grandes números em ponto flutuante, as rotinas especiais
+de ponto flutuante são chamadas; todavia, tos grandes números em ponto flutuante são convertidos para números em ponto flutuante de dupla precisão
+e o resultado final é número em ponto flutuante de precisão dupla.
+</p>
+<div class="example">
+<pre class="example">(%i1) ultraspherical (150, 0.5b0, 0.9b0);
+(%o1) interval(- 0.043009481257265, 3.3750051301228864E-14)
+</pre></div>
+
+<a name="Graficos-e-orthopoly"></a>
+<h4 class="subsection">65.1.4 Gráficos e <code>orthopoly</code></h4>
+
+<p>Para montar gráficos de expressões que envolvem polinômios ortogonais, você 
+deve azer duas coisas:
+</p><ol>
+<li> Escolher a variável de opção <code>orthopoly_returns_intervals</code> para <code>false</code>,
+</li><li> Colocar apóstrofo em qualquer chamada a funções do pacote <code>orthopoly</code>.
+</li></ol>
+<p>Se chamadas a funções não receberem apóstrofo, Maxima irá avaliá-las para polinômios antes 
+de montar o gráfico; conseq&uuml;êntemente, as rotinas especializadas em ponto flutuante não serão chamadas.
+Aqui está um exemplo de como montar o gráfico de uma expressão que envolve
+um polinômio de Legendre.
+</p>
+<div class="example">
+<pre class="example">(%i1) plot2d ('(legendre_p (5, x)), [x, 0, 1]), orthopoly_returns_intervals : false;
+(%o1)
+</pre></div>
+
+<img src="./figures/orthopoly1.png" alt="./figures/orthopoly1">
+
+<p>A expressão <i>completa</i> <code>legendre_p (5, x)</code> recebe apóstrofo; isso é 
+diferente de apenas colocar apóstrofo no nome da função usando <code>'legendre_p (5, <var>x</var>)</code>.
+</p>
+<a name="Funcoes-Diversas"></a>
+<h4 class="subsection">65.1.5 Funções Diversas</h4>
+
+<p>O pacote <code>orthopoly</code> define o
+síbolo de Pochhammer e uma função de passo de unidade. <code>orthopoly</code> utiliza 
+a função delta de Kronecker e a função de passo de unidade em
+declarações <code>gradef</code>.
+</p>
+<p>Para converter os símbolos Pochhammer em quocientes da funções gama,
+use <code>makegamma</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) makegamma (pochhammer (x, n));
+                          gamma(x + n)
+(%o1)                     ------------
+                            gamma(x)
+(%i2) makegamma (pochhammer (1/2, 1/2));
+                                1
+(%o2)                       ---------
+                            sqrt(%pi)
+</pre></div>
+
+<p>Derivadas de símbolos de Pochhammer são fornecidas em termos de <code>psi</code>
+function.
+</p>
+<div class="example">
+<pre class="example">(%i1) diff (pochhammer (x, n), x);
+(%o1)             (x)  (psi (x + n) - psi (x))
+                     n     0             0
+(%i2) diff (pochhammer (x, n), n);
+(%o2)                   (x)  psi (x + n)
+                           n    0
+</pre></div>
+
+<p>Vocêprecisa ser cuidadoso com expressões como (%o1); a diferença das
+funções <code>psi</code> possuem polinômios quando <code><var>x</var> = -1, -2, .., -<var>n</var></code>. Esses polinômios
+cacelam-se com fatores em <code>pochhammer (<var>x</var>, <var>n</var>)</code> fazendo da derivada um polinômio
+de grau <code><var>n</var> - 1</code> quando <var>n</var> for um inteiro positivo.
+</p>
+<p>O símbolo de Pochhammer é definido de ordens negativas até sua
+representação como um quociente de funções gama. Considere
+</p>
+<div class="example">
+<pre class="example">(%i1) q : makegamma (pochhammer (x, n));
+                          gamma(x + n)
+(%o1)                     ------------
+                            gamma(x)
+(%i2) sublis ([x=11/3, n= -6], q);
+                               729
+(%o2)                        - ----
+                               2240
+</pre></div>
+
+<p>Alternativamente, podemos tomar ese resultado diretamente.
+</p>
+<div class="example">
+<pre class="example">(%i1) pochhammer (11/3, -6);
+                               729
+(%o1)                        - ----
+                               2240
+</pre></div>
+
+<p>A função passo de unidade é contínua à esquerda; dessa forma
+</p>
+<div class="example">
+<pre class="example">(%i1) [unit_step (-1/10), unit_step (0), unit_step (1/10)];
+(%o1)                       [0, 0, 1]
+</pre></div>
+
+<p>Se você precisa de uma função de unidade de passo que é ou contínua à esquerda ou contínua à direita
+em zero, defina sua própria função de unidade de passo usando <code>signum</code>; por exemplo,
+</p>
+<div class="example">
+<pre class="example">(%i1) xunit_step (x) := (1 + signum (x))/2$
+
+(%i2) [xunit_step (-1/10), xunit_step (0), xunit_step (1/10)];
+                                1
+(%o2)                       [0, -, 1]
+                                2
+</pre></div>
+
+<p>Não redefina a própria <code>unit_step</code>; alguns código em <code>orthopoly</code>
+requerem que a função de passo de unidade seja contínua à esquerda.
+</p>
+<a name="Algoritmos"></a>
+<h4 class="subsection">65.1.6 Algorítmos</h4>
+
+<p>Geralmente, <code>orthopoly</code> faz avaliações simbólicas pelo uso de uma representação 
+hipergeométrica de polinômios ortogonais. As funções 
+hipegeométricas são avaliadas usando as funções (não documetadas) <code>hypergeo11</code> 
+e <code>hypergeo21</code>. As excessões são as funções de Bessel metade inteiras 
+e a função de Legendre associada de segundo tipo. As funções de Bessel metade inteiras são
+avaliadas usando uma representação explícita, e a função de Legendre 
+associada de segundo tipo é avaliada usando recursividade.
+</p>
+<p>Para avaliação em ponto flutuante, nós novamente convertemos muitas fuções em
+uma forma hipergeométrica; nós avaliamos as funções hipergeométricas usando 
+recursividade para frente. Novamente, as excessões são as funções de Bessel metade inteiras 
+e a função de Legendre associada de segundo tipo. Numericamente, 
+as funções de Bessel meio inteiras são avaliadas usando o código SLATEC.
+</p>
+<a name="Item_003a-orthopoly_002fnode_002fFun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-polin_00f4mios-ortogonais"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_198.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-polin_00f4mios-ortogonais" accesskey="n" rel="next">Funções e Variáveis Definidas para polinômios ortogonais</a>, Previous: <a href="maxima_196.html#orthopoly" accesskey="p" rel="previous">orthopoly</a>, Acima: <a href="maxima_196.html#orthopoly" accesskey="u" rel="up">orthopoly</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Introducción a contrib_ode</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Introducción a contrib_ode">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Introducción a contrib_ode">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_181.html#contrib_005fode" rel="up" title="contrib_ode">
+<link href="maxima_183.html#Funciones-y-variables-para-contrib_005fode" rel="next" title="Funciones y variables para contrib_ode">
+<link href="maxima_181.html#contrib_005fode" rel="previous" title="contrib_ode">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introducci_00f3n-a-contrib_005fode"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_183.html#Funciones-y-variables-para-contrib_005fode" accesskey="n" rel="next">Funciones y variables para contrib_ode</a>, Previous: <a href="maxima_181.html#contrib_005fode" accesskey="p" rel="previous">contrib_ode</a>, Subir: <a href="maxima_181.html#contrib_005fode" accesskey="u" rel="up">contrib_ode</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+<a name="Introduccion-a-contrib_005fode"></a>
+<h3 class="section">43.1 Introducción a contrib_ode</h3>
+
+<p>La función <code>ode2</code> de Maxima resuelve ecuaciones diferenciales
+ordinarias (EDO) simples de primer y segundo orden. La función 
+<code>contrib_ode</code> extiende las posibilidades de <code>ode2</code>
+con métodos adicionales para ODEs lineales y no lineales de
+primer orden y homogéneas lineales de segundo orden.
+El código se encuentra en estado de desarrollo y la
+syntaxis puede cambiar en futuras versiones. Una vez el código
+se haya estabilizado podrá pasar a integrarse dentro de
+Maxima.
+</p>
+<p>El paquete debe cargarse con la instrucción <code>load(&quot;contrib_ode&quot;)</code>
+antes de utilizarlo.
+</p>
+<p>La sintaxis de <code>contrib_ode</code> es similar a la de <code>ode2</code>.
+Necesita tres argumentos: una EDO (sólo se necesita el miembro
+izquierdo si el derecho es igual cero), la variable dependiente y
+la independiente. Si encuentra la solución, devolverá una
+lista de resultados.
+</p>
+<p>La forma de los resultados devueltos es diferente de la utilizada
+por <code>ode2</code>.
+Puesto que las ecuaciones no lineales pueden tener múltiples
+soluciones, <code>contrib_ode</code> devuelve una lista de soluciones.
+Las soluciones pueden tener diferentes formatos:
+</p><ul>
+<li> una función explícita para la variable dependiente,
+
+</li><li> una función implícita para la variable dependiente,
+
+</li><li> una solución paramétrica en términos de la variable <code>%t</code> o
+
+</li><li> una transformación en otra EDO de variable <code>%u</code>.
+
+</li></ul>
+
+<p><code>%c</code> hace referencia a la constante de integración en 
+las ecuaciones de primer orden.
+<code>%k1</code> y <code>%k2</code> son las constantes para las ecuaciones
+de segundo orden.
+Si por cualquier razón contrib_ode no pudiese encontrar una
+solución, devolverá <code>false</code>, quizás después de 
+mostrar un mensaje de error.
+</p>
+<p>Ejemplos:
+</p>
+<p>En ocasiones es necesario devolver una lista de soluciones,
+pues algunas EDOs pueden tener múltiples soluciones:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;contrib_ode&quot;)$
+
+(%i2) eqn:x*'diff(y,x)^2-(1+x*y)*'diff(y,x)+y=0;
+
+                    dy 2             dy
+(%o2)            x (--)  - (x y + 1) -- + y = 0
+                    dx               dx
+(%i3) contrib_ode(eqn,y,x);
+
+                                             x
+(%o3)             [y = log(x) + %c, y = %c %e ]
+(%i4) method;
+
+(%o4)                        factor
+</pre></div>
+
+<p>Las EDOs no lineales pueden tener soluciones singulares sin
+constantes de integración, como en la segunda solución
+del ejemplo siguiente:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;contrib_ode&quot;)$
+
+(%i2) eqn:'diff(y,x)^2+x*'diff(y,x)-y=0;
+
+                       dy 2     dy
+(%o2)                 (--)  + x -- - y = 0
+                       dx       dx
+(%i3) contrib_ode(eqn,y,x);
+
+                                           2
+                                 2        x
+(%o3)              [y = %c x + %c , y = - --]
+                                          4
+(%i4) method;
+
+(%o4)                       clairault
+</pre></div>
+
+<p>La siguiente ODE tiene dos soluciones paramétricas en términos
+de la variable <code>%t</code>. En este caso, las soluciones paramétricas
+se pueden manipular para dar soluciones explícitas.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;contrib_ode&quot;)$
+
+(%i2) eqn:'diff(y,x)=(x+y)^2;
+
+                          dy          2
+(%o2)                     -- = (y + x)
+                          dx
+(%i3) contrib_ode(eqn,y,x);
+
+(%o3) [[x = %c - atan(sqrt(%t)), y = - x - sqrt(%t)], 
+                     [x = atan(sqrt(%t)) + %c, y = sqrt(%t) - x]]
+(%i4) method;
+
+(%o4)                       lagrange
+</pre></div>
+
+<p>En el siguiente ejemplo (Kamke 1.112) se obtiene una solución 
+implícita.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;contrib_ode&quot;)$
+
+(%i2) assume(x&gt;0,y&gt;0);
+
+(%o2)                    [x &gt; 0, y &gt; 0]
+(%i3) eqn:x*'diff(y,x)-x*sqrt(y^2+x^2)-y;
+
+                     dy           2    2
+(%o3)              x -- - x sqrt(y  + x ) - y
+                     dx
+(%i4) contrib_ode(eqn,y,x);
+
+                                  y
+(%o4)                  [x - asinh(-) = %c]
+                                  x
+(%i5) method;
+
+(%o5)                          lie
+</pre></div>
+
+<p>La siguiente ecuación de Riccati se transforma en
+una EDO lineal de segundo orden de variable <code>%u</code>. Maxima
+es incapaz de resolver la nueva EDO, por lo que la devuelve si
+resolver:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;contrib_ode&quot;)$
+
+(%i2) eqn:x^2*'diff(y,x)=a+b*x^n+c*x^2*y^2;
+
+                    2 dy      2  2      n
+(%o2)              x  -- = c x  y  + b x  + a
+                      dx
+(%i3) contrib_ode(eqn,y,x);
+
+               d%u
+               ---                            2
+               dx        2     n - 2   a     d %u
+(%o3)  [[y = - ----, %u c  (b x      + --) + ---- c = 0]]
+               %u c                     2      2
+                                       x     dx
+(%i4) method;
+
+(%o4)                        riccati
+</pre></div>
+
+<p>Para EDOs de primer orden, <code>contrib_ode</code> llama a <code>ode2</code>.
+Entonces trata de aplicar los siguientes métodos: factorización,
+Clairault, Lagrange, Riccati, Abel y Lie. El método de Lie no
+se intenta aplicar a las ecuaciones de Abel si el propio
+método de Abel no obtiene solución, pero sí
+se utiliza si el método de Riccati devuelve una EDO de
+segundo orden sin resolver.
+</p>
+<p>Para EDOs de segundo orden, <code>contrib_ode</code> llama a <code>ode2</code>
+y luego a <code>odelin</code>.
+</p>
+<p>Se mostrarán mensajes de depurado si se ejecuta la sentencia
+<code>put('contrib_ode,true,'verbose)</code>.
+</p>
+
+
+<a name="Item_003a-contrib_005fode_002fnode_002fFunciones-y-variables-para-contrib_005fode"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_183.html#Funciones-y-variables-para-contrib_005fode" accesskey="n" rel="next">Funciones y variables para contrib_ode</a>, Previous: <a href="maxima_181.html#contrib_005fode" accesskey="p" rel="previous">contrib_ode</a>, Subir: <a href="maxima_181.html#contrib_005fode" accesskey="u" rel="up">contrib_ode</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

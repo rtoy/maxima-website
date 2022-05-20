@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Functions and Variables for simplex</title>
+
+<meta name="description" content="Maxima Manual: Functions and Variables for simplex">
+<meta name="keywords" content="Maxima Manual: Functions and Variables for simplex">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_294.html#simplex" rel="up" title="simplex">
+<link href="maxima_297.html#simplification" rel="next" title="simplification">
+<link href="maxima_295.html#Introduction-to-simplex" rel="previous" title="Introduction to simplex">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Functions-and-Variables-for-simplex"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_295.html#Introduction-to-simplex" accesskey="p" rel="previous">Introduction to simplex</a>, Nach oben: <a href="maxima_294.html#simplex" accesskey="u" rel="up">simplex</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Functions-and-Variables-for-simplex-1"></a>
+<h3 class="section">68.2 Functions and Variables for simplex</h3>
+
+<a name="Item_003a-simplex_002ede_002fdefvr_002fepsilon_005flp"></a><dl>
+<dt><a name="index-epsilon_005flp"></a>Option variable: <strong>epsilon_lp</strong></dt>
+<dd><p>Default value: <code>10^-8</code>
+</p>
+<p>Epsilon used for numerical computations in <code>linear_program</code>.
+</p>
+<p>See also: <code>linear_program</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-simplex_002ede_002fdeffn_002flinear_005fprogram"></a><dl>
+<dt><a name="index-linear_005fprogram"></a>Function: <strong>linear_program</strong> <em>(<var>A</var>, <var>b</var>, <var>c</var>)</em></dt>
+<dd>
+<p><code>linear_program</code> is an implementation of the simplex algorithm.
+<code>linear_program(A, b, c)</code> computes a vector <var>x</var> for which
+<code>c.x</code> is minimum possible among vectors for which <code>A.x = b</code>
+and <code>x &gt;= 0</code>. Argument <var>A</var> is a matrix and arguments <var>b</var>
+and <var>c</var> are lists.
+</p>
+<p><code>linear_program</code> returns a list which contains the minimizing
+vector <var>x</var> and the minimum value <code>c.x</code>. If the problem is not
+bounded, it returns &quot;Problem not bounded!&quot; and if the problem is not
+feasible, it returns &quot;Problem not feasible!&quot;.
+</p>
+<p>To use this function first load the <code>simplex</code> package with
+<code>load(&quot;simplex&quot;);</code>.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">(%i2) A: matrix([1,1,-1,0], [2,-3,0,-1], [4,-5,0,0])$
+(%i3) b: [1,1,6]$
+(%i4) c: [1,-2,0,0]$
+(%i5) linear_program(A, b, c);
+                   13     19        3
+(%o5)            [[--, 4, --, 0], - -]
+                   2      2         2
+</pre></div>
+
+<p>See also: <code>minimize_lp</code>, <code>scale_lp</code>, and <code>epsilon_lp</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-simplex_002ede_002fdeffn_002fmaximize_005flp"></a><dl>
+<dt><a name="index-maximize_005flp"></a>Function: <strong>maximize_lp</strong> <em>(<var>obj</var>, <var>cond</var>, [<var>pos</var>])</em></dt>
+<dd>
+<p>Maximizes linear objective function <var>obj</var> subject to some linear
+constraints <var>cond</var>. See <code>minimize_lp</code> for detailed
+description of arguments and return value.
+</p>
+
+<p>See also: <code>minimize_lp</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-simplex_002ede_002fdeffn_002fminimize_005flp"></a><dl>
+<dt><a name="index-minimize_005flp"></a>Function: <strong>minimize_lp</strong> <em>(<var>obj</var>, <var>cond</var>, [<var>pos</var>])</em></dt>
+<dd>
+<p>Minimizes a linear objective function <var>obj</var> subject to some linear
+constraints <var>cond</var>. <var>cond</var> a list of linear equations or
+inequalities. In strict inequalities <code>&gt;</code> is replaced by <code>&gt;=</code>
+and <code>&lt;</code> by <code>&lt;=</code>. The optional argument <var>pos</var> is a list
+of decision variables which are assumed to be positive.
+</p>
+<p>If the minimum exists, <code>minimize_lp</code> returns a list which
+contains the minimum value of the objective function and a list of
+decision variable values for which the minimum is attained. If the
+problem is not bounded, <code>minimize_lp</code> returns &quot;Problem not
+bounded!&quot; and if the problem is not feasible, it returns &quot;Ploblem not
+feasible!&quot;.
+</p>
+<p>The decision variables are not assumed to be nonegative by default. If
+all decision variables are nonegative, set <code>nonegative_lp</code> to
+<code>true</code>.  If only some of decision variables are positive, list
+them in the optional argument <var>pos</var> (note that this is more
+efficient than adding constraints).
+</p>
+<p><code>minimize_lp</code> uses the simplex algorithm which is implemented in
+maxima <code>linear_program</code> function.
+</p>
+<p>To use this function first load the <code>simplex</code> package with
+<code>load(&quot;simplex&quot;);</code>.
+</p>
+<p>Examples:
+</p>
+<div class="example">
+<pre class="example">(%i1) minimize_lp(x+y, [3*x+y=0, x+2*y&gt;2]);
+                      4       6        2
+(%o1)                [-, [y = -, x = - -]]
+                      5       5        5
+(%i2) minimize_lp(x+y, [3*x+y&gt;0, x+2*y&gt;2]), nonegative_lp=true;
+(%o2)                [1, [y = 1, x = 0]]
+(%i3) minimize_lp(x+y, [3*x+y=0, x+2*y&gt;2]), nonegative_lp=true;
+(%o3)                Problem not feasible!
+(%i4) minimize_lp(x+y, [3*x+y&gt;0]);
+(%o4)                Problem not bounded!
+</pre></div>
+
+
+<p>See also: <code>maximize_lp</code>, <code>nonegative_lp</code>, <code>epsilon_lp</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-simplex_002ede_002fdefvr_002fnonegative_005flp"></a><dl>
+<dt><a name="index-nonegative_005flp"></a>Option variable: <strong>nonegative_lp</strong></dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>If <code>nonegative_lp</code> is true all decision variables to
+<code>minimize_lp</code> and <code>maximize_lp</code> are assumed to be positive.
+</p>
+<p>See also: <code>minimize_lp</code>.
+</p>
+</dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_295.html#Introduction-to-simplex" accesskey="p" rel="previous">Introduction to simplex</a>, Nach oben: <a href="maxima_294.html#simplex" accesskey="u" rel="up">simplex</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,35 +1,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Introduction to numerical solution of differential equations (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Introduction to numerical solution of differential equations</title>
 
-<meta name="description" content="Introduction to numerical solution of differential equations (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Introduction to numerical solution of differential equations (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Introduction to numerical solution of differential equations">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Introduction to numerical solution of differential equations">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_112.html" rel="next" title="Functions for numerical solution of differential equations">
-<link href="maxima_110.html" rel="prev" title="Functions for numerical solution of equations">
+<link href="maxima_112.html#Functions-for-numerical-solution-of-differential-equations" rel="next" title="Functions for numerical solution of differential equations">
+<link href="maxima_110.html#Functions-for-numerical-solution-of-equations" rel="previous" title="Functions for numerical solution of equations">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -51,7 +61,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -62,12 +72,14 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Introduction-to-numerical-solution-of-differential-equations"></span><div class="header">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introduction-to-numerical-solution-of-differential-equations"></a>
+<div class="header">
 <p>
-Next: <a href="maxima_112.html" accesskey="n" rel="next">Functions for numerical solution of differential equations</a>, Previous: <a href="maxima_110.html" accesskey="p" rel="prev">Functions for numerical solution of equations</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_112.html#Functions-for-numerical-solution-of-differential-equations" accesskey="n" rel="next">Functions for numerical solution of differential equations</a>, Previous: <a href="maxima_110.html#Functions-for-numerical-solution-of-equations" accesskey="p" rel="previous">Functions for numerical solution of equations</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Introduction-to-numerical-solution-of-differential-equations-1"></span><h3 class="section">22.5 Introduction to numerical solution of differential equations</h3>
+<a name="Introduction-to-numerical-solution-of-differential-equations-1"></a>
+<h3 class="section">22.5 Introduction to numerical solution of differential equations</h3>
 
 <p>The Ordinary Differential Equations (ODE) solved by the functions in this
 section should have the form,
@@ -95,19 +107,15 @@ given do not depend on that independent variable, the system is called
 autonomous.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Differential-equations">Differential equations</a>
+&middot;<a href="maxima_378.html#Category_003a-Numerical-methods">Numerical methods</a>
+&middot;<a href="maxima_378.html#Category_003a-Plotting">Plotting</a>
+&middot;</div>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Differential-equations">Differential equations</a>
-
-<a href="maxima_370.html#Category_003a-Numerical-methods">Numerical methods</a>
-
-<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p>
-
-<span id="Item_003a-Numerical_002fnode_002fFunctions-for-numerical-solution-of-differential-equations"></span><hr>
+<a name="Item_003a-Numerical_002fnode_002fFunctions-for-numerical-solution-of-differential-equations"></a><hr>
 <div class="header">
 <p>
-Next: <a href="maxima_112.html" accesskey="n" rel="next">Functions for numerical solution of differential equations</a>, Previous: <a href="maxima_110.html" accesskey="p" rel="prev">Functions for numerical solution of equations</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_112.html#Functions-for-numerical-solution-of-differential-equations" accesskey="n" rel="next">Functions for numerical solution of differential equations</a>, Previous: <a href="maxima_110.html#Functions-for-numerical-solution-of-equations" accesskey="p" rel="previous">Functions for numerical solution of equations</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

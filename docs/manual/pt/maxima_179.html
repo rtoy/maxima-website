@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Introdução a numericalio</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Introdução a numericalio">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Introdução a numericalio">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_178.html#numericalio" rel="up" title="numericalio">
+<link href="maxima_180.html#Defini_00e7_00f5es-para-numericalio" rel="next" title="Definições para numericalio">
+<link href="maxima_178.html#numericalio" rel="previous" title="numericalio">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introdu_00e7_00e3o-a-numericalio"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_180.html#Defini_00e7_00f5es-para-numericalio" accesskey="n" rel="next">Definições para numericalio</a>, Previous: <a href="maxima_178.html#numericalio" accesskey="p" rel="previous">numericalio</a>, Acima: <a href="maxima_178.html#numericalio" accesskey="u" rel="up">numericalio</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introducao-a-numericalio"></a>
+<h3 class="section">59.1 Introdução a numericalio</h3>
+
+<p><code>numericalio</code> é uma colecção de funções para ler e escrever ficheiros de dados.
+O ficheiro é lido completamente para construir um objecto;
+leituras parciais não são suportadas.
+</p>
+<p>É assumido que cada item a ler ou escrever é at&ocirc;mico:
+um número inteiro, número em ponto flutuante, grande número em ponto flutuante, sequência de caracteres, ou símbolo,
+e não um número racional ou um número complexo ou qualquer outro tipo de expressão não at&ocirc;mica.
+Essas funções podem tentar fazer alguma coisa levemente parecida com expressões não at&ocirc;micas,
+mas os resultados não são especificados aqui e são sujeitos a mudanças.
+</p>
+<p>Átomos em ambos os ficheiros de entrada e saída possuem o mesmo formato que
+em ficheiros de lote do Maxima ou no console interativo.
+Em particular, sequência de caracteres são contidas dentro de aspas duplas,
+contrabarra <code>\</code> evita qualquer interpretação especial do caractere seguinte,
+e o ponto de interrogação <code>?</code> é reconhecido no início de um símbolo
+para significar um símbolo do Lisp (em oposição a um símbolo do Maxima).
+Nenhum caractere de continuação (para continuar linhas quebradas) é reconhecido.
+</p>
+<p><var>separator_flag</var> diz que caracteres separa elementos.
+<var>separator_flag</var> é um argumento opcional para todas as funções de leitura e escrita.
+</p>
+<p>Para entrada, os valores de <var>separator_flag</var> reconhecidos são:
+<code>comma</code> para valores separados por vírgula,
+<code>pipe</code> para valores separados pelo caractere barra vertical <code>|</code>,
+<code>semicolon</code> para valores separados por ponto e vírgula <code>;</code>, 
+e <code>space</code> para valores separados pelos caracteres de espaço e de tabulação.
+Se o nome do ficheiro a ser lido/escrito termina em <code>.csv</code> e <var>separator_flag</var> não for especificado,
+<code>comma</code> é assumido.
+Se o nome do ficheiro termina em alguma outra coisa que não <code>.csv</code> e <code>separator_flag</code> não for especificado,
+<code>space</code> é assumido.
+</p>
+<p>Para saída, os mesmos quatro sinalizadores são reconhecidos como na entrada,
+e também <code>tab</code>, para valores separados pelo caractere de tabulaçao.
+</p>
+<p>Em entrada, múltiplos espaços e múltiplas tabulações sucessivas contam como um separador simples.
+Todavia, múltiplas vírgulas, barras verticais, ou ponto-e-vírgulas são significativos.
+Sucessivas vírgulas, barras verticais, ou ponto-e-vírgulas (com ou sem intercalação de espaços ou tabulações)
+são considerados como tendo <code>false</code> entre os separadores.
+Por exemplo, <code>1234,,Foo</code> é tratado da mesma forma que <code>1234,false,Foo</code>.
+Em saídas, os átomos <code>false</code> são escritos como tais;
+uma lista <code>[1234, false, Foo]</code> é escrita <code>1234,false,Foo</code>,
+e não é tentado colapsar a saída para <code>1234,,Foo</code>.
+</p>
+<a name="Item_003a-numericalio_002fnode_002fDefini_00e7_00f5es-para-numericalio"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_180.html#Defini_00e7_00f5es-para-numericalio" accesskey="n" rel="next">Definições para numericalio</a>, Previous: <a href="maxima_178.html#numericalio" accesskey="p" rel="previous">numericalio</a>, Acima: <a href="maxima_178.html#numericalio" accesskey="u" rel="up">numericalio</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

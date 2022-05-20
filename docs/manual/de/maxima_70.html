@@ -1,495 +1,470 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Oktober, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Maxima Manual: 70. solve_rec</title>
+<title>Maxima Manual: Grafikoptionen</title>
 
-<meta name="description" content="Maxima Manual: 70. solve_rec">
-<meta name="keywords" content="Maxima Manual: 70. solve_rec">
+<meta name="description" content="Maxima Manual: Grafikoptionen">
+<meta name="keywords" content="Maxima Manual: Grafikoptionen">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_66.html#Grafische-Darstellung" rel="up" title="Grafische Darstellung">
+<link href="maxima_71.html#Gnuplot-Optionen" rel="next" title="Gnuplot Optionen">
+<link href="maxima_69.html#Funktionen-und-Variablen-f_00fcr-die-grafische-Darstellung" rel="previous" title="Funktionen und Variablen f&uuml;r die grafische Darstellung">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="solve_005frec"></a>
-<a name="SEC370"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_69.html#SEC369" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC371" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_69.html#SEC361" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_71.html#SEC373" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 70. solve_rec </h1>
-
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC371">70.1 Introduction to solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC372">70.2 Functions and Variables for solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Introduction-to-solve_005frec"></a>
-<a name="SEC371"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC370" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC372" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC370" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC370" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_71.html#SEC373" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 70.1 Introduction to solve_rec </h2>
-
-<p><code>solve_rec</code> is a package for solving linear recurrences with polynomial
-coefficients.
-</p>
-<p>A demo is available with <code>demo(solve_rec)</code>.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load(&quot;solve_rec&quot;)$
-(%i2) solve_rec((n+4)*s[n+2] + s[n+1] - (n+1)*s[n], s[n]);
-                                    n
-                 %k  (2 n + 3) (- 1)          %k
-                   1                            2
-(%o2)       s  = -------------------- + ---------------
-             n     (n + 1) (n + 2)      (n + 1) (n + 2)
-</pre>
-<hr size="6">
-<a name="Functions-and-Variables-for-solve_005frec"></a>
-<a name="SEC372"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC371" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_71.html#SEC373" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC370" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC370" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_71.html#SEC373" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 70.2 Functions and Variables for solve_rec </h2>
-
-<dl>
-<dt><u>Function:</u> <b>reduce_order</b><i> (<var>rec</var>, <var>sol</var>, <var>var</var>)</i>
-<a name="IDX2597"></a>
-</dt>
-<dd><p>Reduces the order of linear recurrence <var>rec</var> when a particular solution
-<var>sol</var> is known.  The reduced reccurence can be used to get other solutions.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i3) rec: x[n+2] = x[n+1] + x[n]/n;
-                                      x
-                                       n
-(%o3)               x      = x      + --
-                     n + 2    n + 1   n
-(%i4) solve_rec(rec, x[n]);
-WARNING: found some hypergeometrical solutions! 
-(%o4)                    x  = %k  n
-                          n     1
-(%i5) reduce_order(rec, n, x[n]);
-(%t5)                    x  = n %z
-                          n       n
-
-                           n - 1
-                           ====
-                           \
-(%t6)                %z  =  &gt;     %u
-                       n   /        %j
-                           ====
-                           %j = 0
-
-(%o6)             (- n - 2) %u     - %u
-                              n + 1     n
-(%i6) solve_rec((n+2)*%u[n+1] + %u[n], %u[n]);
-                                     n
-                            %k  (- 1)
-                              1
-(%o6)                 %u  = ----------
-                        n    (n + 1)!
-
-So the general solution is
-
-             n - 1
-             ====        j
-             \      (- 1)
-       %k  n  &gt;    -------- + %k  n
-         2   /     (j + 1)!     1
-             ====
-             j = 0
-</pre></dd></dl>
-
-<p><a name="simplify_005fproducts"></a>
-</p><dl>
-<dt><u>Option variable:</u> <b>simplify_products</b>
-<a name="IDX2598"></a>
-</dt>
-<dd><p>Default value: <code>true</code>
-</p>
-<p>If <code>simplify_products</code> is <code>true</code>, <code>solve_rec</code> will try to
-simplify products in result.
-</p>
-<p>See also: <code>solve_rec</code>.
-</p></dd></dl>
-
-<p><a name="simplify_005fsum"></a>
-</p><dl>
-<dt><u>Function:</u> <b>simplify_sum</b><i> (<var>expr</var>)</i>
-<a name="IDX2599"></a>
-</dt>
-<dd><p>Tries to simplify all sums appearing in <var>expr</var> to a closed form.
-</p>
-<p>To use this function first load the <code>simplify_sum</code> package with
-<code>load(simplify_sum)</code>.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load(&quot;simplify_sum&quot;)$
-(%i2) sum(binom(n+k,k)/2^k, k, 0, n)
-                             + sum(binom(2*n, 2*k), k, 0, n);
-         n                            n
-        ====                         ====
-        \      binomial(n + k, k)    \
-(%o2)    &gt;     ------------------ +   &gt;    binomial(2 n, 2 k)
-        /               k            /
-        ====           2             ====
-        k = 0                        k = 0
-(%i3) simplify_sum(%);
-                               n
-                              4     n
-(%o3)                         -- + 2
-                              2
-</pre></dd></dl>
-
-<p><a name="solve_005frec_005ffunction"></a>
-</p><dl>
-<dt><u>Function:</u> <b>solve_rec</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i>
-<a name="IDX2600"></a>
-</dt>
-<dd><p>Solves for hypergeometrical solutions to linear recurrence <var>eqn</var> with
-polynomials coefficient in variable <var>var</var>.  Optional arguments <var>init</var>
-are initial conditions.
-</p>
-<p><code>solve_rec</code> can solve linear recurrences with constant coefficients,
-finds hypergeometrical solutions to homogeneous linear recurrences with
-polynomial coefficients, rational solutions to linear recurrences with
-polynomial coefficients and can solve Ricatti type recurrences.
-</p>
-<p>Note that the running time of the algorithm used to find hypergeometrical
-solutions is exponential in the degree of the leading and trailing
-coefficient.
-</p>
-<p>To use this function first load the <code>solve_rec</code> package with
-<code>load(solve_rec);</code>.
-</p>
-<p>Example of linear recurrence with constant coefficients:
-</p>
-<pre class="example">(%i2) solve_rec(a[n]=a[n-1]+a[n-2]+n/2^n, a[n]);
-                        n          n
-           (sqrt(5) - 1)  %k  (- 1)
-                            1           n
-(%o2) a  = ------------------------- - ----
-       n               n                  n
-                      2                5 2
-                                                n
-                                   (sqrt(5) + 1)  %k
-                                                    2    2
-                                 + ------------------ - ----
-                                            n              n
-                                           2            5 2
-</pre>
-<p>Example of linear recurrence with polynomial coefficients:
-</p>
-<pre class="example">(%i7) 2*x*(x+1)*y[x] - (x^2+3*x-2)*y[x+1] + (x-1)*y[x+2];
-                         2
-(%o7) (x - 1) y      - (x  + 3 x - 2) y      + 2 x (x + 1) y
-               x + 2                   x + 1                x
-(%i8) solve_rec(%, y[x], y[1]=1, y[3]=3);
-                              x
-                           3 2    x!
-(%o9)                 y  = ---- - --
-                       x    4     2
-</pre>
-<p>Example of Ricatti type recurrence:
-</p>
-<pre class="example">(%i2) x*y[x+1]*y[x] - y[x+1]/(x+2) + y[x]/(x-1) = 0;
-                            y         y
-                             x + 1     x
-(%o2)         x y  y      - ------ + ----- = 0
-                 x  x + 1   x + 2    x - 1
-(%i3) solve_rec(%, y[x], y[3]=5)$
-(%i4) ratsimp(minfactorial(factcomb(%)));
-                                   3
-                               30 x  - 30 x
-(%o4) y  = - -------------------------------------------------
-       x        6      5       4       3       2
-             5 x  - 3 x  - 25 x  + 15 x  + 20 x  - 12 x - 1584
-</pre>
-<p>See also: <code>solve_rec_rat</code>, <code>simplify_products</code>, and 
-<code>product_use_gamma</code>.
-</p></dd></dl>
-
-<p><a name="solve_005frec_005frat"></a>
-</p><dl>
-<dt><u>Function:</u> <b>solve_rec_rat</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i>
-<a name="IDX2601"></a>
-</dt>
-<dd><p>Solves for rational solutions to linear recurrences.  See solve_rec for
-description of arguments.
-</p>
-<p>To use this function first load the <code>solve_rec</code> package with
-<code>load(solve_rec);</code>.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) (x+4)*a[x+3] + (x+3)*a[x+2] - x*a[x+1] + (x^2-1)*a[x];
-(%o1)  (x + 4) a      + (x + 3) a      - x a
-                x + 3            x + 2      x + 1
-                                                   2
-                                               + (x  - 1) a
-                                                            x
-(%i2) solve_rec_rat(% = (x+2)/(x+1), a[x]);
-                       1
-(%o2)      a  = ---------------
-            x   (x - 1) (x + 1)
-</pre>
-<p>See also: <code>solve_rec</code>.
-</p></dd></dl>
-
-<p><a name="product_005fuse_005fgamma"></a>
-</p><dl>
-<dt><u>Option variable:</u> <b>product_use_gamma</b>
-<a name="IDX2602"></a>
-</dt>
-<dd><p>Default value: <code>true</code>
-</p>
-<p>When simplifying products, <code>solve_rec</code> introduces gamma function
-into the expression if <code>product_use_gamma</code> is <code>true</code>.
-</p>
-<p>See also: <code>simplify_products</code>, <code>solve_rec</code>.
-</p></dd></dl>
-
-<p><a name="summand_005fto_005frec"></a>
-</p><dl>
-<dt><u>Function:</u> <b>summand_to_rec</b><i> (<var>summand</var>, <var>k</var>, <var>n</var>)</i>
-<a name="IDX2603"></a>
-</dt>
-<dt><u>Function:</u> <b>summand_to_rec</b><i> (<var>summand</var>, [<var>k</var>, <var>lo</var>, <var>hi</var>], <var>n</var>)</i>
-<a name="IDX2604"></a>
-</dt>
-<dd><p>Returns the recurrence sattisfied by the sum
-</p>
-<pre class="example">     hi
-    ====
-    \
-     &gt;     summand
-    /
-    ====
-  k = lo
-</pre>
-<p>where summand is hypergeometrical in <var>k</var> and <var>n</var>.  If <var>lo</var> and 
-<var>hi</var> are omited, they are assumed to be <code>lo = -inf</code> and 
-<code>hi = inf</code>.
-</p>
-<p>To use this function first load the <code>simplify_sum</code> package with
-<code>load(simplify_sum)</code>.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) load(&quot;simplify_sum&quot;)$
-(%i2) summand: binom(n,k);
-(%o2)                           binomial(n, k)
-(%i3) summand_to_rec(summand,k,n);
-(%o3)                      2 sm  - sm      = 0
-                               n     n + 1
-(%i7) summand: binom(n, k)/(k+1);
-                                binomial(n, k)
-(%o7)                           --------------
-                                    k + 1
-(%i8) summand_to_rec(summand, [k, 0, n], n);
-(%o8)               2 (n + 1) sm  - (n + 2) sm      = - 1
-                                n             n + 1
-</pre></dd></dl>
-
-
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC370" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_71.html#SEC373" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Grafikoptionen"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Oktober, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Next: <a href="maxima_71.html#Gnuplot-Optionen" accesskey="n" rel="next">Gnuplot Optionen</a>, Previous: <a href="maxima_69.html#Funktionen-und-Variablen-f_00fcr-die-grafische-Darstellung" accesskey="p" rel="previous">Funktionen und Variablen f&uuml;r die grafische Darstellung</a>, Nach oben: <a href="maxima_66.html#Grafische-Darstellung" accesskey="u" rel="up">Grafische Darstellung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Grafikoptionen-1"></a>
+<h3 class="section">12.4 Grafikoptionen</h3>
 
+
+<p>Die Grafikoptionen bestehen aus einer Liste, die mit einem Schl&uuml;sselwort 
+beginnt und ein oder mehrere Parameter enth&auml;lt.  Die meisten 
+Optionen k&ouml;nnen mit den Funktionen <code>plot2d</code>, <code>plot3d</code>, 
+<code>contour_plot</code> oder <code>implicit_plot</code> genutzt und mit der Funktion 
+<code>set_plot_option</code> gesetzt werden.  Auf Ausnahmen wird im Folgenden 
+hingewiesen.
 </p>
+<a name="adapt_005fdepth"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fadapt_005fdepth"></a><dl>
+<dt><a name="index-adapt_005fdepth"></a>Grafikoption: <strong>adapt_depth</strong> <em>[adapt_depth, <var>integer</var>]</em></dt>
+<dd><p>Standardwert: <code>5</code>
+</p>
+
+<p>Die maximale Zahl an Teilungen von Intervallen, die der adaptive Algorithmus 
+f&uuml;r das Zeichnen eines Graphen vornimmt.  Zusammen mit der Grafikoption
+<code><a href="#nticks">nticks</a></code> hat diese Grafikoption Einfluss darauf, wie glatt der Graph
+gezeichnet wird.
+</p></dd></dl>
+
+<a name="axes"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002faxes"></a><dl>
+<dt><a name="index-axes"></a>Grafikoption: <strong>axes</strong> <em>[axes, <var>symbol</var>]</em></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p><code>symbol</code> kann einen der Werte <code>true</code>, <code>false</code>, <code>x</code> oder
+<code>y</code> annehmen.  Ist der Wert <code>false</code>, werden keine Achsen gezeichnet.  
+Mit <code>x</code> oder <code>y</code> werden nur die x- oder nur die y-Achse gezeichnet.  
+Mit <code>true</code> werden beide Achsen gezeichnet.  Diese Option wird nur von den
+Funktionen <code><a href="maxima_69.html#plot2d">plot2d</a></code> und <code><a href="maxima_69.html#implicit_005fplot">implicit_plot</a></code> beachtet.
+</p></dd></dl>
+
+<a name="azimuth"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fazimuth"></a><dl>
+<dt><a name="index-azimuth"></a>Grafikoption: <strong>azimuth</strong> <em>[azimuth, <var>number</var>]</em></dt>
+<dd><p>Standardwert: <code>30</code>
+</p>
+
+<p>Setzt den Wert des Azimutwinkels in Grad f&uuml;r die Ansicht einer 
+dreidimensionalen Grafik.  Siehe auch <code><a href="#elevation">elevation</a></code>.
+</p></dd></dl>
+
+<a name="plot_005foption_005fbox"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fbox"></a><dl>
+<dt><a name="index-box-2"></a>Grafikoption: <strong>box</strong> <em>[box, <var>symbol</var>]</em></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat die Grafikoption <code>box</code> den Wert <code>true</code>, erh&auml;lt die Grafik einen
+Rahmen.  Ist der Wert <code>false</code>, wird kein Rahmen gezeichnet.
+</p></dd></dl>
+
+<a name="color"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fcolor"></a><dl>
+<dt><a name="index-color"></a>Grafikoption: <strong>color</strong> <em>[color, <var>color_1</var>, &hellip;, <var>color_n</var>]</em></dt>
+<dd><p>Standardwert: <code>[blue, red, green, magenta, black, cyan]</code>
+</p>
+
+<p>Wenn die Funktionen <code><a href="maxima_69.html#plot2d">plot2d</a></code> oder <code><a href="maxima_69.html#implicit_005fplot">implicit_plot</a></code> mehrere Graphen
+zeichnen, definiert die Grafikoption <code>color</code> die Farben der einzelnen 
+Graphen.  F&uuml;r einen 3D-Graphen mit der Funktion <code><a href="maxima_69.html#plot3d">plot3d</a></code> definiert die
+Grafikoption <code>color</code> die Farbe der Fl&auml;chen.
+</p>
+
+<p>Gibt es mehr Kurven oder Fl&auml;chen als Farben, werden die Farben wiederholt.
+Im Grafikformat Gnuplot k&ouml;nnen nur die Farben <code>blue</code>, <code>red</code>, 
+<code>green</code>, <code>magenta</code>, <code>black</code>, <code>cyan</code> verwendet werden.  Im 
+Grafikformat Xmaxima k&ouml;nnen die Farben auch als eine Zeichenkette angegeben 
+werden, die mit dem Zeichen # beginnt und auf dem sechs hexadezimale Zahlenwerte
+folgen.  Je zwei Werte bezeichnen die rote, gr&uuml;ne und blaue Komponente der 
+Farbe.
+</p>
+<p>Siehe auch <code><a href="#style">style</a></code>.
+</p></dd></dl>
+
+<a name="colorbox"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fcolorbox"></a><dl>
+<dt><a name="index-colorbox"></a>Grafikoption: <strong>colorbox</strong> <em>[colorbox, <var>symbol</var>]</em></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat die Grafikoption <code>colorbox</code> den Wert <code>true</code>, wird immer dann,
+wenn das Grafikkommando <code><a href="maxima_69.html#plot3d">plot3d</a></code> eine Palette mit verschiedenen Farben
+nutzt, um die z-Werte darzustellen, eine Legende mit den Farben und den
+dazugeh&ouml;renden z-Werten angezeigt.
+</p></dd></dl>
+
+<a name="elevation"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002felevation"></a><dl>
+<dt><a name="index-elevation"></a>Grafikoption: <strong>elevation</strong> <em>[elevation, <var>number</var>]</em></dt>
+<dd><p>Standardwert: <code>60</code>
+</p>
+
+<p>Setzt den Wert des Elevationswinkels in Grad f&uuml;r die Ansicht einer 
+dreidimensionalen Grafik.  Siehe auch <code><a href="#azimuth">azimuth</a></code>.
+</p></dd></dl>
+
+<a name="grid"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fgrid"></a><dl>
+<dt><a name="index-grid"></a>Grafikoption: <strong>grid</strong> <em>[grid, <var>integer</var>, <var>integer</var>]</em></dt>
+<dd><p>Standardwert: <code>[30, 30]</code>
+</p>
+
+<p>Setzt die Anzahl der Gitterlinen f&uuml;r die x- und y-Achsen einer 
+dreidimensionalen Grafik.
+</p></dd></dl>
+
+<a name="legend"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002flegend"></a><dl>
+<dt><a name="index-legend"></a>Grafikoption: <strong>legend</strong> <em>[legend, <var>string_1</var>, &hellip;, <var>string_n</var>]</em></dt>
+<dt><a name="index-legend-1"></a>Grafikoption: <strong>legend</strong> <em>[legend, <var>false</var>]</em></dt>
+<dd>
+
+<p>Definiert die Eintr&auml;ge einer Legende, wenn mehrere Graphen gezeichnet 
+werden.  Sind mehr Graphen als Eintr&auml;ge vorhanden, werden die Eintr&auml;ge 
+wiederholt.  Hat die Grafikoption <code>legend</code> den Wert <code>false</code>, wird 
+keine Legende gezeichnet.  Standardm&auml;&szlig;ig werden die Ausdr&uuml;cke oder Namen
+der Funktionen als Eintr&auml;ge verwendet.  F&uuml;r diskrete Grafiken werden die 
+Eintr&auml;ge mit discrete1, discrete2, &hellip; bezeichnet.  Diese Grafikoption 
+kann nicht mit der Funktion <code>set_plot_option</code> gesetzt werden.
+</p></dd></dl>
+
+<a name="logx"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002flogx"></a><dl>
+<dt><a name="index-logx"></a>Grafikoption: <strong>logx</strong> <em>[logx]</em></dt>
+<dd>
+
+<p>Bewirkt, dass die horizontale Achse logarithmisch skaliert wird.  Diese 
+Grafikoption kann nicht mit der Funktion <code>set_plot_option</code> gesetzt werden.
+Siehe auch <code><a href="#logy">logy</a></code>.
+</p></dd></dl>
+
+<a name="logy"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002flogy"></a><dl>
+<dt><a name="index-logy"></a>Grafikoption: <strong>logy</strong> <em>[logy]</em></dt>
+<dd>
+
+<p>Bewirkt, dass die vertikale Achse logarithmisch skaliert wird.  Diese 
+Grafikoption kann nicht mit der Funktion <code>set_plot_option</code> gesetzt werden.
+Siehe auch <code><a href="#logx">logx</a></code>.
+</p></dd></dl>
+
+<a name="mesh_005flines_005fcolor"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fmesh_005flines_005fcolor"></a><dl>
+<dt><a name="index-mesh_005flines_005fcolor"></a>Grafikoption: <strong>mesh_lines_color</strong> <em>[mesh_lines_color, <var>color</var>]</em></dt>
+<dd><p>Standardwert: <code>black</code>
+</p>
+
+<p>Setzt die Farbe, die von der Funktion <code>plot3d</code> genutzt wird, um die
+Gitterlinien zu zeichnen.  Es k&ouml;nnen dieselben Farben verwendet werden wie 
+f&uuml;r die Grafikoption <code><a href="#color">color</a></code>. Hat <code>mesh_lines_color</code> Wert 
+<code>false</code>, werden keine Gitterlinien gezeichnet.
+</p></dd></dl>
+
+<a name="nticks"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fnticks"></a><dl>
+<dt><a name="index-nticks"></a>Grafikoption: <strong>nticks</strong> <em>[nticks, <var>integer</var>]</em></dt>
+<dd><p>Standardwert: <code>29</code>
+</p>
+
+<p>Wird eine Grafik mit der Funktion <code>plot2d</code> gezeichnet, gibt <code>nticks</code>
+die Anzahl der Anfangspunkte f&uuml;r das Zeichnen der Grafik an.  Werden 
+parametrische Kurven mit den Funktionen <code>plot2d</code> oder <code>plot3d</code>
+gezeichnet, ist <code>nticks</code> die Anzahl der Punkte, f&uuml;r die der Graph
+gezeichnet wird.
+</p>
+<p>Zusammen mit der Grafikoption <code><a href="#adapt_005fdepth">adapt_depth</a></code> hat diese Grafikoption Einfluss
+darauf, wie glatt der Graph gezeichnet wird.
+</p></dd></dl>
+
+<a name="palette"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fpalette"></a><dl>
+<dt><a name="index-palette"></a>Grafikoption: <strong>palette</strong> <em>[palette, [<var>palette_1</var>], &hellip;, [<var>palette_n</var>]]</em></dt>
+<dt><a name="index-palette-1"></a>Grafikoption: <strong>palette</strong> <em>[palette, <var>false</var>]</em></dt>
+<dd><p align="left">Standardwert: <code>[hue, 0.25, 0.7, 0.8, 0.5], [hue, 0.65, 0.8, 0.9, 0.55], 
+[hue, 0.55, 0.8, 0.9, 0.4], [hue, 0.95, 0.7, 0.8, 0.5]</code>
+</p>
+
+<p>Eine Palette kann aus einer oder einer Liste mit mehreren Paletten bestehen.  
+Jede Palette beginnt mit einem Schl&uuml;sselwort, worauf 4 Zahlen folgen.  Die 
+ersten drei Zahlen haben Werte zwischen 0 und 1.  Diese definieren den Farbton 
+<code>hue</code>, die S&auml;ttigung <code>saturation</code> und die Grundfarbe <code>value</code>, 
+die der kleinste z-Wert erh&auml;lt.  Die Schl&uuml;sselworte <code>hue</code>, 
+<code>saturation</code> und <code>value</code> spezifizieren, welches der drei Attribute mit
+dem Wert von z ge&auml;ndert werden.  Der letzte Wert der Liste, spezifiziert, 
+welcher Wert zum gr&ouml;&szlig;ten z-Wert geh&ouml;rt.  Dieser gr&ouml;&szlig;te Wert kann
+gr&ouml;&szlig;er als 1 und auch negativ sein.  Die Werte der modifizierten 
+Attribute werden Modulo 1 gerundet.
+</p>
+
+<p>Gnuplot verwendet nur die erste Palette in einer Liste mit Paletten.  Xmaxima 
+nutzt alle Paletten nacheinander, wenn mehrere Fl&auml;chen gezeichnet werden.  
+Sind nicht gen&uuml;gend Paletten vorhanden, werden die Paletten wiederholt.
+</p>
+
+<p>Die Farbe der Gitterlinien wird mit der Option <code><a href="#mesh_005flines_005fcolor">mesh_lines_color</a></code>&nbsp;
+angegeben.  Hat <code>palette</code> den Wert <code>false</code>, werden die Fl&auml;chen nicht
+gef&auml;rbt, sondern als ein Gitternetz gezeichnet.  Die Farbe der Gitterlinien
+wird in diesem Fall mit der Grafikoption <code><a href="#color">color</a></code> festgelegt.
+</p></dd></dl>
+
+<a name="plot_005fformat"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fplot_005fformat"></a><dl>
+<dt><a name="index-plot_005fformat"></a>Grafikoption: <strong>plot_format</strong> <em>[plot_format, <var>format</var>]</em></dt>
+<dd><p>Standardwert: <code>gnuplot_pipes</code>
+</p>
+
+<p>Setzt das Grafikformat f&uuml;r die Ausgabe einer Grafik.  <code>format</code> kann die 
+Werte <code>gnuplot</code>, <code>xmaxima</code>, <code>mgnuplot</code> oder <code>gnuplot_pipes</code>
+annehmen.  Siehe das Kapitel <a href="maxima_68.html#Grafikformate">Grafikformate</a>.
+</p></dd></dl>
+
+<a name="plot_005frealpart"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fplot_005frealpart"></a><dl>
+<dt><a name="index-plot_005frealpart"></a>Grafikoption: <strong>plot_realpart</strong> <em>[plot_realpart, <var>symbol</var>]</em></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>plot_realpart</code> den Wert <code>true</code>, werden Funktionen als komplex
+angenommen und der Realteil wird gezeichnet.  Das entspricht dem Aufruf der
+Grafikfunktion mit dem Ausdruck <code>realpart(<var>function</var>)</code>.  Hat
+<code>plot_realpart</code> den Wert <code>false</code>, wird keine Grafik gezeichnet, wenn
+die Funktion keinen Realteil hat.  Zum Beispiel ist <code>log(x)</code> komplex, wenn
+<var>x</var> negativ ist.  Hat <code>plot_realpart</code> den Wert <code>true</code>, wird der
+Wert <code>log(-5)</code> als <code>log(5)</code> gezeichnet.  Hat <code>plot_realpart</code>
+den Wert <code>false</code> wird kein Wert gezeichnet.
+</p></dd></dl>
+
+<a name="point_005ftype"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fpoint_005ftype"></a><dl>
+<dt><a name="index-point_005ftype"></a>Grafikoption: <strong>point_type</strong> <em>[point_type, <var>type_1</var>, &hellip;, <var>type_n</var>]</em></dt>
+<dd><p align="left">Standardwert: <code>[bullet, circle, plus, times, asterisk, box, square, 
+triangle, delta, wedge, nabla, diamond, lozenge]</code>
+</p>
+
+<p>Werden im Grafikformat Gnuplot Punkte mit den Stilen <code>points</code> oder
+<code>linespoints</code> gezeichnet, werden die Symbole f&uuml;r die einzelnen 
+Datens&auml;tze nacheinander der Liste <code>point_type</code> entnommen.  Gibt es
+mehr Datens&auml;tze als Symbole, werden diese wiederholt.  Siehe auch 
+<code><a href="#style">style</a></code>.
+</p></dd></dl>
+
+<a name="psfile"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fpsfile"></a><dl>
+<dt><a name="index-psfile"></a>Grafikoption: <strong>psfile</strong> <em>[psfile, <var>filename</var>]</em></dt>
+<dd>
+
+<p>Speichert die Grafik in eine Postscript-Datei mit den Namen <var>filename</var>.  Die
+Grafik wird nicht auf dem Bildschirm ausgegeben.  Standardm&auml;&szlig;ig wird die 
+Datei in dem Ordner abgespeichert, dessen Namen in der Optionsvariablen
+<code>maxima_tempdir</code> enthalten ist.
+</p></dd></dl>
+
+<a name="run_005fviewer"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002frun_005fviewer"></a><dl>
+<dt><a name="index-run_005fviewer"></a>Grafikoption: <strong>run_viewer</strong> <em>[run_viewer, <var>symbol</var>]</em></dt>
+<dd>
+<p>Standardwert: <code>true</code>
+</p>
+
+<p>Kontrolliert, ob die Bildschirmausgabe des Grafikformats gestartet wird.
+</p></dd></dl>
+
+<a name="style"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fstyle"></a><dl>
+<dt><a name="index-style"></a>Grafikoption: <strong>style</strong> <em>[style, <var>type_1</var>, &hellip;, <var>type1_n</var>]</em></dt>
+<dt><a name="index-style-1"></a>Grafikoption: <strong>style</strong> <em>[style, [<var>style_1</var>], &hellip;, [<var>style_n</var>]]</em></dt>
+<dd><p>Standardwert: <code>lines</code>
+</p>
+
+<p>Bestimmt den Stil f&uuml;r das Zeichnen von Funktionen oder Datens&auml;tzen mit der
+Funktion <code>plot2d</code>.  Werden mehr Graphen gezeichnet, als Stile vorhanden
+sind, werden diese wiederholt.  Die m&ouml;glichen Stile sind <code>lines</code> f&uuml;r 
+Linien, <code>points</code> f&uuml;r einzelne Punkte, <code>linespoints</code> f&uuml;r Linien mit
+Punkten oder <code>dots</code> f&uuml;r kleine Punkte.  Das Grafikformat Gnuplot 
+akzeptiert zus&auml;tzlich den Stil <code>impulses</code>.
+</p>
+
+<p>Jeder Stil kann weitere Parameter erhalten, die zusammen mit dem Stil als eine
+Liste angegeben werden.  Der Stil <code>lines</code> akzeptiert zwei Zahlen, die die
+Breite der Linie und deren Farbe angegeben.  Die Standardfarben haben die
+Zahlenwerte: 1: <code>blue</code>, 2: <code>red</code>, 3: <code>magenta</code>, 4: <code>orange</code>,
+5: <code>brown</code>, 6: <code>lime</code> und 7: <code>aqua</code>.  Im Grafikformat Gnuplot 
+kann die Kodierung der Farben f&uuml;r verschiedene Terminals abweichend sein.  
+Wird zum Beispiel das Terminal [<var>gnuplot_term</var>,<var>ps</var>] verwendet, 
+entspricht dem Zahlenwert 4 die Farbe <code>black</code>.
+</p>
+
+<p>Der Stil <code>points</code> akzeptiert zwei oder drei Parameter.  Der erste Parameter
+ist der Radius des Punktes.  Der zweite Parameter ist eine Zahl, der wie
+f&uuml;r den Stil <code>lines</code> eine Farbe angibt.  Der dritte Parameter ist eine 
+Zahl, mit der im Grafikformat Gnuplot die folgenden Zeichen f&uuml;r die 
+Darstellung der Punkte ausgew&auml;hlt werden k&ouml;nnen: 1: <code>bullet</code>, 
+2: <code>circle</code>, 3: <code>plus</code>, 4: <code>times</code>, 5: <code>asterisk</code>, 
+6: <code>box</code>, 7: <code>square</code>, 8: <code>triangle</code>, 9: <code>delta</code>, 
+10: <code>wedge</code>, 11: <code>nabla</code>, 12: <code>diamond</code>, 13: <code>lozenge</code>.
+</p>
+
+<p>Der Stil <code>linesdots</code> akzeptiert bis zu vier Parameter: die Breite der 
+Linie, den Radius der Punkte, die Farbe und das Symbol f&uuml;r das Zeichnen der
+Punkte.
+</p>
+
+<p>Siehe auch die Grafikoptionen <code><a href="#color">color</a></code> und <code><a href="#point_005ftype">point_type</a></code>.
+</p></dd></dl>
+
+<a name="t"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002ft"></a><dl>
+<dt><a name="index-t"></a>Grafikoption: <strong>t</strong> <em>[t, <var>min</var>, <var>max</var>]</em></dt>
+<dd>
+
+<p>Bestimmt den Wertebereich f&uuml;r das Zeichnen einer parametrischen Kurve mit der
+Funktion <code><a href="maxima_69.html#plot2d">plot2d</a></code>.  Die Variable einer parametrischen Kurve muss mit
+<code>t</code> bezeichnet werden.
+</p></dd></dl>
+
+<a name="transform_005fxy"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002ftransform_005fxy"></a><dl>
+<dt><a name="index-transform_005fxy"></a>Grafikoption: <strong>transform_xy</strong> <em>[transform_xy, <var>symbol</var>]</em></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p><var>symbol</var> hat entweder den Wert <code>false</code> oder ist das Ergebnis der 
+Funktion <code><a href="maxima_69.html#make_005ftransform">make_transform</a></code>.  Wenn verschieden von <code>false</code>, wird die
+Funktion genutzt, um die drei Koordinaten einer dreidimensionalen Grafik zu
+transformieren.
+</p>
+<p>Siehe auch <code><a href="maxima_69.html#polar_005fto_005fxy">polar_to_xy</a></code> und <code><a href="maxima_69.html#spherical_005fto_005fxyz">spherical_to_xyz</a></code>. f&uuml;r bereits
+vordefinierte Koordinatentransformationen.
+</p></dd></dl>
+
+<a name="x"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fx"></a><dl>
+<dt><a name="index-x"></a>Grafikoption: <strong>x</strong> <em>[x, <var>min</var>, <var>max</var>]</em></dt>
+<dd>
+
+<p>Die erste Grafikoption der Funktionen <code>plot2d</code> oder <code>plot3d</code> 
+bezeichnet die unabh&auml;ngige Variable.  Die unabh&auml;ngige Variable muss 
+nicht mit <code>x</code> bezeichnet werden, sondern kann ein beliebiges von <code>x</code> 
+verschiedenes Symbol sein.  Die Werte <var>min</var> und <var>max</var> geben in diesem
+Fall den Wertebereich der unabh&auml;ngigen Variablen an.  Die Grafikoption 
+<code>x</code> kann ein zweites Mal angegeben werden, um den Bereich f&uuml;r die x-Achse
+festzulegen.
+</p></dd></dl>
+
+<a name="xlabel"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fxlabel"></a><dl>
+<dt><a name="index-xlabel"></a>Grafikoption: <strong>xlabel</strong> <em>[xlabel, <var>string</var>]</em></dt>
+<dd><p>Standardwert: <code>&quot;x&quot;</code>
+</p>
+
+<p>Legt die Zeichenkette <var>string</var> fest, mit der die x-Achse der Grafik 
+bezeichnet wird.  Der Standardwert ist <code>&quot;x&quot;</code> oder der Name der ersten
+unabh&auml;ngigen Variablen.  Diese Grafikoption kann nicht mit dem Kommando 
+<code>set_plot_option</code> gesetzt werden.
+</p></dd></dl>
+
+<a name="y"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fy"></a><dl>
+<dt><a name="index-y"></a>Grafikoption: <strong>y</strong> <em>[y, <var>min</var>, <var>max</var>]</em></dt>
+<dd>
+
+<p>F&uuml;r einen dreidimensionalen Graphen legt diese Grafikoption die zweite 
+unabh&auml;ngige Variable fest.  Die unabh&auml;ngige Variable muss nicht mit <code>y</code> 
+bezeichnet werden, sondern kann ein beliebiges von <code>y</code> verschiedenes Symbol
+sein.  Die Werte <var>min</var> und <var>max</var> geben in diesem Fall den Wertebereich 
+der Variablen an.  Wird die Grafikoption f&uuml;r einen zweidimensionalen Graphen 
+verwendet oder f&uuml;r einen dreidimensionalen Graphen ein zweites Mal eingesetzt, 
+dann wird der Bereich f&uuml;r die y-Achse festgelegt.
+</p></dd></dl>
+
+<a name="ylabel"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fylabel"></a><dl>
+<dt><a name="index-ylabel"></a>Grafikoption: <strong>ylabel</strong> <em>[ylabel, <var>string</var>]</em></dt>
+<dd><p>Standardwert: <code>&quot;y&quot;</code>
+</p>
+
+<p>Legt die Zeichenkette <var>string</var> fest, mit der die y-Achse der Grafik 
+bezeichnet wird.  Der Standardwert ist <code>&quot;y&quot;</code> oder f&uuml;r den Fall einer
+dreidimensionalen Grafik der Name der zweiten unabh&auml;ngigen Variablen.  Diese 
+Grafikoption kann nicht mit dem Kommando <code>set_plot_option</code> gesetzt werden.
+</p></dd></dl>
+
+<a name="z"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fz"></a><dl>
+<dt><a name="index-z"></a>Grafikoption: <strong>z</strong> <em>[z, <var>min</var>, <var>max</var>]</em></dt>
+<dd>
+
+<p>Legt f&uuml;r eine dreidimensionalen Grafik den Bereich f&uuml;r die z-Achse fest.
+</p></dd></dl>
+
+<a name="zlabel"></a><a name="Item_003a-Plotting_002ede_002fdefvr_002fzlabel"></a><dl>
+<dt><a name="index-zlabel"></a>Grafikoption: <strong>zlabel</strong> <em>[zlabel, <var>string</var>]</em></dt>
+<dd><p>Standardwert: <code>&quot;z&quot;</code>
+</p>
+
+<p>Legt die Zeichenkette <var>string</var> fest, mit der die z-Achse der Grafik 
+bezeichnet wird.  Der Standardwert ist <code>&quot;z&quot;</code>.  Diese Grafikoption kann 
+nicht mit dem Kommando <code>set_plot_option</code> gesetzt werden und wird von den
+Funktionen <code>plot2d</code> sowie <code>implicit_plot</code> ignoriert.
+</p></dd></dl>
+
+<a name="Item_003a-Plotting_002ede_002fnode_002fGnuplot-Optionen"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_71.html#Gnuplot-Optionen" accesskey="n" rel="next">Gnuplot Optionen</a>, Previous: <a href="maxima_69.html#Funktionen-und-Variablen-f_00fcr-die-grafische-Darstellung" accesskey="p" rel="previous">Funktionen und Variablen f&uuml;r die grafische Darstellung</a>, Nach oben: <a href="maxima_66.html#Grafische-Darstellung" accesskey="u" rel="up">Grafische Darstellung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

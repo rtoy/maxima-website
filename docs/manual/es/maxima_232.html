@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para grobner</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para grobner">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para grobner">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_toc.html#Top" rel="up" title="Top">
+<link href="maxima_233.html#impdiff" rel="next" title="impdiff">
+<link href="maxima_231.html#Introducci_00f3n-a-grobner" rel="previous" title="Introducción a grobner">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-grobner"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_231.html#Introducci_00f3n-a-grobner" accesskey="p" rel="previous">Introducción a grobner</a>, Subir: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-grobner-1"></a>
+<h3 class="section">56.2 Funciones y variables para grobner</h3>
+
+<a name="Variables-opcionales"></a>
+<h4 class="subsection">56.2.1 Variables opcionales</h4>
+
+<a name="Item_003a-grobner_002fdefvr_002fpoly_005fmonomial_005forder"></a><dl>
+<dt><a name="index-poly_005fmonomial_005forder"></a>Variable opcional: <strong>poly_monomial_order</strong></dt>
+<dd><p>Valor por defecto: <code>lex</code>
+</p>
+<p>Controla qué orden de monomios utiliza en los cálculos con
+polinomios y bases de Groebner. Si no se le asigna valor alguno,
+se utilizará <code>lex</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-grobner_002fdefvr_002fpoly_005fcoefficient_005fring"></a><dl>
+<dt><a name="index-poly_005fcoefficient_005fring"></a>Variable opcional: <strong>poly_coefficient_ring</strong></dt>
+<dd><p>Valor por defecto: <code>expression_ring</code>
+</p>
+<p>Indica el anillo de coeficientes de los polinomios que se va
+a utilizar en los cálculos. Si no se le asigna ningún valor,
+se utilizará el anillo de expresiones propio de <em>maxima</em>.
+A esta variable se le puede asignar el valor <code>ring_of_integers</code>.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdefvr_002fpoly_005fprimary_005felimination_005forder"></a><dl>
+<dt><a name="index-poly_005fprimary_005felimination_005forder"></a>Variable opcional: <strong>poly_primary_elimination_order</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Nombre del orden por defecto para las variables eliminadas en
+las funciones basadas en eliminaciones. Si no se le asigna
+ningún valor, se utilizará <code>lex</code>.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdefvr_002fpoly_005fsecondary_005felimination_005forder"></a><dl>
+<dt><a name="index-poly_005fsecondary_005felimination_005forder"></a>Variable opcional: <strong>poly_secondary_elimination_order</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Nombre del orden por defecto para las variables almacenadas
+en funciones basadas en eliminaciones. Si no se le asigna
+ningún valor, se utilizará <code>lex</code>.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdefvr_002fpoly_005felimination_005forder"></a><dl>
+<dt><a name="index-poly_005felimination_005forder"></a>Variable opcional: <strong>poly_elimination_order</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Nombre del orden de eliminación por defecto utilizado en
+los cálculos de eliminación. Si se le asigna un valor,
+ignorará los guardados en <code>poly_primary_elimination_order</code>
+y <code>poly_secondary_elimination_order</code>.
+El usuario se asegurará que este es un orden válido de eliminación.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdefvr_002fpoly_005freturn_005fterm_005flist"></a><dl>
+<dt><a name="index-poly_005freturn_005fterm_005flist"></a>Variable opcional: <strong>poly_return_term_list</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si vale <code>true</code>, todas las funciones de este paquete devolverán
+los polinomios como una lista de términos en el orden activo de
+monomios, en lugar de una expresión ordinaria de <em>maxima</em>.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdefvr_002fpoly_005fgrobner_005fdebug"></a><dl>
+<dt><a name="index-poly_005fgrobner_005fdebug"></a>Variable opcional: <strong>poly_grobner_debug</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si vale <code>true</code>, genera una salida de seguimiento y depuración.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdefvr_002fpoly_005fgrobner_005falgorithm"></a><dl>
+<dt><a name="index-poly_005fgrobner_005falgorithm"></a>Variable opcional: <strong>poly_grobner_algorithm</strong></dt>
+<dd><p>Valor por defecto: <code>buchberger</code>
+</p>
+<p>Valores posibles: 
+</p><ul>
+<li> <code>buchberger</code>
+</li><li> <code>parallel_buchberger</code>
+</li><li> <code>gebauer_moeller</code>
+</li></ul>
+
+<p>Es el nombre del algoritmo utilizado para encontrar las bases de Groebner.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdefvr_002fpoly_005ftop_005freduction_005fonly"></a><dl>
+<dt><a name="index-poly_005ftop_005freduction_005fonly"></a>Variable opcional: <strong>poly_top_reduction_only</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si no vale <code>false</code>, siempre que sea posible el algoritmo
+de división se detendrá tras la primera reducción.
+</p></dd></dl>
+
+<a name="Operadores-simples"></a>
+<h4 class="subsection">56.2.2 Operadores simples</h4>
+
+<p><code>poly_add</code>, <code>poly_subtract</code>, <code>poly_multiply</code> y <code>poly_expt</code>
+son los operadores aritméticos para polinomios. Se ejecutan utilizando la
+representación interna, pero los resultados se devuelven en forma de
+expresión ordinaria de <em>maxima</em>.
+</p>
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fadd"></a><dl>
+<dt><a name="index-poly_005fadd"></a>Función: <strong>poly_add</strong> <em>(<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</em></dt>
+<dd><p>Suma los polinomios <var>poly1</var> y <var>poly2</var>.
+</p><div class="example">
+<pre class="example">
+(%i1) poly_add(z+x^2*y,x-z,[x,y,z]);
+                                    2
+(%o1)                              x  y + x
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fsubtract"></a><dl>
+<dt><a name="index-poly_005fsubtract"></a>Función: <strong>poly_subtract</strong> <em>(<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</em></dt>
+<dd><p>Resta el polinomio <var>poly2</var> de <var>poly1</var>.
+</p><div class="example">
+<pre class="example">
+(%i1) poly_subtract(z+x^2*y,x-z,[x,y,z]);
+                                      2
+(%o1)                          2 z + x  y - x
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fmultiply"></a><dl>
+<dt><a name="index-poly_005fmultiply"></a>Función: <strong>poly_multiply</strong> <em>(<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</em></dt>
+<dd><p>Multiplica <var>poly1</var> por <var>poly2</var>.
+</p><div class="example">
+<pre class="example">
+(%i2) poly_multiply(z+x^2*y,x-z,[x,y,z])-(z+x^2*y)*(x-z),expand;
+(%o1)                                  0
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fs_005fpolynomial"></a><dl>
+<dt><a name="index-poly_005fs_005fpolynomial"></a>Función: <strong>poly_s_polynomial</strong> <em>(<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve el <em>polinomio syzygy</em> (<em>S-polinomio</em>) de dos polinomios <var>poly1</var> y <var>poly2</var>.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fprimitive_005fpart"></a><dl>
+<dt><a name="index-poly_005fprimitive_005fpart"></a>Función: <strong>poly_primitive_part</strong> <em>(<var>poly1</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve el polinomio <var>poly</var> dividido por el MCD de sus coeficientes. 
+</p>
+<div class="example">
+<pre class="example">(%i1) poly_primitive_part(35*y+21*x,[x,y]);
+(%o1)                              5 y + 3 x
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fnormalize"></a><dl>
+<dt><a name="index-poly_005fnormalize"></a>Función: <strong>poly_normalize</strong> <em>(<var>poly</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve el polinomio <var>poly</var> dividido por el coeficiente
+principal. Da por supuesto que la división es posible, lo cual
+puede no ser siempre cierto en anillos que no son campos.
+</p></dd></dl>
+
+<a name="Otras-funciones"></a>
+<h4 class="subsection">56.2.3 Otras funciones</h4>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fexpand"></a><dl>
+<dt><a name="index-poly_005fexpand"></a>Función: <strong>poly_expand</strong> <em>(<var>poly</var>, <var>varlist</var>)</em></dt>
+<dd><p>Esta función expande los polinomios. Equivale a <code>expand(<var>poly</var>)</code>
+si <var>poly</var> es un polinomio. Si la representación no es compatible 
+con un polinomio de variables <var>varlist</var>, devuelve un error.
+</p><div class="example">
+<pre class="example">
+(%i1) poly_expand((x-y)*(y+x),[x,y]);
+                                     2    2
+(%o1)                               x  - y
+(%i2) poly_expand((y+x)^2,[x,y]);
+                                2            2
+(%o2)                          y  + 2 x y + x
+(%i3) poly_expand((y+x)^5,[x,y]);
+                  5      4         2  3       3  2      4      5
+(%o3)            y  + 5 x y  + 10 x  y  + 10 x  y  + 5 x  y + x
+(%i4) poly_expand(-1-x*exp(y)+x^2/sqrt(y),[x]);
+                                          2
+                                  y      x
+(%o4)                       - x %e  + ------- - 1
+                                       sqrt(y)
+
+(%i5) poly_expand(-1-sin(x)^2+sin(x),[sin(x)]);
+                                2
+(%o5)                      - sin (x) + sin(x) - 1
+
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fexpt"></a><dl>
+<dt><a name="index-poly_005fexpt"></a>Función: <strong>poly_expt</strong> <em>(<var>poly</var>, <var>number</var>, <var>varlist</var>)</em></dt>
+<dd><p>Eleva el polinomio <var>poly</var> a la potencia <var>number</var>, siendo este un entero
+positivo. Si <var>number</var> no es un número entero positivo, devolverá un error.
+</p><div class="example">
+<pre class="example">
+(%i1) poly_expt(x-y,3,[x,y])-(x-y)^3,expand;
+(%o1)                                  0
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fcontent"></a><dl>
+<dt><a name="index-poly_005fcontent"></a>Función: <strong>poly_content</strong> <em>(<var>poly</var>. <var>varlist</var>)</em></dt>
+<dd><p><code>poly_content</code> calcula el MCD de los coeficientes.
+</p><div class="example">
+<pre class="example">
+(%i1) poly_content(35*y+21*x,[x,y]);
+(%o1)                                  7
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fpseudo_005fdivide"></a><dl>
+<dt><a name="index-poly_005fpseudo_005fdivide"></a>Función: <strong>poly_pseudo_divide</strong> <em>(<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</em></dt>
+<dd><p>Realiza la seudo-división del polinomio <var>poly</var> por la
+lista de <em>n</em> polinomios de <var>polylist</var>.
+Devuelve varios resultados. El primer resultado es una lista de 
+cocientes <em>a</em>. El segundo resultado es el resto <em>r</em>. El
+tercer resultado es un coeficiente escalar <em>c</em>, tal que <em>c*poly</em>
+puede dividirse por <var>polylist</var> dentro del anillo de coeficientes, el
+cual no es necesariamente un campo. Por último, el cuarto resultado es
+un entero que guarda el recuento de reducciones realizadas. El objeto 
+resultante satisface la ecuación:
+</p>
+<p><em>c*poly=sum(a[i]*polylist[i],i=1...n)+r</em>.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fexact_005fdivide"></a><dl>
+<dt><a name="index-poly_005fexact_005fdivide"></a>Función: <strong>poly_exact_divide</strong> <em>(<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</em></dt>
+<dd><p>Divide el polinomio <var>poly1</var> por otro polinomio <var>poly2</var>. Da por supuesto
+que es posible la división de resto nulo. Devuelve el cociente.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fnormal_005fform"></a><dl>
+<dt><a name="index-poly_005fnormal_005fform"></a>Función: <strong>poly_normal_form</strong> <em>(<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</em></dt>
+<dd><p><code>poly_normal_form</code> encuentra la forma normal de un polinomio <var>poly</var> respecto
+de un conjunto de polinomios <var>polylist</var>.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fbuchberger_005fcriterion"></a><dl>
+<dt><a name="index-poly_005fbuchberger_005fcriterion"></a>Función: <strong>poly_buchberger_criterion</strong> <em>(<var>polylist</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si <var>polylist</var> es una base de Groebner respecto del orden 
+de términos activo, utilizando el criterio de Buchberger: 
+para cualesquiera polinomios <em>h1</em> y <em>h2</em> de <var>polylist</var> el
+S-polinomio <em>S(h1,h2)</em> se reduce a 0 <em>modulo</em> <var>polylist</var>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fbuchberger"></a><dl>
+<dt><a name="index-poly_005fbuchberger"></a>Función: <strong>poly_buchberger</strong> <em>(<var>polylist_fl</var> <var>varlist</var>)</em></dt>
+<dd><p><code>poly_buchberger</code> ejecuta el algoritmo de Buchberger sobre una
+lista de polinomios y devuelve la base de Groebner resultante.
+</p>
+</dd></dl>
+
+
+<a name="Postprocesamiento-estandar-de-bases-de-Groebner"></a>
+<h4 class="subsection">56.2.4 Postprocesamiento estándar de bases de Groebner</h4>
+
+
+<p>El <em>k-ésimo ideal de eliminación</em> <em>I_k</em> de un ideal <em>I</em> sobre
+<em>K[ x[1],...,x[n] ]</em> es el ideal <em>intersect(I, K[ x[k+1],...,x[n] ])</em>.<br>
+El <em>ideal</em> <em>I:J</em> es el ideal <em>{h|para todo w en J: w*h pertence a I}</em>.<br>
+El ideal <em>I:p^inf</em> es el ideal <em>{h| existe un n en N: p^n*h pertence a I}</em>.<br>
+El ideal <em>I:J^inf</em> es el ideal <em>{h| existe un n en N y un p en J: p^n*h pertence a I}</em>.<br>
+El <em>ideal radical</em> <em>sqrt(I)</em> es el ideal <em>{h| existe un n en N : h^n pertence a I }</em>.
+</p>
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005freduction"></a><dl>
+<dt><a name="index-poly_005freduction"></a>Función: <strong>poly_reduction</strong> <em>(<var>polylist</var>, <var>varlist</var>)</em></dt>
+<dd><p><code>poly_reduction</code> reduce una lista de polinomios <var>polylist</var> de manera
+que cada polinomio se reduce completamente respecto de los otros polinomios.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fminimization"></a><dl>
+<dt><a name="index-poly_005fminimization"></a>Función: <strong>poly_minimization</strong> <em>(<var>polylist</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve una sublista de la lista de polinomios <var>polylist</var> con
+el mismo ideal de monomios que <var>polylist</var>, pero mínimo, 
+esto es, ningún monomio principal de los polinomios de la sublista divide
+a los monomios principales de los demás polinomios.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fnormalize_005flist"></a><dl>
+<dt><a name="index-poly_005fnormalize_005flist"></a>Función: <strong>poly_normalize_list</strong> <em>(<var>polylist</var>, <var>varlist</var>)</em></dt>
+<dd><p><code>poly_normalize_list</code> aplica <code>poly_normalize</code> a cada polinomio 
+de la lista. Esto significa que divide cada polinomio de <var>polylist</var>
+por su coeficiente principal.
+</p>
+</dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fgrobner"></a><dl>
+<dt><a name="index-poly_005fgrobner"></a>Función: <strong>poly_grobner</strong> <em>(<var>polylist</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve la base de Groebner del ideal asociado a los polinomios
+de <var>polylist</var>. El resultado depende de las variables globales.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005freduced_005fgrobner"></a><dl>
+<dt><a name="index-poly_005freduced_005fgrobner"></a>Función: <strong>poly_reduced_grobner</strong> <em>(<var>polylist</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve la base de Groebner reducida del ideal asociado a los polinomios
+de <var>polylist</var>. El resultado depende de las variables globales.
+</p></dd></dl>
+
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fdepends_005fp"></a><dl>
+<dt><a name="index-poly_005fdepends_005fp"></a>Función: <strong>poly_depends_p</strong> <em>(<var>poly</var>, <var>var</var>, <var>varlist</var>)</em></dt>
+<dd><p><code>poly_depends</code> comprueba si el polinomio depende de la variable <var>var</var>.
+</p></dd></dl>
+
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005felimination_005fideal"></a><dl>
+<dt><a name="index-poly_005felimination_005fideal"></a>Función: <strong>poly_elimination_ideal</strong> <em>(<var>polylist</var>, <var>n</var>, <var>varlist</var>)</em></dt>
+<dd><p><code>poly_elimination_ideal</code> devuelve la base de Groebner del <em>n</em>-ésimo
+ideal de eliminación de un ideal especificado como una lista de polinomios
+generadores (no necesariamente una base de Groebner).
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fcolon_005fideal"></a><dl>
+<dt><a name="index-poly_005fcolon_005fideal"></a>Función: <strong>poly_colon_ideal</strong> <em>(<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve la base de Groebner reducida del ideal
+</p>
+<p><em>I(polylist1):I(polylist2)</em>
+</p>
+<p>siendo <em>polylist1</em> y <em>polylist2</em> dos listas de polinomios.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fideal_005fintersection"></a><dl>
+<dt><a name="index-poly_005fideal_005fintersection"></a>Función: <strong>poly_ideal_intersection</strong> <em>(<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</em></dt>
+<dd>
+<p><code>poly_ideal_intersection</code> devuelve la intersección de dos ideales.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005flcm"></a><dl>
+<dt><a name="index-poly_005flcm"></a>Función: <strong>poly_lcm</strong> <em>(<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve el MCM de <var>poly1</var> y <var>poly2</var>.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fgcd"></a><dl>
+<dt><a name="index-poly_005fgcd"></a>Función: <strong>poly_gcd</strong> <em>(<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve el MCD de <var>poly1</var> y <var>poly2</var>.
+</p>
+<p>Véanse también <code>ezgcd</code>, <code>gcd</code>, <code>gcdex</code> y
+<code>gcdivide</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) p1:6*x^3+19*x^2+19*x+6; 
+                        3       2
+(%o1)                6 x  + 19 x  + 19 x + 6
+(%i2) p2:6*x^5+13*x^4+12*x^3+13*x^2+6*x;
+                  5       4       3       2
+(%o2)          6 x  + 13 x  + 12 x  + 13 x  + 6 x
+(%i3) poly_gcd(p1, p2, [x]);
+                            2
+(%o3)                    6 x  + 13 x + 6
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fgrobner_005fequal"></a><dl>
+<dt><a name="index-poly_005fgrobner_005fequal"></a>Función: <strong>poly_grobner_equal</strong> <em>(<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</em></dt>
+<dd><p><code>poly_grobner_equal</code> comprueba si dos bases de Groebner generan el mismo
+ideal. Devuelve <code>true</code> si dos listas de polinomios <var>polylist1</var> y <var>polylist2</var>,
+supuestas bases de Groebner, generan el mismo ideal, o <code>false</code> en caso contrario.
+Eso equivale a comprobar si cada polinomio de la primera base se reduce a 0
+módulo la segunda base y viceversa. Nótese que en el ejemplo que sigue la
+primera lista no es una base de Groebner, por lo que el resultado es <code>false</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) poly_grobner_equal([y+x,x-y],[x,y],[x,y]);
+(%o1)                         false
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fgrobner_005fsubsetp"></a><dl>
+<dt><a name="index-poly_005fgrobner_005fsubsetp"></a>Función: <strong>poly_grobner_subsetp</strong> <em>(<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</em></dt>
+<dd><p><code>poly_grobner_subsetp</code> comprueba si el ideal generado por <var>polylist1</var>
+está contenido en el ideal generado por <var>polylist2</var>. Para que esta comprobación
+tenga éxito, <var>polylist2</var> debe ser una base de Groebner.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fgrobner_005fmember"></a><dl>
+<dt><a name="index-poly_005fgrobner_005fmember"></a>Función: <strong>poly_grobner_member</strong> <em>(<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si el polinomio <var>poly</var> pertenece al ideal generado por la
+lista de polinomios <var>polylist</var>, la cual se supone una base de Groebner.
+Devolverá <code>false</code> en caso contrario.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fideal_005fsaturation1"></a><dl>
+<dt><a name="index-poly_005fideal_005fsaturation1"></a>Función: <strong>poly_ideal_saturation1</strong> <em>(<var>polylist</var>, <var>poly</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve la base de Groebner reducida de la saturación del ideal
+</p>
+<p>I(polylist):poly^inf
+</p>
+<p>Desde un punto de vista geométrico, sobre un campo algebraicamente
+cerrado, este es el conjunto de polinomios del ideal generado por 
+<var>polylist</var> que no se anulan sobre la variedad de  <var>poly</var>.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fideal_005fsaturation"></a><dl>
+<dt><a name="index-poly_005fideal_005fsaturation"></a>Función: <strong>poly_ideal_saturation</strong> <em>(<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</em></dt>
+<dd><p>Devuelve la base de Groebner reducida de la saturación del ideal
+</p>
+<p>I(polylist1):I(polylist2)^inf
+</p>
+<p>Desde un punto de vista geométrico, sobre un campo algebraicamente
+cerrado, este es el conjunto de polinomios del ideal generado por 
+<var>polylist1</var> que no se anulan sobre la variedad de  <var>polylist2</var>.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fideal_005fpolysaturation1"></a><dl>
+<dt><a name="index-poly_005fideal_005fpolysaturation1"></a>Función: <strong>poly_ideal_polysaturation1</strong> <em>(<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</em></dt>
+<dd><p><var>polylist2</var> es una lista de n poliomios <code>[poly1,...,polyn]</code>.
+Devuelve la base de Groebner reducida del ideal
+</p>
+<p>I(polylist):poly1^inf:...:polyn^inf
+</p>
+<p>obtenida a partir de una secuencia de saturaciones sucesivas de
+los polinomios de la lista <var>polylist2</var> del ideal generado
+por la lista de polinomios <var>polylist1</var>.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fideal_005fpolysaturation"></a><dl>
+<dt><a name="index-poly_005fideal_005fpolysaturation"></a>Función: <strong>poly_ideal_polysaturation</strong> <em>(<var>polylist</var>, <var>polylistlist</var>, <var>varlist</var>)</em></dt>
+<dd><p><var>polylistlist</var> es una lista de n listas de polinomios <code>[polylist1,...,polylistn]</code>.
+Devuelve la base de Groebner reducida de la saturación del ideal
+</p>
+<p>I(polylist):I(polylist_1)^inf:...:I(polylist_n)^inf
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fsaturation_005fextension"></a><dl>
+<dt><a name="index-poly_005fsaturation_005fextension"></a>Función: <strong>poly_saturation_extension</strong> <em>(<var>poly</var>, <var>polylist</var>, <var>varlist1</var>, <var>varlist2</var>)</em></dt>
+<dd><p><code>poly_saturation_extension</code> ejecuta el truco de Rabinowitz.
+</p></dd></dl>
+
+<a name="Item_003a-grobner_002fdeffn_002fpoly_005fpolysaturation_005fextension"></a><dl>
+<dt><a name="index-poly_005fpolysaturation_005fextension"></a>Función: <strong>poly_polysaturation_extension</strong> <em>(<var>poly</var>, <var>polylist</var>, <var>varlist1</var>, <var>varlist2</var>)</em></dt>
+</dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_231.html#Introducci_00f3n-a-grobner" accesskey="p" rel="previous">Introducción a grobner</a>, Subir: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

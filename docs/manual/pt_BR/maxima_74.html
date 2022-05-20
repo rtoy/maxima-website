@@ -1,728 +1,479 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Outubro, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual do Maxima: 74. unit</title>
+<title>Manual do Maxima: Funções e Variáveis Definidas para Numérico</title>
 
-<meta name="description" content="Manual do Maxima: 74. unit">
-<meta name="keywords" content="Manual do Maxima: 74. unit">
+<meta name="description" content="Manual do Maxima: Funções e Variáveis Definidas para Numérico">
+<meta name="keywords" content="Manual do Maxima: Funções e Variáveis Definidas para Numérico">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_71.html#Num_00e9rico" rel="up" title="Numérico">
+<link href="maxima_75.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-S_00e9ries-de-Fourier" rel="next" title="Funções e Variáveis Definidas para Séries de Fourier">
+<link href="maxima_73.html#Pacotes-de-Fourier" rel="previous" title="Pacotes de Fourier">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="unit"></a>
-<a name="SEC283"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_73.html#SEC282" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC284" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC278" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#SEC286" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 74. unit </h1>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC284">74.1 Introdu&ccedil;&atilde;o a Units</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">       
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC285">74.2 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para Units</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">       
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Introdu_00e7_00e3o-a-Units"></a>
-<a name="SEC284"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC283" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC285" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC283" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC283" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#SEC286" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 74.1 Introdu&ccedil;&atilde;o a Units </h2>
-
-<p>O pacote <em>unit</em> torna o usu&aacute;rio apto a converter entre unidades
-arbitr&aacute;rias e trabalhar com dimens&otilde;es em equa&ccedil;&otilde;es. O funcionamento desse pacote
-&eacute; radicalmente diferente do pacote original units do Maxima - apesar de
-o original conter uma lista b&aacute;sica de defini&ccedil;&otilde;es, o pacote atual usa um conjunto de regras para permitir
-ao usu&aacute;rio escolher, sobre uma base dimensional, qual a resposta fianl de unidade pode ser
-convertida.  Isso ir&aacute; separar unidades em lugar de mistur&aacute;-las na tela,
-permitindo ao usu&aacute;rio durante a leitura identificar as unidades associadas com uma resposta em
-particular.  Isso permitir&aacute; ao usu&aacute;rio simplificar uma express&atilde;o em sua Base fundamental
-de Unidades, bem como fornecer ajuste fino sobre a simplifica&ccedil;&atilde;o de unidades derivadas.
-An&aacute;lise dimensional &eacute; poss&iacute;vel, e uma variedade de ferramentas est&aacute; dispon&iacute;vel para 
-gerenciar a convers&atilde;o e tamb&eacute;m uma variedade de op&ccedil;&otilde;es de simplifica&ccedil;&atilde;o. Adicionalmente para personalizar
-convers&atilde;o autom&aacute;tica, <em>units</em> tamb&eacute;m fornede um manual tradicional 
-de op&ccedil;&otilde;es de convers&atilde;o.  
-</p>
-<p>Nota -quando convers&otilde;es de unidade forem n&atilde;o exatas Maxima ir&aacute; fazer aproxima&ccedil;&otilde;es resultando 
-em fra&ccedil;&otilde;es. Esso &eacute; uma conceq&uuml;&ecirc;ncia das t&eacute;cnicas usadas para simplificar unidades.
-A mensagem de alerta desse tipo de substitui&ccedil;&atilde;o est&aacute; desabilitada por padr&atilde;o no
-caso de inidades (normalmente essas mensagens est&atilde;o habilitadas) uma vez que essa situa&ccedil;&atilde;o de iemiss&atilde;o de mensagens de alerta ocorre freq&uuml;&ecirc;ntemente
-e os alertas confundem a sa&iacute;da.  (O estado atual de <code>ratprint</code> &eacute; restabelecido
-ap&oacute;s uma convers&atilde;o de unidades, de forma que modifica&ccedil;&otilde;es de usu&aacute;rio para aquela configura&ccedil;&atilde;o ir&atilde;o ser preservadas 
-de outra forma.)  Se o usu&aacute;rio precisar dessa informa&ccedil;&atilde;o para <code>units</code>, ele pode escolher
-<em>unitverbose:on</em> para reativar a impress&atilde;o de mensagens de alerta do
-processo de convers&atilde;o.
-</p>
-<p><em>unit</em> est&aacute; incl&iacute;do no Maxima no diret&oacute;rio share/contrib/unit directory. Isso segue
-aos pacotes normais do Maxima conforme conven&ccedil;&otilde;es:
-</p>
-<pre class="example">(%i1) load(&quot;unit&quot;)$
-******************************************************************* 
-*                       Units version 0.50                        * 
-*          Definitions based on the NIST Reference on             * 
-*              Constants, Units, and Uncertainty                  * 
-*       Conversion factors from various sources including         * 
-*                   NIST and the GNU units package                * 
-******************************************************************* 
- 
-Redefining necessary functions... 
-WARNING: DEFUN/DEFMACRO: redefining function TOPLEVEL-MACSYMA-EVAL ...
-WARNING: DEFUN/DEFMACRO: redefining function MSETCHK ...
-WARNING: DEFUN/DEFMACRO: redefining function KILL1 ...
-WARNING: DEFUN/DEFMACRO: redefining function NFORMAT ...
-Initializing unit arrays... 
-Done.
-</pre>
-<p>As mensagens WARNING (DE ALERTA) s&atilde;o esperadas n &atilde;o uma causa de preocupa&ccedil;&atilde;o - elas indicam
-que o pacote <em>unit</em> est&aacute; redefinindo fun&ccedil;&otilde;es anteriormente definidas no local adequado do Maxima.  
-Essa redefini&ccedil;&atilde;o &eacute; necess&aacute;ria com o bojetivo de manusear adequadamente as unidades.  O usu&aacute;rio
-pode estar consciente que se outras modifica&ccedil;&otilde;es tiverem sido feitas para essas fun&ccedil;&otilde;es por outros
-pacotes essas novas mudan&ccedil;as ir&atilde;o ser sobrescritas por meio desse processo de disponibiliza&ccedil;&atilde;o do pacote <code>unit</code>.
-</p>
-<p>O arquivo <em>unit.mac</em> tamb&eacute;m chama um arquivo lisp, a saber <em>unit-functions.lisp</em>, que
-cont&eacute;m as fun&ccedil;&atilde;oes lisp necess&aacute;rias ao pacote.
-</p>
-<p>Clifford Yapp &eacute; o autor prim&aacute;rio.  Ele recebeu grande contribui&ccedil;&atilde;o de
-Barton Willis da University of Nebraska at Kearney (UNK), Robert Dodier, e
-da intr&eacute;pida tribo da lista de mensagens do Maxima.
-</p>
-<p>Existem provavelmente muitos erros.  Diga-me quais.  <code>float</code> e <code>numer</code>
-n&atilde;o fazem o que &eacute; esperado.
-</p>
-<p>PORFAZER : funcionalidade de dimens&atilde;o, manuseio de temperatura, 
-a fun&ccedil;&atilde;o <code>showabbr</code> e Cia. Ltda.  Mostrar exemplos com adi&ccedil;&atilde;o de quantidades contendo
-unidades.
-</p>
-
-<hr size="6">
-<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Units"></a>
-<a name="SEC285"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC284" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#SEC286" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC283" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC283" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#SEC286" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 74.2 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para Units </h2>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>setunits</b><i> (<var>list</var>)</i>
-<a name="IDX2149"></a>
-</dt>
-<dd><p>Por padr&atilde;o, o pacote <em>unit</em> n&atilde;o usa qualquer dimens&otilde;es derivadas, mas ir&aacute;
-converter todas as unidades nas sete fundamentais do sistema MKS.
-</p><pre class="example">(%i2) N;
-                                     kg m
-(%o2)                                ----
-                                       2
-                                      s
-(%i3) dyn;
-                                   1      kg m
-(%o3)                           (------) (----)
-                                 100000     2
-                                           s
-(%i4) g;
-                                    1
-(%o4)                             (----) (kg)
-                                   1000
-(%i5) centigram*inch/minutes^2;
-                                  127        kg m
-(%o5)                       (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre>
-<p>Em alguns casos esse &eacute; o comportamento desejado.  Se o usu&aacute;rio desejar usar outras
-unidades, isso &eacute; conseguido com o comando <code>setunits</code>:
-</p><pre class="example">(%i6) setunits([centigram,inch,minute]);
-(%o6)                                done
-(%i7) N;
-                            1800000000000   %in cg
-(%o7)                      (-------------) (------)
-                                 127            2
-                                            %min
-(%i8) dyn;
-                               18000000   %in cg
-(%o8)                         (--------) (------)
-                                 127          2
-                                          %min
-(%i9) g;
-(%o9)                             (100) (cg)
-(%i10) centigram*inch/minutes^2;
-                                    %in cg
-(%o10)                              ------
-                                        2
-                                    %min
-</pre>
-<p>A escolha de unidades &eacute; completamente flex&iacute;vel.  Por exemplo, se quisermos
-voltar para quiilogramas, metros, e segundos como padr&atilde;o para essas
-dimens&atilde;o n&oacute;s podemos fazer:
-</p><pre class="example">(%i11) setunits([kg,m,s]);
-(%o11)                               done
-(%i12) centigram*inch/minutes^2;
-                                  127        kg m
-(%o12)                      (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre>
-<p>Unidade derivadas s&atilde;o tamb&eacute;m manuse&aacute;veis por meio desse comando:
-</p><pre class="example">(%i17) setunits(N);
-(%o17)                               done
-(%i18) N;
-(%o18)                                 N
-(%i19) dyn; 
-                                    1
-(%o19)                           (------) (N)
-                                  100000
-(%i20) kg*m/s^2;
-(%o20)                                 N
-(%i21) centigram*inch/minutes^2;
-                                    127
-(%o21)                        (-------------) (N)
-                               1800000000000
-</pre>
-<p>Note que o pacote <em>unit</em> reconhece a combina&ccedil;&atilde;o n&atilde;o MKS
-de massa, comprimento, e tempo inverso elevado ao quadrado como uma for&ccedil;a, e converte isso
-para Newtons.  &Eacute; dessa forma que Maxima trabalha geralmente.  Se, por exemplo, n&oacute;s
-preferirmos dinas em lugar de Newtons, simplesmente fazemos o seguinte:
-</p><pre class="example">(%i22) setunits(dyn);
-(%o22)                               done
-(%i23) kg*m/s^2;
-(%o23)                          (100000) (dyn)
-(%i24) centigram*inch/minutes^2;
-                                  127
-(%o24)                         (--------) (dyn)
-                                18000000
-</pre>
-<p>Para descontinuar simplificando para qualquer unidade de for&ccedil;a, usamos o comando <code>uforget</code>:
-</p><pre class="example">(%i26) uforget(dyn);
-(%o26)                               false
-(%i27) kg*m/s^2;
-                                     kg m
-(%o27)                               ----
-                                       2
-                                      s
-(%i28) centigram*inch/minutes^2;
-                                  127        kg m
-(%o28)                      (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre><p>Isso pode trabalhar igualmente bem com <code>uforget(N)</code> ou
-<code>uforget(%force)</code>.
-</p>
-<p>Veja tamb&eacute;m <code>uforget</code>. Para usar essa fun&ccedil;&atilde;o escreva primeiro <code>load(&quot;unit&quot;)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>uforget</b><i> (<var>list</var>)</i>
-<a name="IDX2150"></a>
-</dt>
-<dd><p>Por padr&atilde;o, o pacote <em>unit</em> converte todas as unidades para as
-sete unidaes fundamentais do sitema MKS de unidades. Ess comportamento pode
-ser mudado com o comando <code>setunits</code>. Ap&oacute;s o qual, o
-usu&aacute;rio pode restabelecer o comportamento padr&atilde;o para uma dimens&atilde;o em particular
-mediante o comando <code>uforget</code>:
-</p><pre class="example">(%i13) setunits([centigram,inch,minute]);
-(%o13)                               done
-(%i14) centigram*inch/minutes^2;
-                                    %in cg
-(%o14)                              ------
-                                        2
-                                    %min
-(%i15) uforget([cg,%in,%min]);
-(%o15)                      [false, false, false]
-(%i16) centigram*inch/minutes^2;
-                                  127        kg m
-(%o16)                      (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre>
-<p><code>uforget</code> opera sobre dimens&otilde;es,
-n&atilde;o sobre unidades, de forma que qualquer unidade de uma dimens&atilde;o em particular ir&aacute; trabalhar.  A
-pr&oacute;pia dimens&atilde;o &eacute; tamb&eacute;m um argumento legal.
-</p>
-<p>Veja tamb&eacute;m <code>setunits</code>. To use this function write first <code>load(&quot;unit&quot;)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>convert</b><i> (<var>expr</var>, <var>list</var>)</i>
-<a name="IDX2151"></a>
-</dt>
-<dd><p>Quando do restabelecimento dos valores padr&atilde;o o ambiente global &eacute; destru&iacute;do, existe o comando
-<code>convert</code>, que permite convers&otilde;es imediatas.  <code>convert</code> pode aceitar  um argumetno
-simples ou uma lista de unidades a serem usadas na convers&atilde;o.  Quando uma opera&ccedil;&atilde;o de convers&atilde;o for
-conclu&iacute;da, o sistema normal de avalia&ccedil;&atilde;o global &eacute; contornado, com o objetivo de evitar que
-o resultado desejado seja convertido novamente.  Como conseq&uuml;&ecirc;ncia, em c&aacute;lculos aproximados
-alertas de &quot;rat&quot; ir&atilde;o ser vis&iacute;veis se o ambiente global que controla esse comportamento
-(<code>ratprint</code>) for <code>true</code>.  <code>convert</code> tamb&eacute;m &eacute; &uacute;til para uma verifica&ccedil;&atilde;o pontual e imediata da
-precis&atilde;o de uma convers&atilde;o global.  Outro recurso &eacute; que <code>convert</code> ir&aacute; permitir a um
-usu&aacute;rio fazer um Base de Convers&otilde;es Dimensionais mesmo se o ambiente global for escolhido para
-simplificar par uma Dimens&atilde;o Derivada.
-</p>
-<pre class="example">(%i2) kg*m/s^2;
-                                     kg m
-(%o2)                                ----
-                                       2
-                                      s
-(%i3) convert(kg*m/s^2,[g,km,s]);
-                                     g km
-(%o3)                                ----
-                                       2
-                                      s
-(%i4) convert(kg*m/s^2,[g,inch,minute]);
-
-`rat' replaced 39.37007874015748 by 5000/127 = 39.37007874015748
-                              18000000000   %in g
-(%o4)                        (-----------) (-----)
-                                  127           2
-                                            %min
-(%i5) convert(kg*m/s^2,[N]);
-(%o5)                                  N
-(%i6) convert(kg*m^2/s^2,[N]);
-(%o6)                                 m N
-(%i7) setunits([N,J]);
-(%o7)                                done
-(%i8) convert(kg*m^2/s^2,[N]);
-(%o8)                                 m N
-(%i9) convert(kg*m^2/s^2,[N,inch]);
-
-`rat' replaced 39.37007874015748 by 5000/127 = 39.37007874015748
-                                 5000
-(%o9)                           (----) (%in N)
-                                 127
-(%i10) convert(kg*m^2/s^2,[J]);
-(%o10)                                 J
-(%i11) kg*m^2/s^2;
-(%o11)                                 J
-(%i12) setunits([g,inch,s]);
-(%o12)                               done
-(%i13) kg*m/s^2;
-(%o13)                                 N
-(%i14) uforget(N);
-(%o14)                               false
-(%i15) kg*m/s^2;
-                                5000000   %in g
-(%o15)                         (-------) (-----)
-                                  127       2
-                                           s
-(%i16) convert(kg*m/s^2,[g,inch,s]);
-
-`rat' replaced 39.37007874015748 by 5000/127 = 39.37007874015748
-                                5000000   %in g
-(%o16)                         (-------) (-----)
-                                  127       2
-                                           s
-</pre>
-<p>Veja tamb&eacute;m <code>setunits</code> e <code>uforget</code>. Para usar essa fun&ccedil;&atilde;o primeiramente escreva <code>load(&quot;unit&quot;)</code>.
-</p></dd></dl>
-
-
-<dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>usersetunits</b>
-<a name="IDX2152"></a>
-</dt>
-<dd><p>Valor padr&atilde;o: none
-</p>
-<p>Se um usu&aacute;rio desejar ter um comportamento padr&atilde;o de unidade diferente daquele descrito,
-ele pode fazer uso de <em>maxima-init.mac</em> e da vari&aacute;vel
-<em>usersetunits</em>.  O pacote <em>unit</em> ir&aacute; verificar o arquivo <em>maxima-init.mac</em> na inicializa&ccedil;&atilde;o para ver se a essa vari&aacute;vel 
-foi atribu&iacute;do uma lista.  Se isso aconteceu, o pacote <em>unit</em> ir&aacute; usar <code>setunits</code> sobre aquela lista e pegar 
-as unidades l&aacute; colocadas para serem as padr&otilde;es.  <code>uforget</code> ir&aacute; reverter para o comportamento
-definido por <code>usersetunits</code> sobrescrevendo seus pr&oacute;prios padr&otilde;es.  Por exemplo, Se tivermos um arquivo
-<em>maxima-init.mac</em> contendo:
-</p><pre class="example">usersetunits : [N,J];
-</pre><p>n&oacute;s poderemos ver o seguinte comportamento:
-</p><pre class="example">(%i1) load(&quot;unit&quot;)$
-******************************************************************* 
-*                       Units version 0.50                        * 
-*          Definitions based on the NIST Reference on             * 
-*              Constants, Units, and Uncertainty                  * 
-*       Conversion factors from various sources including         * 
-*                   NIST and the GNU units package                * 
-******************************************************************* 
- 
-Redefining necessary functions... 
-WARNING: DEFUN/DEFMACRO: redefining function TOPLEVEL-MACSYMA-EVAL ...
-WARNING: DEFUN/DEFMACRO: redefining function MSETCHK ...
-WARNING: DEFUN/DEFMACRO: redefining function KILL1 ...
-WARNING: DEFUN/DEFMACRO: redefining function NFORMAT ...
-Initializing unit arrays... 
-Done. 
-User defaults found... 
-User defaults initialized.
-(%i2) kg*m/s^2;
-(%o2)                                  N
-(%i3) kg*m^2/s^2;
-(%o3)                                  J
-(%i4) kg*m^3/s^2;
-(%o4)                                 J m
-(%i5) kg*m*km/s^2;
-(%o5)                             (1000) (J)
-(%i6) setunits([dyn,eV]);
-(%o6)                                done
-(%i7) kg*m/s^2;
-(%o7)                           (100000) (dyn)
-(%i8) kg*m^2/s^2;
-(%o8)                     (6241509596477042688) (eV)
-(%i9) kg*m^3/s^2;
-(%o9)                    (6241509596477042688) (eV m)
-(%i10) kg*m*km/s^2;
-(%o10)                   (6241509596477042688000) (eV)
-(%i11) uforget([dyn,eV]);  
-(%o11)                           [false, false]
-(%i12) kg*m/s^2;
-(%o12)                                 N
-(%i13) kg*m^2/s^2;
-(%o13)                                 J
-(%i14) kg*m^3/s^2;
-(%o14)                                J m
-(%i15) kg*m*km/s^2;
-(%o15)                            (1000) (J)
-</pre><p>Sem <code>usersetunits</code>, as entradas iniciais poderiam ter sido convertidas
-para o sistema de unidades MKS, e <code>uforget</code> poderia ter resultado em um retorno para as regras do MKS.  Em vez disso,
-as prefer&ecirc;ncias do usu&aacute;rio foram respeitadas em ambos os casos.  Note que esse podem ainda
-serem sobrescritos se for desejado.  Para eliminar completamente essa simplifica&ccedil;&atilde;o - i.e.
-ter as prefer&ecirc;ncias de usu&aacute;rio escolhidas para os padr&otilde;es de unidade do Maxima - o comando
-<code>dontusedimension</code> pode ser usado.  <code>uforget</code> pode restabelecer as prefer&ecirc;ncias de usu&aacute;rio novamente, mas
-somente se <code>usedimension</code> liberar isso para uso.  Alternativamente,
-<code>kill(usersetunits)</code> ir&aacute; remover completametne todo o conhecimento dessas escolhas de usu&aacute;rio
-da sess&atilde;o atual.  Aqui est&aacute; alguns exemplos de como esssas v&aacute;rias op&ccedil;&otilde;es trabalham.
-</p><pre class="example">(%i2) kg*m/s^2;
-(%o2)                                  N
-(%i3) kg*m^2/s^2;
-(%o3)                                  J
-(%i4) setunits([dyn,eV]);
-(%o4)                                done
-(%i5) kg*m/s^2;
-(%o5)                           (100000) (dyn)
-(%i6) kg*m^2/s^2;
-(%o6)                     (6241509596477042688) (eV)
-(%i7) uforget([dyn,eV]);
-(%o7)                          [false, false]
-(%i8) kg*m/s^2;
-(%o8)                                  N
-(%i9) kg*m^2/s^2;
-(%o9)                                  J
-(%i10) dontusedimension(N);
-(%o10)                             [%force]
-(%i11) dontusedimension(J);
-(%o11)                         [%energy, %force]
-(%i12) kg*m/s^2;
-                                     kg m
-(%o12)                               ----
-                                       2
-                                      s
-(%i13) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o13)                               -----
-                                       2
-                                      s
-(%i14) setunits([dyn,eV]);
-(%o14)                               done
-(%i15) kg*m/s^2;
-                                     kg m
-(%o15)                               ----
-                                       2
-                                      s
-(%i16) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o16)                               -----
-                                       2
-                                      s
-(%i17) uforget([dyn,eV]);
-(%o17)                         [false, false]
-(%i18) kg*m/s^2;
-                                     kg m
-(%o18)                               ----
-                                       2
-                                      s
-(%i19) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o19)                               -----
-                                       2
-                                      s
-(%i20) usedimension(N);
-Done.  To have Maxima simplify to this dimension, use setunits([unit]) 
-to select a unit. 
-(%o20)                               true
-(%i21) usedimension(J);
-Done.  To have Maxima simplify to this dimension, use setunits([unit]) 
-to select a unit. 
-(%o21)                               true
-(%i22) kg*m/s^2;
-                                     kg m
-(%o22)                               ----
-                                       2
-                                      s
-(%i23) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o23)                               -----
-                                       2
-                                      s
-(%i24) setunits([dyn,eV]);
-(%o24)                               done
-(%i25) kg*m/s^2;
-(%o25)                          (100000) (dyn)
-(%i26) kg*m^2/s^2;
-(%o26)                    (6241509596477042688) (eV)
-(%i27) uforget([dyn,eV]);
-(%o27)                           [false, false]
-(%i28) kg*m/s^2;
-(%o28)                                 N
-(%i29) kg*m^2/s^2;
-(%o29)                                 J
-(%i30) kill(usersetunits);
-(%o30)                               done
-(%i31) uforget([dyn,eV]);
-(%o31)                          [false, false]
-(%i32) kg*m/s^2;
-                                     kg m
-(%o32)                               ----
-                                       2
-                                      s
-(%i33) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o33)                               -----
-                                       2
-                                      s
-</pre><p>Desafortunadamente essa ampla variedade de op&ccedil;&otilde;es &eacute; um pouco confus no in&iacute;cio,
-mas uma vez que o usu&aacute;rio cultiva o uso delas o usu&aacute;rio perceber&aacute; que elas permitem completo
-controle sobre seu ambiente de trabalho.
-</p>
-
-</dd></dl>
-
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>metricexpandall</b><i> (<var>x</var>)</i>
-<a name="IDX2153"></a>
-</dt>
-<dd><p>Reconstr&oacute;i listas de unidades globais automaticamente criando todas as unidades m&eacute;tricas desejadas.
-<var>x</var> &eacute; um argumento num&eacute;rico que &eacute; usado para especificar quantos prefixos
-m&eacute;tricos o usu&aacute;rio deseja que seja definido.  Os argumentos s&atilde;o os seguintes, com cada
-maior n&uacute;mero definindo todos os menores n&uacute;meros de unidade:
-</p><pre class="example">           0 - none. Only base units
-           1 - kilo, centi, milli
-(default)  2 - giga, mega, kilo, hecto, deka, deci, centi, milli,
-               micro, nano
-           3 - peta, tera, giga, mega, kilo, hecto, deka, deci,
-               centi, milli, micro, nano, pico, femto
-           4 - all
-</pre><p>Normalmente, Maxima n&atilde;o ir&aacute; definir a expans&atilde;o completa desses resultados em uma
-grande n&uacute;mero de unidades, mas <code>metricexpandall</code> pode ser usada para
-reconstruir a lista em um estilo mais ou menos completo. A vari&aacute;vel relevante
-no arquivo <em>unit.mac</em> &eacute; <var>%unitexpand</var>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Vari&aacute;vel:</u> <b>%unitexpand</b>
-<a name="IDX2154"></a>
-</dt>
-<dd><p>Valor padr&atilde;o: <code>2</code>
-</p>
-<p>Ess &eacute; o valor fornecido a <code>metricexpandall</code> durante a inicializa&ccedil;&atilde;o
-de <em>unit</em>.
-</p>
-</dd></dl>
-
-
-
-
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC283" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_75.html#SEC286" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Num_00e9rico"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Outubro, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Pr&oacute;ximo: <a href="maxima_75.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-S_00e9ries-de-Fourier" accesskey="n" rel="next">Funções e Variáveis Definidas para Séries de Fourier</a>, Previous: <a href="maxima_73.html#Pacotes-de-Fourier" accesskey="p" rel="previous">Pacotes de Fourier</a>, Acima: <a href="maxima_71.html#Num_00e9rico" accesskey="u" rel="up">Numérico</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funcoes-e-Variaveis-Definidas-para-Numerico"></a>
+<h3 class="section">23.3 Funções e Variáveis Definidas para Numérico</h3>
 
+<a name="Item_003a-Numerical_002fdeffn_002fpolartorect"></a><dl>
+<dt><a name="index-polartorect"></a>Função: <strong>polartorect</strong> <em>(<var>magnitude_array</var>, <var>phase_array</var>)</em></dt>
+<dd>
+<p>Traduz valores complexos da forma <code>r %e^(%i t)</code> para a forma <code>a + b %i</code>.
+<code>load (&quot;fft&quot;)</code> chama essa função dentro do Maxima. Veja também <code>fft</code>.
 </p>
+<p>O módulo e a fase, <code>r</code> e <code>t</code>, São tomados de <var>magnitude_array</var> e
+<var>phase_array</var>, respectivamente. Os valores originais de arrays de entrada são
+substituídos pelas partes real e emaginária, <code>a</code> e <code>b</code>, no retorno. As saídas são
+calculadas como
+</p>
+<div class="example">
+<pre class="example">a: r cos (t)
+b: r sin (t)
+</pre></div>
+
+<p>Os arrays de entrada devem ter o mesmo tamanho  e ser unidimensionais.
+O tamanho do array não deve ser uma potência de 2.
+</p>
+<p><code>polartorect</code> é a função inversa de <code>recttopolar</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdeffn_002frecttopolar"></a><dl>
+<dt><a name="index-recttopolar"></a>Função: <strong>recttopolar</strong> <em>(<var>real_array</var>, <var>imaginary_array</var>)</em></dt>
+<dd>
+<p>Traduz valores complexos da forma <code>a + b %i</code> para a forma <code>r %e^(%i t)</code>.
+<code>load (&quot;fft&quot;)</code> chama essa função dentro do Maxima. Veja também <code>fft</code>.
+</p>
+<p>As partes real e imaginária, <code>a</code> e <code>b</code>, são tomadas de <var>real_array</var> e
+<var>imaginary_array</var>, respectivamente. Os valores originais dos arrays de entrada
+são substituídos pelo módulo e pelo ângulo, <code>r</code> e <code>t</code>, no retorno. As saídas são
+calculadas como
+</p>
+<div class="example">
+<pre class="example">r: sqrt (a^2 + b^2)
+t: atan2 (b, a)
+</pre></div>
+
+<p>O ângulo calculado encontra-se no intervalo de <code>-%pi</code> a <code>%pi</code>. 
+</p>
+<p>Os arrays de entrada devem ter o mesmo tamanho e ser unidimensionais.
+O tamanho do array não deve ser uma potência de 2.
+</p>
+<p><code>recttopolar</code> é a função inversa de <code>polartorect</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdeffn_002fift"></a><dl>
+<dt><a name="index-ift"></a>Função: <strong>ift</strong> <em>(<var>real_array</var>, <var>imaginary_array</var>)</em></dt>
+<dd>
+<p>Transformação rápida inversa discreta de Fourier . <code>load (&quot;fft&quot;)</code> chama essa função
+dentro do Maxima.
+</p>
+<p><code>ift</code> realiza a transformação rápida complexa de Fourier sobre
+arrays em ponto flutuante unidimensionais. A transformação inversa é definida como
+</p>
+<div class="example">
+<pre class="example">x[j]: sum (y[j] exp (+2 %i %pi j k / n), k, 0, n-1)
+</pre></div>
+
+<p>Veja <code>fft</code> para maiores detalhes.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdeffn_002ffft"></a><dl>
+<dt><a name="index-fft"></a>Função: <strong>fft</strong> <em>(<var>real_array</var>, <var>imaginary_array</var>)</em></dt>
+<dt><a name="index-ift-1"></a>Função: <strong>ift</strong> <em>(<var>real_array</var>, <var>imaginary_array</var>)</em></dt>
+<dt><a name="index-recttopolar-1"></a>Função: <strong>recttopolar</strong> <em>(<var>real_array</var>, <var>imaginary_array</var>)</em></dt>
+<dt><a name="index-polartorect-1"></a>Função: <strong>polartorect</strong> <em>(<var>magnitude_array</var>, <var>phase_array</var>)</em></dt>
+<dd>
+<p>Transformação rápidada de Fourier e funções relacionadas. <code>load (&quot;fft&quot;)</code>
+chama essas funções dentro do Maxima.
+</p>
+<p><code>fft</code> e <code>ift</code> realiza transformação rápida complexa de Fourier e
+a transformação inversa, respectivamente, sobre arrays em ponto flutuante
+unidimensionais. O tamanho de <var>imaginary_array</var> deve ser igual ao tamanho de <var>real_array</var>.
+</p>
+<p><code>fft</code> e <code>ift</code> operam in-loco. Isto é, sobre o retorno de <code>fft</code> ou de <code>ift</code>,
+O conteúdo original dos arrays de entrada é substituído pela saída.
+A função <code>fillarray</code> pode fazer uma cópia de um array, isso pode
+ser necessário.
+</p>
+<p>A transformação discreta de Fourier e sua transformação inversa são definidas
+como segue. Tome <code>x</code> sendo os dados originais, com
+</p>
+<div class="example">
+<pre class="example">x[i]: real_array[i] + %i imaginary_array[i]
+</pre></div>
+  
+<p>Tome <code>y</code> sendo os dados transformados. A transformação normal e sua transformação inversa são
+</p>
+<div class="example">
+<pre class="example">y[k]: (1/n) sum (x[j] exp (-2 %i %pi j k / n), j, 0, n-1)
+
+x[j]:       sum (y[j] exp (+2 %i %pi j k / n), k, 0, n-1)
+</pre></div>
+
+<p>Arrays adequadas podem ser alocadas pela função <code>array</code>. Por exemplo:
+</p>
+<div class="example">
+<pre class="example">array (my_array, float, n-1)$
+</pre></div>
+
+<p>declara um array unidimensional com n elementos, indexado de 0 a
+n-1 inclusive. O número de elementos n deve ser igual a 2^m para algum m.
+</p>
+<p><code>fft</code> pode ser aplicada a dados reais (todos os arrays imaginários são iguais a zero) para obter
+coeficientes seno e cosseno.  Após chamar <code>fft</code>, os coeficientes
+seno e cosseno, digamos <code>a</code> e <code>b</code>, podem ser calculados como
+</p>
+<div class="example">
+<pre class="example">a[0]: real_array[0]
+b[0]: 0
+</pre></div>
+
+<p>e
+</p>
+<div class="example">
+<pre class="example">a[j]: real_array[j] + real_array[n-j]
+b[j]: imaginary_array[j] - imaginary_array[n-j]
+</pre></div>
+
+<p>para j variando de 1 a n/2-1, e
+</p>
+<div class="example">
+<pre class="example">a[n/2]: real_array[n/2]
+b[n/2]: 0
+</pre></div>
+
+<p><code>recttopolar</code> traduz valores complexos da forma <code>a + b %i</code> para
+a forma <code>r %e^(%i t)</code>. Veja <code>recttopolar</code>.
+</p>
+<p><code>polartorect</code> traduz valores complexos da forma <code>r %e^(%i t)</code>
+para a forma <code>a + b %i</code>. Veja <code>polartorect</code>.
+</p>
+<p><code>demo (&quot;fft&quot;)</code> exibe uma demonstração do pacote <code>fft</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdefvr_002ffortindent"></a><dl>
+<dt><a name="index-fortindent"></a>Variável de opção: <strong>fortindent</strong></dt>
+<dd><p>Valor padrão: 0
+</p>
+<p><code>fortindent</code> controla a margem esquerda de indentação de
+expressões mostradas pelo comando <code>fortran</code>.  0 fornece indentação
+normal (i.e., 6 espaços), e valores positivos farão com que
+expressões sejam mostrados mais além para a direita.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdeffn_002ffortran"></a><dl>
+<dt><a name="index-fortran"></a>Função: <strong>fortran</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Mostra <var>expr</var> como uma declaração Fortran.
+A linha de saída é indentada com espaços.
+Se a linha for muito longa, <code>fortran</code> imprime linhas de continuação.
+<code>fortran</code> mostra o operador de exponenciação <code>^</code> como <code>**</code>,
+e mostra um número complexo <code>a + b %i</code> na forma <code>(a,b)</code>.
+</p>
+<p><var>expr</var> pode ser uma equação. Nesse caso, <code>fortran</code> mostra uma declaração de
+atribuição, atribuindo o primeiro membro (esquerda) da equação ao segundo membro (direita).
+Em particular, se o primeiro membro <var>expr</var> é um nome de uma matriz,
+então <code>fortran</code> mostra uma declaração de atribuição para cada elemento da matriz.
+</p>
+<p>Se <var>expr</var> não for alguma coisa reconhecida por <code>fortran</code>,
+a expressão é mostrada no formato <code>grind</code> sem reclamação.
+<code>fortran</code> não conhece listas, arrays ou funções.
+</p>
+<p><code>fortindent</code> controla o margem esquerda das linhas mostradas.
+0 é a margem normal (i.e., indentada 6 espaços). Incrementando <code>fortindent</code>
+faz com que expressões sejam mostradas adiante para a direita.
+</p>
+<p>quando <code>fortspaces</code> for <code>true</code>, <code>fortran</code> preenche
+cada linha mostrada com espaços em branco até completar 80 columas.
+</p>
+<p><code>fortran</code> avalia seus argumentos;
+colocando um apóstrofo em um argumento evita avaliação.
+<code>fortran</code> sempre retorna <code>done</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: (a + b)^12$
+(%i2) fortran (expr);
+      (b+a)**12                                                                 
+(%o2)                         done
+(%i3) fortran ('x=expr);
+      x = (b+a)**12                                                             
+(%o3)                         done
+(%i4) fortran ('x=expand (expr));
+      x = b**12+12*a*b**11+66*a**2*b**10+220*a**3*b**9+495*a**4*b**8+792        
+     1   *a**5*b**7+924*a**6*b**6+792*a**7*b**5+495*a**8*b**4+220*a**9*b        
+     2   **3+66*a**10*b**2+12*a**11*b+a**12                                     
+(%o4)                         done
+(%i5) fortran ('x=7+5*%i);
+      x = (7,5)                                                                 
+(%o5)                         done
+(%i6) fortran ('x=[1,2,3,4]);
+      x = [1,2,3,4]                                                             
+(%o6)                         done
+(%i7) f(x) := x^2$
+(%i8) fortran (f);
+      f                                                                         
+(%o8)                         done
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdefvr_002ffortspaces"></a><dl>
+<dt><a name="index-fortspaces"></a>Variável de opção: <strong>fortspaces</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Quando <code>fortspaces</code> for <code>true</code>, <code>fortran</code> preenche
+cada linha mostrada com espaços em branco até completar 80 columas.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdeffn_002fhorner"></a><dl>
+<dt><a name="index-horner"></a>Função: <strong>horner</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<dt><a name="index-horner-1"></a>Função: <strong>horner</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna uma representação rearranjada de <var>expr</var> como
+na regra de Horner, usando <var>x</var> como variável principal se isso for especificado.
+<code>x</code> pode ser omitido e nesse caso a variável principal da forma de expressão racional
+canônica de <var>expr</var> é usada.
+</p>
+<p><code>horner</code> algumas vezes melhora a estabilidade se <code>expr</code> for
+ser numericamente avaliada.  Isso também é útil se Maxima é usado para
+gerar programas para rodar em Fortran. Veja também <code>stringout</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: 1e-155*x^2 - 5.5*x + 5.2e155;
+                           2
+(%o1)            1.0E-155 x  - 5.5 x + 5.2E+155
+(%i2) expr2: horner (%, x), keepfloat: true;
+(%o2)            (1.0E-155 x - 5.5) x + 5.2E+155
+(%i3) ev (expr, x=1e155);
+Maxima encountered a Lisp error:
+
+ floating point overflow
+
+Automatically continuing.
+To reenable the Lisp debugger set *debugger-hook* to nil.
+(%i4) ev (expr2, x=1e155);
+(%o4)                       7.0E+154
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdeffn_002ffind_005froot"></a><dl>
+<dt><a name="index-find_005froot"></a>Função: <strong>find_root</strong> <em>(<var>f</var>(<var>x</var>), <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dt><a name="index-find_005froot-1"></a>Função: <strong>find_root</strong> <em>(<var>f</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Encontra a raíz da função <var>f</var> com a variável <var>x</var> percorrendo o intervalo <code>[<var>a</var>, <var>b</var>]</code>.
+A função deve ter um
+sinal diferente em cada ponto final.  Se essa condição não for alcançada, a
+action of the function is governed by <code>find_root_error</code>.  If
+<code>find_root_error</code> is <code>true</code> then an error occurs, otherwise the value of
+<code>find_root_error</code> is returned (thus for plotting <code>find_root_error</code> might be set to
+0.0).  De outra forma (dado que Maxima pode avaliar o primeiro argumento
+no intervalo especificado, e que o intervalo é contínuo) <code>find_root</code> é
+garantido vir para cima com a raíz (ou um deles se existir mais
+que uma raíz).  A precisão de <code>find_root</code> é governada por
+<code>intpolabs</code> e <code>intpolrel</code> os quais devem ser números em ponto flutuante
+não negativos.  <code>find_root</code> encerrará quando o primeiro argumento avaliar para
+alguma coisa menor que ou igual a <code>intpolabs</code> ou se sucessivas
+aproximações da raíz diferirem por não mais que <code>intpolrel * &lt;um dos aproximandos&gt;</code>.
+O valor padrão de <code>intpolabs</code> e <code>intpolrel</code> são
+0.0 de forma que <code>find_root</code> pega como boa uma resposta como for possível com a
+precisão aritmética simples que tivermos.  O primeiro argumento pode ser uma
+equação.  A ordem dos dois últimos argumentos é irrelevante.  Dessa forma
+</p>
+<div class="example">
+<pre class="example">find_root (sin(x) = x/2, x, %pi, 0.1);
+</pre></div>
+
+<p>é equivalente a
+</p>
+<div class="example">
+<pre class="example">find_root (sin(x) = x/2, x, 0.1, %pi);
+</pre></div>
+
+<p>O método usado é uma busca binária no intervalo especificado pelos últimos
+dois argumentos.  Quando o resultado da busca for encontrado a função é fechada o suficiente para ser
+linear, isso inicia usando interpolação linear.
+</p>
+<p>Examples:
+</p><div class="example">
+<pre class="example">(%i1) f(x) := sin(x) - x/2;
+                                        x
+(%o1)                  f(x) := sin(x) - -
+                                        2
+(%i2) find_root (sin(x) - x/2, x, 0.1, %pi);
+(%o2)                   1.895494267033981
+(%i3) find_root (sin(x) = x/2, x, 0.1, %pi);
+(%o3)                   1.895494267033981
+(%i4) find_root (f(x), x, 0.1, %pi);
+(%o4)                   1.895494267033981
+(%i5) find_root (f, 0.1, %pi);
+(%o5)                   1.895494267033981
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdefvr_002ffind_005froot_005fabs"></a><dl>
+<dt><a name="index-find_005froot_005fabs"></a>Variável de opção: <strong>find_root_abs</strong></dt>
+<dd><p>Valor padrão: 0.0
+</p>
+<p><code>find_root_abs</code> é a precisão do comando <code>find_root</code>. A precisão é
+governada por <code>find_root_abs</code> e <code>find_root_rel</code> que devem ser
+números não negativos em ponto flutuante.  <code>find_root</code> terminará quando o
+primeiro argumento avaliar para alguma coisa menor que ou igual a <code>find_root_abs</code> ou se
+sucessivos aproximandos para a raíz diferirem por não mais que <code>find_root_rel * &lt;um dos aproximandos&gt;</code>.
+Os valores padrão de <code>find_root_abs</code> e
+<code>find_root_rel</code> são 0.0 de forma que <code>find_root</code> tome como boa uma resposta que for possível
+com a precisão aritmética simples que tivermos.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdefvr_002ffind_005froot_005ferror"></a><dl>
+<dt><a name="index-find_005froot_005ferror"></a>Variável de opção: <strong>find_root_error</strong></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p><code>find_root_error</code> governa o comportamento de <code>find_root</code>.
+Quando <code>find_root</code> for chamada, ela determina se a função
+a ser resolvida satisfaz ou não a condição que os valores da
+função nos pontos finais do intervalo de interpolação são opostos
+em sinal.  Se eles forem de sinais opostos, a interpolação prossegue.
+Se eles forem de mesmo sinal, e <code>find_root_error</code> for <code>true</code>, então um erro é
+sinalizado.  Se eles forem de mesmo sinal e <code>find_root_error</code> não for <code>true</code>, o
+valor de <code>find_root_error</code> é retornado.  Dessa forma para montagem de gráfico, <code>find_root_error</code>
+pode ser escolhida para 0.0.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdefvr_002ffind_005froot_005frel"></a><dl>
+<dt><a name="index-find_005froot_005frel"></a>Variável de opção: <strong>find_root_rel</strong></dt>
+<dd><p>Valor padrão: 0.0
+</p>
+<p><code>find_root_rel</code> é a precisão do comando <code>find_root</code> e é
+governada por <code>find_root_abs</code> e <code>find_root_rel</code> que devem ser
+números não negativos em ponto flutuante.  <code>find_root</code> terminará quando o
+primeiro argumento avaliar para alguma coisa menor que ou igual a <code>find_root_abs</code> ou se
+sucessivos aproximandos para a raíz diferirem de não mais que <code>find_root_rel * &lt;um dos aproximandos&gt;</code>.
+Os valores padrão de <code>find_root_labs</code> e
+<code>find_root_rel</code> é 0.0 de forma que <code>find_root</code> toma como boa uma resposta que for possível
+com a precisão aritmética simples que tivermos.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fdeffn_002fnewton"></a><dl>
+<dt><a name="index-newton"></a>Função: <strong>newton</strong> <em>(<var>expr</var>, <var>x</var>, <var>x_0</var>, <var>eps</var>)</em></dt>
+<dd><p>Retorna uma solução aproximada de <code><var>expr</var> = 0</code> através do método de Newton,
+considerando <var>expr</var> como sendo uma função de uma variável, <var>x</var>.
+A busca pela solução começa com <code><var>x</var> = <var>x_0</var></code>
+e prossegue até <code>abs(<var>expr</var>) &lt; <var>eps</var></code>
+(com <var>expr</var> avaliada para o valor corrente de <var>x</var>).
+</p>
+<p><code>newton</code> permite que variáveis indefinidas apareçam em <var>expr</var>,
+contanto que o teste de terminação <code>abs(<var>expr</var>) &lt; <var>eps</var></code> avalie
+para <code>true</code> ou <code>false</code>.
+Dessa forma não é necessário que <var>expr</var> avalie para um número.
+</p>
+<p><code>load(&quot;newton1&quot;)</code> chama essa função.
+</p>
+<p>Veja também <code>realroots</code>, <code>allroots</code>, <code>find_root</code>, e <code>mnewton</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;newton1&quot;);
+(%o1) /usr/share/maxima/5.10.0cvs/share/numeric/newton1.mac
+(%i2) newton (cos (u), u, 1, 1/100);
+(%o2)                   1.570675277161251
+(%i3) ev (cos (u), u = %);
+(%o3)                 1.2104963335033528E-4
+(%i4) assume (a &gt; 0);
+(%o4)                        [a &gt; 0]
+(%i5) newton (x^2 - a^2, x, a/2, a^2/100);
+(%o5)                  1.00030487804878 a
+(%i6) ev (x^2 - a^2, x = %);
+                                           2
+(%o6)                6.098490481853958E-4 a
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Numerical_002fnode_002fFun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-S_00e9ries-de-Fourier"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_75.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-S_00e9ries-de-Fourier" accesskey="n" rel="next">Funções e Variáveis Definidas para Séries de Fourier</a>, Previous: <a href="maxima_73.html#Pacotes-de-Fourier" accesskey="p" rel="previous">Pacotes de Fourier</a>, Acima: <a href="maxima_71.html#Num_00e9rico" accesskey="u" rel="up">Numérico</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
 </body>
 </html>

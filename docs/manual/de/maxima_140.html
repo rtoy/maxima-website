@@ -1,0 +1,1182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Gammafunktionen und verwandte Funktionen</title>
+
+<meta name="description" content="Maxima Manual: Gammafunktionen und verwandte Funktionen">
+<meta name="keywords" content="Maxima Manual: Gammafunktionen und verwandte Funktionen">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_133.html#Spezielle-Funktionen" rel="up" title="Spezielle Funktionen">
+<link href="maxima_141.html#Exponentielle-Integrale" rel="next" title="Exponentielle Integrale">
+<link href="maxima_139.html#Struve_002dFunktionen" rel="previous" title="Struve-Funktionen">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Gammafunktionen-und-verwandte-Funktionen"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_141.html#Exponentielle-Integrale" accesskey="n" rel="next">Exponentielle Integrale</a>, Previous: <a href="maxima_135.html#Bessel_002dFunktionen-und-verwandte-Funktionen" accesskey="p" rel="previous">Bessel-Funktionen und verwandte Funktionen</a>, Nach oben: <a href="maxima_133.html#Spezielle-Funktionen" accesskey="u" rel="up">Spezielle Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Gammafunktionen-und-verwandte-Funktionen-1"></a>
+<h3 class="section">22.3 Gammafunktionen und verwandte Funktionen</h3>
+
+<p>Die Gammafunktion und die verwandten Funktionen wie die Beta-, Psi- und die
+unvollst&auml;ndige Gammafunktion sind definiert in Abramowitz and Stegun,
+<i>Handbook of Mathematical Functions</i>, Kapitel 6.
+</p>
+<a name="bffac"></a><a name="Item_003a-Special_002ede_002fdeffn_002fbffac"></a><dl>
+<dt><a name="index-bffac"></a>Funktion: <strong>bffac</strong> <em>(<var>x</var>, <var>fpprec</var>)</em></dt>
+<dd>
+<p>Berechnet die Fakult&auml;t f&uuml;r gro&szlig;e Gleitkommazahlen.  Das Argument <var>x</var>
+muss eine gro&szlig;e Gleitkommazahl sein.  Das zweite Argument <var>fpprec</var> ist
+die Anzahl der Stellen, f&uuml;r die die Fakult&auml;t berechnet wird.  Das Ergebnis
+ist eine gro&szlig;e Gleitkommazahl.
+</p>
+<p>F&uuml;r das symbolische Rechnen mit der Fakult&auml;t und der Gammafunktion siehe die
+entsprechenden Funktionen <code><a href="maxima_52.html#factorial">factorial</a></code> und <code><a href="#gamma">gamma</a></code>.  Maxima ruft
+intern die Funktion <code>bffac</code> auf, um die Fakult&auml;t <code>factorial</code> und
+die Gammafunktion <code>gamma</code> f&uuml;r eine gro&szlig;e Gleitkommazahl numerisch zu
+berechnen.
+</p>
+<p>Siehe auch die Funktion <code><a href="#cbffac">cbffac</a></code> f&uuml;r die Berechnung der Fakult&auml;t f&uuml;r
+komplexe gro&szlig;e Gleitkommazahlen.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) bffac(10.5b0, 25);
+(%o1)             1.189942308396224845701304b7
+(%i2) fpprec:25$
+(%i3) 10.5b0!;
+(%o3)             1.189942308396224845701303b7
+</pre></div>
+</dd></dl>
+
+<a name="bfpsi"></a><a name="Item_003a-Special_002ede_002fdeffn_002fbfpsi"></a><dl>
+<dt><a name="index-bfpsi"></a>Funktion: <strong>bfpsi</strong> <em>(<var>n</var>, <var>x</var>, <var>fpprec</var>)</em></dt>
+<dd><a name="Item_003a-Special_002ede_002fdeffn_002fbfpsi0"></a></dd><dt><a name="index-bfpsi0"></a>Funktion: <strong>bfpsi0</strong> <em>(<var>x</var>, <var>fpprec</var>)</em></dt>
+<dd>
+<p><code>bfpsi</code> ist die Polygammafunktion f&uuml;r ein reelles Argument <var>x</var> und
+einer ganzzahligen Ordnung <var>n</var>.  <code>bfpsi0</code> ist die Digammafunktion.
+<code>bfpsi0(<var>x</var>, <var>fpprec</var>)</code> ist &auml;quivalent zu <code>bfpsi(0, <var>x</var>,
+<var>fpprec</var>)</code>.
+</p>
+<p>Das Argument <var>x</var> der Funktionen <code>bfpsi</code> und <code>bfpsi0</code> muss eine
+gro&szlig;e Gleitkommazahl sein.  Das Argument <var>fpprec</var> gibt die Anzahl der
+Stellen an, f&uuml;r die die Funktion berechnet wird.  Das Ergebnis ist eine
+gro&szlig;e Gleitkommazahl.
+</p>
+<p>F&uuml;r das symbolische Rechnen mit der Polygammafunktion siehe die Funktion
+<code><a href="#psi">psi</a></code>.  Maxima ruft intern die Funktion <code>bfpsi</code> auf, um die
+Polygammafunktion f&uuml;r gro&szlig;e Gleitkommazahlen numerisch zu berechnen.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) bfpsi(0, 1, 25);
+(%o1)            - 5.772156649015328606065121b-1
+(%i2) fpprec:25$
+
+(%i3) psi[0](1.0b0);
+(%o3)            - 5.772156649015328606065121b-1
+</pre></div>
+</dd></dl>
+
+<a name="cbffac"></a><a name="Item_003a-Special_002ede_002fdeffn_002fcbffac"></a><dl>
+<dt><a name="index-cbffac"></a>Funktion: <strong>cbffac</strong> <em>(<var>z</var>, <var>fpprec</var>)</em></dt>
+<dd>
+<p>Berechnet die Fakult&auml;t f&uuml;r komplexe gro&szlig;e Gleitkommazahlen.  Das
+Argument <var>z</var> ist eine komplexe gro&szlig;e Gleitkommazahl.  Das zweite
+Argument <var>fpprec</var> ist die Anzahl der Stellen, f&uuml;r die die Fakult&auml;t
+berechnet wird.  Das Ergebnis ist eine komplexe gro&szlig;e Gleitkommazahl.
+</p>
+<p>F&uuml;r das symbolische Rechnen mit der Fakult&auml;t und der Gammafunktion siehe die
+entsprechenden Funktionen <code><a href="maxima_52.html#factorial">factorial</a></code> und <code><a href="#gamma">gamma</a></code>.  Maxima ruft
+intern die Funktion <code>cbffac</code> auf, um die Fakult&auml;t <code>factorial</code> und
+die Gammafunktion <code>gamma</code> f&uuml;r eine komplexe gro&szlig;e Gleitkommazahl
+numerisch zu berechnen.
+</p>
+<p>Siehe auch die Funktion <code><a href="#bffac">bffac</a></code>.
+</p></dd></dl>
+
+<a name="gamma"></a><a name="Item_003a-Special_002ede_002fdeffn_002fgamma"></a><dl>
+<dt><a name="index-gamma"></a>Funktion: <strong>gamma</strong> <em>(<var>z</var>)</em></dt>
+<dd>
+<p>Die Definition der Gammafunktion ist (A &amp; S 6.1.1)
+</p>
+<div class="example">
+<pre class="example">                       inf
+                      /
+                      [     z - 1   - t
+           gamma(z) = I    t      %e    dt
+                      ]
+                      /
+                       0
+</pre></div>
+
+<p>Die Gammafunktion <code>gamma</code> ist f&uuml;r das numerische und symbolische Rechnen
+geeignet.  F&uuml;r positive ganze Zahlen und rationale Zahlen als Argument <var>z</var>
+wird die Gammafunktion vereinfacht.  F&uuml;r halbzahlige rationale Zahlen ist das
+Ergebnis der Vereinfachung eine rationale Zahl multipliziert mit
+<code>sqrt(%pi)</code>.  Die Vereinfachung f&uuml;r ganze Zahlen wird von der
+Optionsvariablen <code><a href="maxima_52.html#factlim">factlim</a></code> kontrolliert.  F&uuml;r ganze Zahlen, die
+gr&ouml;&szlig;er als <code>factlim</code> sind, kann es zu einem &Uuml;berlauf bei der
+Berechnung der Gammafunktion kommen.  Entsprechend wird die Vereinfachung f&uuml;r
+rationale Zahlen von der Optionsvariablen <code><a href="#gammalim">gammalim</a></code> kontrolliert.
+</p>
+<p>F&uuml;r negative ganze Zahlen ist die Gammafunktion <code>gamma</code> nicht definiert.
+</p>
+<p>Maxima berechnet <code>gamma</code> numerisch f&uuml;r reelle und komplexe Argumente
+<var>z</var>.  Das Ergebnis ist eine reelle oder komplexe Gleitkommazahl.
+</p>
+<p><code>gamma</code> hat Spiegelsymmetrie.
+</p>
+<p>Hat die Optionsvariable <code><a href="#gamma_005fexpand">gamma_expand</a></code> den Wert <code>true</code>, entwickelt
+Maxima die Gammafunktion f&uuml;r Argumente der Form <code>z+n</code> und <code>z-n</code>,
+wobei <var>n</var> eine ganze Zahl ist.
+</p>
+<p>Maxima kennt die Ableitung der Gammafunktion <code>gamma</code>.
+</p>
+<p>Siehe auch die Funktion <code><a href="#makegamma">makegamma</a></code>, um Fakult&auml;ten und
+Betafunktionen in einem Ausdruck durch die Gammafunktion zu ersetzen.
+</p>
+<p>Die Euler-Mascheroni-Konstante ist <code><a href="maxima_18.html#g_t_0025gamma">%gamma</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<p>Vereinfachung f&uuml;r ganze Zahlen und rationale Zahlen.
+</p>
+<div class="example">
+<pre class="example">(%i1) map('gamma,[1,2,3,4,5,6,7,8,9]);
+(%o1)        [1, 1, 2, 6, 24, 120, 720, 5040, 40320]
+(%i2) map('gamma,[1/2,3/2,5/2,7/2]);
+                    sqrt(%pi)  3 sqrt(%pi)  15 sqrt(%pi)
+(%o2)   [sqrt(%pi), ---------, -----------, ------------]
+                        2           4            8
+(%i3) map('gamma,[2/3,5/3,7/3]);
+                                  2           1
+                          2 gamma(-)  4 gamma(-)
+                      2           3           3
+(%o3)          [gamma(-), ----------, ----------]
+                      3       3           9
+</pre></div>
+
+<p>Numerische Berechnung f&uuml;r reelle und komplexe Argumente.
+</p>
+<div class="example">
+<pre class="example">(%i4) map('gamma,[2.5,2.5b0]);
+(%o4)     [1.329340388179137, 1.3293403881791370205b0]
+(%i5) map('gamma,[1.0+%i,1.0b0+%i]);
+(%o5) [0.498015668118356 - .1549498283018107 %i, 
+          4.9801566811835604272b-1 - 1.5494982830181068513b-1 %i]
+</pre></div>
+
+<p><code>gamma</code> hat Spiegelsymmetrie.
+</p>
+<div class="example">
+<pre class="example">(%i6) declare(z,complex)$
+(%i7) conjugate(gamma(z));
+(%o7)                  gamma(conjugate(z))
+</pre></div>
+
+<p>Maxima entwickelt <code>gamma(z+n)</code> und <code>gamma(z-n)</code>, wenn die
+Optionsvariable <code>gamma_expand</code> den Wert <code>true</code> hat.
+</p>
+<div class="example">
+<pre class="example">(%i8) gamma_expand:true$
+
+(%i9) [gamma(z+1),gamma(z-1),gamma(z+2)/gamma(z+1)];
+</pre><pre class="example">                               gamma(z)
+(%o9)             [z gamma(z), --------, z + 1]
+                                z - 1
+</pre></div>
+
+<p>Die Ableitung der Gammafunktion <code>gamma</code>.
+</p>
+<div class="example">
+<pre class="example">(%i10) diff(gamma(z),z);
+(%o10)                  psi (z) gamma(z)
+                           0
+</pre></div>
+</dd></dl>
+
+<a name="gamma_005fexpand"></a><a name="Item_003a-Special_002ede_002fdefvr_002fgamma_005fexpand"></a><dl>
+<dt><a name="index-gamma_005fexpand"></a>Optionsvariable: <strong>gamma_expand</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p>Kontrolliert die Vereinfachung der Gammafunktion <code><a href="#gamma">gamma</a></code> und verwandte
+Funktionen wie <code><a href="#gamma_005fincomplete">gamma_incomplete</a></code> f&uuml;r den Fall, dass das Argument die
+Form <code>z+n</code> oder <code>z-n</code> hat.  Dabei ist <code>z</code> ist ein beliebiges
+Argument und <code>n</code> ist eine ganze Zahl.
+</p>
+<p>Siehe die Funktion <code>gamma</code> f&uuml;r ein Beispiel.
+</p></dd></dl>
+
+<a name="log_005fgamma"></a><a name="Item_003a-Special_002ede_002fdeffn_002flog_005fgamma"></a><dl>
+<dt><a name="index-log_005fgamma"></a>Funktion: <strong>log_gamma</strong> <em>(<var>z</var>)</em></dt>
+<dd>
+<p>Der Logarithmus der Gammafunktion.
+</p></dd></dl>
+
+<a name="gamma_005fincomplete"></a><a name="Item_003a-Special_002ede_002fdeffn_002fgamma_005fincomplete"></a><dl>
+<dt><a name="index-gamma_005fincomplete"></a>Funktion: <strong>gamma_incomplete</strong> <em>(<var>a</var>, <var>z</var>)</em></dt>
+<dd>
+<p>Die unvollst&auml;ndige Gammafunktion (A &amp; S 6.5.2) die definiert ist als
+</p>
+<div class="example">
+<pre class="example">                  inf
+                 /
+                 [     a - 1   - t
+                 I    t      %e    dt
+                 ]
+                 /
+                  z
+</pre></div>
+</dd></dl>
+
+<a name="gamma_005fincomplete_005fregularized"></a><a name="Item_003a-Special_002ede_002fdeffn_002fgamma_005fincomplete_005fregularized"></a><dl>
+<dt><a name="index-gamma_005fincomplete_005fregularized"></a>Funktion: <strong>gamma_incomplete_regularized</strong> <em>(<var>a</var>, <var>z</var>)</em></dt>
+<dd>
+<p>Regularisierte unvollst&auml;ndige Gammafunktion (A &amp; S 6.5.1)
+</p>
+<div class="example">
+<pre class="example">               gamma_incomplete(a, z)
+               ----------------------
+                      gamma(a)
+</pre></div>
+</dd></dl>
+
+<a name="gamma_005fincomplete_005fgeneralized"></a><a name="Item_003a-Special_002ede_002fdeffn_002fgamma_005fincomplete_005fgeneralized"></a><dl>
+<dt><a name="index-gamma_005fincomplete_005fgeneralized"></a>Funktion: <strong>gamma_incomplete_generalized</strong> <em>(<var>a</var>, <var>z1</var>, <var>z2</var>)</em></dt>
+<dd>
+<p>Verallgemeinerte unvollst&auml;ndige Gammafunktion
+</p>
+<div class="example">
+<pre class="example">                  z2
+                 /
+                 [    a - 1   - t
+                 I   t      %e    dt
+                 ]
+                 /
+                  z1
+</pre></div>
+</dd></dl>
+
+<a name="gammalim"></a><a name="Item_003a-Special_002ede_002fdefvr_002fgammalim"></a><dl>
+<dt><a name="index-gammalim"></a>Optionsvariable: <strong>gammalim</strong></dt>
+<dd><p>Standardwert: 1000000
+</p>
+<p>Kontrolliert die Vereinfachung der Gammafunktion f&uuml;r rationale Argumente.
+Ist der Betrag des Arguments der Gammafunktion gr&ouml;&szlig;er als <code>gammalim</code>,
+wird die Gammafunktion nicht vereinfacht.  Damit wird verhindert, dass
+die Berechnung der Gammafunktion zu einem &Uuml;berlauf f&uuml;hrt und mit einem
+Fehler abbricht.
+</p>
+<p>Siehe auch die Optionsvariable <code><a href="maxima_52.html#factlim">factlim</a></code>, um die Vereinfachung f&uuml;r
+ganze Zahlen zu kontrollieren.
+</p></dd></dl>
+
+<a name="makegamma"></a><a name="Item_003a-Special_002ede_002fdeffn_002fmakegamma"></a><dl>
+<dt><a name="index-makegamma"></a>Funktion: <strong>makegamma</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Ersetzt Fakult&auml;ten sowie Binomial- und Betafunktionen durch die Gammafunktion
+<code><a href="#gamma">gamma</a></code> im Ausdruck <var>expr</var>.
+</p>
+<p>Siehe auch die Funktion <code><a href="#makefact">makefact</a></code>, um stattdessen Fakult&auml;ten in den
+Ausdruck einzusetzen.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: binomial(a,b)*gamma(b+1)/gamma(a+1);
+                   binomial(a, b) gamma(b + 1)
+(%o1)              ---------------------------
+                          gamma(a + 1)
+(%i2) makegamma(expr);
+                               1
+(%o2)                  ------------------
+                       gamma(- b + a + 1)
+</pre></div>
+</dd></dl>
+
+<a name="beta"></a><a name="Item_003a-Special_002ede_002fdeffn_002fbeta"></a><dl>
+<dt><a name="index-beta"></a>Funktion: <strong>beta</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd>
+<p>Die Betafunktion ist definiert als <code>gamma(a) gamma(b)/gamma(a+b)</code>
+(A &amp; S 6.2.1).
+</p>
+<p>Maxima vereinfacht die Betafunktion f&uuml;r positive ganze Zahlen <var>a</var> und
+<var>b</var> sowie rationale Zahlen, deren Summe <code><var>a</var> + <var>b</var></code> eine ganze
+Zahl ist.  Hat die Optionsvariable <code><a href="#beta_005fargs_005fsum_005fto_005finteger">beta_args_sum_to_integer</a></code> den Wert
+<code>true</code>, vereinfacht Maxima die Betafunktion f&uuml;r allgemeine Ausdr&uuml;cke
+<var>a</var> und <var>b</var>, deren Summe eine ganze Zahl ist.
+</p>
+<p>Ist eines der Argumente <var>a</var> oder <var>b</var> Null, ist die Betafunktion nicht
+definiert.
+</p>
+<p>Im allgemeinen ist die Betafunktion nicht definiert f&uuml;r negative ganze Zahlen
+als Argument.  Ausnahme ist der Fall, dass <var>a = -n</var>, wobei <var>n</var> eine
+positive ganze Zahl und <var>b</var> eine positive ganze Zahl mit <var>b &lt;= b</var> ist.
+In diesem Fall kann eine analytische Fortsetzung der Betafunktion definiert
+werden.  Maxima gibt f&uuml;r diesen Fall ein Ergebnis zur&uuml;ck.
+</p>
+<p>Hat die Optionsvariable <code>beta_expand</code> den Wert <code>true</code>, werden
+Ausdr&uuml;cke wie <code>beta(a+n, b</code> und <code>beta(a-n, b)</code> oder
+<code>beta(a, b+n</code> und <code>beta(a, b-n)</code> entwickelt.
+</p>
+<p>Maxima berechnet die Betafunktion f&uuml;r reelle und komplexe Gleitkommazahlen
+numerisch.  F&uuml;r die numerische Berechnung nutzt Maxima die Funktion
+<code><a href="#log_005fgamma">log_gamma</a></code>:
+</p>
+<div class="example">
+<pre class="example">           - log_gamma(b + a) + log_gamma(b) + log_gamma(a)
+         %e
+</pre></div>
+
+<p>Maxima kennt Symmetrieeigenschaften der Betafunktion.  Die Betafunktion ist
+symmetrisch und hat Spiegelsymmetrie.
+</p>
+<p>Maxima kennt die Ableitung der Betafunktion nach den Argumenten <var>a</var> und
+<var>b</var>.
+</p>
+<p>Mit der Funktion <code><a href="#makegamma">makegamma</a></code> kann die Betafunktion durch Gammafunktionen
+ersetzt werden.  Entsprechend ersetzt die Funktion <code><a href="#makefact">makefact</a></code><!-- /@w -->
+Betafunktionen in einem Ausdruck durch Fakult&auml;ten.
+</p>
+<p>Beispiele:
+</p>
+<p>Vereinfachung der Betafunktion, wenn eines der Argumente eine ganze Zahl ist.
+</p>
+<div class="example">
+<pre class="example">(%i1) [beta(2,3),beta(2,1/3),beta(2,a)];
+</pre><pre class="example">                               1   9      1
+(%o1)                         [--, -, ---------]
+                               12  4  a (a + 1)
+</pre></div>
+
+<p>Vereinfachung der Betafunktion f&uuml;r zwei rationale Argumente, die sich zu
+einer ganzen Zahl summieren.
+</p>
+<div class="example">
+<pre class="example">(%i2) [beta(1/2,5/2),beta(1/3,2/3),beta(1/4,3/4)];
+                          3 %pi   2 %pi
+(%o2)                    [-----, -------, sqrt(2) %pi]
+                            8    sqrt(3)
+</pre></div>
+
+<p>Hat die Optionsvariable <code>beta_args_sum_to_integer</code> den Wert <code>true</code>,
+vereinfacht die Betafunktion f&uuml;r allgemeine Ausdr&uuml;cke, die sich zu einer
+ganzen Zahl summieren.
+</p>
+<div class="example">
+<pre class="example">(%i3) beta_args_sum_to_integer:true$
+(%i4) beta(a+1,-a+2);
+                                %pi (a - 1) a
+(%o4)                         ------------------
+                              2 sin(%pi (2 - a))
+</pre></div>
+
+<p>Die m&ouml;glichen Ergebnisse, wenn eines der Argumente eine negative ganze
+Zahl ist.
+</p>
+<div class="example">
+<pre class="example">(%i5) [beta(-3,1),beta(-3,2),beta(-3,3)];
+                                    1  1    1
+(%o5)                            [- -, -, - -]
+                                    3  6    3
+</pre></div>
+
+<p>Vereinfachungen, wenn die Optionsvariable <code>beta_expand</code> den Wert
+<code>true</code> hat.
+</p>
+<div class="example">
+<pre class="example">(%i6) beta_expand:true$
+(%i7) [beta(a+1,b),beta(a-1,b),beta(a+1,b)/beta(a,b+1)];
+                    a beta(a, b)  beta(a, b) (b + a - 1)  a
+(%o7)              [------------, ----------------------, -]
+                       b + a              a - 1           b
+
+</pre></div>
+
+<p>Die Betafunktion ist nicht definiert, wenn eines der Argumente Null ist.
+</p>
+<div class="example">
+<pre class="example">(%i7) beta(0,b);
+beta: expected nonzero arguments; found 0, b
+ -- an error.  To debug this try debugmode(true);
+</pre></div>
+
+<p>Numerische Berechnung der Betafunktion f&uuml;r reelle und komplexe Argumente.
+</p>
+<div class="example">
+<pre class="example">(%i8) beta(2.5,2.3);
+(%o8) .08694748611299981
+
+(%i9) beta(2.5,1.4+%i);
+(%o9) 0.0640144950796695 - .1502078053286415 %i
+
+(%i10) beta(2.5b0,2.3b0);
+(%o10) 8.694748611299969b-2
+
+(%i11) beta(2.5b0,1.4b0+%i);
+(%o11) 6.401449507966944b-2 - 1.502078053286415b-1 %i
+</pre></div>
+
+<p>Die Betafunktion ist symmetrisch und hat Spiegelsymmetrie.
+</p>
+<div class="example">
+<pre class="example">(%i14) beta(a,b)-beta(b,a);
+(%o14)                                 0
+(%i15) declare(a,complex,b,complex)$
+(%i16) conjugate(beta(a,b));
+(%o16)                 beta(conjugate(a), conjugate(b))
+</pre></div>
+
+<p>Ableitung der Betafunktion.
+</p>
+<div class="example">
+<pre class="example">(%i17) diff(beta(a,b),a);
+(%o17)               - beta(a, b) (psi (b + a) - psi (a))
+                                      0             0
+</pre></div>
+</dd></dl>
+
+<a name="beta_005fincomplete"></a><a name="Item_003a-Special_002ede_002fdeffn_002fbeta_005fincomplete"></a><dl>
+<dt><a name="index-beta_005fincomplete"></a>Funktion: <strong>beta_incomplete</strong> <em>(<var>a</var>, <var>b</var>, <var>z</var>)</em></dt>
+<dd>
+<p>Die Definition der unvollst&auml;ndigen Betafunktion ist (A &amp; S 6.6.1)
+</p>
+<div class="example">
+<pre class="example">                       z
+                      /
+                      [         b - 1  a - 1
+                      I  (1 - t)      t      dt
+                      ]
+                      /
+                       0
+</pre></div>
+
+<p>Diese Definition ist m&ouml;glich f&uuml;r <em>realpart(a)&gt;0</em> und
+<em>realpart(b)&gt;0</em> sowie <em>abs(z)&lt;1</em>.  F&uuml;r andere Werte kann die
+unvollst&auml;ndige Betafunktion als eine verallgemeinerte Hypergeometrische
+Funktion definiert werden:
+</p>
+<div class="example">
+<pre class="example">   gamma(a) hypergeometric_generalized([a, 1 - b], [a + 1], z) z
+</pre></div>
+
+<p>(Siehe <a href="https://functions.wolfram.com/">https://functions.wolfram.com/</a> f&uuml;r eine Definition der unvollst&auml;ndigen
+Betafunktion.)
+</p>
+<p>F&uuml;r negative ganze Zahlen <em>a = -n</em> und positive ganze Zahlen
+<em>b = m</em> mit <em>m &lt;= n</em> kann die unvollst&auml;ndige Betafunktion definiert
+werden als
+</p>
+<div class="example">
+<pre class="example">                            m - 1           k
+                            ====  (1 - m)  z
+                      n - 1 \            k
+                     z       &gt;    -----------
+                            /     k! (n - k)
+                            ====
+                            k = 0
+</pre></div>
+
+<p>Maxima nutzt diese Definition, um die Funktion <code>beta_incomplete</code> f&uuml;r
+negative ganzzahlige Argumente <var>a</var> zu vereinfachen.
+</p>
+<p>F&uuml;r positive ganzzahlige Argumente <var>a</var> vereinfacht <code>beta_incomplete</code>
+f&uuml;r jedes Argument <var>b</var> und <var>z</var>.  Entsprechend vereinfacht
+<code>beta_incomplete</code> f&uuml;r ein positives ganzzahliges Argument <var>b</var> mit
+der Ausnahme, dass <var>a</var> eine negative ganze Zahl ist.
+</p>
+<p>F&uuml;r <em>z=0</em> und <em>realpart(a) &gt; 0</em> hat <code>beta_incomplete</code> den
+speziellen Wert Null.  F&uuml;r <var>z=1</var> und <em>realpart(b) &gt; 0</em> vereinfacht
+<code>beta_incomplete</code> zu einem Ausdruck mit der Betafunktion <code>beta(a, b)</code>.
+</p>
+<p>Maxima berechnet <code>beta_incomplete</code> numerisch f&uuml;r reelle und komplexe
+Gleitkommazahlen als Argumente.  F&uuml;r die numerische Berechnung nutzt Maxima
+eine Entwicklung der unvollst&auml;ndigen Betafunktion als Kettenbruch.
+</p>
+<p>Hat die Optionsvariable <code><a href="#beta_005fexpand">beta_expand</a></code> den Wert <code>true</code>, entwickelt
+Maxima Ausdr&uuml;cke der Form <code>beta_incomplete(a+n, b, z)</code> und
+<code>beta_incomplete(a-n, b, z)</code>, wobei <code>n</code> eine ganze Zahl ist.
+</p>
+<p>Maxima kennt die Ableitungen der unvollst&auml;ndigen Betafunktion nach den
+Variablen <var>a</var>, <var>b</var> und <var>z</var> und das Integral f&uuml;r die 
+Integrationsvariable <var>z</var>.
+</p>
+<p>Beispiele:
+</p>
+<p>Vereinfachung f&uuml;r eine positive ganze Zahl als Argument <var>a</var>.
+</p>
+<div class="example">
+<pre class="example">(%i1) beta_incomplete(2,b,z);
+                                       b
+                            1 - (1 - z)  (b z + 1)
+(%o1)                       ----------------------
+                                  b (b + 1)
+</pre></div>
+
+<p>Vereinfachung f&uuml;r eine positive ganze Zahl als Argument <var>b</var>.
+</p>
+<div class="example">
+<pre class="example">(%i2) beta_incomplete(a,2,z);
+                                               a
+                              (a (1 - z) + 1) z
+(%o2)                         ------------------
+                                  a (a + 1)
+</pre></div>
+
+<p>Vereinfachung f&uuml;r positive ganzzahlige Argumente <var>a</var> und <var>b</var>.
+</p>
+<div class="example">
+<pre class="example">(%i3) beta_incomplete(3,2,z);
+                                               3
+                              (3 (1 - z) + 1) z
+(%o3)                         ------------------
+                                      12
+</pre></div>
+
+<p><var>a</var> ist eine negative ganze Zahl mit <em>b &lt;= (-a)</em>.  Maxima vereinfacht
+f&uuml;r diesem Fall.
+</p>
+<div class="example">
+<pre class="example">(%i4) beta_incomplete(-3,1,z);
+                                       1
+(%o4)                              - ----
+                                        3
+                                     3 z
+</pre></div>
+
+<p>F&uuml;r die speziellen Werte <em>z=0</em> und <em>z=1</em> vereinfacht Maxima.
+</p>
+<div class="example">
+<pre class="example">(%i5) assume(a&gt;0,b&gt;0)$
+(%i6) beta_incomplete(a,b,0);
+(%o6)                                 0
+(%i7) beta_incomplete(a,b,1);
+(%o7)                            beta(a, b)
+</pre></div>
+
+<p>Numerische Berechnung f&uuml;r reelle Argumente.
+</p>
+<div class="example">
+<pre class="example">(%i8) beta_incomplete(0.25,0.50,0.9);
+(%o8)                          4.594959440269333
+(%i9)  fpprec:25$
+(%i10) beta_incomplete(0.25,0.50,0.9b0);
+(%o10)                    4.594959440269324086971203b0
+</pre></div>
+
+<p>F&uuml;r <em>abs(z) &gt; 1</em> ist das Ergebnis komplex.
+</p>
+<div class="example">
+<pre class="example">(%i11) beta_incomplete(0.25,0.50,1.7);
+(%o11)              5.244115108584249 - 1.45518047787844 %i
+</pre></div>
+
+<p>Numerische Ergebnisse f&uuml;r komplexe Argumente.
+</p>
+<div class="example">
+<pre class="example">(%i14) beta_incomplete(0.25+%i,1.0+%i,1.7+%i);
+(%o14)             2.726960675662536 - .3831175704269199 %i
+(%i15) beta_incomplete(1/2,5/4*%i,2.8+%i);
+(%o15)             13.04649635168716 %i - 5.802067956270001
+(%i16) 
+</pre></div>
+
+<p>Entwicklung, wenn <code>beta_expand</code> den Wert <code>true</code> hat.
+</p>
+<div class="example">
+<pre class="example">(%i23) beta_incomplete(a+1,b,z),beta_expand:true;
+                                                       b  a
+                   a beta_incomplete(a, b, z)   (1 - z)  z
+(%o23)             -------------------------- - -----------
+                             b + a                 b + a
+
+(%i24) beta_incomplete(a-1,b,z),beta_expand:true;
+                                                           b  a - 1
+           beta_incomplete(a, b, z) (- b - a + 1)   (1 - z)  z
+(%o24)     -------------------------------------- - ---------------
+                           1 - a                         1 - a
+</pre></div>
+ 
+<p>Ableitung und Integral der unvollst&auml;ndigen Betafunktion.
+</p>
+<div class="example">
+<pre class="example">(%i34) diff(beta_incomplete(a, b, z), z);
+                              b - 1  a - 1
+(%o34)                 (1 - z)      z
+(%i35) integrate(beta_incomplete(a, b, z), z);
+              b  a
+       (1 - z)  z
+(%o35) ----------- + beta_incomplete(a, b, z) z
+          b + a
+                                       a beta_incomplete(a, b, z)
+                                     - --------------------------
+                                                 b + a
+(%i36) factor(diff(%, z));
+(%o36)              beta_incomplete(a, b, z)
+</pre></div>
+</dd></dl>
+
+<a name="beta_005fincomplete_005fregularized"></a><a name="Item_003a-Special_002ede_002fdeffn_002fbeta_005fincomplete_005fregularized"></a><dl>
+<dt><a name="index-beta_005fincomplete_005fregularized"></a>Funktion: <strong>beta_incomplete_regularized</strong> <em>(<var>a</var>, <var>b</var>, <var>z</var>)</em></dt>
+<dd>
+
+<p>Die regularisierte unvollst&auml;ndige Beta Funktion (A &amp; S 6.6.2), die definiert
+ist als
+</p>
+<div class="example">
+<pre class="example">              beta_incomplete(a, b, z)
+              ------------------------
+                     beta(a, b)
+</pre></div>
+
+
+<p>Wie bei der Funktion <code><a href="#beta_005fincomplete">beta_incomplete</a></code> ist diese Definition nicht
+vollst&auml;ndig.  Siehe <a href="https://functions.wolfram.com">https://functions.wolfram.com</a> f&uuml;r eine vollst&auml;ndige
+Definition der Funktion.
+</p>
+
+<p><code>beta_incomplete_regularized</code> vereinfacht, wenn das Argument <var>a</var> oder
+<var>b</var> eine positive ganze Zahl ist.  F&uuml;r Argumente <code><var>z</var> = 0</code> und
+<code>realpart(<var>a</var>) &gt; 0</code> vereinfacht die Funktion
+<code>beta_incomplete_regularized</code> zu <code>0</code>.  F&uuml;r <code><var>z</var> = 1</code> und
+<code>realpart(<var>b</var>) &gt; 0</code> vereinfacht die Funktion
+<code>beta_incomplete_regularized</code> zu <code>1</code>.
+</p>
+
+<p>Maxima berechnet <code>beta_incomplete_regularized</code> f&uuml;r reelle und komplexe
+Gleitkommazahlen als Argumente numerisch.
+</p>
+<p>When <code>beta_expand</code> is <code>true</code>, Maxima expands 
+<code>beta_incomplete_regularized</code> for arguments <em>a+n</em> or <em>a-n</em>, 
+where n is an integer.
+</p>
+<p>Hat die Optionsvariable <code><a href="#beta_005fexpand">beta_expand</a></code> den Wert <code>true</code>, expandiert
+Maxima <code>beta_incomplete_regularized</code> f&uuml;r Argumente <em>a+n</em> oder
+<em>a-n</em>, wobei <var>n</var> eine ganze Zahl ist.
+</p>
+
+<p>Maxima kennt die Ableitung der Funktion <code>beta_incomplete_regularized</code>
+nach den Argumenten <var>a</var>, <var>b</var> und <var>z</var> sowie das Integral f&uuml;r das
+Argument <var>z</var>.
+</p>
+<p>Beispiele:
+</p>
+
+<p>Vereinfachung, wenn die Argumente <var>a</var> oder <var>b</var> ganze Zahlen sind.
+</p>
+<div class="example">
+<pre class="example">(%i1) beta_incomplete_regularized(2,b,z);
+                                b
+(%o1)                1 - (1 - z)  (b z + 1)
+(%i2) beta_incomplete_regularized(a,2,z);
+                                        a
+(%o2)                  (a (1 - z) + 1) z
+(%i3) beta_incomplete_regularized(3,2,z);
+                                        3
+(%o3)                  (3 (1 - z) + 1) z
+</pre></div>
+
+
+<p>F&uuml;r die speziellen Werte <em>z=0</em> und <em>z=1</em> vereinfacht Maxima.
+</p>
+<div class="example">
+<pre class="example">(%i4) assume(a&gt;0,b&gt;0)$
+
+(%i5) beta_incomplete_regularized(a,b,0);
+(%o5)                           0
+(%i6) beta_incomplete_regularized(a,b,1);
+(%o6)                           1
+</pre></div>
+
+
+<p>Numerische Berechnung f&uuml;r reelle und komplexe Argumente.
+</p>
+<div class="example">
+<pre class="example">(%i7) beta_incomplete_regularized(0.12,0.43,0.9);
+(%o7)                   .9114011367359802
+(%i8) fpprec:32$
+
+(%i9) beta_incomplete_regularized(0.12,0.43,0.9b0);
+(%o9)         9.1140113673598075519946998779975b-1
+(%i10) beta_incomplete_regularized(1+%i,3/3,1.5*%i);
+(%o10)      .2865367499935405 %i - .1229959633346841
+(%i11) fpprec:20$
+
+(%i12) beta_incomplete_regularized(1+%i,3/3,1.5b0*%i);
+(%o12) 2.8653674999354036142b-1 %i - 1.2299596333468400163b-1
+</pre></div>
+
+
+<p>Expansion, wenn <code>beta_expand</code> den Wert <code>true</code> hat.
+</p>
+<div class="example">
+<pre class="example">(%i13) beta_incomplete_regularized(a+1,b,z);
+                                                     b  a
+                                              (1 - z)  z
+(%o13) beta_incomplete_regularized(a, b, z) - ------------
+                                              a beta(a, b)
+(%i14) beta_incomplete_regularized(a-1,b,z);
+</pre><pre class="example">(%o14) beta_incomplete_regularized(a, b, z)
+                                                     b  a - 1
+                                              (1 - z)  z
+                                         - ----------------------
+                                           beta(a, b) (b + a - 1)
+</pre></div>
+
+
+<p>Die Ableitung und das Integral der Funktion.
+</p>
+<div class="example">
+<pre class="example">(%i15) diff(beta_incomplete_regularized(a,b,z),z);
+                              b - 1  a - 1
+                       (1 - z)      z
+(%o15)                 -------------------
+                           beta(a, b)
+(%i16) integrate(beta_incomplete_regularized(a,b,z),z);
+(%o16) beta_incomplete_regularized(a, b, z) z
+                                                           b  a
+                                                    (1 - z)  z
+          a (beta_incomplete_regularized(a, b, z) - ------------)
+                                                    a beta(a, b)
+        - -------------------------------------------------------
+                                   b + a
+</pre></div>
+</dd></dl>
+
+<a name="beta_005fincomplete_005fgeneralized"></a><a name="Item_003a-Special_002ede_002fdeffn_002fbeta_005fincomplete_005fgeneralized"></a><dl>
+<dt><a name="index-beta_005fincomplete_005fgeneralized"></a>Funktion: <strong>beta_incomplete_generalized</strong> <em>(<var>a</var>, <var>b</var>, <var>z1</var>, <var>z2</var>)</em></dt>
+<dd>
+
+<p>Die Definition der verallgemeinerten unvollst&auml;ndigen Betafunktion ist
+</p>
+<div class="example">
+<pre class="example">                      z2
+                     /
+                     [          b - 1  a - 1
+                     I   (1 - t)      t      dt
+                     ]
+                     /
+                      z1
+</pre></div>
+
+
+<p>Maxima vereinfacht <code>beta_incomplete_refularized</code> f&uuml;r positive ganzzahlige
+Argumente <var>a</var> und <var>b</var>.
+</p>
+
+<p>Ist <em>realpart(a)&gt;0</em> und <em>z1=0</em> oder <em>z2=0</em>, vereinfacht Maxima
+<code>beta_incomplete_generalized</code> zu der Funktion
+<code><a href="#beta_005fincomplete">beta_incomplete</a></code>.  Ist <em>realpart(b)&gt;0</em> und <em>z1=1</em> oder
+<var>z2=1</var>, vereinfacht Maxima zu einem Ausdruck mit der Funktion
+<code><a href="#beta">beta</a></code> und <code><a href="#beta_005fincomplete">beta_incomplete</a></code>.
+</p>
+
+<p>Maxima berechnet <code>beta_incomplete_regularized</code> numerisch f&uuml;r reelle und
+komplexe Gleitkommazahlen in doppelter und beliebiger Genauigkeit.
+</p>
+
+<p>Hat die Optionsvariable <code><a href="#beta_005fexpand">beta_expand</a></code> den Wert <code>true</code>, dann expandiert
+Maxima <code>beta_incomplete_generalized</code> f&uuml;r Argumente <em>a+n</em> und
+<em>a-n</em>, wobei <var>n</var> eine positive ganze Zahl ist.
+</p>
+
+<p>Maxima kennt die Ableitung der Funktion <code>beta_incomplete_generalized</code> nach
+den Variablen <var>a</var>, <var>b</var>, <var>z1</var> und <var>z2</var> sowie die Integrale
+f&uuml;r die Integrationsvariablen  <var>z1</var> und <var>z2</var>.
+</p>
+<p>Beispiele:
+</p>
+
+<p>Maxima vereinfacht <code>beta_incomplete_generalized</code>, wenn <var>a</var> und <var>b</var>
+positive ganze Zahlen sind.
+</p>
+<div class="example">
+<pre class="example">(%i1) beta_incomplete_generalized(2,b,z1,z2);
+</pre><pre class="example">                   b                      b
+           (1 - z1)  (b z1 + 1) - (1 - z2)  (b z2 + 1)
+(%o1)      -------------------------------------------
+                            b (b + 1)
+</pre><pre class="example">(%i2) beta_incomplete_generalized(a,2,z1,z2);
+</pre><pre class="example">                              a                      a
+           (a (1 - z2) + 1) z2  - (a (1 - z1) + 1) z1
+(%o2)      -------------------------------------------
+                            a (a + 1)
+</pre><pre class="example">(%i3) beta_incomplete_generalized(3,2,z1,z2);
+              2      2                       2      2
+      (1 - z1)  (3 z1  + 2 z1 + 1) - (1 - z2)  (3 z2  + 2 z2 + 1)
+(%o3) -----------------------------------------------------------
+                                  12
+</pre></div>
+
+
+<p>Vereinfachung f&uuml;r die speziellen Werte <em>z1=0</em>, <em>z2=0</em>, <em>z1=1</em>
+und <em>z2=1</em>.
+</p>
+<div class="example">
+<pre class="example">(%i4) assume(a &gt; 0, b &gt; 0)$
+(%i5) beta_incomplete_generalized(a,b,z1,0);
+(%o5)                    - beta_incomplete(a, b, z1)
+
+(%i6) beta_incomplete_generalized(a,b,0,z2);
+(%o6)                    - beta_incomplete(a, b, z2)
+
+(%i7) beta_incomplete_generalized(a,b,z1,1);
+(%o7)              beta(a, b) - beta_incomplete(a, b, z1)
+
+(%i8) beta_incomplete_generalized(a,b,1,z2);
+(%o8)              beta_incomplete(a, b, z2) - beta(a, b)
+</pre></div>
+
+
+<p>Numerische Berechnung f&uuml;r reelle Argumente in doppelter und beliebiger
+Gleitkommagenauigkeit.
+</p>
+<div class="example">
+<pre class="example">(%i9) beta_incomplete_generalized(1/2,3/2,0.25,0.31);
+(%o9)                        .09638178086368676
+
+(%i10) fpprec:32$
+(%i10) beta_incomplete_generalized(1/2,3/2,0.25,0.31b0);
+(%o10)               9.6381780863686935309170054689964b-2
+</pre></div>
+
+
+<p>Numerische Berechnung f&uuml;r komplexe Argumente in doppelter und beliebiger
+Gleitkommagenauigkeit.
+</p>
+<div class="example">
+<pre class="example">(%i11) beta_incomplete_generalized(1/2+%i,3/2+%i,0.25,0.31);
+(%o11)           - .09625463003205376 %i - .003323847735353769
+(%i12) fpprec:20$
+(%i13) beta_incomplete_generalized(1/2+%i,3/2+%i,0.25,0.31b0);
+(%o13)     - 9.6254630032054178691b-2 %i - 3.3238477353543591914b-3
+</pre></div>
+
+
+<p>Expansion f&uuml;r <em>a+n</em> oder <em>a-n</em> und <var>n</var> eine positive ganze Zahl,
+wenn <code>beta_expand</code> den Wert <code>true</code> hat.
+</p>
+<div class="example">
+<pre class="example">(%i14) beta_expand:true$
+
+(%i15) beta_incomplete_generalized(a+1,b,z1,z2);
+</pre><pre class="example">               b   a           b   a
+       (1 - z1)  z1  - (1 - z2)  z2
+(%o15) -----------------------------
+                   b + a
+                      a beta_incomplete_generalized(a, b, z1, z2)
+                    + -------------------------------------------
+                                         b + a
+</pre><pre class="example">(%i16) beta_incomplete_generalized(a-1,b,z1,z2);
+
+       beta_incomplete_generalized(a, b, z1, z2) (- b - a + 1)
+(%o16) -------------------------------------------------------
+                                1 - a
+                                    b   a - 1           b   a - 1
+                            (1 - z2)  z2      - (1 - z1)  z1
+                          - -------------------------------------
+                                            1 - a
+</pre></div>
+
+
+<p>Ableitung nach der Variablen <var>z1</var> und die Integrale f&uuml;r die
+Integrationsvariablen <var>z1</var> und <var>z2</var>.
+</p>
+<div class="example">
+<pre class="example">(%i17) diff(beta_incomplete_generalized(a,b,z1,z2),z1);
+                               b - 1   a - 1
+(%o17)               - (1 - z1)      z1
+(%i18) integrate(beta_incomplete_generalized(a,b,z1,z2),z1);
+(%o18) beta_incomplete_generalized(a, b, z1, z2) z1
+                                  + beta_incomplete(a + 1, b, z1)
+(%i19) integrate(beta_incomplete_generalized(a,b,z1,z2),z2);
+(%o19) beta_incomplete_generalized(a, b, z1, z2) z2
+                                  - beta_incomplete(a + 1, b, z2)
+</pre></div>
+</dd></dl>
+
+<a name="beta_005fexpand"></a><a name="Item_003a-Special_002ede_002fdefvr_002fbeta_005fexpand"></a><dl>
+<dt><a name="index-beta_005fexpand"></a>Optionsvariable: <strong>beta_expand</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat die Optionsvariable <code>beta_expand</code> den Wert <code>true</code>, werden
+<code>beta(a,b)</code> und verwandte Funktionen f&uuml;r Argumente <em>a+n</em> oder
+<em>a-n</em> entwickelt, wobei <var>n</var> eine positive ganze Zahl ist.
+</p></dd></dl>
+
+<a name="beta_005fargs_005fsum_005fto_005finteger"></a><a name="Item_003a-Special_002ede_002fdefvr_002fbeta_005fargs_005fsum_005fto_005finteger"></a><dl>
+<dt><a name="index-beta_005fargs_005fsum_005fto_005finteger"></a>Optionsvariable: <strong>beta_args_sum_to_integer</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat die Optionsvariable <code>beta_args_sum_to_integer</code> den Wert <code>true</code>,
+vereinfacht Maxima die Funktion <code>beta(a,b)</code>, wenn sich die Argumente
+<var>a</var> und <var>b</var> zu einer ganzen Zahlen summieren.  Siehe auch <code><a href="#beta">beta</a></code>.
+</p></dd></dl>
+
+
+<a name="psi"></a><a name="Item_003a-Special_002ede_002fdeffn_002fpsi"></a><dl>
+<dt><a name="index-psi-1"></a>Funktion: <strong>psi</strong> <em>[<var>n</var>](<var>x</var>)</em></dt>
+<dd>
+
+<p>Ist definiert als die Ableitung der Funktion <code>log(gamma(<var>x</var>))</code> der
+Ordnung <code><var>n</var>+1</code>.  <code>psi[0](<var>x</var>)</code> ist die erste Ableitung,
+<code>psi[1](<var>x</var>)</code> ist die zweite Ableitung, usw.
+</p>
+
+<p>Maxima kann numerische Werte f&uuml;r reelle Gleitkommazahlen berechnen.  Weiterhin
+kann Maxima die Funktion <code>psi</code> f&uuml;r rationale Argumente zu exakten Werten
+vereinfachen.  Die Optionsvariablen <code><a href="#maxpsiposint">maxpsiposint</a></code>,<!-- /@w -->
+<code><a href="#maxpsinegint">maxpsinegint</a></code>, <code><a href="#maxpsifracnum">maxpsifracnum</a></code> und <code>maxpsifracdenom</code><!-- /@w -->
+kontrollieren, den Wertebereich der Argumente f&uuml;r den die Funktion <code>psi</code>
+vereinfacht.
+</p>
+
+<p>Die Funktion <code><a href="#bfpsi">bfpsi</a></code> des <code>bffac</code>-Package kann numerische Werte der
+Funktion <code>psi</code> berechnen.
+</p></dd></dl>
+
+<a name="maxpsiposint"></a><a name="Item_003a-Special_002ede_002fdefvr_002fmaxpsiposint"></a><dl>
+<dt><a name="index-maxpsiposint"></a>Optionsvariable: <strong>maxpsiposint</strong></dt>
+<dd><p>Standardwert: <code>20</code>
+</p>
+<p>Die Optionsvariable <code>maxpsiposint</code> kontrolliert die Vereinfachung der
+Funktion <code><a href="#psi">psi</a></code> und enth&auml;lt eine obere positive Schranke.  Ist das
+Argument <var>x</var> der Funktion <code>psi</code> gr&ouml;&szlig;er als <code>maxpsiposint</code>,
+dann versucht Maxima nicht <code>psi[<var>n</var>](<var>x</var>)</code> zu vereinfachen.
+</p>
+<p>Siehe auch <code><a href="#maxpsifracdenom">maxpsifracdenom</a></code>, <code><a href="#maxpsifracnum">maxpsifracnum</a></code> und
+<code><a href="#maxpsinegint">maxpsinegint</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%o1)                          20
+(%i2) psi[0](20);
+                       275295799
+(%o2)                  --------- - %gamma
+                       77597520
+(%i3) maxpsiposint:10;
+(%o3)                          10
+(%i4) psi[0](20);
+(%o4)                       psi (20)
+                               0
+(%i5) psi[0](10);
+                          7129
+(%o5)                     ---- - %gamma
+                          2520
+</pre></div>
+</dd></dl>
+
+<a name="maxpsinegint"></a><a name="Item_003a-Special_002ede_002fdefvr_002fmaxpsinegint"></a><dl>
+<dt><a name="index-maxpsinegint"></a>Optionsvariable: <strong>maxpsinegint</strong></dt>
+<dd><p>Standardwert: <code>-10</code>
+</p>
+<p>Die Optionsvariable <code>maxpsinegint</code> kontrolliert die Vereinfachung der
+Funktion <code><a href="#psi">psi</a></code> und enth&auml;lt eine untere negative Schranke.  Ist das
+Argument <var>x</var> der Funktion <code>psi</code> kleiner als <code>maxpsinegint</code>,
+dann versucht Maxima nicht <code>psi[<var>n</var>](<var>x</var>)</code> zu vereinfachen.
+</p>
+<p>Siehe auch <code><a href="#maxpsifracdenom">maxpsifracdenom</a></code>, <code><a href="#maxpsifracnum">maxpsifracnum</a></code> und
+<code><a href="#maxpsiposint">maxpsiposint</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) maxpsinegint:-10;
+(%o1)                         - 10
+(%i2) psi[0](-3/2);
+                                           8
+(%o2)                - 2 log(2) - %gamma + -
+                                           3
+(%i3) maxpsinegint:-1;
+(%o3)                          - 1
+(%i4) psi[0](-3/2);
+                                   3
+(%o4)                       psi (- -)
+                               0   2
+(%i5) psi[0](-1/2);
+(%o5)                - 2 log(2) - %gamma + 2
+</pre></div>
+</dd></dl>
+
+<a name="maxpsifracnum"></a><a name="Item_003a-Special_002ede_002fdefvr_002fmaxpsifracnum"></a><dl>
+<dt><a name="index-maxpsifracnum"></a>Optionsvariable: <strong>maxpsifracnum</strong></dt>
+<dd><p>Standardwert: <code>6</code>
+</p>
+<p>Die Optionsvariable <code>maxpsifracnum</code> kontrolliert die Vereinfachung der
+Funktion <code><a href="#psi">psi</a></code>.  Ist das Argument <var>x</var> der Funktion <code>psi</code> eine
+rationale Zahl kleiner als eins mit <code>p/q</code> und ist der Z&auml;hler <code>p</code>
+gr&ouml;&szlig;er als <code>maxpsifracnum</code>, dann versucht Maxima nicht
+<code>psi[<var>n</var>](<var>x</var>)</code> zu vereinfachen.
+</p>
+<p>Siehe auch <code><a href="#maxpsifracdenom">maxpsifracdenom</a></code>, <code><a href="#maxpsiposint">maxpsiposint</a></code> und
+<code><a href="#maxpsinegint">maxpsinegint</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) maxpsifracnum: 6;
+(%o1)                           6
+(%i2) psi[0](5/6);
+            3 log(3)              sqrt(3) %pi
+(%o2)     - -------- - 2 log(2) + ----------- - %gamma
+               2                       2
+(%i3) maxpsifracnum: 3;
+(%o3)                           3
+(%i4) psi[0](5/6);
+                                  5
+(%o4)                        psi (-)
+                                0 6
+</pre></div>
+</dd></dl>
+
+<a name="maxpsifracdenom"></a><a name="Item_003a-Special_002ede_002fdefvr_002fmaxpsifracdenom"></a><dl>
+<dt><a name="index-maxpsifracdenom"></a>Optionsvariable: <strong>maxpsifracdenom</strong></dt>
+<dd><p>Standardwert: <code>6</code>
+</p>
+<p>Die Optionsvariable <code>maxpsifracdenom</code> kontrolliert die Vereinfachung der
+Funktion <code><a href="#psi">psi</a></code>.  Ist das Argument <var>x</var> der Funktion <code>psi</code> eine
+rationale Zahl kleiner als eins mit <code>p/q</code> und ist der Nenner <code>q</code>
+gr&ouml;&szlig;er als <code>maxpsifracdenom</code>, dann versucht Maxima nicht
+<code>psi[<var>n</var>](<var>x</var>)</code> zu vereinfachen.
+</p>
+<p>Siehe auch <code><a href="#maxpsifracnum">maxpsifracnum</a></code>, <code><a href="#maxpsiposint">maxpsiposint</a></code> und
+<code><a href="#maxpsinegint">maxpsinegint</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) maxpsifracdenom: 6;
+(%o1)                           6
+(%i2) psi[0](1/6);
+            3 log(3)              sqrt(3) %pi
+(%o2)     - -------- - 2 log(2) - ----------- - %gamma
+               2                       2
+(%i3) maxpsifracdenom: 4;
+(%o3)                           4
+(%i4) psi[0](1/6);
+</pre><pre class="example">                                  1
+(%o4)                        psi (-)
+                                0 6
+</pre><pre class="example">(%i5) psi[0](1/5);
+                                  1
+(%o5)                        psi (-)
+                                0 5
+(%i6) psi[0](1/4);
+                                 %pi
+(%o6)               - 3 log(2) - --- - %gamma
+                                  2
+</pre></div>
+</dd></dl>
+
+
+<a name="makefact"></a><a name="Item_003a-Special_002ede_002fdeffn_002fmakefact"></a><dl>
+<dt><a name="index-makefact"></a>Funktion: <strong>makefact</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Ersetzt Binomial-, Gamma- und Beta-Funktionen, die im Ausdruck <var>expr</var>
+auftreten, durch Fakult&auml;ten.
+</p>
+<p>Siehe auch die Funktion <code><a href="#makegamma">makegamma</a></code>.
+</p></dd></dl>
+
+
+<a name="numfactor"></a><a name="Item_003a-Special_002ede_002fdeffn_002fnumfactor"></a><dl>
+<dt><a name="index-numfactor"></a>Funktion: <strong>numfactor</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Gibt einen numerischen Faktor des Produktes <var>expr</var> zur&uuml;ck.  Ist <var>expr</var>
+kein Produkt oder enth&auml;lt das Produkt keinen numerischen Faktor ist die
+R&uuml;ckgabe <code>1</code>.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) gamma (7/2);
+                          15 sqrt(%pi)
+(%o1)                     ------------
+                               8
+(%i2) numfactor (%);
+                               15
+(%o2)                          --
+                               8
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-Special_002ede_002fnode_002fExponentielle-Integrale"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_141.html#Exponentielle-Integrale" accesskey="n" rel="next">Exponentielle Integrale</a>, Previous: <a href="maxima_135.html#Bessel_002dFunktionen-und-verwandte-Funktionen" accesskey="p" rel="previous">Bessel-Funktionen und verwandte Funktionen</a>, Nach oben: <a href="maxima_133.html#Spezielle-Funktionen" accesskey="u" rel="up">Spezielle Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

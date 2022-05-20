@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Exportiere als TeX</title>
+
+<meta name="description" content="Maxima Manual: Exportiere als TeX">
+<meta name="keywords" content="Maxima Manual: Exportiere als TeX">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" rel="up" title="Funktionen und Variablen f&uuml;r itensor">
+<link href="maxima_123.html#Schnittstelle-zum-Paket-ctensor" rel="next" title="Schnittstelle zum Paket ctensor">
+<link href="maxima_121.html#Gra_00dfmann_002dAlgebra" rel="previous" title="Gra&szlig;mann-Algebra">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Exportiere-als-TeX"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_123.html#Schnittstelle-zum-Paket-ctensor" accesskey="n" rel="next">Schnittstelle zum Paket ctensor</a>, Previous: <a href="maxima_121.html#Gra_00dfmann_002dAlgebra" accesskey="p" rel="previous">Gra&szlig;mann-Algebra</a>, Nach oben: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Exportiere-als-TeX-1"></a>
+<h4 class="subsubsection">20.2.2.8 Exportiere als TeX</h4>
+
+<p>The <code>itensor</code> package provides limited support for exporting tensor
+expressions to TeX. Since <code>itensor</code> expressions appear as function calls,
+the regular Maxima <code>tex</code> command will not produce the expected
+output. You can try instead the <code>tentex</code> command, which attempts
+to translate tensor expressions into appropriately indexed TeX objects.
+</p>
+<a name="tentex"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002ftentex"></a><dl>
+<dt><a name="index-tentex"></a>Function: <strong>tentex</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>To use the <code>tentex</code> function, you must first load <code>tentex</code>,
+as in the following example:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+(%i2) load(&quot;tentex&quot;)$
+(%i3) idummyx:m;
+(%o3)                                  m
+(%i4) ishow(icurvature([j,k,l],[i]))$
+</pre><pre class="example">            m1       i           m1       i           i
+(%t4)  ichr2    ichr2     - ichr2    ichr2     - ichr2
+            j k      m1 l        j l      m1 k        j l,k
+
+                                                      i
+                                               + ichr2
+                                                      j k,l
+</pre><pre class="example">(%i5) tentex(%)$
+$$\Gamma_{j\,k}^{m_1}\,\Gamma_{l\,m_1}^{i}-\Gamma_{j\,l}^{m_1}\,
+ \Gamma_{k\,m_1}^{i}-\Gamma_{j\,l,k}^{i}+\Gamma_{j\,k,l}^{i}$$
+</pre></div>
+
+<p>Note the use of the <code>idummyx</code> assignment, to avoid the appearance
+of the percent sign in the TeX expression, which may lead to compile errors.
+</p>
+<p>NB: This version of the <code>tentex</code> function is somewhat experimental.
+</p></dd></dl>
+
+<a name="Item_003a-Itensor_002ede_002fnode_002fSchnittstelle-zum-Paket-ctensor"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_123.html#Schnittstelle-zum-Paket-ctensor" accesskey="n" rel="next">Schnittstelle zum Paket ctensor</a>, Previous: <a href="maxima_121.html#Gra_00dfmann_002dAlgebra" accesskey="p" rel="previous">Gra&szlig;mann-Algebra</a>, Nach oben: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

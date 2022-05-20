@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Funktionen und Variablen der Fehlersuche</title>
+
+<meta name="description" content="Maxima Manual: Funktionen und Variablen der Fehlersuche">
+<meta name="keywords" content="Maxima Manual: Funktionen und Variablen der Fehlersuche">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_172.html#Fehlersuche" rel="up" title="Fehlersuche">
+<link href="maxima_176.html#Verschiedenes" rel="next" title="Verschiedenes">
+<link href="maxima_174.html#Debugger_002dKommandos" rel="previous" title="Debugger-Kommandos">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funktionen-und-Variablen-der-Fehlersuche"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_174.html#Debugger_002dKommandos" accesskey="p" rel="previous">Debugger-Kommandos</a>, Nach oben: <a href="maxima_172.html#Fehlersuche" accesskey="u" rel="up">Fehlersuche</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-und-Variablen-der-Fehlersuche-1"></a>
+<h3 class="section">29.3 Funktionen und Variablen der Fehlersuche</h3>
+
+<a name="debugmode"></a><a name="Item_003a-Debugging_002ede_002fdefvr_002fdebugmode"></a><dl>
+<dt><a name="index-debugmode"></a>Optionsvariable: <strong>debugmode</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat die Optionsvariable <code>debugmode</code> den Wert <code>true</code>, wird der 
+Maxima-Debugger gestartet, wenn ein Programmfehler auftritt.  Nach der 
+Unterbrechung des Programms kann der Debugger genutzt werden.  Siehe das Kapitel
+<a href="maxima_174.html#Debugger_002dKommandos">Debugger-Kommandos</a> f&uuml;r eine Liste der Kommandos des Debuggers.
+</p>
+
+<p>Der Maxima-Debugger behandelt keine Lisp-Programmfehler.
+</p>
+</dd></dl>
+
+<a name="refcheck"></a><a name="Item_003a-Debugging_002ede_002fdefvr_002frefcheck"></a><dl>
+<dt><a name="index-refcheck"></a>Optionsvariable: <strong>refcheck</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>refcheck</code> den Wert <code>true</code>, gibt Maxima eine Meldung aus, wenn
+einer Variablen zum ersten Mal ein Wert zugewiesen wird.
+</p>
+</dd></dl>
+
+<a name="setcheck"></a><a name="Item_003a-Debugging_002ede_002fdefvr_002fsetcheck"></a><dl>
+<dt><a name="index-setcheck"></a>Optionsvariable: <strong>setcheck</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Der Optionsvariablen <code>setcheck</code> kann eine Liste mit den Namen von Variablen
+zugewiesen werden.  Dies k&ouml;nnen auch indizierte Variablen sein.  Immer wenn 
+einer der Variablen mit den Operatoren <code>:</code> oder <code>::</code> ein Wert 
+zugewiesen wird, gibt Maxima eine Meldung aus, die den Namen der Variablen und 
+den zugewiesenen Wert enth&auml;lt.
+</p>
+
+<p><code>setcheck</code> kann den Wert <code>all</code> oder <code>true</code> erhalten.  In diesem
+Fall wird f&uuml;r alle Variablen eine Meldung ausgegeben.
+</p>
+
+<p>Jede Zuweisung an <code>setcheck</code> initialisert eine neue Liste mit Variablen. 
+Vorherige Zuweisungen werden &uuml;berschrieben.
+</p>
+
+<p>Die Auswertung der Namen der Variablen muss mit dem
+<a href="maxima_45.html#g_t_0027">Quote-Operator</a> <code>'</code> unterdr&uuml;ckt werden, wenn den Variablen
+bereits Werte zugewiesen wurden.  Haben zum Beispiel die Variablen <code>x</code>,
+<code>y</code> und <code>z</code> Werte, dann werden die Variablen mit dem folgenden Befehl
+angegeben:
+</p>
+<div class="example">
+<pre class="example">setcheck: ['x, 'y, 'z]$
+</pre></div>
+
+
+<p>Es wird keine Meldung ausgegeben, wenn eine Variable sich selbst zugewiesen
+wird, zum Beispiel <code>X: 'X</code>.
+</p>
+</dd></dl>
+
+<a name="setcheckbreak"></a><a name="Item_003a-Debugging_002ede_002fdefvr_002fsetcheckbreak"></a><dl>
+<dt><a name="index-setcheckbreak"></a>Optionsvariable: <strong>setcheckbreak</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>setcheckbreak</code> den Wert <code>true</code>, startet Maxima den Debugger, 
+wenn einer Variablen, die in der Liste <code>setcheck</code> enthalten ist, ein
+Wert zugewiesen wird.  Die Unterbrechung wird noch vor der Zuweisung des Wertes
+ausgef&uuml;hrt.  Die Variable <code>setval</code> enh&auml;lt den Wert, der zugewiesen 
+werden soll.  Dieser Variablen kann ein anderer Wert zugewiesen werden.
+</p>
+
+<p>Siehe auch <code><a href="#setcheck">setcheck</a></code> und <code><a href="#setval">setval</a></code>.
+</p>
+</dd></dl>
+
+<a name="setval"></a><a name="Item_003a-Debugging_002ede_002fdefvr_002fsetval"></a><dl>
+<dt><a name="index-setval"></a>Systemvariable: <strong>setval</strong></dt>
+<dd>
+
+<p>Enth&auml;lt den Wert, der einer Variable zugewiesen werden soll, wenn die 
+Zuweisung mit der Optionsvariablen <code>setcheckbreak</code> unterbrochen wurde. 
+<code>setval</code> kann ein anderer Wert zugewiesen werden.
+</p>
+
+<p>Siehe auch <code><a href="#setcheck">setcheck</a></code> und <code><a href="#setcheckbreak">setcheckbreak</a></code>.
+</p>
+</dd></dl>
+
+<a name="timer"></a><a name="Item_003a-Debugging_002ede_002fdeffn_002ftimer"></a><dl>
+<dt><a name="index-timer"></a>Funktion: <strong>timer</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>)</em></dt>
+<dt><a name="index-timer-1"></a>Funktion: <strong>timer</strong> <em>(all)</em></dt>
+<dt><a name="index-timer-2"></a>Funktion: <strong>timer</strong> <em>()</em></dt>
+<dd>
+
+<p>Sammelt Statistiken &uuml;ber die Ausf&uuml;hrungszeiten von Funktionen.  Die 
+Argumente <var>f_1</var>, &hellip;, <var>f_n</var> sind die Namen von Funktionen zu denen 
+Statistiken gesammelt werden.  <code>time(g)</code> f&uuml;gt die Funktion <code>g</code> der 
+Liste an Funktionen hinzu, zu denen Informationen gesammelt werden.
+</p>
+
+<p><code>timer(all)</code> f&uuml;gt alle nutzerdefinierten Funktionen, die in der 
+Informationsliste <code>functions</code> enthalten sind, der Liste der Funktionen
+hinzu, &uuml;ber die Informationen gesammelt werden.
+</p>
+
+<p>Wird <code>timer()</code> ohne Argumente aufgerufen, wird eine Liste der Funktionen
+zur&uuml;ckgeben, &uuml;ber die Informationen gesammelt werden.
+</p>
+
+<p>Maxima misst die Zeit, die eine Funktion f&uuml;r die Ausf&uuml;hrung ben&ouml;tigt. 
+<code>timer_info</code> gibt eine Statistik f&uuml;r alle Funktionen zur&uuml;ck, f&uuml;r die 
+die Ausf&uuml;hrungszeiten gemessen werden.  Die Statistik enth&auml;lt die 
+durchschnittliche Ausf&uuml;hrungszeit der Funktionen und die Anzahl der Aufrufe 
+der Funktionen.  Mit der Funktion <code>untimer</code> wird die Aufzeichnung der 
+Ausf&uuml;hrungszeiten beendet.
+</p>
+
+<p><code>timer</code> wertet die Argumente nicht aus.  Daher werden im Folgenden
+<code>f(x) := x^2$ g:f$ timer(g)$</code> f&uuml;r die Funktion <code>f</code> keine 
+Ausf&uuml;hrungszeiten aufgezeichnet.
+</p>
+
+<p>Wird f&uuml;r die Funktion <code>f</code> mit dem Kommando <code>trace(f)</code> der Ablauf
+verfolgt, hat das Kommando <code>timer(f)</code> keinen Effekt.  F&uuml;r eine Funktion
+k&ouml;nnen nicht gleichzeitig Ausf&uuml;hrungszeiten aufgezeichnet und der Ablauf
+verfolgt werden.
+</p>
+
+<p>Siehe auch <code><a href="#timer_005fdevalue">timer_devalue</a></code>.
+</p>
+</dd></dl>
+
+<a name="untimer"></a><a name="Item_003a-Debugging_002ede_002fdeffn_002funtimer"></a><dl>
+<dt><a name="index-untimer"></a>Funktion: <strong>untimer</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>)</em></dt>
+<dt><a name="index-untimer-1"></a>Funktion: <strong>untimer</strong> <em>()</em></dt>
+<dd>
+
+<p><code>untimer</code> beendet die Aufzeichnung von Informationen zur Ausf&uuml;hrungszeit
+f&uuml;r die Funktionen <var>f_1</var>, &hellip;, <var>f_n</var>.
+</p>
+
+<p>Wird <code>untimer</code> ohne Argument aufgerufen, wird die Aufzeichnung f&uuml;r alle
+Funktionen beendet.
+</p>
+
+<p>Die aufgezeichneten Informationen zu einer Funktion <code>f</code> k&ouml;nnen mit dem
+Kommando <code>timer_info(f)</code> auch dann abgerufen werden, wenn zuvor mit dem 
+Kommando <code>untimer(f)</code> die Aufzeichnung f&uuml;r die Funktion <code>f</code> beendet 
+wurde.  Jedoch werden die aufgezeichneten Informationen f&uuml;r die Funktion 
+<code>f</code> nicht mit dem Kommando <code>timer_info()</code> angezeigt.  Das Kommando
+<code>timer(f)</code> setzt alle aufgezeichneten zur&uuml;ck und startet die Aufzeichnung
+f&uuml;r die Funktion erneut.
+</p>
+</dd></dl>
+
+<a name="timer_005fdevalue"></a><a name="Item_003a-Debugging_002ede_002fdefvr_002ftimer_005fdevalue"></a><dl>
+<dt><a name="index-timer_005fdevalue"></a>Optionsvariable: <strong>timer_devalue</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>timer_devalue</code> den Wert <code>true</code>, subtrahiert Maxima bei der
+Aufzeichnung der Ausf&uuml;hrungszeiten die Zeiten, welche eine Funktion in anderen
+Funktionen verbringt.  Ansonsten enthalten die aufgezeichneten Zeiten auch die
+Ausf&uuml;hrungszeiten der Funktionen, die aufgerufen werden.
+</p>
+
+<p>Siehe auch <code><a href="#timer">timer</a></code> und <code><a href="#timer_005finfo">timer_info</a></code>.
+</p>
+</dd></dl>
+
+<a name="timer_005finfo"></a><a name="Item_003a-Debugging_002ede_002fdeffn_002ftimer_005finfo"></a><dl>
+<dt><a name="index-timer_005finfo"></a>Funktion: <strong>timer_info</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>)</em></dt>
+<dt><a name="index-timer_005finfo-1"></a>Funktion: <strong>timer_info</strong> <em>()</em></dt>
+<dd>
+
+<p>Gibt eine Tabelle mit den aufgezeichneten Informationen &uuml;ber die 
+Ausf&uuml;hrungszeiten der Funktionen <var>f_1</var>, &hellip;, <var>f_n</var> zur&uuml;ck.  Wird 
+kein Argument angegeben, werden Informationen f&uuml;r alle Funktionen angezeigt, 
+zu denen Informationen aufgezeichnet sind.
+</p>
+
+<p>Die Tabelle enth&auml;lt die Namen der Funktionen, die Ausf&uuml;hrungszeit pro 
+Aufruf, die Anzahl der Aufrufe, die gesamte Zeit und die <code>gctime</code>-Zeit. 
+Die <code>gctime</code>-Zeit bedeutet &quot;Garbage Collection Time&quot;.
+</p>
+
+
+<p>Die Daten, die von der Funktion <code>timer_info</code> angezeigt werden, k&ouml;nnen 
+auch mit der Funktion <code>get</code> erhalten werden:
+</p>
+<div class="example">
+<pre class="example">get(f, 'calls);  get(f, 'runtime);  get(f, 'gctime);
+</pre></div>
+
+
+<p>Siehe auch <code><a href="#timer">timer</a></code>.
+</p>
+</dd></dl>
+
+<a name="trace"></a><a name="Item_003a-Debugging_002ede_002fdeffn_002ftrace"></a><dl>
+<dt><a name="index-trace"></a>Funktion: <strong>trace</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>)</em></dt>
+<dt><a name="index-trace-1"></a>Funktion: <strong>trace</strong> <em>(all)</em></dt>
+<dt><a name="index-trace-2"></a>Funktion: <strong>trace</strong> <em>()</em></dt>
+<dd>
+
+<p>Startet die Ablaufverfolgung f&uuml;r die Funktionen <var>f_1</var>, &hellip;, <var>f_n</var>. 
+Mit dem Kommando <code>trace(g)</code> kann eine weitere Funktion hinzugef&uuml;gt 
+werden.
+</p>
+
+<p><code>trace(all)</code> startet die Ablaufverfolgung f&uuml;r alle nutzerdefinierten
+Funktionen, die in der Informationsliste <code>functions</code> enthalten sind.
+</p>
+
+<p>Das Kommando <code>trace()</code> zeigt eine Liste aller Funktionen f&uuml;r die eine
+Ablaufverfolgung gestartet wurde.
+</p>
+
+<p>Mit der Funktion <code>untrace</code> wird die Ablaufverfolgung beendet.  Siehe auch
+<code><a href="#trace_005foptions">trace_options</a></code>.
+</p>
+
+<p><code>trace</code> wertet die Argumente nicht aus. 
+</p>
+
+
+
+<p>Die Ablaufverfolgung kann f&uuml;r eine Funktion <code>f</code> nicht gestartet werden,
+wenn f&uuml;r die Funktion bereits mit der Funktion <code>timer</code> Informationen 
+&uuml;ber die Ausf&uuml;hrungszeiten gesammelt werden.
+</p>
+</dd></dl>
+
+<a name="trace_005foptions"></a><a name="Item_003a-Debugging_002ede_002fdeffn_002ftrace_005foptions"></a><dl>
+<dt><a name="index-trace_005foptions"></a>Funktion: <strong>trace_options</strong> <em>(<var>f</var>, <var>option_1</var>, &hellip;, <var>option_n</var>)</em></dt>
+<dt><a name="index-trace_005foptions-1"></a>Funktion: <strong>trace_options</strong> <em>(<var>f</var>)</em></dt>
+<dd>
+
+<p>Setzt Optionen f&uuml;r die Ablaufverfolgung einer Funktion <var>f</var>.  Bereits 
+vorliegende Optionen werden ersetzt.
+</p>
+
+<p><code>trace_options(<var>f</var>)</code> setzt alle Optionen auf die Standardwerte 
+zur&uuml;ck.
+</p>
+
+<p>Die Optionen sind:
+</p>
+<dl compact="compact">
+<dt><code>noprint</code></dt>
+<dd><p>Gebe keine Meldung beim Eintritt in eine oder dem Austritt aus einer Funktion 
+aus.
+</p>
+
+</dd>
+<dt><code>break</code></dt>
+<dd><p>Setze eine Unterbrechnung vor dem Eintritt in eine Funktion und nach dem
+Austritt aus einer Funktion.  Siehe <code><a href="maxima_168.html#break">break</a></code>.
+</p>
+
+</dd>
+<dt><code><code>lisp_print</code></code></dt>
+<dd><p>Zeige die Argumente und R&uuml;ckgabewerte in der Lisp-Syntax an.
+</p>
+
+</dd>
+<dt><code>info</code></dt>
+<dd><p>Gebe <code>-&gt; true</code> beim Eintritt in und Austritt aus einer Funktion aus.
+</p>
+</dd>
+<dt><code><code>errorcatch</code></code></dt>
+<dd><p>Catch errors, giving the option to signal an error,
+ retry the function call, or specify a return value.
+</p>
+
+</dd>
+</dl>
+
+
+<p>Es k&ouml;nnen bedingte Optionen f&uuml;r die Ablaufverfolgung definiert werden.  Dazu
+wird eine Option zusammen mit einer Aussagefunktion angegeben.  Die Argumente 
+der Aussagefunktion f&uuml;r eine bedingte Option sind immer 
+<code>[level, direction, function, item]</code>.  <code>level</code> ist die Rekursionstiefe
+der Funktion, <code>direction</code> enth&auml;lt die Werte <code>enter</code> oder 
+<code>exit</code>, <code>function</code> ist der Name der Funktion und <code>item</code> ist eine 
+Liste der Argumente oder der R&uuml;ckgabewert beim Verlassen der Funktion.
+</p>
+
+<p>Dies ist ein Beispiel f&uuml;r eine Ablaufverfolgung ohne Bedingungen:
+</p>
+<div class="example">
+<pre class="example">(%i1) ff(n) := if equal(n, 0) then 1 else n * ff(n - 1)$
+
+(%i2) trace (ff)$
+
+(%i3) trace_options (ff, lisp_print, break)$
+
+(%i4) ff(3);
+</pre></div>
+
+
+<p>In diesem Fall wird eine Aussagefunktion f&uuml;r eine bedingte Ablaufverfolgung
+angegeben:
+</p>
+<div class="example">
+<pre class="example">(%i5) trace_options (ff, break(pp))$
+
+(%i6) pp (level, direction, function, item) := block (print (item),
+    return (function = 'ff and level = 3 and direction = exit))$
+
+(%i7) ff(6);
+</pre></div>
+
+</dd></dl>
+
+<a name="untrace"></a><a name="Item_003a-Debugging_002ede_002fdeffn_002funtrace"></a><dl>
+<dt><a name="index-untrace"></a>Funktion: <strong>untrace</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>)</em></dt>
+<dt><a name="index-untrace-1"></a>Funktion: <strong>untrace</strong> <em>()</em></dt>
+<dd>
+
+<p>Beendet die Ablaufverfolgung f&uuml;r die Funktionen <var>f_1</var>, &hellip;, <var>f_n</var>. 
+Das Kommando <code>untrace()</code> beendet die Ablaufverfolgung f&uuml;r alle 
+Funktionen.
+</p>
+
+<p><code>untrace</code> gibt eine Liste der Funktionen zur&uuml;ck, f&uuml;r die die 
+Ablaufverfolgung beendet wurde.
+</p>
+</dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_174.html#Debugger_002dKommandos" accesskey="p" rel="previous">Debugger-Kommandos</a>, Nach oben: <a href="maxima_172.html#Fehlersuche" accesskey="u" rel="up">Fehlersuche</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

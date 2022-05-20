@@ -1,0 +1,2266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para graphs</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para graphs">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para graphs">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_227.html#graphs" rel="up" title="graphs">
+<link href="maxima_230.html#grobner" rel="next" title="grobner">
+<link href="maxima_228.html#Introducci_00f3n-a-graphs" rel="previous" title="Introducción a graphs">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-graphs"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_228.html#Introducci_00f3n-a-graphs" accesskey="p" rel="previous">Introducción a graphs</a>, Subir: <a href="maxima_227.html#graphs" accesskey="u" rel="up">graphs</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-graphs-1"></a>
+<h3 class="section">55.2 Funciones y variables para graphs</h3>
+
+<a name="Construyendo-grafos"></a>
+<h4 class="subsection">55.2.1 Construyendo grafos</h4>
+
+<a name="Item_003a-graphs_002fdeffn_002fcreate_005fgraph"></a><dl>
+<dt><a name="index-create_005fgraph"></a>Función: <strong>create_graph</strong> <em>(<var>v_list</var>, <var>e_list</var>)</em></dt>
+<dt><a name="index-create_005fgraph-1"></a>Función: <strong>create_graph</strong> <em>(<var>n</var>, <var>e_list</var>)</em></dt>
+<dt><a name="index-create_005fgraph-2"></a>Función: <strong>create_graph</strong> <em>(<var>v_list</var>, <var>e_list</var>, <var>directed</var>)</em></dt>
+<dd>
+<p>Crea un nuevo grafo sobre el conjunto de vértices <var>v_list</var> con aristas
+<var>e_list</var>.
+</p>
+<p><var>v_list</var> es una lista de vértices (<code>[v1, v2,..., vn]</code>) o una lista de
+vértices junto con sus respectivas etiquetas (<code>[[v1,l1], [v2,l2],..., [vn,ln]]</code>).
+</p>
+<p><var>n</var> es el número de vértices, los cuales se identificarán desde
+0 hasta n-1.
+</p>
+<p><var>e_list</var> es una lista de aristas (<code>[e1, e2,..., em]</code>) o una lista de
+aristas con sus respectivas ponderaciones (<code>[[e1, w1], ..., [em, wm]]</code>).
+</p>
+<p>Si <var>directed</var> is not <code>false</code>, se devolverá un grafo orientado.
+</p>
+<p>Ejemplos:
+</p>
+<p>Crea un ciclo de 3 vértices.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : create_graph([1,2,3], [[1,2], [2,3], [1,3]])$
+(%i3) print_graph(g)$
+Graph on 3 vertices with 3 edges.
+Adjacencies:
+  3 :  1  2
+  2 :  3  1
+  1 :  3  2
+</pre></div>
+
+<p>Crea un ciclo de 3 vértices y aristas ponderadas:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : create_graph([1,2,3], [[[1,2], 1.0], [[2,3], 2.0],
+                                [[1,3], 3.0]])$
+(%i3) print_graph(g)$
+Graph on 3 vertices with 3 edges.
+Adjacencies:
+  3 :  1  2
+  2 :  3  1
+  1 :  3  2
+</pre></div>
+
+<p>Crea un grafo orientado:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) d : create_graph(
+       [1,2,3,4], 
+       [
+        [1,3], [1,4],
+        [2,3], [2,4]
+       ],
+       'directed = true)$
+(%i3) print_graph(d)$
+Digraph on 4 vertices with 4 arcs.
+Adjacencies:
+  4 :
+  3 :
+  2 :  4  3
+  1 :  4  3
+</pre></div>
+</dd></dl>
+
+
+
+<a name="Item_003a-graphs_002fdeffn_002fcopy_005fgraph"></a><dl>
+<dt><a name="index-copy_005fgraph"></a>Función: <strong>copy_graph</strong> <em>(<var>g</var>)</em></dt>
+<dd><p>Devuelve una copia del grafo <var>g</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fcirculant_005fgraph"></a><dl>
+<dt><a name="index-circulant_005fgraph"></a>Función: <strong>circulant_graph</strong> <em>(<var>n</var>, <var>d</var>)</em></dt>
+<dd><p>Devuelve un grafo cirlulante de parámetros <var>n</var> y <var>d</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : circulant_graph(10, [1,3])$
+(%i3) print_graph(g)$
+Graph on 10 vertices with 20 edges.
+Adjacencies:
+  9 :  2  6  0  8
+  8 :  1  5  9  7
+  7 :  0  4  8  6
+  6 :  9  3  7  5
+  5 :  8  2  6  4
+  4 :  7  1  5  3
+  3 :  6  0  4  2
+  2 :  9  5  3  1
+  1 :  8  4  2  0
+  0 :  7  3  9  1
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fclebsch_005fgraph"></a><dl>
+<dt><a name="index-clebsch_005fgraph"></a>Función: <strong>clebsch_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo de Clebsch.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fcomplement_005fgraph"></a><dl>
+<dt><a name="index-complement_005fgraph"></a>Función: <strong>complement_graph</strong> <em>(<var>g</var>)</em></dt>
+<dd><p>Devuelve el complemento del grafo <var>g</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fcomplete_005fbipartite_005fgraph"></a><dl>
+<dt><a name="index-complete_005fbipartite_005fgraph"></a>Función: <strong>complete_bipartite_graph</strong> <em>(<var>n</var>, <var>m</var>)</em></dt>
+<dd><p>Devuelve el grafo bipartido completo de <var>n+m</var> vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fcomplete_005fgraph"></a><dl>
+<dt><a name="index-complete_005fgraph"></a>Función: <strong>complete_graph</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el grafo completo de <var>n</var> vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fcycle_005fdigraph"></a><dl>
+<dt><a name="index-cycle_005fdigraph"></a>Función: <strong>cycle_digraph</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el ciclo dirigido de <var>n</var> vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fcycle_005fgraph"></a><dl>
+<dt><a name="index-cycle_005fgraph"></a>Función: <strong>cycle_graph</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el ciclo de <var>n</var> vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fcuboctahedron_005fgraph"></a><dl>
+<dt><a name="index-cuboctahedron_005fgraph"></a>Función: <strong>cuboctahedron_graph</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el grafo cubooctaédrico.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fcube_005fgraph"></a><dl>
+<dt><a name="index-cube_005fgraph"></a>Función: <strong>cube_graph</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el cubo de <var>n</var> dimensiones.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fdodecahedron_005fgraph"></a><dl>
+<dt><a name="index-dodecahedron_005fgraph"></a>Función: <strong>dodecahedron_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo del dodecaedro.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fempty_005fgraph"></a><dl>
+<dt><a name="index-empty_005fgraph"></a>Función: <strong>empty_graph</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el grafo vacío de <var>n</var> vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fflower_005fsnark"></a><dl>
+<dt><a name="index-flower_005fsnark"></a>Función: <strong>flower_snark</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el grafo de flor de <var>4n</var> vértices.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) f5 : flower_snark(5)$
+(%i3) chromatic_index(f5);
+(%o3)                                  4
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002ffrom_005fadjacency_005fmatrix"></a><dl>
+<dt><a name="index-from_005fadjacency_005fmatrix"></a>Función: <strong>from_adjacency_matrix</strong> <em>(<var>A</var>)</em></dt>
+<dd><p>Devuelve el grafo definido por la matriz de adyacencia <var>A</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002ffrucht_005fgraph"></a><dl>
+<dt><a name="index-frucht_005fgraph"></a>Función: <strong>frucht_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo de Frucht.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph_005fproduct"></a><dl>
+<dt><a name="index-graph_005fproduct"></a>Función: <strong>graph_product</strong> <em>(<var>g1</var>, <var>g1</var>)</em></dt>
+<dd><p>Devuelve el producto dirigido de los grafos <var>g1</var> y <var>g2</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) grid : graph_product(path_graph(3), path_graph(4))$
+(%i3) draw_graph(grid)$
+</pre></div>
+</dd></dl>
+
+<img src="./figures/graphs01.png" alt="./figures/graphs01">
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph_005funion"></a><dl>
+<dt><a name="index-graph_005funion"></a>Función: <strong>graph_union</strong> <em>(<var>g1</var>, <var>g1</var>)</em></dt>
+<dd><p>Devuelve la unión (suma) de los grafos <var>g1</var> y <var>g2</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgrid_005fgraph"></a><dl>
+<dt><a name="index-grid_005fgraph"></a>Función: <strong>grid_graph</strong> <em>(<var>n</var>, <var>m</var>)</em></dt>
+<dd><p>Devuelve la rejilla <var>n x m</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgreat_005frhombicosidodecahedron_005fgraph"></a><dl>
+<dt><a name="index-great_005frhombicosidodecahedron_005fgraph"></a>Función: <strong>great_rhombicosidodecahedron_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo gran rombicosidodecaédrico.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgreat_005frhombicuboctahedron_005fgraph"></a><dl>
+<dt><a name="index-great_005frhombicuboctahedron_005fgraph"></a>Función: <strong>great_rhombicuboctahedron_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo gran rombicocubicooctaédrico.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgrotzch_005fgraph"></a><dl>
+<dt><a name="index-grotzch_005fgraph"></a>Función: <strong>grotzch_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo de Grotzch.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fheawood_005fgraph"></a><dl>
+<dt><a name="index-heawood_005fgraph"></a>Función: <strong>heawood_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo de Heawood.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002ficosahedron_005fgraph"></a><dl>
+<dt><a name="index-icosahedron_005fgraph"></a>Función: <strong>icosahedron_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo icosaédrico.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002ficosidodecahedron_005fgraph"></a><dl>
+<dt><a name="index-icosidodecahedron_005fgraph"></a>Función: <strong>icosidodecahedron_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo icosidodecaédrico.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002finduced_005fsubgraph"></a><dl>
+<dt><a name="index-induced_005fsubgraph"></a>Función: <strong>induced_subgraph</strong> <em>(<var>V</var>, <var>g</var>)</em></dt>
+<dd><p>Devuelve el grafo inducido por el subconjunto <var>V</var> de vértices del grafo <var>g</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : petersen_graph()$
+(%i3) V : [0,1,2,3,4]$
+(%i4) g : induced_subgraph(V, p)$
+(%i5) print_graph(g)$
+Graph on 5 vertices with 5 edges.
+Adjacencies:
+  4 :  3  0
+  3 :  2  4
+  2 :  1  3
+  1 :  0  2
+  0 :  1  4
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fline_005fgraph"></a><dl>
+<dt><a name="index-line_005fgraph"></a>Función: <strong>line_graph</strong> <em>(<var>g</var>)</em></dt>
+<dd><p>Devuelve el grafo de línea del grafo <var>g</var>.
+</p></dd></dl>
+
+
+<a name="Item_003a-graphs_002fdeffn_002fmake_005fgraph"></a><dl>
+<dt><a name="index-make_005fgraph"></a>Función: <strong>make_graph</strong> <em>(<var>vrt</var>, <var>f</var>)</em></dt>
+<dt><a name="index-make_005fgraph-1"></a>Función: <strong>make_graph</strong> <em>(<var>vrt</var>, <var>f</var>, <var>oriented</var>)</em></dt>
+<dd><p>Crea un grafo por medio de la función de predicado <var>f</var>.
+</p>
+<p><var>vrt</var> es una lista o conjunto de vértices o un simplemente un número entero.
+Si <var>vrt</var> es un número entero, entonces los vértices del grafo serán los
+enteros desde 1 hasta <var>vrt</var>.
+</p>
+<p><var>f</var> es una función de predicado. Dos vértices <var>a</var> y <var>b</var> se conectarán
+si <code>f(a,b)=true</code>.
+</p>
+<p>Si <var>directed</var> no es <var>false</var>, entonces en grafo será dirigido.
+</p>
+<p>Ejemplo 1:
+</p><div class="example">
+<pre class="example">(%i1) load(&quot;graphs&quot;)$
+(%i2) g : make_graph(powerset({1,2,3,4,5}, 2), disjointp)$
+(%i3) is_isomorphic(g, petersen_graph());
+(%o3)                         true
+(%i4) get_vertex_label(1, g);
+(%o4)                        {1, 2}
+</pre></div>
+
+<p>Ejemplo 2:
+</p><div class="example">
+<pre class="example">(%i1) load(&quot;graphs&quot;)$
+(%i2) f(i, j) := is (mod(j, i)=0)$
+(%i3) g : make_graph(20, f, directed=true)$
+(%i4) out_neighbors(4, g);
+(%o4)                    [8, 12, 16, 20]
+(%i5) in_neighbors(18, g);
+(%o5)                    [1, 2, 3, 6, 9]
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-graphs_002fdeffn_002fmycielski_005fgraph"></a><dl>
+<dt><a name="index-mycielski_005fgraph"></a>Función: <strong>mycielski_graph</strong> <em>(<var>g</var>)</em></dt>
+<dd><p>Devuelve el grafo de Mycielski del grafo <var>g</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fnew_005fgraph"></a><dl>
+<dt><a name="index-new_005fgraph"></a>Función: <strong>new_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo sin vértices ni aristas.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fpath_005fdigraph"></a><dl>
+<dt><a name="index-path_005fdigraph"></a>Función: <strong>path_digraph</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el camino dirigido de <var>n</var> vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fpath_005fgraph"></a><dl>
+<dt><a name="index-path_005fgraph"></a>Función: <strong>path_graph</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el camino de <var>n</var> vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fpetersen_005fgraph"></a><dl>
+<dt><a name="index-petersen_005fgraph"></a>Función: <strong>petersen_graph</strong> <em>()</em></dt>
+<dt><a name="index-petersen_005fgraph-1"></a>Función: <strong>petersen_graph</strong> <em>(<var>n</var>, <var>d</var>)</em></dt>
+<dd><p>Devuelve el grafo de Petersen <var>P_{n,d}</var>. Los valores por
+defecto para <var>n</var> y <var>d</var> son <code>n=5</code> y <code>d=2</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002frandom_005fbipartite_005fgraph"></a><dl>
+<dt><a name="index-random_005fbipartite_005fgraph"></a>Función: <strong>random_bipartite_graph</strong> <em>(<var>a</var>, <var>b</var>, <var>p</var>)</em></dt>
+<dd><p>Devuelve un grafo aleatorio bipartido a partir de los vértices <code>a+b</code>. Cada
+arista se genera con probabilidad <var>p</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002frandom_005fdigraph"></a><dl>
+<dt><a name="index-random_005fdigraph"></a>Función: <strong>random_digraph</strong> <em>(<var>n</var>, <var>p</var>)</em></dt>
+<dd><p>Devuelve un grafo aleatorio dirigido de <var>n</var> vértices. Cada arco se presenta
+con una probabilidad <var>p</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002frandom_005fregular_005fgraph"></a><dl>
+<dt><a name="index-random_005fregular_005fgraph"></a>Función: <strong>random_regular_graph</strong> <em>(<var>n</var>)</em></dt>
+<dt><a name="index-random_005fregular_005fgraph-1"></a>Función: <strong>random_regular_graph</strong> <em>(<var>n</var>, <var>d</var>)</em></dt>
+<dd><p>Devuelve un grafo aleatorio <var>d</var>-regular de <var>n</var> vértices. El valor
+por defecto para <var>d</var> es <code>d=3</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002frandom_005fgraph"></a><dl>
+<dt><a name="index-random_005fgraph"></a>Función: <strong>random_graph</strong> <em>(<var>n</var>, <var>p</var>)</em></dt>
+<dd><p>Devuelve un grafo aleatorio de <var>n</var> vértices. Cada arco se presenta
+con una probabilidad <var>p</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002frandom_005fgraph1"></a><dl>
+<dt><a name="index-random_005fgraph1"></a>Función: <strong>random_graph1</strong> <em>(<var>n</var>, <var>m</var>)</em></dt>
+<dd><p>Devuelve un grafo aleatorio de <var>n</var> vértices y <var>m</var> arcos aleatorios.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002frandom_005fnetwork"></a><dl>
+<dt><a name="index-random_005fnetwork"></a>Función: <strong>random_network</strong> <em>(<var>n</var>, <var>p</var>, <var>w</var>)</em></dt>
+<dd><p>Devuelve una red aleatoria de <var>n</var> vértices. Cada arco se presenta 
+con probabilidad <var>p</var> y tiene un peso dentro del rango <code>[0,w]</code>.
+La función devuelve una lista <code>[network, source, sink]</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) [net, s, t] : random_network(50, 0.2, 10.0);
+(%o2)                         [DIGRAPH, 50, 51]
+(%i3) max_flow(net, s, t)$
+(%i4) first(%);
+(%o4)                   27.65981397932507
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002frandom_005ftournament"></a><dl>
+<dt><a name="index-random_005ftournament"></a>Función: <strong>random_tournament</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve un torneo aleatorio de <var>n</var> vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002frandom_005ftree"></a><dl>
+<dt><a name="index-random_005ftree"></a>Función: <strong>random_tree</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve un árbol aleatorio de <var>n</var> vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fsmall_005frhombicosidodecahedron_005fgraph"></a><dl>
+<dt><a name="index-small_005frhombicosidodecahedron_005fgraph"></a>Función: <strong>small_rhombicosidodecahedron_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo pequeño rombicosidodecaédrico.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fsmall_005frhombicuboctahedron_005fgraph"></a><dl>
+<dt><a name="index-small_005frhombicuboctahedron_005fgraph"></a>Función: <strong>small_rhombicuboctahedron_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo pequeño rombicocubicooctaédrico.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fsnub_005fcube_005fgraph"></a><dl>
+<dt><a name="index-snub_005fcube_005fgraph"></a>Función: <strong>snub_cube_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo cúbico volteado.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fsnub_005fdodecahedron_005fgraph"></a><dl>
+<dt><a name="index-snub_005fdodecahedron_005fgraph"></a>Función: <strong>snub_dodecahedron_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo dodecaédrico volteado.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002ftruncated_005fcube_005fgraph"></a><dl>
+<dt><a name="index-truncated_005fcube_005fgraph"></a>Función: <strong>truncated_cube_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo cúbico truncado.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002ftruncated_005fdodecahedron_005fgraph"></a><dl>
+<dt><a name="index-truncated_005fdodecahedron_005fgraph"></a>Función: <strong>truncated_dodecahedron_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo dodecaédrico truncado.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002ftruncated_005ficosahedron_005fgraph"></a><dl>
+<dt><a name="index-truncated_005ficosahedron_005fgraph"></a>Función: <strong>truncated_icosahedron_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo icosaédrico truncado.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002ftruncated_005ftetrahedron_005fgraph"></a><dl>
+<dt><a name="index-truncated_005ftetrahedron_005fgraph"></a>Función: <strong>truncated_tetrahedron_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo del tetraedro truncado.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002ftutte_005fgraph"></a><dl>
+<dt><a name="index-tutte_005fgraph"></a>Función: <strong>tutte_graph</strong> <em>()</em></dt>
+<dd><p>Devuelve el grafo de Tutte.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002funderlying_005fgraph"></a><dl>
+<dt><a name="index-underlying_005fgraph"></a>Función: <strong>underlying_graph</strong> <em>(<var>g</var>)</em></dt>
+<dd><p>Devuelve el grafo asociado al grafo orientado <var>g</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fwheel_005fgraph"></a><dl>
+<dt><a name="index-wheel_005fgraph"></a>Función: <strong>wheel_graph</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Devuelve el grafo de rueda de <var>n+1</var> vértices.
+</p></dd></dl>
+
+<a name="Propiedades-de-los-grafos"></a>
+<h4 class="subsection">55.2.2 Propiedades de los grafos</h4>
+
+<a name="Item_003a-graphs_002fdeffn_002fadjacency_005fmatrix"></a><dl>
+<dt><a name="index-adjacency_005fmatrix"></a>Función: <strong>adjacency_matrix</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve la matriz de adyacencia del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) c5 : cycle_graph(4)$
+(%i3) adjacency_matrix(c5);
+                                [ 0  1  0  1 ]
+                                [            ]
+                                [ 1  0  1  0 ]
+(%o3)                           [            ]
+                                [ 0  1  0  1 ]
+                                [            ]
+                                [ 1  0  1  0 ]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002faverage_005fdegree"></a><dl>
+<dt><a name="index-average_005fdegree"></a>Función: <strong>average_degree</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el grado medio de los vértices del garfo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) average_degree(grotzch_graph());
+                                      40
+(%o2)                                 --
+                                      11
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fbiconnected_005fcomponents"></a><dl>
+<dt><a name="index-biconnected_005fcomponents"></a>Función: <strong>biconnected_components</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve los subconjuntos de vértices biconectados del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : create_graph(
+            [1,2,3,4,5,6,7],
+            [
+             [1,2],[2,3],[2,4],[3,4],
+             [4,5],[5,6],[4,6],[6,7]
+            ])$
+(%i3) biconnected_components(g);
+(%o3)               [[6, 7], [4, 5, 6], [1, 2], [2, 3, 4]]
+</pre></div>
+
+<img src="./figures/graphs13.png" alt="./figures/graphs13">
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fbipartition"></a><dl>
+<dt><a name="index-bipartition"></a>Función: <strong>bipartition</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve una bipartición de los vértices del grafo <var>gr</var>, o una
+lista vacía si <var>gr</var> no es bipartido.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) h : heawood_graph()$
+(%i3) [A,B]:bipartition(h);
+(%o3)         [[8, 12, 6, 10, 0, 2, 4], [13, 5, 11, 7, 9, 1, 3]]
+(%i4) draw_graph(h, show_vertices=A, program=circular)$
+</pre></div>
+</dd></dl>
+
+<img src="./figures/graphs02.png" alt="./figures/graphs02">
+
+<a name="Item_003a-graphs_002fdeffn_002fchromatic_005findex"></a><dl>
+<dt><a name="index-chromatic_005findex"></a>Función: <strong>chromatic_index</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el índice cromático del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : petersen_graph()$
+(%i3) chromatic_index(p);
+(%o3)                                  4
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fchromatic_005fnumber"></a><dl>
+<dt><a name="index-chromatic_005fnumber"></a>Función: <strong>chromatic_number</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el número cromático del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) chromatic_number(cycle_graph(5));
+(%o2)                                  3
+(%i3) chromatic_number(cycle_graph(6));
+(%o3)                                  2
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fclear_005fedge_005fweight"></a><dl>
+<dt><a name="index-clear_005fedge_005fweight"></a>Función: <strong>clear_edge_weight</strong> <em>(<var>e</var>, <var>gr</var>)</em></dt>
+<dd><p>Elimina el peso del arco <var>e</var> del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : create_graph(3, [[[0,1], 1.5], [[1,2], 1.3]])$
+(%i3) get_edge_weight([0,1], g);
+(%o3)                                 1.5
+(%i4) clear_edge_weight([0,1], g)$
+(%i5) get_edge_weight([0,1], g);
+(%o5)                                  1
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fclear_005fvertex_005flabel"></a><dl>
+<dt><a name="index-clear_005fvertex_005flabel"></a>Función: <strong>clear_vertex_label</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Elimina la etiqueta del vértice <var>v</var> del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : create_graph([[0,&quot;Zero&quot;], [1, &quot;One&quot;]], [[0,1]])$
+(%i3) get_vertex_label(0, g);
+(%o3)                               Zero
+(%i4) clear_vertex_label(0, g);
+(%o4)                               done
+(%i5) get_vertex_label(0, g);
+(%o5)                               false
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fconnected_005fcomponents"></a><dl>
+<dt><a name="index-connected_005fcomponents"></a>Función: <strong>connected_components</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve las componentes conexas del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g: graph_union(cycle_graph(5), path_graph(4))$
+(%i3) connected_components(g);
+(%o3)                  [[1, 2, 3, 4, 0], [8, 7, 6, 5]]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fdiameter"></a><dl>
+<dt><a name="index-diameter"></a>Función: <strong>diameter</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el diámetro del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) diameter(dodecahedron_graph());
+(%o2)                                 5
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fedge_005fcoloring"></a><dl>
+<dt><a name="index-edge_005fcoloring"></a>Función: <strong>edge_coloring</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve una coloración óptima de los arcos del grafo <var>gr</var>.
+</p>
+<p>La función devuelve el índice cromático y una lista
+que representa el coloreado de los arcos de <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : petersen_graph()$
+(%i3) [ch_index, col] : edge_coloring(p);
+(%o3) [4, [[[0, 5], 3], [[5, 7], 1], [[0, 1], 1], [[1, 6], 2], 
+[[6, 8], 1], [[1, 2], 3], [[2, 7], 4], [[7, 9], 2], [[2, 3], 2], 
+[[3, 8], 3], [[5, 8], 2], [[3, 4], 1], [[4, 9], 4], [[6, 9], 3], 
+[[0, 4], 2]]]
+(%i4) assoc([0,1], col);
+(%o4)                           1
+(%i5) assoc([0,5], col);
+(%o5)                           3
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fdegree_005fsequence"></a><dl>
+<dt><a name="index-degree_005fsequence"></a>Función: <strong>degree_sequence</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve una lista con los grados de los vértices del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) degree_sequence(random_graph(10, 0.4));
+(%o2)            [2, 2, 2, 2, 2, 2, 3, 3, 3, 3]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fedge_005fconnectivity"></a><dl>
+<dt><a name="index-edge_005fconnectivity"></a>Función: <strong>edge_connectivity</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve la conectividad de las aristas del grafo <var>gr</var>.
+</p>
+<p>Véase también <code>min_edge_cut</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fedges"></a><dl>
+<dt><a name="index-edges"></a>Función: <strong>edges</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve la lista de las aristas (arcos) del grafo (dirigido) <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) edges(complete_graph(4));
+(%o2)         [[2, 3], [1, 3], [1, 2], [0, 3], [0, 2], [0, 1]]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fget_005fedge_005fweight"></a><dl>
+<dt><a name="index-get_005fedge_005fweight"></a>Función: <strong>get_edge_weight</strong> <em>(<var>e</var>, <var>gr</var>)</em></dt>
+<dt><a name="index-get_005fedge_005fweight-1"></a>Función: <strong>get_edge_weight</strong> <em>(<var>e</var>, <var>gr</var>, <var>ifnot</var>)</em></dt>
+<dd><p>Devuelve el peso de la arista <var>e</var> del grafo <var>gr</var>.
+</p>
+<p>Si la arista no tiene peso, la función devuelve 1. Si la arista no
+pertenece al grafo, la función emite un mensaje de error o devuelve
+el argumento opcional <var>ifnot</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) c5 : cycle_graph(5)$
+(%i3) get_edge_weight([1,2], c5);
+(%o3)                                 1
+(%i4) set_edge_weight([1,2], 2.0, c5);
+(%o4)                               done
+(%i5) get_edge_weight([1,2], c5);
+(%o5)                                2.0
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fget_005fvertex_005flabel"></a><dl>
+<dt><a name="index-get_005fvertex_005flabel"></a>Función: <strong>get_vertex_label</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve la etiqueta del vértice <var>v</var> del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : create_graph([[0,&quot;Zero&quot;], [1, &quot;One&quot;]], [[0,1]])$
+(%i3) get_vertex_label(0, g);
+(%o3)                               Zero
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph_005fcharpoly"></a><dl>
+<dt><a name="index-graph_005fcharpoly"></a>Función: <strong>graph_charpoly</strong> <em>(<var>gr</var>, <var>x</var>)</em></dt>
+<dd><p>Devuelve el polinomio característico (de variable <var>x</var>)
+del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : petersen_graph()$
+(%i3) graph_charpoly(p, x), factor;
+                                         5        4
+(%o3)                     (x - 3) (x - 1)  (x + 2)
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph_005fcenter"></a><dl>
+<dt><a name="index-graph_005fcenter"></a>Función: <strong>graph_center</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el centro del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : grid_graph(5,5)$
+(%i3) graph_center(g);
+(%o3)                               [12]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph_005feigenvalues"></a><dl>
+<dt><a name="index-graph_005feigenvalues"></a>Función: <strong>graph_eigenvalues</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve los valores propios del grafo <var>gr</var>. La función
+devuelve los valores propios en el mismo formato en el que lo 
+hace la función <code>eigenvalue</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : petersen_graph()$
+(%i3) graph_eigenvalues(p);
+(%o3)                     [[3, - 2, 1], [1, 4, 5]]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph_005fperiphery"></a><dl>
+<dt><a name="index-graph_005fperiphery"></a>Función: <strong>graph_periphery</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve la periferia del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : grid_graph(5,5)$
+(%i3) graph_periphery(g);
+(%o3)                          [24, 20, 4, 0]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph_005fsize"></a><dl>
+<dt><a name="index-graph_005fsize"></a>Función: <strong>graph_size</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el número de aristas del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : petersen_graph()$
+(%i3) graph_size(p);
+(%o3)                                15
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph_005forder"></a><dl>
+<dt><a name="index-graph_005forder"></a>Función: <strong>graph_order</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el número de vértices del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : petersen_graph()$
+(%i3) graph_order(p);
+(%o3)                                10
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgirth"></a><dl>
+<dt><a name="index-girth"></a>Función: <strong>girth</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve la longitud del ciclo más corto del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : heawood_graph()$
+(%i3) girth(g);
+(%o3)                                 6
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fhamilton_005fcycle"></a><dl>
+<dt><a name="index-hamilton_005fcycle"></a>Función: <strong>hamilton_cycle</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el ciclo de Hamilton del grafo <var>gr</var> o una lista vacía
+si <var>gr</var> no es hamiltoniano.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) c : cube_graph(3)$
+(%i3) hc : hamilton_cycle(c);
+(%o3)              [7, 3, 2, 6, 4, 0, 1, 5, 7]
+(%i4) draw_graph(c, show_edges=vertices_to_cycle(hc))$
+</pre></div>
+</dd></dl>
+
+<img src="./figures/graphs03.png" alt="./figures/graphs03">
+
+<a name="Item_003a-graphs_002fdeffn_002fhamilton_005fpath"></a><dl>
+<dt><a name="index-hamilton_005fpath"></a>Función: <strong>hamilton_path</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el camino de Hamilton del grafo <var>gr</var> o una lista vacía
+si <var>gr</var> no los tiene.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : petersen_graph()$
+(%i3) hp : hamilton_path(p);
+(%o3)                  [0, 5, 7, 2, 1, 6, 8, 3, 4, 9]
+(%i4) draw_graph(p, show_edges=vertices_to_path(hp))$
+</pre></div>
+</dd></dl>
+
+<img src="./figures/graphs04.png" alt="./figures/graphs04">
+
+<a name="Item_003a-graphs_002fdeffn_002fisomorphism"></a><dl>
+<dt><a name="index-isomorphism"></a>Función: <strong>isomorphism</strong> <em>(<var>gr1</var>, <var>gr2</var>)</em></dt>
+<dd><p>Devuelve un isomorfismo entre los grafos/digrafos <var>gr1</var> y <var>gr2</var>.
+Si <var>gr1</var> y <var>gr2</var> no son isomorfos, devuelve una lista vacía.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) clk5:complement_graph(line_graph(complete_graph(5)))$
+(%i3) isomorphism(clk5, petersen_graph());
+(%o3) [9 -&gt; 0, 2 -&gt; 1, 6 -&gt; 2, 5 -&gt; 3, 0 -&gt; 4, 1 -&gt; 5, 3 -&gt; 6, 
+                                          4 -&gt; 7, 7 -&gt; 8, 8 -&gt; 9]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fin_005fneighbors"></a><dl>
+<dt><a name="index-in_005fneighbors"></a>Función: <strong>in_neighbors</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve la lista de los nodos hijos del vértice <var>v</var>
+del grafo orientado <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : path_digraph(3)$
+(%i3) in_neighbors(2, p);
+(%o3)                                 [1]
+(%i4) out_neighbors(2, p);
+(%o4)                                 []
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005fbiconnected"></a><dl>
+<dt><a name="index-is_005fbiconnected"></a>Función: <strong>is_biconnected</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si <var>gr</var> está biconectado y <code>false</code>
+en caso contrario.
+</p>
+<p>Ejemplo:
+</p>
+<p>Example:
+</p><div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) is_biconnected(cycle_graph(5));
+(%o2)                         true
+(%i3) is_biconnected(path_graph(5));
+(%o3)                         false
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005fbipartite"></a><dl>
+<dt><a name="index-is_005fbipartite"></a>Función: <strong>is_bipartite</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si <var>gr</var> es bipartido (2-coloreable) y <code>false</code>
+en caso contrario.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) is_bipartite(petersen_graph());
+(%o2)                               false
+(%i3) is_bipartite(heawood_graph());
+(%o3)                               true
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005fconnected"></a><dl>
+<dt><a name="index-is_005fconnected"></a>Función: <strong>is_connected</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si el grafo <var>gr</var> es conexo y <code>false</code>
+en caso contrario.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) is_connected(graph_union(cycle_graph(4), path_graph(3)));
+(%o2)                               false
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005fdigraph"></a><dl>
+<dt><a name="index-is_005fdigraph"></a>Función: <strong>is_digraph</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si <var>gr</var> es un grafo orientado (digrafo) y
+<code>false</code> en caso contrario.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) is_digraph(path_graph(5));
+(%o2)                               false
+(%i3) is_digraph(path_digraph(5));
+(%o3)                               true
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005fedge_005fin_005fgraph"></a><dl>
+<dt><a name="index-is_005fedge_005fin_005fgraph"></a>Función: <strong>is_edge_in_graph</strong> <em>(<var>e</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si <var>e</var> es una arista (arco) del
+grafo (digrafo) <var>g</var> y <code>false</code> en caso contrario.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) c4 : cycle_graph(4)$
+(%i3) is_edge_in_graph([2,3], c4);
+(%o3)                               true
+(%i4) is_edge_in_graph([3,2], c4);
+(%o4)                               true
+(%i5) is_edge_in_graph([2,4], c4);
+(%o5)                               false
+(%i6) is_edge_in_graph([3,2], cycle_digraph(4));
+(%o6)                               false
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005fgraph"></a><dl>
+<dt><a name="index-is_005fgraph"></a>Función: <strong>is_graph</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si <var>gr</var> es un grafo y <code>false</code> en caso contrario.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) is_graph(path_graph(5));
+(%o2)                               true
+(%i3) is_graph(path_digraph(5));
+(%o3)                               false
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005fgraph_005for_005fdigraph"></a><dl>
+<dt><a name="index-is_005fgraph_005for_005fdigraph"></a>Función: <strong>is_graph_or_digraph</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si <var>gr</var> es una grafo, orientado o no,
+y <code>false</code> en caso contrario.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) is_graph_or_digraph(path_graph(5));
+(%o2)                               true
+(%i3) is_graph_or_digraph(path_digraph(5));
+(%o3)                               true
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005fisomorphic"></a><dl>
+<dt><a name="index-is_005fisomorphic"></a>Función: <strong>is_isomorphic</strong> <em>(<var>gr1</var>, <var>gr2</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si los grafos/digrafos <var>gr1</var> y <var>gr2</var> son
+isomorfos y <code>false</code> en caso contrario.
+</p>
+<p>Véase también <code>isomorphism</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) clk5:complement_graph(line_graph(complete_graph(5)))$
+(%i3) is_isomorphic(clk5, petersen_graph());
+(%o3)                         true
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005fplanar"></a><dl>
+<dt><a name="index-is_005fplanar"></a>Función: <strong>is_planar</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si <var>gr</var> es un grafo planar y <code>false</code> en caso contrario.
+</p>
+<p>El algoritmo utilizado es el de Demoucron, que es de tiempo cuadrático.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) is_planar(dodecahedron_graph());
+(%o2)                                true
+(%i3) is_planar(petersen_graph());
+(%o3)                                false
+(%i4) is_planar(petersen_graph(10,2));
+(%o4)                                true
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005fsconnected"></a><dl>
+<dt><a name="index-is_005fsconnected"></a>Función: <strong>is_sconnected</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si el grafo orientado <var>gr</var> es fuertemente conexo,
+devolviendo <code>false</code> en caso contrario.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) is_sconnected(cycle_digraph(5));
+(%o2)                               true
+(%i3) is_sconnected(path_digraph(5));
+(%o3)                               false
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005fvertex_005fin_005fgraph"></a><dl>
+<dt><a name="index-is_005fvertex_005fin_005fgraph"></a>Función: <strong>is_vertex_in_graph</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si <var>v</var> es un vértice del grafo <var>g</var>
+y <code>false</code> en caso contrario.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) c4 : cycle_graph(4)$
+(%i3) is_vertex_in_graph(0, c4);
+(%o3)                               true
+(%i4) is_vertex_in_graph(6, c4);
+(%o4)                               false
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fis_005ftree"></a><dl>
+<dt><a name="index-is_005ftree"></a>Función: <strong>is_tree</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve <code>true</code> si <var>gr</var> es un árbol y <code>false</code> en caso contrario.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) is_tree(random_tree(4));
+(%o2)                               true
+(%i3) is_tree(graph_union(random_tree(4), random_tree(5)));
+(%o3)                               false
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002flaplacian_005fmatrix"></a><dl>
+<dt><a name="index-laplacian_005fmatrix"></a>Función: <strong>laplacian_matrix</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el laplaciano de la matriz del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) laplacian_matrix(cycle_graph(5));
+                          [  2   - 1   0    0   - 1 ]
+                          [                         ]
+                          [ - 1   2   - 1   0    0  ]
+                          [                         ]
+(%o2)                     [  0   - 1   2   - 1   0  ]
+                          [                         ]
+                          [  0    0   - 1   2   - 1 ]
+                          [                         ]
+                          [ - 1   0    0   - 1   2  ]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fmax_005fclique"></a><dl>
+<dt><a name="index-max_005fclique"></a>Función: <strong>max_clique</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el clique máximo del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : random_graph(100, 0.5)$
+(%i3) max_clique(g);
+(%o3)       [6, 12, 31, 36, 52, 59, 62, 63, 80]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fmax_005fdegree"></a><dl>
+<dt><a name="index-max_005fdegree"></a>Función: <strong>max_degree</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el grado máximo de los vértices del grafo <var>gr</var> y un 
+vértice de grado máximo.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : random_graph(100, 0.02)$
+(%i3) max_degree(g);
+(%o3)                        [6, 79]
+(%i4) vertex_degree(95, g);
+(%o4)                           3
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fmax_005fflow"></a><dl>
+<dt><a name="index-max_005fflow"></a>Función: <strong>max_flow</strong> <em>(<var>net</var>, <var>s</var>, <var>t</var>)</em></dt>
+<dd><p>Devuelve el flujo maximal de la red <var>net</var> con origen en
+<var>s</var> y final en <var>t</var>.
+</p>
+<p>La función devuelve el valor del flujo maximal y una lista con los
+pesos de los arcos del flujo óptimo.
+</p>
+<p>Ejemplo:
+</p>
+<p>Example:
+</p><div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) net : create_graph(
+  [1,2,3,4,5,6],
+  [[[1,2], 1.0],
+   [[1,3], 0.3],
+   [[2,4], 0.2],
+   [[2,5], 0.3],
+   [[3,4], 0.1],
+   [[3,5], 0.1],
+   [[4,6], 1.0],
+   [[5,6], 1.0]],
+  directed=true)$
+(%i3) [flow_value, flow] : max_flow(net, 1, 6);
+(%o3) [0.7, [[[1, 2], 0.5], [[1, 3], 0.2], [[2, 4], 0.2],
+[[2, 5], 0.3], [[3, 4], 0.1], [[3, 5], 0.1], [[4, 6], 0.3],
+[[5, 6], 0.4]]]
+(%i4) fl : 0$
+(%i5) for u in out_neighbors(1, net) 
+         do fl : fl + assoc([1, u], flow)$
+(%i6) fl;
+(%o6)                                 0.7
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fmax_005findependent_005fset"></a><dl>
+<dt><a name="index-max_005findependent_005fset"></a>Función: <strong>max_independent_set</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve un conjunto maximal independiente de vértices del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) d : dodecahedron_graph()$
+(%i3) mi : max_independent_set(d);
+(%o3)             [0, 3, 5, 9, 10, 11, 18, 19]
+(%i4) draw_graph(d, show_vertices=mi)$
+</pre></div>
+</dd></dl>
+
+<img src="./figures/graphs05.png" alt="./figures/graphs05">
+
+<a name="Item_003a-graphs_002fdeffn_002fmax_005fmatching"></a><dl>
+<dt><a name="index-max_005fmatching"></a>Función: <strong>max_matching</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve un conjunto maximal independiente de aristas del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) d : dodecahedron_graph()$
+(%i3) m : max_matching(d);
+(%o3) [[5, 7], [8, 9], [6, 10], [14, 19], [13, 18], [12, 17], 
+                               [11, 16], [0, 15], [3, 4], [1, 2]]
+(%i4) draw_graph(d, show_edges=m)$
+</pre></div>
+</dd></dl>
+
+<img src="./figures/graphs06.png" alt="./figures/graphs06">
+
+<a name="Item_003a-graphs_002fdeffn_002fmin_005fdegree"></a><dl>
+<dt><a name="index-min_005fdegree"></a>Función: <strong>min_degree</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el grado mínimo de los vértices del grafo <var>gr</var> y un 
+vértice de grado mínimo.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : random_graph(100, 0.1)$
+(%i3) min_degree(g);
+(%o3)                              [3, 49]
+(%i4) vertex_degree(21, g);
+(%o4)                                 9
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fmin_005fedge_005fcut"></a><dl>
+<dt><a name="index-min_005fedge_005fcut"></a>Función: <strong>min_edge_cut</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el mínimo <i>edge cut</i> del grafo <var>gr</var>. Un <i>edge cut</i> es
+un conjunto de aristas cuya eliminación aumenta el número de componentes del grafo.
+</p>
+<p>Véase también <code>edge_connectivity</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fmin_005fvertex_005fcover"></a><dl>
+<dt><a name="index-min_005fvertex_005fcover"></a>Función: <strong>min_vertex_cover</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el mínimo nodo <i>covering</i> del grafo <var>gr</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fmin_005fvertex_005fcut"></a><dl>
+<dt><a name="index-min_005fvertex_005fcut"></a>Función: <strong>min_vertex_cut</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el mínimo <i>vertex cut</i> del grafo <var>gr</var>.
+</p>
+<p>Véase también <code>vertex_connectivity</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-graphs_002fdeffn_002fminimum_005fspanning_005ftree"></a><dl>
+<dt><a name="index-minimum_005fspanning_005ftree"></a>Función: <strong>minimum_spanning_tree</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el grafo de expansión mínimo del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : graph_product(path_graph(10), path_graph(10))$
+(%i3) t : minimum_spanning_tree(g)$
+(%i4) draw_graph(g, show_edges=edges(t))$
+</pre></div>
+</dd></dl>
+
+<img src="./figures/graphs07.png" alt="./figures/graphs07">
+
+<a name="Item_003a-graphs_002fdeffn_002fneighbors"></a><dl>
+<dt><a name="index-neighbors"></a>Función: <strong>neighbors</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve la lista de los vecinos del vértice <var>v</var> del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : petersen_graph()$
+(%i3) neighbors(3, p);
+(%o3)                             [4, 8, 2]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fodd_005fgirth"></a><dl>
+<dt><a name="index-odd_005fgirth"></a>Función: <strong>odd_girth</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve la longitud del ciclo impar más corto del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : graph_product(cycle_graph(4), cycle_graph(7))$
+(%i3) girth(g);
+(%o3)                                 4
+(%i4) odd_girth(g);
+(%o4)                                 7
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fout_005fneighbors"></a><dl>
+<dt><a name="index-out_005fneighbors"></a>Función: <strong>out_neighbors</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve la lista de los nodos padres del vértice <var>v</var> del grafo
+orientado <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : path_digraph(3)$
+(%i3) in_neighbors(2, p);
+(%o3)                                 [1]
+(%i4) out_neighbors(2, p);
+(%o4)                                 []
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fplanar_005fembedding"></a><dl>
+<dt><a name="index-planar_005fembedding"></a>Función: <strong>planar_embedding</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve la lista de caminos faciales en una proyección planar de <var>gr</var>,
+o <code>false</code> si <var>gr</var> no es un grafo planar.
+</p>
+<p>El grafo <var>gr</var> debe estar biconectado.
+</p>
+<p>El algoritmo utilizado es el de Demoucron, que es de tiempo cuadrático.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) planar_embedding(grid_graph(3,3));
+(%o2) [[3, 6, 7, 8, 5, 2, 1, 0], [4, 3, 0, 1], [3, 4, 7, 6], 
+                                      [8, 7, 4, 5], [1, 2, 5, 4]]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fprint_005fgraph"></a><dl>
+<dt><a name="index-print_005fgraph"></a>Función: <strong>print_graph</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Muestra alguna información sobre el grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) c5 : cycle_graph(5)$
+(%i3) print_graph(c5)$
+Graph on 5 vertices with 5 edges.
+Adjacencies:
+  4 :  0  3
+  3 :  4  2
+  2 :  3  1
+  1 :  2  0
+  0 :  4  1
+(%i4) dc5 : cycle_digraph(5)$
+(%i5) print_graph(dc5)$
+Digraph on 5 vertices with 5 arcs.
+Adjacencies:
+  4 :  0
+  3 :  4
+  2 :  3
+  1 :  2
+  0 :  1
+(%i6) out_neighbors(0, dc5);
+(%o6)                                [1]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fradius"></a><dl>
+<dt><a name="index-radius"></a>Función: <strong>radius</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el radio del grafo  <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) radius(dodecahedron_graph());
+(%o2)                                 5
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fset_005fedge_005fweight"></a><dl>
+<dt><a name="index-set_005fedge_005fweight"></a>Función: <strong>set_edge_weight</strong> <em>(<var>e</var>, <var>w</var>, <var>gr</var>)</em></dt>
+<dd><p>Asigna el peso <var>w</var> a la arista <var>e</var> del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : create_graph([1, 2], [[[1,2], 1.2]])$
+(%i3) get_edge_weight([1,2], g);
+(%o3)                                1.2
+(%i4) set_edge_weight([1,2], 2.1, g);
+(%o4)                               done
+(%i5) get_edge_weight([1,2], g);
+(%o5)                                2.1
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fset_005fvertex_005flabel"></a><dl>
+<dt><a name="index-set_005fvertex_005flabel"></a>Función: <strong>set_vertex_label</strong> <em>(<var>v</var>, <var>l</var>, <var>gr</var>)</em></dt>
+<dd><p>Asigna la etiqueta <var>l</var> al vértice <var>v</var> del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : create_graph([[1, &quot;One&quot;], [2, &quot;Two&quot;]], [[1,2]])$
+(%i3) get_vertex_label(1, g);
+(%o3)                                One
+(%i4) set_vertex_label(1, &quot;oNE&quot;, g);
+(%o4)                               done
+(%i5) get_vertex_label(1, g);
+(%o5)                                oNE
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fshortest_005fpath"></a><dl>
+<dt><a name="index-shortest_005fpath"></a>Función: <strong>shortest_path</strong> <em>(<var>u</var>, <var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve el camino más corto desde <var>u</var> hasta <var>v</var> del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) d : dodecahedron_graph()$
+(%i3) path : shortest_path(0, 7, d);
+(%o3)                          [0, 1, 19, 13, 7]
+(%i4) draw_graph(d, show_edges=vertices_to_path(path))$
+</pre></div>
+</dd></dl>
+
+<img src="./figures/graphs08.png" alt="./figures/graphs08">
+
+
+<a name="Item_003a-graphs_002fdeffn_002fshortest_005fweighted_005fpath"></a><dl>
+<dt><a name="index-shortest_005fweighted_005fpath"></a>Función: <strong>shortest_weighted_path</strong> <em>(<var>u</var>, <var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve la longitud del camino más corto ponderado y el propio camino
+más corto ponderado desde <var>u</var> hasta <var>v</var> en el grafo <var>gr</var>.
+</p>
+<p>La longitud del camino ponderado es la suma de los pesos de las aristas
+del camino. Si una arista no tiene peso asignado, su valor por defecto
+es la unidad.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g: petersen_graph(20, 2)$
+(%i3) for e in edges(g) do set_edge_weight(e, random(1.0), g)$
+(%i4) shortest_weighted_path(0, 10, g);
+(%o4) [2.575143920268482, [0, 20, 38, 36, 34, 32, 30, 10]]
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-graphs_002fdeffn_002fstrong_005fcomponents"></a><dl>
+<dt><a name="index-strong_005fcomponents"></a>Función: <strong>strong_components</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve las componentes fuertes del grafo orientado <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) t : random_tournament(4)$
+(%i3) strong_components(t);
+(%o3)                         [[1], [0], [2], [3]]
+(%i4) vertex_out_degree(3, t);
+(%o4)                                 3
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002ftopological_005fsort"></a><dl>
+<dt><a name="index-topological_005fsort"></a>Función: <strong>topological_sort</strong> <em>(<var>dag</var>)</em></dt>
+<dd><p>Devuelve el orden topológico de los vértices del grafo orientado <var>dag</var>
+o una lista vacía si <var>dag</var> no es un grafo orientado
+acíclico.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g:create_graph(
+         [1,2,3,4,5],
+         [
+          [1,2], [2,5], [5,3],
+          [5,4], [3,4], [1,3]
+         ],
+         directed=true)$
+(%i3) topological_sort(g);
+(%o3)                           [1, 2, 5, 3, 4]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fvertex_005fconnectivity"></a><dl>
+<dt><a name="index-vertex_005fconnectivity"></a>Función: <strong>vertex_connectivity</strong> <em>(<var>g</var>)</em></dt>
+<dd><p>Devuelve la conectividad de los vértices del grafo <var>g</var>.
+</p>
+<p>Véase también <code>min_vertex_cut</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fvertex_005fdegree"></a><dl>
+<dt><a name="index-vertex_005fdegree"></a>Función: <strong>vertex_degree</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve el grado del vértice <var>v</var> del grafo <var>gr</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fvertex_005fdistance"></a><dl>
+<dt><a name="index-vertex_005fdistance"></a>Función: <strong>vertex_distance</strong> <em>(<var>u</var>, <var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve la longitud del camino más corto entre <var>u</var> y <var>v</var>
+del grafo o digrafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) d : dodecahedron_graph()$
+(%i3) vertex_distance(0, 7, d);
+(%o3)                                 4
+(%i4) shortest_path(0, 7, d);
+(%o4)                         [0, 1, 19, 13, 7]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fvertex_005feccentricity"></a><dl>
+<dt><a name="index-vertex_005feccentricity"></a>Función: <strong>vertex_eccentricity</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve la excentricidad del vértice <var>v</var> del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g:cycle_graph(7)$
+(%i3) vertex_eccentricity(0, g);
+(%o3)                           3
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fvertex_005fin_005fdegree"></a><dl>
+<dt><a name="index-vertex_005fin_005fdegree"></a>Función: <strong>vertex_in_degree</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve el grado de entrada del vértice <var>v</var> del grafo 
+orientado <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p5 : path_digraph(5)$
+(%i3) print_graph(p5)$
+Digraph on 5 vertices with 4 arcs.
+Adjacencies:
+  4 :
+  3 :  4
+  2 :  3
+  1 :  2
+  0 :  1
+(%i4) vertex_in_degree(4, p5);
+(%o4)                                 1
+(%i5) in_neighbors(4, p5);
+(%o5)                                [3]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fvertex_005fout_005fdegree"></a><dl>
+<dt><a name="index-vertex_005fout_005fdegree"></a>Función: <strong>vertex_out_degree</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Devuelve el grado de salida del vértice <var>v</var> del grafo
+orientado <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) t : random_tournament(10)$
+(%i3) vertex_out_degree(0, t);
+(%o3)                           2
+(%i4) out_neighbors(0, t);
+(%o4)                        [7, 1]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fvertices"></a><dl>
+<dt><a name="index-vertices"></a>Función: <strong>vertices</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve la lista de vértices del grafo <var>gr</var>.
+</p>
+<p>Example
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) vertices(complete_graph(4));
+(%o2)                           [3, 2, 1, 0]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fvertex_005fcoloring"></a><dl>
+<dt><a name="index-vertex_005fcoloring"></a>Función: <strong>vertex_coloring</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve un coloreado óptimo de los vértices del grafo <var>gr</var>.
+</p>
+<p>La función devuelve el número cromático y una lista 
+representando el coloreado de los vértices de <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p:petersen_graph()$
+(%i3) vertex_coloring(p);
+(%o3) [3, [[0, 2], [1, 3], [2, 2], [3, 3], [4, 1], [5, 3], 
+                                 [6, 1], [7, 1], [8, 2], [9, 2]]]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fwiener_005findex"></a><dl>
+<dt><a name="index-wiener_005findex"></a>Función: <strong>wiener_index</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve el índice de Wiener del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) wiener_index(dodecahedron_graph());
+(%o1)                          500
+</pre></div>
+</dd></dl>
+
+
+
+
+
+
+
+
+
+
+
+<a name="Modificacion-de-grafos"></a>
+<h4 class="subsection">55.2.3 Modificación de grafos</h4>
+
+
+<a name="Item_003a-graphs_002fdeffn_002fadd_005fedge"></a><dl>
+<dt><a name="index-add_005fedge"></a>Función: <strong>add_edge</strong> <em>(<var>e</var>, <var>gr</var>)</em></dt>
+<dd><p>Añade la arista <var>e</var> al grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p : path_graph(4)$
+(%i3) neighbors(0, p);
+(%o3)                                [1]
+(%i4) add_edge([0,3], p);
+(%o4)                               done
+(%i5) neighbors(0, p);
+(%o5)                              [3, 1]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fadd_005fedges"></a><dl>
+<dt><a name="index-add_005fedges"></a>Función: <strong>add_edges</strong> <em>(<var>e_list</var>, <var>gr</var>)</em></dt>
+<dd><p>Añade las aristas de la lista  <var>e_list</var> al grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : empty_graph(3)$
+(%i3) add_edges([[0,1],[1,2]], g)$
+(%i4) print_graph(g)$
+Graph on 3 vertices with 2 edges.
+Adjacencies:
+  2 :  1
+  1 :  2  0
+  0 :  1
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fadd_005fvertex"></a><dl>
+<dt><a name="index-add_005fvertex"></a>Función: <strong>add_vertex</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Añade el vértice <var>v</var> al grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : path_graph(2)$
+(%i3) add_vertex(2, g)$
+(%i4) print_graph(g)$
+Graph on 3 vertices with 1 edges.
+Adjacencies:
+  2 :
+  1 :  0
+  0 :  1
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fadd_005fvertices"></a><dl>
+<dt><a name="index-add_005fvertices"></a>Función: <strong>add_vertices</strong> <em>(<var>v_list</var>, <var>gr</var>)</em></dt>
+<dd><p>Añade los vértices de la lista  <var>v_list</var> al grafo <var>gr</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fconnect_005fvertices"></a><dl>
+<dt><a name="index-connect_005fvertices"></a>Función: <strong>connect_vertices</strong> <em>(<var>v_list</var>, <var>u_list</var>, <var>gr</var>)</em></dt>
+<dd><p>Conecta todos los vértices de la lista <var>v_list</var> con los vértices
+de la lista <var>u_list</var> del grafo <var>gr</var>.
+</p>
+<p><var>v_list</var> y <var>u_list</var> pueden ser vértices aislados o una lista de
+vértices.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g : empty_graph(4)$
+(%i3) connect_vertices(0, [1,2,3], g)$
+(%i4) print_graph(g)$
+Graph on 4 vertices with 3 edges.
+Adjacencies:
+  3 :  0
+  2 :  0
+  1 :  0
+  0 :  3  2  1
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fcontract_005fedge"></a><dl>
+<dt><a name="index-contract_005fedge"></a>Función: <strong>contract_edge</strong> <em>(<var>e</var>, <var>gr</var>)</em></dt>
+<dd><p>Contrae la arista <var>e</var> del <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g: create_graph(
+       8, [[0,3],[1,3],[2,3],[3,4],[4,5],[4,6],[4,7]])$
+(%i3) print_graph(g)$
+Graph on 8 vertices with 7 edges.
+Adjacencies:
+  7 :  4
+  6 :  4
+  5 :  4
+  4 :  7  6  5  3
+  3 :  4  2  1  0
+  2 :  3
+  1 :  3
+  0 :  3
+(%i4) contract_edge([3,4], g)$
+(%i5) print_graph(g)$
+Graph on 7 vertices with 6 edges.
+Adjacencies:
+  7 :  3
+  6 :  3
+  5 :  3
+  3 :  5  6  7  2  1  0
+  2 :  3
+  1 :  3
+  0 :  3
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fremove_005fedge"></a><dl>
+<dt><a name="index-remove_005fedge"></a>Función: <strong>remove_edge</strong> <em>(<var>e</var>, <var>gr</var>)</em></dt>
+<dd><p>Elimina la arista <var>e</var> del grafo <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) c3 : cycle_graph(3)$
+(%i3) remove_edge([0,1], c3)$
+(%i4) print_graph(c3)$
+Graph on 3 vertices with 2 edges.
+Adjacencies:
+  2 :  0  1
+  1 :  2
+  0 :  2
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fremove_005fvertex"></a><dl>
+<dt><a name="index-remove_005fvertex"></a>Función: <strong>remove_vertex</strong> <em>(<var>v</var>, <var>gr</var>)</em></dt>
+<dd><p>Elimina el vértice <var>v</var> del grafo <var>gr</var>.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-vertex_005fcoloring-1"></a>Función: <strong>vertex_coloring</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve un coloreado óptimo de los vértice del grafo <var>gr</var>.
+</p>
+<p>La función devuelve el número cromático y una lista representando 
+el coloreado de los vértices de <var>gr</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) p:petersen_graph()$
+(%i3) vertex_coloring(p);
+(%o3) [3, [[0, 2], [1, 3], [2, 2], [3, 3], [4, 1], [5, 3], 
+                                [6, 1], [7, 1], [8, 2], [9, 2]]]
+</pre></div>
+</dd></dl>
+
+
+<a name="Lectura-y-escritura-de-ficheros"></a>
+<h4 class="subsection">55.2.4 Lectura y escritura de ficheros</h4>
+
+<a name="Item_003a-graphs_002fdeffn_002fdimacs_005fexport"></a><dl>
+<dt><a name="index-dimacs_005fexport"></a>Función: <strong>dimacs_export</strong> <em>(<var>gr</var>, <var>fl</var>)</em></dt>
+<dt><a name="index-dimacs_005fexport-1"></a>Función: <strong>dimacs_export</strong> <em>(<var>gr</var>, <var>fl</var>, <var>comment1</var>, ..., <var>commentn</var>)</em></dt>
+<dd><p>Exporta el grafo al fichero <var>fl</var> en formato DIMACS. Los comentarios
+adicionales se anãdirán al comienzo del fichero.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fdimacs_005fimport"></a><dl>
+<dt><a name="index-dimacs_005fimport"></a>Función: <strong>dimacs_import</strong> <em>(<var>fl</var>)</em></dt>
+<dd><p>Lee el grafo almacenado en el fichero <var>fl</var> en formato DIMACS.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph6_005fdecode"></a><dl>
+<dt><a name="index-graph6_005fdecode"></a>Función: <strong>graph6_decode</strong> <em>(<var>str</var>)</em></dt>
+<dd><p>Devuelve el grafo codificado en formato graph6 en la cadena <var>str</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph6_005fencode"></a><dl>
+<dt><a name="index-graph6_005fencode"></a>Función: <strong>graph6_encode</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve una cadena codificando el grafo <var>gr</var> en formato graph6.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph6_005fexport"></a><dl>
+<dt><a name="index-graph6_005fexport"></a>Función: <strong>graph6_export</strong> <em>(<var>gr_list</var>, <var>fl</var>)</em></dt>
+<dd><p>Exporta los grafos de la lista <var>gr_list</var> al fichero <var>fl</var> en formato graph6.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fgraph6_005fimport"></a><dl>
+<dt><a name="index-graph6_005fimport"></a>Función: <strong>graph6_import</strong> <em>(<var>fl</var>)</em></dt>
+<dd><p>Lee la lista de grafos almacenados en el fichero <var>fl</var> en formato graph6.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fsparse6_005fdecode"></a><dl>
+<dt><a name="index-sparse6_005fdecode"></a>Función: <strong>sparse6_decode</strong> <em>(<var>str</var>)</em></dt>
+<dd><p>Devuelve el grafo codificado en formato sparse6 en la cadena <var>str</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fsparse6_005fencode"></a><dl>
+<dt><a name="index-sparse6_005fencode"></a>Función: <strong>sparse6_encode</strong> <em>(<var>gr</var>)</em></dt>
+<dd><p>Devuelve una cadena codificando el grafo <var>gr</var> en formato sparse6.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fsparse6_005fexport"></a><dl>
+<dt><a name="index-sparse6_005fexport"></a>Función: <strong>sparse6_export</strong> <em>(<var>gr_list</var>, <var>fl</var>)</em></dt>
+<dd><p>Exporta los grafos de la lista <var>gr_list</var> al fichero <var>fl</var> en formato sparse6.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fsparse6_005fimport"></a><dl>
+<dt><a name="index-sparse6_005fimport"></a>Función: <strong>sparse6_import</strong> <em>(<var>fl</var>)</em></dt>
+<dd><p>Lee la lista de grafos almacenados en el fichero <var>fl</var> en formato sparse6.
+</p></dd></dl>
+
+<a name="Visualizacion"></a>
+<h4 class="subsection">55.2.5 Visualización</h4>
+
+<a name="Item_003a-graphs_002fdeffn_002fdraw_005fgraph"></a><dl>
+<dt><a name="index-draw_005fgraph"></a>Función: <strong>draw_graph</strong> <em>(<var>graph</var>)</em></dt>
+<dt><a name="index-draw_005fgraph-1"></a>Función: <strong>draw_graph</strong> <em>(<var>graph</var>, <var>option1</var>, ..., <var>optionk</var>)</em></dt>
+<dd><p>Dibuja el grafo utilizando el paquete <code>draw</code>.
+</p>
+<p>El algoritmo utilizado para posicionar los vértices se especifica con el argumento
+opcional <var>program</var>, cuyo valor por defecto es <code>program=spring_embedding</code>.
+<var>draw_graph</var> también puede utilizar los programas de graphviz para
+posicionar los vértices, para lo cual deberá instalarse separadamente el programa graphviz.
+</p>
+<p>Ejemplo 1:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g:grid_graph(10,10)$
+(%i3) m:max_matching(g)$
+(%i4) draw_graph(g,
+   spring_embedding_depth=100,
+   show_edges=m, edge_type=dots,
+   vertex_size=0)$
+</pre></div>
+
+<img src="./figures/graphs09.png" alt="./figures/graphs09">
+
+<p>Ejemplo 2:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) g:create_graph(16,
+    [
+     [0,1],[1,3],[2,3],[0,2],[3,4],[2,4],
+     [5,6],[6,4],[4,7],[6,7],[7,8],[7,10],[7,11],
+     [8,10],[11,10],[8,9],[11,12],[9,15],[12,13],
+     [10,14],[15,14],[13,14]
+    ])$
+(%i3) t:minimum_spanning_tree(g)$
+(%i4) draw_graph(
+    g,
+    show_edges=edges(t),
+    show_edge_width=4,
+    show_edge_color=green,
+    vertex_type=filled_square,
+    vertex_size=2
+    )$
+</pre></div>
+
+<img src="./figures/graphs10.png" alt="./figures/graphs10">
+
+<p>Ejemplo 3:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) mi : max_independent_set(g)$
+(%i3) draw_graph(
+    g,
+    show_vertices=mi,
+    show_vertex_type=filled_up_triangle,
+    show_vertex_size=2,
+    edge_color=cyan,
+    edge_width=3,
+    =true,
+    text_color=brown
+    )$
+</pre></div>
+
+<img src="./figures/graphs11.png" alt="./figures/graphs11">
+
+<p>Ejemplo 4:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;graphs&quot;)$
+(%i2) net : create_graph(
+    [0,1,2,3,4,5],
+    [
+     [[0,1], 3], [[0,2], 2],
+     [[1,3], 1], [[1,4], 3],
+     [[2,3], 2], [[2,4], 2],
+     [[4,5], 2], [[3,5], 2]
+    ],
+    directed=true
+    )$
+(%i3) draw_graph(
+    net,
+    show_weight=true,
+    vertex_size=0,
+    show_vertices=[0,5],
+    show_vertex_type=filled_square,
+    head_length=0.2,
+    head_angle=10,
+    edge_color=&quot;dark-green&quot;,
+    text_color=blue
+    )$
+</pre></div>
+
+<img src="./figures/graphs12.png" alt="./figures/graphs12">
+
+<p>Ejemplo 5:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;graphs&quot;)$
+(%i2) g: petersen_graph(20, 2);
+(%o2)                         GRAPH
+(%i3) draw_graph(g, redraw=true, program=planar_embedding);
+(%o3)                         done
+</pre></div>
+
+<img src="./figures/graphs14.png" alt="./figures/graphs14">
+
+<p>Ejemplo 6:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;graphs&quot;)$
+(%i2) t: tutte_graph();
+(%o2)                         GRAPH
+(%i3) draw_graph(t, redraw=true, 
+                    fixed_vertices=[1,2,3,4,5,6,7,8,9]);
+(%o3)                         done
+</pre></div>
+
+<img src="./figures/graphs15.png" alt="./figures/graphs15">
+
+</dd></dl>
+
+
+<a name="Item_003a-graphs_002fdefvr_002fdraw_005fgraph_005fprogram"></a><dl>
+<dt><a name="index-draw_005fgraph_005fprogram"></a>Variable opcional: <strong>draw_graph_program</strong></dt>
+<dd><p>Valor por defecto: <var>spring_embedding</var>
+</p>
+<p>Programa a utilizar por defecto para posicionar los vértices en la función <code>draw_graph</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fshow_005fid"></a><dl>
+<dt><a name="index-show_005fid"></a>Opción de draw_graph: <strong>show_id</strong></dt>
+<dd><p>Valor por defecto: <var>false</var>
+</p>
+<p>Si <var>show_id</var> vale <var>true</var> entonces se muestran los
+números identificadores de los vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fshow_005flabel"></a><dl>
+<dt><a name="index-show_005flabel"></a>Opción de draw_graph: <strong>show_label</strong></dt>
+<dd><p>Valor por defecto: <var>false</var>
+</p>
+<p>Si <var>show_label</var> vale <var>true</var> entonces se muestran las
+etiquetas de los vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002flabel_005falignment"></a><dl>
+<dt><a name="index-label_005falignment-1"></a>Opción de draw_graph: <strong>label_alignment</strong></dt>
+<dd><p>Valor por defecto: <var>center</var>
+</p>
+<p>Indica cómo se deben alinear las etiquetas o números
+identificadores de los vértices. Puede ser: <code>left</code>, <code>center</code> or <code>right</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fshow_005fweight"></a><dl>
+<dt><a name="index-show_005fweight"></a>Opción de draw_graph: <strong>show_weight</strong></dt>
+<dd><p>Valor por defecto: <var>false</var>
+</p>
+<p>si <var>show_weight</var> vale <var>true</var> entonces se mostrarán 
+los pesos de las aristas.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fvertex_005ftype"></a><dl>
+<dt><a name="index-vertex_005ftype"></a>Opción de draw_graph: <strong>vertex_type</strong></dt>
+<dd><p>Valor por defecto: <var>circle</var>
+</p>
+<p>Establece cómo se mostrarán los vértices. Véase la
+opción <var>point_type</var> del paquete <code>draw</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fvertex_005fsize"></a><dl>
+<dt><a name="index-vertex_005fsize"></a>Opción de draw_graph: <strong>vertex_size</strong></dt>
+<dd><p>Tamanõ de los vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fvertex_005fcolor"></a><dl>
+<dt><a name="index-vertex_005fcolor"></a>Opción de draw_graph: <strong>vertex_color</strong></dt>
+<dd><p>Color a utilizar en los vértices.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fshow_005fvertices"></a><dl>
+<dt><a name="index-show_005fvertices"></a>Opción de draw_graph: <strong>show_vertices</strong></dt>
+<dd><p>Valor por defecto: []
+</p>
+<p>Dibuja los vértices seleccionados en la lista con colores diferentes.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fshow_005fvertex_005ftype"></a><dl>
+<dt><a name="index-show_005fvertex_005ftype"></a>Opción de draw_graph: <strong>show_vertex_type</strong></dt>
+<dd><p>Establece cómo se mostrarán los vértices de
+<var>show_vertices</var>. Véase la opción <var>point_type</var> del paquete <code>draw</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fshow_005fvertex_005fsize"></a><dl>
+<dt><a name="index-show_005fvertex_005fsize"></a>Opción de draw_graph: <strong>show_vertex_size</strong></dt>
+<dd><p>Tamanõs de los vértices de <var>show_vertices</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fshow_005fvertex_005fcolor"></a><dl>
+<dt><a name="index-show_005fvertex_005fcolor"></a>Opción de draw_graph: <strong>show_vertex_color</strong></dt>
+<dd><p>Color a utilizar en los vértices de la lista <var>show_vertices</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fvertex_005fpartition"></a><dl>
+<dt><a name="index-vertex_005fpartition"></a>Opción de draw_graph: <strong>vertex_partition</strong></dt>
+<dd><p>Valor por defecto: []
+</p>
+<p>Una partición <code>[[v1,v2,...],...,[vk,...,vn]]</code> de los vértices del grafo. Los 
+vértices de cada lista se dibujarán de diferente color.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fvertex_005fcoloring"></a><dl>
+<dt><a name="index-vertex_005fcoloring-2"></a>Opción de draw_graph: <strong>vertex_coloring</strong></dt>
+<dd><p>Colores de los vértices. Los colores <var>col</var> deben
+especificarse en el mismo formato que el devuelto por <var>vertex_coloring</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fedge_005fcolor"></a><dl>
+<dt><a name="index-edge_005fcolor"></a>Opción de draw_graph: <strong>edge_color</strong></dt>
+<dd><p>Color a utilizar en las aristas.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fedge_005fwidth"></a><dl>
+<dt><a name="index-edge_005fwidth"></a>Opción de draw_graph: <strong>edge_width</strong></dt>
+<dd><p>Ancho de las aristas.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fedge_005ftype"></a><dl>
+<dt><a name="index-edge_005ftype"></a>Opción de draw_graph: <strong>edge_type</strong></dt>
+<dd><p>Establece cómo se dibujarán las aristas. Véase la opción
+<var>line_type</var> del paquete <code>draw</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fshow_005fedges"></a><dl>
+<dt><a name="index-show_005fedges"></a>Opción de draw_graph: <strong>show_edges</strong></dt>
+<dd><p>Dibuja las aristas de la lista <var>e_list</var> con colores diferentes.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fshow_005fedge_005fcolor"></a><dl>
+<dt><a name="index-show_005fedge_005fcolor"></a>Opción de draw_graph: <strong>show_edge_color</strong></dt>
+<dd><p>Color a utilizar en las aristas de la lista <var>show_edges</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fshow_005fedge_005fwidth"></a><dl>
+<dt><a name="index-show_005fedge_005fwidth"></a>Opción de draw_graph: <strong>show_edge_width</strong></dt>
+<dd><p>Anchos de las aristas de <var>show_edges</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fshow_005fedge_005ftype"></a><dl>
+<dt><a name="index-show_005fedge_005ftype"></a>Opción de draw_graph: <strong>show_edge_type</strong></dt>
+<dd><p>Establece cómo se dibujarán las aristas de <var>show_edges</var>.
+Véase la opción <var>line_type</var> del paquete <code>draw</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fedge_005fpartition"></a><dl>
+<dt><a name="index-edge_005fpartition"></a>Opción de draw_graph: <strong>edge_partition</strong></dt>
+<dd><p>Una partición <code>[[e1,e2,...],...,[ek,...,em]]</code> de las aristas del grafo.
+Las aristas de cada lista se dibujarán de diferente color.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fedge_005fcoloring"></a><dl>
+<dt><a name="index-edge_005fcoloring-1"></a>Opción de draw_graph: <strong>edge_coloring</strong></dt>
+<dd><p>Colores de las aristas. Los colores <var>col</var> deben
+especificarse en el mismo formato que el devuelto por <var>edge_coloring</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fredraw"></a><dl>
+<dt><a name="index-redraw"></a>Opción de draw_graph: <strong>redraw</strong></dt>
+<dd><p>Valor por defecto: <var>false</var>
+</p>
+<p>Si <var>redraw</var> vale <code>true</code>, las posiciones de los vértices se recalculan
+incluso si las posiciones están almacenadas de un dibujo previo del grafo.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fhead_005fangle"></a><dl>
+<dt><a name="index-head_005fangle-1"></a>Opción de draw_graph: <strong>head_angle</strong></dt>
+<dd><p>Valor por defecto: 15
+</p>
+<p>Ángulo de las flechas de los arcos en los grafos orientados.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fhead_005flength"></a><dl>
+<dt><a name="index-head_005flength-1"></a>Opción de draw_graph: <strong>head_length</strong></dt>
+<dd><p>Valor por defecto: 0.1
+</p>
+<p>Longitud de las flechas de los arcos en los grafos orientados.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fspring_005fembedding_005fdepth"></a><dl>
+<dt><a name="index-spring_005fembedding_005fdepth"></a>Opción de draw_graph: <strong>spring_embedding_depth</strong></dt>
+<dd><p>Valor por defecto: 50
+</p>
+<p>Número de iteraciones del algoritmo de dibujo de grafos.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fterminal"></a><dl>
+<dt><a name="index-terminal-1"></a>Opción de draw_graph: <strong>terminal</strong></dt>
+<dd><p>Terminal utilizado para ver el gráfo. Véase la opción <var>terminal</var>
+del paquete <code>draw</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002ffile_005fname"></a><dl>
+<dt><a name="index-file_005fname-1"></a>Opción de draw_graph: <strong>file_name</strong></dt>
+<dd><p>Nombre del fichero cuando el terminal especificado no es la pantalla.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002fprogram"></a><dl>
+<dt><a name="index-program"></a>Opción de draw_graph: <strong>program</strong></dt>
+<dd><p>establece el programa para posicionado de vértices del grafo. Puede ser
+cualquiera de los programas graphviz (dot, neato, twopi, circ, fdp), <var>circular</var> o
+<var>spring_embedding</var> o <var>planar_embedding</var>; <var>planar_embedding</var> s&#314;o está
+disponible para grafos planares 2-conectados. Si <code>program=spring_embedding</code>,
+se puede especificar un conjunto de vértices de posición fija con la opción 
+<var>fixed_vertices</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdefvr_002ffixed_005fvertices"></a><dl>
+<dt><a name="index-fixed_005fvertices"></a>Opción de draw_graph: <strong>fixed_vertices</strong></dt>
+<dd><p>Especifica una lista de vértices con posiciones fijas en
+un polígono regular. Se puede utilizar cuando <code>program=spring_embedding</code>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fvertices_005fto_005fpath"></a><dl>
+<dt><a name="index-vertices_005fto_005fpath"></a>Función: <strong>vertices_to_path</strong> <em>(<var>v_list</var>)</em></dt>
+<dd><p>Convierte una lista <var>v_list</var> de vértices en la lista de aristas del camino
+definido por la propia <var>v_list</var>.
+</p></dd></dl>
+
+<a name="Item_003a-graphs_002fdeffn_002fvertices_005fto_005fcycle"></a><dl>
+<dt><a name="index-vertices_005fto_005fcycle"></a>Función: <strong>vertices_to_cycle</strong> <em>(<var>v_list</var>)</em></dt>
+<dd><p>Convierte una lista <var>v_list</var> de vértices en la lista de aristas del ciclo
+definido por la propia <var>v_list</var>.
+</p></dd></dl>
+
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_228.html#Introducci_00f3n-a-graphs" accesskey="p" rel="previous">Introducción a graphs</a>, Subir: <a href="maxima_227.html#graphs" accesskey="u" rel="up">graphs</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

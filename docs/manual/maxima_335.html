@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>String Processing (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Functions and Variables for stats</title>
 
-<meta name="description" content="String Processing (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="String Processing (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Functions and Variables for stats">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Functions and Variables for stats">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_331.html" rel="up" title="stringproc-pkg">
-<link href="maxima_336.html" rel="next" title="Octets and Utilities for Cryptography">
-<link href="maxima_334.html" rel="prev" title="Characters">
+<link href="maxima_toc.html#Top" rel="up" title="Top">
+<link href="maxima_336.html#Functions-and-Variables-for-special-distributions" rel="next" title="Functions and Variables for special distributions">
+<link href="maxima_334.html#Functions-and-Variables-for-inference_005fresult" rel="previous" title="Functions and Variables for inference_result">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,612 +73,1058 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="String-Processing"></span><div class="header">
-<p>
-Next: <a href="maxima_336.html" accesskey="n" rel="next">Octets and Utilities for Cryptography</a>, Previous: <a href="maxima_334.html" accesskey="p" rel="prev">Characters</a>, Up: <a href="maxima_331.html" accesskey="u" rel="up">stringproc-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<span id="String-Processing-1"></span><h3 class="section">88.4 String Processing</h3>
-
-<p>Position indices in strings are 1-indexed like in Maxima lists. 
-See example in <a href="#charat">charat</a>.
-</p>
-<span id="charat"></span><span id="Item_003a-stringproc_002fdeffn_002fcharat"></span><dl>
-<dt id="index-charat">Function: <strong>charat</strong> <em>(<var>string</var>, <var>n</var>)</em></dt>
-<dd>
-<p>Returns the <var>n</var>-th character of <var>string</var>.
-The first character in <var>string</var> is returned with <var>n</var> = 1. 
-</p>
-<div class="example">
-<pre class="example">(%i1) charat(&quot;Lisp&quot;,1);
-(%o1)                           L
-(%i2) charlist(&quot;Lisp&quot;)[1];
-(%o2)                           L
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="charlist"></span><span id="Item_003a-stringproc_002fdeffn_002fcharlist"></span><dl>
-<dt id="index-charlist">Function: <strong>charlist</strong> <em>(<var>string</var>)</em></dt>
-<dd>
-<p>Returns the list of all characters in <var>string</var>. 
-</p>
-<div class="example">
-<pre class="example">(%i1) charlist(&quot;Lisp&quot;);
-(%o1)                     [L, i, s, p]
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="eval_005fstring"></span><span id="Item_003a-stringproc_002fdeffn_002feval_005fstring"></span><dl>
-<dt id="index-eval_005fstring">Function: <strong>eval_string</strong> <em>(<var>str</var>)</em></dt>
-<dd>
-<p>Parse the string <var>str</var> as a Maxima expression and evaluate it.
-The string <var>str</var> may or may not have a terminator (dollar sign <code>$</code> or semicolon <code>;</code>).
-Only the first expression is parsed and evaluated, if there is more than one.
-</p>
-<p>Complain if <var>str</var> is not a string.
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) eval_string (&quot;foo: 42; bar: foo^2 + baz&quot;);
-(%o1)                       42
-(%i2) eval_string (&quot;(foo: 42, bar: foo^2 + baz)&quot;);
-(%o2)                   baz + 1764
-</pre></div>
-
-<p>See also <a href="#parse_005fstring">parse_string</a>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="parse_005fstring"></span><span id="Item_003a-stringproc_002fdeffn_002fparse_005fstring"></span><dl>
-<dt id="index-parse_005fstring">Function: <strong>parse_string</strong> <em>(<var>str</var>)</em></dt>
-<dd>
-<p>Parse the string <var>str</var> as a Maxima expression (do not evaluate it).
-The string <var>str</var> may or may not have a terminator (dollar sign <code>$</code> or semicolon <code>;</code>).
-Only the first expression is parsed, if there is more than one.
-</p>
-<p>Complain if <var>str</var> is not a string.
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) parse_string (&quot;foo: 42; bar: foo^2 + baz&quot;);
-(%o1)                    foo : 42
-(%i2) parse_string (&quot;(foo: 42, bar: foo^2 + baz)&quot;);
-                                   2
-(%o2)          (foo : 42, bar : foo  + baz)
-</pre></div>
-
-<p>See also <a href="#eval_005fstring">eval_string</a>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="scopy"></span><span id="Item_003a-stringproc_002fdeffn_002fscopy"></span><dl>
-<dt id="index-scopy">Function: <strong>scopy</strong> <em>(<var>string</var>)</em></dt>
-<dd>
-<p>Returns a copy of <var>string</var> as a new string. 
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="sdowncase"></span><span id="Item_003a-stringproc_002fdeffn_002fsdowncase"></span><dl>
-<dt id="index-sdowncase">Function: <strong>sdowncase</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sdowncase</tt> (<var>string</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sdowncase</tt> (<var>string</var>, <var>start</var>)  <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sdowncase</tt> (<var>string</var>, <var>start</var>, <var>end</var>)</em></dt>
-<dd>
-<p>Like <a href="#supcase">supcase</a> but uppercase characters are converted to lowercase. 
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="sequal"></span><span id="Item_003a-stringproc_002fdeffn_002fsequal"></span><dl>
-<dt id="index-sequal">Function: <strong>sequal</strong> <em>(<var>string_1</var>, <var>string_2</var>)</em></dt>
-<dd>
-<p>Returns <code>true</code> if <var>string_1</var> and <var>string_2</var> contain the same 
-sequence of characters. 
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Predicate-functions">Predicate functions</a>
-
-<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="sequalignore"></span><span id="Item_003a-stringproc_002fdeffn_002fsequalignore"></span><dl>
-<dt id="index-sequalignore">Function: <strong>sequalignore</strong> <em>(<var>string_1</var>, <var>string_2</var>)</em></dt>
-<dd>
-<p>Like <code>sequal</code> but ignores case which is only possible for non-US-ASCII 
-characters when the underlying Lisp is able to recognize a character as an 
-alphabetic character. See remarks on <a href="maxima_334.html#alphacharp">alphacharp</a>. 
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Predicate-functions">Predicate functions</a>
-
-<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="sexplode"></span><span id="Item_003a-stringproc_002fdeffn_002fsexplode"></span><dl>
-<dt id="index-sexplode">Function: <strong>sexplode</strong> <em>(<var>string</var>)</em></dt>
-<dd>
-<p><code>sexplode</code> is an alias for function <code>charlist</code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="simplode"></span><span id="Item_003a-stringproc_002fdeffn_002fsimplode"></span><dl>
-<dt id="index-simplode">Function: <strong>simplode</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>simplode</tt> (<var>list</var>)   <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>simplode</tt> (<var>list</var>, <var>delim</var>)</em></dt>
-<dd>
-<p><code>simplode</code> takes a list of expressions and concatenates them into a string.
-If no delimiter <var>delim</var> is specified, <code>simplode</code> uses no delimiter.
-<var>delim</var> can be any string.
-</p>
-<p>See also <code><a href="maxima_16.html#concat">concat</a></code>, <code><a href="maxima_16.html#sconcat">sconcat</a></code>, <code><a href="maxima_16.html#string">string</a></code> and <code><a href="maxima_333.html#printf">printf</a></code>.
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) simplode([&quot;xx[&quot;,3,&quot;]:&quot;,expand((x+y)^3)]);
-(%o1)             xx[3]:y^3+3*x*y^2+3*x^2*y+x^3
-(%i2) simplode( sexplode(&quot;stars&quot;),&quot; * &quot; );
-(%o2)                   s * t * a * r * s
-(%i3) simplode( [&quot;One&quot;,&quot;more&quot;,&quot;coffee.&quot;],&quot; &quot; );
-(%o3)                   One more coffee.
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="sinsert"></span><span id="Item_003a-stringproc_002fdeffn_002fsinsert"></span><dl>
-<dt id="index-sinsert">Function: <strong>sinsert</strong> <em>(<var>seq</var>, <var>string</var>, <var>pos</var>)</em></dt>
-<dd><p>Returns a string that is a concatenation of <code>substring(<var>string</var>, 1, <var>pos</var>-1)</code>,
-the string <var>seq</var> and <code>substring (<var>string</var>, <var>pos</var>)</code>.
-Note that the first character in <var>string</var> is in position 1.
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) s: &quot;A submarine.&quot;$
-(%i2) concat( substring(s,1,3),&quot;yellow &quot;,substring(s,3) );
-(%o2)                  A yellow submarine.
-(%i3) sinsert(&quot;hollow &quot;,s,3);
-(%o3)                  A hollow submarine.
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="sinvertcase"></span><span id="Item_003a-stringproc_002fdeffn_002fsinvertcase"></span><dl>
-<dt id="index-sinvertcase">Function: <strong>sinvertcase</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sinvertcase</tt> (<var>string</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sinvertcase</tt> (<var>string</var>, <var>start</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sinvertcase</tt> (<var>string</var>, <var>start</var>, <var>end</var>)</em></dt>
-<dd>
-<p>Returns <var>string</var> except that each character from position <var>start</var> to <var>end</var> is inverted.
-If <var>end</var> is not given,
-all characters from <var>start</var> to the end of <var>string</var> are replaced.
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) sinvertcase(&quot;sInvertCase&quot;);
-(%o1)                      SiNVERTcASE
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="slength"></span><span id="Item_003a-stringproc_002fdeffn_002fslength"></span><dl>
-<dt id="index-slength">Function: <strong>slength</strong> <em>(<var>string</var>)</em></dt>
-<dd>
-<p>Returns the number of characters in <var>string</var>. 
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="smake"></span><span id="Item_003a-stringproc_002fdeffn_002fsmake"></span><dl>
-<dt id="index-smake">Function: <strong>smake</strong> <em>(<var>num</var>, <var>char</var>)</em></dt>
-<dd>
-<p>Returns a new string with a number of <var>num</var> characters <var>char</var>. 
-</p>
-<p>Example:
-</p>
-<div class="example">
-<pre class="example">(%i1) smake(3,&quot;w&quot;);
-(%o1)                          www
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="smismatch"></span><span id="Item_003a-stringproc_002fdeffn_002fsmismatch"></span><dl>
-<dt id="index-smismatch">Function: <strong>smismatch</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>smismatch</tt> (<var>string_1</var>, <var>string_2</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>smismatch</tt> (<var>string_1</var>, <var>string_2</var>, <var>test</var>)</em></dt>
-<dd>
-<p>Returns the position of the first character of <var>string_1</var> at which <var>string_1</var> and <var>string_2</var> differ or <code>false</code>.
-Default test function for matching is <code>sequal</code>.
-If <code>smismatch</code> should ignore case, use <code>sequalignore</code> as test.
-</p>
-<p>Example:
-</p>
-<div class="example">
-<pre class="example">(%i1) smismatch(&quot;seven&quot;,&quot;seventh&quot;);
-(%o1)                           6
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="split"></span><span id="Item_003a-stringproc_002fdeffn_002fsplit"></span><dl>
-<dt id="index-split">Function: <strong>split</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>split</tt> (<var>string</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>split</tt> (<var>string</var>, <var>delim</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>split</tt> (<var>string</var>, <var>delim</var>, <var>multiple</var>)</em></dt>
-<dd>
-<p>Returns the list of all tokens in <var>string</var>.
-Each token is an unparsed string.
-<code>split</code> uses <var>delim</var> as delimiter.
-If <var>delim</var> is not given, the space character is the default delimiter.
-<var>multiple</var> is a boolean variable with <code>true</code> by default.
-Multiple delimiters are read as one.
-This is useful if tabs are saved as multiple space characters.
-If <var>multiple</var> is set to <code>false</code>, each delimiter is noted.
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) split(&quot;1.2   2.3   3.4   4.5&quot;);
-(%o1)                 [1.2, 2.3, 3.4, 4.5]
-(%i2) split(&quot;first;;third;fourth&quot;,&quot;;&quot;,false);
-(%o2)               [first, , third, fourth]
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="sposition"></span><span id="Item_003a-stringproc_002fdeffn_002fsposition"></span><dl>
-<dt id="index-sposition">Function: <strong>sposition</strong> <em>(<var>char</var>, <var>string</var>)</em></dt>
-<dd><p>Returns the position of the first character in <var>string</var> which matches <var>char</var>.
-The first character in <var>string</var> is in position 1.
-For matching characters ignoring case see <a href="#ssearch">ssearch</a>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="sremove"></span><span id="Item_003a-stringproc_002fdeffn_002fsremove"></span><dl>
-<dt id="index-sremove">Function: <strong>sremove</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sremove</tt> (<var>seq</var>, <var>string</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sremove</tt> (<var>seq</var>, <var>string</var>, <var>test</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sremove</tt> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sremove</tt> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</em></dt>
-<dd>
-<p>Returns a string like <var>string</var> but without all substrings matching <var>seq</var>.
-Default test function for matching is <code>sequal</code>.
-If <code>sremove</code> should ignore case while searching for <var>seq</var>, use <code>sequalignore</code> as test.
-Use <var>start</var> and <var>end</var> to limit searching.
-Note that the first character in <var>string</var> is in position 1.
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) sremove(&quot;n't&quot;,&quot;I don't like coffee.&quot;);
-(%o1)                   I do like coffee.
-(%i2) sremove (&quot;DO &quot;,%,'sequalignore);
-(%o2)                    I like coffee.
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="sremovefirst"></span><span id="Item_003a-stringproc_002fdeffn_002fsremovefirst"></span><dl>
-<dt id="index-sremovefirst">Function: <strong>sremovefirst</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sremovefirst</tt> (<var>seq</var>, <var>string</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sremovefirst</tt> (<var>seq</var>, <var>string</var>, <var>test</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sremovefirst</tt> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>sremovefirst</tt> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</em></dt>
-<dd>
-<p>Like <code>sremove</code> except that only the first substring that matches <var>seq</var> is removed.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="sreverse"></span><span id="Item_003a-stringproc_002fdeffn_002fsreverse"></span><dl>
-<dt id="index-sreverse">Function: <strong>sreverse</strong> <em>(<var>string</var>)</em></dt>
-<dd>
-<p>Returns a string with all the characters of <var>string</var> in reverse order. 
-</p>
-<p>See also <code><a href="maxima_21.html#reverse">reverse</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="ssearch"></span><span id="Item_003a-stringproc_002fdeffn_002fssearch"></span><dl>
-<dt id="index-ssearch">Function: <strong>ssearch</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssearch</tt> (<var>seq</var>, <var>string</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssearch</tt> (<var>seq</var>, <var>string</var>, <var>test</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssearch</tt> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssearch</tt> (<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</em></dt>
-<dd>
-<p>Returns the position of the first substring of <var>string</var> that matches the string <var>seq</var>.
-Default test function for matching is <code>sequal</code>.
-If <code>ssearch</code> should ignore case, use <code>sequalignore</code> as test.
-Use <var>start</var> and <var>end</var> to limit searching.
-Note that the first character in <var>string</var> is in position 1.
-</p>
-<p>Example:
-</p>
-<div class="example">
-<pre class="example">(%i1) ssearch(&quot;~s&quot;,&quot;~{~S ~}~%&quot;,'sequalignore);
-(%o1)                                  4
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="ssort"></span><span id="Item_003a-stringproc_002fdeffn_002fssort"></span><dl>
-<dt id="index-ssort">Function: <strong>ssort</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssort</tt> (<var>string</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssort</tt> (<var>string</var>, <var>test</var>)</em></dt>
-<dd>
-<p>Returns a string that contains all characters from <var>string</var> in an order such there are no two successive characters <var>c</var> and <var>d</var> such that <code>test (<var>c</var>, <var>d</var>)</code> is <code>false</code> and <code>test (<var>d</var>, <var>c</var>)</code> is <code>true</code>.
-Default test function for sorting is <var>clessp</var>.
-The set of test functions is <code>{clessp, clesspignore, cgreaterp, cgreaterpignore, cequal, cequalignore}</code>.
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) ssort(&quot;I don't like Mondays.&quot;);
-(%o1)                    '.IMaddeiklnnoosty
-(%i2) ssort(&quot;I don't like Mondays.&quot;,'cgreaterpignore);
-(%o2)                 ytsoonnMlkIiedda.'   
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="ssubst"></span><span id="Item_003a-stringproc_002fdeffn_002fssubst"></span><dl>
-<dt id="index-ssubst">Function: <strong>ssubst</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssubst</tt> (<var>new</var>, <var>old</var>, <var>string</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssubst</tt> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssubst</tt> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssubst</tt> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</em></dt>
-<dd>
-<p>Returns a string like <var>string</var> except that all substrings matching <var>old</var> are replaced by <var>new</var>.
-<var>old</var> and <var>new</var> need not to be of the same length.
-Default test function for matching is <code>sequal</code>.
-If <code>ssubst</code> should ignore case while searching for old, use <code>sequalignore</code> as test.
-Use <var>start</var> and <var>end</var> to limit searching.
-Note that the first character in <var>string</var> is in position 1.
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) ssubst(&quot;like&quot;,&quot;hate&quot;,&quot;I hate Thai food. I hate green tea.&quot;);
-(%o1)          I like Thai food. I like green tea.
-(%i2) ssubst(&quot;Indian&quot;,&quot;thai&quot;,%,'sequalignore,8,12);
-(%o2)         I like Indian food. I like green tea.
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="ssubstfirst"></span><span id="Item_003a-stringproc_002fdeffn_002fssubstfirst"></span><dl>
-<dt id="index-ssubstfirst">Function: <strong>ssubstfirst</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssubstfirst</tt> (<var>new</var>, <var>old</var>, <var>string</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssubstfirst</tt> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssubstfirst</tt> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>ssubstfirst</tt> (<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</em></dt>
-<dd>
-<p>Like <code>subst</code> except that only the first substring that matches <var>old</var> is replaced.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="strim"></span><span id="Item_003a-stringproc_002fdeffn_002fstrim"></span><dl>
-<dt id="index-strim">Function: <strong>strim</strong> <em>(<var>seq</var>,<var>string</var>)</em></dt>
-<dd>
-<p>Returns a string like <var>string</var>,
-but with all characters that appear in <var>seq</var> removed from both ends. 
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) &quot;/* comment */&quot;$
-(%i2) strim(&quot; /*&quot;,%);
-(%o2)                        comment
-(%i3) slength(%);
-(%o3)                           7
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="striml"></span><span id="Item_003a-stringproc_002fdeffn_002fstriml"></span><dl>
-<dt id="index-striml">Function: <strong>striml</strong> <em>(<var>seq</var>, <var>string</var>)</em></dt>
-<dd>
-<p>Like <code>strim</code> except that only the left end of <var>string</var> is trimmed. 
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="strimr"></span><span id="Item_003a-stringproc_002fdeffn_002fstrimr"></span><dl>
-<dt id="index-strimr">Function: <strong>strimr</strong> <em>(<var>seq</var>, <var>string</var>)</em></dt>
-<dd>
-<p>Like <code>strim</code> except that only the right end of <var>string</var> is trimmed.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="stringp"></span><span id="Item_003a-stringproc_002fdeffn_002fstringp"></span><dl>
-<dt id="index-stringp">Function: <strong>stringp</strong> <em>(<var>obj</var>)</em></dt>
-<dd>
-<p>Returns <code>true</code> if <var>obj</var> is a string.
-See introduction for example.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Predicate-functions">Predicate functions</a>
-
-<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="substring"></span><span id="Item_003a-stringproc_002fdeffn_002fsubstring"></span><dl>
-<dt id="index-substring">Function: <strong>substring</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>substring</tt> (<var>string</var>, <var>start</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>substring</tt> (<var>string</var>, <var>start</var>, <var>end</var>)</em></dt>
-<dd>
-<p>Returns the substring of <var>string</var> beginning at position <var>start</var> and ending at position <var>end</var>.
-The character at position <var>end</var> is not included.
-If <var>end</var> is not given, the substring contains the rest of the string.
-Note that the first character in <var>string</var> is in position 1.
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) substring(&quot;substring&quot;,4);
-(%o1)                        string
-(%i2) substring(%,4,6);
-(%o2)                          in
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="supcase"></span><span id="Item_003a-stringproc_002fdeffn_002fsupcase"></span><dl>
-<dt id="index-supcase">Function: <strong>supcase</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>supcase</tt> (<var>string</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>supcase</tt> (<var>string</var>, <var>start</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>supcase</tt> (<var>string</var>, <var>start</var>, <var>end</var>)</em></dt>
-<dd>
-<p>Returns <var>string</var> except that lowercase characters from position <var>start</var> to <var>end</var> are replaced by the corresponding uppercase ones.
-If <var>end</var> is not given,
-all lowercase characters from <var>start</var> to the end of <var>string</var> are replaced.
-</p>
-<p>Example:
-</p>
-<div class="example">
-<pre class="example">(%i1) supcase(&quot;english&quot;,1,2);
-(%o1)                        English
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="tokens"></span><span id="Item_003a-stringproc_002fdeffn_002ftokens"></span><dl>
-<dt id="index-tokens">Function: <strong>tokens</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tokens</tt> (<var>string</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>tokens</tt> (<var>string</var>, <var>test</var>)</em></dt>
-<dd>
-<p>Returns a list of tokens, which have been extracted from <var>string</var>.
-The tokens are substrings whose characters satisfy a certain test function.
-If test is not given, <var>constituent</var> is used as the default test.
-<code>{constituent, alphacharp, digitcharp, lowercasep, uppercasep, charp, characterp, alphanumericp}</code> is the set of test functions. 
-(The Lisp-version of <code>tokens</code> is written by Paul Graham. ANSI Common Lisp, 1996, page 67.)
-</p>
-<p>Examples:
-</p>
-<div class="example">
-<pre class="example">(%i1) tokens(&quot;24 October 2005&quot;);
-(%o1)                  [24, October, 2005]
-(%i2) tokens(&quot;05-10-24&quot;,'digitcharp);
-(%o2)                     [05, 10, 24]
-(%i3) map(parse_string,%);
-(%o3)                      [5, 10, 24]
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stringproc">Package stringproc</a>
-</div>
-</p>
-</dd></dl>
-
-<span id="Item_003a-stringproc_002fnode_002fOctets-and-Utilities-for-Cryptography"></span><hr>
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Functions-and-Variables-for-stats"></a>
 <div class="header">
 <p>
-Next: <a href="maxima_336.html" accesskey="n" rel="next">Octets and Utilities for Cryptography</a>, Previous: <a href="maxima_334.html" accesskey="p" rel="prev">Characters</a>, Up: <a href="maxima_331.html" accesskey="u" rel="up">stringproc-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_336.html#Functions-and-Variables-for-special-distributions" accesskey="n" rel="next">Functions and Variables for special distributions</a>, Previous: <a href="maxima_334.html#Functions-and-Variables-for-inference_005fresult" accesskey="p" rel="previous">Functions and Variables for inference_result</a>, Up: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Functions-and-Variables-for-stats-1"></a>
+<h3 class="section">88.3 Functions and Variables for stats</h3>
+
+
+<a name="stats_005fnumer"></a><a name="Item_003a-stats_002fdefvr_002fstats_005fnumer"></a><dl>
+<dt><a name="index-stats_005fnumer"></a>Option variable: <strong>stats_numer</strong></dt>
+<dd><p>Default value: <code>true</code>
+</p>
+<p>If <code>stats_numer</code> is <code>true</code>, inference statistical functions 
+return their results in floating point numbers. If it is <code>false</code>,
+results are given in symbolic and rational format.
+</p>
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;<a href="maxima_378.html#Category_003a-Numerical-evaluation">Numerical evaluation</a>
+&middot;</div>
+</dd></dl>
+
+
+
+<a name="test_005fmean"></a><a name="Item_003a-stats_002fdeffn_002ftest_005fmean"></a><dl>
+<dt><a name="index-test_005fmean"></a>Function: <strong>test_mean</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_mean</tt> (<var>x</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_mean</tt> (<var>x</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>This is the mean <var>t</var>-test. Argument <var>x</var> is a list or a column matrix
+containing an one dimensional sample. It also performs an asymptotic test
+based on the <i>Central Limit Theorem</i> if option <code>'asymptotic</code> is
+<code>true</code>.
+</p>
+<p>Options:
+</p>
+<ul>
+<li> <code>'mean</code>, default <code>0</code>, is the mean value to be checked.
+
+</li><li> <code>'alternative</code>, default <code>'twosided</code>, is the alternative hypothesis;
+valid values are: <code>'twosided</code>, <code>'greater</code> and <code>'less</code>.
+
+</li><li> <code>'dev</code>, default <code>'unknown</code>, this is the value of the standard deviation when it is 
+known; valid values are: <code>'unknown</code> or a positive expression.
+
+</li><li> <code>'conflevel</code>, default <code>95/100</code>, confidence level for the confidence interval; it must
+be an expression which takes a value in (0,1).
+
+</li><li> <code>'asymptotic</code>, default <code>false</code>, indicates whether it performs an exact <var>t</var>-test or
+an asymptotic one based on the <i>Central Limit Theorem</i>;
+valid values are <code>true</code> and <code>false</code>.
+
+</li></ul>
+
+<p>The output of function <code>test_mean</code> is an <code>inference_result</code> Maxima object
+showing the following results:
+</p>
+<ol>
+<li> <code>'mean_estimate</code>: the sample mean.
+
+</li><li> <code>'conf_level</code>: confidence level selected by the user.
+
+</li><li> <code>'conf_interval</code>: confidence interval for the population mean.
+
+</li><li> <code>'method</code>: inference procedure.
+
+</li><li> <code>'hypotheses</code>: null and alternative hypotheses to be tested.
+
+</li><li> <code>'statistic</code>: value of the sample statistic used for testing the null hypothesis.
+
+</li><li> <code>'distribution</code>: distribution of the sample statistic, together with its parameter(s).
+
+</li><li> <code>'p_value</code>: <em>p</em>-value of the test.
+
+</li></ol>
+
+<p>Examples:
+</p>
+<p>Performs an exact <var>t</var>-test with unknown variance. The null hypothesis
+is <em>H_0: mean=50</em> against the one sided alternative <em>H_1: mean&lt;50</em>;
+according to the results, the <em>p</em>-value is too great, there are no
+evidence for rejecting <em>H_0</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) data: [78,64,35,45,45,75,43,74,42,42]$
+(%i3) test_mean(data,'conflevel=0.9,'alternative='less,'mean=50);
+          |                 MEAN TEST
+          |
+          |            mean_estimate = 54.3
+          |
+          |              conf_level = 0.9
+          |
+          | conf_interval = [minf, 61.51314273502712]
+          |
+(%o3)     |  method = Exact t-test. Unknown variance.
+          |
+          | hypotheses = H0: mean = 50 , H1: mean &lt; 50
+          |
+          |       statistic = .8244705235071678
+          |
+          |       distribution = [student_t, 9]
+          |
+          |        p_value = .7845100411786889
+</pre></div>
+
+<p>This time Maxima performs an asymptotic test, based on the <i>Central Limit Theorem</i>.
+The null hypothesis is <em>H_0: equal(mean, 50)</em> against the two sided alternative <em>H_1: not equal(mean, 50)</em>;
+according to the results, the <em>p</em>-value is very small, <em>H_0</em> should be rejected in
+favor of the alternative <em>H_1</em>. Note that, as indicated by the <code>Method</code> component,
+this procedure should be applied to large samples.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) test_mean([36,118,52,87,35,256,56,178,57,57,89,34,25,98,35,
+              98,41,45,198,54,79,63,35,45,44,75,42,75,45,45,
+              45,51,123,54,151],
+              'asymptotic=true,'mean=50);
+          |                       MEAN TEST
+          |
+          |           mean_estimate = 74.88571428571429
+          |
+          |                   conf_level = 0.95
+          |
+          | conf_interval = [57.72848600856194, 92.04294256286663]
+          |
+(%o2)     |    method = Large sample z-test. Unknown variance.
+          |
+          |       hypotheses = H0: mean = 50 , H1: mean # 50
+          |
+          |             statistic = 2.842831192874313
+          |
+          |             distribution = [normal, 0, 1]
+          |
+          |             p_value = .004471474652002261
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;</div>
+</dd></dl>
+
+
+
+
+
+
+
+<a name="test_005fmeans_005fdifference"></a><a name="Item_003a-stats_002fdeffn_002ftest_005fmeans_005fdifference"></a><dl>
+<dt><a name="index-test_005fmeans_005fdifference"></a>Function: <strong>test_means_difference</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_means_difference</tt> (<var>x1</var>, <var>x2</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_means_difference</tt> (<var>x1</var>, <var>x2</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>This is the difference of means <var>t</var>-test for two samples.
+Arguments <var>x1</var> and <var>x2</var> are lists or column matrices
+containing two independent samples. In case of different unknown variances
+(see options <code>'dev1</code>, <code>'dev2</code> and <code>'varequal</code> bellow),
+the degrees of freedom are computed by means of the Welch approximation.
+It also performs an asymptotic test
+based on the <i>Central Limit Theorem</i> if option <code>'asymptotic</code> is
+set to <code>true</code>.
+</p>
+<p>Options:
+</p>
+<ul>
+<li> <code>'alternative</code>, default <code>'twosided</code>, is the alternative hypothesis;
+valid values are: <code>'twosided</code>, <code>'greater</code> and <code>'less</code>.
+
+</li><li> <code>'dev1</code>, default <code>'unknown</code>, this is the value of the standard deviation
+of the <var>x1</var> sample when it is known; valid values are: <code>'unknown</code> or a positive expression.
+
+</li><li> <code>'dev2</code>, default <code>'unknown</code>, this is the value of the standard deviation
+of the <var>x2</var> sample when it is known; valid values are: <code>'unknown</code> or a positive expression.
+
+</li><li> <code>'varequal</code>, default <code>false</code>, whether variances should be considered to be equal or not;
+this option takes effect only when <code>'dev1</code> and/or <code>'dev2</code> are  <code>'unknown</code>.
+
+</li><li> <code>'conflevel</code>, default <code>95/100</code>, confidence level for the confidence interval; it must
+be an expression which takes a value in (0,1).
+
+</li><li> <code>'asymptotic</code>, default <code>false</code>, indicates whether it performs an exact <var>t</var>-test or
+an asymptotic one based on the <i>Central Limit Theorem</i>;
+valid values are <code>true</code> and <code>false</code>.
+
+</li></ul>
+
+<p>The output of function <code>test_means_difference</code> is an <code>inference_result</code> Maxima object
+showing the following results:
+</p>
+<ol>
+<li> <code>'diff_estimate</code>: the difference of means estimate.
+
+</li><li> <code>'conf_level</code>: confidence level selected by the user.
+
+</li><li> <code>'conf_interval</code>: confidence interval for the difference of means.
+
+</li><li> <code>'method</code>: inference procedure.
+
+</li><li> <code>'hypotheses</code>: null and alternative hypotheses to be tested.
+
+</li><li> <code>'statistic</code>: value of the sample statistic used for testing the null hypothesis.
+
+</li><li> <code>'distribution</code>: distribution of the sample statistic, together with its parameter(s).
+
+</li><li> <code>'p_value</code>: <em>p</em>-value of the test.
+
+</li></ol>
+
+<p>Examples:
+</p>
+<p>The equality of means is tested with two small samples <var>x</var> and <var>y</var>,
+against the alternative <em>H_1: m_1&gt;m_2</em>, being <em>m_1</em> and <em>m_2</em>
+the populations means; variances are unknown and supposed to be different.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+(%i3) y: [1.2,6.9,38.7,20.4,17.2]$
+(%i4) test_means_difference(x,y,'alternative='greater);
+            |              DIFFERENCE OF MEANS TEST
+            |
+            |         diff_estimate = 20.31999999999999
+            |
+            |                 conf_level = 0.95
+            |
+            |    conf_interval = [- .04597417812882298, inf]
+            |
+(%o4)       |        method = Exact t-test. Welch approx.
+            |
+            | hypotheses = H0: mean1 = mean2 , H1: mean1 &gt; mean2
+            |
+            |           statistic = 1.838004300728477
+            |
+            |    distribution = [student_t, 8.62758740184604]
+            |
+            |            p_value = .05032746527991905
+</pre></div>
+
+<p>The same test as before, but now variances are supposed to be
+equal.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+(%i3) y: matrix([1.2],[6.9],[38.7],[20.4],[17.2])$
+(%i4) test_means_difference(x,y,'alternative='greater,
+                                                 'varequal=true);
+            |              DIFFERENCE OF MEANS TEST
+            |
+            |         diff_estimate = 20.31999999999999
+            |
+            |                 conf_level = 0.95
+            |
+            |     conf_interval = [- .7722627696897568, inf]
+            |
+(%o4)       |   method = Exact t-test. Unknown equal variances
+            |
+            | hypotheses = H0: mean1 = mean2 , H1: mean1 &gt; mean2
+            |
+            |           statistic = 1.765996124515009
+            |
+            |           distribution = [student_t, 9]
+            |
+            |            p_value = .05560320992529344
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;</div>
+</dd></dl>
+
+<a name="test_005fvariance"></a><a name="Item_003a-stats_002fdeffn_002ftest_005fvariance"></a><dl>
+<dt><a name="index-test_005fvariance"></a>Function: <strong>test_variance</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_variance</tt> (<var>x</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_variance</tt> (<var>x</var>, <var>options</var>, ...)</em></dt>
+<dd>
+<p>This is the variance <var>chi^2</var>-test. Argument <var>x</var> is a list or a column matrix
+containing an one dimensional sample taken from a normal population.
+</p>
+<p>Options:
+</p>
+<ul>
+<li> <code>'mean</code>, default <code>'unknown</code>, is the population&rsquo;s mean, when it is known.
+
+</li><li> <code>'alternative</code>, default <code>'twosided</code>, is the alternative hypothesis;
+valid values are: <code>'twosided</code>, <code>'greater</code> and <code>'less</code>.
+
+</li><li> <code>'variance</code>, default <code>1</code>, this is the variance value (positive) to be checked.
+
+</li><li> <code>'conflevel</code>, default <code>95/100</code>, confidence level for the confidence interval; it must
+be an expression which takes a value in (0,1).
+
+</li></ul>
+
+<p>The output of function <code>test_variance</code> is an <code>inference_result</code> Maxima object
+showing the following results:
+</p>
+<ol>
+<li> <code>'var_estimate</code>: the sample variance.
+
+</li><li> <code>'conf_level</code>: confidence level selected by the user.
+
+</li><li> <code>'conf_interval</code>: confidence interval for the population variance.
+
+</li><li> <code>'method</code>: inference procedure.
+
+</li><li> <code>'hypotheses</code>: null and alternative hypotheses to be tested.
+
+</li><li> <code>'statistic</code>: value of the sample statistic used for testing the null hypothesis.
+
+</li><li> <code>'distribution</code>: distribution of the sample statistic, together with its parameter.
+
+</li><li> <code>'p_value</code>: <em>p</em>-value of the test.
+
+</li></ol>
+
+<p>Examples:
+</p>
+<p>It is tested whether the variance of a population with unknown mean
+is equal to or greater than 200.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [203,229,215,220,223,233,208,228,209]$
+(%i3) test_variance(x,'alternative='greater,'variance=200);
+             |                  VARIANCE TEST
+             |
+             |              var_estimate = 110.75
+             |
+             |                conf_level = 0.95
+             |
+             |     conf_interval = [57.13433376937479, inf]
+             |
+(%o3)        | method = Variance Chi-square test. Unknown mean.
+             |
+             |    hypotheses = H0: var = 200 , H1: var &gt; 200
+             |
+             |                 statistic = 4.43
+             |
+             |             distribution = [chi2, 8]
+             |
+             |           p_value = .8163948512777689
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;</div>
+</dd></dl>
+
+
+
+
+
+
+
+<a name="test_005fvariance_005fratio"></a><a name="Item_003a-stats_002fdeffn_002ftest_005fvariance_005fratio"></a><dl>
+<dt><a name="index-test_005fvariance_005fratio"></a>Function: <strong>test_variance_ratio</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_variance_ratio</tt> (<var>x1</var>, <var>x2</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_variance_ratio</tt> (<var>x1</var>, <var>x2</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>This is the variance ratio <var>F</var>-test for two normal populations.
+Arguments <var>x1</var> and <var>x2</var> are lists or column matrices
+containing two independent samples.
+</p>
+<p>Options:
+</p>
+<ul>
+<li> <code>'alternative</code>, default <code>'twosided</code>, is the alternative hypothesis;
+valid values are: <code>'twosided</code>, <code>'greater</code> and <code>'less</code>.
+
+</li><li> <code>'mean1</code>, default <code>'unknown</code>, when it is known, this is the mean of
+the population from which <var>x1</var> was taken.
+
+</li><li> <code>'mean2</code>, default <code>'unknown</code>, when it is known, this is the mean of
+the population from which <var>x2</var> was taken.
+
+</li><li> <code>'conflevel</code>, default <code>95/100</code>, confidence level for the confidence interval of the
+ratio; it must be an expression which takes a value in (0,1).
+
+</li></ul>
+
+<p>The output of function <code>test_variance_ratio</code> is an <code>inference_result</code> Maxima object
+showing the following results:
+</p>
+<ol>
+<li> <code>'ratio_estimate</code>: the sample variance ratio.
+
+</li><li> <code>'conf_level</code>: confidence level selected by the user.
+
+</li><li> <code>'conf_interval</code>: confidence interval for the variance ratio.
+
+</li><li> <code>'method</code>: inference procedure.
+
+</li><li> <code>'hypotheses</code>: null and alternative hypotheses to be tested.
+
+</li><li> <code>'statistic</code>: value of the sample statistic used for testing the null hypothesis.
+
+</li><li> <code>'distribution</code>: distribution of the sample statistic, together with its parameters.
+
+</li><li> <code>'p_value</code>: <em>p</em>-value of the test.
+
+</li></ol>
+
+
+<p>Examples:
+</p>
+<p>The equality of the variances of two normal populations is checked
+against the alternative that the first is greater than the second.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+(%i3) y: [1.2,6.9,38.7,20.4,17.2]$
+(%i4) test_variance_ratio(x,y,'alternative='greater);
+              |              VARIANCE RATIO TEST
+              |
+              |       ratio_estimate = 2.316933391522034
+              |
+              |               conf_level = 0.95
+              |
+              |    conf_interval = [.3703504689507268, inf]
+              |
+(%o4)         | method = Variance ratio F-test. Unknown means.
+              |
+              | hypotheses = H0: var1 = var2 , H1: var1 &gt; var2
+              |
+              |         statistic = 2.316933391522034
+              |
+              |            distribution = [f, 5, 4]
+              |
+              |          p_value = .2179269692254457
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;</div>
+</dd></dl>
+
+
+
+
+<a name="test_005fproportion"></a><a name="Item_003a-stats_002fdeffn_002ftest_005fproportion"></a><dl>
+<dt><a name="index-test_005fproportion"></a>Function: <strong>test_proportion</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_proportion</tt> (<var>x</var>, <var>n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_proportion</tt> (<var>x</var>, <var>n</var>, <var>options</var> ...)</em></dt>
+<dd>
+<p>Inferences on a proportion. Argument <var>x</var> is the number of successes
+in <var>n</var> trials in a Bernoulli experiment with unknown probability.
+</p>
+<p>Options:
+</p>
+<ul>
+<li> <code>'proportion</code>, default <code>1/2</code>, is the value of the proportion to be checked.
+
+</li><li> <code>'alternative</code>, default <code>'twosided</code>, is the alternative hypothesis;
+valid values are: <code>'twosided</code>, <code>'greater</code> and <code>'less</code>.
+
+</li><li> <code>'conflevel</code>, default <code>95/100</code>, confidence level for the confidence interval; it must
+be an expression which takes a value in (0,1).
+
+</li><li> <code>'asymptotic</code>, default <code>false</code>, indicates whether it performs an exact test
+based on the binomial distribution, or an asymptotic one based on the <i>Central Limit Theorem</i>;
+valid values are <code>true</code> and <code>false</code>.
+
+</li><li> <code>'correct</code>, default <code>true</code>, indicates whether Yates correction is applied or not.
+
+</li></ul>
+
+<p>The output of function <code>test_proportion</code> is an <code>inference_result</code> Maxima object
+showing the following results:
+</p>
+<ol>
+<li> <code>'sample_proportion</code>: the sample proportion.
+
+</li><li> <code>'conf_level</code>: confidence level selected by the user.
+
+</li><li> <code>'conf_interval</code>: Wilson confidence interval for the proportion.
+
+</li><li> <code>'method</code>: inference procedure.
+
+</li><li> <code>'hypotheses</code>: null and alternative hypotheses to be tested.
+
+</li><li> <code>'statistic</code>: value of the sample statistic used for testing the null hypothesis.
+
+</li><li> <code>'distribution</code>: distribution of the sample statistic, together with its parameters.
+
+</li><li> <code>'p_value</code>: <em>p</em>-value of the test.
+
+</li></ol>
+
+<p>Examples:
+</p>
+<p>Performs an exact test. The null hypothesis
+is <em>H_0: p=1/2</em> against the one sided alternative <em>H_1: p&lt;1/2</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) test_proportion(45, 103, alternative = less);
+         |            PROPORTION TEST              
+         |                                         
+         | sample_proportion = .4368932038834951   
+         |                                         
+         |           conf_level = 0.95             
+         |                                         
+         | conf_interval = [0, 0.522714149150231]  
+         |                                         
+(%o2)    |     method = Exact binomial test.       
+         |                                         
+         | hypotheses = H0: p = 0.5 , H1: p &lt; 0.5  
+         |                                         
+         |             statistic = 45              
+         |                                         
+         |  distribution = [binomial, 103, 0.5]    
+         |                                         
+         |      p_value = .1184509388901454 
+</pre></div>
+
+<p>A two sided asymptotic test. Confidence level is 99/100.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) fpprintprec:7$
+(%i3) test_proportion(45, 103, 
+                  conflevel = 99/100, asymptotic=true);
+      |                 PROPORTION TEST                  
+      |                                                  
+      |           sample_proportion = .43689             
+      |                                                  
+      |                conf_level = 0.99                 
+      |                                                  
+      |        conf_interval = [.31422, .56749]          
+      |                                                  
+(%o3) | method = Asympthotic test with Yates correction.
+      |                                                  
+      |     hypotheses = H0: p = 0.5 , H1: p # 0.5       
+      |                                                  
+      |               statistic = .43689                 
+      |                                                  
+      |      distribution = [normal, 0.5, .048872]       
+      |                                                  
+      |                p_value = .19662
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;</div>
+</dd></dl>
+
+
+
+
+
+<a name="test_005fproportions_005fdifference"></a><a name="Item_003a-stats_002fdeffn_002ftest_005fproportions_005fdifference"></a><dl>
+<dt><a name="index-test_005fproportions_005fdifference"></a>Function: <strong>test_proportions_difference</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_proportions_difference</tt> (<var>x1</var>, <var>n1</var>, <var>x2</var>, <var>n2</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_proportions_difference</tt> (<var>x1</var>, <var>n1</var>, <var>x2</var>, <var>n2</var>, <var>options</var> &hellip;)</em></dt>
+<dd>
+<p>Inferences on the difference of two proportions. Argument <var>x1</var> is the number of successes
+in <var>n1</var> trials in a Bernoulli experiment in the first population, and <var>x2</var> and <var>n2</var>
+are the corresponding values in the second population. Samples are independent and the test
+is asymptotic.
+</p>
+<p>Options:
+</p>
+<ul>
+<li> <code>'alternative</code>, default <code>'twosided</code>, is the alternative hypothesis;
+valid values are: <code>'twosided</code> (<code>p1 # p2</code>), <code>'greater</code> (<code>p1 &gt; p2</code>)
+and <code>'less</code> (<code>p1 &lt; p2</code>).
+
+</li><li> <code>'conflevel</code>, default <code>95/100</code>, confidence level for the confidence interval; it must
+be an expression which takes a value in (0,1).
+
+</li><li> <code>'correct</code>, default <code>true</code>, indicates whether Yates correction is applied or not.
+
+</li></ul>
+
+<p>The output of function <code>test_proportions_difference</code> is an <code>inference_result</code> Maxima object
+showing the following results:
+</p>
+<ol>
+<li> <code>'proportions</code>: list with the two sample proportions.
+
+</li><li> <code>'conf_level</code>: confidence level selected by the user.
+
+</li><li> <code>'conf_interval</code>: Confidence interval for the difference of proportions <code>p1 - p2</code>.
+
+</li><li> <code>'method</code>: inference procedure and warning message in case of any of the samples sizes
+is less than 10.
+
+</li><li> <code>'hypotheses</code>: null and alternative hypotheses to be tested.
+
+</li><li> <code>'statistic</code>: value of the sample statistic used for testing the null hypothesis.
+
+</li><li> <code>'distribution</code>: distribution of the sample statistic, together with its parameters.
+
+</li><li> <code>'p_value</code>: <em>p</em>-value of the test.
+
+</li></ol>
+
+<p>Examples:
+</p>
+<p>A machine produced 10 defective articles in a batch of 250.
+After some maintenance work, it produces 4 defective in a batch of 150.
+In order to know if the machine has improved, we test the null
+hypothesis <code>H0:p1=p2</code>, against the alternative <code>H0:p1&gt;p2</code>,
+where <code>p1</code> and <code>p2</code> are the probabilities for one produced
+article to be defective before and after maintenance. According to
+the p value, there is not enough evidence to accept the alternative.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) fpprintprec:7$
+(%i3) test_proportions_difference(10, 250, 4, 150,
+                                alternative = greater);
+      |       DIFFERENCE OF PROPORTIONS TEST         
+      |                                              
+      |       proportions = [0.04, .02666667]        
+      |                                              
+      |              conf_level = 0.95               
+      |                                              
+      |      conf_interval = [- .02172761, 1]        
+      |                                              
+(%o3) | method = Asymptotic test. Yates correction.  
+      |                                              
+      |   hypotheses = H0: p1 = p2 , H1: p1 &gt; p2     
+      |                                              
+      |            statistic = .01333333             
+      |                                              
+      |    distribution = [normal, 0, .01898069]     
+      |                                              
+      |             p_value = .2411936 
+</pre></div>
+
+<p>Exact standard deviation of the asymptotic normal
+distribution when the data are unknown.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) stats_numer: false$
+(%i3) sol: test_proportions_difference(x1,n1,x2,n2)$
+(%i4) last(take_inference('distribution,sol));
+               1    1                  x2 + x1
+              (-- + --) (x2 + x1) (1 - -------)
+               n2   n1                 n2 + n1
+(%o4)    sqrt(---------------------------------)
+                           n2 + n1
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;</div>
+</dd></dl>
+
+<a name="test_005fsign"></a><a name="Item_003a-stats_002fdeffn_002ftest_005fsign"></a><dl>
+<dt><a name="index-test_005fsign"></a>Function: <strong>test_sign</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_sign</tt> (<var>x</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_sign</tt> (<var>x</var>, <var>options</var> &hellip;)</em></dt>
+<dd>
+<p>This is the non parametric sign test for the median of a continuous population.
+Argument <var>x</var> is a list or a column matrix containing an one dimensional sample.
+</p>
+<p>Options:
+</p>
+<ul>
+<li> <code>'alternative</code>, default <code>'twosided</code>, is the alternative hypothesis;
+valid values are: <code>'twosided</code>, <code>'greater</code> and <code>'less</code>.
+
+</li><li> <code>'median</code>, default <code>0</code>, is the median value to be checked.
+
+</li></ul>
+
+<p>The output of function <code>test_sign</code> is an <code>inference_result</code> Maxima object
+showing the following results:
+</p>
+<ol>
+<li> <code>'med_estimate</code>: the sample median.
+
+</li><li> <code>'method</code>: inference procedure.
+
+</li><li> <code>'hypotheses</code>: null and alternative hypotheses to be tested.
+
+</li><li> <code>'statistic</code>: value of the sample statistic used for testing the null hypothesis.
+
+</li><li> <code>'distribution</code>: distribution of the sample statistic, together with its parameter(s).
+
+</li><li> <code>'p_value</code>: <em>p</em>-value of the test.
+
+</li></ol>
+
+<p>Examples:
+</p>
+<p>Checks whether the population from which the sample was taken has median 6, 
+against the alternative <em>H_1: median &gt; 6</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [2,0.1,7,1.8,4,2.3,5.6,7.4,5.1,6.1,6]$
+(%i3) test_sign(x,'median=6,'alternative='greater);
+               |                  SIGN TEST
+               |
+               |              med_estimate = 5.1
+               |
+               |      method = Non parametric sign test.
+               |
+(%o3)          | hypotheses = H0: median = 6 , H1: median &gt; 6
+               |
+               |                statistic = 7
+               |
+               |      distribution = [binomial, 10, 0.5]
+               |
+               |         p_value = .05468749999999989
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;</div>
+</dd></dl>
+
+<a name="test_005fsigned_005frank"></a><a name="Item_003a-stats_002fdeffn_002ftest_005fsigned_005frank"></a><dl>
+<dt><a name="index-test_005fsigned_005frank"></a>Function: <strong>test_signed_rank</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_signed_rank</tt> (<var>x</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_signed_rank</tt> (<var>x</var>, <var>options</var> &hellip;)</em></dt>
+<dd>
+<p>This is the Wilcoxon signed rank test to make inferences about the median of a
+continuous population. Argument <var>x</var> is a list or a column matrix
+containing an one dimensional sample. Performs normal approximation if the
+sample size is greater than 20, or if there are zeroes or ties.
+</p>
+<p>See also <code>pdf_rank_test</code> and <code>cdf_rank_test</code>
+</p>
+<p>Options:
+</p>
+<ul>
+<li> <code>'median</code>, default <code>0</code>, is the median value to be checked.
+
+</li><li> <code>'alternative</code>, default <code>'twosided</code>, is the alternative hypothesis;
+valid values are: <code>'twosided</code>, <code>'greater</code> and <code>'less</code>.
+
+</li></ul>
+
+<p>The output of function <code>test_signed_rank</code> is an <code>inference_result</code> Maxima object
+with the following results:
+</p>
+<ol>
+<li> <code>'med_estimate</code>: the sample median.
+
+</li><li> <code>'method</code>: inference procedure.
+
+</li><li> <code>'hypotheses</code>: null and alternative hypotheses to be tested.
+
+</li><li> <code>'statistic</code>: value of the sample statistic used for testing the null hypothesis.
+
+</li><li> <code>'distribution</code>: distribution of the sample statistic, together with its parameter(s).
+
+</li><li> <code>'p_value</code>: <em>p</em>-value of the test.
+
+</li></ol>
+
+<p>Examples:
+</p>
+<p>Checks the null hypothesis <em>H_0: median = 15</em> against the 
+alternative <em>H_1: median &gt; 15</em>. This is an exact test, since
+there are no ties.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [17.1,15.9,13.7,13.4,15.5,17.6]$
+(%i3) test_signed_rank(x,median=15,alternative=greater);
+                 |             SIGNED RANK TEST
+                 |
+                 |           med_estimate = 15.7
+                 |
+                 |           method = Exact test
+                 |
+(%o3)            | hypotheses = H0: med = 15 , H1: med &gt; 15
+                 |
+                 |              statistic = 14
+                 |
+                 |     distribution = [signed_rank, 6]
+                 |
+                 |            p_value = 0.28125
+</pre></div>
+
+<p>Checks the null hypothesis <em>H_0: equal(median, 2.5)</em> against the 
+alternative <em>H_1: not equal(median, 2.5)</em>. This is an approximated test,
+since there are ties.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) y:[1.9,2.3,2.6,1.9,1.6,3.3,4.2,4,2.4,2.9,1.5,3,2.9,4.2,3.1]$
+(%i3) test_signed_rank(y,median=2.5);
+             |                 SIGNED RANK TEST
+             |
+             |                med_estimate = 2.9
+             |
+             |          method = Asymptotic test. Ties
+             |
+(%o3)        |    hypotheses = H0: med = 2.5 , H1: med # 2.5
+             |
+             |                 statistic = 76.5
+             |
+             | distribution = [normal, 60.5, 17.58195097251724]
+             |
+             |           p_value = .3628097734643669
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;</div>
+</dd></dl>
+
+<a name="test_005frank_005fsum"></a><a name="Item_003a-stats_002fdeffn_002ftest_005frank_005fsum"></a><dl>
+<dt><a name="index-test_005frank_005fsum"></a>Function: <strong>test_rank_sum</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_rank_sum</tt> (<var>x1</var>, <var>x2</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>test_rank_sum</tt> (<var>x1</var>, <var>x2</var>, <var>option</var>)</em></dt>
+<dd>
+<p>This is the Wilcoxon-Mann-Whitney test for comparing the medians of two
+continuous populations. The first two arguments <var>x1</var> and <var>x2</var> are lists
+or column matrices with the data of two independent samples. Performs normal
+approximation if any of the sample sizes is greater than 10, or if there are ties.
+</p>
+<p>Option:
+</p>
+<ul>
+<li> <code>'alternative</code>, default <code>'twosided</code>, is the alternative hypothesis;
+valid values are: <code>'twosided</code>, <code>'greater</code> and <code>'less</code>.
+
+</li></ul>
+
+<p>The output of function <code>test_rank_sum</code> is an <code>inference_result</code> Maxima object
+with the following results:
+</p>
+<ol>
+<li> <code>'method</code>: inference procedure.
+
+</li><li> <code>'hypotheses</code>: null and alternative hypotheses to be tested.
+
+</li><li> <code>'statistic</code>: value of the sample statistic used for testing the null hypothesis.
+
+</li><li> <code>'distribution</code>: distribution of the sample statistic, together with its parameters.
+
+</li><li> <code>'p_value</code>: <em>p</em>-value of the test.
+
+</li></ol>
+
+<p>Examples:
+</p>
+<p>Checks whether populations have similar medians. Samples sizes
+are small and an exact test is made.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x:[12,15,17,38,42,10,23,35,28]$
+(%i3) y:[21,18,25,14,52,65,40,43]$
+(%i4) test_rank_sum(x,y);
+              |                 RANK SUM TEST
+              |
+              |              method = Exact test
+              |
+              | hypotheses = H0: med1 = med2 , H1: med1 # med2
+(%o4)         |
+              |                 statistic = 22
+              |
+              |        distribution = [rank_sum, 9, 8]
+              |
+              |          p_value = .1995886466474702
+</pre></div>
+
+<p>Now, with greater samples and ties, the procedure makes 
+normal approximation. The alternative hypothesis is
+<em>H_1: median1 &lt; median2</em>.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x: [39,42,35,13,10,23,15,20,17,27]$
+(%i3) y: [20,52,66,19,41,32,44,25,14,39,43,35,19,56,27,15]$
+(%i4) test_rank_sum(x,y,'alternative='less);
+             |                  RANK SUM TEST
+             |
+             |          method = Asymptotic test. Ties
+             |
+             |  hypotheses = H0: med1 = med2 , H1: med1 &lt; med2
+(%o4)        |
+             |                 statistic = 48.5
+             |
+             | distribution = [normal, 79.5, 18.95419580097078]
+             |
+             |           p_value = .05096985666598441
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;</div>
+</dd></dl>
+
+
+
+
+
+
+
+<a name="test_005fnormality"></a><a name="Item_003a-stats_002fdeffn_002ftest_005fnormality"></a><dl>
+<dt><a name="index-test_005fnormality"></a>Function: <strong>test_normality</strong> <em>(<var>x</var>)</em></dt>
+<dd>
+<p>Shapiro-Wilk test for normality. Argument <var>x</var> is a list of numbers, and sample
+size must be greater than 2 and less or equal than 5000, otherwise, function
+<code>test_normality</code> signals an error message.
+</p>
+<p>Reference:
+</p>
+<p>[1] Algorithm AS R94, Applied Statistics (1995), vol.44, no.4, 547-551
+</p>
+<p>The output of function <code>test_normality</code> is an <code>inference_result</code> Maxima object
+with the following results:
+</p>
+<ol>
+<li> <code>'statistic</code>: value of the <var>W</var> statistic.
+
+</li><li> <code>'p_value</code>: <em>p</em>-value under normal assumption.
+
+</li></ol>
+
+<p>Examples:
+</p>
+<p>Checks for the normality of a population, based on a sample of size 9.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stats&quot;)$
+(%i2) x:[12,15,17,38,42,10,23,35,28]$
+(%i3) test_normality(x);
+                       |      SHAPIRO - WILK TEST
+                       |
+(%o3)                  | statistic = .9251055695162436
+                       |
+                       |  p_value = .4361763918860381
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;</div>
+</dd></dl>
+
+<a name="linear_005fregression"></a><a name="Item_003a-stats_002fdeffn_002flinear_005fregression"></a><dl>
+<dt><a name="index-linear_005fregression"></a>Function: <strong>linear_regression</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>linear_regression</tt> (<var>x</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>linear_regression</tt> (<var>x</var> <var>option</var>)</em></dt>
+<dd>
+<p>Multivariate linear regression, 
+<em>y_i = b0 + b1*x_1i + b2*x_2i + ... + bk*x_ki + u_i</em>,
+where <em>u_i</em> are <em>N(0,sigma)</em> independent random variables.
+Argument <var>x</var> must be a matrix with more than one column. The
+last column is considered as the responses (<em>y_i</em>).
+</p>
+<p>Option:
+</p>
+<ul>
+<li> <code>'conflevel</code>, default <code>95/100</code>, confidence level for the
+confidence intervals; it must be an expression which takes a value
+in (0,1).
+</li></ul>
+
+<p>The output of function <code>linear_regression</code> is an 
+<code>inference_result</code> Maxima object with the following results:
+</p>
+<ol>
+<li> <code>'b_estimation</code>: regression coefficients estimates.
+
+</li><li> <code>'b_covariances</code>: covariance matrix of the regression 
+coefficients estimates.
+
+</li><li> <code>b_conf_int</code>: confidence intervals of the regression coefficients.
+
+</li><li> <code>b_statistics</code>: statistics for testing coefficient.
+
+</li><li> <code>b_p_values</code>: p-values for coefficient tests.
+
+</li><li> <code>b_distribution</code>: probability distribution for coefficient tests.
+
+</li><li> <code>v_estimation</code>: unbiased variance estimator.
+
+</li><li> <code>v_conf_int</code>: variance confidence interval.
+
+</li><li> <code>v_distribution</code>: probability distribution for variance test.
+
+</li><li> <code>residuals</code>: residuals.
+
+</li><li> <code>adc</code>: adjusted determination coefficient.
+
+</li><li> <code>aic</code>: Akaike&rsquo;s information criterion.
+
+</li><li> <code>bic</code>: Bayes&rsquo;s information criterion.
+
+</li></ol>
+
+<p>Only items 1, 4, 5, 6, 7, 8, 9 and 11 above, in this order, 
+are shown by default. The rest remain hidden until the user
+makes use of functions <code>items_inference</code> and <code>take_inference</code>.
+</p>
+<p>Example:
+</p>
+<p>Fitting a linear model to a trivariate sample. The
+last column is considered as the responses (<em>y_i</em>).
+</p>
+<div class="example">
+<pre class="example">(%i2) load(&quot;stats&quot;)$
+(%i3) X:matrix(
+    [58,111,64],[84,131,78],[78,158,83],
+    [81,147,88],[82,121,89],[102,165,99],
+    [85,174,101],[102,169,102])$
+(%i4) fpprintprec: 4$
+(%i5) res: linear_regression(X);
+             |       LINEAR REGRESSION MODEL         
+             |                                       
+             | b_estimation = [9.054, .5203, .2397]  
+             |                                       
+             | b_statistics = [.6051, 2.246, 1.74]   
+             |                                       
+             | b_p_values = [.5715, .07466, .1423]   
+             |                                       
+(%o5)        |   b_distribution = [student_t, 5]     
+             |                                       
+             |         v_estimation = 35.27          
+             |                                       
+             |     v_conf_int = [13.74, 212.2]       
+             |                                       
+             |      v_distribution = [chi2, 5]       
+             |                                       
+             |             adc = .7922               
+(%i6) items_inference(res);
+(%o6) [b_estimation, b_covariances, b_conf_int, b_statistics, 
+b_p_values, b_distribution, v_estimation, v_conf_int, 
+v_distribution, residuals, adc, aic, bic]
+(%i7) take_inference('b_covariances, res);
+                  [  223.9    - 1.12   - .8532  ]
+                  [                             ]
+(%o7)             [ - 1.12    .05367   - .02305 ]
+                  [                             ]
+                  [ - .8532  - .02305   .01898  ]
+(%i8) take_inference('bic, res);
+(%o8)                          30.98
+(%i9) load(&quot;draw&quot;)$
+(%i10) draw2d(
+    points_joined = true,
+    grid = true,
+    points(take_inference('residuals, res)) )$
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Package-stats">Package stats</a>
+&middot;<a href="maxima_378.html#Category_003a-Statistical-estimation">Statistical estimation</a>
+&middot;</div>
+</dd></dl>
+
+
+
+
+
+
+<a name="Item_003a-stats_002fnode_002fFunctions-and-Variables-for-special-distributions"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_336.html#Functions-and-Variables-for-special-distributions" accesskey="n" rel="next">Functions and Variables for special distributions</a>, Previous: <a href="maxima_334.html#Functions-and-Variables-for-inference_005fresult" accesskey="p" rel="previous">Functions and Variables for inference_result</a>, Up: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

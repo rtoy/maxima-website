@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Quellcode-Debugger</title>
+
+<meta name="description" content="Maxima Manual: Quellcode-Debugger">
+<meta name="keywords" content="Maxima Manual: Quellcode-Debugger">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_172.html#Fehlersuche" rel="up" title="Fehlersuche">
+<link href="maxima_174.html#Debugger_002dKommandos" rel="next" title="Debugger-Kommandos">
+<link href="maxima_172.html#Fehlersuche" rel="previous" title="Fehlersuche">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Quellcode_002dDebugger"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_174.html#Debugger_002dKommandos" accesskey="n" rel="next">Debugger-Kommandos</a>, Nach oben: <a href="maxima_172.html#Fehlersuche" accesskey="u" rel="up">Fehlersuche</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Quellcode_002dDebugger-1"></a>
+<h3 class="section">29.1 Quellcode-Debugger</h3>
+
+
+<p>Maxima hat einen Quellcode-Debugger.  Es k&ouml;nnen Unterbrechungspunkte gesetzt
+werden, um die Ausf&uuml;hrung einer Funktion abzubrechen und um schrittweise die
+Funktion zu testen.  Der Stapelspeicher und Variable k&ouml;nnen untersucht werden.
+</p>
+
+<p>Das Kommando <code>:help</code> oder <code>:h</code> zeigt eine Liste mit den 
+Debugger-Kommandos.  Innerhalb des Debuggers k&ouml;nnen alle Maxima-Funktionen
+genutzt werden, um Variablen und Ausdr&uuml;cke auszugeben, zu definieren oder 
+anderweitig zu manipulieren.
+</p>
+
+<p>Eine Unterbrechnung wird mit dem Kommando <code>:br</code> gesetzt.  Mit dem Kommando
+<code>:n</code> oder <code>:next</code> wird die n&auml;chste Programmzeile ausgef&uuml;hrt.  Das 
+Kommando <code>:bt</code> oder <code>:backtrace</code> zeigt eine Liste der Stack Frames.
+Mit dem Kommando <code>:r</code> oder <code>:resume</code> wird der Debugger verlassen.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;/tmp/foobar.mac&quot;);
+
+(%o1)                           /tmp/foobar.mac
+
+(%i2) :br foo
+Turning on debugging debugmode(true)
+Bkpt 0 for foo (in /tmp/foobar.mac line 1) 
+
+(%i2) bar (2,3);
+Bkpt 0:(foobar.mac 1)
+/tmp/foobar.mac:1::
+
+(dbm:1) :bt                        &lt;-- :bt typed here gives a backtrace
+#0: foo(y=5)(foobar.mac line 1)
+#1: bar(x=2,y=3)(foobar.mac line 9)
+
+(dbm:1) :n                         &lt;-- Here type :n to advance line
+(foobar.mac 2)
+/tmp/foobar.mac:2::
+
+(dbm:1) :n                         &lt;-- Here type :n to advance line
+(foobar.mac 3)
+/tmp/foobar.mac:3::
+
+(dbm:1) u;                         &lt;-- Investigate value of u
+28
+
+(dbm:1) u: 33;                     &lt;-- Change u to be 33
+33
+
+(dbm:1) :r                         &lt;-- Type :r to resume the computation
+
+(%o2)                                1094
+</pre></div>
+
+
+<p>Die im obigen Beispiel geladene Datei <code>/tmp/foobar.mac</code> hat den folgenden 
+Inhalt:
+</p>
+<div class="example">
+<pre class="example">foo(y) := block ([u:y^2],
+  u: u+3,
+  u: u^2,
+  u);
+ 
+bar(x,y) := (
+  x: x+2,
+  y: y+2,
+  x: foo(y),
+  x+y);
+</pre></div>
+
+<a name="Nutzung-des-Debuggers-mit-Emacs"></a>
+<h4 class="subheading">Nutzung des Debuggers mit Emacs</h4>
+
+
+<p>Wird Maxima unter GNU Emacs in einer Shell ausgef&uuml;hrt oder wird die
+Nutzeroberfl&auml;che Xmaxima verwendet, dann wird in einem zweiten Ausgabefenster 
+die Position einer Unterbrechung im Quellcode angezeigt.  Mit dem
+Emacs-Kommando <kbd>M-n</kbd> kann dann schrittweise die Funktion ausgef&uuml;hrt werden.
+</p>
+
+<p>Um diese Funktionalit&auml;t zu nutzen, sollte Emacs in einer <code>dbl</code>-Shell
+ausgef&uuml;hrt werden.  Dazu ben&ouml;tigt Emacs die Datei <code>dbl.el</code> im elisp 
+Verzeichnis.  Dazu m&uuml;ssen die elisp-Dateien installiert oder das Maxima
+elisp Verzeichnis bekannt sein.  Dazu k&ouml;nnen die folgenden Kommandos der
+Datei <samp>.emacs</samp> hinzugef&uuml;gt werden:
+</p>
+<div class="example">
+<pre class="example">(setq load-path (cons &quot;/usr/share/maxima/5.9.1/emacs&quot; load-path))
+(autoload 'dbl &quot;dbl&quot;)
+</pre></div>
+
+
+
+<p>Mit dem Emacs-Kommando <kbd>M-x dbl</kbd> wird eine Shell gestartet, in der 
+Programme wie Maxima, gcl, gdb u. a. ausgef&uuml;hrt werden k&ouml;nnen.  In dieser 
+Shell kann auch der Maxima-Debugger ausgef&uuml;hrt werden.
+</p>
+
+<p>The user may set a break point at a certain line of the file by typing 
+ <code>C-x space</code>.  This figures out which function the cursor is in, and then
+ it sees which line of that function the cursor is on.   If the cursor is on, 
+ say, line 2 of <code>foo</code>, then it will insert in the other window the 
+ command, &ldquo;<code>:br foo 2</code>&rdquo;, to break <code>foo</code> at its second line.  To 
+ have this enabled, the user must have maxima-mode.el turned on in the window 
+ in which the file <code>foobar.mac</code> is visiting.  There are additional 
+ commands available in that file window, such as evaluating the function into 
+ the Maxima, by typing <code>Alt-Control-x</code>.
+</p>
+
+<a name="Item_003a-Debugging_002ede_002fnode_002fDebugger_002dKommandos"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_174.html#Debugger_002dKommandos" accesskey="n" rel="next">Debugger-Kommandos</a>, Nach oben: <a href="maxima_172.html#Fehlersuche" accesskey="u" rel="up">Fehlersuche</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

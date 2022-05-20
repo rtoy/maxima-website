@@ -1,399 +1,241 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Outubro, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual do Maxima: 26. Fun&ccedil;&otilde;es Afins</title>
+<title>Manual do Maxima: Sintaxe</title>
 
-<meta name="description" content="Manual do Maxima: 26. Fun&ccedil;&otilde;es Afins">
-<meta name="keywords" content="Manual do Maxima: 26. Fun&ccedil;&otilde;es Afins">
+<meta name="description" content="Manual do Maxima: Sintaxe">
+<meta name="keywords" content="Manual do Maxima: Sintaxe">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_19.html#Express_00f5es" rel="up" title="Expressões">
+<link href="maxima_27.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Express_00f5es" rel="next" title="Funções e Variáveis Definidas para Expressões">
+<link href="maxima_25.html#Desigualdade" rel="previous" title="Desigualdade">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="Fun_00e7_00f5es-Afins"></a>
-<a name="SEC87"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_25.html#SEC86" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_25.html#SEC81" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_27.html#SEC89" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 26. Fun&ccedil;&otilde;es Afins </h1>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC88">26.1 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para Fun&ccedil;&otilde;es Afins</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">      
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Fun_00e7_00f5es-Afins"></a>
-<a name="SEC88"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC87" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_27.html#SEC89" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC87" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC87" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_27.html#SEC89" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 26.1 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para Fun&ccedil;&otilde;es Afins </h2>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>fast_linsolve</b><i> ([<var>expr_1</var>, ..., <var>expr_m</var>], [<var>x_1</var>, ..., <var>x_n</var>])</i>
-<a name="IDX838"></a>
-</dt>
-<dd><p>Resolve equa&ccedil;&otilde;es lineares simult&acirc;neas <var>expr_1</var>, ..., <var>expr_m</var>
-para as vari&aacute;veis <var>x_1</var>, ..., <var>x_n</var>.
-Cada <var>expr_i</var> pode ser uma equa&ccedil;&atilde;o ou uma express&atilde;o geral;
-se dada como uma express&atilde;o geral, ela  tratada como uma equa&ccedil;&atilde;o na forma <code><var>expr_i</var> = 0</code>.
-</p>
-<p>O valor de retorno &eacute; uma lista de equa&ccedil;&otilde;es da forma
-<code>[<var>x_1</var> = <var>a_1</var>, ..., <var>x_n</var> = <var>a_n</var>]</code>
-onde <var>a_1</var>, ..., <var>a_n</var> s&atilde;o todas livres de <var>x_1</var>, ..., <var>x_n</var>.
-</p>
-<p><code>fast_linsolve</code> &eacute; mais r&aacute;pido que <code>linsolve</code> para sistemas de equa&ccedil;&otilde;es que
-s&atilde;o esparsas.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>grobner_basis</b><i> ([<var>expr_1</var>, ..., <var>expr_m</var>])</i>
-<a name="IDX839"></a>
-</dt>
-<dd><p>Retorna uma base de Groebner para as equa&ccedil;&otilde;es <var>expr_1</var>, ..., <var>expr_m</var>.
-A fun&ccedil;&atilde; <code>polysimp</code> pode ent&atilde;o
-ser usada para simplificar outras fun&ccedil;&otilde;es relativas &agrave;s equa&ccedil;&otilde;es.
-</p>
-<pre class="example">grobner_basis ([3*x^2+1, y*x])$
-
-polysimp (y^2*x + x^3*9 + 2) ==&gt; -3*x + 2
-</pre>
-<p><code>polysimp(f)</code> produz 0 se e somente se <var>f</var> est&aacute; no ideal gerado por
-<var>expr_1</var>, ..., <var>expr_m</var>, isto &eacute;,
-se e somente se <var>f</var> for uma combina&ccedil;&atilde;o polinomial dos elementos de
-<var>expr_1</var>, ..., <var>expr_m</var>.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>set_up_dot_simplifications</b><i> (<var>eqns</var>, <var>check_through_degree</var>)</i>
-<a name="IDX840"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>set_up_dot_simplifications</b><i> (<var>eqns</var>)</i>
-<a name="IDX841"></a>
-</dt>
-<dd><p>As <var>eqns</var> s&atilde;o
-equa&ccedil;&otilde;es polinomiais em vari&aacute;veis n&atilde;o comutativas.
-O valor de <code>current_variables</code>  &eacute; uma 
-lista de vari&aacute;veis usadas para calcular graus.  As equa&ccedil;&otilde;es devem ser
-homog&ecirc;neas, com o objetivo de que o procedimento termine.  
-</p>
-<p>Se voc&ecirc; checou simplifica&ccedil;&otilde;es de envolt&oacute;rio em <code>dot_simplifications</code>
-acima do grau de <var>f</var>, ent&atilde;o o seguinte &eacute; verdadeiro:
-<code>dotsimp (<var>f</var>)</code> retorna 0 se e somente se <var>f</var> est&aacute; no
-ideal gerado pelas equa&ccedil;&otilde;es, i.e.,
-se e somente se <var>f</var> for uma combina&ccedil;&atilde;o polinomial
-dos elementos das equa&ccedil;&otilde;es.
-</p>
-<p>O grau &eacute; aquele retornado por <code>nc_degree</code>.   Isso por sua vez &eacute; nfluenciado pelos
-pesos das vari&aacute;veis individuais.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>declare_weights</b><i> (<var>x_1</var>, <var>w_1</var>, ..., <var>x_n</var>, <var>w_n</var>)</i>
-<a name="IDX842"></a>
-</dt>
-<dd><p>Atribui pesos <var>w_1</var>, ..., <var>w_n</var> to <var>x_1</var>, ..., <var>x_n</var>, respectivamente.
-Esses s&atilde;o pesos usados em c&aacute;lculos <code>nc_degree</code>.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>nc_degree</b><i> (<var>p</var>)</i>
-<a name="IDX843"></a>
-</dt>
-<dd><p>Retorna o grau de um polin&ocirc;mio n&atilde;o comutativo <var>p</var>.  Veja <code>declare_weights</code>.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>dotsimp</b><i> (<var>f</var>)</i>
-<a name="IDX844"></a>
-</dt>
-<dd><p>Retorna 0 se e somente se <var>f</var> for um ideal gerado pelas equa&ccedil;&otilde;es, i.e.,
-se e somente se <var>f</var> for uma combina&ccedil;&atilde;o polinomial dos elementos das equa&ccedil;&otilde;es.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>fast_central_elements</b><i> ([<var>x_1</var>, ..., <var>x_n</var>], <var>n</var>)</i>
-<a name="IDX845"></a>
-</dt>
-<dd><p>Se <code>set_up_dot_simplifications</code> tiver sido feito previamente, ache o polin&ocirc;mio central
-nas vari&aacute;veis <var>x_1</var>, ..., <var>x_n</var> no grau dado, <var>n</var>.
-</p>
-<p>Por exemplo:
-</p><pre class="example">set_up_dot_simplifications ([y.x + x.y], 3);
-fast_central_elements ([x, y], 2);
-[y.y, x.x];
-</pre>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>check_overlaps</b><i> (<var>n</var>, <var>add_to_simps</var>)</i>
-<a name="IDX846"></a>
-</dt>
-<dd><p>Verifica as sobreposies atrav&eacute;s do grau <var>n</var>,
-tendo certeza que voc&ecirc; tem regras de simplifica&ccedil;&otilde; suficiente em cada
-grau, para <code>dotsimp</code> trabalhar corretamente.  Esse processo pode ter sua velocidade aumentada
-se voc&ecirc; souber antes de come&ccedil;ar souber de qual dimens&atilde;o do espa&ccedil;o de mon&ocirc;mios &eacute;.
-Se ele for de dimens&atilde;o global finita, ent&atilde;o <code>hilbert</code> pode ser usada.  Se voc&ecirc;
-n&atilde;o conhece as dimens&otilde;es monomiais, n&atilde;o especifique um <code>rank_function</code>.
-Um opcional terceiro argumento <code>reset</code>, <code>false</code> diz para n&atilde;o se incomodar em perguntar
-sobre resetar coisas.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>mono</b><i> ([<var>x_1</var>, ..., <var>x_n</var>], <var>n</var>)</i>
-<a name="IDX847"></a>
-</dt>
-<dd><p>Retorna a lista de mon&ocirc;mios independentes
-relativamente &agrave; simplifica&ccedil;&atilde;o atual do grau <var>n</var>
-nas vari&aacute;veis <var>x_1</var>, ..., <var>x_n</var>.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>monomial_dimensions</b><i> (<var>n</var>)</i>
-<a name="IDX848"></a>
-</dt>
-<dd><p>Calcula a s&eacute;rie de Hilbert atrav&eacute;s do grau <var>n</var> para a algebra corrente.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>extract_linear_equations</b><i> ([<var>p_1</var>, ..., <var>p_n</var>], [<var>m_1</var>, ..., <var>m_n</var>])</i>
-<a name="IDX849"></a>
-</dt>
-<dd><p>Faz uma lista dos coeficientes dos polin&ocirc;mios n&atilde;o comutativos <var>p_1</var>, ..., <var>p_n</var>
-dos monomios n&atilde;o comutatvos <var>m_1</var>, ..., <var>m_n</var>.
-Os coeficientes podem ser escalares.   Use <code>list_nc_monomials</code> para construir a lista dos
-mon&ocirc;mios.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>list_nc_monomials</b><i> ([<var>p_1</var>, ..., <var>p_n</var>])</i>
-<a name="IDX850"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>list_nc_monomials</b><i> (<var>p</var>)</i>
-<a name="IDX851"></a>
-</dt>
-<dd><p>Retorna uma lista de mon&ocirc;mios n&atilde;o comutativos que ocorrem em um polin&ocirc;mio <var>p</var>
-ou em uma lista de polin&ocirc;mios <var>p_1</var>, ..., <var>p_n</var>.
-</p>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(affine)</code>.
-</p></dd></dl>
-
-
-
-<dl>
-<dt><u>Vari&aacute;vel de op&ccedil;&atilde;o:</u> <b>all_dotsimp_denoms</b>
-<a name="IDX852"></a>
-</dt>
-<dd><p>Valor padr&atilde;o: <code>false</code>
-</p>
-<p>Quando <code>all_dotsimp_denoms</code> &eacute; uma lista,
-os denominadores encontrados por <code>dotsimp</code> s&atilde;o adicionados ao final da lista.
-<code>all_dotsimp_denoms</code> pode ser iniciado como uma lista vazia <code>[]</code>
-antes chamando <code>dotsimp</code>.
-</p>
-<p>Por padr&atilde;o, denominadores n&atilde;o s&atilde;o coletados por <code>dotsimp</code>.
-</p>
-</dd></dl>
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC87" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_27.html#SEC89" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Sintaxe"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Outubro, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
-
+Pr&oacute;ximo: <a href="maxima_27.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Express_00f5es" accesskey="n" rel="next">Funções e Variáveis Definidas para Expressões</a>, Previous: <a href="maxima_25.html#Desigualdade" accesskey="p" rel="previous">Desigualdade</a>, Acima: <a href="maxima_19.html#Express_00f5es" accesskey="u" rel="up">Expressões</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Sintaxe-1"></a>
+<h3 class="section">6.7 Sintaxe</h3>
+<p>É possível definir novos operadores com precedência especificada,
+remover a definição de operadores existentes,
+ou redefinir a precedência de operadores existentes.  
+Um operador pode ser unário prefixado ou unário pósfixado, binario infixado, n-ário infixado, matchfix, ou nofix.
+&quot;Matchfix&quot; significa um par de símbolos que abraçam seu argumento ou seus argumentos,
+e &quot;nofix&quot; significa um operador que não precisa de argumentos.
+Como exemplos dos diferentes tipos de operadores, existe o seguinte.
 </p>
+<dl compact="compact">
+<dt>unário prefixado</dt>
+<dd><p>negação <code>- a</code>
+</p></dd>
+<dt>unário posfixado</dt>
+<dd><p>fatorial <code>a!</code>
+</p></dd>
+<dt>binário infixado</dt>
+<dd><p>exponenciação <code>a^b</code>
+</p></dd>
+<dt>n-ário infixado</dt>
+<dd><p>adição <code>a + b</code>
+</p></dd>
+<dt>matchfix</dt>
+<dd><p>construção de lista <code>[a, b]</code>
+</p></dd>
+</dl>
+
+<p>(Não existe operadores internos nofix;
+para um exemplo de tal operador, veja <code>nofix</code>.)
+</p>
+<p>O mecanismo para definir um novo operador é direto.
+Somente é necessário declarar uma função como um operador;
+a função operador pode ou não estar definida previamente.
+</p>
+<p>Um exemplo de operadores definidos pelo usuário é o seguinte.
+Note que a chamada explícita de função <code>&quot;dd&quot; (a)</code> é equivalente a <code>dd a</code>,
+da mesma forma <code>&quot;&lt;-&quot; (a, b)</code> é equivalente a <code>a &lt;- b</code>.
+Note também que as funções <code>&quot;dd&quot;</code> e <code>&quot;&lt;-&quot;</code> são indefinidas nesse exemplo.
+</p>
+<div class="example">
+<pre class="example">(%i1) prefix (&quot;dd&quot;);
+(%o1)                          dd
+(%i2) dd a;
+(%o2)                         dd a
+(%i3) &quot;dd&quot; (a);
+(%o3)                         dd a
+(%i4) infix (&quot;&lt;-&quot;);
+(%o4)                          &lt;-
+(%i5) a &lt;- dd b;
+(%o5)                      a &lt;- dd b
+(%i6) &quot;&lt;-&quot; (a, &quot;dd&quot; (b));
+(%o6)                      a &lt;- dd b
+</pre></div>
+
+<p>As funções máxima que definem novos operadores estão sumarizadas nessa tabela,
+equilibrando expoente associado esquerdo (padrão) e o expoente associado direito (&quot;eae&quot; e &quot;ead&quot;, respectivamente).
+(Associação de expoentes determina a precedência do operador. todavia, uma vez que os expoentes
+esquerdo e direito podem ser diferentes, associação de expoentes é até certo ponto mais complicado que precedência.)
+Alguma das funções de definição de operações tomam argumentos adicionais;
+veja as descrições de função para maiores detalhes.
+</p>
+<dl compact="compact">
+<dt><code>prefixado</code></dt>
+<dd><p>ead=180
+</p></dd>
+<dt><code>posfixado</code></dt>
+<dd><p>eae=180
+</p></dd>
+<dt><code>infixado</code></dt>
+<dd><p>eae=180, ead=180
+</p></dd>
+<dt><code>nário</code></dt>
+<dd><p>eae=180, ead=180
+</p></dd>
+<dt><code>matchfix</code></dt>
+<dd><p>(associação de expoentes não é aplicável)
+</p></dd>
+<dt><code>nofix</code></dt>
+<dd><p>(associação de expoentes não é aplicável)
+</p></dd>
+</dl>
+
+<p>Para comparação,
+aqui está alguns operadores internos e seus expoentes associados esquerdo e direito.
+</p>
+<div class="example">
+<pre class="example">Operador   eae     ead
+
+  :        180     20 
+  ::       180     20 
+  :=       180     20 
+  ::=      180     20 
+  !        160
+  !!       160
+  ^        140     139 
+  .        130     129 
+  *        120
+  /        120     120 
+  +        100     100 
+  -        100     134 
+  =        80      80 
+  #        80      80 
+  &gt;        80      80 
+  &gt;=       80      80 
+  &lt;        80      80 
+  &lt;=       80      80 
+  not              70 
+  and      65
+  or       60
+  ,        10
+  $        -1
+  ;        -1
+</pre></div>
+
+<p><code>remove</code> e <code>kill</code> removem propriedades de operador de um átomo.
+<code>remove (&quot;<var>a</var>&quot;, op)</code> remove somente as propriedades de operador de <var>a</var>.
+<code>kill (&quot;<var>a</var>&quot;)</code> remove todas as propriedades de <var>a</var>, incluindo as propriedades de operador.
+Note que o nome do operador dever estar abraçado por aspas duplas.
+</p>
+<div class="example">
+<pre class="example">(%i1) infix (&quot;##&quot;);
+(%o1)                          ##
+(%i2) &quot;##&quot; (a, b) := a^b;
+                                     b
+(%o2)                     a ## b := a
+(%i3) 5 ## 3;
+(%o3)                          125
+(%i4) remove (&quot;##&quot;, op);
+(%o4)                         done
+(%i5) 5 ## 3;
+Incorrect syntax: # is not a prefix operator
+5 ##
+  ^
+(%i5) &quot;##&quot; (5, 3);
+(%o5)                          125
+(%i6) infix (&quot;##&quot;);
+(%o6)                          ##
+(%i7) 5 ## 3;
+(%o7)                          125
+(%i8) kill (&quot;##&quot;);
+(%o8)                         done
+(%i9) 5 ## 3;
+Incorrect syntax: # is not a prefix operator
+5 ##
+  ^
+(%i9) &quot;##&quot; (5, 3);
+(%o9)                       ##(5, 3)
+</pre></div>
+
+<a name="Item_003a-Expressions_002fnode_002fFun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Express_00f5es"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_27.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Express_00f5es" accesskey="n" rel="next">Funções e Variáveis Definidas para Expressões</a>, Previous: <a href="maxima_25.html#Desigualdade" accesskey="p" rel="previous">Desigualdade</a>, Acima: <a href="maxima_19.html#Express_00f5es" accesskey="u" rel="up">Expressões</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
 </body>
 </html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para entrada y salida</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para entrada y salida">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para entrada y salida">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_291.html#stringproc" rel="up" title="stringproc">
+<link href="maxima_294.html#Funciones-y-variables-para-caracteres" rel="next" title="Funciones y variables para caracteres">
+<link href="maxima_292.html#Introducci_00f3n-al-procesamiento-de-cadenas" rel="previous" title="Introducción al procesamiento de cadenas">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-entrada-y-salida"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_294.html#Funciones-y-variables-para-caracteres" accesskey="n" rel="next">Funciones y variables para caracteres</a>, Previous: <a href="maxima_292.html#Introducci_00f3n-al-procesamiento-de-cadenas" accesskey="p" rel="previous">Introducción al procesamiento de cadenas</a>, Subir: <a href="maxima_291.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-entrada-y-salida-1"></a>
+<h3 class="section">76.2 Funciones y variables para entrada y salida</h3>
+
+<p>Ejemplo: 
+</p>
+<div class="example">
+<pre class="example">(%i1) s: openw(&quot;E:/file.txt&quot;);
+(%o1)                     #&lt;output stream E:/file.txt&gt;
+(%i2) control: 
+&quot;~2tAn atom: ~20t~a~%~2tand a list: ~20t~{~r ~}~%~2t\
+           and an integer: ~20t~d~%&quot;$
+(%i3) printf( s,control, 'true,[1,2,3],42 )$
+(%o3)                                false
+(%i4) close(s);
+(%o4)                                true
+(%i5) s: openr(&quot;E:/file.txt&quot;);
+(%o5)                     #&lt;input stream E:/file.txt&gt;
+(%i6) while stringp( tmp:readline(s) ) do print(tmp)$
+  An atom:          true 
+  and a list:       one two three  
+  and an integer:   42 
+(%i7) close(s)$
+</pre></div>
+
+<a name="Item_003a-stringproc_002fdeffn_002fclose"></a><dl>
+<dt><a name="index-close"></a>Función: <strong>close</strong> <em>(<var>stream</var>) </em></dt>
+<dd><p>Cierra el flujo de datos <var>stream</var> y devuelve <code>true</code> si <var>stream</var> había
+sido abierto. 
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fflength"></a><dl>
+<dt><a name="index-flength"></a>Función: <strong>flength</strong> <em>(<var>stream</var>)</em></dt>
+<dd><p>Devuelve el número de elementos en <var>stream</var>,
+el cual debe ser un flujo de datos desde o hacia un fichero.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002ffposition"></a><dl>
+<dt><a name="index-fposition"></a>Función: <strong>fposition</strong> <em>(<var>stream</var>)</em></dt>
+<dt><a name="index-fposition-1"></a>Función: <strong>fposition</strong> <em>(<var>stream</var>, <var>pos</var>)</em></dt>
+<dd><p>Devuelve la posición actual en el flujo de datos <var>stream</var> si no se utiliza <var>pos</var>.
+Si se utiliza <var>pos</var>, <code>fposition</code> fija la posición en <var>stream</var>.
+<var>stream</var> debe ser un flujo de datos desde o hacia un fichero y <var>pos</var> 
+debe ser un entero positivo que hace corresponder al primer elemento de
+<var>stream</var> la posición 1.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002ffreshline"></a><dl>
+<dt><a name="index-freshline"></a>Función: <strong>freshline</strong> <em>() </em></dt>
+<dt><a name="index-freshline-1"></a>Función: <strong>freshline</strong> <em>(<var>stream</var>) </em></dt>
+<dd><p>Escribe una nueva línea (en el flujo de datos <var>stream</var>)
+si la posición actual no corresponde al inicio de la línea.
+</p>
+<p>Véase también <code>newline</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-stringproc_002fdeffn_002fget_005foutput_005fstream_005fstring"></a><dl>
+<dt><a name="index-get_005foutput_005fstream_005fstring"></a>Función: <strong>get_output_stream_string</strong> <em>(<var>stream</var>)</em></dt>
+<dd><p>Devuelve una cadena con todos los caracteres presentes en <var>stream</var>,
+que debe ser un flujo de datos de salida abiero.
+Los caracteres devueltos son eliminados de <var>stream</var>.
+</p>
+<p>Para un ejemplo, véase <code>make_string_output_stream</code> .
+</p></dd></dl>
+
+
+<a name="Item_003a-stringproc_002fdeffn_002fmake_005fstring_005finput_005fstream"></a><dl>
+<dt><a name="index-make_005fstring_005finput_005fstream"></a>Función: <strong>make_string_input_stream</strong> <em>(<var>string</var>)</em></dt>
+<dt><a name="index-make_005fstring_005finput_005fstream-1"></a>Función: <strong>make_string_input_stream</strong> <em>(<var>string</var>, <var>start</var>)</em></dt>
+<dt><a name="index-make_005fstring_005finput_005fstream-2"></a>Función: <strong>make_string_input_stream</strong> <em>(<var>string</var>, <var>start</var>, <var>end</var>)</em></dt>
+<dd><p>Devuelve un flujo de entrada que contiene partes de <var>string</var> junto con
+el carácter de final de fichero. Sin argumentos opcionales, el flujo contiene
+la cadena entera y se posiciona frente al primer carácter.
+Los argumentos <var>start</var> y <var>end</var> definen la subcadena contenida en el
+flujo. El primer carácter está disponible en la posición 1.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) istream : make_string_input_stream(&quot;text&quot;, 1, 4);
+(%o1)              #&lt;string-input stream from &quot;text&quot;&gt;
+(%i2) (while (c : readchar(istream)) # false do sprint(c), newline())$
+t e x 
+(%i3) close(istream)$
+</pre></div>
+</dd></dl>
+
+
+
+<a name="Item_003a-stringproc_002fdeffn_002fmake_005fstring_005foutput_005fstream"></a><dl>
+<dt><a name="index-make_005fstring_005foutput_005fstream"></a>Función: <strong>make_string_output_stream</strong> <em>()</em></dt>
+<dd><p>Devuelve un flujo de salida que acepta caracteres. Los caracteres de
+este flujo podrán obtenerse con <code>get_output_stream_string</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) ostream : make_string_output_stream();
+(%o1)               #&lt;string-output stream 09622ea0&gt;
+(%i2) printf(ostream, &quot;foo&quot;)$
+
+(%i3) printf(ostream, &quot;bar&quot;)$
+
+(%i4) string : get_output_stream_string(ostream);
+(%o4)                            foobar
+(%i5) printf(ostream, &quot;baz&quot;)$
+
+(%i6) string : get_output_stream_string(ostream);
+(%o6)                              baz
+(%i7) close(ostream)$
+</pre></div>
+</dd></dl>
+
+
+
+<a name="Item_003a-stringproc_002fdeffn_002fnewline"></a><dl>
+<dt><a name="index-newline"></a>Función: <strong>newline</strong> <em>() </em></dt>
+<dt><a name="index-newline-1"></a>Función: <strong>newline</strong> <em>(<var>stream</var>) </em></dt>
+<dd><p>Escribe una nueva línea (en el flujo de datos  <var>stream</var>).
+</p>
+<p>Véase <code>sprint</code> para un ejemplo de uso de <code>newline()</code>.
+</p>
+<p>Nótese que hay algunos casos en los que <code>newline</code> no trabaja
+según lo esperado.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fopena"></a><dl>
+<dt><a name="index-opena"></a>Función: <strong>opena</strong> <em>(<var>file</var>) </em></dt>
+<dd><p>Devuelve un flujo de datos al fichero <var>file</var>.
+Si se abre un fichero ya existente, <code>opena</code> añade elementos al final
+del fichero.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fopenr"></a><dl>
+<dt><a name="index-openr"></a>Función: <strong>openr</strong> <em>(<var>file</var>) </em></dt>
+<dd><p>Devuelve un flujo de datos de entrada al fichero <var>file</var>.
+Si <var>file</var> no existe, será creado.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fopenw"></a><dl>
+<dt><a name="index-openw"></a>Función: <strong>openw</strong> <em>(<var>file</var>) </em></dt>
+<dd><p>Devuelve un flujo de datos de salida al fichero <var>file</var>.
+Si <var>file</var> no existe, será creado.
+Si se abre un fichero ya existente, <code>openw</code> lo modifica 
+borrando el contenido anterior.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fprintf"></a><dl>
+<dt><a name="index-printf"></a>Función: <strong>printf</strong> <em>(<var>dest</var>, <var>string</var>)</em></dt>
+<dt><a name="index-printf-1"></a>Función: <strong>printf</strong> <em>(<var>dest</var>, <var>string</var>, <var>expr_1</var>, ..., <var>expr_n</var>)</em></dt>
+<dd><p>Genera una cadena de caracteres a partir de la cadena de control <var>string</var>,
+teniendo en cuenta que las tildes introducen directivas. El carácter que
+va después de la tilde, posiblemente precedido por parámetros y modificadores,
+especifica el tipo de formato que se desea. La mayor parte de las directivas usan
+uno o más elementos de los argumentos <var>expr_1</var>, ..., <var>expr_n</var>
+para crear la salida.
+</p>
+<p>Si <var>dest</var> es un flujo o vale <code>true</code>, entonces <code>printf</code> devuelve <code>false</code>.
+En otro caso, <code>printf</code> devuelve una cadena conteniendo la salida.
+</p>
+<p><code>printf</code> da acceso a la función <code>format</code> de Common Lisp.
+El siguiente ejemplo muestra la relación entre estas dos funciones.
+</p>
+<div class="example">
+<pre class="example">(%i1) printf(true, &quot;R~dD~d~%&quot;, 2, 2);
+R2D2
+(%o1)                                false
+(%i2) :lisp (format t &quot;R~dD~d~%&quot; 2 2)
+R2D2
+NIL
+</pre></div>
+
+<p>La siguiente descripción es un simple resumen de las posibilidades de <code>printf</code>.
+La función <code>format</code> de Common Lisp se encuentra descrita en detalle en muchas
+referencias, como el manual libre &quot;Common Lisp the Language&quot; de Guy L. Steele; en
+particular, el capítulo 22.3.3.
+</p>
+<div class="example">
+<pre class="example">   ~%       nueva línea
+   ~&amp;       línea de refresco
+   ~t       tabulación
+   ~$       moneda
+   ~d       entero en base decimal
+   ~b       entero en base binaria
+   ~o       entero en base octal
+   ~x       entero en base hexadecimal
+   ~br      entero en base b
+   ~r       deletrea un entero
+   ~p       plural
+   ~f       decimal en coma flotante
+   ~e       notación científica
+   ~g       ~f o ~e, dependiendo de la magnitud
+   ~h       número decimal grande (<i>bigfloat</i>)
+   ~a       utiliza la función <code>string</code> de Maxima
+   ~s       como ~a, pero las cadenas se devuelven entre &quot;comillas dobles&quot;
+   ~~       ~
+   ~&lt;       justificación, ~&gt; termina
+   ~(       conversor mayúscula/minúscula, ~) termina 
+   ~[       selección, ~] termina 
+   ~{       iteración, ~} termina
+</pre></div>
+
+<p>La directiva <code>~h</code> para números decimales grandes no pertenece al estándar
+de Lisp, por lo que se ilustra más abajo.
+</p>
+<p>La directiva <code>~*</code> no está soportada.
+</p>
+<p>Ejemplos:
+</p>
+<p>Si <var>dest</var> es un flujo o vale <code>true</code>, entonces <code>printf</code> devuelve <code>false</code>.
+En otro caso, <code>printf</code> devuelve una cadena conteniendo la salida.
+</p>
+<div class="example">
+<pre class="example">(%i1) printf( false, &quot;~a ~a ~4f ~a ~@r&quot;, 
+              &quot;String&quot;,sym,bound,sqrt(12),144), bound = 1.234;
+(%o1)                 String sym 1.23 2*sqrt(3) CXLIV
+(%i2) printf( false,&quot;~{~a ~}&quot;,[&quot;one&quot;,2,&quot;THREE&quot;] );
+(%o2)                          one 2 THREE 
+(%i3) printf(true,&quot;~{~{~9,1f ~}~%~}&quot;,mat ),
+          mat = args(matrix([1.1,2,3.33],[4,5,6],[7,8.88,9]))$
+      1.1       2.0       3.3 
+      4.0       5.0       6.0 
+      7.0       8.9       9.0 
+(%i4) control: &quot;~:(~r~) bird~p ~[is~;are~] singing.&quot;$
+(%i5) printf( false,control, n,n,if n=1 then 1 else 2 ), n=2;
+(%o5)                    Two birds are singing.
+</pre></div>
+
+<p>La directiva <code>~h</code> se ha introducido para formatear decimales grandes. 
+</p>
+<div class="example">
+<pre class="example">~w,d,e,x,o,p@H
+ w : width
+ d : decimal digits behind floating point
+ e : minimal exponent digits
+ x : preferred exponent
+ o : overflow character
+ p : padding character
+ @ : display sign for positive numbers
+</pre></div>
+
+<div class="example">
+<pre class="example">(%i1) fpprec : 1000$
+(%i2) printf(true, &quot;|~h|~%&quot;, 2.b0^-64)$
+|0.0000000000000000000542101086242752217003726400434970855712890625|
+(%i3) fpprec : 26$
+(%i4) printf(true, &quot;|~h|~%&quot;, sqrt(2))$
+|1.4142135623730950488016887|
+(%i5) fpprec : 24$
+(%i6) printf(true, &quot;|~h|~%&quot;, sqrt(2))$
+|1.41421356237309504880169|
+(%i7) printf(true, &quot;|~28h|~%&quot;, sqrt(2))$
+|   1.41421356237309504880169|
+(%i8) printf(true, &quot;|~28,,,,,'*h|~%&quot;, sqrt(2))$
+|***1.41421356237309504880169|
+(%i9) printf(true, &quot;|~,18h|~%&quot;, sqrt(2))$
+|1.414213562373095049|
+(%i10) printf(true, &quot;|~,,,-3h|~%&quot;, sqrt(2))$
+|1414.21356237309504880169b-3|
+(%i11) printf(true, &quot;|~,,2,-3h|~%&quot;, sqrt(2))$
+|1414.21356237309504880169b-03|
+(%i12) printf(true, &quot;|~20h|~%&quot;, sqrt(2))$
+|1.41421356237309504880169|
+(%i13) printf(true, &quot;|~20,,,,'+h|~%&quot;, sqrt(2))$
+|++++++++++++++++++++|
+</pre></div>
+</dd></dl>
+
+
+
+<a name="Item_003a-stringproc_002fdeffn_002freadchar"></a><dl>
+<dt><a name="index-readchar"></a>Función: <strong>readchar</strong> <em>(<var>stream</var>)</em></dt>
+<dd><p>Elimina y devuelve el primer carácter de <var>stream</var>. 
+Si se ha alcanzado el final del fichero, <code>readchar</code> devuelve <code>false</code>.
+</p>
+<p>Para un ejemplo, véase <code>make_string_input_stream</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-stringproc_002fdeffn_002freadline"></a><dl>
+<dt><a name="index-readline"></a>Función: <strong>readline</strong> <em>(<var>stream</var>) </em></dt>
+<dd><p>Devuelve una cadena con los caracteres desde la posición actual en el flujo
+de datos <var>stream</var> hasta el final de la línea, o <code>false</code>
+si se ha alcanzado el final del fichero.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsprint"></a><dl>
+<dt><a name="index-sprint"></a>Función: <strong>sprint</strong> <em>(<var>expr_1</var>, ..., <var>expr_n</var>)</em></dt>
+<dd><p>Evalúa y muestra sus argumentos uno tras otro en un renglón comenzando por 
+su extremo izquierdo. 
+</p>
+<p>La función <code>newline()</code>, que se carga automáticamente desde <code>stringproc.lisp</code>,
+puede ser de utilidad si se quiere intercalar un salto de línea.
+</p>
+<div class="example">
+<pre class="example">(%i1) for n:0 thru 19 do sprint( fib(n) )$
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181
+(%i2) for n:0 thru 22 do ( 
+         sprint(fib(n)), if mod(n,10)=9 then newline() )$
+0 1 1 2 3 5 8 13 21 34 
+55 89 144 233 377 610 987 1597 2584 4181 
+6765 10946 17711 
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fnode_002fFunciones-y-variables-para-caracteres"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_294.html#Funciones-y-variables-para-caracteres" accesskey="n" rel="next">Funciones y variables para caracteres</a>, Previous: <a href="maxima_292.html#Introducci_00f3n-al-procesamiento-de-cadenas" accesskey="p" rel="previous">Introducción al procesamiento de cadenas</a>, Subir: <a href="maxima_291.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

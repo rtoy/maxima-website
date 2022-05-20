@@ -1,37 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on diciembre, 30 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual de Maxima 5.35.1: 31. Grupos</title>
+<title>Manual de Maxima 5.46.0: Operadores relacionales</title>
 
-<meta name="description" content="Manual de Maxima 5.35.1: 31. Grupos">
-<meta name="keywords" content="Manual de Maxima 5.35.1: 31. Grupos">
+<meta name="description" content="Manual de Maxima 5.46.0: Operadores relacionales">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Operadores relacionales">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_28.html#Operadores" rel="up" title="Operadores">
+<link href="maxima_32.html#Operadores-l_00f3gicos" rel="next" title="Operadores lógicos">
+<link href="maxima_30.html#Operadores-aritm_00e9ticos" rel="previous" title="Operadores aritméticos">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
 h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
@@ -52,132 +62,109 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="../figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Operadores-relacionales"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_32.html#Operadores-l_00f3gicos" accesskey="n" rel="next">Operadores lógicos</a>, Previous: <a href="maxima_30.html#Operadores-aritm_00e9ticos" accesskey="p" rel="previous">Operadores aritméticos</a>, Subir: <a href="maxima_28.html#Operadores" accesskey="u" rel="up">Operadores</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Operadores-relacionales-1"></a>
+<h3 class="section">6.3 Operadores relacionales</h3>
 
-<a name="Grupos"></a>
-<a name="SEC177"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_30.html#SEC176" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC178" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_30.html#SEC175" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_32.html#SEC179" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 31. Grupos </h1>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC178">31.1 Funciones y variables para grupos</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
-<hr size="6">
-<a name="Funciones-y-variables-para-grupos"></a>
-<a name="SEC178"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC177" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_32.html#SEC179" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC177" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC177" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_32.html#SEC179" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 31.1 Funciones y variables para grupos </h2>
-
-<dl>
-<dt><u>Función:</u> <b>todd_coxeter</b><i> (<var>relaciones</var>, <var>subgrupo</var>)</i>
-<a name="IDX1354"></a>
-</dt>
-<dt><u>Función:</u> <b>todd_coxeter</b><i> (<var>relaciones</var>)</i>
-<a name="IDX1355"></a>
-</dt>
-<dd><p>Busca el orden de G/H donde G es el módulo del Grupo Libre de <var>relations</var>, y H es el subgrupo de G generado por <code>subgrupo</code>. <code>subgrupo</code> es un argumento opcional, cuyo valor por defecto es []. 
+<a name="Item_003a-Operators_002ees_002fdeffn_002f_003c"></a><dl>
+<dt><a name="index-_003c"></a>Operator: <strong>&lt;</strong></dt>
+<dd><a name="Item_003a-Operators_002ees_002fdeffn_002f_003c_003d"></a></dd><dt><a name="index-_003c_003d"></a>Operator: <strong>&lt;=</strong></dt>
+<dd><a name="Item_003a-Operators_002ees_002fdeffn_002f_003e_003d"></a></dd><dt><a name="index-_003e_003d"></a>Operator: <strong>&gt;=</strong></dt>
+<dd><a name="Item_003a-Operators_002ees_002fdeffn_002f_003e"></a></dd><dt><a name="index-_003e"></a>Operator: <strong>&gt;</strong></dt>
+<dd>
+<p>Los símbolos <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code> y <code>&gt;</code>
+representan menor que, menor o igual que, mayor o igual que y mayor que, respectivamente.
+Los nombres de estos operadores son <code>&quot;&lt;&quot;</code> <code>&quot;&lt;=&quot;</code> <code>&quot;&gt;=&quot;</code> y <code>&quot;&gt;&quot;</code>,
+que pueden aparecer allá donde se requiera el nombre de una función u operador.
 </p>
-<p>En este proceso se obtiene una tabla de multiplicación para la acción correcta de G sobre G/H, donde los co-cojuntos son enumerados [H,Hg2,Hg3,...]. Esto puede ser observado internamente en el <code>todd_coxeter_state</code>.
+<p>Estos operadores relacionales son todos operadores binarios. Maxima
+no reconoce expresiones del estilo <code>a &lt; b &lt; c</code>.
 </p>
-<p>Ejemplo:
+<p>Las expresiones relacionales devuelven valores booleanos haciendo uso 
+de las funciones <code>is</code> o <code>maybe</code>, así como de las
+sentencias condicionales <code>if</code>, <code>while</code> y <code>unless</code>.
+Las expresiones relacionales no se evalúan de otra manera, aunque sus
+argumentos sí sean evaluados.
 </p>
-<pre class="example">(%i1) symet(n):=create_list(
-        if (j - i) = 1 then (p(i,j))^^3 else
-            if (not i = j) then (p(i,j))^^2 else
-                p(i,i) , j, 1, n-1, i, 1, j);
-                                                       &lt;3&gt;
-(%o1) symet(n) := create_list(if j - i = 1 then p(i, j)
+<p>Cuando una expresión relacional no pueda ser evaluada a <code>true</code> o <code>false</code>,
+el comportamiento de <code>is</code> y de <code>if</code> estará controlado por la variable
+global <code>prederror</code>. Si <code>prederror</code> toma el valor <code>true</code>, <code>is</code> y
+<code>if</code> emiten un mensaje de error. Si <code>prederror</code> toma el valor <code>false</code>,
+<code>is</code> devuelve <code>unknown</code> y <code>if</code> devuelve una expresión condicional
+parcialmente evaluada.
+</p>
+<p><code>maybe</code> se comporta siempre como si <code>prederror</code> fuese <code>false</code>,
+al tiempo que <code>while</code> y <code>unless</code> se comportan siempre como si
+<code>prederror</code> fuese <code>true</code>.
+</p>
+<p>Los operadores relacionales no se distribuyen sobre listas ni sobre cualesquiera
+otros tipos de estructuras de datos.
+</p>
+<p>Véanse también <code>=</code>, <code>#</code>, <code>equal</code> y <code>notequal</code>.
+</p>
+<p>Ejemplos:
+</p>
+<p>Las expresiones relacionales se reducen a valores booleanos a través de ciertas
+funciones y sentencias condicionales.
+</p>
+<div class="example">
+<pre class="example">(%i1) [x, y, z] : [123, 456, 789];
+(%o1)                    [123, 456, 789]
+(%i2) is (x &lt; y);
+(%o2)                         true
+(%i3) maybe (y &gt; z);
+(%o3)                         false
+(%i4) if x &gt;= z then 1 else 0;
+(%o4)                           0
+(%i5) block ([S], S : 0, 
+             for i:1 while i &lt;= 100 do S : S + i, return (S));
+(%o5)                         5050
+</pre></div>
 
-                                &lt;2&gt;
- else (if not i = j then p(i, j)    else p(i, i)), j, 1, n - 1, 
+<p>Las expresiones relacionales no se evalúan de otra manera, aunque sus
+argumentos sí sean evaluados.
+</p>
+<div class="example">
+<pre class="example">(%o1)                    [123, 456, 789]
+(%i2) [x &lt; y, y &lt;= z, z &gt;= y, y &gt; z];
+(%o2)    [123 &lt; 456, 456 &lt;= 789, 789 &gt;= 456, 456 &gt; 789]
+(%i3) map (is, %);
+(%o3)               [true, true, true, false]
+</pre></div>
 
-i, 1, j)
-(%i2) p(i,j) := concat(x,i).concat(x,j);
-(%o2)        p(i, j) := concat(x, i) . concat(x, j)
-(%i3) symet(5);
-         &lt;2&gt;           &lt;3&gt;    &lt;2&gt;           &lt;2&gt;           &lt;3&gt;
-(%o3) [x1   , (x1 . x2)   , x2   , (x1 . x3)   , (x2 . x3)   , 
-
-            &lt;2&gt;           &lt;2&gt;           &lt;2&gt;           &lt;3&gt;    &lt;2&gt;
-          x3   , (x1 . x4)   , (x2 . x4)   , (x3 . x4)   , x4   ]
-(%i4) todd_coxeter(%o3);
-
-Rows tried 426
-(%o4)                          120
-(%i5) todd_coxeter(%o3,[x1]);
-
-Rows tried 213
-(%o5)                          60
-(%i6) todd_coxeter(%o3,[x1,x2]);
-
-Rows tried 71
-(%o6)                          20
-</pre>
 </dd></dl>
 
 
 
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC177" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_32.html#SEC179" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>diciembre, 30 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
 
-</p>
+
+
+
+<a name="Item_003a-Operators_002ees_002fnode_002fOperadores-l_00f3gicos"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_32.html#Operadores-l_00f3gicos" accesskey="n" rel="next">Operadores lógicos</a>, Previous: <a href="maxima_30.html#Operadores-aritm_00e9ticos" accesskey="p" rel="previous">Operadores aritméticos</a>, Subir: <a href="maxima_28.html#Operadores" accesskey="u" rel="up">Operadores</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
 </body>
 </html>

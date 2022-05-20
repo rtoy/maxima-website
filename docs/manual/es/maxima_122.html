@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Introducción a itensor</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Introducción a itensor">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Introducción a itensor">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_121.html#itensor" rel="up" title="itensor">
+<link href="maxima_123.html#Funciones-y-variables-para-itensor" rel="next" title="Funciones y variables para itensor">
+<link href="maxima_121.html#itensor" rel="previous" title="itensor">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introducci_00f3n-a-itensor"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_123.html#Funciones-y-variables-para-itensor" accesskey="n" rel="next">Funciones y variables para itensor</a>, Previous: <a href="maxima_121.html#itensor" accesskey="p" rel="previous">itensor</a>, Subir: <a href="maxima_121.html#itensor" accesskey="u" rel="up">itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introduccion-a-itensor"></a>
+<h3 class="section">25.1 Introducción a itensor</h3>
+
+<p>Maxima implementa dos tipos diferentes de manipulación simbólica de tensores: la manipulación de componentes
+(paquete <code>ctensor</code>) y la manipulación indexada (paquete <code>itensor</code>).
+</p>
+<p>Véase más abajo la nota sobre &rsquo;notación tensorial&rsquo;.
+</p>
+<p>La manipulación de componentes significa que los objetos geométricos tensoriales se representan como arreglos (arrays) o matrices. Operaciones tensoriales como la contracción o la diferenciación covariante se llevan a cabo sumando índices mudos con la sentencia <code>do</code>. Esto es, se realizan operaciones directamente con las componentes del tensor almacenadas en un arreglo o matriz.
+</p>
+<p>La manipulación indexada de tensores se lleva a cabo mediante la representación de los tensores como funciones de sus índices covariantes, contravariantes y de derivadas. Operaciones tensoriales como la contracción o la diferenciación covariante se realizan manipulando directamente los índices, en lugar de sus componentes asociadas.
+</p>
+<p>Estas dos técnicas para el tratamiento de los procesos diferenciales, algebraicos y analíticos en el contexto de la geometría riemanniana tienen varias ventajas y desventajas que surgen según la naturaleza y dificultad del problema que está abordando el usuario. Sin embargo, se deben tener presentes las siguientes características de estas dos técnicas:
+</p>
+<p>La representación de los tensores y sus operaciones en términos de sus componentes facilita el uso de paquete <code>ctensor</code>. La especificación de la métrica y el cálculo de los tensores inducidos e invariantes es inmediato. Aunque toda la potencia de simplificación de Maxima se encuentra siempre a mano, una métrica compleja con dependencias funcionales y de coordenadas intrincada, puede conducir a expresiones de gran tamaño en las que la estructura interna quede oculta. Además, muchos cálculos requieren de expresiones intermedias que pueden provocar la detención súbita de los programas antes de que se termine el cálculo. Con la experiencia, el usuario podrá evitar muchas de estas dificultades.
+</p>
+<p>Devido a la forma en que los tensores y sus operaciones se representan en términos de operaciones simbólicas con sus índices, expresiones que serían intratables en su representación por componentes pueden en ocasiones simplificarse notablemente utilizando las rutinas especiales para objetos simétricos del paquete <code>itensor</code>. De esta manera, la estructura de expresiones grandes puede hacerse más transparente. Por otro lado, debido a la forma especial de la representación indexada de tensores en <code>itensor</code>, en algunos casos el usuario encontrará dificultades con la especificación de la métrica o la definición de funciones.
+</p>
+<p>El paquete <code>itensor</code> puede derivar respecto de una variable indexada, lo que 
+permite utilizar el paquete cuando se haga uso del formalismo de lagrangiano y
+hamiltoniano. Puesto que es posible derivar un campo lagrangiano respecto de
+una variable de campo indexada, se puede hacer uso de Maxima para derivar las
+ecuaciones de Euler-Lagrange correspondientes en forma indexada. Estas ecuaciones
+pueden traducirse a componentes tensoriales (<code>ctensor</code>) con la función 
+<code>ic_convert</code>, lo que permite resolver las ecuaciones de campo en cualquier
+sistema de coordenadas, o obtener las ecuaciones de movimiento en forma 
+hamiltoniana. Véanse dos ejemplos en <code>einhil.dem</code> y <code>bradic.dem</code>; 
+el primero utiliza la acción de Einstein-Hilbert para derivar el campo
+tensorial de Einstein en el caso homogéneo e isotrópico (ecuaciones de
+Friedmann), así como en el caso esferosimétrico estático
+(solución de Schwarzschild); el segundo demuestra cómo calcular las
+ecuaciones de Friedmann a partir de la acción de la teoría
+de la gravedad de Brans-Dicke, y también muestra cómo derivar el
+hamiltoniano asociado con la teoría del campo escalar.
+</p>
+
+<a name="Notacion-tensorial"></a>
+<h4 class="subsection">25.1.1 Notación tensorial</h4>
+
+<p>Hasta ahora, el paquete <code>itensor</code> de Maxima utilizaba una notación que algunas veces llevaba a una ordenación incorrecta de los índices. Por ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i2) imetric(g);
+(%o2)                                done
+(%i3) ishow(g([],[j,k])*g([],[i,l])*a([i,j],[]))$
+                                 i l  j k
+(%t3)                           g    g    a
+                                           i j
+(%i4) ishow(contract(%))$
+                                      k l
+(%t4)                                a
+</pre></div>
+
+<p>Este resultado no es correcto a menos que <code>a</code> sea un tensor simétrico. La razón por la que esto ocurre es que aunque <code>itensor</code> mantenga correctamente el orden dentro del conjunto de índices covariantes y contravariantes, una vez un índice sea aumentado o disminuido, su posición relativa al otro conjunto de índices se pierde.
+</p>
+<p>Para evitar este problema, se ha desarrollado una notación totalmente compatible con la anterior.En esta notación, los índices contravariantes se insertan en las posiciones correctas en la lista de índices covariantes, pero precedidos del signo negativo.
+</p>
+<p>En esta notación, el ejemplo anterior da el resultado correcto:
+</p>
+<div class="example">
+<pre class="example">(%i5) ishow(g([-j,-k],[])*g([-i,-l],[])*a([i,j],[]))$
+                                 i l       j k
+(%t5)                           g    a    g
+                                      i j
+(%i6) ishow(contract(%))$
+                                      l k
+(%t6)                                a
+</pre></div>
+
+<p>El único código que hace uso de esta notación es la función <code>lc2kdt</code>. </p>
+<p>Devido a que este código es nuevo, puede contener errores.
+</p>
+
+<a name="Manipulacion-indexada-de-tensores"></a>
+<h4 class="subsection">25.1.2 Manipulación indexada de tensores</h4>
+
+<p>El paquete <code>itensor</code> se carga haciendo <code>load(&quot;itensor&quot;)</code>. Para acceder a las demos se hará <code>demo(tensor)</code>.
+</p>
+<p>En el paquete <code>itensor</code> un tensor se representa como un objeto indexado, esto es, como una función de tres grupos de índices: los covariantes, los contravariantes y los de derivadas. Los índices covariantes se especifican mediante una lista que será el primer argumento del objeto indexado, siendo los índices contravariantes otra lista que será el segundo argumento del mismo objeto indexado. Si al objeto indexado le falta cualquiera de estos grupos de índices, entonces se le asignará al argumento correspondiente la lista vacía <code>[]</code>.  Así, <code>g([a,b],[c])</code> representa un objeto indexado llamado <code>g</code>, el cual tiene dos índices covariantes <code>(a,b)</code>, un índice contravariante (<code>c</code>) y no tiene índices de derivadas.
+</p>
+<p>Los índices de derivadas, si están presentes, se añaden como argumentos adicionales a la función simbólica que representa al tensor. Se pueden especificar explícitamente por el usuario o pueden crearse durante el proceso de diferenciación respecto de alguna coordenada. Puesto que la diferenciación ordinaria es conmutativa, los índices de derivadas se ordenan alfanuméricamente, a menos que la variable <code>iframe_flag</code> valga <code>true</code>, indicando que se está utilizando una métrica del sistema de referencia. Esta ordenación canónica hace posible que Maxima reconozca, por ejemplo, que <code>t([a],[b],i,j)</code> es lo mismo que <code>t([a],[b],j,i)</code>. La diferenciación de un objeto indexado con respecto de alguna coordenada cuyo índice no aparece como argumento de dicho objeto indexado, dará como resultado cero. Esto se debe a que Maxima no sabe si el tensor representado por el objeto indexado depende implícitamente de la coordenada correspondiente. Modificando la función <code>diff</code> de Maxima en <code>itensor</code>, se da por hecho que todos los objetos indexados dependen de cualquier variable de diferenciación, a menos que se indique lo contrario. Esto hace posible que la convención sobre la sumación se extienda a los índices de derivadas. El paquete <code>itensor</code> trata a los índices de derivadas como covariantes.
+</p>
+<p>Las siguientes funciones forman parte del paquete <code>itensor</code> para la manipulación indexada de vectores. En lo que respecta a las rutinas de simplificación, no se considera en general que los objetos indexados tengan propiedades simétricas. Esto puede cambiarse reasignando a la variable <code>allsym[false]</code> el valor <code>true</code>, con lo cual los objetos indexados se considerarán simétricos tanto respecto de sus índices covariantes como contravariantes.
+</p>
+<p>En general, el paquete <code>itensor</code> trata a los tensores como objetos opacos. Las ecuaciones tensoriales se manipulan en base a reglas algebraicas, como la simetría y la contracción. Además, en el paquete <code>itensor</code> hay funciones para la diferenciación covariante, la curvatura y la torsión. Los cálculos se pueden realizar respecto de una métrica del sistema de referencia móvil, dependiendo de las asignaciones dadas a la variable <code>iframe_flag</code>.
+</p>
+<p>La siguiente sesión de ejemplo demuestra cómo cargar el paquete <code>itensor</code>, especificar el nombre de la métrica y realizar algunos cálculos sencillos.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) imetric(g);
+(%o2)                                done
+(%i3) components(g([i,j],[]),p([i,j],[])*e([],[]))$
+(%i4) ishow(g([k,l],[]))$
+(%t4)                               e p
+                                       k l
+(%i5) ishow(diff(v([i],[]),t))$
+(%t5)                                  0
+(%i6) depends(v,t);
+(%o6)                               [v(t)]
+(%i7) ishow(diff(v([i],[]),t))$
+                                    d
+(%t7)                               -- (v )
+                                    dt   i
+(%i8) ishow(idiff(v([i],[]),j))$
+(%t8)                                v
+                                      i,j
+(%i9) ishow(extdiff(v([i],[]),j))$
+(%t9)                             v    - v
+                                   j,i    i,j
+                                  -----------
+                                       2
+(%i10) ishow(liediff(v,w([i],[])))$
+                               %3          %3
+(%t10)                        v   w     + v   w
+                                   i,%3    ,i  %3
+(%i11) ishow(covdiff(v([i],[]),j))$
+                                              %4
+(%t11)                        v    - v   ichr2
+                               i,j    %4      i j
+(%i12) ishow(ev(%,ichr2))$
+                %4 %5
+(%t12) v    - (g      v   (e p       + e   p     - e p       - e    p
+        i,j            %4     j %5,i    ,i  j %5      i j,%5    ,%5  i j
+
+                                         + e p       + e   p    ))/2
+                                              i %5,j    ,j  i %5
+(%i13) iframe_flag:true;
+(%o13)                               true
+(%i14) ishow(covdiff(v([i],[]),j))$
+                                             %6
+(%t14)                        v    - v   icc2
+                               i,j    %6     i j
+(%i15) ishow(ev(%,icc2))$
+                                             %6
+(%t15)                        v    - v   ifc2
+                               i,j    %6     i j
+(%i16) ishow(radcan(ev(%,ifc2,ifc1)))$
+             %6 %7                    %6 %7
+(%t16) - (ifg      v   ifb       + ifg      v   ifb       - 2 v
+                    %6    j %7 i             %6    i j %7      i,j
+
+                                             %6 %7
+                                        - ifg      v   ifb      )/2
+                                                    %6    %7 i j
+(%i17) ishow(canform(s([i,j],[])-s([j,i])))$
+(%t17)                            s    - s
+                                   i j    j i
+(%i18) decsym(s,2,0,[sym(all)],[]);
+(%o18)                               done
+(%i19) ishow(canform(s([i,j],[])-s([j,i])))$
+(%t19)                                 0
+(%i20) ishow(canform(a([i,j],[])+a([j,i])))$
+(%t20)                            a    + a
+                                   j i    i j
+(%i21) decsym(a,2,0,[anti(all)],[]);
+(%o21)                               done
+(%i22) ishow(canform(a([i,j],[])+a([j,i])))$
+(%t22)                                 0
+</pre></div>
+
+
+<a name="Item_003a-Itensor_002ees_002fnode_002fFunciones-y-variables-para-itensor"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_123.html#Funciones-y-variables-para-itensor" accesskey="n" rel="next">Funciones y variables para itensor</a>, Previous: <a href="maxima_121.html#itensor" accesskey="p" rel="previous">itensor</a>, Subir: <a href="maxima_121.html#itensor" accesskey="u" rel="up">itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

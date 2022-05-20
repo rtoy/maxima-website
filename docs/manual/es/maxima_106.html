@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para ecuaciones diferenciales</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para ecuaciones diferenciales">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para ecuaciones diferenciales">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_104.html#Ecuaciones-Diferenciales" rel="up" title="Ecuaciones Diferenciales">
+<link href="maxima_107.html#M_00e9todos-num_00e9ricos" rel="next" title="Métodos numéricos">
+<link href="maxima_105.html#Introducci_00f3n-a-las-ecuaciones-diferenciales" rel="previous" title="Introducción a las ecuaciones diferenciales">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-ecuaciones-diferenciales"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_105.html#Introducci_00f3n-a-las-ecuaciones-diferenciales" accesskey="p" rel="previous">Introducción a las ecuaciones diferenciales</a>, Subir: <a href="maxima_104.html#Ecuaciones-Diferenciales" accesskey="u" rel="up">Ecuaciones Diferenciales</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-ecuaciones-diferenciales_002e"></a>
+<h3 class="section">21.2 Funciones y variables para ecuaciones diferenciales.</h3>
+
+
+<a name="Item_003a-Differential_002ees_002fdeffn_002fbc2"></a><dl>
+<dt><a name="index-bc2"></a>Función: <strong>bc2</strong> <em>(<var>soluc</var>, <var>xval1</var>, <var>yval1</var>, <var>xval2</var>, <var>yval2</var>)</em></dt>
+<dd><p>Resuelve el problema del valor en la frontera para ecuaciones diferenciales de segundo orden. 
+Aquí, <var>soluc</var> es una solución general de la ecuación, como las que calcula <code>ode2</code>, <var>xval1</var> especifica el valor de la variable independiente en el primer punto mediante una expresión de la forma <code><var>x</var> = <var>x0</var></code>, mientras que <var>yval1</var> hace lo propio para la variable dependiente.  Las expresiones <var>xval2</var> y <var>yval2</var> dan los valores de estas mismas variables en un segundo punto, utilizando el mismo formato.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Differential_002ees_002fdeffn_002fdesolve"></a><dl>
+<dt><a name="index-desolve"></a>Función: <strong>desolve</strong> <em>(<var>ecu</var>, <var>x</var>)</em></dt>
+<dt><a name="index-desolve-1"></a>Función: <strong>desolve</strong> <em>([<var>eqn_1</var>, ..., <var>eqn_n</var>], [<var>x_1</var>, ..., <var>x_n</var>])</em></dt>
+<dd>
+<p>La función <code>desolve</code> resuelve sistemas de ecuaciones diferenciales ordinarias lineales utilizando la transformada de Laplace.  Aquí las <var>eqi</var> (<code>i</code>=1,..,n) son ecuaciones diferenciales con variables dependientes <var>x_1</var>, ..., <var>x_n</var>. La dependencia funcional de <var>x_1</var>, ..., <var>x_n</var> respecto de una variable independiente, por ejemplo <var>x</var>, debe indicarse explícitamente, tanto en las variables como en las derivadas. Por ejemplo, 
+</p>
+
+<div class="example">
+<pre class="example">eqn_1: 'diff(f,x,2) = sin(x) + 'diff(g,x);
+eqn_2: 'diff(f,x) + x^2 - f = 2*'diff(g,x,2);
+</pre></div>
+
+<p>no es el formato apropiado. El método correcto es
+</p>
+<div class="example">
+<pre class="example">eqn_1: 'diff(f(x),x,2) = sin(x) + 'diff(g(x),x);
+eqn_2: 'diff(f(x),x) + x^2 - f(x) = 2*'diff(g(x),x,2);
+</pre></div>
+
+<p>La llamada a la función <code>desolve</code> sería entonces
+</p><div class="example">
+<pre class="example">desolve([eqn_1, eqn_2], [f(x),g(x)]);
+</pre></div>
+
+<p>Si las condiciones iniciales en <code>x=0</code> son conocidas, deben ser suministradas antes de llamar a <code>desolve</code> haciendo uso previo de la función <code>atvalue</code>,
+</p>
+<div class="example">
+<pre class="example">(%i1) 'diff(f(x),x)='diff(g(x),x)+sin(x);
+                 d           d
+(%o1)            -- (f(x)) = -- (g(x)) + sin(x)
+                 dx          dx
+(%i2) 'diff(g(x),x,2)='diff(f(x),x)-cos(x);
+                  2
+                 d            d
+(%o2)            --- (g(x)) = -- (f(x)) - cos(x)
+                   2          dx
+                 dx
+(%i3) atvalue('diff(g(x),x),x=0,a);
+(%o3)                           a
+(%i4) atvalue(f(x),x=0,1);
+(%o4)                           1
+(%i5) desolve([%o1,%o2],[f(x),g(x)]);
+                  x
+(%o5) [f(x) = a %e  - a + 1, g(x) = 
+
+                                                x
+                                   cos(x) + a %e  - a + g(0) - 1]
+(%i6) [%o1,%o2],%o5,diff;
+             x       x      x                x
+(%o6)   [a %e  = a %e , a %e  - cos(x) = a %e  - cos(x)]
+
+</pre></div>
+
+<p>Si <code>desolve</code> no encuentra una solución, entonces devuelve <code>false</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Differential_002ees_002fdeffn_002fic1"></a><dl>
+<dt><a name="index-ic1"></a>Función: <strong>ic1</strong> <em>(<var>soluc</var>, <var>xval</var>, <var>yval</var>)</em></dt>
+<dd>
+<p>Resuelve el problema del valor inicial en ecuaciones diferenciales de primer orden. 
+Aquí, <var>soluc</var> es una solución general de la ecuación, como las que calcula <code>ode2</code>, <var>xval</var> es una ecuación de la forma <code><var>x</var> = <var>x0</var></code> para la variable independiente y <var>yval</var> es una ecuación de la forma <code><var>y</var> = <var>y0</var></code> para la variable dependiente. Véase <code>ode2</code> para un ejemplo sobre su utilización.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Differential_002ees_002fdeffn_002fic2"></a><dl>
+<dt><a name="index-ic2"></a>Función: <strong>ic2</strong> <em>(<var>soluc</var>, <var>xval</var>, <var>yval</var>, <var>dval</var>)</em></dt>
+<dd>
+<p>Resuelve el problema del valor inicial en ecuaciones diferenciales de segundo orden.
+Aquí, <var>soluc</var> es una solución general de la ecuación, como las que calcula <code>ode2</code>, <var>xval</var> es una ecuación de la forma <code><var>x</var> = <var>x0</var></code> para la variable independiente y <var>yval</var> es una ecuación de la forma <code><var>y</var> = <var>y0</var></code> para la variable dependiente, siendo <var>dval</var> una expresión de la forma <code>diff(<var>y</var>,<var>x</var>) = <var>dy0</var></code> que especifica la primera derivada de la variable dependiente respecto de la independiente en el punto <var>xval</var>.
+</p>
+<p>Véase <code>ode2</code> para un ejemplo de su uso.
+</p></dd></dl>
+
+
+<a name="Item_003a-Differential_002ees_002fdeffn_002fode2"></a><dl>
+<dt><a name="index-ode2"></a>Función: <strong>ode2</strong> <em>(<var>ecu</var>, <var>dvar</var>, <var>ivar</var>)</em></dt>
+<dd><p>La función <code>ode2</code> resuelve ecuaciones diferenciales ordinarias de primer y segundo orden. Admite tres argumentos: 
+una ecuación diferencial ordinaria <var>ecu</var>, la variable dependiente <var>dvar</var> y la variable independiente <var>ivar</var>.  Si ha tenido éxito en la resolución de la ecuación, devuelve una solución, explícita o implícita, para la variable dependiente. El símbolo <code>%c</code> se utiliza para representar la constante en el caso de ecuaciones de primer orden y los símbolos <code>%k1</code> y <code>%k2</code> son las constantes de las ecuaciones de segundo orden. Si por cualquier razón <code>ode2</code> no puede calcular la solución, devolverá <code>false</code>, acompañado quizás de un mensaje de error. Los métodos utilizados para las ecuaciones de primer orden, en el orden en que se hace la tentativa de resolución son: lineal, separable, exacto (pudiendo solicitar en este caso un factor de integración), homogéneo, ecuación de Bernoulli y un método homogéneo generalizado. Para las ecuaciones de segundo orden: coeficiente constante, exacto, homogéneo lineal con coeficientes no constantes  que pueden ser transformados en coeficientes constantes, ecuación equidimensional o de Euler, método de variación de parámetros y ecuaciones exentas de las variables dependientes o independientes de manera que se puedan reducir a dos ecuaciones lineales de primer a ser resueltas secuencialmente. Durante el proceso de resolución de ecuaciones diferenciales ordinarias, ciertas variables se utilizan con el único propósito de suministrar información al usuario: <code>method</code> almacena el método utilizado para encontrar la solución (como por ejemplo <code>linear</code>), <code>intfactor</code> para el factor de integración que se haya podido utilizar, <code>odeindex</code> para el índice del método de Bernoulli o el homogéneo generalizado y <code>yp</code> para la solución particular del método de variación de parámetros.
+</p>
+<p>A fin de resolver problemas con valores iniciales y problemas con valores en la frontera, la función <code>ic1</code> está disponible para ecuaciones de primer orden y las funciones <code>ic2</code> y <code>bc2</code> para problemas de valores iniciales y de frontera, respectivamente, en el caso de las ecuaciones de segundo orden.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) x^2*'diff(y,x) + 3*y*x = sin(x)/x;
+                      2 dy           sin(x)
+(%o1)                x  -- + 3 x y = ------
+                        dx             x
+(%i2) ode2(%,y,x);
+                             %c - cos(x)
+(%o2)                    y = -----------
+                                  3
+                                 x
+(%i3) ic1(%o2,x=%pi,y=0);
+                              cos(x) + 1
+(%o3)                   y = - ----------
+                                   3
+                                  x
+(%i4) 'diff(y,x,2) + y*'diff(y,x)^3 = 0;
+                         2
+                        d y      dy 3
+(%o4)                   --- + y (--)  = 0
+                          2      dx
+                        dx
+(%i5) ode2(%,y,x);
+                      3
+                     y  + 6 %k1 y
+(%o5)                ------------ = x + %k2
+                          6
+(%i6) ratsimp(ic2(%o5,x=0,y=0,'diff(y,x)=2));
+                             3
+                          2 y  - 3 y
+(%o6)                   - ---------- = x
+                              6
+(%i7) bc2(%o5,x=0,y=1,x=1,y=3);
+                         3
+                        y  - 10 y       3
+(%o7)                   --------- = x - -
+                            6           2
+
+</pre></div>
+
+</dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_105.html#Introducci_00f3n-a-las-ecuaciones-diferenciales" accesskey="p" rel="previous">Introducción a las ecuaciones diferenciales</a>, Subir: <a href="maxima_104.html#Ecuaciones-Diferenciales" accesskey="u" rel="up">Ecuaciones Diferenciales</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

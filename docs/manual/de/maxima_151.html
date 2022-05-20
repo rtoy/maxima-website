@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Funktionen und Variablen f&uuml;r die schnelle Fourier-Transformation</title>
+
+<meta name="description" content="Maxima Manual: Funktionen und Variablen f&uuml;r die schnelle Fourier-Transformation">
+<meta name="keywords" content="Maxima Manual: Funktionen und Variablen f&uuml;r die schnelle Fourier-Transformation">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_149.html#Fourier_002dTransformationen" rel="up" title="Fourier-Transformationen">
+<link href="maxima_152.html#Einf_00fchrung-in-Fourierreihen" rel="next" title="Einf&uuml;hrung in Fourierreihen">
+<link href="maxima_150.html#Einf_00fchrung-in-die-schnelle-Fourier_002dTransformation" rel="previous" title="Einf&uuml;hrung in die schnelle Fourier-Transformation">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funktionen-und-Variablen-f_00fcr-die-schnelle-Fourier_002dTransformation"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_152.html#Einf_00fchrung-in-Fourierreihen" accesskey="n" rel="next">Einf&uuml;hrung in Fourierreihen</a>, Previous: <a href="maxima_150.html#Einf_00fchrung-in-die-schnelle-Fourier_002dTransformation" accesskey="p" rel="previous">Einf&uuml;hrung in die schnelle Fourier-Transformation</a>, Nach oben: <a href="maxima_149.html#Fourier_002dTransformationen" accesskey="u" rel="up">Fourier-Transformationen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-und-Variablen-fur-die-schnelle-Fourier_002dTransformation"></a>
+<h3 class="section">23.2 Funktionen und Variablen f&uuml;r die schnelle Fourier-Transformation</h3>
+
+<a name="polartorect"></a><a name="Item_003a-Numerical_002ede_002fdeffn_002fpolartorect"></a><dl>
+<dt><a name="index-polartorect"></a>Funktion: <strong>polartorect</strong> <em>(<var>r</var>, <var>t</var>)</em></dt>
+<dd>
+
+<p>Transformiert komplexe Zahlen der Form <code>r %e^(%i t)</code> in die Standardform
+<code>a + b %i</code>.  <var>r</var> ist der Betrag der komplexen Zahl und <var>t</var> die
+Phase.  Die Argumente <var>r</var> und <var>t</var> sind eindimensionale Arrays derselben
+Gr&ouml;&szlig;e.  Die Gr&ouml;&szlig;e der Arrays muss eine Potenz von 2 sein.
+</p>
+
+<p>Die Werte der originalen Arrays werden durch den Realteil <code>a = r cos(t)</code>
+und den Imagin&auml;rteil <code>b = r sin(t)</code> ersetzt.
+</p>
+
+<p><code>polartorect</code> ist die inverse Funktion zu <code><a href="#recttopolar">recttopolar</a></code>.
+Das Kommando <code>load(&quot;fft&quot;)</code> l&auml;dt die Funktion.
+</p></dd></dl>
+
+<a name="recttopolar"></a><a name="Item_003a-Numerical_002ede_002fdeffn_002frecttopolar"></a><dl>
+<dt><a name="index-recttopolar"></a>Funktion: <strong>recttopolar</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd>
+
+<p>Transformiert komplexe Zahlen der Form <code>a + b %i</code> in die Polarform
+<code>r %e^(%i t)</code>.  <var>a</var> ist der Realteil und <var>b</var> der Imagin&auml;rteil der
+komplexen Zahl.  Die Argumente <var>a</var> und <var>b</var> sind eindimensionale Arrays
+derselben Gr&ouml;&szlig;e.  Die Gr&ouml;&szlig;e der Arrays muss eine Potenz von 2 sein.
+</p>
+
+<p>Die Werte der originalen Arrays werden durch den Betrag
+<code>r = sqrt(a^2 + b^2</code> und die Phase <code>t = atan2(b, a)</code> ersetzt.  Die
+Phase ist ein Winkel in dem Bereich <code>-%pi</code> bis <code>%pi</code>.
+</p>
+
+<p><code>recttoploar</code> ist die inverse Funktion zu <code><a href="#polartorect">polartorect</a></code>.
+Das Kommando <code>load(&quot;fft&quot;)</code> l&auml;dt die Funktion.
+</p></dd></dl>
+
+<a name="inverse_005ffft"></a><a name="Item_003a-Numerical_002ede_002fdeffn_002finverse_005ffft"></a><dl>
+<dt><a name="index-inverse_005ffft"></a>Funktion: <strong>inverse_fft</strong> <em>(<var>y</var>)</em></dt>
+<dd>
+
+<p>Berechnet die inverse schnelle Fourier-Transformation.  Das Argument <var>y</var> ist
+eine Liste oder ein Array mit den Daten, die zu transformieren sind.  Die Anzahl
+der Daten muss eine Potenz von 2 sein.  Die Elemente m&uuml;ssen Zahlen (ganze,
+rationale, Gleitkommazahlen oder gro&szlig;e Gleitkommazahlen) oder numerische
+Konstanten sein.  Weiterhin k&ouml;nnen die Elemente komplexe Zahlen
+<code>a + b*%i</code> sein, wobei der Realteil und der Imagin&auml;rteil wiederum Zahlen
+oder numerische Konstanten sein m&uuml;ssen.
+</p>
+
+<p><code>inverse_fft</code> gibt ein neues Objekt vom selben Typ wie <var>y</var> zur&uuml;ck.
+Die Ergebnisse sind immer Gleitkommazahlen oder komplexe Zahlen
+<code>a + %i*b</code>, wobei <code>a</code> und <code>b</code> Gleitkommazahlen sind.
+</p>
+
+<p>Die inverse diskrete Fourier-Transformation ist wie folgt definiert.  Wenn
+<code>x</code> das Ergebnis der inversen Fourier-Transformation ist, dann gilt f&uuml;r
+<code>j</code> von 0 bis <code>n-1</code>
+</p>
+<div class="example">
+<pre class="example">x[j] = sum(y[k] exp(2 %i %pi j k / n), k, 0, n - 1)
+</pre></div>
+
+
+<p>Mit dem Kommando <code>load(&quot;fft&quot;)</code> wird die Funktion geladen.  Siehe auch 
+<code><a href="#fft">fft</a></code> f&uuml;r die schnelle Fourier-Transformation.
+</p>
+<p>Beispiele:
+</p>
+
+<p>Reelle Daten.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;fft&quot;) $
+(%i2) fpprintprec : 4 $
+(%i3) L : [1, 2, 3, 4, -1, -2, -3, -4] $
+(%i4) L1 : inverse_fft (L);
+(%o4) [0.0, 14.49 %i - .8284, 0.0, 2.485 %i + 4.828, 0.0, 
+                       4.828 - 2.485 %i, 0.0, - 14.49 %i - .8284]
+(%i5) L2 : fft (L1);
+(%o5) [1.0, 2.0 - 2.168L-19 %i, 3.0 - 7.525L-20 %i, 
+4.0 - 4.256L-19 %i, - 1.0, 2.168L-19 %i - 2.0, 
+7.525L-20 %i - 3.0, 4.256L-19 %i - 4.0]
+(%i6) lmax (abs (L2 - L));
+(%o6)                       3.545L-16
+</pre></div>
+
+
+<p>Komplexe Daten.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;fft&quot;) $
+(%i2) fpprintprec : 4 $                 
+(%i3) L : [1, 1 + %i, 1 - %i, -1, -1, 1 - %i, 1 + %i, 1] $
+(%i4) L1 : inverse_fft (L);
+(%o4) [4.0, 2.711L-19 %i + 4.0, 2.0 %i - 2.0, 
+- 2.828 %i - 2.828, 0.0, 5.421L-20 %i + 4.0, - 2.0 %i - 2.0, 
+2.828 %i + 2.828]
+(%i5) L2 : fft (L1);
+(%o5) [4.066E-20 %i + 1.0, 1.0 %i + 1.0, 1.0 - 1.0 %i, 
+1.55L-19 %i - 1.0, - 4.066E-20 %i - 1.0, 1.0 - 1.0 %i, 
+1.0 %i + 1.0, 1.0 - 7.368L-20 %i]
+(%i6) lmax (abs (L2 - L));                    
+(%o6)                       6.841L-17
+</pre></div>
+</dd></dl>
+
+<a name="fft"></a><a name="Item_003a-Numerical_002ede_002fdeffn_002ffft"></a><dl>
+<dt><a name="index-fft"></a>Funktion: <strong>fft</strong> <em>(<var>x</var>)</em></dt>
+<dd>
+
+<p>Berechnet die schnelle Fourier-Transformation.  Das Argument <var>x</var> ist eine
+Liste oder ein Array mit den Daten, die zu transformieren sind.  Die Anzahl der
+Elemente muss eine Potenz von 2 sein.  Die Elemente m&uuml;ssen Zahlen (ganze,
+rationale, Gleitkommazahlen oder gro&szlig;e Gleitkommazahlen) oder numerische
+Konstanten sein.  Weiterhin k&ouml;nnen die Elemente komplexe Zahlen
+<code>a + b*%i</code> sein, wobei der Realteil und der Imagin&auml;rteil wiederum Zahlen
+oder numerische Konstanten sein m&uuml;ssen.
+</p>
+
+<p><code>inverse_fft</code> gibt ein neues Objekt vom selben Typ wie <var>x</var> zur&uuml;ck.
+Die Ergebnisse sind immer Gleitkommazahlen oder komplexe Zahlen
+<code>a + %i*b</code>, wobei <code>a</code> und <code>b</code> Gleitkommazahlen sind.
+</p>
+
+<p>Die diskrete Fourier-Transformation ist wie folgt definiert.  Wenn <code>y</code> das
+Ergebnis der Fourier-Transformation ist, dann gilt f&uuml;r <code>k</code> von 0 bis
+<code>n-1</code>
+</p>
+<div class="example">
+<pre class="example">y[k] = (1/n) sum(x[j] exp(-2 %i %pi j k / n), j, 0, n - 1)
+</pre></div>
+
+
+<p>Sind die Daten <var>x</var> reelle Zahlen, dann werden die reellen Koeffizienten
+<var>a</var> und <var>b</var> so berechnet, dass gilt
+</p>
+<div class="example">
+<pre class="example">x[j] = sum (a[k] * cos (2*%pi*j*k / n) 
+          + b[k] * sin (2*%pi*j*k / n), k, 0, n/2)
+</pre></div>
+
+<p>wobei
+</p>
+<div class="example">
+<pre class="example">a[0] = realpart (y[0])
+b[0] = 0
+</pre></div>
+
+
+<p>und f&uuml;r <var>k</var> von 1 bis <code>n/2-1</code>
+</p>
+<div class="example">
+<pre class="example">a[k] = realpart (y[k] + y[n - k])
+b[k] = imagpart (y[n - k] - y[k])
+</pre></div>
+
+<p>sowie
+</p>
+<div class="example">
+<pre class="example">a[n/2] = realpart (y[n/2])
+b[n/2] = 0
+</pre></div>
+
+
+<p>Das Kommando <code>load(&quot;fft&quot;)</code> l&auml;dt die Funktion.
+Siehe auch <code><a href="#inverse_005ffft">inverse_fft</a></code> f&uuml;r die inverse schnelle Fourier-Transformation.
+</p>
+<p>Beispiele:
+</p>
+<p>Reelle Daten.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;fft&quot;) $
+(%i2) fpprintprec : 4 $
+(%i3) L : [1, 2, 3, 4, -1, -2, -3, -4] $
+(%i4) L1 : fft (L);
+(%o4) [0.0, - 1.811 %i - .1036, 0.0, .6036 - .3107 %i, 0.0, 
+                         .3107 %i + .6036, 0.0, 1.811 %i - .1036]
+(%i5) L2 : inverse_fft (L1);
+(%o5) [1.0, 2.168L-19 %i + 2.0, 7.525L-20 %i + 3.0, 
+4.256L-19 %i + 4.0, - 1.0, - 2.168L-19 %i - 2.0, 
+- 7.525L-20 %i - 3.0, - 4.256L-19 %i - 4.0]
+(%i6) lmax (abs (L2 - L));
+(%o6)                       3.545L-16
+</pre></div>
+
+<p>Komplexe Daten.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;fft&quot;) $
+(%i2) fpprintprec : 4 $
+(%i3) L : [1, 1 + %i, 1 - %i, -1, -1, 1 - %i, 1 + %i, 1] $
+(%i4) L1 : fft (L);
+</pre><pre class="example">(%o4) [0.5, .3536 %i + .3536, - 0.25 %i - 0.25, 
+0.5 - 6.776L-21 %i, 0.0, - .3536 %i - .3536, 0.25 %i - 0.25, 
+0.5 - 3.388L-20 %i]
+</pre><pre class="example">(%i5) L2 : inverse_fft (L1);
+(%o5) [1.0 - 4.066E-20 %i, 1.0 %i + 1.0, 1.0 - 1.0 %i, 
+- 1.008L-19 %i - 1.0, 4.066E-20 %i - 1.0, 1.0 - 1.0 %i, 
+1.0 %i + 1.0, 1.947L-20 %i + 1.0]
+(%i6) lmax (abs (L2 - L));
+(%o6)                       6.83L-17
+</pre></div>
+
+
+<p>Berechnung der Sinus- und Kosinus-Koeffizienten.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;fft&quot;) $
+(%i2) fpprintprec : 4 $
+(%i3) L : [1, 2, 3, 4, 5, 6, 7, 8] $
+(%i4) n : length (L) $
+(%i5) x : make_array (any, n) $
+(%i6) fillarray (x, L) $
+(%i7) y : fft (x) $
+(%i8) a : make_array (any, n/2 + 1) $
+(%i9) b : make_array (any, n/2 + 1) $
+(%i10) a[0] : realpart (y[0]) $
+(%i11) b[0] : 0 $
+(%i12) for k : 1 thru n/2 - 1 do
+   (a[k] : realpart (y[k] + y[n - k]),
+    b[k] : imagpart (y[n - k] - y[k]));
+(%o12)                        done
+(%i13) a[n/2] : y[n/2] $
+(%i14) b[n/2] : 0 $
+(%i15) listarray (a);
+(%o15)          [4.5, - 1.0, - 1.0, - 1.0, - 0.5]
+(%i16) listarray (b);
+(%o16)           [0, - 2.414, - 1.0, - .4142, 0]
+(%i17) f(j) := sum (a[k] * cos (2*%pi*j*k / n) + b[k] 
+                         * sin (2*%pi*j*k / n), k, 0, n/2) $
+(%i18) makelist (float (f (j)), j, 0, n - 1);
+(%o18)      [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0]
+</pre></div>
+</dd></dl>
+
+<a name="horner"></a><a name="Item_003a-Numerical_002ede_002fdeffn_002fhorner"></a><dl>
+<dt><a name="index-horner"></a>Funktion: <strong>horner</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<dt><a name="index-horner-1"></a>Funktion: <strong>horner</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+<p>Formt ein Polynom <var>expr</var> in das Horner-Schema um.  Mit <var>x</var> wird die
+Variable angegeben, f&uuml;r die das Horner-Schema zu bilden ist.  Wird das
+Argument <var>x</var> nicht angegeben, wird die Hauptvariable des kanonischen
+Ausdrucks <var>expr</var> f&uuml;r die Bildung des Horner-Schemas genutzt.
+</p>
+
+<p>Das Horner-Schema kann die Stabilit&auml;t der numerischen Berechnung eines
+Ausdrucks verbessern.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: 1e-155*x^2 - 5.5*x + 5.2e155;
+                           2
+(%o1)            1.0E-155 x  - 5.5 x + 5.2E+155
+(%i2) expr2: horner (%, x), keepfloat: true;
+(%o2)            (1.0E-155 x - 5.5) x + 5.2E+155
+(%i3) ev (expr, x=1e155);
+Maxima encountered a Lisp error:
+
+ floating point overflow
+
+Automatically continuing.
+To reenable the Lisp debugger set *debugger-hook* to nil.
+(%i4) ev (expr2, x=1e155);
+(%o4)                       7.0E+154
+</pre></div>
+</dd></dl>
+
+<a name="find_005froot"></a><a name="find_005froot_005ferror"></a><a name="find_005froot_005fabs"></a><a name="find_005froot_005frel"></a><a name="Item_003a-Numerical_002ede_002fdeffn_002ffind_005froot"></a><dl>
+<dt><a name="index-find_005froot"></a>Funktion: <strong>find_root</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dt><a name="index-find_005froot-1"></a>Funktion: <strong>find_root</strong> <em>(<var>f</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dd><a name="Item_003a-Numerical_002ede_002fdeffn_002ffind_005froot_005ferror"></a></dd><dt><a name="index-find_005froot_005ferror"></a>Optionsvariable: <strong>find_root_error</strong></dt>
+<dd><a name="Item_003a-Numerical_002ede_002fdeffn_002ffind_005froot_005fabs"></a></dd><dt><a name="index-find_005froot_005fabs"></a>Optionsvariable: <strong>find_root_abs</strong></dt>
+<dd><a name="Item_003a-Numerical_002ede_002fdeffn_002ffind_005froot_005frel"></a></dd><dt><a name="index-find_005froot_005frel"></a>Optionsvariable: <strong>find_root_rel</strong></dt>
+<dd>
+
+<p>Findet die Nullstellen eines Ausdrucks <var>expr</var> oder einer Funktion <var>f</var>
+in dem Intervall <code>[<var>a</var>, <var>b</var>]</code>.  Der Ausdruck <var>expr</var> kann eine
+Gleichung sein.  In diesem Fall sucht die Funktion <code>find_root</code> die 
+Nullstellen f&uuml;r den Ausdruck <code>lhs(<var>expr</var>) - rhs(<var>expr</var>)</code>.
+</p>
+
+<p>Kann Maxima den Ausdruck <var>expr</var> oder die Funktion <var>f</var> in dem Intervall
+<code>[<var>a</var>, <var>b</var>]</code> f&uuml;r alle Werte auswerten und ist der Ausdruck
+<var>expr</var> oder die Funktion <var>f</var> in dem Intervall stetig, dann ist sicher,
+dass <code>find_root</code> die Nullstelle oder zumindest eine Nullstelle findet,
+wenn mehrere Nullstellen vorhanden sind.
+</p>
+
+<p><code>find_root</code> beginnt mit einer bin&auml;ren Suche der Nullstelle.  Erscheint
+die Funktion als glatt genug, wendet Maxima einen Algorithmus mit einer linearen
+Interpolation f&uuml;r die Suche der Nullstelle an.
+</p>
+
+<p>Die Genauigkeit der Nullstellensuche wird von den Optionsvariablen
+<code>find_root_abs</code> und <code>find_root_rel</code> kontrolliert.  <code>find_root</code>
+endet, wenn die Auswertung der Funktion ein Ergebnis hat, das kleiner als
+<code>find_root_abs</code> ist oder wenn aufeinander folgende Auswertungen
+Ergebnisse <var>x_0</var> und <var>x_1</var> haben, die sich voneinander weniger als
+<code>find_root_rel * max(abs(x_0), abs(x_1))</code> unterscheiden.  Der Standardwert
+der Optionsvariablen <code>find_root_abs</code> und <code>find_root_rel</code> ist Null.
+</p>
+
+<p><code>find_root</code> erwartet, dass die Funktion an den Endpunkten des Intervalls
+f&uuml;r die Nullstellensuche ein unterschiedliches Vorzeichen hat.  Hat die
+Funktion an den Endpunkten des Intervalls dasselbe Vorzeichen, wird das
+Verhalten der Funktion <code>find_root</code> von der Optionsvariablen
+<code>find_root_error</code> kontrolliert.  Hat <code>find_root_error</code> den Wert
+<code>true</code>, wird eine Fehlermeldung ausgegeben.  Ansonsten wird von
+<code>find_root</code> der Wert von <code>find_root_error</code> als Ergebnis
+zur&uuml;ckgegeben.  Der Standardwert von <code>find_root_error</code> ist <code>true</code>.
+</p>
+
+<p>Kann die Funktion <var>f</var> bei der Nullstellensuche nicht zu einer Zahl
+ausgewertet werden, gibt <code>find_root</code> ein teilweise ausgewertetes Ergebnis
+zur&uuml;ck.
+</p>
+
+<p>Die Reihenfolge der Grenzen des Intervalls <var>a</var> und <var>b</var> wird ignoriert.
+<code>find_root</code> sucht die Nullstellen immer in dem Intervall
+<code>[min(<var>a</var>, <var>b</var>), max(<var>a</var>, <var>b</var>)]</code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) f(x) := sin(x) - x/2;
+                                        x
+(%o1)                  f(x) := sin(x) - -
+                                        2
+(%i2) find_root (sin(x) - x/2, x, 0.1, %pi);
+(%o2)                   1.895494267033981
+(%i3) find_root (sin(x) = x/2, x, 0.1, %pi);
+(%o3)                   1.895494267033981
+(%i4) find_root (f(x), x, 0.1, %pi);
+(%o4)                   1.895494267033981
+(%i5) find_root (f, 0.1, %pi);
+(%o5)                   1.895494267033981
+(%i6) find_root (exp(x) = y, x, 0, 100);
+                            x
+(%o6)           find_root(%e  = y, x, 0.0, 100.0)
+(%i7) find_root (exp(x) = y, x, 0, 100), y = 10;
+(%o7)                   2.302585092994046
+(%i8) log (10.0);
+(%o8)                   2.302585092994046
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-Numerical_002ede_002fnode_002fEinf_00fchrung-in-Fourierreihen"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_152.html#Einf_00fchrung-in-Fourierreihen" accesskey="n" rel="next">Einf&uuml;hrung in Fourierreihen</a>, Previous: <a href="maxima_150.html#Einf_00fchrung-in-die-schnelle-Fourier_002dTransformation" accesskey="p" rel="previous">Einf&uuml;hrung in die schnelle Fourier-Transformation</a>, Nach oben: <a href="maxima_149.html#Fourier_002dTransformationen" accesskey="u" rel="up">Fourier-Transformationen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

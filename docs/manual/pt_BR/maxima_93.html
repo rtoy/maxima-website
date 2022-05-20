@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima: Introdução ao Pacote atensor</title>
+
+<meta name="description" content="Manual do Maxima: Introdução ao Pacote atensor">
+<meta name="keywords" content="Manual do Maxima: Introdução ao Pacote atensor">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_92.html#Pacote-atensor" rel="up" title="Pacote atensor">
+<link href="maxima_94.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-o-Pacote-atensor" rel="next" title="Funções e Variáveis Definidas para o Pacote atensor">
+<link href="maxima_92.html#Pacote-atensor" rel="previous" title="Pacote atensor">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introdu_00e7_00e3o-ao-Pacote-atensor"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_94.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-o-Pacote-atensor" accesskey="n" rel="next">Funções e Variáveis Definidas para o Pacote atensor</a>, Previous: <a href="maxima_92.html#Pacote-atensor" accesskey="p" rel="previous">Pacote atensor</a>, Acima: <a href="maxima_92.html#Pacote-atensor" accesskey="u" rel="up">Pacote atensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introducao-ao-Pacote-atensor"></a>
+<h3 class="section">29.1 Introdução ao Pacote atensor</h3>
+
+<p><code>atensor</code> é um pacote de manipulção de tensores algébricos.  Para usar <code>atensor</code>,
+digite <code>load(&quot;atensor&quot;)</code>, seguido por uma chamada à função 
+<code>init_atensor</code>.
+</p>
+<p>A essência de <code>atensor</code> é um conjunto de regras de simplificação para o operador
+de produto (ponto) não comutativo (&quot;<code>.</code>&quot;).  <code>atensor</code> reconhece
+muitos tipos de álgebra; as regras de simplificação correspondentes são ativadas quando
+a função <code>init_atensor</code> é chamada.
+</p>
+<p>A compatibilidade de <code>atensor</code> pode ser demonstrada pela definição da
+álgebra de quatérnios como uma álgera-Clifford Cl(0,2) com dois vetores
+fundamentais.  As três unidades quaterniônicas imaginárias fundamentais são então os dois
+vetores base  e seu produto, i.e.:
+</p>
+<div class="example">
+<pre class="example">    i = v     j = v     k = v  .  v
+         1         2         1    2
+</pre></div>
+
+<p>Embora o pacote <code>atensor</code> tenha uma definição interna para a
+álgebra dos quatérnios, isso não foi usado nesse exemplo, no qual nós
+nos esforçamos para construir a tabela de multiplicação dos quatérnios como uma matriz:
+</p>
+<div class="example">
+<pre class="example">
+(%i1) load(&quot;atensor&quot;);
+(%o1)       /share/tensor/atensor.mac
+(%i2) init_atensor(clifford,0,0,2);
+(%o2)                                done
+(%i3) atensimp(v[1].v[1]);
+(%o3)                                 - 1
+(%i4) atensimp((v[1].v[2]).(v[1].v[2]));
+(%o4)                                 - 1
+(%i5) q:zeromatrix(4,4);
+                                [ 0  0  0  0 ]
+                                [            ]
+                                [ 0  0  0  0 ]
+(%o5)                           [            ]
+                                [ 0  0  0  0 ]
+                                [            ]
+                                [ 0  0  0  0 ]
+(%i6) q[1,1]:1;
+(%o6)                                  1
+(%i7) for i thru adim do q[1,i+1]:q[i+1,1]:v[i];
+(%o7)                                done
+(%i8) q[1,4]:q[4,1]:v[1].v[2];
+(%o8)                               v  .  v
+                                     1    2
+(%i9) for i from 2 thru 4 do for j from 2 thru 4 do
+      q[i,j]:atensimp(q[i,1].q[1,j]);
+(%o9)                                done
+(%i10) q;
+                   [    1        v         v      v  .  v  ]
+                   [              1         2      1    2 ]
+                   [                                      ]
+                   [   v         - 1     v  .  v    - v    ]
+                   [    1                 1    2      2   ]
+(%o10)             [                                      ]
+                   [   v      - v  .  v     - 1      v     ]
+                   [    2        1    2              1    ]
+                   [                                      ]
+                   [ v  .  v      v        - v       - 1   ]
+                   [  1    2      2          1            ]
+</pre></div>
+
+<p><code>atensor</code> reconhece como bases vetoriais símbolos indexados, onde o símbolo 
+é aquele armazenado em <code>asymbol</code> e o iíndice está entre 1 e <code>adim</code>.
+Para símbolos indexado, e somente para símbolos indexados, as formas bilineares
+<code>sf</code>, <code>af</code>, e <code>av</code> são avaliadas.  A avaliação
+substitui os valores  de <code>aform[i,j]</code> em lugar de <code>fun(v[i],v[j])</code>
+onde <code>v</code> representa o valor de <code>asymbol</code> e <code>fun</code> é
+ainda <code>af</code> ou <code>sf</code>; ou, isso substitui <code>v[aform[i,j]]</code>
+em lugar de <code>av(v[i],v[j])</code>.
+</p>
+<p>Desnecessário dizer, as funções <code>sf</code>, <code>af</code> e <code>av</code>
+podem ser redefinidas.
+</p>
+<p>Quando o pacote <code>atensor</code> é chamado, os seguintes sinalizadores são configurados:
+</p>
+<div class="example">
+<pre class="example">dotscrules:true;
+dotdistrib:true;
+dotexptsimp:false;
+</pre></div>
+
+<p>Se você deseja experimentar com uma álgebra não associativa, você pode também
+considerar a configuração de <code>dotassoc</code> para <code>false</code>.  Nesse caso, todavia,
+<code>atensimp</code> não stará sempre habilitado a obter as simplificações
+desejadas.
+</p>
+
+<a name="Item_003a-Atensor_002fnode_002fFun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-o-Pacote-atensor"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_94.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-o-Pacote-atensor" accesskey="n" rel="next">Funções e Variáveis Definidas para o Pacote atensor</a>, Previous: <a href="maxima_92.html#Pacote-atensor" accesskey="p" rel="previous">Pacote atensor</a>, Acima: <a href="maxima_92.html#Pacote-atensor" accesskey="u" rel="up">Pacote atensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

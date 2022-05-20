@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Introducción a units</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Introducción a units">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Introducción a units">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_298.html#unit" rel="up" title="unit">
+<link href="maxima_300.html#Funciones-y-variables-para-units" rel="next" title="Funciones y variables para units">
+<link href="maxima_298.html#unit" rel="previous" title="unit">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introducci_00f3n-a-units"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_300.html#Funciones-y-variables-para-units" accesskey="n" rel="next">Funciones y variables para units</a>, Previous: <a href="maxima_298.html#unit" accesskey="p" rel="previous">unit</a>, Subir: <a href="maxima_298.html#unit" accesskey="u" rel="up">unit</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introduccion-a-units"></a>
+<h3 class="section">78.1 Introducción a units</h3>
+
+<p>El paquete <code>unit</code> permite al usuario hacer cambios de unidades y
+llevar a cabo el análisis dimensional de las ecuaciones. La forma de operar de
+este paquete es radicalmente diferente de la del paquete original de Maxima;
+mientras que en el paquete original era tan solo una lista de definiciones,
+aquí se utiliza un conjunto de reglas que permiten seleccionar al usuario
+en qué unidades debe devolverse la expresión final. 
+</p>
+<p>Junto con el análisis dimensional, el paquete aporta una serie de 
+herramientas para controlar las opciones de conversión y simplificación.
+Además de la conversión automática adaptable a las necesidades del
+usuario, el paquete <code>unit</code> permite hacer conversiones a la manera
+tradicional.
+</p>
+<p>Nota: Cuando los factores de conversión no son exactos, Maxima los
+transformará a fracciones como consecuencia de la metodología
+utilizada para simplificar las unidades. Los mensajes de aviso concernientes a
+estas transformaciones están desactivados por defecto en el caso de las
+unidades (lo habitual es que estén activados en otros contextos) debido a
+que al ser una operación muy frecuente, serían un estorbo. 
+El estado previo de la variable <code>ratprint</code> queda restaurado tras la
+conversión de las unidades, de manera que se mantendrá la opción
+seleccionada por el usuario; en caso de que éste necesite ver dichos 
+avisos, podrá hacer la asignación <code>unitverbose:on</code> para
+reactivarlos desde el proceso de conversión de unidades.
+</p>
+<p>El paquete <code>unit</code> se aloja en el directorio <code>share/contrib/unit</code>
+y se ajusta a las convenciones de Maxima para la carga de paquetes:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;unit&quot;)$
+******************************************************************* 
+*                       Units version 0.50                        * 
+*          Definitions based on the NIST Reference on             * 
+*              Constants, Units, and Uncertainty                  * 
+*       Conversion factors from various sources including         * 
+*                   NIST and the GNU units package                * 
+******************************************************************* 
+ 
+Redefining necessary functions... 
+WARNING: DEFUN/DEFMACRO: 
+         redefining function TOPLEVEL-MACSYMA-EVAL ...
+WARNING: DEFUN/DEFMACRO: redefining function MSETCHK ...
+WARNING: DEFUN/DEFMACRO: redefining function KILL1 ...
+WARNING: DEFUN/DEFMACRO: redefining function NFORMAT ...
+Initializing unit arrays... 
+Done. 
+</pre></div>
+
+<p>Los avisos del tipo <code>WARNING</code> son normales y no deben interpretarse
+como errores; tan solo indican que el paquete <code>unit</code> está redefiniendo
+funciones que ya estaban definidas en Maxima. Esto es necesario para que las
+unidades se gestionen de forma correcta. El usuario debe tener en cuenta que si 
+otros paquetes han cambiado las definiciones de estas funciones, tales cambios serán
+ignorados por el proceso de carga de <code>unit</code>.
+</p>
+<p>El paquete <code>unit</code> también carga el fichero de Lisp <code>unit-functions.lisp</code>,
+el cual contiene las funciones Lisp necesarias.
+</p>
+<p>El autor principal de este paquete es Clifford Yapp, quien ha recibido ayuda
+y asistencia, entre otros, de Barton Willis y Robert Dodier.
+</p>
+<a name="Item_003a-unit_002fnode_002fFunciones-y-variables-para-units"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_300.html#Funciones-y-variables-para-units" accesskey="n" rel="next">Funciones y variables para units</a>, Previous: <a href="maxima_298.html#unit" accesskey="p" rel="previous">unit</a>, Subir: <a href="maxima_298.html#unit" accesskey="u" rel="up">unit</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

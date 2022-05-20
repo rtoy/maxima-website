@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Ein- und Ausgabe</title>
+
+<meta name="description" content="Maxima Manual: Ein- und Ausgabe">
+<meta name="keywords" content="Maxima Manual: Ein- und Ausgabe">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_316.html#stringproc" rel="up" title="stringproc">
+<link href="maxima_319.html#Schriftzeichen" rel="next" title="Schriftzeichen">
+<link href="maxima_317.html#Einf_00fchrung-in-die-Verarbeitung-von-Zeichenketten" rel="previous" title="Einf&uuml;hrung in die Verarbeitung von Zeichenketten">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Ein_002d-und-Ausgabe"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_319.html#Schriftzeichen" accesskey="n" rel="next">Schriftzeichen</a>, Previous: <a href="maxima_317.html#Einf_00fchrung-in-die-Verarbeitung-von-Zeichenketten" accesskey="p" rel="previous">Einf&uuml;hrung in die Verarbeitung von Zeichenketten</a>, Nach oben: <a href="maxima_316.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Ein_002d-und-Ausgabe-1"></a>
+<h3 class="section">73.2 Ein- und Ausgabe</h3>
+
+<p>Beispiel: Formatiertes Schreiben in eine Datei mit anschlie&szlig;endem Lesen.
+</p>
+<div class="example">
+<pre class="example">(%i1) s: openw(&quot;file.txt&quot;);
+(%o1)                      #&lt;output stream file.txt&gt;
+(%i2) control: 
+&quot;~2tAn atom: ~20t~a~%~2tand a list: ~20t~{~r ~}~%~2t\
+and an integer: ~20t~d~%&quot;$
+(%i3) printf(s, control, 'true,[1,2,3],42)$
+(%o3)                                false
+(%i4) close(s);
+(%o4)                                true
+(%i5) s: openr(&quot;file.txt&quot;);
+(%o5)                      #&lt;input stream file.txt&gt;
+(%i6) while stringp(tmp:readline(s)) do print(tmp)$
+  An atom:          true 
+  and a list:       one two three  
+  and an integer:   42 
+(%i7) close(s)$
+</pre></div>
+
+<p>Beispiel: Lesen aus einer bin&auml;ren Datei. Siehe <a href="#readbyte">readbyte</a>.
+</p>
+<a name="close"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fclose"></a><dl>
+<dt><a name="index-close"></a>Funktion: <strong>close</strong> <em>(<var>stream</var>) </em></dt>
+<dd>
+<p>Schlie&szlig;t den Datenstrom <var>stream</var> und gibt <code>true</code> zur&uuml;ck, 
+wenn <var>stream</var> noch ge&ouml;ffnet war.
+</p>
+</dd></dl>
+
+<a name="flength"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fflength"></a><dl>
+<dt><a name="index-flength"></a>Funktion: <strong>flength</strong> <em>(<var>stream</var>)</em></dt>
+<dd>
+<p><var>stream</var> muss ein ge&ouml;ffneter Datenstrom in eine oder aus einer Datei sein. 
+<code>flength</code> gibt dann die Anzahl der Bytes zur&uuml;ck, die sich momentan in 
+dieser Datei befinden.
+</p>
+<p>Beispiel: Siehe <a href="#writebyte">writebyte</a> .
+</p></dd></dl>
+
+<a name="flush_005foutput"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fflush_005foutput"></a><dl>
+<dt><a name="index-flush_005foutput"></a>Funktion: <strong>flush_output</strong> <em>(<var>stream</var>) </em></dt>
+<dd>
+<p>Leert den Inhalt des Dateiausgabestroms <var>stream</var> in die Datei.
+</p>
+<p>Beispiel: Siehe <a href="#writebyte">writebyte</a> .
+</p>
+</dd></dl>
+
+<a name="fposition"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002ffposition"></a><dl>
+<dt><a name="index-fposition"></a>Function: <strong>fposition</strong> <em>(<var>stream</var>)</em></dt>
+<dt><a name="index-fposition-1"></a>Function: <strong>fposition</strong> <em>(<var>stream</var>, <var>pos</var>)</em></dt>
+<dd>
+<p>Ohne das optionale Argument <var>pos</var> gibt <code>fposition</code> die aktuelle Position 
+in dem Datenstrom <var>stream</var> zur&uuml;ck. 
+Wird <var>pos</var> verwendet, legt <code>fposition</code> diesen Wert als aktuelle Position 
+in <var>stream</var> fest. <var>pos</var> muss eine positive Zahl sein. 
+</p>
+<p>Die Positionen in Datenstr&ouml;men sind wie in Zeichenketten und Listen 1-indiziert, 
+d.h. das erste Element in <var>stream</var> hat die Position 1.
+</p>
+</dd></dl>
+
+<a name="freshline"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002ffreshline"></a><dl>
+<dt><a name="index-freshline"></a>Function: <strong>freshline</strong> <em>() </em></dt>
+<dt><a name="index-freshline-1"></a>Function: <strong>freshline</strong> <em>(<var>stream</var>)</em></dt>
+<dd>
+<p>Schreibt einen Zeilenumbruch in den Standardausgabestrom, falls die aktuelle 
+Ausgabeposition nicht gerade der Anfang einer Zeile ist und gibt <code>true</code> 
+zur&uuml;ck. Bei der Verwendung des optionalen Arguments <var>stream</var> wird der 
+Umbruch in diesen Datenstrom geschrieben. 
+</p>
+<p>Es gibt Situationen, in denen <code>freshline()</code> nicht wie erwartet funktioniert.
+</p>
+<p>Siehe auch <a href="#newline">newline</a>.
+</p>
+</dd></dl>
+
+<a name="get_005foutput_005fstream_005fstring"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fget_005foutput_005fstream_005fstring"></a><dl>
+<dt><a name="index-get_005foutput_005fstream_005fstring"></a>Funktion: <strong>get_output_stream_string</strong> <em>(<var>stream</var>)</em></dt>
+<dd>
+<p>Gibt Schriftzeichen, die aktuell in dem ge&ouml;ffneten Datenstrom <var>stream</var> 
+enthalten sind, in einer Zeichenkette zur&uuml;ck. Die zur&uuml;ck gegebenen 
+Zeichen werden dabei aus dem Datenstrom entfernt. <var>stream</var> muss durch 
+<code>make_string_output_stream</code> erzeugt worden sein.
+</p>
+<p>Beispiel: Siehe <a href="#make_005fstring_005foutput_005fstream">make_string_output_stream</a> .
+</p></dd></dl>
+
+<a name="make_005fstring_005finput_005fstream"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fmake_005fstring_005finput_005fstream"></a><dl>
+<dt><a name="index-make_005fstring_005finput_005fstream"></a>Funktion: <strong>make_string_input_stream</strong> <em>(<var>string</var>)</em></dt>
+<dt><a name="index-make_005fstring_005finput_005fstream-1"></a>Funktion: <strong>make_string_input_stream</strong> <em>(<var>string</var>, <var>start</var>)</em></dt>
+<dt><a name="index-make_005fstring_005finput_005fstream-2"></a>Funktion: <strong>make_string_input_stream</strong> <em>(<var>string</var>, <var>start</var>, <var>end</var>)</em></dt>
+<dd>
+<p>Gibt einen Datenstrom zur&uuml;ck, der Teile der Zeichenkette <var>string</var> 
+und ein Dateiende enth&auml;lt. 
+Ohne optionale Argumente enth&auml;lt der Strom die gesamte Zeichenkette 
+und ist vor dem ersten Zeichen positioniert. Mit den optionalen Argumenten 
+<var>start</var> und <var>end</var> l&auml;sst sich der Abschnitt der Zeichenkette festlegen, 
+den der Datenstrom enth&auml;lt. Das erste Zeichen befindet sich dabei an der 
+Position 1.
+</p> 
+<div class="example">
+<pre class="example">(%i1) istream : make_string_input_stream(&quot;text&quot;, 1, 4);
+(%o1)              #&lt;string-input stream from &quot;text&quot;&gt;
+(%i2) (while (c : readchar(istream)) # false do sprint(c), newline())$
+t e x 
+(%i3) close(istream)$
+</pre></div>
+</dd></dl>
+
+<a name="make_005fstring_005foutput_005fstream"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fmake_005fstring_005foutput_005fstream"></a><dl>
+<dt><a name="index-make_005fstring_005foutput_005fstream"></a>Funktion: <strong>make_string_output_stream</strong> <em>()</em></dt>
+<dd>
+<p>Gibt einen Datenstrom zur&uuml;ck, der Schriftzeichen aufnehmen kann. Die aktuell  
+im Strom enthaltenden Zeichen k&ouml;nnen mit <a href="#get_005foutput_005fstream_005fstring">get_output_stream_string</a> 
+entnommen werden.
+</p> 
+<div class="example">
+<pre class="example">(%i1) ostream : make_string_output_stream();
+(%o1)               #&lt;string-output stream 09622ea0&gt;
+(%i2) printf(ostream, &quot;foo&quot;)$
+
+(%i3) printf(ostream, &quot;bar&quot;)$
+
+(%i4) string : get_output_stream_string(ostream);
+(%o4)                            foobar
+(%i5) printf(ostream, &quot;baz&quot;)$
+
+(%i6) string : get_output_stream_string(ostream);
+(%o6)                              baz
+(%i7) close(ostream)$
+</pre></div>
+</dd></dl>
+
+<a name="newline"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fnewline"></a><dl>
+<dt><a name="index-newline"></a>Funktion: <strong>newline</strong> <em>() </em></dt>
+<dt><a name="index-newline-1"></a>Funktion: <strong>newline</strong> <em>(<var>stream</var>)</em></dt>
+<dd>
+<p>Schreibt einen Zeilenumbruch in den Standardausgabestrom und gibt <code>false</code> 
+zur&uuml;ck. Bei der Verwendung des optionalen Arguments <var>stream</var> wird der 
+Umbruch in diesen Datenstrom geschrieben. 
+Es gibt Situationen, in denen <code>newline()</code> nicht wie erwartet funktioniert.
+</p>
+<p>Beispiel: Siehe <a href="#sprint">sprint</a>.
+</p>
+</dd></dl>
+
+<a name="opena"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fopena"></a><dl>
+<dt><a name="index-opena"></a>Funktion: <strong>opena</strong> <em>(<var>file</var>)</em></dt>
+<dd>
+<p>Gibt einen Dateiausgabestrom f&uuml;r Schriftzeichen zur&uuml;ck. 
+Sollte die Textdatei <var>file</var> nicht existieren, wird sie erzeugt. 
+Wird eine bereits vorhandene Datei ge&ouml;ffnet, werden alle Ausgaben in die 
+Datei am Ende hinzugef&uuml;gt.
+</p>
+<p><a href="maxima_283.html#Functions-and-Variables-for-binary-input-and-output">opena_binary</a> 
+ist die entsprechende Funktion f&uuml;r die Ausgabe in eine Bin&auml;rdatei.
+</p></dd></dl>
+
+<a name="openr"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fopenr"></a><dl>
+<dt><a name="index-openr"></a>Funktion: <strong>openr</strong> <em>(<var>file</var>)</em></dt>
+<dd>
+<p>Gibt einen Dateieingabestrom f&uuml;r Schriftzeichen aus einer Textdatei zur&uuml;ck. 
+Voraussetzung ist, dass die Datei <var>file</var> bereits existiert. 
+</p>
+<p><a href="maxima_283.html#Functions-and-Variables-for-binary-input-and-output">openr_binary</a> 
+ist die entsprechende Funktion f&uuml;r die Eingabe aus einer Bin&auml;rdatei.
+</p></dd></dl>
+
+<a name="openw"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fopenw"></a><dl>
+<dt><a name="index-openw"></a>Funktion: <strong>openw</strong> <em>(<var>file</var>)</em></dt>
+<dd>
+<p>Gibt einen Dateiausgabestrom f&uuml;r Schriftzeichen zur&uuml;ck. 
+Sollte die Textdatei <var>file</var> nicht existieren, wird sie erzeugt. 
+Wird eine bereits vorhandene Datei ge&ouml;ffnet, wird sie destruktiv ver&auml;ndert. 
+</p>
+<p><a href="maxima_283.html#Functions-and-Variables-for-binary-input-and-output">openw_binary</a> 
+ist die entsprechende Funktion f&uuml;r die Ausgabe in eine Bin&auml;rdatei.
+</p></dd></dl>
+
+<a name="printf"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fprintf"></a><dl>
+<dt><a name="index-printf"></a>Function: <strong>printf</strong> <em>(<var>dest</var>, <var>string</var>)</em></dt>
+<dt><a name="index-printf-1"></a>Function: <strong>printf</strong> <em>(<var>dest</var>, <var>string</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dd>
+<p>Erzeugt eine formatierte Ausgabe. Der Zielparameter <var>dest</var> gibt an, wo die 
+Ausgabe erfolgen soll. M&ouml;glich sind hier ein Ausgabestrom oder die globalen 
+Variablen <code>true</code> und <code>false</code>. <code>true</code> bewirkt eine Ausgabe im Terminal. 
+Der R&uuml;ckgabewert von <code>printf</code> ist in diesem Fall <code>false</code>. 
+<code>false</code> als Zielparameter bewirkt die Ausgabe im R&uuml;ckgabewert. 
+</p>
+<p>Die Zeichen des Kontrollparameters <var>string</var> werden der Reihe nach ausgegeben, 
+wobei jedoch eine Tilde eine Direktive einleitet. Die Direktiven verwenden 
+dann im Allgemeinen die nachstehenden Parameter <var>expr_1</var>, &hellip;, <var>expr_n</var>, 
+um die Ausgabe zu erzeugen. Das Zeichen nach der Tilde gibt dabei an, 
+welche Art der Formatierung gew&uuml;nscht ist. 
+</p>
+<p><code>printf</code> stellt die Common Lisp Funktion <code>format</code> in Maxima zur Verf&uuml;gung. 
+Das folgende Beispiel zeigt die grunds&auml;tzliche Beziehung zwischen diesen 
+beiden Funktionen.
+</p>
+<div class="example">
+<pre class="example">(%i1) printf(true, &quot;R~dD~d~%&quot;, 2, 2);
+R2D2
+(%o1)                                false
+(%i2) :lisp (format t &quot;R~dD~d~%&quot; 2 2)
+R2D2
+NIL
+</pre></div>
+
+<p>Die folgende Beschreibung und die Beispiele beschr&auml;nken sich auf eine grobe 
+Skizze der Verwendungsm&ouml;glichkeiten von <code>printf</code>.  
+Die Lisp Funktion <code>format</code> ist in vielen Referenzb&uuml;chern ausf&uuml;hrlich 
+beschrieben. Eine hilfreiche Quelle ist z.B. das frei verf&uuml;gbare Online-Manual 
+&quot;Common Lisp the Language&quot; von Guy L. Steele. Siehe dort das Kapitel 22.3.3. 
+</p>
+<div class="example">
+<pre class="example">   ~%       new line
+   ~&amp;       fresh line
+   ~t       tab
+   ~$       monetary
+   ~d       decimal integer
+   ~b       binary integer
+   ~o       octal integer
+   ~x       hexadecimal integer
+   ~br      base-b integer
+   ~r       spell an integer
+   ~p       plural
+   ~f       floating point
+   ~e       scientific notation
+   ~g       ~f or ~e, depending upon magnitude
+   ~h       bigfloat
+   ~a       uses Maxima function string
+   ~s       like ~a, but output enclosed in &quot;double quotes&quot;
+   ~~       ~
+   ~&lt;       justification, ~&gt; terminates
+   ~(       case conversion, ~) terminates 
+   ~[       selection, ~] terminates 
+   ~{       iteration, ~} terminates
+</pre></div>
+
+<p>Die Direktive ~h f&uuml;r Gleitkommazahlen mit beliebiger Genauigkeit 
+entspricht nicht dem Lisp-Standard und wird daher unten n&auml;her beschrieben. 
+</p>
+<p>Die Direktive ~* wird nicht unterst&uuml;tzt.
+</p>
+<p>Ist <var>dest</var> ein Datenstrom oder <code>true</code>, gibt <code>printf</code> 
+<code>false</code> zur&uuml;ck. Andernfalls ist der R&uuml;ckgabewert eine Zeichenkette.
+</p>
+<div class="example">
+<pre class="example">(%i1) printf( false, &quot;~a ~a ~4f ~a ~@r&quot;, 
+              &quot;String&quot;,sym,bound,sqrt(12),144), bound = 1.234;
+(%o1)                 String sym 1.23 2*sqrt(3) CXLIV
+(%i2) printf( false,&quot;~{~a ~}&quot;,[&quot;one&quot;,2,&quot;THREE&quot;] );
+(%o2)                          one 2 THREE 
+(%i3) printf( true,&quot;~{~{~9,1f ~}~%~}&quot;,mat ),
+          mat = args(matrix([1.1,2,3.33],[4,5,6],[7,8.88,9]))$
+      1.1       2.0       3.3 
+      4.0       5.0       6.0 
+      7.0       8.9       9.0 
+(%i4) control: &quot;~:(~r~) bird~p ~[is~;are~] singing.&quot;$
+(%i5) printf( false, control, n,n, if n = 1 then 1 else 2 ), n = 2;
+(%o5)                    Two birds are singing.
+</pre></div>
+
+<p>Die Direktive ~h wurde f&uuml;r Gleitkommazahlen mit beliebiger Genauigkeit 
+eingef&uuml;hrt.
+</p>
+<div class="example">
+<pre class="example">~w,d,e,x,o,p@H
+ w : width
+ d : decimal digits behind floating point
+ e : minimal exponent digits
+ x : preferred exponent
+ o : overflow character
+ p : padding character
+ @ : display sign for positive numbers
+</pre></div>
+
+<div class="example">
+<pre class="example">(%i1) fpprec : 1000$
+(%i2) printf(true, &quot;|~h|~%&quot;, 2.b0^-64)$
+|0.0000000000000000000542101086242752217003726400434970855712890625|
+(%i3) fpprec : 26$
+(%i4) printf(true, &quot;|~h|~%&quot;, sqrt(2))$
+|1.4142135623730950488016887|
+(%i5) fpprec : 24$
+(%i6) printf(true, &quot;|~h|~%&quot;, sqrt(2))$
+|1.41421356237309504880169|
+(%i7) printf(true, &quot;|~28h|~%&quot;, sqrt(2))$
+|   1.41421356237309504880169|
+(%i8) printf(true, &quot;|~28,,,,,'*h|~%&quot;, sqrt(2))$
+|***1.41421356237309504880169|
+(%i9) printf(true, &quot;|~,18h|~%&quot;, sqrt(2))$
+|1.414213562373095049|
+(%i10) printf(true, &quot;|~,,,-3h|~%&quot;, sqrt(2))$
+|1414.21356237309504880169b-3|
+(%i11) printf(true, &quot;|~,,2,-3h|~%&quot;, sqrt(2))$
+|1414.21356237309504880169b-03|
+(%i12) printf(true, &quot;|~20h|~%&quot;, sqrt(2))$
+|1.41421356237309504880169|
+(%i13) printf(true, &quot;|~20,,,,'+h|~%&quot;, sqrt(2))$
+|++++++++++++++++++++|
+</pre></div>
+
+</dd></dl>
+
+<a name="readbyte"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002freadbyte"></a><dl>
+<dt><a name="index-readbyte"></a>Funktion: <strong>readbyte</strong> <em>(<var>stream</var>) </em></dt>
+<dd>
+<p>Entfernt das erste Byte aus dem bin&auml;ren Eingabestrom <var>stream</var> und gibt es 
+zur&uuml;ck. 
+Ist das Ende der Datei (EOF) erreicht, wird <code>false</code> zur&uuml;ck gegeben.
+</p>
+<p>Beispiel: Die ersten 16 Byte aus einer mit AES in OpenSSL verschl&uuml;sselten 
+Datei werden gelesen und ausgewertet. 
+</p>
+<div class="example">
+<pre class="example">(%i1) ibase: obase: 16.$
+
+(%i2) in: openr_binary(&quot;msg.bin&quot;);
+(%o2)                       #&lt;input stream msg.bin&gt;
+(%i3) (L:[],  thru 16. do push(readbyte(in), L),  L:reverse(L));
+(%o3) [53, 61, 6C, 74, 65, 64, 5F, 5F, 88, 56, 0DE, 8A, 74, 0FD, 0AD, 0F0]
+(%i4) close(in);
+(%o4)                                true
+(%i5) map(ascii, rest(L,-8));
+(%o5)                      [S, a, l, t, e, d, _, _]
+(%i6) salt: octets_to_number(rest(L,8));
+(%o6)                          8856de8a74fdadf0
+</pre></div>
+
+</dd></dl>
+
+<a name="readchar"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002freadchar"></a><dl>
+<dt><a name="index-readchar"></a>Funktion: <strong>readchar</strong> <em>(<var>stream</var>)</em></dt>
+<dd>
+<p>Entfernt und gibt das erste Schriftzeichen in <var>stream</var> zur&uuml;ck. 
+Falls das Ende des Streams erreicht sein sollte, gibt <code>readchar</code> 
+<code>false</code> zur&uuml;ck.
+</p>
+<p>Beispiel: Siehe <a href="#make_005fstring_005finput_005fstream">make_string_input_stream</a>.
+</p></dd></dl>
+
+<a name="readline"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002freadline"></a><dl>
+<dt><a name="index-readline"></a>Function: <strong>readline</strong> <em>(<var>stream</var>)</em></dt>
+<dd>
+<p>Gibt die Zeichenkette zur&uuml;ck, die s&auml;mtliche Zeichen von der 
+aktuellen Position in <var>stream</var> bis zum Ende der Zeile enth&auml;lt 
+oder <code>false</code>, falls das Ende der Datei erreicht wurde.
+</p>
+</dd></dl>
+
+<a name="sprint"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fsprint"></a><dl>
+<dt><a name="index-sprint"></a>Funktion: <strong>sprint</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dd>
+<p>Wertet ihre Argumente der Reihe nach von links nach rechts aus und gibt sie dann 
+auf einer Linie aus. Zeilenbegrenzungen werden dabei au&szlig;er Acht gelassen. 
+An die ausgegebenen Ausdr&uuml;cke wird jeweils rechts ein Leerzeichen angef&uuml;gt. 
+</p>
+<p>Beispiel: Sequentielle Ausgabe mit <code>sprint</code>. 
+Zeilenumbr&uuml;che werden hier mit <code>newline()</code> erzeugt.
+</p>
+<div class="example">
+<pre class="example">(%i1) for n:0 thru 19 do sprint(fib(n))$
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181
+(%i2) for n:0 thru 22 do ( 
+         sprint(fib(n)), 
+         if mod(n,10) = 9 then newline() )$
+0 1 1 2 3 5 8 13 21 34 
+55 89 144 233 377 610 987 1597 2584 4181 
+6765 10946 17711 
+</pre></div>
+
+</dd></dl>
+
+<a name="writebyte"></a><a name="Item_003a-stringproc_002ede_002fdeffn_002fwritebyte"></a><dl>
+<dt><a name="index-writebyte"></a>Funktion: <strong>writebyte</strong> <em>(<var>byte</var>, <var>stream</var>) </em></dt>
+<dd>
+<p>Schreibt das Byte <var>byte</var> in den bin&auml;ren Ausgabestrom <var>stream</var>. 
+<code>writebyte</code> gibt <code>byte</code> zur&uuml;ck.
+</p>
+<p>Beispiel: Es werden Bytes in eine Bin&auml;rdatei geschrieben. 
+In diesem Beispiel entsprechen s&auml;mtliche Bytes druckbaren Zeichen, 
+die mit Hilfe von <code>printfile</code> ausgegeben werden k&ouml;nnen. 
+Die Bytes verbleiben so lange im Datenstrom, bis die Funktionen <code>flush_output</code> 
+oder <code>close</code> aufgerufen werden.
+</p>
+<div class="example">
+<pre class="example">(%i1) ibase: obase: 16.$
+
+(%i2) bytes: string_to_octets(&quot;GNU/Linux&quot;);
+(%o2)                [47, 4E, 55, 2F, 4C, 69, 6E, 75, 78]
+(%i3) out: openw_binary(&quot;test.bin&quot;);
+(%o3)                      #&lt;output stream test.bin&gt;
+(%i4) for i thru 3 do writebyte(bytes[i], out);
+(%o4)                                done
+(%i5) printfile(&quot;test.bin&quot;)$
+
+(%i6) flength(out);
+(%o6)                                  0
+(%i7) flush_output(out);
+(%o7)                                true
+(%i8) flength(out);
+(%o8)                                  3
+(%i9) printfile(&quot;test.bin&quot;)$
+GNU
+(%i0A) for b in rest(bytes,3) do writebyte(b, out);
+(%o0A)                               done
+(%i0B) close(out);
+(%o0B)                               true
+(%i0C) printfile(&quot;test.bin&quot;)$
+GNU/Linux
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002ede_002fnode_002fSchriftzeichen"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_319.html#Schriftzeichen" accesskey="n" rel="next">Schriftzeichen</a>, Previous: <a href="maxima_317.html#Einf_00fchrung-in-die-Verarbeitung-von-Zeichenketten" accesskey="p" rel="previous">Einf&uuml;hrung in die Verarbeitung von Zeichenketten</a>, Nach oben: <a href="maxima_316.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

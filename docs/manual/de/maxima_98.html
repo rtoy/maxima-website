@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Funktionen und Variablen f&uuml;r Differentialgleichungen</title>
+
+<meta name="description" content="Maxima Manual: Funktionen und Variablen f&uuml;r Differentialgleichungen">
+<meta name="keywords" content="Maxima Manual: Funktionen und Variablen f&uuml;r Differentialgleichungen">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_96.html#Differentialgleichungen" rel="up" title="Differentialgleichungen">
+<link href="maxima_99.html#Polynome" rel="next" title="Polynome">
+<link href="maxima_97.html#Einf_00fchrung-in-Differentialgleichungen" rel="previous" title="Einf&uuml;hrung in Differentialgleichungen">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funktionen-und-Variablen-f_00fcr-Differentialgleichungen"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_97.html#Einf_00fchrung-in-Differentialgleichungen" accesskey="p" rel="previous">Einf&uuml;hrung in Differentialgleichungen</a>, Nach oben: <a href="maxima_96.html#Differentialgleichungen" accesskey="u" rel="up">Differentialgleichungen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-und-Variablen-fur-Differentialgleichungen"></a>
+<h4 class="subsection">16.4.2 Funktionen und Variablen f&uuml;r Differentialgleichungen</h4>
+
+<a name="bc2"></a><a name="Item_003a-Calculus_002ede_002fdeffn_002fbc2"></a><dl>
+<dt><a name="index-bc2"></a>Funktion: <strong>bc2</strong> <em>(<var>solution</var>, <var>xval1</var>, <var>yval1</var>, <var>xval2</var>, <var>yval2</var>)</em></dt>
+<dd>
+
+<p>L&ouml;st das Randwertproblem einer Differentialgleichung 2. Ordnung.  Das
+Argument <var>solution</var> ist eine allgemeine L&ouml;sung, wie sie von der Funktion
+<code><a href="#ode2">ode2</a></code> zur&uuml;ckgegeben wird.  <var>xval1</var> gibt den Wert der unabh&auml;ngigen
+Variablen im ersten Randpunkt an.  Der Randwert wird als ein Ausdruck
+<code><var>x</var> = <var>x1</var></code> angegeben.  Das Argument <var>yval1</var> gibt den Wert
+der abh&auml;ngigen Variablen in diesem Punkt an.  Der Randwert wird als
+<code><var>y</var> = <var>y1</var></code> angegeben.  Mit den Argumenten <var>xval2</var> und
+<var>yval2</var> werden die entsprechenden Werte an einem zweiten Randpunkt
+angegeben.
+</p>
+<p>Siehe die Funktion <code><a href="#ode2">ode2</a></code> f&uuml;r Beispiele.
+</p></dd></dl>
+
+<a name="desolve"></a><a name="Item_003a-Calculus_002ede_002fdeffn_002fdesolve"></a><dl>
+<dt><a name="index-desolve"></a>Funktion: <strong>desolve</strong> <em>(<var>eqn</var>, <var>x</var>)</em></dt>
+<dt><a name="index-desolve-1"></a>Funktion: <strong>desolve</strong> <em>([<var>eqn_1</var>, &hellip;, <var>eqn_n</var>], [<var>x_1</var>, &hellip;, <var>x_n</var>])</em></dt>
+<dd>
+
+<p>Die Funktion <code>desolve</code> l&ouml;st lineare Systeme gew&ouml;hnlicher
+Differentialgleichungen mit Hilfe der Methode der Laplacetransformation.  Die
+Argumente <var>eqn_i</var> sind die Differentialgleichungen mit den abh&auml;ngigen
+Variablen <var>x_1</var>, &hellip;, <var>x_n</var>.  Die funktionale Abh&auml;ngigkeit der
+Variablen <var>x_1</var>, &hellip;, <var>x_n</var> zum Beispiel von einer Variablen <var>x</var>
+muss explizit f&uuml;r die Variablen und ihrer Ableitungen angegeben werden.  Zum
+Beispiel ist sind die folgenden zwei Gleichungen keine korrekte Definition: 
+</p>
+<div class="example">
+<pre class="example">eqn_1: 'diff(f,x,2) = sin(x) + 'diff(g,x);
+eqn_2: 'diff(f,x) + x^2 - f = 2*'diff(g,x,2);
+</pre></div>
+
+
+<p>Eine korrekte Definition der zwei Gleichungen ist
+</p>
+<div class="example">
+<pre class="example">eqn_1: 'diff(f(x),x,2) = sin(x) + 'diff(g(x),x);
+eqn_2: 'diff(f(x),x) + x^2 - f(x) = 2*'diff(g(x),x,2);
+</pre></div>
+
+
+<p>Die Funktion <code>desolve</code> wird dann folgenderma&szlig;en aufgerufen
+</p>
+<div class="example">
+<pre class="example">desolve([eqn_1, eqn_2], [f(x),g(x)]);
+</pre></div>
+
+
+<p>Sind Anfangswerte f&uuml;r <code>x=0</code> bekannt, k&ouml;nnen diese mit der Funktion
+<code><a href="maxima_90.html#atvalue">atvalue</a></code> vor dem Aufruf der Funktion <code>desolve</code> angegeben werden.
+</p>
+<div class="example">
+<pre class="example">(%i1) 'diff(f(x),x)='diff(g(x),x)+sin(x);
+                 d           d
+(%o1)            -- (f(x)) = -- (g(x)) + sin(x)
+                 dx          dx
+(%i2) 'diff(g(x),x,2)='diff(f(x),x)-cos(x);
+</pre><pre class="example">                  2
+                 d            d
+(%o2)            --- (g(x)) = -- (f(x)) - cos(x)
+                   2          dx
+                 dx
+</pre><pre class="example">(%i3) atvalue('diff(g(x),x),x=0,a);
+(%o3)                           a
+(%i4) atvalue(f(x),x=0,1);
+(%o4)                           1
+(%i5) desolve([%o1,%o2],[f(x),g(x)]);
+</pre><pre class="example">                  x
+(%o5) [f(x) = a %e  - a + 1, g(x) = 
+                                                x
+                                   cos(x) + a %e  - a + g(0) - 1]
+</pre><pre class="example">(%i6) [%o1,%o2],%o5,diff;
+             x       x      x                x
+(%o6)   [a %e  = a %e , a %e  - cos(x) = a %e  - cos(x)]
+</pre></div>
+
+
+<p>Kann <code>desolve</code> keine L&ouml;sung finden, ist die R&uuml;ckgabe <code>false</code>.
+</p></dd></dl>
+
+<a name="ic1"></a><a name="Item_003a-Calculus_002ede_002fdeffn_002fic1"></a><dl>
+<dt><a name="index-ic1"></a>Funktion: <strong>ic1</strong> <em>(<var>solution</var>, <var>xval</var>, <var>yval</var>)</em></dt>
+<dd>
+
+<p>L&ouml;st das Anfangswertproblem f&uuml;r eine Differentialgleichung 1. Ordnung.
+Das Argument <var>solution</var> ist eine allgemeine L&ouml;sung der
+Differentialgleichung, wie sie von der Funktion <code>ode2</code> zur&uuml;ckgegeben
+wird.  Mit dem Argument <var>xval</var> wird der Anfangswert der unabh&auml;ngigen
+Variablen in der Form <code><var>x</var> = <var>x0</var></code> angegeben.  Mit dem Argument
+<var>yval</var> wird der Anfangswert der unabh&auml;ngigen Variablen in der Form
+<code><var>y</var> = <var>y0</var></code> angegeben.
+</p>
+
+<p>Siehe die Funktion <code><a href="#ode2">ode2</a></code> f&uuml;r ein Beispiel.
+</p></dd></dl>
+
+<a name="ic2"></a><a name="Item_003a-Calculus_002ede_002fdeffn_002fic2"></a><dl>
+<dt><a name="index-ic2"></a>Funktion: <strong>ic2</strong> <em>(<var>solution</var>, <var>xval</var>, <var>yval</var>, <var>dval</var>)</em></dt>
+<dd>
+
+<p>L&ouml;st das Anfangswertproblem f&uuml;r eine Differentialgleichung 2. Ordnung.
+Das Argument <var>solution</var> ist eine allgemeine L&ouml;sung der
+Differentialgleichung, wie sie von der Funktion <code>ode2</code> zur&uuml;ckgegeben
+wird.  Mit dem Argument <var>xval</var> wird der Anfangswert der unabh&auml;ngigen
+Variablen in der Form <code><var>x</var> = <var>x0</var></code> angegeben.  Mit dem Argument
+<var>yval</var> wird der Anfangswert der abh&auml;ngigen Variablen in der Form
+<code><var>y</var> = <var>y0</var></code> angegeben.  Mit dem Argument <var>dval</var> wird der
+Anfangswert der ersten Ableitung der abh&auml;ngigen Variablen nach der
+unabh&auml;ngigen Variablen in der Form <code>diff(<var>y</var>,<var>x</var>) = <var>dy0</var></code>
+angegeben.  Dem Symbol <code>diff</code> muss kein <code><a href="maxima_45.html#g_t_0027">Quote-Operator</a></code> <code>'</code>
+vorangestellt werden.
+</p>
+
+<p>Siehe auch <code><a href="#ode2">ode2</a></code> f&uuml;r ein Beispiel.
+</p></dd></dl>
+
+<a name="ode2"></a><a name="Item_003a-Calculus_002ede_002fdeffn_002fode2"></a><dl>
+<dt><a name="index-ode2"></a>Funktion: <strong>ode2</strong> <em>(<var>eqn</var>, <var>dvar</var>, <var>ivar</var>)</em></dt>
+<dd>
+
+<p>Die Funktion <code>ode2</code> l&ouml;st eine gew&ouml;hnliche Differentialgleichung der
+ersten oder zweiten Ordnung.  Die Funktion hat drei Argumente: die
+Differentialgleichung <var>eqn</var>, die abh&auml;ngige Variable <code>dvar</code> und die
+unabh&auml;ngige Variable <code>ivar</code>.  Ist die Funktion <code>ode2</code> erfolgreich
+wird eine explizite oder implizite L&ouml;sung f&uuml;r die abh&auml;ngige Variable
+zur&uuml;ckgegeben.  Im Fall einer Differentialgleichung 1. Ordnung wird die
+Integrationskonstante mit <code>%c</code> bezeichnet.  F&uuml;r eine
+Differentialgleichung 2. Ordnung werden die Integrationskonstanten mit
+<code>%k1</code> und <code>%k2</code> bezeichnet.  Die Abh&auml;ngigkeit der abh&auml;ngigen
+Variable von der unabh&auml;ngigen Variablen muss nicht explizit, wie im Fall von
+<code><a href="#desolve">desolve</a></code> angegeben werden.
+</p>
+
+<p>Kann <code>ode2</code> keine L&ouml;sung finden, ist die R&uuml;ckgabe <code>false</code>.
+Gegebenenfalls wird eine Fehlermeldung ausgegeben.  Folgende Methoden werden
+f&uuml;r das L&ouml;sen einer Differentialgleichung 1. Ordnung nacheinander
+angewendet: linear, separierbar, exakt - wenn notwendig unter Zuhilfenahme
+eines Integrationsfaktors, homogen, bernoullische Differentialgleichung und
+eine Methode f&uuml;r verallgemeinerte homogene Gleichungen.  F&uuml;r eine
+Differentialgleichung 2. Ordnung kommen die folgenden Methoden zur Anwendung:
+konstante Koeffizienten, exakt, linear homogen mit nicht-konstanten
+Koeffizienten, die zu konstanten Koeffizienten transformiert werden k&ouml;nnen,
+eulersche Differentialgleichung, Variation der Parameter, Reduktion auf eine
+Differentialgleichung 1. Ordnung, wenn die Differentialgleichung entweder
+frei von der unabh&auml;ngigen oder der abh&auml;ngigen Variablen ist.
+</p>
+
+<p>Im Laufe des L&ouml;sungsverfahrens werden zur Information des Nutzers globale
+Variablen gesetzt: <code>method</code> bezeichnet die Methode, die von <code>ode2</code>
+zum Auffinden der L&ouml;sung verwendet wurde.  <code>intfactor</code> bezeichnet einen
+verwendeten Integrationsfaktor.  <code>odeindex</code> bezeichnet den Index der
+bernoullischen Gleichung oder der verallgemeinerte Methode f&uuml;r eine homogene
+Differentialgleichung.  <code>yp</code> bezeichnet eine partikul&auml;re L&ouml;sung, wenn
+die Variation der Parameter angewendet wird.
+</p>
+
+<p>F&uuml;r das L&ouml;sen von Anfangswertproblemen einer Differentialgleichung 1. oder
+2. Ordnung k&ouml;nnen die Funktionen <code><a href="#ic1">ic1</a></code> und <code><a href="#ic2">ic2</a></code> verwendet werden.
+Ein Randwertproblem f&uuml;r eine Differentialgleichung 2. Ordnung kann mit der
+Funktion <code><a href="#bc2">bc2</a></code> gel&ouml;st werden.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) x^2*'diff(y,x) + 3*y*x = sin(x)/x;
+                      2 dy           sin(x)
+(%o1)                x  -- + 3 x y = ------
+                        dx             x
+(%i2) ode2(%,y,x);
+                             %c - cos(x)
+(%o2)                    y = -----------
+                                  3
+                                 x
+(%i3) ic1(%o2,x=%pi,y=0);
+                              cos(x) + 1
+(%o3)                   y = - ----------
+                                   3
+                                  x
+(%i4) 'diff(y,x,2) + y*'diff(y,x)^3 = 0;
+                         2
+                        d y      dy 3
+(%o4)                   --- + y (--)  = 0
+                          2      dx
+                        dx
+(%i5) ode2(%,y,x);
+                      3
+                     y  + 6 %k1 y
+(%o5)                ------------ = x + %k2
+                          6
+(%i6) ratsimp(ic2(%o5,x=0,y=0,'diff(y,x)=2));
+                             3
+                          2 y  - 3 y
+(%o6)                   - ---------- = x
+                              6
+(%i7) bc2(%o5,x=0,y=1,x=1,y=3);
+</pre><pre class="example">                         3
+                        y  - 10 y       3
+(%o7)                   --------- = x - -
+                            6           2
+</pre></div>
+</dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_97.html#Einf_00fchrung-in-Differentialgleichungen" accesskey="p" rel="previous">Einf&uuml;hrung in Differentialgleichungen</a>, Nach oben: <a href="maxima_96.html#Differentialgleichungen" accesskey="u" rel="up">Differentialgleichungen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

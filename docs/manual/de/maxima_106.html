@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Nicht-kommutative Multiplikation</title>
+
+<meta name="description" content="Maxima Manual: Nicht-kommutative Multiplikation">
+<meta name="keywords" content="Maxima Manual: Nicht-kommutative Multiplikation">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_105.html#Einf_00fchrung-in-die-lineare-Algebra" rel="up" title="Einf&uuml;hrung in die lineare Algebra">
+<link href="maxima_107.html#Vektoren" rel="next" title="Vektoren">
+<link href="maxima_105.html#Einf_00fchrung-in-die-lineare-Algebra" rel="previous" title="Einf&uuml;hrung in die lineare Algebra">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Nicht_002dkommutative-Multiplikation"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_107.html#Vektoren" accesskey="n" rel="next">Vektoren</a>, Previous: <a href="maxima_105.html#Einf_00fchrung-in-die-lineare-Algebra" accesskey="p" rel="previous">Einf&uuml;hrung in die lineare Algebra</a>, Nach oben: <a href="maxima_105.html#Einf_00fchrung-in-die-lineare-Algebra" accesskey="u" rel="up">Einf&uuml;hrung in die lineare Algebra</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Nicht_002dkommutative-Multiplikation-1"></a>
+<h4 class="subsection">19.1.1 Nicht-kommutative Multiplikation</h4>
+
+
+<p>Der Operator <code>.</code> repr&auml;sentiert die nichtkommutative Multiplikation oder
+das Skalarprodukt. Sind die Argumente 1-spaltige oder 1-reihige Matrizen
+<code>a</code> und <code>b</code>, dann ist der Ausdruck <code>a . b</code> &auml;quivalent zu
+<code>sum(a[i]*b[i], i, 1, length(a))</code>. Sind <code>a</code> und <code>b</code> nicht
+komplex, dann ist der vorhergende Ausdruck das Skalarprodukt von <code>a</code> und
+<code>b</code>. Das Skalarprodukt ist als <code>conjugate(a) . b</code> definiert, wenn
+<code>a</code> und <code>b</code> komplex sind. Die Funktion <code><a href="maxima_109.html#innerproduct">innerproduct</a></code> im Paket
+<code>eigen</code> stellt das komplexe Skalarprodukt zur Verf&uuml;gung.
+</p>
+
+<p>Sind die Argumente <code>a</code> und <code>b</code> allgemeine Matrizen, dann ist das
+Ergebnis der nichtkommutativen Multiplikation das Matrizprodukt der Argumente. 
+Die Anzahl der Zeilen der Matrix <code>b</code> muss gleich der Anzahl der Spalten der
+Matrix <code>a</code> sein. Das Ergebnis ist eine Matrix, deren Anzahl der Zeilen der 
+der Matrix <code>a</code> entspricht und deren Anzahl der Spalten der der Matrix 
+<code>b</code> entspricht.
+</p>
+
+<p>Um den nichtkommutativen Operator <code>.</code> vom Dezimalpunkt einer Gleitkommazahl
+zu unterscheiden, kann es notwendig sein, dem Operator ein Leerzeichen 
+voranzustellen und folgen zu lassen. Zum Beispiel ist <code>5.e3</code> die 
+Gleitkommazahl <code>5000.0</code> und <code>5 .  e3</code> ist <code>5</code> multipliziert mit
+der Variablen <code>e3</code>.
+</p>
+
+<p>Verschiedene Schalter kontrollieren die Vereinfachung der nichtkommutativen
+Multiplikation. Zu diesen geh&ouml;ren:
+</p>
+<pre class="verbatim">   dot            dot0nscsimp     dot0simp
+   dot1simp       dotassoc        dotconstrules
+   dotdistrib     dotexptsimp     dotident
+   dotscrules
+</pre>
+<a name="Item_003a-Matrices_002ede_002fnode_002fVektoren"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_107.html#Vektoren" accesskey="n" rel="next">Vektoren</a>, Previous: <a href="maxima_105.html#Einf_00fchrung-in-die-lineare-Algebra" accesskey="p" rel="previous">Einf&uuml;hrung in die lineare Algebra</a>, Nach oben: <a href="maxima_105.html#Einf_00fchrung-in-die-lineare-Algebra" accesskey="u" rel="up">Einf&uuml;hrung in die lineare Algebra</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

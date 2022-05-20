@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Visualización usando VTK</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Visualización usando VTK">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Visualización usando VTK">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_206.html#dynamics" rel="up" title="dynamics">
+<link href="maxima_210.html#ezunits" rel="next" title="ezunits">
+<link href="maxima_208.html#An_00e1lisis-gr_00e1fico-de-sistemas-din_00e1micos-discretos" rel="previous" title="Análisis gráfico de sistemas dinámicos discretos">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Visualizaci_00f3n-usando-VTK"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_208.html#An_00e1lisis-gr_00e1fico-de-sistemas-din_00e1micos-discretos" accesskey="p" rel="previous">Análisis gráfico de sistemas dinámicos discretos</a>, Subir: <a href="maxima_206.html#dynamics" accesskey="u" rel="up">dynamics</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Visualizacion-usando-VTK"></a>
+<h3 class="section">49.3 Visualización usando VTK</h3>
+
+<p>La función scene crea imágenes tridimensionales y animaciones usando el
+software <em>Visualization ToolKit</em> (VTK). Para poder usar esa función
+es necesario tener Xmaxima y VTK instalados en el sistema (incluyendo la
+biblioteca para usar VTK desde TCL que en algunos sistemas viene en un
+paquete separado).
+</p>
+<a name="scene"></a><a name="Item_003a-dynamics_002fdeffn_002fscene"></a><dl>
+<dt><a name="index-scene"></a>Función: <strong>scene</strong> <em>(<var>objetos</var>, &hellip;, <var>opciones</var>, &hellip;);</em></dt>
+<dd>
+<p>Acepta una lista vacía o una lista de varios
+<code><a href="#scene_005fobjetos">objetos</a></code> y <code><a href="#scene_005fopciones">opciones</a></code>. El
+programa ejecuta Xmaxima, que abre una ventana donde se representan los
+objetos dados, en un espacio tridimensional y aplicando las opciones
+dadas. Cada objeto debe pertenecer una de las 4 clases: sphere, cube,
+cylinder o cone (ver <code><a href="#scene_005fobjetos">Objetos de scene</a></code>). Los
+objetos se identifican dando el nombre de su clase, o una lista en que
+el primer elemento es el nombre de la clase y los restantes elementos
+son opciones para ese objeto.
+</p> 
+<p><strong>Ejemplo</strong>. Una pirámide hexagonal con fondo azul:
+</p><div class="example">
+<pre class="example">(%i1) scene(cone, [background,&quot;#9980e5&quot;])$
+</pre></div>
+<img src="./figures/scene1.png" alt="./figures/scene1">
+
+<p>Presionando el botón izquierdo del ratón mientras se mueve dentro de la
+ventana gráfica, se puede rotar la cámara, mostrando diferentes vistas
+de la pirámide. Las dos opciones <code><a href="#scene_005felevation">elevation</a></code> y
+<code><a href="#scene_005fazimuth">azimuth</a></code> se pueden usar también para cambiar la
+orientación de la cámara. La cámara se puede mover presionando el botón
+del medio y moviendo el ratón y el botón del lado derecho se usa para
+aumentar o disminuir el zoom, moviendo el ratón para arriba y para
+bajo.
+</p>
+<p>Cada opción de un objeto deberá ser una lista comenzando con el nombre
+de la opción, seguido por su valor. La lista de posibles opciones se
+encuentra en la sección
+<code><a href="#objeto_005fopciones">Opciones de objetos de scene</a></code>.
+</p>
+<p><strong>Ejemplo</strong>. Este ejemplo mostrará una esfera cayendo para el piso
+y rebotando sin perder energía. Para comenzar o poner en pausa la
+animación se debe oprimir el botón de play/pausa.
+</p>
+<div class="example">
+<pre class="example">(%i1) p: makelist ([0,0,2.1- 9.8*t^2/2], t, 0, 0.64, 0.01)$
+
+(%i2) p: append (p, reverse(p))$
+
+(%i3) bola: [sphere, [radius,0.1], [thetaresolution,20],
+  [phiresolution,20], [position,0,0,2.1], [color,red],
+  [animate,position,p]]$
+
+(%i4) piso: [cube, [xlength,2], [ylength,2], [zlength,0.2],
+  [position,0,0,-0.1],[color,violet]]$
+
+(%i5) scene (bola, piso, restart)$
+</pre></div>
+<img src="./figures/scene2.png" alt="./figures/scene2">
+
+<p>La opción <var>restart</var> fue usada para hacer que la animación recomienze
+cada vez que se llega al último punto en la lista. Los valores
+permitidos para los colores son los mismo que para la opción <code><a href="maxima_66.html#color">color</a></code>
+de plot2d. 
+</p>
+</dd></dl>
+
+<a name="scene_005fopciones"></a><a name="Opciones-de-scene"></a>
+<h4 class="subsection">49.3.1 Opciones de scene</h4>
+
+<a name="scene_005fazimuth"></a><a name="Item_003a-dynamics_002fdefvr_002fazimuth"></a><dl>
+<dt><a name="index-azimuth-1"></a>Opción de scene: <strong>azimuth</strong> <em>[azimuth, <var>ángulo</var>]</em></dt>
+<dd><p>Valor predefinido: <code>135</code>
+</p>
+<p>La rotación de la cámara en el plano horizontal (x, y). <var>ángulo</var>
+debe ser un número real; un ángulo de 0 significa que la cámara apunta
+en la dirección del eje y, haciendo que el eje x aparezca a la derecha.
+</p>
+</dd></dl>
+
+<a name="scene_005fbackground"></a><a name="Item_003a-dynamics_002fdefvr_002fbackground"></a><dl>
+<dt><a name="index-background"></a>Opción de scene: <strong>background</strong> <em>[background, <var>color</var>]</em></dt>
+<dd><p>Valor predefinido: <code>black</code>
+</p>
+<p>El color del fondo de la ventana gráfica. Acepta nombres de colores o
+secuencias de caracteres hexadecimales para rojo-verde-azul (ver la
+opción <code><a href="maxima_66.html#color">color</a></code> de plot2d).
+</p>
+</dd></dl>
+
+<a name="scene_005felevation"></a><a name="Item_003a-dynamics_002fdefvr_002felevation"></a><dl>
+<dt><a name="index-elevation-1"></a>Opción de scene: <strong>elevation</strong> <em>[elevation, <var>ángulo</var>]</em></dt>
+<dd><p>Valor predefinido: <code>30</code>
+</p>
+<p>La rotación vertical de la cámara. El <var>ángulo</var> debe ser un número
+real; un ángulo de 0 significa que la cámara apunta en la horizontal y
+el valor predefinido de 30 significa que la cámara apunta 30 grados para
+abajo de la horizontal.
+</p>
+</dd></dl>
+
+<a name="scene_005fheight"></a><a name="Item_003a-dynamics_002fdefvr_002fheight"></a><dl>
+<dt><a name="index-height"></a>Opción de scene: <strong>height</strong> <em>[height, <var>pixels</var>]</em></dt>
+<dd><p>Valor predefinido: <code>500</code>
+</p>
+<p>La altura, en pixels, de la ventana gráfica. <var>pixels</var> debe ser un
+número entero positivo.
+</p>
+</dd></dl>
+
+<a name="scene_005frestart"></a><a name="Item_003a-dynamics_002fdefvr_002frestart"></a><dl>
+<dt><a name="index-restart"></a>Opción de scene: <strong>restart</strong> <em>[restart, <var>valor</var>]</em></dt>
+<dd><p>Valor predefinido: <code>false</code>
+</p>
+<p>Un valor &rsquo;true&rsquo; significa que la animación recomenzará automáticamente
+cuando llegue al final. Escribir simplemente &ldquo;restart&rdquo; es equivalente
+a escribir [restart, <var>true</var>].
+</p>
+</dd></dl>
+
+<a name="scene_005ftstep"></a><a name="Item_003a-dynamics_002fdefvr_002ftstep"></a><dl>
+<dt><a name="index-tstep"></a>Opción de scene: <strong>tstep</strong> <em>[tstep, <var>tiempo</var>]</em></dt>
+<dd><p>Valor predefinido: <code>10</code>
+</p>
+<p>El intervalo de tiempo, en milisegundos, entre iteraciones consecutivas
+de las partes de una animación. <var>tiempo</var> debe ser un número real.
+</p>
+</dd></dl>
+
+<a name="scene_005fwidth"></a><a name="Item_003a-dynamics_002fdefvr_002fwidth"></a><dl>
+<dt><a name="index-width"></a>Opción de scene: <strong>width</strong> <em>[width, <var>pixels</var>]</em></dt>
+<dd><p>Valor predefinido: <code>500</code>
+</p>
+<p>El ancho, en pixels, de la ventana gráfica. <var>pixels</var> deberá ser un
+número entero positivo.
+</p>
+</dd></dl>
+
+<a name="scene_005fwindowname"></a><a name="Item_003a-dynamics_002fdefvr_002fwindowname"></a><dl>
+<dt><a name="index-windowname"></a>Opción de scene: <strong>windowname</strong> <em>[windowtitle, <var>nombre</var>]</em></dt>
+<dd><p>Valor predefinido: <code>.scene</code>
+</p>
+<p><var>nombre</var> deberá ser una secuencia de caracteres que pueda ser usada
+para el nombre de una ventana de Tk, creada por Xmaxima para los
+gráficos de <code>scene</code>. El valor predefinido <code>.scene</code> implica que
+será creada una nueva ventana.
+</p>
+</dd></dl>
+
+<a name="scene_005fwindowtitle"></a><a name="Item_003a-dynamics_002fdefvr_002fwindowtitle"></a><dl>
+<dt><a name="index-windowtitle"></a>Opción de scene: <strong>windowtitle</strong> <em>[windowtitle, <var>nombre</var>]</em></dt>
+<dd><p>Valor predefinido: <code>Xmaxima: scene</code>
+</p>
+<p><var>nombre</var> debe ser una secuencia de caracteres que serán escritos en
+el encabezado de la ventana creada por  <code>scene</code>.
+</p>
+</dd></dl>
+
+<a name="scene_005fobjetos"></a><a name="Objetos-de-scene"></a>
+<h4 class="subsection">49.3.2 Objetos de scene</h4>
+
+<a name="cone"></a><a name="Item_003a-dynamics_002fdefvr_002fcone"></a><dl>
+<dt><a name="index-cone"></a>Objeto de scene: <strong>cone</strong> <em>[cone, <var>opciones</var>]</em></dt>
+<dd>
+<p>Crea una pirámide regular con altura 1 unidad y base hexagonal con
+vértices a 0.5 unidades del eje. Las opciones
+<code><a href="#objeto_005fheight">height</a></code> y <code><a href="#objeto_005fradius">radius</a></code> se pueden
+usar para alterar esos valores predefinidos y la opción
+<code><a href="#objeto_005fresolution">resolution</a></code> se usa para alterar el número de
+aristas de la base; valores mayores harán que la pirámide parezca un
+cono. Por omisión, el eje estará a lo largo del eje x, el punto medio de
+la altura estará en el origen y el vértice en el lado positivo del eje
+x; las opciones <code><a href="#objeto_005forientation">orientation</a></code> y
+<code><a href="#objeto_005fcenter">center</a></code> permiten alterar eso.
+</p>
+<p><strong>Ejemplo</strong>. El siguiente comando muestra una pirámide que comienza
+a dar vueltas cuando se oprime el botón de animación.
+</p> 
+<div class="example">
+<pre class="example">(%i1) scene([cone, [orientation,0,30,0], [tstep,100],
+   [animate,orientation,makelist([0,30,i],i,5,360,5)]], restart)$
+</pre></div>
+
+</dd></dl>
+
+<a name="cube"></a><a name="Item_003a-dynamics_002fdefvr_002fcube"></a><dl>
+<dt><a name="index-cube"></a>Objeto de scene: <strong>cube</strong> <em>[cube, <var>opciones</var>]</em></dt>
+<dd>
+<p>Un cubo con aristas de 1 unidad y caras paralelas al los planos xy, xz y
+yz. Las longitudes de las 3 aristas se pueden modificar con las opciones
+<code><a href="#objeto_005fxlength">xlength</a></code>, <code><a href="#objeto_005fylength">ylength</a></code> y
+<code><a href="#objeto_005fzlength">zlength</a></code>, convirtiéndolo en un paralelepípedo y
+las caras se pueden hacer rotar con la opción
+<code><a href="#objeto_005forientation">orientation</a></code>.
+</p>
+</dd></dl>
+
+<a name="cylinder"></a><a name="Item_003a-dynamics_002fdefvr_002fcylinder"></a><dl>
+<dt><a name="index-cylinder"></a>Objeto de scene: <strong>cylinder</strong> <em>[cylinder, <var>opciones</var>]</em></dt>
+<dd>
+<p>Crea un prisma regular con altura de 1 unidad y base hexagonal con los
+vértices a 0.5 unidades del eje. Las opciones
+<code><a href="#objeto_005fheight">height</a></code> y <code><a href="#objeto_005fradius">radius</a></code> permiten
+modificar esos valores predefinidos y la opción
+<code><a href="#objeto_005fresolution">resolution</a></code> se puede usar para modificar el
+número de aristas de la base; valores mayores tornan el prisma más
+parecido a un cilindro. La altura predefinida se puede alterar con la
+opción <code><a href="#objeto_005fheight">height</a></code>. Por omisión el eje estará
+orientado a lo largo del eje x, y el punto medio de la altura estará en
+el origen; se pueden cambiar esas propiedades con las opciones
+<code><a href="#objeto_005forientation">orientation</a></code> y <code><a href="#objeto_005fcenter">center</a></code>.
+</p>
+</dd></dl>
+
+<a name="sphere"></a><a name="Item_003a-dynamics_002fdefvr_002fsphere"></a><dl>
+<dt><a name="index-sphere"></a>Objeto de scene: <strong>sphere</strong> <em>[sphere, <var>opciones</var>]</em></dt>
+<dd>
+<p>Una esfera de radio igual a 0.5 unidades y centro en el origen.
+</p>
+</dd></dl>
+
+<a name="objeto_005fopciones"></a><a name="Opciones-de-objetos-de-scene"></a>
+<h4 class="subsection">49.3.3 Opciones de objetos de scene</h4>
+
+<a name="objeto_005fanimation"></a><a name="Item_003a-dynamics_002fdefvr_002fanimation"></a><dl>
+<dt><a name="index-animation"></a>Opción de objeto: <strong>animation</strong> <em>[animation, <var>propiedad</var>, <var>posiciones</var>]</em></dt>
+<dd>
+<p><var>propiedad</var> deberá ser una de las 4 siguientes propiedades del
+objeto: <code><a href="#objeto_005forigin">origin</a></code>,
+<code><a href="#objeto_005fscale">scale</a></code>, <code><a href="#objeto_005fposition">position</a></code> o
+<code><a href="#objeto_005forientation">orientation</a></code> y <var>posiciones</var> deberá ser una
+lista de puntos. Cuando se oprime el botón &ldquo;play&rdquo;, esa propiedad
+tomará sucesivamente los valores en la lista, en intervalos regulares de
+tiempo definidos por la opción <code><a href="#scene_005ftstep">tstep</a></code>. El botón de
+volver al comienzo puede usarse para recomenzar desde el principio de la
+lista, haciendo que la animación comience nuevamente cuando se presione
+otra vez el botón de play.
+</p>
+<p>Consulte también <code><a href="#objeto_005ftrack">track</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fcapping"></a><a name="Item_003a-dynamics_002fdefvr_002fcapping"></a><dl>
+<dt><a name="index-capping-1"></a>Opción de objeto: <strong>capping</strong> <em>[capping, <var>número</var>]</em></dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p>En un objeto &ldquo;cone&rdquo; o &ldquo;cylinder&rdquo;, determina si la base (o bases) se
+muestran o no. Un valor de 1 para <var>número</var> torna la base visible y
+un valor de 0 la hace invisible.
+</p> 
+</dd></dl>
+
+<a name="objeto_005fcenter"></a><a name="Item_003a-dynamics_002fdefvr_002fcenter"></a><dl>
+<dt><a name="index-center"></a>Opción de objeto: <strong>center</strong> <em>[center, <var>punto</var>]</em></dt>
+<dd><p>Valor predefinido: <code>[0, 0, 0]</code>
+</p>
+<p>Coordenadas del centro geométrico del objeto, en relación a su posición
+(<code><a href="#objeto_005fposition">position</a></code>); <var>punto</var> puede ser una lista de
+3 números reales o 3 números separados por comas. En objetos de clase
+&ldquo;cylinder&rdquo;,&rdquo;cone&rdquo; o &ldquo;cube&rdquo; estará localizado en el punto medio de
+la altura y en objetos de clase &ldquo;sphere&rdquo; estará en su centro.
+</p>
+</dd></dl>
+
+<a name="objeto_005fcolor"></a><a name="Item_003a-dynamics_002fdefvr_002fcolor"></a><dl>
+<dt><a name="index-color-2"></a>Opción de objeto: <strong>color</strong> <em>[color, <var>nombre</var>]</em></dt>
+<dd><p>Valor predefinido: <code>white</code>
+</p>
+<p>El color del objeto. Acepta nombres de colores conocidos o secuencias de
+6 dígitos (rojo-verde-azul) precedidos por # (ver la opción <code><a href="maxima_66.html#color">color</a></code>
+de plot2d).
+</p>
+</dd></dl>
+
+<a name="objeto_005fendphi"></a><a name="Item_003a-dynamics_002fdefvr_002fendphi"></a><dl>
+<dt><a name="index-endphi"></a>Opción de objeto: <strong>endphi</strong> <em>[endphi, <var>ángulo</var>]</em></dt>
+<dd><p>Valor predefinido: <code>180</code>
+</p>
+<p>En una esfera, phi es el ángulo en el plano vertical que pasa por el eje
+z, medido a partir de la parte positiva del eje z. <var>ángulo</var> debe ser
+un múmero entre 0 y 180 que determina el valor final de phi hasta donde
+se mostrará la superficie. Valores menores que 180 eliminan una parte de
+la superficie.
+</p>
+<p>Consulte también <code><a href="#objeto_005fstartphi">startphi</a></code> y
+<code><a href="#objeto_005fphiresolution">phiresolution</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fendtheta"></a><a name="Item_003a-dynamics_002fdefvr_002fendtheta"></a><dl>
+<dt><a name="index-endtheta"></a>Opción de objeto: <strong>endtheta</strong> <em>[endtheta, <var>ángulo</var>]</em></dt>
+<dd><p>Valor predefinido: <code>360</code>
+</p>
+<p>En una esfera, theta es el ángulo en el plano horizontal (longitud),
+medido desde la parte positiva del eje x. <var>ángulo</var> debe ser un
+número entre 0 y 360 que determina el valor final donde la superficie
+terminará. Valores menores que 360 hacen que se elimine una parte de la
+superficie de la esfera.
+</p>
+<p>Consulte también <code><a href="#objeto_005fstarttheta">starttheta</a></code> y
+<code><a href="#objeto_005fthetaresolution">thetaresolution</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fheight"></a><dl>
+<dt><a name="index-height-1"></a>Opción de objeto: <strong>height</strong> <em>[height, <var>valor</var>]</em></dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p><var>valor</var> debe ser un número positivo que define la altura de un cono
+o cilindro.
+</p>
+</dd></dl>
+
+<a name="objeto_005flinewidth"></a><a name="Item_003a-dynamics_002fdefvr_002flinewidth"></a><dl>
+<dt><a name="index-linewidth"></a>Opción de objeto: <strong>linewidth</strong> <em>[linewidth, <var>valor</var>]</em></dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p>El ancho de las líneas cuando se usa la opción
+<code><a href="#objeto_005fwireframe">wireframe</a></code>. <var>valor</var> debe ser un número
+positivo.
+</p>
+</dd></dl>
+
+<a name="objeto_005fopacity"></a><a name="Item_003a-dynamics_002fdefvr_002fopacity"></a><dl>
+<dt><a name="index-opacity"></a>Opción de objeto: <strong>opacity</strong> <em>[opacity, <var>valor</var>]</em></dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p><var>valor</var> debe se un número entre 0 y 1. Cuanto menor sea el número,
+mas transparente será el objeto. El valor predefinido de 1 implica un
+objeto completamente opaco.
+</p>
+</dd></dl>
+
+<a name="objeto_005forientation"></a><a name="Item_003a-dynamics_002fdefvr_002forientation"></a><dl>
+<dt><a name="index-orientation"></a>Opción de objeto: <strong>orientation</strong> <em>[orientation, <var>ángulos</var>]</em></dt>
+<dd><p>Valor predefinido: <code>[0, 0, 0]</code>
+</p>
+<p>Tres ángulos que de rotaciones que serán realizadas en el objeto,
+alrededor de los tres ejes.<var>ángulos</var> puede ser una lista con tres
+números reales o tres números separados por comas. <strong>Ejemplo</strong>:
+<code>[0, 0, 90]</code> rota el eje x del objeto hasta el eje y del sistema de
+referencia.
+</p>
+</dd></dl>
+
+<a name="objeto_005forigin"></a><a name="Item_003a-dynamics_002fdefvr_002forigin"></a><dl>
+<dt><a name="index-origin"></a>Opción de objeto: <strong>origin</strong> <em>[origin, <var>punto</var>]</em></dt>
+<dd><p>Valor predefinido: <code>[0, 0, 0]</code>
+</p>
+<p>Coordenadas del origen del objeto, en relación al cual las otras
+dimensiones serán definidas. <var>punto</var> pueden ser tres números
+separados por comas, o una lista de tres números.
+</p>
+</dd></dl>
+
+<a name="objeto_005fphiresolution"></a><a name="Item_003a-dynamics_002fdefvr_002fphiresolution"></a><dl>
+<dt><a name="index-phiresolution"></a>Opción de objeto: <strong>phiresolution</strong> <em>[phiresolution, <var>num</var>]</em></dt>
+<dd><p>Valor predefinido: <code></code>
+</p>
+<p>Número de sub-intervalos en que se divide el intervalo de valores del
+ángulo phi, que comienza en <code><a href="#objeto_005fstartphi">startphi</a></code> y termina
+en <code><a href="#objeto_005fendphi">endphi</a></code>. <var>num</var> debe ser un número entero
+positivo.
+</p>
+<p>Consulte también <code><a href="#objeto_005fstartphi">startphi</a></code> y
+<code><a href="#objeto_005fendphi">endphi</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fpoints"></a><a name="Item_003a-dynamics_002fdefvr_002fpoints"></a><dl>
+<dt><a name="index-points-11"></a>Opción de objeto: <strong>points</strong> <em>[points]</em></dt>
+<dd>
+<p>Esta opción hace que en vez de que se muestre la superficie, se muestren
+únicamente los vértices en la triangulación usada para construir la
+superficie. <strong>Ejemplo</strong>: <code>[sphere, [points]]</code>
+</p>
+<p>Consulte también <code><a href="#objeto_005fsurface">surface</a></code> y
+<code><a href="#objeto_005fwireframe">wireframe</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fpointsize"></a><a name="Item_003a-dynamics_002fdefvr_002fpointsize"></a><dl>
+<dt><a name="index-pointsize"></a>Opción de objeto: <strong>pointsize</strong> <em>[pointsize, <var>valor</var>]</em></dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p>Tamaño de los puntos, cuando se usa la opción
+<code><a href="#objeto_005fpoints">points</a></code>. <var>valor</var> debe ser un número positivo.
+</p>
+</dd></dl>
+
+<a name="objeto_005fposition"></a><a name="Item_003a-dynamics_002fdefvr_002fposition"></a><dl>
+<dt><a name="index-position"></a>Opción de objeto: <strong>position</strong> <em>[position, <var>punto</var>]</em></dt>
+<dd><p>Valor predefinido: <code>[0, 0, 0]</code>
+</p>
+<p>Coordenadas de la posición del objeto. <var>punto</var> puede ser tres
+números separados por comas o una lista de tres números.
+</p>
+</dd></dl>
+
+<a name="objeto_005fradius"></a><a name="Item_003a-dynamics_002fdefvr_002fradius"></a><dl>
+<dt><a name="index-radius-1"></a>Opción de objeto: <strong>radius</strong> <em>[radius, <var>valor</var>]</em></dt>
+<dd><p>Valor predefinido: <code>0.5</code>
+</p>
+<p>El radio de una esfera o la distancia desde el eje hasta los vértices de
+la base en cilindros o conos. <var>valor</var> debe ser un número positivo.
+</p>
+</dd></dl>
+
+<a name="objeto_005fresolution"></a><a name="Item_003a-dynamics_002fdefvr_002fresolution"></a><dl>
+<dt><a name="index-resolution"></a>Opción de objeto: <strong>resolution</strong> <em>[resolution, <var>número</var>]</em></dt>
+<dd><p>Valor predefinido: <code>6</code>
+</p>
+<p><var>número</var> debe ser un número entero mayor que 2, que define el número
+de aristas de la base en objetos de clase &ldquo;cone&rdquo; o &ldquo;cylinder&rdquo;.
+</p> 
+</dd></dl>
+
+<a name="objeto_005fscale"></a><a name="Item_003a-dynamics_002fdefvr_002fscale"></a><dl>
+<dt><a name="index-scale"></a>Opción de objeto: <strong>scale</strong> <em>[scale, <var>factores</var>]</em></dt>
+<dd><p>Valor predefinido: <code>[1, 1, 1]</code>
+</p>
+<p>Tres factores de escala en que serán deformadas las dimensiones del
+objeto en relación a los tres ejes. <var>factors</var> pueden ser tres número
+separados por comas o una lista con tres números. <strong>Ejemplo</strong>:
+<code>[2, 0.5, 1]</code> estira el objeto suplicando sus dimensiones paralelas
+la eje x, reduce a mitad las dimensiones paralelas al eje y, dejando
+iguales las dimensiones paralelas al eje z.
+</p>
+</dd></dl>
+
+<a name="objeto_005fstartphi"></a><a name="Item_003a-dynamics_002fdefvr_002fstartphi"></a><dl>
+<dt><a name="index-startphi"></a>Opción de objeto: <strong>startphi</strong> <em>[startphi, <var>ángulo</var>]</em></dt>
+<dd><p>Valor predefinido: <code>0</code>
+</p>
+<p>En una esfera, phi es el ángulo en el plano vertical que pasa por el eje
+z, medido a partir de la parte positiva del eje z. <var>ángulo</var> debe ser
+un múmero entre 0 y 180 que determina el valor inicial de phi desde donde
+se mostrará la superficie. Valores superiores a 0 eliminan una parte de
+la superficie.
+</p>
+<p>Consulte también <code><a href="#objeto_005fendphi">endphi</a></code> y
+<code><a href="#objeto_005fphiresolution">phiresolution</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fstarttheta"></a><a name="Item_003a-dynamics_002fdefvr_002fstarttheta"></a><dl>
+<dt><a name="index-starttheta"></a>Opción de objeto: <strong>starttheta</strong> <em>[starttheta, <var>ángulo</var>]</em></dt>
+<dd><p>Valor predefinido: <code>0</code>
+</p>
+<p>En una esfera, theta es el ángulo en el plano horizontal (longitud),
+medido desde la parte positiva del eje x. <var>ángulo</var> debe ser un
+número entre 0 y 360 que determina el valor inicial donde la superficie
+comienza. Valores mayores que 0 hacen que se elimine una parte de la
+superficie de la esfera.
+</p>
+<p>Consulte también <code><a href="#objeto_005fendtheta">endtheta</a></code> y
+<code><a href="#objeto_005fthetaresolution">thetaresolution</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fsurface"></a><a name="Item_003a-dynamics_002fdefvr_002fsurface"></a><dl>
+<dt><a name="index-surface"></a>Opción de objeto: <strong>surface</strong> <em>[surface]</em></dt>
+<dd>
+<p>Hace que se muestre la superficie del objeto y no los las líneas ni los
+vértices de la triangulación usada para construirlo. Ese es el
+comportamiento habitual que se puede alterar con las opciones
+<code><a href="#objeto_005fpoints">points</a></code> o <code><a href="#objeto_005fwireframe">wireframe</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fthetaresolution"></a><a name="Item_003a-dynamics_002fdefvr_002fthetaresolution"></a><dl>
+<dt><a name="index-thetaresolution"></a>Opción de objeto: <strong>thetaresolution</strong> <em>[thetaresolution, <var>num</var>]</em></dt>
+<dd><p>Valor predefinido: <code></code>
+</p>
+<p>Número de sub-intervalos en que se divide el intervalo de valores del
+ángulo theta, que comienza en <code><a href="#objeto_005fstarttheta">starttheta</a></code> y termina
+en <code><a href="#objeto_005fendtheta">endtheta</a></code>. <var>num</var> debe ser un número entero
+positivo.
+Consulte también <code><a href="#objeto_005fstarttheta">starttheta</a></code> y
+<code><a href="#objeto_005fendtheta">endtheta</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005ftrack"></a><a name="Item_003a-dynamics_002fdefvr_002ftrack"></a><dl>
+<dt><a name="index-track"></a>Opción de objeto: <strong>track</strong> <em>[track, <var>posiciones</var>]</em></dt>
+<dd>
+<p><var>posiciones</var> deberá ser una lista de puntos. Cuando se oprime el
+botón de &ldquo;play&rdquo;, la posición del objeto tomara secuencialmente los
+valores en la lista, a intervalos regulares de tiempo definidos por la
+opción <code><a href="#scene_005ftstep">tstep</a></code>, dejando un rastro de la
+trayectoria del objeto. El botón de volver al comienzo puede usarse para
+recomenzar desde el principio de la lista, haciendo que la animación
+comience nuevamente cuando se presione otra vez el botón de play.
+</p>
+<p><strong>Ejemplo</strong>. Estos comandos muestran la trayectoria de una bola
+lanzada con velocidad inicial de 5 m/s, a un ángulo de 45 grados, cuando
+se puede ignorar la resistencia del aire:
+</p>
+<div class="example">
+<pre class="example">(%i1) p: makelist ([0,4*t,4*t- 9.8*t^2/2], t, 0, 0.82, 0.01)$
+
+(%i2) bola: [sphere, [radius,0.1], [color,red], [track,p]]$
+
+(%i3) piso: [cube, [xlength,2], [ylength,4], [zlength,0.2],
+      [position,0,1.5,-0.2],[color,green]]$
+
+(%i4) scene (bola, piso)$
+</pre></div>
+
+<p>Consulte también <code><a href="#objeto_005fanimation">animation</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fxlength"></a><a name="Item_003a-dynamics_002fdefvr_002fxlength"></a><dl>
+<dt><a name="index-xlength"></a>Opción de objeto: <strong>xlength</strong> <em>[xlength, <var>altura</var>]</em></dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p>Altura de un objeto de clase &ldquo;cube&rdquo;, en la dirección x. <var>altura</var>
+debe ser un número positivo. Consulte también
+<code><a href="#objeto_005fylength">ylength</a></code> y <code><a href="#objeto_005fzlength">zlength</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fylength"></a><a name="Item_003a-dynamics_002fdefvr_002fylength"></a><dl>
+<dt><a name="index-ylength"></a>Opción de objeto: <strong>ylength</strong> <em>[ylength, <var>altura</var>]</em></dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p>Altura de un objeto de clase &ldquo;cube&rdquo;, en la dirección y. <var>altura</var>
+debe ser un número positivo. Consulte también
+<code><a href="#objeto_005fxlength">xlength</a></code> y <code><a href="#objeto_005fzlength">zlength</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fzlength"></a><a name="Item_003a-dynamics_002fdefvr_002fzlength"></a><dl>
+<dt><a name="index-zlength"></a>Opción de objeto: <strong>zlength</strong> <em>[zlength, <var>altura</var>]</em></dt>
+<dd><p>Valor predefinido: <code>1</code>
+</p>
+<p>Altura de un objeto de clase &ldquo;cube&rdquo;, en la dirección z. <var>altura</var>
+debe ser un número positivo. Consulte también
+<code><a href="#objeto_005fxlength">xlength</a></code> y <code><a href="#objeto_005fylength">ylength</a></code>.
+</p>
+</dd></dl>
+
+<a name="objeto_005fwireframe"></a><a name="Item_003a-dynamics_002fdefvr_002fwireframe"></a><dl>
+<dt><a name="index-wireframe"></a>Opción de objeto: <strong>wireframe</strong> <em>[wireframe]</em></dt>
+<dd>
+<p>Esta opción hace que en vez de que se muestre la superficie, se muestren
+únicamente las aristas de la triangulación usada para construir la
+superficie. <strong>Ejemplo</strong>: <code>[cube, [wireframe]]</code>
+</p>
+<p>Consulte también <code><a href="#objeto_005fsurface">surface</a></code> y
+<code><a href="#objeto_005fpoints">points</a></code>.
+</p>
+</dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_208.html#An_00e1lisis-gr_00e1fico-de-sistemas-din_00e1micos-discretos" accesskey="p" rel="previous">Análisis gráfico de sistemas dinámicos discretos</a>, Subir: <a href="maxima_206.html#dynamics" accesskey="u" rel="up">dynamics</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

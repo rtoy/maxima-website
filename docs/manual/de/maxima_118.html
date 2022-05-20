@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Tensoren in gekr&uuml;mmten R&auml;umen</title>
+
+<meta name="description" content="Maxima Manual: Tensoren in gekr&uuml;mmten R&auml;umen">
+<meta name="keywords" content="Maxima Manual: Tensoren in gekr&uuml;mmten R&auml;umen">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" rel="up" title="Funktionen und Variablen f&uuml;r itensor">
+<link href="maxima_119.html#Begleitende-Vielbeine" rel="next" title="Begleitende Vielbeine">
+<link href="maxima_117.html#Tensoranalysis" rel="previous" title="Tensoranalysis">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Tensoren-in-gekr_00fcmmten-R_00e4umen"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_119.html#Begleitende-Vielbeine" accesskey="n" rel="next">Begleitende Vielbeine</a>, Previous: <a href="maxima_117.html#Tensoranalysis" accesskey="p" rel="previous">Tensoranalysis</a>, Nach oben: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Tensoren-in-gekrummten-Raumen"></a>
+<h4 class="subsubsection">20.2.2.4 Tensoren in gekr&uuml;mmten R&auml;umen</h4>
+
+<a name="imetric"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fimetric"></a><dl>
+<dt><a name="index-imetric"></a>Funktion: <strong>imetric</strong> <em>(<var>g</var>)</em></dt>
+<dt><a name="index-imetric-1"></a>Systemvariable: <strong>imetric</strong></dt>
+<dd>
+
+<p>Spezifiziert die Metrik, indem der Variablen <code>imetric</code> der Wert <code>g</code>
+zugewiesen wird.  Die Eigenschaften f&uuml;r die Verj&uuml;ngung von Tensoren werden
+mit den Kommandos <code>defcon(<var>g</var>)</code> und
+<code>defcon(<var>g</var>, <var>g</var>, kdelta)</code> initialisiert.
+</p></dd></dl>
+
+<a name="idim"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fidim"></a><dl>
+<dt><a name="index-idim"></a>Funktion: <strong>idim</strong> <em>(<var>n</var>)</em></dt>
+<dd>
+
+<p>Die Funktion <code>idim</code> setzt die Dimension der Metrik zu <var>n</var>.  Die
+Variable <code>dim</code> auf den Wert <var>n</var> gesetzt und die antisymmetrischen
+Eigenschaften des Levi-Civita-Symbols f&uuml;r die Dimension <var>n</var>
+werden initialisiert.
+</p></dd></dl>
+
+<a name="ichr1"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fichr1"></a><dl>
+<dt><a name="index-ichr1"></a>Funktion: <strong>ichr1</strong> <em>([<var>i</var>, <var>j</var>, <var>k</var>])</em></dt>
+<dd>
+
+<p>Gibt das Christoffel-Symbol der ersten Art zur&uuml;ck, das definiert ist als
+</p>
+<div class="example">
+<pre class="example">       (g      + g      - g     )/2 .
+         ik,j     jk,i     ij,k
+</pre></div>
+
+
+<p>Um das Christoffel-Symbol f&uuml;r eine spezielle Metrik auszuwerten, muss der
+Optionsvariablen <code><a href="#imetric">imetric</a></code> ein Wert zugewiesen werden.  Siehe dazu das
+Beispiel zu <code><a href="#ichr2">ichr2</a></code>.
+</p></dd></dl>
+
+<a name="ichr2"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fichr2"></a><dl>
+<dt><a name="index-ichr2"></a>Funktion: <strong>ichr2</strong> <em>([<var>i</var>, <var>j</var>], [<var>k</var>])</em></dt>
+<dd>
+
+<p>Gibt das Christoffel-Symbol der zweiten Art zur&uuml;ck, das definiert ist als
+</p>
+<div class="example">
+<pre class="example">                       ks
+   ichr2([i,j],[k]) = g    (g      + g      - g     )/2
+                             is,j     js,i     ij,s
+</pre></div>
+</dd></dl>
+
+<a name="icurvature"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002ficurvature"></a><dl>
+<dt><a name="index-icurvature"></a>Funktion: <strong>icurvature</strong> <em>([<var>i</var>, <var>j</var>, <var>k</var>], [<var>h</var>])</em></dt>
+<dd>
+
+<p>Gibt den Riemannschen Kr&uuml;mmungstensor in einer Darstellung mit
+Christoffel-Symbolen zur&uuml;ck:
+</p>
+<div class="example">
+<pre class="example">            h             h            h         %1         h
+  icurvature     = - ichr2      - ichr2     ichr2    + ichr2
+            i j k         i k,j        %1 j      i k        i j,k
+                            h          %1
+                     + ichr2      ichr2
+                            %1 k       i j
+</pre></div>
+</dd></dl>
+
+<a name="covdiff"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fcovdiff"></a><dl>
+<dt><a name="index-covdiff"></a>Funktion: <strong>covdiff</strong> <em>(<var>expr</var>, <var>v_1</var>, <var>v_2</var>, &hellip;)</em></dt>
+<dd>
+
+<p>Gibt die kovariante Ableitung des Ausdruck <var>expr</var> nach den Variablen
+<var>v_i</var> in einer Darstellung mit Christoffel-Symbolen der zweiten Art
+<code><a href="#ichr2">ichr2</a></code> zur&uuml;ck.  Um den erhaltenen Ausdruck auszuwerten, kann das 
+Kommando <code>ev(<var>expr</var>, ichr2)</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) entertensor()$
+Enter tensor name: a;
+Enter a list of the covariant indices: [i,j];
+Enter a list of the contravariant indices: [k];
+Enter a list of the derivative indices: [];
+</pre><pre class="example">                                      k
+(%t2)                                a
+                                      i j
+</pre><pre class="example">(%i3) ishow(covdiff(%,s))$
+             k         %1     k         %1     k
+(%t3)     - a     ichr2    - a     ichr2    + a
+             i %1      j s    %1 j      i s    i j,s
+
+             k     %1
+      + ichr2     a
+             %1 s  i j
+(%i4) imetric:g;
+(%o4)                                  g
+(%i5) ishow(ev(%th(2),ichr2))$
+         %1 %4  k
+        g      a     (g       - g       + g      )
+                i %1   s %4,j    j s,%4    j %4,s
+(%t5) - ------------------------------------------
+                            2
+    %1 %3  k
+   g      a     (g       - g       + g      )
+           %1 j   s %3,i    i s,%3    i %3,s
+ - ------------------------------------------
+                       2
+    k %2  %1
+   g     a    (g        - g        + g       )
+          i j   s %2,%1    %1 s,%2    %1 %2,s     k
+ + ------------------------------------------- + a
+                        2                         i j,s
+(%i6)
+</pre></div>
+</dd></dl>
+
+<a name="lorentz-gauge"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002florentz_005fgauge"></a><dl>
+<dt><a name="index-lorentz_005fgauge"></a>Funktion: <strong>lorentz_gauge</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+<p>Wendet die Lorenz-Eichung an, indem alle indizierten Gr&ouml;&szlig;en in <var>expr</var>
+zu Null gesetzt werden, die einen zu einem kontravarianten Index identischen
+Ableitungsindex haben.
+</p></dd></dl>
+
+<a name="igeodesic_005fcoords"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002figeodesic_005fcoords"></a><dl>
+<dt><a name="index-igeodesic_005fcoords"></a>Funktion: <strong>igeodesic_coords</strong> <em>(<var>expr</var>, <var>name</var>)</em></dt>
+<dd>
+
+<p>Bewirkt, dass nicht abgeleitete Christoffel-Symbole und erste Ableitungen des
+Metriktensors im Ausdruck <var>expr</var> verschwinden.  Das Argument <var>name</var>
+bezeichnet die Metrik <var>name</var>, wenn im Ausdruck <var>expr</var> vorhanden und die
+Christoffel-Symbole werden mit <var>ichr1</var> und <var>ichr2</var> bezeichnet.
+</p>
+
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(icurvature([r,s,t],[u]))$
+</pre><pre class="example">             u            u         %1         u     
+(%t2) - ichr2      - ichr2     ichr2    + ichr2      
+             r t,s        %1 s      r t        r s,t 
+
+                                              u         %1
+                                       + ichr2     ichr2
+                                              %1 t      r s
+</pre><pre class="example">(%i3) ishow(igeodesic_coords(%,ichr2))$
+                                 u            u
+(%t3)                       ichr2      - ichr2
+                                 r s,t        r t,s
+(%i4) ishow(igeodesic_coords(icurvature([r,s,t],[u]),ichr2)+
+            igeodesic_coords(icurvature([s,t,r],[u]),ichr2)+
+            igeodesic_coords(icurvature([t,r,s],[u]),ichr2))$
+             u            u            u            u
+(%t4) - ichr2      + ichr2      + ichr2      - ichr2
+             t s,r        t r,s        s t,r        s r,t
+
+                                             u            u
+                                      - ichr2      + ichr2
+                                             r t,s        r s,t
+(%i5) canform(%);
+(%o5)                                  0
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-Itensor_002ede_002fnode_002fBegleitende-Vielbeine"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_119.html#Begleitende-Vielbeine" accesskey="n" rel="next">Begleitende Vielbeine</a>, Previous: <a href="maxima_117.html#Tensoranalysis" accesskey="p" rel="previous">Tensoranalysis</a>, Nach oben: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Introducción a physical_constants</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Introducción a physical_constants">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Introducción a physical_constants">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_210.html#ezunits" rel="up" title="ezunits">
+<link href="maxima_213.html#Funciones-y-variables-para-ezunits" rel="next" title="Funciones y variables para ezunits">
+<link href="maxima_211.html#Introducci_00f3n-a-ezunits" rel="previous" title="Introducción a ezunits">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introducci_00f3n-a-physical_005fconstants"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_213.html#Funciones-y-variables-para-ezunits" accesskey="n" rel="next">Funciones y variables para ezunits</a>, Previous: <a href="maxima_211.html#Introducci_00f3n-a-ezunits" accesskey="p" rel="previous">Introducción a ezunits</a>, Subir: <a href="maxima_210.html#ezunits" accesskey="u" rel="up">ezunits</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introduccion-a-physical_005fconstants"></a>
+<h3 class="section">50.2 Introducción a physical_constants</h3>
+
+<p><code>physical_constants</code> contiene constantes físicas
+recomendadas por el CODATA 2006 (<a href="http://physics.nist.gov/constants">http://physics.nist.gov/constants</a>).
+La instrucción <code>load(&quot;physical_constants&quot;)</code> carga este paquete
+en memoria junto con el propio <code>ezunits</code>, si éste no estaba
+previamente cargado.
+</p>
+<p>Una constante física se representa por un símbolo
+con la propiedad de ser un valor constante. El valor constante es una magnitud
+dimensional en la sintaxis de <code>ezunits</code>. La función <code>constvalue</code>
+extrae el valor constante, el cual no es el valor ordinario del símbolo,
+por lo que las constantes físicas se mantienen inalteradas en las
+expresiones evaluadas hasta que sus valores sea extraído con
+la función <code>constvalue</code>.
+</p>
+<p><code>physical_constants</code> incluye cierta información adicional,
+como la descripción de cada constante, una estimación del error 
+de su valor numérico y una propiedad para ser representada en TeX.
+Para identificar constantes físicas, cada símbolo
+tiene la propiedad <code>physical_constant</code>, de forma que 
+<code>propvars(physical_constant)</code> muestra la lista de todas
+las constantes físicas.
+</p>
+<p><code>physical_constants</code> contiene las siguientes constantes:
+</p>
+<dl compact="compact">
+<dt><code>%c</code></dt>
+<dd><p>velocidad de la luz en el vacío
+</p></dd>
+<dt><code>%mu_0</code></dt>
+<dd><p>constante magnética
+</p></dd>
+<dt><code>%e_0</code></dt>
+<dd><p>constante eléctrica
+</p></dd>
+<dt><code>%Z_0</code></dt>
+<dd><p>impedancia característica del vacío
+</p></dd>
+<dt><code>%G</code></dt>
+<dd><p>constante gravitatoria de Newton
+</p></dd>
+<dt><code>%h</code></dt>
+<dd><p>constante de Planck
+</p></dd>
+<dt><code>%h_bar</code></dt>
+<dd><p>constante de Planck
+</p></dd>
+<dt><code>%m_P</code></dt>
+<dd><p>masa de Planck
+</p></dd>
+<dt><code>%T_P</code></dt>
+<dd><p>temperature de Planck
+</p></dd>
+<dt><code>%l_P</code></dt>
+<dd><p>longitud de Planck
+</p></dd>
+<dt><code>%t_P</code></dt>
+<dd><p>tiempo de Planck
+</p></dd>
+<dt><code>%%e</code></dt>
+<dd><p>carga elemental
+</p></dd>
+<dt><code>%Phi_0</code></dt>
+<dd><p>flujo magnético cuántico
+</p></dd>
+<dt><code>%G_0</code></dt>
+<dd><p>conductancia cuántica
+</p></dd>
+<dt><code>%K_J</code></dt>
+<dd><p>constante de Josephson
+</p></dd>
+<dt><code>%R_K</code></dt>
+<dd><p>constante de von Klitzing
+</p></dd>
+<dt><code>%mu_B</code></dt>
+<dd><p>magnetón de Bohr
+</p></dd>
+<dt><code>%mu_N</code></dt>
+<dd><p>magnetón nuclear
+</p></dd>
+<dt><code>%alpha</code></dt>
+<dd><p>constante de estructura fina
+</p></dd>
+<dt><code>%R_inf</code></dt>
+<dd><p>constante de Rydberg
+</p></dd>
+<dt><code>%a_0</code></dt>
+<dd><p>radio de Bohr
+</p></dd>
+<dt><code>%E_h</code></dt>
+<dd><p>energía de Hartree
+</p></dd>
+<dt><code>%ratio_h_me</code></dt>
+<dd><p>cuanto de circulación
+</p></dd>
+<dt><code>%m_e</code></dt>
+<dd><p>masa del electrón
+</p></dd>
+<dt><code>%N_A</code></dt>
+<dd><p>número de Avogadro
+</p></dd>
+<dt><code>%m_u</code></dt>
+<dd><p>constante de masa atómica
+atomic mass constant
+</p></dd>
+<dt><code>%F</code></dt>
+<dd><p>constante de Faraday
+</p></dd>
+<dt><code>%R</code></dt>
+<dd><p>constante molar de los gases
+</p></dd>
+<dt><code>%%k</code></dt>
+<dd><p>constante de Boltzmann
+</p></dd>
+<dt><code>%V_m</code></dt>
+<dd><p>volumen molar del gas ideal
+</p></dd>
+<dt><code>%n_0</code></dt>
+<dd><p>constante de Loschmidt
+</p></dd>
+<dt><code>%ratio_S0_R</code></dt>
+<dd><p>constante de Sackur-Tetrode (constante de entropía absoluta)
+</p></dd>
+<dt><code>%sigma</code></dt>
+<dd><p>constante de Stefan-Boltzmann
+</p></dd>
+<dt><code>%c_1</code></dt>
+<dd><p>primera constante de radiación
+</p></dd>
+<dt><code>%c_1L</code></dt>
+<dd><p>primera constante de radiación para radiancia espectral
+</p></dd>
+<dt><code>%c_2</code></dt>
+<dd><p>segunda constante de radiación
+</p></dd>
+<dt><code>%b</code></dt>
+<dd><p>Constante de la ley del desplazamiento de Wien
+</p></dd>
+<dt><code>%b_prime</code></dt>
+<dd><p>Constante de la ley del desplazamiento de Wien
+</p></dd>
+</dl>
+
+<p>Ejemplos:
+</p>
+<p>Lista de todos los símbolos que tienen la propiedad
+<code>physical_constant</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;physical_constants&quot;)$
+(%i2) propvars (physical_constant);
+(%o2) [%c, %mu_0, %e_0, %Z_0, %G, %h, %h_bar, %m_P, %T_P, %l_P, 
+%t_P, %%e, %Phi_0, %G_0, %K_J, %R_K, %mu_B, %mu_N, %alpha, 
+%R_inf, %a_0, %E_h, %ratio_h_me, %m_e, %N_A, %m_u, %F, %R, %%k, 
+%V_m, %n_0, %ratio_S0_R, %sigma, %c_1, %c_1L, %c_2, %b, %b_prime]
+</pre></div>
+
+
+<p>Propiedades de la constante física <code>%c</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;physical_constants&quot;)$
+(%i2) constantp (%c);
+(%o2)                         true
+(%i3) get (%c, description);
+(%o3)               speed of light in vacuum
+(%i4) constvalue (%c);
+                                      m
+(%o4)                     299792458 ` -
+                                      s
+(%i5) get (%c, RSU);
+(%o5)                           0
+(%i6) tex (%c);
+$$c$$
+(%o6)                         false
+</pre></div>
+
+
+<p>Energía equivalente de una libra-masa. El símbolo
+<code>%c</code> se mantiene hasta que su valor es extraído
+con la llamada a la función <code>constvalue</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;physical_constants&quot;)$
+(%i2) m * %c^2;
+                                2
+(%o2)                         %c  m
+(%i3) %, m = 1 ` lbm;
+                              2
+(%o3)                       %c  ` lbm
+(%i4) constvalue (%);
+                                            2
+                                       lbm m
+(%o4)              89875517873681764 ` ------
+                                          2
+                                         s
+(%i5) E : % `` J;
+Computing conversions to base units; may take a moment. 
+                     366838848464007200
+(%o5)                ------------------ ` J
+                             9
+(%i6) E `` GJ;
+                      458548560580009
+(%o6)                 --------------- ` GJ
+                         11250000
+(%i7) float (%);
+(%o7)              4.0759872051556356e+7 ` GJ
+</pre></div>
+
+
+
+<a name="Item_003a-ezunits_002fnode_002fFunciones-y-variables-para-ezunits"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_213.html#Funciones-y-variables-para-ezunits" accesskey="n" rel="next">Funciones y variables para ezunits</a>, Previous: <a href="maxima_211.html#Introducci_00f3n-a-ezunits" accesskey="p" rel="previous">Introducción a ezunits</a>, Subir: <a href="maxima_210.html#ezunits" accesskey="u" rel="up">ezunits</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

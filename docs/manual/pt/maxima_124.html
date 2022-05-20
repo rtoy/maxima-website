@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Macros</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Macros">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Macros">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_121.html#Defini_00e7_00e3o-de-Fun_00e7_00e3o" rel="up" title="Definição de Função">
+<link href="maxima_125.html#Defini_00e7_00f5es-para-Defini_00e7_00e3o-de-Fun_00e7_00e3o" rel="next" title="Definições para Definição de Função">
+<link href="maxima_123.html#Fun_00e7_00e3o" rel="previous" title="Função">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Macros"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_125.html#Defini_00e7_00f5es-para-Defini_00e7_00e3o-de-Fun_00e7_00e3o" accesskey="n" rel="next">Definições para Definição de Função</a>, Previous: <a href="maxima_123.html#Fun_00e7_00e3o" accesskey="p" rel="previous">Função</a>, Acima: <a href="maxima_121.html#Defini_00e7_00e3o-de-Fun_00e7_00e3o" accesskey="u" rel="up">Definição de Função</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Macros-1"></a>
+<h3 class="section">39.3 Macros</h3>
+
+<a name="Item_003a-Function_002fdeffn_002fbuildq"></a><dl>
+<dt><a name="index-buildq"></a>Função: <strong>buildq</strong> <em>(<var>L</var>, <var>expr</var>)</em></dt>
+<dd><p>Substitue variáveis nomeadas pela lista <var>L</var> dentro da expressão <var>expr</var>,
+paralelamente,
+sem avaliar <var>expr</var>.
+A expressão resultante é simplificada,
+mas não avaliada,
+após <code>buildq</code> realizar a substituição.
+</p>
+<p>Os elementos de <var>L</var> são símbolos ou expressões de atribuição <code><var>símbolo</var>: <var>valor</var></code>,
+avaliadas paralelamente.
+Isto é, a associação de uma variável sobre o lado direito de uma atribuição
+é a associação daquela variável no contexto do qual <code>buildq</code> for chamada,
+não a associação daquela variável na lista <var>L</var> de variáveis.
+Se alguma variável em <var>L</var> não dada como uma atribuição explícita,
+sua associação em <code>buildq</code> é a mesma que no contexto no qual <code>buildq</code> for chamada.
+</p>
+<p>Então as variáveis nomeadas em <var>L</var> são substituidas em <var>expr</var> paralelamente.
+Isto é, a substituição para cada variável é determinada antes que qualquer substituição seja feita,
+então a substituição para uma variável não tem efeito sobre qualquer outra.
+</p>
+<p>Se qualquer variável <var>x</var> aparecer como <code>splice (<var>x</var>)</code> em <var>expr</var>,
+então <var>x</var> deve estar associada para uma lista,
+e a lista recebe uma aplicação da função <code>splice</code> (é interpolada) na <var>expr</var> em lugar de substituída.
+</p>
+<p>Quaisquer variáveis em <var>expr</var> não aparecendo em <var>L</var> são levados no resultado tal como foram escritos,
+mesmo se elas tiverem associações no contexto do qual <code>buildq</code> tiver sido chamada.
+</p>
+<p>Exemplos
+</p>
+<p><code>a</code> é explicitamente associada a <code>x</code>,
+enquanto <code>b</code> tem a mesma associação (nomeadamente 29) como no contexto chamado,
+e <code>c</code> é levada do começo ao fim da forma como foi escrita.
+A expressão resultante não é avaliada até a avaliação explícita ( com duplo apóstrofo - não com aspas - <code>''%</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) (a: 17, b: 29, c: 1729)$
+(%i2) buildq ([a: x, b], a + b + c);
+(%o2)                      x + c + 29
+(%i3) ''%;
+(%o3)                       x + 1758
+</pre></div>
+
+<p><code>e</code> está associado a uma lista, a qual aparece também como tal nos argumentos de <code>foo</code>,
+e interpolada nos argumentos de <code>bar</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) buildq ([e: [a, b, c]], foo (x, e, y));
+(%o1)                 foo(x, [a, b, c], y)
+(%i2) buildq ([e: [a, b, c]], bar (x, splice (e), y));
+(%o2)                  bar(x, a, b, c, y)
+</pre></div>
+
+<p>O resultado é simplificado após substituição.
+Se a simplificação for aplicada antes da substituição, esses dois resultados podem ser iguais.
+</p><div class="example">
+<pre class="example">(%i1) buildq ([e: [a, b, c]], splice (e) + splice (e));
+(%o1)                    2 c + 2 b + 2 a
+(%i2) buildq ([e: [a, b, c]], 2 * splice (e));
+(%o2)                        2 a b c
+</pre></div>
+
+<p>As variáveis em <var>L</var> são associadas em paralelo; se associadas sequêncialmente,
+o primeiro resultado pode ser <code>foo (b, b)</code>.
+Substituições são realizadas em paralelo;
+compare o segundo resultado com o resultado de <code>subst</code>,
+que realiza substituições sequêncialmente.
+</p>
+<div class="example">
+<pre class="example">(%i1) buildq ([a: b, b: a], foo (a, b));
+(%o1)                       foo(b, a)
+(%i2) buildq ([u: v, v: w, w: x, x: y, y: z, z: u], bar (u, v, w, x, y, z));
+(%o2)                 bar(v, w, x, y, z, u)
+(%i3) subst ([u=v, v=w, w=x, x=y, y=z, z=u], bar (u, v, w, x, y, z));
+(%o3)                 bar(u, u, u, u, u, u)
+</pre></div>
+
+<p>Constrói uma lista de euqções com algumas variáveis ou expressões sobre o lado esquerdo
+e seus valores sobre o lado direito.
+<code>macroexpand</code> mostra a expressão retornada por <code>show_values</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) show_values ([L]) ::= buildq ([L], map (&quot;=&quot;, 'L, L));
+(%o1)   show_values([L]) ::= buildq([L], map(&quot;=&quot;, 'L, L))
+(%i2) (a: 17, b: 29, c: 1729)$
+(%i3) show_values (a, b, c - a - b);
+(%o3)              [a = 17, b = 29, c = 1729]
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Function_002fdeffn_002fmacroexpand"></a><dl>
+<dt><a name="index-macroexpand"></a>Função: <strong>macroexpand</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna a expansão da macro de <var>expr</var> sem avaliar a expressão,
+quando <code>expr</code> for uma chamada de função de macro.
+De outra forma, <code>macroexpand</code> retorna <var>expr</var>.
+</p>
+<p>Se a expansão de <var>expr</var> retorna outra chamada de função de macro,
+aquela chamada de função de macro é também expandida.
+</p>
+<p><code>macroexpand</code> coloca apóstrofo em seus argumentos, isto é, não os avalia.
+Todavia, se a expansão de uma chamada de função de macro tiver algum efeito,
+esse efeito colateral é executado.
+</p>
+<p>Veja também <code>::=</code>, <code>macros</code>, e <code>macroexpand1</code>.
+</p>
+<p>Exemplos
+</p>
+<div class="example">
+<pre class="example">(%i1) g (x) ::= x / 99;
+                                    x
+(%o1)                      g(x) ::= --
+                                    99
+(%i2) h (x) ::= buildq ([x], g (x - a));
+(%o2)            h(x) ::= buildq([x], g(x - a))
+(%i3) a: 1234;
+(%o3)                         1234
+(%i4) macroexpand (h (y));
+                              y - a
+(%o4)                         -----
+                               99
+(%i5) h (y);
+                            y - 1234
+(%o5)                       --------
+                               99
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Function_002fdeffn_002fmacroexpand1"></a><dl>
+<dt><a name="index-macroexpand1"></a>Função: <strong>macroexpand1</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna a expansão de macro de <var>expr</var> sem avaliar a expressão,
+quando <code>expr</code> for uma chamada de função de macro.
+De outra forma, <code>macroexpand1</code> retorna <var>expr</var>.
+</p>
+<p><code>macroexpand1</code> não avalia seus argumentos.
+Todavia, se a expansão de uma chamada de função de macro tiver algum efeito,
+esse efeito colateral é executado.
+</p>
+<p>Se a expansão de <var>expr</var> retornar outra chamada de função de macro,
+aquela chamada de função de macro não é expandida.
+</p>
+<p>Veja também <code>::=</code>, <code>macros</code>, e <code>macroexpand</code>.
+</p>
+<p>Examples
+</p>
+<div class="example">
+<pre class="example">(%i1) g (x) ::= x / 99;
+                                    x
+(%o1)                      g(x) ::= --
+                                    99
+(%i2) h (x) ::= buildq ([x], g (x - a));
+(%o2)            h(x) ::= buildq([x], g(x - a))
+(%i3) a: 1234;
+(%o3)                         1234
+(%i4) macroexpand1 (h (y));
+(%o4)                       g(y - a)
+(%i5) h (y);
+                            y - 1234
+(%o5)                       --------
+                               99
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Function_002fdefvr_002fmacros"></a><dl>
+<dt><a name="index-macros"></a>Global variable: <strong>macros</strong></dt>
+<dd><p>Default value: <code>[]</code>
+</p>
+<p><code>macros</code> é a lista de funções de macro definidas pelo utilizador.
+O operador de definição de função de macro <code>::=</code> coloca uma nova função de macro nessa lista,
+e <code>kill</code>, <code>remove</code>, e <code>remfunction</code> removem funções de macro da lista.
+</p>
+<p>Veja também <code>infolists</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Function_002fdeffn_002fsplice"></a><dl>
+<dt><a name="index-splice"></a>Função: <strong>splice</strong> <em>(<var>a</var>)</em></dt>
+<dd><p>Une como se fosse um elo de ligação (interpola) a lista nomeada através do átomo <var>a</var> em uma expressão,
+mas somente se <code>splice</code> aparecer dentro de <code>buildq</code>;
+de outra forma, <code>splice</code> é tratada como uma função indefinida.
+Se aparecer dentro de <code>buildq</code> com <var>a</var> sozinho (sem <code>splice</code>),
+<var>a</var> é substituido (não interpolado) como uma lista no resultado.
+O argumento de <code>splice</code> pode somente ser um átomo;
+não pode ser uma lista lateral ou uma expressão que retorna uma lista.
+</p>
+<p>Tipicamente <code>splice</code> fornece os argumentos para uma função ou operador.
+Para uma função <code>f</code>, a expressão <code>f (splice (<var>a</var>))</code> dentro de <code>buildq</code>
+expande para <code>f (<var>a</var>[1], <var>a</var>[2], <var>a</var>[3], ...)</code>.
+Para um operador <code>o</code>, a expressão <code>&quot;o&quot; (splice (<var>a</var>)</code> dentro de <code>buildq</code>
+expande para <code>&quot;o&quot; (<var>a</var>[1], <var>a</var>[2], <var>a</var>[3], ...)</code>,
+onde <code>o</code> pode ser qualquer tipo de operador (tipicamente um que toma múltiplos argumentos).
+Note que o operador deve ser contido dentro de aspas duplas <code>&quot;</code>.
+</p>
+<p>Exemplos
+</p>
+<div class="example">
+<pre class="example">(%i1) buildq ([x: [1, %pi, z - y]], foo (splice (x)) / length (x));
+                       foo(1, %pi, z - y)
+(%o1)                -----------------------
+                     length([1, %pi, z - y])
+(%i2) buildq ([x: [1, %pi]], &quot;/&quot; (splice (x)));
+                                1
+(%o2)                          ---
+                               %pi
+(%i3) matchfix (&quot;&lt;&gt;&quot;, &quot;&lt;&gt;&quot;);
+(%o3)                          &lt;&gt;
+(%i4) buildq ([x: [1, %pi, z - y]], &quot;&lt;&gt;&quot; (splice (x)));
+(%o4)                   &lt;&gt;1, %pi, z - y&lt;&gt;
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Function_002fnode_002fDefini_00e7_00f5es-para-Defini_00e7_00e3o-de-Fun_00e7_00e3o"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_125.html#Defini_00e7_00f5es-para-Defini_00e7_00e3o-de-Fun_00e7_00e3o" accesskey="n" rel="next">Definições para Definição de Função</a>, Previous: <a href="maxima_123.html#Fun_00e7_00e3o" accesskey="p" rel="previous">Função</a>, Acima: <a href="maxima_121.html#Defini_00e7_00e3o-de-Fun_00e7_00e3o" accesskey="u" rel="up">Definição de Função</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

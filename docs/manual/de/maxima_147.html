@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Hypergeometrische Funktionen</title>
+
+<meta name="description" content="Maxima Manual: Hypergeometrische Funktionen">
+<meta name="keywords" content="Maxima Manual: Hypergeometrische Funktionen">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_133.html#Spezielle-Funktionen" rel="up" title="Spezielle Funktionen">
+<link href="maxima_148.html#Weitere-spezielle-Funktionen" rel="next" title="Weitere spezielle Funktionen">
+<link href="maxima_146.html#Funktionen-und-Variablen-f_00fcr-Elliptische-Integrale" rel="previous" title="Funktionen und Variablen f&uuml;r Elliptische Integrale">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Hypergeometrische-Funktionen"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_148.html#Weitere-spezielle-Funktionen" accesskey="n" rel="next">Weitere spezielle Funktionen</a>, Previous: <a href="maxima_143.html#Elliptische-Funktionen-und-Integrale" accesskey="p" rel="previous">Elliptische Funktionen und Integrale</a>, Nach oben: <a href="maxima_133.html#Spezielle-Funktionen" accesskey="u" rel="up">Spezielle Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Hypergeometrische-Funktionen-1"></a>
+<h3 class="section">22.7 Hypergeometrische Funktionen</h3>
+
+
+
+<a name="g_t_0025m"></a><a name="Item_003a-Special_002ede_002fdeffn_002f_0025m"></a><dl>
+<dt><a name="index-_0025m"></a>Funktion: <strong>%m</strong> <em>[<var>k</var>, <var>u</var>] (<var>z</var>)</em></dt>
+<dd>
+<p>Ist die Whittaker M Funktion
+<code>M[k,u](z) = exp(-z/2) * z^(1/2+u) * M(1/2+u-k, 1+2*u, z)</code>.
+Siehe A &amp; S 13.1.32 f&uuml;r die Definition.
+</p></dd></dl>
+
+<a name="g_t_0025w"></a><a name="Item_003a-Special_002ede_002fdeffn_002f_0025w"></a><dl>
+<dt><a name="index-_0025w"></a>Funktion: <strong>%w</strong> <em>[<var>k</var>, <var>u</var>] (<var>z</var>)</em></dt>
+<dd>
+<p>Ist die Whittaker W Funktion.  Siehe A &amp; S 13.1.33 f&uuml;r die Definition.
+</p></dd></dl>
+
+<a name="g_t_0025f"></a><a name="Item_003a-Special_002ede_002fdeffn_002f_0025f"></a><dl>
+<dt><a name="index-_0025f"></a>Funktion: <strong>%f</strong> <em>[<var>p</var>,<var>q</var>] (<var>[a], [b], z</var>) </em></dt>
+<dd>
+
+<p>Ist die hypergeometrische Funktion
+<code>F[p,q](a_1, ..., a_p; b_1,..., b_q; z)</code>.  Das Argument <var>a</var> ist eine
+Liste mit den <var>p</var>-Elementen <var>a_i</var> und das Argument <var>b</var> die Liste
+mit den <var>q</var>-Elementen <var>b_i</var>.
+</p></dd></dl>
+
+<a name="hypergeometric"></a><a name="Item_003a-Special_002ede_002fdeffn_002fhypergeometric"></a><dl>
+<dt><a name="index-hypergeometric"></a>Funktion: <strong>hypergeometric</strong> <em>([<var>a_1</var>, &hellip;, <var>a_p</var>], [<var>b_1</var>, &hellip; ,<var>b_q</var>], z)</em></dt>
+<dd>
+
+<p>Ist die hypergeometrische Funktion.  Im Unterschied zu den Funktionen
+<code><a href="#g_t_0025f">%f</a></code> und <code><a href="maxima_148.html#hgfred">hgfred</a></code>, ist die Funktion <code>hypergeometric</code> eine
+vereinfachende Funktion.  <code>hypergeometric</code> unterst&uuml;tzt die Berechnung
+von numerischen Werten f&uuml;r reelle und komplexe Gleitkommazahlen in doppelter
+und mit beliebiger Genauigkeit.  F&uuml;r die Gau&szlig;sche hypergeometrische
+Funktion ist <em>p = 2</em> und <em>q = 1</em>.  In diesem Fall wird auch die
+numerische Berechnung au&szlig;erhalb des Einheitskreises unterst&uuml;tzt.
+</p>
+
+<p>Hat die Optionsvariable <code>expand_hypergeometric</code> den Wert <code>true</code>, das
+ist der Standardwert, und eines der Argumente <code>a_1</code>, &hellip;, <code>a_p</code>
+ist eine negative ganze Zahl, gibt <code>hypergeometric</code> ein Polynom zur&uuml;ck.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example"> (%i1)  hypergeometric([],[],x);
+ (%o1) %e^x
+</pre></div>
+
+
+<p>Expansion in ein Polynom f&uuml;r eine negative ganze Zahl, wenn die
+Optionsvariable <code>expand_hypergeometric</code> den Wert <code>true</code> hat.
+</p>
+<div class="example">
+<pre class="example"> (%i2) hypergeometric([-3],[7],x);
+ (%o2) hypergeometric([-3],[7],x)
+
+ (%i3) hypergeometric([-3],[7],x), expand_hypergeometric : true;
+ (%o3) -x^3/504+3*x^2/56-3*x/7+1
+</pre></div>
+
+
+<p>Numerische Berechnung in doppelter und beliebiger Gleitkommagenauigkeit.
+</p>
+<div class="example">
+<pre class="example">(%i4) hypergeometric([5.1],[7.1 + %i],0.42);
+(%o4)       1.346250786375334 - 0.0559061414208204 %i
+(%i5) hypergeometric([5,6],[8], 5.7 - %i);
+(%o5)     .007375824009774946 - .001049813688578674 %i
+(%i6) hypergeometric([5,6],[8], 5.7b0 - %i), fpprec : 30;
+(%o6) 7.37582400977494674506442010824b-3
+                          - 1.04981368857867315858055393376b-3 %i
+</pre></div>
+</dd></dl>
+
+<a name="parabolic_005fcylinder_005fd"></a><a name="Item_003a-Special_002ede_002fdeffn_002fparabolic_005fcylinder_005fd"></a><dl>
+<dt><a name="index-parabolic_005fcylinder_005fd"></a>Funktion: <strong>parabolic_cylinder_d</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+
+<p>Die parabolische Zylinderfunktion <code>parabolic_cylinder_d(v,z)</code>.
+</p>
+
+<p>Die parabolischen Zylinderfunktionen sind in Abramowitz and Stegun,
+<i>Handbook of Mathematical Functions</i>, Kapitel 19 definiert.
+</p>
+
+<p>Die parabolischen Zylinderfunktionen k&ouml;nnen als Ergebnis der Funktion
+<code><a href="maxima_148.html#hgfred">hgfred</a></code> auftreten.  Maxima kennt keine weiteren Eigenschaften.
+</p></dd></dl>
+
+<a name="Item_003a-Special_002ede_002fnode_002fWeitere-spezielle-Funktionen"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_148.html#Weitere-spezielle-Funktionen" accesskey="n" rel="next">Weitere spezielle Funktionen</a>, Previous: <a href="maxima_143.html#Elliptische-Funktionen-und-Integrale" accesskey="p" rel="previous">Elliptische Funktionen und Integrale</a>, Nach oben: <a href="maxima_133.html#Spezielle-Funktionen" accesskey="u" rel="up">Spezielle Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima: Introdução a grobner</title>
+
+<meta name="description" content="Manual do Maxima: Introdução a grobner">
+<meta name="keywords" content="Manual do Maxima: Introdução a grobner">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_toc.html#Top" rel="up" title="Top">
+<link href="maxima_169.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-grobner" rel="next" title="Funções e Variáveis Definidas para grobner">
+<link href="maxima_167.html#grobner" rel="previous" title="grobner">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introdu_00e7_00e3o-a-grobner"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_169.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-grobner" accesskey="n" rel="next">Funções e Variáveis Definidas para grobner</a>, Previous: <a href="maxima_toc.html#Top" accesskey="p" rel="previous">Top</a>, Acima: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introducao-a-grobner"></a>
+<h3 class="section">53.1 Introdução a grobner</h3>
+
+<p><code>grobner</code> é um pacote para trabalhos com bases de Groebner no Maxima.
+</p>
+<p>Um tutorial sobre <em>Bases de Groebner</em> pode ser encontrado em 
+</p>
+<p><a href="http://www.geocities.com/CapeCanaveral/Hall/3131/">http://www.geocities.com/CapeCanaveral/Hall/3131/</a>
+</p>
+<p>Para usar as seguintes funções você deve primeiramente tornar o pacote <samp>grobner.lisp</samp> disponível para uso:
+</p>
+<div class="example">
+<pre class="example">load(&quot;grobner&quot;);
+</pre></div>
+
+<p>Uma demonstração de uso pode ser iniciada com
+</p><div class="example">
+<pre class="example">demo(&quot;grobner.demo&quot;);
+</pre></div>
+
+<p>ou com
+</p><div class="example">
+<pre class="example">batch(&quot;grobner.demo&quot;)
+</pre></div>
+
+<p>Alguns dos cálculos no arquivo de demonstração irão tomar um pouco de tempo 
+portanto a saída <samp>grobner-demo.output</samp> do arquivo de demonstração pode
+ser encontrada no mesmo diretório que o arquivo de demonstração.
+</p>
+<a name="Notas-sobre-o-pacote-grobner"></a>
+<h4 class="subsection">53.1.1 Notas sobre o pacote grobner</h4>
+<p>O pacote foi escrito por 
+</p>
+<p>Marek Rychlik 
+</p>
+<p><a href="http://alamos.math.arizona.edu">http://alamos.math.arizona.edu</a>
+</p>
+<p>e foi liberado em 24/05/2002 nos termos da Licença Pública Geral (GPL/GNU/FSF) (veja o arquivo <samp>grobner.lisp</samp>.
+Essa documentação foi extraída dos arquivos
+</p><p align="left"><samp>README</samp>, <samp>grobner.lisp</samp>, <samp>grobner.demo</samp>, <samp>grobner-demo.output</samp>
+</p>
+<p>por G&uuml;nter Nowak. Sugestões de melhorias da documentação podem 
+ser discutidas em <em>maxima</em>-mailing-list <a href="mailto:maxima@math.utexas.edu">maxima@math.utexas.edu</a>.
+O código está um pouco desatualizado atualmente. Implementações modernas utilizam o algorítmo rápido <em>F4</em> descrito em
+</p><div class="smallformat">
+<pre class="smallformat">A new efficient algorithm for computing Gr&ouml;bner bases (F4) 
+Jean-Charles Faug&egrave;re
+LIP6/CNRS Université Paris VI 
+January 20, 1999
+</pre></div>
+
+<a name="Implementacoes-de-ordem-monomial-admissivel-em-grobner"></a>
+<h4 class="subsection">53.1.2 Implementações de ordem monomial admissível em grobner</h4>
+
+<ul>
+<li> <code>lex</code>
+
+<p>puramente lexicográfica,
+ordenação padrão para comparações monomiais
+</p></li><li> <code>grlex</code>
+
+<p>ordenação total de grau, quando houver empate é quebrada pela ordem lexicográfica
+</p>
+</li><li> <code>grevlex</code>
+
+<p>grau total, quando houver empate é quebrada pela ordem lexicográfica reversa
+</p>
+</li><li> <code>invlex</code>
+
+<p>ordenação lexicográfica reversa
+</p>
+</li></ul>
+
+<a name="Item_003a-grobner_002fnode_002fFun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-grobner"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_169.html#Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-grobner" accesskey="n" rel="next">Funções e Variáveis Definidas para grobner</a>, Previous: <a href="maxima_toc.html#Top" accesskey="p" rel="previous">Top</a>, Acima: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

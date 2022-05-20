@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for Debugging (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Functions and Variables for Debugging</title>
 
-<meta name="description" content="Functions and Variables for Debugging (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Functions and Variables for Debugging (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Functions and Variables for Debugging">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Functions and Variables for Debugging">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_170.html" rel="up" title="Debugging">
-<link href="maxima_174.html" rel="next" title="alt-display-pkg">
-<link href="maxima_172.html" rel="prev" title="Keyword Commands">
+<link href="maxima_170.html#Debugging" rel="up" title="Debugging">
+<link href="maxima_174.html#alt_002ddisplay_002dpkg" rel="next" title="alt-display-pkg">
+<link href="maxima_172.html#Keyword-Commands" rel="previous" title="Keyword Commands">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,15 +73,17 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Functions-and-Variables-for-Debugging"></span><div class="header">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Functions-and-Variables-for-Debugging"></a>
+<div class="header">
 <p>
-Previous: <a href="maxima_172.html" accesskey="p" rel="prev">Keyword Commands</a>, Up: <a href="maxima_170.html" accesskey="u" rel="up">Debugging</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_172.html#Keyword-Commands" accesskey="p" rel="previous">Keyword Commands</a>, Up: <a href="maxima_170.html#Debugging" accesskey="u" rel="up">Debugging</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Functions-and-Variables-for-Debugging-1"></span><h3 class="section">38.3 Functions and Variables for Debugging</h3>
+<a name="Functions-and-Variables-for-Debugging-1"></a>
+<h3 class="section">38.3 Functions and Variables for Debugging</h3>
 
-<span id="debugmode"></span><span id="Item_003a-Debugging_002fdefvr_002fdebugmode"></span><dl>
-<dt id="index-debugmode">Option variable: <strong>debugmode</strong></dt>
+<a name="debugmode"></a><a name="Item_003a-Debugging_002fdefvr_002fdebugmode"></a><dl>
+<dt><a name="index-debugmode"></a>Option variable: <strong>debugmode</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>debugmode</code> is <code>true</code>, Maxima will start the Maxima debugger
@@ -86,15 +98,12 @@ when a Maxima error occurs.
 </p>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Debugging">Debugging</a>
+&middot;<a href="maxima_378.html#Category_003a-Global-flags">Global flags</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Debugging">Debugging</a>
-
-<a href="maxima_370.html#Category_003a-Global-flags">Global flags</a>
-</div>
-</p></dd></dl>
-
-<span id="refcheck"></span><span id="Item_003a-Debugging_002fdefvr_002frefcheck"></span><dl>
-<dt id="index-refcheck">Option variable: <strong>refcheck</strong></dt>
+<a name="refcheck"></a><a name="Item_003a-Debugging_002fdefvr_002frefcheck"></a><dl>
+<dt><a name="index-refcheck"></a>Option variable: <strong>refcheck</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>refcheck</code> is <code>true</code>, Maxima prints a message
@@ -102,17 +111,13 @@ each time a bound variable is used for the first time in a
 computation.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Evaluation">Evaluation</a>
+&middot;<a href="maxima_378.html#Category_003a-Console-interaction">Console interaction</a>
+&middot;<a href="maxima_378.html#Category_003a-Global-flags">Global flags</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Evaluation">Evaluation</a>
-
-<a href="maxima_370.html#Category_003a-Console-interaction">Console interaction</a>
-
-<a href="maxima_370.html#Category_003a-Global-flags">Global flags</a>
-</div>
-</p></dd></dl>
-
-<span id="setcheck"></span><span id="Item_003a-Debugging_002fdefvr_002fsetcheck"></span><dl>
-<dt id="index-setcheck">Option variable: <strong>setcheck</strong></dt>
+<a name="setcheck"></a><a name="Item_003a-Debugging_002fdefvr_002fsetcheck"></a><dl>
+<dt><a name="index-setcheck"></a>Option variable: <strong>setcheck</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>If <code>setcheck</code> is set to a list of variables (which can
@@ -146,15 +151,12 @@ For example, if <code>x</code>, <code>y</code>, and <code>z</code> are already b
 variable on the <code>setcheck</code> list is assigned to itself, e.g., <code>X: 'X</code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Console-interaction">Console interaction</a>
+&middot;<a href="maxima_378.html#Category_003a-Global-flags">Global flags</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Console-interaction">Console interaction</a>
-
-<a href="maxima_370.html#Category_003a-Global-flags">Global flags</a>
-</div>
-</p></dd></dl>
-
-<span id="setcheckbreak"></span><span id="Item_003a-Debugging_002fdefvr_002fsetcheckbreak"></span><dl>
-<dt id="index-setcheckbreak">Option variable: <strong>setcheckbreak</strong></dt>
+<a name="setcheckbreak"></a><a name="Item_003a-Debugging_002fdefvr_002fsetcheckbreak"></a><dl>
+<dt><a name="index-setcheckbreak"></a>Option variable: <strong>setcheckbreak</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>setcheckbreak</code> is <code>true</code>,
@@ -168,15 +170,12 @@ Hence, one may assign a different value by assigning to <code>setval</code>.
 <p>See also <code><a href="#setcheck">setcheck</a></code> and <code><a href="#setval">setval</a></code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Console-interaction">Console interaction</a>
+&middot;<a href="maxima_378.html#Category_003a-Global-flags">Global flags</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Console-interaction">Console interaction</a>
-
-<a href="maxima_370.html#Category_003a-Global-flags">Global flags</a>
-</div>
-</p></dd></dl>
-
-<span id="setval"></span><span id="Item_003a-Debugging_002fdefvr_002fsetval"></span><dl>
-<dt id="index-setval">System variable: <strong>setval</strong></dt>
+<a name="setval"></a><a name="Item_003a-Debugging_002fdefvr_002fsetval"></a><dl>
+<dt><a name="index-setval"></a>System variable: <strong>setval</strong></dt>
 <dd>
 <p>Holds the value to which a variable is about to be set when
 a <code><a href="#setcheckbreak">setcheckbreak</a></code> occurs.
@@ -185,15 +184,12 @@ Hence, one may assign a different value by assigning to <code><a href="#setval">
 <p>See also <code><a href="#setcheck">setcheck</a></code> and <code><a href="#setcheckbreak">setcheckbreak</a></code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Console-interaction">Console interaction</a>
+&middot;<a href="maxima_378.html#Category_003a-Global-variables">Global variables</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Console-interaction">Console interaction</a>
-
-<a href="maxima_370.html#Category_003a-Global-variables">Global variables</a>
-</div>
-</p></dd></dl>
-
-<span id="timer"></span><span id="Item_003a-Debugging_002fdeffn_002ftimer"></span><dl>
-<dt id="index-timer">Function: <strong>timer</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>timer</tt> (all) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>timer</tt> ()</em></dt>
+<a name="timer"></a><a name="Item_003a-Debugging_002fdeffn_002ftimer"></a><dl>
+<dt><a name="index-timer"></a>Function: <strong>timer</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>timer</tt> (all) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>timer</tt> ()</em></dt>
 <dd>
 <p>Given functions <var>f_1</var>, &hellip;, <var>f_n</var>, <code>timer</code> puts each one on the
 list of functions for which timing statistics are collected.
@@ -221,13 +217,11 @@ total time elapsed.
 <p>See also <code><a href="#timer_005fdevalue">timer_devalue</a></code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Debugging">Debugging</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Debugging">Debugging</a>
-</div>
-</p></dd></dl>
-
-<span id="untimer"></span><span id="Item_003a-Debugging_002fdeffn_002funtimer"></span><dl>
-<dt id="index-untimer">Function: <strong>untimer</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>untimer</tt> ()</em></dt>
+<a name="untimer"></a><a name="Item_003a-Debugging_002fdeffn_002funtimer"></a><dl>
+<dt><a name="index-untimer"></a>Function: <strong>untimer</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>untimer</tt> ()</em></dt>
 <dd>
 <p>Given functions <var>f_1</var>, &hellip;, <var>f_n</var>,
 <code>untimer</code> removes each function from the timer list.
@@ -243,13 +237,11 @@ return information about any function not currently on the timer list.
 and puts <code>f</code> on the timer list again.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Debugging">Debugging</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Debugging">Debugging</a>
-</div>
-</p></dd></dl>
-
-<span id="timer_005fdevalue"></span><span id="Item_003a-Debugging_002fdefvr_002ftimer_005fdevalue"></span><dl>
-<dt id="index-timer_005fdevalue">Option variable: <strong>timer_devalue</strong></dt>
+<a name="timer_005fdevalue"></a><a name="Item_003a-Debugging_002fdefvr_002ftimer_005fdevalue"></a><dl>
+<dt><a name="index-timer_005fdevalue"></a>Option variable: <strong>timer_devalue</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>timer_devalue</code> is <code>true</code>, Maxima subtracts from each timed
@@ -261,15 +253,12 @@ total time.
 <p>See also <code><a href="#timer">timer</a></code> and <code><a href="#timer_005finfo">timer_info</a></code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Debugging">Debugging</a>
+&middot;<a href="maxima_378.html#Category_003a-Global-flags">Global flags</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Debugging">Debugging</a>
-
-<a href="maxima_370.html#Category_003a-Global-flags">Global flags</a>
-</div>
-</p></dd></dl>
-
-<span id="timer_005finfo"></span><span id="Item_003a-Debugging_002fdeffn_002ftimer_005finfo"></span><dl>
-<dt id="index-timer_005finfo">Function: <strong>timer_info</strong> <em>(<var>f_1</var>, ..., <var>f_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>timer_info</tt> ()</em></dt>
+<a name="timer_005finfo"></a><a name="Item_003a-Debugging_002fdeffn_002ftimer_005finfo"></a><dl>
+<dt><a name="index-timer_005finfo"></a>Function: <strong>timer_info</strong> <em>(<var>f_1</var>, ..., <var>f_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>timer_info</tt> ()</em></dt>
 <dd>
 <p>Given functions <var>f_1</var>, ..., <var>f_n</var>, <code>timer_info</code> returns a matrix
 containing timing information for each function.
@@ -291,13 +280,11 @@ can also be obtained by the <code>get</code> function:
 <p>See also <code><a href="#timer">timer</a></code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Debugging">Debugging</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Debugging">Debugging</a>
-</div>
-</p></dd></dl>
-
-<span id="trace"></span><span id="Item_003a-Debugging_002fdeffn_002ftrace"></span><dl>
-<dt id="index-trace">Function: <strong>trace</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>trace</tt> (all) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>trace</tt> ()</em></dt>
+<a name="trace"></a><a name="Item_003a-Debugging_002fdeffn_002ftrace"></a><dl>
+<dt><a name="index-trace"></a>Function: <strong>trace</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>trace</tt> (all) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>trace</tt> ()</em></dt>
 <dd>
 <p>Given functions <var>f_1</var>, &hellip;, <var>f_n</var>, <code>trace</code> instructs Maxima to
 print out debugging information whenever those functions are called.
@@ -324,13 +311,11 @@ function <code>f</code> is no longer on the timer list.
 <code>trace</code> and <code>timer</code> can&rsquo;t both be in effect for the same function.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Debugging">Debugging</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Debugging">Debugging</a>
-</div>
-</p></dd></dl>
-
-<span id="trace_005foptions"></span><span id="Item_003a-Debugging_002fdeffn_002ftrace_005foptions"></span><dl>
-<dt id="index-trace_005foptions">Function: <strong>trace_options</strong> <em>(<var>f</var>, <var>option_1</var>, &hellip;, <var>option_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>trace_options</tt> (<var>f</var>)</em></dt>
+<a name="trace_005foptions"></a><a name="Item_003a-Debugging_002fdeffn_002ftrace_005foptions"></a><dl>
+<dt><a name="index-trace_005foptions"></a>Function: <strong>trace_options</strong> <em>(<var>f</var>, <var>option_1</var>, &hellip;, <var>option_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>trace_options</tt> (<var>f</var>)</em></dt>
 <dd>
 <p>Sets the trace options for function <var>f</var>.
 Any previous options are superseded.
@@ -394,13 +379,11 @@ on a predicate:
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Debugging">Debugging</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Debugging">Debugging</a>
-</div>
-</p></dd></dl>
-
-<span id="untrace"></span><span id="Item_003a-Debugging_002fdeffn_002funtrace"></span><dl>
-<dt id="index-untrace">Function: <strong>untrace</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>untrace</tt> (<var>f_1</var>, &hellip;, <var>f_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>untrace</tt> ()</em></dt>
+<a name="untrace"></a><a name="Item_003a-Debugging_002fdeffn_002funtrace"></a><dl>
+<dt><a name="index-untrace"></a>Function: <strong>untrace</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>untrace</tt> (<var>f_1</var>, &hellip;, <var>f_n</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>untrace</tt> ()</em></dt>
 <dd>
 <p>Given functions <var>f_1</var>, &hellip;, <var>f_n</var>,
 <code>untrace</code> disables tracing enabled by the <code>trace</code> function.
@@ -410,16 +393,14 @@ With no arguments, <code>untrace</code> disables tracing for all functions.
 it disabled tracing.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Debugging">Debugging</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Debugging">Debugging</a>
+&middot;</div></dd></dl>
 
 
-<span id="Item_003a-include_002dmaxima_002fnode_002falt_002ddisplay_002dpkg"></span><hr>
+<hr>
 <div class="header">
 <p>
-Previous: <a href="maxima_172.html" accesskey="p" rel="prev">Keyword Commands</a>, Up: <a href="maxima_170.html" accesskey="u" rel="up">Debugging</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_172.html#Keyword-Commands" accesskey="p" rel="previous">Keyword Commands</a>, Up: <a href="maxima_170.html#Debugging" accesskey="u" rel="up">Debugging</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

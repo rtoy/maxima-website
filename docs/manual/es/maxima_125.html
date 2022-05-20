@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Introducción a ctensor</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Introducción a ctensor">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Introducción a ctensor">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_124.html#ctensor" rel="up" title="ctensor">
+<link href="maxima_126.html#Funciones-y-variables-para-ctensor" rel="next" title="Funciones y variables para ctensor">
+<link href="maxima_124.html#ctensor" rel="previous" title="ctensor">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introducci_00f3n-a-ctensor"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_126.html#Funciones-y-variables-para-ctensor" accesskey="n" rel="next">Funciones y variables para ctensor</a>, Previous: <a href="maxima_124.html#ctensor" accesskey="p" rel="previous">ctensor</a>, Subir: <a href="maxima_124.html#ctensor" accesskey="u" rel="up">ctensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introduccion-a-ctensor"></a>
+<h3 class="section">26.1 Introducción a ctensor</h3>
+
+<p>El paquete <code>ctensor</code> dispone de herramientas para manipular componentes de tensores. Para poder hacer uso de <code>ctensor</code> es necesario cargarlo previamente en memoria ejecutando  <code>load(&quot;ctensor&quot;)</code>. Para comenzar una sesión interactiva con <code>ctensor</code>, ejecutar la función <code>csetup()</code>. Primero se le pregunta al usuario la dimensión de la variedad. Si la dimensión es 2, 3 o 4, entonces la lista de coordenadas será por defecto  <code>[x,y]</code>, <code>[x,y,z]</code>
+o <code>[x,y,z,t]</code>, respectivamente. Estos nombres pueden cambiarse asignando una nueva lista de coordenadas a la variable <code>ct_coords</code> (que se describe más abajo), siendo el usuario advertido sobre este particular. 
+Se debe tener cuidado en evitar que los nombres de las coordenadas entren en conflicto con los nombres de otros objetos en Maxima.
+</p>
+<p>A continuación, el usuario introduce la métrica, bien directamente, o desde un fichero especificando su posición ordinal. 
+La métrica se almacena en la matriz <code>lg</code>. Por último, la métrica inversa se obtiene y almacena en la matriz <code>ug</code>. También se dispone de la opción de efectuar todos los cálculos en serie de potencias.
+</p>
+<p>Se desarrolla a continuación un ejemplo para la métrica estática, esférica y simétrica, en coordenadas estándar, que se aplicará posteriormente al problema de derivar las ecuaciones de vacío de Einstein (de las que se obtiene la solución de Schwarzschild). Muchas de las funciones de <code>ctensor</code> se mostrarán  en los ejemplos para la métrica estándar.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;ctensor&quot;);
+(%o1)      /share/tensor/ctensor.mac
+(%i2) csetup();
+Enter the dimension of the coordinate system: 
+4;
+Do you wish to change the coordinate names?
+n;
+Do you want to
+1. Enter a new metric?
+
+2. Enter a metric from a file?
+
+3. Approximate a metric with a Taylor series?
+1;
+
+Is the matrix  1. Diagonal  2. Symmetric  3. Antisymmetric  4. General
+Answer 1, 2, 3 or 4
+1;
+Row 1 Column 1:
+a;
+Row 2 Column 2:
+x^2;
+Row 3 Column 3:
+x^2*sin(y)^2;
+Row 4 Column 4:
+-d;
+
+Matrix entered.
+Enter functional dependencies with the DEPENDS function or 'N' if none 
+depends([a,d],x);
+Do you wish to see the metric? 
+y;
+                          [ a  0       0        0  ]
+                          [                        ]
+                          [     2                  ]
+                          [ 0  x       0        0  ]
+                          [                        ]
+                          [         2    2         ]
+                          [ 0  0   x  sin (y)   0  ]
+                          [                        ]
+                          [ 0  0       0       - d ]
+(%o2)                                done
+(%i3) christof(mcs);
+                                            a
+                                             x
+(%t3)                          mcs        = ---
+                                  1, 1, 1   2 a
+
+                                             1
+(%t4)                           mcs        = -
+                                   1, 2, 2   x
+
+                                             1
+(%t5)                           mcs        = -
+                                   1, 3, 3   x
+
+                                            d
+                                             x
+(%t6)                          mcs        = ---
+                                  1, 4, 4   2 d
+
+                                              x
+(%t7)                          mcs        = - -
+                                  2, 2, 1     a
+
+                                           cos(y)
+(%t8)                         mcs        = ------
+                                 2, 3, 3   sin(y)
+
+                                               2
+                                          x sin (y)
+(%t9)                      mcs        = - ---------
+                              3, 3, 1         a
+
+(%t10)                   mcs        = - cos(y) sin(y)
+                            3, 3, 2
+
+                                            d
+                                             x
+(%t11)                         mcs        = ---
+                                  4, 4, 1   2 a
+(%o11)                               done
+
+</pre></div>
+
+
+<a name="Item_003a-Ctensor_002ees_002fnode_002fFunciones-y-variables-para-ctensor"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_126.html#Funciones-y-variables-para-ctensor" accesskey="n" rel="next">Funciones y variables para ctensor</a>, Previous: <a href="maxima_124.html#ctensor" accesskey="p" rel="previous">ctensor</a>, Subir: <a href="maxima_124.html#ctensor" accesskey="u" rel="up">ctensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

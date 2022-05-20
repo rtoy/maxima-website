@@ -1,37 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on diciembre, 30 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual de Maxima 5.35.1: 72. simplification</title>
+<title>Manual de Maxima 5.46.0: Funciones y variables para lectura y escritura</title>
 
-<meta name="description" content="Manual de Maxima 5.35.1: 72. simplification">
-<meta name="keywords" content="Manual de Maxima 5.35.1: 72. simplification">
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para lectura y escritura">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para lectura y escritura">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_69.html#Lectura-y-escritura" rel="up" title="Lectura y escritura">
+<link href="maxima_73.html#Funciones-y-variables-para-salida-TeX" rel="next" title="Funciones y variables para salida TeX">
+<link href="maxima_71.html#Archivos" rel="previous" title="Archivos">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
 h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
@@ -52,913 +62,559 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="../figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-lectura-y-escritura"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_73.html#Funciones-y-variables-para-salida-TeX" accesskey="n" rel="next">Funciones y variables para salida TeX</a>, Previous: <a href="maxima_71.html#Archivos" accesskey="p" rel="previous">Archivos</a>, Subir: <a href="maxima_69.html#Lectura-y-escritura" accesskey="u" rel="up">Lectura y escritura</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-lectura-y-escritura-1"></a>
+<h3 class="section">13.3 Funciones y variables para lectura y escritura</h3>
 
-<a name="simplification"></a>
-<a name="SEC345"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_71.html#SEC344" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC346" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_71.html#SEC342" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC354" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 72. simplification </h1>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC346">72.1 Introducción a simplification</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC347">72.2 Paquete absimp</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC348">72.3 Paquete facexp</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC349">72.4 Paquete functs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC350">72.5 Paquete ineq</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC351">72.6 Paquete rducon</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC352">72.7 Paquete scifac</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC353">72.8 Paquete sqdnst</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Introducci_00f3n-a-simplification"></a>
-<a name="SEC346"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC345" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC347" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC354" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 72.1 Introducción a simplification </h2>
-
-<p>El directorio <code>maxima/share/simplification</code> contiene programas que
-implementan algunas reglas y funciones para simplificar expresiones, 
-así como ciertas funciones no relacionadas con la simplificación.
+<a name="Item_003a-Input_002ees_002fdeffn_002fappendfile"></a><dl>
+<dt><a name="index-appendfile"></a>Función: <strong>appendfile</strong> <em>(<var>filename</var>)</em></dt>
+<dd><p>Añade información de la consola a <var>filename</var>, de igual manera que lo hace <code>writefile</code>, pero con la salvedad de que si el archivo ya existe la información queda añadida al final de su contenido.
 </p>
-
-
-
-
-
-<hr size="6">
-<a name="Paquete-absimp"></a>
-<a name="SEC347"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC346" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC348" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC354" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 72.2 Paquete absimp </h2>
-
-<p>El paquete <code>absimp</code> contiene reglas para aplicar patrones que extienden
-el sistema de reglas nativo de Maxima para las funciones <code>abs</code> y
-<code>signum</code>, respetando las relaciones establecidas con la función
-<code>assume</code> o con declaraciones tales como <code>modedeclare (m, even, n, odd)</code>
-para enteros pares o impares.
+<p>La función <code>closefile</code> cierra los archivos abiertos por <code>appendfile</code> o <code>writefile</code>.
 </p>
-<p>En el paquete <code>absimp</code> se definen las funciones <code>unitramp</code> y
-<code>unitstep</code> en términos de <code>abs</code> y <code>signum</code>.
+</dd></dl>
+
+
+
+<a name="Item_003a-Input_002ees_002fdeffn_002fbatch"></a><dl>
+<dt><a name="index-batch"></a>Función: <strong>batch</strong> <em>(<var>filename</var>)</em></dt>
+<dt><a name="index-batch-1"></a>Function: <strong>batch</strong> <em>(<var>filename</var>, <code>option</code>)</em></dt>
+<dd>
+<p><code>batch(<var>filename</var>)</code> lee expresiones de Maxima desde <var>filename</var> y 
+las evalúa. La función <code>batch</code> busca <var>filename</var> en la lista 
+<code>file_search_maxima</code>. Véase <code>file_search</code>.
 </p>
-<p>La instrucción <code>load (absimp)</code> carga este paquete y <code>demo (absimp)</code>
-desarrolla una demostración sobre el uso del mismo.
+<p><code>batch(<var>filename</var>, <code>test</code>)</code> es como <code>run_testsuite</code> con la
+opción <code>display_all=true</code>. En este caso <code>batch</code> busca <var>filename</var> 
+en la lista <code>file_search_maxima</code> y no en <code>file_search_tests</code> como hace
+<code>run_testsuite</code>. Además, <code>run_testsuite</code> ejecuta tests que están
+en la lista <code>testsuite_files</code>. Con <code>batch</code> es posible ejecutar
+cualquier fichero que se encuentre en <code>file_search_maxima</code> en modo de prueba.
+</p>
+<p>El contenido de <var>filename</var> debe ser una secuencia de expresiones de Maxima,
+cada una de las cuales termina en <code>;</code> o <code>$</code>.
+La variable especial <code>%</code> y la función <code>%th</code>
+se refieren a resultados previos dentro del archivo.
+El archivo puede incluir construcciones del tipo <code>:lisp</code>.
+Espacios, tabulaciones y saltos de línea en el archivo se ignoran.
+Un archivo de entrada válido puede crearse con un editor de texto o con la 
+función <code>stringout</code>.
+</p>
+<p>La función <code>batch</code> lee las expresiones del archivo <var>filename</var>, 
+muestra las entradas en la consola, realiza los cálculos solicitados y 
+muestra las expresiones de los resultados.
+A las expresiones de entrada se les asignan etiquetas, así 
+como a las de salida. La función <code>batch</code> evalúa todas las expresiones 
+de entrada del archivo a menos que se produzca un error. Si se le solicita 
+información al usuario (con <code>asksign</code> o <code>askinteger</code>, por ejemplo)
+<code>batch</code> se detiene para leer la nueva información para luego continuar.
+</p>
+<p>Es posible detener  <code>batch</code> tecleando <code>control-C</code> desde la consola.
+El efecto de <code>control-C</code> depende del entorno Lisp instalado.
+</p>
+<p>La función <code>batch</code> tiene diversas aplicaciones, tales como servir de 
+almacén de código escrito por el usuario, suministrar demostraciones
+libres de errores o ayudar a organizar el trabajo del usuario en la resolución 
+de problemas complejos.
+</p>
+<p>La función <code>batch</code> evalúa su argumento y devuelve la ruta hacia
+<var>filename</var> en formato cadena cuando es invocada sin segundo argumento
+o con la opción <code>demo</code>. Cuando es llamada con la opción <code>test</code>, 
+devuelve la lista vacía <code>[]</code> o una lista con <var>filename</var>
+y los números de tests que han fallado.
+</p>
+<p>Véanse también  <code>load</code>, <code>batchload</code> y <code>demo</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Input_002ees_002fdeffn_002fbatchload"></a><dl>
+<dt><a name="index-batchload"></a>Función: <strong>batchload</strong> <em>(<var>filename</var>)</em></dt>
+<dd><p>Lee expresiones de Maxima desde <var>filename</var> y las evalúa sin mostrar las entradas ni las salidas y sin asignarles etiquetas. Sin embargo, las salidas producidas por  <code>print</code> o <code>describe</code> sí se muestran.
+</p>
+<p>La variable especial <code>%</code> y la función <code>%th</code> se refieren a resultados previos del intérprete interactivo, no a los del propio archivo. El archivo no puede incluir construcciones del tipo <code>:lisp</code>.
+</p>
+<p>La función <code>batchload</code> devuelve la ruta de <var>filename</var> en formato de cadena.
+</p>
+<p>La función <code>batchload</code> evalúa sus argumentos.
+</p>
+<p>Véanse también <code>batch</code> y <code>load</code>.
+</p>
+</dd></dl>
+
+
+
+<a name="Item_003a-Input_002ees_002fdeffn_002fclosefile"></a><dl>
+<dt><a name="index-closefile"></a>Función: <strong>closefile</strong> <em>()</em></dt>
+<dd><p>La función <code>closefile</code> cierra los archivos abiertos por <code>appendfile</code> o <code>writefile</code>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Input_002ees_002fdefvr_002ffile_005foutput_005fappend"></a><dl>
+<dt><a name="index-file_005foutput_005fappend"></a>Variable opcional: <strong>file_output_append</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>La variable <code>file_output_append</code> controla si las funciones de escritura de ficheros añaden información o sustituyen el fichero de salida. Cuando <code>file_output_append</code> toma el valor <code>true</code>, estas funciones amplían el contenido de sus ficheros de salida; en otro caso, sustituyen el fichero anterior de igual nombre por otro con el nuevo contenido.
+</p>
+<p>Las funciones <code>save</code>, <code>stringout</code> y <code>with_stdout</code> se ven afectadas por el valor que tome la variable <code>file_output_append</code>. Otras funciones que también escriben en ficheros de salida no tienen en cuenta este valor; en concreto, las funciones para la representación de gráficos y las de traducción siempre sustituyen el fichero anterior por uno nuevo de igual nombre, mientras que las funciones <code>tex</code> y <code>appendfile</code> siempre añaden información al fichero de salida sin eliminar la información anterior.
+</p>
+</dd></dl>
+
+
+
+<a name="Item_003a-Input_002ees_002fdeffn_002ffilename_005fmerge"></a><dl>
+<dt><a name="index-filename_005fmerge"></a>Función: <strong>filename_merge</strong> <em>(<var>path</var>, <var>filename</var>)</em></dt>
+<dd><p>Construye una ruta modificada a partir de <var>path</var> y <var>filename</var>.
+Si la componente final de <var>path</var> es de la forma <code>###.<var>something</var></code>,
+la componente se reemplaza con <code><var>filename</var>.<var>something</var></code>.
+En otro caso, la componente final se reemplaza simplemente por <var>filename</var>.
+</p>
+<p>El resultado es un objeto Lisp de tipo <i>pathname</i>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-Input_002ees_002fdeffn_002ffile_005fsearch"></a><dl>
+<dt><a name="index-file_005fsearch"></a>Función: <strong>file_search</strong> <em>(<var>filename</var>)</em></dt>
+<dt><a name="index-file_005fsearch-1"></a>Función: <strong>file_search</strong> <em>(<var>filename</var>, <var>pathlist</var>)</em></dt>
+<dd>
+<p>La función <code>file_search</code> busca el archivo <var>filename</var> y devuelve su ruta como una cadena; si no lo encuentra,  <code>file_search</code> devuelve <code>false</code>. La llamada 
+<code>file_search (<var>filename</var>)</code> busca en los directorios de búsqueda por defecto,
+que son los especificados por las variables <code>file_search_maxima</code>, <code>file_search_lisp</code> y <code>file_search_demo</code>.
+</p>
+<p>La función <code>file_search</code> analiza primero si el nombre del argumento existe antes de hacerlo coincidir con los comodines de los patrones de búsqueda de archivos.
+Véase <code>file_search_maxima</code> para más información sobre patrones de búsqueda de archivos.
+</p>
+<p>El argumento <var>filename</var> puede ser una ruta con nombre de archivo,
+o simplemente el nombre del archivo, o, si el directorio de búsqueda de archivo incluye un patrón de búsqueda, es suficiente con el nombre de archivo sin extensión.
+Por ejemplo,
+</p>
+<div class="example">
+<pre class="example">file_search (&quot;/home/wfs/special/zeta.mac&quot;);
+file_search (&quot;zeta.mac&quot;);
+file_search (&quot;zeta&quot;);
+</pre></div>
+
+<p>todos buscan el mismo archivo, dando por hecho que el archivo existe y que <code>/home/wfs/special/###.mac</code>
+está en <code>file_search_maxima</code>.
+</p>
+<p>La llamada <code>file_search (<var>filename</var>, <var>pathlist</var>)</code> busca solamente en los directorios especificados por <var>pathlist</var>, que es una lista de cadenas.
+El argumento <var>pathlist</var> ignora los directorios de búsqueda por defecto, de manera que si se da la lista de rutas, <code>file_search</code> busca solamente en ellas y no en los directorios por defecto.
+Incluso si hay un único directorio en <var>pathlist</var>, debe ser suministrado como una lista de un único elemento.
+</p>
+<p>El usuario puede modificar los directorios de búsqueda por defecto; véase para ello See <code>file_search_maxima</code>.
+</p>
+<p>La función <code>file_search</code> es llamada por <code>load</code> con los directorios de búsqueda <code>file_search_maxima</code> y <code>file_search_lisp</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-Input_002ees_002fdefvr_002ffile_005fsearch_005fmaxima"></a><dl>
+<dt><a name="index-file_005fsearch_005fmaxima"></a>Variable opcional: <strong>file_search_maxima</strong></dt>
+<dd><a name="Item_003a-Input_002ees_002fdefvr_002ffile_005fsearch_005flisp"></a></dd><dt><a name="index-file_005fsearch_005flisp"></a>Variable opcional: <strong>file_search_lisp</strong></dt>
+<dd><a name="Item_003a-Input_002ees_002fdefvr_002ffile_005fsearch_005fdemo"></a></dd><dt><a name="index-file_005fsearch_005fdemo"></a>Variable opcional: <strong>file_search_demo</strong></dt>
+<dd><a name="Item_003a-Input_002ees_002fdefvr_002ffile_005fsearch_005fusage"></a></dd><dt><a name="index-file_005fsearch_005fusage"></a>Variable opcional: <strong>file_search_usage</strong></dt>
+<dd><a name="Item_003a-Input_002ees_002fdefvr_002ffile_005fsearch_005ftests"></a></dd><dt><a name="index-file_005fsearch_005ftests"></a>Variable opcional: <strong>file_search_tests</strong></dt>
+<dd>
+<p>Estas variables especifican listas de directorios en los que deben buscar la funciones  <code>load</code>, <code>demo</code> y algunas otras. Los valores por defecto de estas variables nombran directorios de la instalación de Maxima.
+</p>
+<p>El usuario puede modificar estas variables, bien reemplazando los valores por defecto, bien añadiendo nuevos directorios.
+Por ejemplo,
+</p>
+<div class="example">
+<pre class="example">file_search_maxima: [&quot;/usr/local/foo/###.mac&quot;,
+    &quot;/usr/local/bar/###.mac&quot;]$
+</pre></div>
+
+<p>reemplaza el valor por defecto de <code>file_search_maxima</code>, mintras que
+</p>
+<div class="example">
+<pre class="example">file_search_maxima: append (file_search_maxima,
+    [&quot;/usr/local/foo/###.mac&quot;, &quot;/usr/local/bar/###.mac&quot;])$
+</pre></div>
+
+<p>añade dos directorios más. Puede ser conveniente colocar una expresión como esta en el archivo <code>maxima-init.mac</code>, de manera que la ruta de búsqueda de ficheros se asigne automáticamente cada vez que arranca Maxima.
+</p>
+<p>Se pueden especificar varias extensiones de archivos y rutas con comodines especiales.
+La cadena <code>###</code> representa el nombre del archivo buscado y una lista separada de comas y encerrada entre llaves,  <code>{foo,bar,baz}</code> representa múltiples cadenas.
+Por ejemplo, suponiendo que se busca el nombre <code>neumann</code>,
+</p>
+<div class="example">
+<pre class="example">&quot;/home/{wfs,gcj}/###.{lisp,mac}&quot;
+</pre></div>
+
+<p>se interpreta como <code>/home/wfs/neumann.lisp</code>, <code>/home/gcj/neumann.lisp</code>, <code>/home/wfs/neumann.mac</code> y <code>/home/gcj/neumann.mac</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-Input_002ees_002fdeffn_002ffile_005ftype"></a><dl>
+<dt><a name="index-file_005ftype"></a>Función: <strong>file_type</strong> <em>(<var>filename</var>)</em></dt>
+<dd><p>Devuelve una descripción del contenido de <var>filename</var> basada en la 
+extensión, sin intentar abrir el archivo para inspeccionar su contenido.
+</p>
+<p>El valor devuelto es un símbolo <code>object</code>, <code>lisp</code> o 
+<code>maxima</code>. Si la extensión es &quot;mac&quot;, &quot;mc&quot;, &quot;demo&quot;, &quot;dem&quot;, &quot;dm1&quot;, &quot;dm2&quot;, 
+&quot;dm3&quot; o &quot;dmt&quot;, <code>file_type</code> devuelve <code>maxima</code>. Si la extensión es 
+&quot;l&quot;, &quot;lsp&quot; o &quot;lisp&quot;, <code>file_type</code> devuelve <code>lisp</code>. Si la extensión
+no es ninguna de las anteriores, <code>file_type</code> devuelve <code>object</code>.
+</p>
+<p>Véase también <code>pathname_type</code>.
 </p>
 <p>Ejemplos:
 </p>
-<pre class="example">(%i1) load (absimp)$
-(%i2) (abs (x))^2;
-                                       2
-(%o2)                                 x
-(%i3) diff (abs (x), x);
-                                      x
-(%o3)                               ------
-                                    abs(x)
-(%i4) cosh (abs (x));
-(%o4)                               cosh(x)
-</pre>
+<div class="example">
+<pre class="example">(%i2) map('file_type,[&quot;test.lisp&quot;, &quot;test.mac&quot;, &quot;test.dem&quot;, &quot;test.txt&quot;]);
+(%o2)            [lisp, maxima, maxima, object]
+</pre></div>
+</dd></dl>
 
 
 
-
-
-
-<hr size="6">
-<a name="Paquete-facexp"></a>
-<a name="SEC348"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC347" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC349" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC354" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 72.3 Paquete facexp </h2>
-
-<p>El paquete <code>facexp</code> contiene varias funciones que le aportan al
-usuario la posibilidad de estructurar expresiones controlando su
-expansión. Esta capacidad es especialmente útil cuando la 
-expresión contiene variables con significado físico,
-ya que se suele dar el caso de que la forma más sencilla para estas
-expresiones se obtiene cuando se expanden respecto de estas variables
-y luego se factoriza respecto de sus coeficientes. Si bien es cierto que
-este procedimiento no es difícil de llevar a cabo con las 
-funciones estándar de Maxima, pueden ser necesarios algunos retoques
-adicionales que sí pueden ser más difíciles
-de hacer.
+<a name="Item_003a-Input_002ees_002fdefvr_002ffile_005ftype_005flisp"></a><dl>
+<dt><a name="index-file_005ftype_005flisp"></a>Variable opcional: <strong>file_type_lisp</strong></dt>
+<dd><p>Valor por defecto:  <code>[l, lsp, lisp]</code>
 </p>
-<p>La función <code>facsum</code> y sus formas relacionadas proporcionan un 
-método para controlar la estructura de expresiones. La función 
-<code>collectterms</code> puede usarse para añadir dos o más 
-expresiones que ya hayan sido simplificadas de la forma indicada,
-sin necesidad de volver a simplificar la expresión completa.
-Esta función puede ser útil cuando las expresiones sean
-largas.
+<p><code>file_type_lisp</code> es una lista con extensiones de ficheros que Maxima 
+reconoce como fuente de Lisp.
 </p>
-
-<p>La instrucción <code>load (facexp)</code> carga este paquete y <code>demo (facexp)</code>
-hace una demostración sobre su uso.
-</p>
-
-
-<dl>
-<dt><u>Función:</u> <b>facsum</b><i> (<var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>)</i>
-<a name="IDX2641"></a>
-</dt>
-<dd><p>Devuelve una expresión equivalente a <var>expr</var>, la cual
-depende de los argumentos <var>arg_1</var>, ..., <var>arg_n</var>, y 
-éstos pueden ser de cualquiera de las formas aceptables
-para <code>ratvars</code>, o listas de estas formas. Si los
-argumentos no son listas, la forma devuelta se expande
-completamente con respecto de los argumentos, siendo los
-coeficientes de tales argumentos factorizados. Estos
-coeficientes no contienen a ninguno de los argumentos,
-excepto quizás de una forma no racional.
-</p>
-<p>En caso de que cualquiera de los argumentos sea una lista, entonces
-todos ellos se combinan en una única lista, y en lugar de llamar
-a <code>factor</code> para los coeficientes de los argumentos, <code>facsum</code>
-se llama a sí misma utilizando esta nueva lista única
-como lista de argumentos.
-</p>
-<p>Es posible que se quiera utilizar <code>facsum</code> con respecto a
-expresiones más complicadas, tales como <code>log (x + y)</code>. Estos
-argumentos son también admisibles.
-</p>
-<p>En ocasiones puede ser necesario obtener cualquiera de las formas
-anteriores especificadas por sus operadores principales. Por ejemplo,
-se puede querer aplicar <code>facsum</code> con respecto a todos los 
-<code>log</code>; en este caso, se puede incluir entre los argumentos bien
-los <code>log</code> específicos que se quieran tratar de esta
-manera, bien la expresión <code>operator (log)</code> o <code>'operator (log)</code>.
-Si se quiere aplicar <code>facsum</code> a <var>expr</var> con respecto a los 
-operadores <var>op_1</var>, ..., <var>op_n</var>, se debe evaluar 
-<code>facsum (<var>expr</var>, operator (<var>op_1</var>, ..., <var>op_n</var>))</code>.
-La forma <code>operator</code> puede aparecer también dentro de las
-listas de argumentos.
-</p>
-<p>Además, dándole valores a las variables opcionales <code>facsum_combine</code>
-y <code>nextlayerfactor</code> se puede controlar el resultado de <code>facsum</code>.
+<p>Véase también <code>file_type</code>
 </p></dd></dl>
 
-<dl>
-<dt><u>Variable global:</u> <b>nextlayerfactor</b>
-<a name="IDX2642"></a>
-</dt>
+
+
+<a name="Item_003a-Input_002ees_002fdefvr_002ffile_005ftype_005fmaxima"></a><dl>
+<dt><a name="index-file_005ftype_005fmaxima"></a>Variable opcional: <strong>file_type_maxima</strong></dt>
+<dd><p>Valor por defecto:  <code>[mac, mc, demo, dem, dm1, dm2, dm3, dmt]</code>
+</p>
+<p><code>file_type_maxima</code> es una lista con extensiones de ficheros que Maxima 
+reconoce como fuente de Maxima.
+</p>
+<p>Véase también <code>file_type</code>
+</p></dd></dl>
+
+
+
+
+<a name="Item_003a-Input_002ees_002fdeffn_002fload"></a><dl>
+<dt><a name="index-load"></a>Función: <strong>load</strong> <em>(<var>filename</var>)</em></dt>
+<dd><p>Evalúa las expresiones del archivo <var>filename</var>, trayendo variables,
+funciones y otros objetos a Maxima. Una asignación hecha previamente a 
+una variable en Maxima será destruida por otra asignación que se le 
+haga en <var>filename</var>. Para encontrar el fichero, <code>load</code> llama a 
+<code>file_search</code> con <code>file_search_maxima</code> y <code>file_search_lisp</code> 
+como directorios de búsqueda. Si la llamada a <code>load</code> funciona correctamente, 
+devuelve el nombre del fichero; en caso contrario, <code>load</code> muestra un mensaje de error.
+</p>
+<p>La función <code>load</code> trabaja indistintamente con código Lisp y Maxima.
+Los ficheros creados con <code>save</code>, <code>translate_file</code> y <code>compile_file</code>, 
+que crea código Lisp, y <code>stringout</code>, que crea código Maxima, todos ellos 
+pueden ser procesados por <code>load</code>. La función <code>load</code> llama a <code>loadfile</code> 
+para cargar archivos en Lisp y a  <code>batchload</code> para cargar archivos en Maxima.
+</p>
+<p>La función <code>load</code> no reconoce las construcciones de tipo <code>:lisp</code> en
+ficheros de Maxima. Además, mientras se está procesando <var>filename</var>,
+las variables globales <code>_</code>, <code>__</code>, <code>%</code> y <code>%th</code> mantienen los
+valores que tenían cuando se realizó la llamada a <code>load</code>.
+</p>
+<p>Véanse también <code>loadfile</code>, <code>batch</code>, <code>batchload</code> y <code>demo</code>;
+<code>loadfile</code> procesa archivos en Lisp; <code>batch</code>, <code>batchload</code> y <code>demo</code>
+procesan archivos en Maxima.
+</p>
+<p>Véase <code>file_search</code> para más detalles sobre el mecanismo de búsqueda de archivos.
+</p>
+<p>La función <code>load</code> evalúa sus argumentos.
+</p>
+</dd></dl>
+
+
+
+<a name="Item_003a-Input_002ees_002fdefvr_002fload_005fpathname"></a><dl>
+<dt><a name="index-load_005fpathname"></a>Variable del sistema: <strong>load_pathname</strong></dt>
 <dd><p>Valor por defecto: <code>false</code>
 </p>
-<p>Si <code>nextlayerfactor</code> vale <code>true</code>, las llamadas recursivas de
-<code>facsum</code> se aplican a los factores de la forma factorizada de los
-coeficientes de los argumentos.
+<p>Cuando se carga un fichero con las funciones <code>load</code>, <code>loadfile</code>
+o <code>batchload</code>, a la variable <code>load_pathname</code> se le asigna la
+ruta al fichero en cuestión.
 </p>
-<p>Si vale <code>false</code>, <code>facsum</code> se aplica a cada coeficiente como
-un todo cada vez que se efectúen llamadas recursivas a <code>facsum</code>.
+<p>Se puede acceder a la variable <code>load_pathname</code> mientras se está
+cargando el fichero.
 </p>
-<p>La inclusión del átomo <code>nextlayerfactor</code> en la lista de 
-argumentos de <code>facsum</code> tiene el mismo efecto que 
-<code>nextlayerfactor: true</code>, pero <i>solamente</i> para el siguiente
-nivel de la expresión. Puesto que <code>nextlayerfactor</code> toma
-siempre uno de los valores <code>true</code> o  <code>false</code>, debe aparecer
-comentado (comilla simple) cada vez que aparezca en la lista de 
-argumentos de <code>facsum</code>.
+<p>Ejemplo:
+</p>
+<p>Supóngase que se tiene el fichero <code>test.mac</code> en la carpeta
+<code>&quot;/home/usuario/workspace/mymaxima/temp/&quot;</code> con las siguientes
+instrucciones:
+</p>
+<div class="example">
+<pre class="example">print(&quot;The value of load_pathname is: &quot;, load_pathname)$
+print(&quot;End of batchfile&quot;)$
+</pre></div>
+
+<p>Entonces se obtiene el siguiente resultado:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;/home/usuario/workspace/mymaxima/temp/test.mac&quot;)$
+The value of load_pathname is:  
+                   /home/usuario/workspace/mymaxima/temp/test.mac 
+End of batchfile
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-Input_002ees_002fdeffn_002floadfile"></a><dl>
+<dt><a name="index-loadfile"></a>Función: <strong>loadfile</strong> <em>(<var>filename</var>)</em></dt>
+<dd><p>Evalúa las expresiones Lisp del archivo <var>filename</var>. La función
+<code>loadfile</code> no llama a <code>file_search</code>, de manera que <code>filename</code> debe incluir la extensión del archivo y su ruta completa.
+</p>
+<p>La función <code>loadfile</code> puede procesar ficheros creados por  <code>save</code>, <code>translate_file</code> y <code>compile_file</code>.
+Puede ser más conveniente utilizar <code>load</code> en lugar de <code>loadfile</code>.
 </p></dd></dl>
 
-<dl>
-<dt><u>Variable global:</u> <b>facsum_combine</b>
-<a name="IDX2643"></a>
-</dt>
+
+
+<a name="Item_003a-Input_002ees_002fdefvr_002floadprint"></a><dl>
+<dt><a name="index-loadprint"></a>Variable opcional: <strong>loadprint</strong></dt>
 <dd><p>Valor por defecto: <code>true</code>
 </p>
-<p>La variable <code>facsum_combine</code> controla la forma del resultado final
-devuelto por <code>facsum</code> si su argumento es un cociente de polinomios.
-Si <code>facsum_combine</code> vale <code>false</code>, el resultado será una suma
-completamente expandida, pero si vale <code>true</code>, la expresión devuelta
-es un cociente de polinomios.
+<p>La variable <code>loadprint</code> indica si mostrar un mensaje cuando se carga un archivo.
 </p>
+<ul>
+<li> Si <code>loadprint</code> vale <code>true</code>, se muestra siempre un mensaje.
+</li><li> Si <code>loadprint</code> vale <code>'loadfile</code>, muestra un mensaje sólo si el archivo es cargado con la función <code>loadfile</code>.
+</li><li> Si <code>loadprint</code> vale <code>'autoload</code>, muestra un mensaje sólo cuandi un archivo se carga automáticamente. Véase  <code>setup_autoload</code>.
+</li><li> Si <code>loadprint</code> vale <code>false</code>, nunca mostrará mensajes.
+</li></ul>
 
 </dd></dl>
 
-<dl>
-<dt><u>Función:</u> <b>factorfacsum</b><i> (<var>expr</var>, <var>arg_1</var>, ... <var>arg_n</var>)</i>
-<a name="IDX2644"></a>
-</dt>
-<dd><p>Devuelve una expresión equivalente a <var>expr</var> obtenida aplicando
-<code>facsum</code> a los factores de <var>expr</var>, de argumentos
-<var>arg_1</var>, ... <var>arg_n</var>. Si alguno de los factores de <var>expr</var> se 
-eleva a una potencia, tanto el factor como el exponente se procesarán de
-esta manera.
-</p></dd></dl>
 
-<dl>
-<dt><u>Función:</u> <b>collectterms</b><i> (<var>expr</var>, <var>arg_1</var>, &hellip;, <var>arg_n</var>)</i>
-<a name="IDX2645"></a>
-</dt>
-<dd><p>Si algunas expresiones fueron ya simplificadas con <code>facsum</code>, <code>factorfacsum</code>,
-<code>factenexpand</code>,  <code>facexpten</code> o <code>factorfacexpten</code>, debiendo ser 
-luego sumadas, puede ser conveniente combinarlas utilizando la función
-<code>collecterms</code>, la cual admite como argumentos todos aquéllos que se
-puedan pasar a las anteriormente citadas funciones, con la excepción de
-<code>nextlayerfactor</code>, que no tiene efecto alguno sobre <code>collectterms</code>.
-La ventaja de <code>collectterms</code> es que devuelve una forma similar a la de
-<code>facsum</code>, pero debido a que suma expresiones que ya han sido previamente
-procesadas, no necesita repetir esta operación, lo cual 
-resulta ser especialmente útil cuando las expresiones a sumar son muy
-grandes.
+
+<a name="Item_003a-Input_002ees_002fdefvr_002fpackagefile"></a><dl>
+<dt><a name="index-packagefile"></a>Variable opcional: <strong>packagefile</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Los desarrolladores de paquetes que utilizan <code>save</code> o <code>translate</code>
+para crear paquetes (ficheros) que van a ser utilizados por terceros pueden
+hacer <code>packagefile: true</code> para evitar que se añada información a la
+listas de información de Maxima, como <code>values</code> o <code>functions</code>.
 </p></dd></dl>
 
 
 
-
-
-
-
-
-
-<hr size="6">
-<a name="Paquete-functs"></a>
-<a name="SEC349"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC348" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC350" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC354" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 72.4 Paquete functs </h2>
-
-<dl>
-<dt><u>Función:</u> <b>rempart</b><i> (<var>expr</var>, <var>n</var>)</i>
-<a name="IDX2646"></a>
-</dt>
-<dd><p>Elimina la parte <var>n</var> de la expresión <var>expr</var>.
-</p>
-<p>Si <var>n</var> es una lista de la forma <code>[<var>l</var>, <var>m</var>]</code>, entonces
-las partes desde <var>l</var> a <var>m</var> serán eliminadas.
-</p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>wronskian</b><i> ([<var>f_1</var>, ..., <var>f_n</var>], <var>x</var>)</i>
-<a name="IDX2647"></a>
-</dt>
-<dd><p>Devuelve la matriz wronskiana de las expresiones <var>f_1</var>, ..., <var>f_n</var>
-dependeientes de la variable <var>x</var>.
-El determinante de la matriz wronskiana es el determinante wronskiano de
-la lista de expresiones.
-</p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p>
-<p>Ejemplo:
-</p>
-<pre class="example">(%i1) load(functs)$
-(%i2) wronskian([f(x), g(x)],x);
-(%o2) matrix([f(x),g(x)],['diff(f(x),x,1),'diff(g(x),x,1)])
-</pre></dd></dl>
-
-
-<dl>
-<dt><u>Función:</u> <b>tracematrix</b><i> (<var>M</var>)</i>
-<a name="IDX2648"></a>
-</dt>
-<dd><p>Devuelve la traza (suma de los elementos de la diagonal) de la matriz <var>M</var>.
-</p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>rational</b><i> (<var>z</var>)</i>
-<a name="IDX2649"></a>
-</dt>
-<dd><p>Multiplica el numerador y denominador de <var>z</var> por el complejo conjugado
-del denominador, racionalizando así el denominador.
-Devuelve la expresión canónica racional (canonical rational expression,
-CRE) si el argumento <var>z</var> es de esta forma, en caso contrario devuelve una
-expresión en formato común.
-</p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-
-
-<dl>
-<dt><u>Función:</u> <b>nonzeroandfreeof</b><i> (<var>x</var>, <var>expr</var>)</i>
-<a name="IDX2650"></a>
-</dt>
-<dd><p>Devuelve <code>true</code> si <var>expr</var> es diferente de cero y 
-<code>freeof (<var>x</var>, <var>expr</var>)</code> devuelve <code>true</code>.
-En caso contrario devuelve <code>false</code>.
-</p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>linear</b><i> (<var>expr</var>, <var>x</var>)</i>
-<a name="IDX2651"></a>
-</dt>
-<dd><p>Si <var>expr</var> es una expresión de la forma <code><var>a</var>*<var>x</var> + <var>b</var></code>,
-siendo <var>a</var> no nulo y los argumentos <var>a</var> y <var>b</var> no contienen a <var>x</var>,
-<code>linear</code> devuelve una lista con tres ecuaciones, una por cada variable
-<var>b</var>, <var>a</var> y <var>x</var>. Si no se cumple la condición anterior, 
-<code>linear</code> devuelve <code>false</code>.
-</p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p>
-<p>Ejemplo:
-</p>
-<pre class="example">(%i1) load (antid);
-(%o1)        /usr/share/maxima/5.29.1/share/integration/antid.mac
-(%i2) linear ((1 - w)*(1 - x)*z, z);
-(%o2)  [bargumentb = 0, aargumenta = (w - 1) x - w + 1, xargumentx = z]
-(%i3) linear (cos(u - v) + cos(u + v), u);
-(%o3)                                false
-</pre></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>gcdivide</b><i> (<var>p</var>, <var>q</var>)</i>
-<a name="IDX2652"></a>
-</dt>
-<dd><p>Si la variable opcional <code>takegcd</code> vale <code>true</code>, que es su valor por defecto, 
-<code>gcdivide</code> divide los polinomios <var>p</var> y <var>q</var> por su
-máximo común divisor y devuelve el cociente de los resultados.
-<code>gcdivide</code> hace una llamada a la función <code>ezgcd</code> para
-dividir los polinomios por su máximo común divisor.
-</p>
-<p>Si <code>takegcd</code> vale <code>false</code>, <code>gcdivide</code> devuelve
-el cociente <code><var>p</var>/<var>q</var></code>.
-</p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p>
-<p>Véanse también  <code>ezgcd</code>, <code>gcd</code>, <code>gcdex</code> y
-<code>poly_gcd</code>.
+<a name="Item_003a-Input_002ees_002fdeffn_002fpathname_005fdirectory"></a><dl>
+<dt><a name="index-pathname_005fdirectory"></a>Función: <strong>pathname_directory</strong> <em>(<var>pathname</var>)</em></dt>
+<dd><a name="Item_003a-Input_002ees_002fdeffn_002fpathname_005fname"></a></dd><dt><a name="index-pathname_005fname"></a>Función: <strong>pathname_name</strong> <em>(<var>pathname</var>)</em></dt>
+<dd><a name="Item_003a-Input_002ees_002fdeffn_002fpathname_005ftype"></a></dd><dt><a name="index-pathname_005ftype"></a>Función: <strong>pathname_type</strong> <em>(<var>pathname</var>)</em></dt>
+<dd>
+<p>Estas funciones devuelven las componentes de <var>pathname</var>.
 </p>
 <p>Ejemplos:
 </p>
-<pre class="example">(%i1) load(functs)$
+<div class="example">
+<pre class="example">(%i1) pathname_directory(&quot;/home/usuario/maxima/changelog.txt&quot;);
+(%o1)                 /home/usuario/maxima/
+(%i2) pathname_name(&quot;/home/usuario/maxima/changelog.txt&quot;);
+(%o2)                       changelog
+(%i3) pathname_type(&quot;/home/usuario/maxima/changelog.txt&quot;);
+(%o3)                          txt
+</pre></div>
 
-(%i2) p1:6*x^3+19*x^2+19*x+6; 
-                        3       2
-(%o2)                6 x  + 19 x  + 19 x + 6
-(%i3) p2:6*x^5+13*x^4+12*x^3+13*x^2+6*x;
-                  5       4       3       2
-(%o3)          6 x  + 13 x  + 12 x  + 13 x  + 6 x
-(%i4) gcdivide(p1, p2);
-                             x + 1
-(%o4)                        ------
-                              3
-                             x  + x
-(%i5) takegcd:false;
-(%o5)                         false
-(%i6) gcdivide(p1, p2);
-                       3       2
-                    6 x  + 19 x  + 19 x + 6
-(%o6)          ----------------------------------
-                  5       4       3       2
-               6 x  + 13 x  + 12 x  + 13 x  + 6 x
-(%i7) ratsimp(%);
-                             x + 1
-(%o7)                        ------
-                              3
-                             x  + x
-</pre></dd></dl>
+</dd></dl>
 
 
-<dl>
-<dt><u>Función:</u> <b>arithmetic</b><i> (<var>a</var>, <var>d</var>, <var>n</var>)</i>
-<a name="IDX2653"></a>
-</dt>
-<dd><p>Devuelve el <var>n</var>-ésimo término de la progresión aritmética
-<code><var>a</var>, <var>a</var> + <var>d</var>, <var>a</var> + 2*<var>d</var>, ..., <var>a</var> + (<var>n</var> - 1)*<var>d</var></code>.
+
+<a name="Item_003a-Input_002ees_002fdeffn_002fprintfile"></a><dl>
+<dt><a name="index-printfile"></a>Función: <strong>printfile</strong> <em>(<var>path</var>)</em></dt>
+<dd>
+<p>Envía el fichero al que hace referncia la ruta <var>path</var>
+a la consola. <var>path</var> puede ser una cadena o un símbolo,
+en cuyo caso se convertirá en una cadena.
 </p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>geometric</b><i> (<var>a</var>, <var>r</var>, <var>n</var>)</i>
-<a name="IDX2654"></a>
-</dt>
-<dd><p>Devuelve el <var>n</var>-ésimo término de la progresión geométrica
-<code><var>a</var>, <var>a</var>*<var>r</var>, <var>a</var>*<var>r</var>^2, ..., <var>a</var>*<var>r</var>^(<var>n</var> - 1)</code>.
+<p>Si <var>path</var> hace referencia a un fichero accesible desde el directorio
+actual de trabajo, entonces se enviará a la consola; en caso contrario,
+<code>printfile</code> intentará localizar el fichero añadiéndole <var>path</var>
+a cada uno de los elementos de <code>file_search_usage</code> a través de 
+<code>filename_merge</code>.
 </p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>harmonic</b><i> (<var>a</var>, <var>b</var>, <var>c</var>, <var>n</var>)</i>
-<a name="IDX2655"></a>
-</dt>
-<dd><p>Devuelve el <var>n</var>-ésimo término de la progresión armónica
-<code><var>a</var>/<var>b</var>, <var>a</var>/(<var>b</var> + <var>c</var>), <var>a</var>/(<var>b</var> + 2*<var>c</var>), ..., <var>a</var>/(<var>b</var> + (<var>n</var> - 1)*<var>c</var>)</code>.
+<p><code>printfile</code> devuelve la ruta del fichero encontado.
 </p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
+</dd></dl>
 
-<dl>
-<dt><u>Función:</u> <b>arithsum</b><i> (<var>a</var>, <var>d</var>, <var>n</var>)</i>
-<a name="IDX2656"></a>
-</dt>
-<dd><p>Devuelve la suma de la progresión aritmética desde hasta el <var>n</var>-ésimo término.
-</p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
 
-<dl>
-<dt><u>Función:</u> <b>geosum</b><i> (<var>a</var>, <var>r</var>, <var>n</var>)</i>
-<a name="IDX2657"></a>
-</dt>
-<dd><p>Devuelve la suma de la sucesión geométrica hasta el <var>n</var>-ésimo término.
-Si <var>n</var> es infinito (<code>inf</code>) la suma será finita sólo si el valor absoluto de 
-<var>r</var> es menor que 1.
-</p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
 
-<dl>
-<dt><u>Función:</u> <b>gaussprob</b><i> (<var>x</var>)</i>
-<a name="IDX2658"></a>
-</dt>
-<dd><p>Devuelve la función de densidad de probabilidad,
-normal <code>%e^(-<var>x</var>^2/2) / sqrt(2*%pi)</code>.
-</p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
 
-<dl>
-<dt><u>Función:</u> <b>gd</b><i> (<var>x</var>)</i>
-<a name="IDX2659"></a>
-</dt>
-<dd><p>Devuelve la función de Gudermann,
-<code>2*atan(%e^x)-%pi/2</code>.
+<a name="Item_003a-Input_002ees_002fdeffn_002fsave"></a><dl>
+<dt><a name="index-save"></a>Función: <strong>save</strong> <em>(<var>filename</var>, <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, ...)</em></dt>
+<dt><a name="index-save-1"></a>Función: <strong>save</strong> <em>(<var>filename</var>, values, functions, labels, ...)</em></dt>
+<dt><a name="index-save-2"></a>Función: <strong>save</strong> <em>(<var>filename</var>, [<var>m</var>, <var>n</var>])</em></dt>
+<dt><a name="index-save-3"></a>Función: <strong>save</strong> <em>(<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, ...)</em></dt>
+<dt><a name="index-save-4"></a>Función: <strong>save</strong> <em>(<var>filename</var>, all)</em></dt>
+<dt><a name="index-save-5"></a>Función: <strong>save</strong> <em>(<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, <var>name_2</var>=<var>expr_2</var>, ...)</em></dt>
+<dd>
+<p>Alamacena los valores actuales de <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, ..., 
+en el archivo <var>filename</var>. Los argumentos son nombres de variables, funciones 
+u otros objetos. Si un nombre no tiene un valor o una función asociado a él, 
+entonces se ignora.
 </p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>agd</b><i> (<var>x</var>)</i>
-<a name="IDX2660"></a>
-</dt>
-<dd><p>Devuelve la inversa de la función de Gudermann,
-<code>log (tan (%pi/4 + x/2))</code>.
+<p>La función <code>save</code> devuelve <var>filename</var>.
 </p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>vers</b><i> (<var>x</var>)</i>
-<a name="IDX2661"></a>
-</dt>
-<dd><p>Devuelve <code>1 - cos (x)</code>.
+<p>La función <code>save</code> almacena datos en forma de expresiones Lisp.
+Los datos almacenados por <code>save</code> pueden recuperarse con <code>load (<var>filename</var>)</code>.
+El resultado de ejecutar  <code>save</code> cuando <var>filename</var> ya existe depende 
+del soporte Lisp implementado; el archivo puede ser sobreescrito o que <code>save</code> 
+envíe un mesaje de error.
 </p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>covers</b><i> (<var>x</var>)</i>
-<a name="IDX2662"></a>
-</dt>
-<dd><p>Devuelve <code>1 - sin (<var>x</var>)</code>.
+<p>La llamada <code>save (<var>filename</var>, values, functions, labels, ...)</code>
+almacena los elementos cuyos nombres son <code>values</code>, <code>functions</code>, 
+<code>labels</code>, etc. Los nombres pueden ser cualesquiera de los especificados 
+por la variable <code>infolists</code>; <code>values</code> incluye todas las variables 
+definidas por el usuario.
 </p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>exsec</b><i> (<var>x</var>)</i>
-<a name="IDX2663"></a>
-</dt>
-<dd><p>Devuelve <code>sec (<var>x</var>) - 1</code>.
+<p>La llamada <code>save (<var>filename</var>, [<var>m</var>, <var>n</var>])</code> almacena los valores 
+de las etiquetas de entrada y salida desde <var>m</var> hasta <var>n</var>. Nótese que 
+<var>m</var> y <var>n</var> deben ser números. Las etiquetas de entrada y salida 
+también se pueden almacenar una a una, por ejemplo, <code>save (&quot;foo.1&quot;, %i42, %o42)</code>.
+La llamada <code>save (<var>filename</var>, labels)</code> almacena todas las etiquetas de 
+entrada y salida. Cuando las etiquetas almacenadas en el archivo sean posteriormente 
+recuperadas, se sobreescribirán las activas en ese momento.
 </p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>hav</b><i> (<var>x</var>)</i>
-<a name="IDX2664"></a>
-</dt>
-<dd><p>Devuelve <code>(1 - cos(x))/2</code>.
+<p>La llamada <code>save (<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, <var>name_2</var>=<var>expr_2</var>, ...)</code>
+almacena los valores de <var>expr_1</var>, <var>expr_2</var>, ...,
+con los nombres <var>name_1</var>, <var>name_2</var>, ....
+Es útil hacer este tipo de llamada para con etiquetas de entrada y salida, por ejemplo, <code>save (&quot;foo.1&quot;, aa=%o88)</code>.
+El miembro derecho de la igualdad puede ser cualquier expresión, que será evaluada.
+Esta llamada a la función <code>save</code> no incorpora nuevos nombres a la sesión actual de Maxima,
+simplemente los almacena en el archivo <var>filename</var>.
 </p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>combination</b><i> (<var>n</var>, <var>r</var>)</i>
-<a name="IDX2665"></a>
-</dt>
-<dd><p>Calcula el número de combinaciones de <var>n</var> objetos
-tomados de <var>r</var> en <var>r</var>.
+<p>Todas estas formas de llamar a la función <code>save</code> se pueden combinar a voluntad.
+Por ejemplo, <code>save (<var>filename</var>, aa, bb, cc=42, functions, [11, 17])</code>.
 </p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>permutation</b><i> (<var>n</var>, <var>r</var>)</i>
-<a name="IDX2666"></a>
-</dt>
-<dd><p>Calcula el número de permutaciones de <var>r</var>, seleccionados
-de un conjunto de <var>n</var>.
+<p>La llamada <code>save (<var>filename</var>, all)</code> almacena el estado actual de Maxima, 
+lo que incluye todas las variables definidas por el usuario, funciones, arreglos, etc., 
+así como algunos objetos definidos automáticamente.
+Los elementos almacenados incluyen variables del sistema, como <code>file_search_maxima</code> o 
+<code>showtime</code>, si han sido modificadas por el usuario. Véase <code>myoptions</code>.
 </p>
-<p>Para hacer uso de esta función ejecutar <code>load(functs)</code>.
+<p><code>save</code> evalúa <var>filename</var> pero no el resto de argumentos.
 </p></dd></dl>
 
 
 
-
-
-
-
-
-
-<hr size="6">
-<a name="Paquete-ineq"></a>
-<a name="SEC350"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC349" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC351" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC354" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 72.5 Paquete ineq </h2>
-
-<p>El paquete <code>ineq</code> contiene reglas de simplificación para desigualdades
+<a name="Item_003a-Input_002ees_002fdeffn_002fstringout"></a><dl>
+<dt><a name="index-stringout"></a>Función: <strong>stringout</strong> <em>(<var>filename</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, ...)</em></dt>
+<dt><a name="index-stringout-1"></a>Función: <strong>stringout</strong> <em>(<var>filename</var>, [<var>m</var>, <var>n</var>])</em></dt>
+<dt><a name="index-stringout-2"></a>Función: <strong>stringout</strong> <em>(<var>filename</var>, input)</em></dt>
+<dt><a name="index-stringout-3"></a>Función: <strong>stringout</strong> <em>(<var>filename</var>, functions)</em></dt>
+<dt><a name="index-stringout-4"></a>Función: <strong>stringout</strong> <em>(<var>filename</var>, values)</em></dt>
+<dd>
+<p>La función <code>stringout</code> escribe expresiones en un archivo de la misma forma en 
+que se escribirían como expresiones de entrada. El archivo puede ser 
+utilizado entonces como entrada a las funciones <code>batch</code> o <code>demo</code>, y puede 
+ser editado para cualquier otro propósito.
 </p>
-<p>Una sesión de ejemplo:
+<p>La forma general de <code>stringout</code> escribe los valores de una o más expresiones 
+en el archivo de salida. Nótese que si una expresión es una variable, solamente se 
+escribirá el valor de la variable y no el nombre de ésta. Como caso especial, y muy 
+útil en algunas ocasiones, las expresiones pueden ser etiquetas de entrada (<code>%i1</code>, 
+<code>%i2</code>, <code>%i3</code>, ...) o de salida (<code>%o1</code>, <code>%o2</code>, <code>%o3</code>, ...).
 </p>
-<pre class="example">(%i1) load(ineq)$
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-Warning: Putting rules on '+' or '*' is inefficient, and may not work.
-(%i2) a&gt;=4;  /* a sample inequality */
-(%o2)                               a &gt;= 4
-(%i3) (b&gt;c)+%; /* add a second, strict inequality */
-(%o3)                            b + a &gt; c + 4
-(%i4) 7*(x&lt;y); /* multiply by a positive number */
-(%o4)                              7 x &lt; 7 y
-(%i5) -2*(x&gt;=3*z); /* multiply by a negative number */
-(%o5)                           - 2 x &lt;= - 6 z
-(%i6) (1+a^2)*(1/(1+a^2)&lt;=1); /* Maxima knows that 1+a^2 &gt; 0 */
-                                        2
-(%o6)                             1 &lt;= a  + 1
-(%i7) assume(x&gt;0)$ x*(2&lt;3); /* assuming x&gt;0 */
-(%o7)                              2 x &lt; 3 x
-(%i8) a&gt;=b; /* another inequality */
-(%o8)                               a &gt;= b
-(%i9) 3+%; /* add something */
-(%o9)                           a + 3 &gt;= b + 3
-(%i10) %-3; /* subtract it out */
-(%o10)                              a &gt;= b
-(%i11) a&gt;=c-b; /* yet another inequality */
-(%o11)                            a &gt;= c - b
-(%i12) b+%; /* add b to both sides */
-(%o12)                            b + a &gt;= c
-(%i13) %-c; /* subtract c from both sides */
-(%o13)                         - c + b + a &gt;= 0
-(%i14) -%;  /* multiply by -1 */
-(%o14)                          c - b - a &lt;= 0
-(%i15) (z-1)^2&gt;-2*z; /* determining truth of assertion */
-                                      2
-(%o15)                         (z - 1)  &gt; - 2 z
-(%i16) expand(%)+2*z; /* expand this and add 2*z to both sides */
-                                   2
-(%o16)                            z  + 1 &gt; 0
-(%i17) %,pred;
-(%o17)                               true
-</pre>
-<p>Debe tenerse cuidado con el uso de paréntesis que incluyan desigualdades;
-si se escribe <code>(A &gt; B) + (C = 5)</code> el resultado es <code>A + C &gt; B + 5</code>,
-pero <code>A &gt; B + C = 5</code> es un error sintáctico y <code>(A &gt; B + C) = 5</code>
-es una cosa completamente diferente.
+<p>Si <code>grind</code> vale <code>true</code>, <code>stringout</code> formatea la salida utilizando <code>grind</code>. 
+En caso contrario, se utilizará el formato <code>string</code>. Véanse <code>grind</code> y <code>string</code>.
 </p>
-<p>Ejecútese <code>disprule (all)</code> para ver la lista completa de las
-reglas definidas.
+<p>La forma especial <code>stringout (<var>filename</var>, [<var>m</var>, <var>n</var>])</code> escribe los valores 
+de las etiquetas de entrada desde la m hasta la n, ambas inclusive. 
 </p>
-<p>Maxima preguntará al usuario cuando desconozca el signo de una cantidad que
-multiplica a una desigualdad.
+<p>La forma especial <code>stringout (<var>filename</var>, input)</code> escribe todas las etiquetas de
+entrada en el archivo.
 </p>
-<p>Los fallos más comunes son:
+<p>La forma especial <code>stringout (<var>filename</var>, functions)</code> escribe todas las funciones 
+definidas por el usuario, contenidas en la lista global <code>functions</code>, en el archivo.
 </p>
-<pre class="example">eq: a &gt; b;
-2*eq;
-% - eq;
-</pre>
-<p>Otro problema es el producto de una desigualdad por cero.
-Si se escribe <code>x*<var>some_inequality</var></code> y Maxima pregunta por
-el signo de <code>x</code> y se responde que vale <code>zero</code> (o <code>z</code>),
-el programa devuelve <code>x*<var>some_inequality</var></code> sin hacer uso de la
-información de que <code>x</code> es 0. En tal caso se debería
-escribir <code>ev (%, x: 0)</code>, ya que la base de datos sólo será utilizada 
-para fines comparativos y no para evaluar <code>x</code>.
+<p>La forma especial <code>stringout (<var>filename</var>, values)</code> escribe todas las variables 
+asignadas por el usuario, contenidas en la lista global <code>values</code>, en el archivo. 
+Cada variable se escribe como una sentencia de asignación, con el nombre de la variable 
+seguida de dos puntos y a continuación su valor. Nótese que la forma general de 
+<code>stringout</code> no escribe las variables como sentencias de asignación.
+</p></dd></dl>
+
+
+<a name="Item_003a-Input_002ees_002fdeffn_002fwith_005fstdout"></a><dl>
+<dt><a name="index-with_005fstdout"></a>Función: <strong>with_stdout</strong> <em>(<var>f</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, ...)</em></dt>
+<dt><a name="index-with_005fstdout-1"></a>Función: <strong>with_stdout</strong> <em>(<var>s</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, ...)</em></dt>
+<dd><p>Evalúa  <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, ...
+y escribe los resultados en el fichero <var>f</var> o flujo de salida <var>s</var>.
+Las expresiones que se evalúan no se escriben. La salida puede generarse por medio
+de <code>print</code>, <code>display</code>, <code>grind</code> entre otras funciones.
 </p>
-<p>El usuario puede apreciar que las respuestas son más lentas al cargarse este paquete,
-ya que el simplificador deberá examinar más reglas que cuando no se hace uso del 
-paquete, por lo que puede ser conveniente borrar estas reglas cuando ya no se haga
-uso de ellas. Ejecútese <code>kill (rules)</code> para eliminar todas las reglas 
-(incluidas las definidas por el usuario); también es posible eliminar
-parte de ellas o utilizar <code>remrule</code> sobre una reglas específica.
+<p>La variable global <code>file_output_append</code> controla si <code>with_stdout</code>
+añade o reinicia el contenido del fichero de salida <var>f</var>.
+Si <code>file_output_append</code> vale <code>true</code>, <code>with_stdout</code> añade
+contenido al fichero de salida. En cualquier caso, <code>with_stdout</code>
+crea el fichero si éste no existe.
 </p>
-<p>Nótese que si se carga este paquete después de haber definido otras reglas
-de igual nombre,se borrarán las antiguas. Las reglas de este paquete son:
-<code>*rule1</code>, ..., <code>*rule8</code>,
-<code>+rule1</code>, ..., <code>+rule18</code>,
-debiéndose encerrar entre comillas el nombre de la reglas para referenciarse a ellas,
-como en <code>remrule (&quot;+&quot;, &quot;+rule1&quot;)</code> para eliminar la primera regla sobre <code>&quot;+&quot;</code>,
-o <code>disprule (&quot;*rule2&quot;)</code> para mostrar la definición de la segunda regla
-multiplicativa.
+<p>La función <code>with_stdout</code> devuelve el valor de su último argumento.
 </p>
+<p>Véase también <code>writefile</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) with_stdout (&quot;tmp.out&quot;, 
+                   for i:5 thru 10 do print (i, &quot;! yields&quot;, i!))$
+(%i2) printfile (&quot;tmp.out&quot;)$
+5 ! yields 120 
+6 ! yields 720 
+7 ! yields 5040 
+8 ! yields 40320 
+9 ! yields 362880 
+10 ! yields 3628800
+</pre></div>
+</dd></dl>
 
 
 
 
-
-
-
-
-<hr size="6">
-<a name="Paquete-rducon"></a>
-<a name="SEC351"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC350" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC352" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC354" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 72.6 Paquete rducon </h2>
-
-
-
-<dl>
-<dt><u>Función:</u> <b>reduce_consts</b><i> (<var>expr</var>)</i>
-<a name="IDX2667"></a>
-</dt>
-<dd><p>Sustituye subexpresiones constantes de <var>expr</var> por átomos,
-guardando la definición de todos ellos en la lista de ecuaciones
- <code>const_eqns</code> y devolviendo el expresión <var>expr</var> ya
-modificada. Se consideran partes constantes de <var>expr</var> aquellas
-que devuelven <code>true</code> cuando se les aplica la función <code>constantp</code>,
-por lo que antes de llamar a <code>reduce_consts</code> se debe ejecutar
+<a name="Item_003a-Input_002ees_002fdeffn_002fwritefile"></a><dl>
+<dt><a name="index-writefile"></a>Función: <strong>writefile</strong> <em>(<var>filename</var>)</em></dt>
+<dd><p>Comienza escribiendo una transcripción de la sesión de Maxima en el archivo <var>filename</var>.
+Cualquier interacción entre Maxima y el usuario se almacena también en este archivo, tal como aparece en la consola.
 </p>
-<pre class="example">declare ([<var>objetos a los que se quiera dar la propiedad de ser constantes</var>], constant)$
-</pre>
-<p>para crear la base de datos de las cantidades constantes presentes en
-la expresión.
+<p>Puesto que la transcripción se escribe en el formato de salida a la consola, su contenido no es interpretable por Maxima.
+Para hacer un archivo que contenga expresiones que puedan ser nuevamente cargadas en Maxima, véanse <code>save</code> y <code>stringout</code>; la función <code>save</code> almacena expresiones en formato Lisp, mientras que <code>stringout</code> lo hace en formato Maxima.
 </p>
-<p>Si se pretende generar código Fortran después de estos cálculos
-simbólicos, una de las primeras secciones del código debe ser el
-cálculo de las constantes. Para generar este segmento de código hacer
+<p>El resultado de ejecutar <code>writefile</code> cuando el archivo <var>filename</var> ya existe depende del entorno Lisp operativo; el contenido anterior puede ser sobreescrito o ampliado con la sesión actual. La función <code>appendfile</code> siempre añade la sesión al contenido actual.
 </p>
-<pre class="example">map ('fortran, const_eqns)$
-</pre>
-<p>Junto a <code>const_eqns</code>, otras variables que afectan a <code>reduce_consts</code> son:
+<p>Puede ser útil ejecutar <code>playback</code> después de <code>writefile</code> para guardar las interacciones previas de la sesión. Puesto que  <code>playback</code> muestra solamente las variables de entrada y salida (<code>%i1</code>, <code>%o1</code>, etc.),
+cualquier salida generada por una sentencia de impresión desde dentro de una función no es mostrada por <code>playback</code>.
 </p>
-<p><code>const_prefix</code> (Valor por defecto: <code>xx</code>) es la cadena de caracteres utilizada como
-prefijo para todos los símbolos generados por <code>reduce_consts</code> para
-representar subexpresiones constantes.
-</p>
-<p><code>const_counter</code> (Valor por defecto: 1) es el índice entero utilizado
-para generar los símbolos que representen a las subexpresiones
-constantes encontradas por <code>reduce_consts</code>.
-</p>
-<p>La instrucción <code>load (rducon)</code> carga esta función y <code>demo (rducon)</code>
-hace una demostración sobre su uso.
+<p>La función <code>closefile</code> cierra los archivos abiertos por <code>writefile</code> o <code>appendfile</code>.
 </p></dd></dl>
 
 
 
 
-
-
-
-<hr size="6">
-<a name="Paquete-scifac"></a>
-<a name="SEC352"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC351" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC353" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC354" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 72.7 Paquete scifac </h2>
-
-
-<dl>
-<dt><u>Función:</u> <b>gcfac</b><i> (<var>expr</var>)</i>
-<a name="IDX2668"></a>
-</dt>
-<dd><p>Es una función de factorización que intenta aplicar la misma heurística
-que los humanos cuando tratan de hacer las expresiones más simples, limitándose
-a la factorización de monomios. En caso de sumas, <code>gcfac</code> hace lo siguiente:
-</p>
-<ol>
-<li>
-Factoriza los enteros.
-</li><li>
-Factoriza las potencias mayores de los términos que aparecen como
-coeficientes, independientemente de su complejidad.
-</li><li>
-Utiliza (1) y (2) en la factorización de pares de términos adyacentes.
-</li><li>
-Aplica estas técnicas repetida y recursivamente hasta que la
-expresión deje de sufrir cambios.
-</li></ol>
-
-<p>En general, el apartado (3) no hace una factorización óptima debido a la
-naturaleza combinatoria y compleja de encontrar cuál de todas las ordenaciones
-posibles de los pares da lugar a la expresión más compacta.
-</p>
-<p>La instrucción <code>load (scifac)</code> carga esta función y <code>demo (scifac)</code>
-hace una demostración sobre su uso.
-</p></dd></dl>
-
-
-
-
-
-
-<hr size="6">
-<a name="Paquete-sqdnst"></a>
-<a name="SEC353"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC352" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC354" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC345" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC354" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 72.8 Paquete sqdnst </h2>
-
-<dl>
-<dt><u>Función:</u> <b>sqrtdenest</b><i> (<var>expr</var>)</i>
-<a name="IDX2669"></a>
-</dt>
-<dd><p>Reduce expresiones en las que se encuentren raíces cuadradas anidadas,
-siempre que sea posible
-</p>
-<p>Ejemplo:
-</p>
-<pre class="example">(%i1) load (sqdnst)$
-(%i2) sqrt(sqrt(3)/2+1)/sqrt(11*sqrt(2)-12);
-                                    sqrt(3)
-                               sqrt(------- + 1)
-                                       2
-(%o2)                        ---------------------
-                             sqrt(11 sqrt(2) - 12)
-(%i3) sqrtdenest(%);
-                                  sqrt(3)   1
-                                  ------- + -
-                                     2      2
-(%o3)                            -------------
-                                    1/4    3/4
-                                 3 2    - 2
-</pre>
-<p>A veces conviene aplicar <code>sqrtdenest</code> más de una vez, como en el caso
-<code>(19601-13860 sqrt(2))^(7/4)</code>.
-</p>
-<p>La sentencia <code>load (sqdnst)</code> carga esta función.
-</p></dd></dl>
-
-
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC345" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_73.html#SEC354" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Item_003a-Input_002ees_002fnode_002fFunciones-y-variables-para-salida-TeX"></a><hr>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>diciembre, 30 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Siguiente: <a href="maxima_73.html#Funciones-y-variables-para-salida-TeX" accesskey="n" rel="next">Funciones y variables para salida TeX</a>, Previous: <a href="maxima_71.html#Archivos" accesskey="p" rel="previous">Archivos</a>, Subir: <a href="maxima_69.html#Lectura-y-escritura" accesskey="u" rel="up">Lectura y escritura</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
 
-</p>
+
+
 </body>
 </html>

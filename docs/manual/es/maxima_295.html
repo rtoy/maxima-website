@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para cadenas</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para cadenas">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para cadenas">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_291.html#stringproc" rel="up" title="stringproc">
+<link href="maxima_296.html#to_005fpoly_005fsolve" rel="next" title="to_poly_solve">
+<link href="maxima_294.html#Funciones-y-variables-para-caracteres" rel="previous" title="Funciones y variables para caracteres">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-cadenas"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_294.html#Funciones-y-variables-para-caracteres" accesskey="p" rel="previous">Funciones y variables para caracteres</a>, Subir: <a href="maxima_291.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-cadenas-1"></a>
+<h3 class="section">76.4 Funciones y variables para cadenas</h3>
+
+
+
+<a name="Item_003a-stringproc_002fdeffn_002fbase64"></a><dl>
+<dt><a name="index-base64"></a>Función: <strong>base64</strong> <em>(<var>string</var>)</em></dt>
+<dd><p>Devuelve la representación en base 64 de <var>string</var> en formato de
+cadena de caracteres.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) base64 : base64(&quot;foo bar baz&quot;);
+(%o1)                       Zm9vIGJhciBiYXo=
+(%i2) string : base64_decode(base64);
+(%o2)                          foo bar baz
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-stringproc_002fdeffn_002fbase64_005fdecode"></a><dl>
+<dt><a name="index-base64_005fdecode"></a>Función: <strong>base64_decode</strong> <em>(<var>base64-string</var>)</em></dt>
+<dd><p>Decodifica la cadena de caracteres <var>base64-string</var>, codificada
+en base 64, y devuelve la cadena original.
+</p>
+<p>Para un ejemplo, véase <code>base64</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-stringproc_002fdeffn_002fcharat"></a><dl>
+<dt><a name="index-charat"></a>Función: <strong>charat</strong> <em>(<var>string</var>, <var>n</var>)</em></dt>
+<dd><p>Devuelve el <var>n</var>-ésimo carácter de <var>string</var>.
+Al primer carácter de <var>string</var> le corresponde <var>n</var> = 1.
+</p>
+<div class="example">
+<pre class="example">(%i1) charat(&quot;Lisp&quot;,1);
+(%o1)                           L
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fcharlist"></a><dl>
+<dt><a name="index-charlist"></a>Función: <strong>charlist</strong> <em>(<var>string</var>) </em></dt>
+<dd><p>Devuelve una lista con todos los caracteres de <var>string</var>. 
+</p>
+<div class="example">
+<pre class="example">(%i1) charlist(&quot;Lisp&quot;);
+(%o1)                     [L, i, s, p]
+(%i2) %[1];
+(%o2)                           L
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002feval_005fstring"></a><dl>
+<dt><a name="index-eval_005fstring"></a>Función: <strong>eval_string</strong> <em>(<var>str</var>)</em></dt>
+<dd><p>Analiza sintácticamente la cadena <var>str</var> como una expresión de Maxima
+y la evalúa. La cadena <var>str</var> puede terminar o no con cualquiera de los 
+símbolos de final de sentencia (dólar <code>$</code> o punto y coma <code>;</code>).
+Sólo se analiza la primera expresión si hay más de una.
+</p>
+<p>Se emitirá un mensaje de error si <var>str</var> no es una cadena.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) eval_string (&quot;foo: 42; bar: foo^2 + baz&quot;);
+(%o1)                       42
+(%i2) eval_string (&quot;(foo: 42, bar: foo^2 + baz)&quot;);
+(%o2)                   baz + 1764
+</pre></div>
+
+<p>Véase también <code>parse_string</code>.
+</p></dd></dl>
+
+
+
+
+
+<a name="Item_003a-stringproc_002fdeffn_002fmd5sum"></a><dl>
+<dt><a name="index-md5sum"></a>Función: <strong>md5sum</strong> <em>(<var>string</var>)</em></dt>
+<dd><p>Devuelve, en formato de cadena de caracteres, el resultado de la suma de verificación
+md5 del argumento <var>string</var>. Para obtener el valor devuelto por la función como
+número entero, fijar la base numérica de entrada a 16 y a~nadir como prefijo
+el cero.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) string : md5sum(&quot;foo bar baz&quot;);
+(%o1)                  ab07acbb1e496801937adfa772424bf7
+(%i2) ibase : obase : 16.$
+
+(%i3) integer : parse_string(sconcat(0, string));
+(%o3)                 0ab07acbb1e496801937adfa772424bf7
+</pre></div>
+</dd></dl>
+
+
+
+
+
+
+<a name="Item_003a-stringproc_002fdeffn_002fparse_005fstring"></a><dl>
+<dt><a name="index-parse_005fstring"></a>Función: <strong>parse_string</strong> <em>(<var>str</var>)</em></dt>
+<dd><p>Analiza sintácticamente la cadena <var>str</var> como una expresión de Maxima,
+pero no la evalúa. La cadena <var>str</var> puede terminar o no con cualquiera de los 
+símbolos de final de sentencia (dólar <code>$</code> o punto y coma <code>;</code>).
+Sólo se analiza la primera expresión si hay más de una.
+</p>
+<p>Se emitirá un mensaje de error si <var>str</var> no es una cadena.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) parse_string (&quot;foo: 42; bar: foo^2 + baz&quot;);
+(%o1)                    foo : 42
+(%i2) parse_string (&quot;(foo: 42, bar: foo^2 + baz)&quot;);
+                                   2
+(%o2)          (foo : 42, bar : foo  + baz)
+</pre></div>
+
+<p>Véase también <code>eval_string</code>.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fscopy"></a><dl>
+<dt><a name="index-scopy"></a>Función: <strong>scopy</strong> <em>(<var>string</var>) </em></dt>
+<dd><p>Devuelve una copia nueva de la cadena <var>string</var>. 
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsdowncase"></a><dl>
+<dt><a name="index-sdowncase"></a>Función: <strong>sdowncase</strong> <em>(<var>string</var>) </em></dt>
+<dt><a name="index-sdowncase-1"></a>Función: <strong>sdowncase</strong> <em>(<var>string</var>, <var>start</var>) </em></dt>
+<dt><a name="index-sdowncase-2"></a>Función: <strong>sdowncase</strong> <em>(<var>string</var>, <var>start</var>, <var>end</var>) </em></dt>
+<dd><p>Convierte caracteres en minúscula a mayúscula. Véase también <code>supcase</code>.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsequal"></a><dl>
+<dt><a name="index-sequal"></a>Función: <strong>sequal</strong> <em>(<var>string_1</var>, <var>string_2</var>) </em></dt>
+<dd><p>Devuelve <code>true</code> si <var>string_1</var> y <var>string_2</var> son dos cadenas de caracteres iguales. 
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsequalignore"></a><dl>
+<dt><a name="index-sequalignore"></a>Función: <strong>sequalignore</strong> <em>(<var>string_1</var>, <var>string_2</var>)</em></dt>
+<dd><p>Igual que <code>sequal</code> pero no diferencia entre minúsculas y mayúsculas.. 
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsexplode"></a><dl>
+<dt><a name="index-sexplode"></a>Función: <strong>sexplode</strong> <em>(<var>string</var>)</em></dt>
+<dd><p>El nombre <code>sexplode</code> es un seudónimo de la función <code>charlist</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsimplode"></a><dl>
+<dt><a name="index-simplode"></a>Función: <strong>simplode</strong> <em>(<var>list</var>)  </em></dt>
+<dt><a name="index-simplode-1"></a>Función: <strong>simplode</strong> <em>(<var>list</var>, <var>delim</var>)  </em></dt>
+<dd><p>La función <code>simplode</code> admite como entrada una lista de expresiones para
+luego convertirla en una cadena de caracteres. Si no se utiliza la opción <var>delim</var>
+para indicar el delimitador, entonces <code>simplode</code> no 
+hace uso de ninguno. El valor de <var>delim</var> puede ser cualquier cadena.
+</p>
+<div class="example">
+<pre class="example">(%i1) simplode([&quot;xx[&quot;,3,&quot;]:&quot;,expand((x+y)^3)]);
+(%o1)             xx[3]:y^3+3*x*y^2+3*x^2*y+x^3
+(%i2) simplode( sexplode(&quot;stars&quot;),&quot; * &quot; );
+(%o2)                   s * t * a * r * s
+(%i3) simplode( [&quot;One&quot;,&quot;more&quot;,&quot;coffee.&quot;],&quot; &quot; );
+(%o3)                   One more coffee.
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsinsert"></a><dl>
+<dt><a name="index-sinsert"></a>Función: <strong>sinsert</strong> <em>(<var>seq</var>, <var>string</var>, <var>pos</var>) </em></dt>
+<dd><p>Devuelve la concatenación de las cadenas <code>substring (<var>string</var>, 1, <var>pos</var> - 1)</code>,
+<var>seq</var> y <code>substring (<var>string</var>, <var>pos</var>)</code>.
+Nótese que al primer carácter de <var>string</var> le corresponde la posición 1.
+</p>
+<div class="example">
+<pre class="example">(%i1) s: &quot;A submarine.&quot;$
+(%i2) concat( substring(s,1,3),&quot;yellow &quot;,substring(s,3) );
+(%o2)                  A yellow submarine.
+(%i3) sinsert(&quot;hollow &quot;,s,3);
+(%o3)                  A hollow submarine.
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsinvertcase"></a><dl>
+<dt><a name="index-sinvertcase"></a>Función: <strong>sinvertcase</strong> <em>(<var>string</var>)  </em></dt>
+<dt><a name="index-sinvertcase-1"></a>Función: <strong>sinvertcase</strong> <em>(<var>string</var>, <var>start</var>)  </em></dt>
+<dt><a name="index-sinvertcase-2"></a>Función: <strong>sinvertcase</strong> <em>(<var>string</var>, <var>start</var>, <var>end</var>)  </em></dt>
+<dd><p>Devuelve la misma cadena <var>string</var> pero con todos sus caracteres desde la
+posición <var>start</var> hasta <var>end</var> invertidos, esto es, las
+mayúsculas se convierten en minúsculas y éstas en mayúsculas.
+Si no se incluye el argumento <var>end</var>, se invierten todos los caracteres 
+desde <var>start</var> hasta el final de la cadena.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) sinvertcase(&quot;sInvertCase&quot;);
+(%o1)                      SiNVERTcASE
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fslength"></a><dl>
+<dt><a name="index-slength"></a>Función: <strong>slength</strong> <em>(<var>string</var>) </em></dt>
+<dd><p>Devuelve el número de caracteres de <var>string</var>. 
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsmake"></a><dl>
+<dt><a name="index-smake"></a>Función: <strong>smake</strong> <em>(<var>num</var>, <var>char</var>) </em></dt>
+<dd><p>Construye una cadena de longitud <var>num</var> con todos sus
+caracteres iguales a <var>char</var>. 
+</p>
+<div class="example">
+<pre class="example">(%i1) smake(3,&quot;w&quot;);
+(%o1)                          www
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsmismatch"></a><dl>
+<dt><a name="index-smismatch"></a>Función: <strong>smismatch</strong> <em>(<var>string_1</var>, <var>string_2</var>) </em></dt>
+<dt><a name="index-smismatch-1"></a>Función: <strong>smismatch</strong> <em>(<var>string_1</var>, <var>string_2</var>, <var>test</var>) </em></dt>
+<dd><p>Devuelve la posición del primer carácter de <var>string_1</var> distinto del
+correpondiente a <var>string_2</var>. La respuesta será <code>false</code> si no existe
+tal carácter. Por defecto, la función de comparación es <code>sequal</code>.
+Si se quiere ignorar la diferencia entre mayúsculas y minúsculas, hágase uso de 
+<code>sequalignore</code> para el argumento <var>test</var>.
+</p>
+<div class="example">
+<pre class="example">(%i1) smismatch(&quot;seven&quot;,&quot;seventh&quot;);
+(%o1)                           6
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsplit"></a><dl>
+<dt><a name="index-split"></a>Función: <strong>split</strong> <em>(<var>string</var>)  </em></dt>
+<dt><a name="index-split-1"></a>Función: <strong>split</strong> <em>(<var>string</var>, <var>delim</var>)  </em></dt>
+<dt><a name="index-split-2"></a>Función: <strong>split</strong> <em>(<var>string</var>, <var>delim</var>, <var>multiple</var>) </em></dt>
+<dd><p>Devuelve la lista de todos los lexemas (<i>tokens</i>) de <var>string</var>.
+La función <code>split</code> utiliza <var>delim</var> como delimitador, y en caso
+de no ser utilizado este argumento, será utilizado el espacio en blanco
+como delimitador por defecto. El argumento <var>multiple</var> es una variable
+booleana con valor <code>true</code> por defecto. Los delimitadores múltiples 
+se leen como uno solo, lo que resulta de utilidad si las tabulaciones son 
+almacenadas como secuencias de espacios en blanco. Si a <var>multiple</var> se 
+le asigna el valor <code>false</code>, se consirararán todos los delimitadores.
+</p>
+<div class="example">
+<pre class="example">(%i1) split(&quot;1.2   2.3   3.4   4.5&quot;);
+(%o1)                 [1.2, 2.3, 3.4, 4.5]
+(%i2) split(&quot;first;;third;fourth&quot;,&quot;;&quot;,false);
+(%o2)               [first, , third, fourth]
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsposition"></a><dl>
+<dt><a name="index-sposition"></a>Función: <strong>sposition</strong> <em>(<var>char</var>, <var>string</var>) </em></dt>
+<dd><p>Devuelve la posición del primer carácter de <var>string</var> que
+coincide con <var>char</var>. Al primer carácter de <var>string</var>
+le corresponde la posición 1.
+Para cuando se quiera ignorar la diferencia entre mayúsculas y 
+minúsculas, véase <var>ssearch</var>.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsremove"></a><dl>
+<dt><a name="index-sremove"></a>Función: <strong>sremove</strong> <em>(<var>seq</var>, <var>string</var>)  </em></dt>
+<dt><a name="index-sremove-1"></a>Función: <strong>sremove</strong> <em>(<var>seq</var>, <var>string</var>, <var>test</var>)  </em></dt>
+<dt><a name="index-sremove-2"></a>Función: <strong>sremove</strong> <em>(<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </em></dt>
+<dt><a name="index-sremove-3"></a>Función: <strong>sremove</strong> <em>(<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</em></dt>
+<dd><p>Devuelve la cadena <var>string</var> pero sin las subcadenas que coinciden con <var>seq</var>.
+La función de comparación por defecto es <code>sequal</code>.
+Si se quiere ignorar la diferencia entre mayúsculas y minúsculas, hágase uso de 
+<code>sequalignore</code> para el argumento <var>test</var>.
+Utilícense <var>start</var> y <var>end</var> para acotar la búsqueda.
+Al primer carácter de <var>string</var> le corresponde la posición 1.
+</p>
+<div class="example">
+<pre class="example">(%i1) sremove(&quot;n't&quot;,&quot;I don't like coffee.&quot;);
+(%o1)                   I do like coffee.
+(%i2) sremove (&quot;DO &quot;,%,'sequalignore);
+(%o2)                    I like coffee.
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsremovefirst"></a><dl>
+<dt><a name="index-sremovefirst"></a>Función: <strong>sremovefirst</strong> <em>(<var>seq</var>, <var>string</var>)  </em></dt>
+<dt><a name="index-sremovefirst-1"></a>Función: <strong>sremovefirst</strong> <em>(<var>seq</var>, <var>string</var>, <var>test</var>)  </em></dt>
+<dt><a name="index-sremovefirst-2"></a>Función: <strong>sremovefirst</strong> <em>(<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </em></dt>
+<dt><a name="index-sremovefirst-3"></a>Función: <strong>sremovefirst</strong> <em>(<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)  </em></dt>
+<dd><p>Actúa de forma similar a la función <code>sremove</code>, pero sólo elimina
+la primera aparición de la subcadena <code>seq</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsreverse"></a><dl>
+<dt><a name="index-sreverse"></a>Función: <strong>sreverse</strong> <em>(<var>string</var>) </em></dt>
+<dd><p>Devuelve una cadena con todos los caracteres de <var>string</var> en orden inverso.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fssearch"></a><dl>
+<dt><a name="index-ssearch"></a>Función: <strong>ssearch</strong> <em>(<var>seq</var>, <var>string</var>)  </em></dt>
+<dt><a name="index-ssearch-1"></a>Función: <strong>ssearch</strong> <em>(<var>seq</var>, <var>string</var>, <var>test</var>)  </em></dt>
+<dt><a name="index-ssearch-2"></a>Función: <strong>ssearch</strong> <em>(<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>)  </em></dt>
+<dt><a name="index-ssearch-3"></a>Función: <strong>ssearch</strong> <em>(<var>seq</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>)</em></dt>
+<dd><p>Devuelve la posición de la primera subcadena de <var>string</var> que coincide con
+la cadena <var>seq</var>.
+La función de comparación por defecto es <code>sequal</code>.
+Si se quiere ignorar la diferencia entre mayúsculas y minúsculas, hágase uso de 
+<code>sequalignore</code> para el argumento <var>test</var>.
+Utilícense <var>start</var> y <var>end</var> para acotar la búsqueda.
+Al primer carácter de <var>string</var> le corresponde la posición 1.
+</p>
+<div class="example">
+<pre class="example">(%i1) ssearch(&quot;~s&quot;,&quot;~{~S ~}~%&quot;,'sequalignore);
+(%o1)                                  4
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fssort"></a><dl>
+<dt><a name="index-ssort"></a>Función: <strong>ssort</strong> <em>(<var>string</var>) </em></dt>
+<dt><a name="index-ssort-1"></a>Función: <strong>ssort</strong> <em>(<var>string</var>, <var>test</var>) </em></dt>
+<dd><p>Devuelve una cadena con todos los caracteres de <var>string</var> en un orden
+tal que no haya dos caracteres sucesivos <var>c</var> y <var>d</var> que verifiquen
+que <code>test (<var>c</var>, <var>d</var>)</code> sea igual <code>false</code> y 
+<code>test (<var>d</var>, <var>c</var>)</code> igual a <code>true</code>.
+La función de comparación <var>test</var> por defecto es  <var>clessp</var>, siendo
+el conjunto de posibles valores para este argumento 
+<code>{clessp, clesspignore, cgreaterp, cgreaterpignore, cequal, cequalignore}</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) ssort(&quot;I don't like Mondays.&quot;);
+(%o1)                    '.IMaddeiklnnoosty
+(%i2) ssort(&quot;I don't like Mondays.&quot;,'cgreaterpignore);
+(%o2)                 ytsoonnMlkIiedda.'   
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fssubst"></a><dl>
+<dt><a name="index-ssubst"></a>Función: <strong>ssubst</strong> <em>(<var>new</var>, <var>old</var>, <var>string</var>) </em></dt>
+<dt><a name="index-ssubst-1"></a>Función: <strong>ssubst</strong> <em>(<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>) </em></dt>
+<dt><a name="index-ssubst-2"></a>Función: <strong>ssubst</strong> <em>(<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>) </em></dt>
+<dt><a name="index-ssubst-3"></a>Función: <strong>ssubst</strong> <em>(<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>) </em></dt>
+<dd><p>Devuelve una cadena similar a <var>string</var> pero en la que aquellas subcadenas 
+coincidentes con <var>old</var> han sido sustituidas por <var>new</var>. Las subcadenas
+<var>old</var> y <var>new</var> no necesitan ser de la misma longitud. 
+La función de comparación por defecto es <code>sequal</code>.
+Si se quiere ignorar la diferencia entre mayúsculas y minúsculas durante
+la búsqueda de <var>old</var>, hágase uso de 
+<code>sequalignore</code> para el argumento <var>test</var>.
+Utilícense <var>start</var> y <var>end</var> para acotar la búsqueda.
+Al primer carácter de <var>string</var> le corresponde la posición 1.
+</p>
+<div class="example">
+<pre class="example">(%i1) ssubst(&quot;like&quot;,&quot;hate&quot;,&quot;I hate Thai food. I hate green tea.&quot;);
+(%o1)          I like Thai food. I like green tea.
+(%i2) ssubst(&quot;Indian&quot;,&quot;thai&quot;,%,'sequalignore,8,12);
+(%o2)         I like Indian food. I like green tea.
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fssubstfirst"></a><dl>
+<dt><a name="index-ssubstfirst"></a>Función: <strong>ssubstfirst</strong> <em>(<var>new</var>, <var>old</var>, <var>string</var>) </em></dt>
+<dt><a name="index-ssubstfirst-1"></a>Función: <strong>ssubstfirst</strong> <em>(<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>) </em></dt>
+<dt><a name="index-ssubstfirst-2"></a>Función: <strong>ssubstfirst</strong> <em>(<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>) </em></dt>
+<dt><a name="index-ssubstfirst-3"></a>Función: <strong>ssubstfirst</strong> <em>(<var>new</var>, <var>old</var>, <var>string</var>, <var>test</var>, <var>start</var>, <var>end</var>) </em></dt>
+<dd><p>Actúa de forma similar a la función <code>subst</code>, pero sólo hace
+la sustitución en la primera coincidencia con <var>old</var>. 
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fstrim"></a><dl>
+<dt><a name="index-strim"></a>Función: <strong>strim</strong> <em>(<var>seq</var>,<var>string</var>) </em></dt>
+<dd><p>Devuelve la cadena <var>string</var> pero recortando los caracteres
+de <var>seq</var> que tuviese en sus extremos.
+</p>
+<div class="example">
+<pre class="example">(%i1) &quot;/* comment */&quot;$
+(%i2) strim(&quot; /*&quot;,%);
+(%o2)                        comment
+(%i3) slength(%);
+(%o3)                           7
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fstriml"></a><dl>
+<dt><a name="index-striml"></a>Función: <strong>striml</strong> <em>(<var>seq</var>, <var>string</var>) </em></dt>
+<dd><p>Actúa de forma similar a <code>strim</code>, pero sólo recorta
+en el extremo final de <var>string</var>.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fstrimr"></a><dl>
+<dt><a name="index-strimr"></a>Función: <strong>strimr</strong> <em>(<var>seq</var>, <var>string</var>) </em></dt>
+<dd><p>Actúa de forma similar a <code>strim</code>, pero sólo recorta
+en el extremo inicial de <var>string</var>.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fstringp"></a><dl>
+<dt><a name="index-stringp"></a>Función: <strong>stringp</strong> <em>(<var>obj</var>) </em></dt>
+<dd><p>Devuelve <code>true</code> si <var>obj</var> es una cadena.
+Véase un ejemplo en la introducción.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsubstring"></a><dl>
+<dt><a name="index-substring"></a>Función: <strong>substring</strong> <em>(<var>string</var>, <var>start</var>)</em></dt>
+<dt><a name="index-substring-1"></a>Función: <strong>substring</strong> <em>(<var>string</var>, <var>start</var>, <var>end</var>) </em></dt>
+<dd><p>Devuelve la subcadena de <var>string</var> que comienza en la posición
+<var>start</var> y termina en la posición <var>end</var>.
+El carácter en la posición <var>end</var> no se incluye.
+En caso de no suministrarse el argumento <var>end</var>, la subcadena
+se extenderá hasta el final. 
+Al primer carácter de <var>string</var> le corresponde la posición 1.
+</p>
+<div class="example">
+<pre class="example">(%i1) substring(&quot;substring&quot;,4);
+(%o1)                        string
+(%i2) substring(%,4,6);
+(%o2)                          in
+</pre></div>
+
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsupcase"></a><dl>
+<dt><a name="index-supcase"></a>Función: <strong>supcase</strong> <em>(<var>string</var>) </em></dt>
+<dt><a name="index-supcase-1"></a>Función: <strong>supcase</strong> <em>(<var>string</var>, <var>start</var>) </em></dt>
+<dt><a name="index-supcase-2"></a>Función: <strong>supcase</strong> <em>(<var>string</var>, <var>start</var>, <var>end</var>) </em></dt>
+<dd><p>Devuelve la cadena <var>string</var> con todos sus caracteres entre las posiciones
+<var>start</var> y <var>end</var> en minúscula transformados a mayúscula.
+En caso de no suministrarse el argumento <var>end</var>, los cambios
+se extenderán hasta el final.
+</p>
+<div class="example">
+<pre class="example">(%i1) supcase(&quot;english&quot;,1,2);
+(%o1)                        English
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002ftokens"></a><dl>
+<dt><a name="index-tokens"></a>Función: <strong>tokens</strong> <em>(<var>string</var>) </em></dt>
+<dt><a name="index-tokens-1"></a>Función: <strong>tokens</strong> <em>(<var>string</var>, <var>test</var>) </em></dt>
+<dd><p>Devuelve la lista de todos los lexemas (<i>tokens</i>) de <var>string</var>.
+Los lexemas son subcadenas cuyos caracteres satisfacen la  condición <var>test</var>.
+Si no se suministra el argumento <var>test</var>, se utilizará la condición
+<var>constituent</var>, siendo el conjunto de las otras alternativas
+<code>{constituent, alphacharp, digitcharp, lowercasep, uppercasep, charp, characterp, alphanumericp}</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) tokens(&quot;24 October 2005&quot;);
+(%o1)                  [24, October, 2005]
+(%i2) tokens(&quot;05-10-24&quot;,'digitcharp);
+(%o2)                     [05, 10, 24]
+(%i3) map(parse_string,%);
+(%o3)                      [5, 10, 24]
+</pre></div>
+
+</dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_294.html#Funciones-y-variables-para-caracteres" accesskey="p" rel="previous">Funciones y variables para caracteres</a>, Subir: <a href="maxima_291.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

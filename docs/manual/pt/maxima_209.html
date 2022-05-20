@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Definições para entrada e saída</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Definições para entrada e saída">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições para entrada e saída">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_207.html#stringproc" rel="up" title="stringproc">
+<link href="maxima_210.html#Defini_00e7_00f5es-para-caracteres" rel="next" title="Definições para caracteres">
+<link href="maxima_208.html#Introdu_00e7_00e3o-a-manipula_00e7_00e3o-de-sequ_00eancias-de-caracteres" rel="previous" title="Introdução a manipulação de sequências de caracteres">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-para-entrada-e-sa_00edda"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_210.html#Defini_00e7_00f5es-para-caracteres" accesskey="n" rel="next">Definições para caracteres</a>, Previous: <a href="maxima_208.html#Introdu_00e7_00e3o-a-manipula_00e7_00e3o-de-sequ_00eancias-de-caracteres" accesskey="p" rel="previous">Introdução a manipulação de sequências de caracteres</a>, Acima: <a href="maxima_207.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-para-entrada-e-saida"></a>
+<h3 class="section">69.2 Definições para entrada e saída</h3>
+
+<p>Exemplo: 
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stringproc&quot;)$
+(%i2) s: openw(&quot;E:/file.txt&quot;);
+(%o2)                     #&lt;output stream E:/file.txt&gt;
+(%i3) control: 
+&quot;~2tAn atom: ~20t~a~%~2tand a list: ~20t~{~r ~}~%~2tand an integer: ~20t~d~%&quot;$
+(%i4) printf( s,control, 'true,[1,2,3],42 )$
+(%o4)                                false
+(%i5) close(s);
+(%o5)                                true
+(%i6) s: openr(&quot;E:/file.txt&quot;);
+(%o6)                     #&lt;input stream E:/file.txt&gt;
+(%i7) while stringp( tmp:readline(s) ) do print(tmp)$
+  An atom:          true 
+  and a list:       one two three  
+  and an integer:   42 
+(%i8) close(s)$
+</pre></div>
+
+
+<a name="Item_003a-stringproc_002fdeffn_002fclose"></a><dl>
+<dt><a name="index-close"></a>Função: <strong>close</strong> <em>(<var>fluxo</var>) </em></dt>
+<dd><p>Fecha  <var>fluxo</var> e retorna <code>true</code> se <var>fluxo</var> tiver sido aberto anteriormente. 
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fflength"></a><dl>
+<dt><a name="index-flength"></a>Função: <strong>flength</strong> <em>(<var>fluxo</var>)</em></dt>
+<dd><p>Retorna o número de elementos em <var>fluxo</var>. 
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002ffposition"></a><dl>
+<dt><a name="index-fposition"></a>Função: <strong>fposition</strong> <em>(<var>fluxo</var>)</em></dt>
+<dt><a name="index-fposition-1"></a>Função: <strong>fposition</strong> <em>(<var>fluxo</var>, <var>pos</var>)</em></dt>
+<dd><p>Retorna a posição corrente em <var>fluxo</var>, se <var>pos</var> não está sendo usada.
+Se <var>pos</var> estiver sendo usada,
+<code>fposition</code> escolhe a posição em <var>fluxo</var>.
+<var>pos</var> tem que ser um número positivo,
+o primeiro elemento em <var>fluxo</var> está na posição 1.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002ffreshline"></a><dl>
+<dt><a name="index-freshline"></a>Função: <strong>freshline</strong> <em>() </em></dt>
+<dt><a name="index-freshline-1"></a>Função: <strong>freshline</strong> <em>(<var>fluxo</var>) </em></dt>
+<dd><p>escreve uma nova linha (em <var>fluxo</var>),
+se a posição actual não for um início de linha.
+Veja também <code>newline</code>.
+</p></dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fnewline"></a><dl>
+<dt><a name="index-newline"></a>Função: <strong>newline</strong> <em>() </em></dt>
+<dt><a name="index-newline-1"></a>Função: <strong>newline</strong> <em>(<var>fluxo</var>) </em></dt>
+<dd><p>Escreve uma nova linha (para <var>fluxo</var>).
+Veja <code>sprint</code> para um exemplo de uso de <code>newline()</code>.
+Note que existem alguns casos, onde <code>newline()</code>não trabalha como esperado. 
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fopena"></a><dl>
+<dt><a name="index-opena"></a>Função: <strong>opena</strong> <em>(<var>ficheiro</var>) </em></dt>
+<dd><p>Retorna um fluxo de saída para <var>ficheiro</var>.
+Se um ficheiro já existente tiver sido aberto, <code>opena</code> anexa os elementos ao final do ficheiro.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fopenr"></a><dl>
+<dt><a name="index-openr"></a>Função: <strong>openr</strong> <em>(<var>ficheiro</var>) </em></dt>
+<dd><p>Retorna um fluxo para <var>ficheiro</var>.
+Se <var>ficheiro</var> não existir, ele será criado.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fopenw"></a><dl>
+<dt><a name="index-openw"></a>Função: <strong>openw</strong> <em>(<var>ficheiro</var>) </em></dt>
+<dd><p>Retorna um fluxo de saída para <var>ficheiro</var>.
+Se <var>ficheiro</var> não existir, será criado.
+Se um ficheiro já existente for aberto, <code>openw</code> modifica destrutivametne o <var>ficheiro</var>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fprintf"></a><dl>
+<dt><a name="index-printf"></a>Função: <strong>printf</strong> <em>(<var>dest</var>, <var>seq_caracte</var>)</em></dt>
+<dt><a name="index-printf-1"></a>Função: <strong>printf</strong> <em>(<var>dest</var>, <var>seq_caracte</var>, <var>expr_1</var>, ..., <var>expr_n</var>)</em></dt>
+<dd><p>Torna a função FORMAT do Lisp Comum disponível no Maxima. 
+(Retirado de gcl.info: &quot;format produces formatted output by outputting the caracteres of 
+control-string string and observing that a tilde introduces a directive.
+The caractere after the tilde,
+possibly preceded by prefix parameters and modifiers,
+specifies what kind of formatting is desired.
+Most directives use one or more elements of args to create their output.&quot;)
+</p>
+<p>A seguinte descrição e oa exemplos podem fornecer uma idéia de uso de <code>printf</code>.
+Veja um referência de Lisp para maiores informações.
+</p>
+<div class="example">
+<pre class="example">   ~%       nova linha
+   ~&amp;       novíssima line
+   ~t       tabulação
+   ~$       monetário
+   ~d       inteiro decimal
+   ~b       inteiro binário
+   ~o       inteiro octal
+   ~x       inteiro hexadecimal
+   ~br      inteiro de base b
+   ~r       soletra um inteiro
+   ~p       plural
+   ~f       ponto flutuante
+   ~e       notação científica
+   ~g       ~f ou ~e, dependendo  da magnitude
+   ~a       como mostrado pela função print do Maxima
+   ~s       sequências de caracteres entre &quot;aspas duplas&quot;
+   ~~       ~
+   ~&lt;       justificação de texto, ~&gt; terminador de justificação de texto
+   ~(       conversão de caixa alta/baixa, ~) terminador de conversão de caixa
+   ~[       selecção, ~] terminador de selecção 
+   ~{       iteração, ~} terminador de iteração
+</pre></div>
+
+<p>Por favor note que não existe especificador de formato para grandes
+números em ponto flutuante. Todavia grandes números em ponto
+flutuante podem simplesmente serem mostrados por meio da directiva
+<code>~a</code>.  <code>~s</code> mostra as sequências de caracteres entre &quot;aspas
+duplas&quot;; pode evitar isso usando <code>~a</code>.  Note que a directiva de
+selecção <code>~[</code> é indexada em zero.  Também note que existem
+algumas directivas, que não trabalham no Maxima.  Por exemplo,
+<code>~:[</code> falha.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stringproc&quot;)$
+(%i2) printf( false, &quot;~a ~a ~4f ~a ~@r&quot;, 
+              &quot;String&quot;,sym,bound,sqrt(12),144), bound = 1.234;
+(%o2)                 String sym 1.23 2*sqrt(3) CXLIV
+(%i3) printf( false,&quot;~{~a ~}&quot;,[&quot;one&quot;,2,&quot;THREE&quot;] );
+(%o3)                          one 2 THREE 
+(%i4) printf( true,&quot;~{~{~9,1f ~}~%~}&quot;,mat ),
+              mat = args( matrix([1.1,2,3.33],[4,5,6],[7,8.88,9]) )$
+      1.1       2.0       3.3 
+      4.0       5.0       6.0 
+      7.0       8.9       9.0 
+(%i5) control: &quot;~:(~r~) bird~p ~[is~;are~] singing.&quot;$
+(%i6) printf( false,control, n,n,if n=1 then 0 else 1 ), n=2;
+(%o6)                    Two birds are singing.
+</pre></div>
+
+<p>Se <var>dest</var> for um fluxo ou <code>true</code>, então <code>printf</code> retorna <code>false</code>.
+De outra forma, <code>printf</code> retorna uma sequência de caracteres contendo a saída.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002freadline"></a><dl>
+<dt><a name="index-readline"></a>Função: <strong>readline</strong> <em>(<var>fluxo</var>) </em></dt>
+<dd><p>Retorna uma sequência de caracteres contendo os caracteres a partir da posição corrente em <var>fluxo</var> até o fim de linha ou <var>false</var> se o fim de linha do ficheiro for encontrado.
+</p>
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fdeffn_002fsprint"></a><dl>
+<dt><a name="index-sprint"></a>Função: <strong>sprint</strong> <em>(<var>expr_1</var>, ..., <var>expr_n</var>)</em></dt>
+<dd><p>Avalia e mostra seus argumentos um após o outro &lsquo;sobre uma linha&rsquo;
+iniciando na posição mais à esquerda.  Os números são
+mostrados com o &rsquo;-&rsquo; à direita do número, e isso desconsidera o
+comprimento da linha. <code>newline()</code>, que pode ser chamada a partir de
+<code>stringproc.lisp</code> pode ser útil, se desejar colocar uma parada de
+linha intermédia.
+</p>
+<div class="example">
+<pre class="example">(%i1) for n:0 thru 22 do sprint( fib(n) )$
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 
+(%i2) load(&quot;stringproc&quot;)$
+(%i3) for n:0 thru 22 do ( 
+         sprint(fib(n)), if mod(n,10)=9 then newline() )$
+0 1 1 2 3 5 8 13 21 34 
+55 89 144 233 377 610 987 1597 2584 4181 
+6765 10946 17711 
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-stringproc_002fnode_002fDefini_00e7_00f5es-para-caracteres"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_210.html#Defini_00e7_00f5es-para-caracteres" accesskey="n" rel="next">Definições para caracteres</a>, Previous: <a href="maxima_208.html#Introdu_00e7_00e3o-a-manipula_00e7_00e3o-de-sequ_00eancias-de-caracteres" accesskey="p" rel="previous">Introdução a manipulação de sequências de caracteres</a>, Acima: <a href="maxima_207.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

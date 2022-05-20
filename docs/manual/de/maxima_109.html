@@ -1,0 +1,1828 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Funktionen und Variablen der linearen Algebra</title>
+
+<meta name="description" content="Maxima Manual: Funktionen und Variablen der linearen Algebra">
+<meta name="keywords" content="Maxima Manual: Funktionen und Variablen der linearen Algebra">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_104.html#Lineare-Algebra" rel="up" title="Lineare Algebra">
+<link href="maxima_110.html#Tensoren" rel="next" title="Tensoren">
+<link href="maxima_108.html#Eigenwerte" rel="previous" title="Eigenwerte">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funktionen-und-Variablen-der-linearen-Algebra"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_105.html#Einf_00fchrung-in-die-lineare-Algebra" accesskey="p" rel="previous">Einf&uuml;hrung in die lineare Algebra</a>, Nach oben: <a href="maxima_104.html#Lineare-Algebra" accesskey="u" rel="up">Lineare Algebra</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-und-Variablen-der-linearen-Algebra-1"></a>
+<h3 class="section">19.2 Funktionen und Variablen der linearen Algebra</h3>
+
+<a name="addcol"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002faddcol"></a><dl>
+<dt><a name="index-addcol"></a>Funktion: <strong>addcol</strong> <em>(<var>M</var>, <var>list_1</var>, &hellip;, <var>list_n</var>)</em></dt>
+<dd>
+
+<p>H&auml;ngt eine oder mehrere Spalten, die als Listen <var>list_1</var>, &hellip;, 
+<var>list_n</var> &uuml;bergeben werden, an die Matrix <var>M</var> an.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) M:matrix([a,b],[c,d]);
+                            [ a  b ]
+(%o1)                       [      ]
+                            [ c  d ]
+(%i2) addcol(M,[1,2],[x,y]);
+                         [ a  b  1  x ]
+(%o2)                    [            ]
+                         [ c  d  2  y ]
+</pre></div>
+</dd></dl>
+
+<a name="addrow"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002faddrow"></a><dl>
+<dt><a name="index-addrow"></a>Funktion: <strong>addrow</strong> <em>(<var>M</var>, <var>list_1</var>, &hellip;, <var>list_n</var>)</em></dt>
+<dd>
+
+<p>H&auml;ngt eine oder mehrere Zeilen, die als Listen <var>list_1</var>, &hellip;,
+<var>list_n</var> &uuml;bergeben werden, an die Matrix <var>M</var> an.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) M:matrix([a,b],[c,d]);
+                            [ a  b ]
+(%o1)                       [      ]
+                            [ c  d ]
+(%i2) addrow(M,[1,2],[x,y]);
+                            [ a  b ]
+                            [      ]
+                            [ c  d ]
+(%o2)                       [      ]
+                            [ 1  2 ]
+                            [      ]
+                            [ x  y ]
+</pre></div>
+</dd></dl>
+
+<a name="adjoint"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fadjoint"></a><dl>
+<dt><a name="index-adjoint"></a>Funktion: <strong>adjoint</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+<p>Gibt die adjungierte der Matrix <var>M</var> zur&uuml;ck.
+</p></dd></dl>
+
+<a name="augcoefmatrix"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002faugcoefmatrix"></a><dl>
+<dt><a name="index-augcoefmatrix"></a>Funktion: <strong>augcoefmatrix</strong> <em>([<var>eqn_1</var>, &hellip;, <var>eqn_m</var>], [<var>x_1</var>, &hellip;, <var>x_n</var>])</em></dt>
+<dd>
+
+<p>Gibt die erweiterte Koeffizientenmatrix f&uuml;r die Variablen <var>x_1</var>, &hellip;, 
+<var>x_n</var> und dem linearen Gleichungssystem <var>eqn_1</var>, &hellip;, <var>eqn_m</var>.
+Die erweiterte Koeffizientenmatrix entsteht, wenn an die Koeffizientenmatrix 
+des Gleichungssystems die Spalte mit der rechten Seite des Gleichungssystems
+angef&uuml;gt wird.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) m: [2*x - (a - 1)*y = 5*b, c + b*y + a*x = 0]$
+(%i2) augcoefmatrix (m, [x, y]);
+                       [ 2  1 - a  - 5 b ]
+(%o2)                  [                 ]
+                       [ a    b      c   ]
+</pre></div>
+</dd></dl>
+
+<a name="charpoly"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fcharpoly"></a><dl>
+<dt><a name="index-charpoly"></a>Funktion: <strong>charpoly</strong> <em>(<var>M</var>, <var>x</var>)</em></dt>
+<dd>
+
+<p>Gibt das charakteristische Polynom der Matrix <var>M</var> f&uuml;r die Variable <var>x</var>
+zur&uuml;ck.  Das charakterische Polynom wird als
+<code>determinant(<var>M</var> - diagmatrix(length (<var>M</var>), <var>x</var>))</code> berechnet.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) a: matrix ([3, 1], [2, 4]);
+                            [ 3  1 ]
+(%o1)                       [      ]
+                            [ 2  4 ]
+(%i2) expand (charpoly (a, lambda));
+                           2
+(%o2)                lambda  - 7 lambda + 10
+(%i3) (programmode: true, solve (%));
+(%o3)               [lambda = 5, lambda = 2]
+(%i4) matrix ([x1], [x2]);
+                             [ x1 ]
+(%o4)                        [    ]
+                             [ x2 ]
+(%i5) ev (a . % - lambda*%, %th(2)[1]);
+                          [ x2 - 2 x1 ]
+(%o5)                     [           ]
+                          [ 2 x1 - x2 ]
+(%i6) %[1, 1] = 0;
+(%o6)                     x2 - 2 x1 = 0
+(%i7) x2^2 + x1^2 = 1;
+                            2     2
+(%o7)                     x2  + x1  = 1
+(%i8) solve ([%th(2), %], [x1, x2]);
+                  1               2
+(%o8) [[x1 = - -------, x2 = - -------], 
+               sqrt(5)         sqrt(5)
+
+                                             1             2
+                                    [x1 = -------, x2 = -------]]
+                                          sqrt(5)       sqrt(5)
+</pre></div>
+</dd></dl>
+
+<a name="coefmatrix"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fcoefmatrix"></a><dl>
+<dt><a name="index-coefmatrix"></a>Funktion: <strong>coefmatrix</strong> <em>([<var>eqn_1</var>, &hellip;, <var>eqn_m</var>], [<var>x_1</var>, &hellip;, <var>x_n</var>])</em></dt>
+<dd>
+
+<p>Gibt die Koeffizientenmatrix f&uuml;r die Variablen <var>x_1</var>, &hellip;, <var>x_n</var>
+des linearen Gleichungssystem <var>eqn_1</var>, &hellip;, <var>eqn_m</var> zur&uuml;ck.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) coefmatrix([2*x-(a-1)*y+5*b = 0, b*y+a*x = 3], [x,y]);
+</pre><pre class="example">                                 [ 2  1 - a ]
+(%o1)                            [          ]
+                                 [ a    b   ]
+</pre></div>
+</dd></dl>
+
+<a name="col"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fcol"></a><dl>
+<dt><a name="index-col"></a>Funktion: <strong>col</strong> <em>(<var>M</var>, <var>i</var>)</em></dt>
+<dd>
+
+<p>Gibt die <var>i</var>-te Spalte der Matrix <var>M</var> zur&uuml;ck.  Das Ergebnis ist eine
+Matrix.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) M:matrix([1,2,3],[a,b,c]);
+                           [ 1  2  3 ]
+(%o1)                      [         ]
+                           [ a  b  c ]
+(%i2) col(M,2);
+                              [ 2 ]
+(%o2)                         [   ]
+                              [ b ]
+</pre></div>
+</dd></dl>
+
+<a name="columnvector"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fcolumnvector"></a><dl>
+<dt><a name="index-columnvector"></a>Funktion: <strong>columnvector</strong> <em>(<var>L</var>)</em></dt>
+<dd><a name="Item_003a-Matrices_002ede_002fdeffn_002fcovect"></a></dd><dt><a name="index-covect"></a>Funktion: <strong>covect</strong> <em>(<var>L</var>)</em></dt>
+<dd>
+
+<p>Gibt eine Matrix mit einer Spalte zur&uuml;ck, die die Elemente der Liste <var>L</var>
+enth&auml;lt.
+</p>
+
+<p><code>covect</code> ist ein Alias-Name f&uuml;r die Funktion <code>columnvector</code>.  Das 
+Kommando <code>load(&quot;eigen&quot;)</code> l&auml;dt die Funktion.
+</p>
+
+<p>Beispiel:
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;eigen&quot;)$
+
+(%i2) columnvector ([aa, bb, cc]);
+                             [ aa ]
+                             [    ]
+(%o2)                        [ bb ]
+                             [    ]
+                             [ cc ]
+</pre></div>
+</dd></dl>
+
+<a name="copymatrix"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fcopymatrix"></a><dl>
+<dt><a name="index-copymatrix"></a>Funktion: <strong>copymatrix</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+<p>Gibt eine Kopie der Matrix <var>M</var> zur&uuml;ck.
+</p>
+
+<p>Die Zuweisung wie zum Beispiel <code>m2: m1</code> kopiert die Matrix <code>m1</code> nicht.
+Wird nach dieser Zuweisung die Matrix <code>m2</code> ge&auml;ndert, wird auch die Matrix
+<code>m1</code> ge&auml;ndert.  Um eine Kopie zu erhalten, muss <code>m2: copymatrix(m1)</code>
+ausgef&uuml;hrt werden.
+</p></dd></dl>
+
+<a name="determinat"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fdeterminant"></a><dl>
+<dt><a name="index-determinant"></a>Funktion: <strong>determinant</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+<p>Berechnet die Determinate der Matrix <var>M</var>.  Die angewendete Methode ist
+vergleichbar mit dem Gau&szlig;-Verfahren.
+</p>
+
+
+<p><code>determinat</code> wird von den Schaltern <code>ratmx</code> und <code>sparse</code>
+kontrolliert.  Haben beide Schalter den Wert <code>true</code>, wird ein spezieller
+Algorithmus f&uuml;r schwachbesetzte Matrizen aufgerufen.
+</p></dd></dl>
+
+<a name="detout"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdetout"></a><dl>
+<dt><a name="index-detout"></a>Optionsvariable: <strong>detout</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>detout</code> den Wert <code>true</code>, wird die Determinate einer Matrix, f&uuml;r
+die die inverse Matrix berechnet wird, aus der Matrix herausmultipliziert.
+</p>
+
+<p>Damit dieser Schalter einen Effekt hat, m&uuml;ssen die Optionsvariablen 
+<code>doallmxops</code> und <code>doscmxops</code> den Wert <code>false</code> haben.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) m: matrix ([a, b], [c, d]);
+                            [ a  b ]
+(%o1)                       [      ]
+                            [ c  d ]
+(%i2) detout: true$
+(%i3) doallmxops: false$
+(%i4) doscmxops: false$
+(%i5) invert (m);
+                          [  d   - b ]
+                          [          ]
+                          [ - c   a  ]
+(%o5)                     ------------
+                           a d - b c
+</pre></div>
+
+</dd></dl>
+
+<a name="diagmatrix"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fdiagmatrix"></a><dl>
+<dt><a name="index-diagmatrix"></a>Funktion: <strong>diagmatrix</strong> <em>(<var>n</var>, <var>x</var>)</em></dt>
+<dd>
+
+<p>Gibt eine <var>n</var>-dimensionale Diagonalmatrix zur&uuml;ck, deren Diagonalelemente
+alle den Wert <var>x</var> haben.
+</p>
+
+<p><var>n</var> muss zu einer ganzen Zahl auswerten.  Ansonsten meldet Maxima einen
+Fehler.
+</p>
+
+<p><var>x</var> kann ein beliebiger Ausdruck einschlie&szlig;lich einer Matrix sein.  Ist
+<var>x</var> eine Matrix, dann wird diese nicht kopiert.
+</p></dd></dl>
+
+<a name="doallmxops"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdoallmxops"></a><dl>
+<dt><a name="index-doallmxops"></a>Optionsvariable: <strong>doallmxops</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat <code>doallmxops</code> den Wert <code>true</code>, werden Matrixoperationen 
+ausgef&uuml;hrt.  Ist der Wert <code>false</code>, werden nur die Matrixoperationen 
+ausgef&uuml;hrt, die mit den einzelnen <code>dot</code>-Schaltern eingeschaltet sind.
+</p></dd></dl>
+
+<a name="domexpt"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdomxexpt"></a><dl>
+<dt><a name="index-domxexpt"></a>Optionsvariable: <strong>domxexpt</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat <code>domxexpt</code> den Wert <code>true</code>, wird die Exponentiation
+<code>exp(<var>M</var>)</code>, wobei <var>M</var> eine Matrix ist, elementweise f&uuml;r jedes
+einzelne Matrixelement ausgef&uuml;hrt, so dass f&uuml;r jedes Element der Matrix 
+gilt <code>exp (m[i,j])</code>.  Ansonsten wird die Exponentiation als
+<code>exp (<var>ev(M)</var></code> ausgewertet.
+</p>
+
+<p><code>domxexpt</code> beeinflu&szlig;t alle Ausdr&uuml;cke der Form <code><var>a</var>^<var>b</var></code>,
+wobei <var>a</var> eine Konstante oder ein skalarer Ausdruck und <var>b</var> eine
+Liste oder Matrix ist.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) m: matrix ([1, %i], [a+b, %pi]);
+                         [   1    %i  ]
+(%o1)                    [            ]
+                         [ b + a  %pi ]
+(%i2) domxexpt: false$
+(%i3) (1 - c)^m;
+                             [   1    %i  ]
+                             [            ]
+                             [ b + a  %pi ]
+(%o3)                 (1 - c)
+(%i4) domxexpt: true$
+(%i5) (1 - c)^m;
+                  [                      %i  ]
+                  [    1 - c      (1 - c)    ]
+(%o5)             [                          ]
+                  [        b + a         %pi ]
+                  [ (1 - c)       (1 - c)    ]
+</pre></div>
+</dd></dl>
+
+<a name="domxmxops"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdomxmxops"></a><dl>
+<dt><a name="index-domxmxops"></a>Optionsvariable: <strong>domxmxops</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat <code>domxmxops</code> den Wert <code>true</code>, werden allen Matrix-Matrix und 
+Matrix-Listen-Operationen ausgef&uuml;hrt.
+</p>
+</dd></dl>
+
+<a name="domxnctimes"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdomxnctimes"></a><dl>
+<dt><a name="index-domxnctimes"></a>Optionsvariable: <strong>domxnctimes</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>domxnctimes</code> den Wert <code>true</code>, werden nichtkommutative Produkte
+von Matrizen ausgef&uuml;hrt.
+</p>
+</dd></dl>
+
+<a name="doscmxops"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdoscmxops"></a><dl>
+<dt><a name="index-doscmxops"></a>Optionsvariable: <strong>doscmxops</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>doscmxops</code> den Wert <code>true</code>, werden Skalar-Matrix-Operationen
+ausgef&uuml;hrt.
+</p>
+</dd></dl>
+
+<a name="doscmxplus"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdoscmxplus"></a><dl>
+<dt><a name="index-doscmxplus"></a>Optionsvariable: <strong>doscmxplus</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>doscmxplus</code> den Wert <code>true</code>, haben Skalar-Matrix-Operationen
+eine Matrix als Ergebnis.  Dieser Schalter ist nicht unter <code>doallmxops</code>
+subsumiert.
+</p>
+</dd></dl>
+
+<a name="dot0nscsimp"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdot0nscsimp"></a><dl>
+<dt><a name="index-dot0nscsimp"></a>Optionsvariable: <strong>dot0nscsimp</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat <code>dot0nscsimp</code> den Wert <code>true</code>, werden nichtkommutative Produkte
+mit einer Null und einem nichtskalaren Term zu einem kommutativen Produkt
+vereinfacht.
+</p>
+</dd></dl>
+
+<a name="dot0simp"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdot0simp"></a><dl>
+<dt><a name="index-dot0simp"></a>Optionsvariable: <strong>dot0simp</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat <code>dot0simp</code> den Wert <code>true</code>, werden nichtkommutative Produkte mit
+einer Null und einem skalaren Term zu einem kommutatitiven Produkt vereinfacht.
+</p>
+</dd></dl>
+
+<a name="dot1simp"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdot1simp"></a><dl>
+<dt><a name="index-dot1simp"></a>Optionsvariable: <strong>dot1simp</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat <code>dot1simp</code> den Wert <code>true</code>, werden nichtkommutative Produkte mit
+einer Eins und einem anderen Term zu einem kommutativen Produkt vereinfacht.
+</p>
+</dd></dl>
+
+<a name="dotassoc"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdotassoc"></a><dl>
+<dt><a name="index-dotassoc"></a>Optionsvariable: <strong>dotassoc</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat <code>dotassoc</code> den Wert <code>true</code>, vereinfacht Maxima ein Ausdruck
+<code>(A.B).C</code> zu <code>A.(B.C)</code>.
+</p>
+</dd></dl>
+
+<a name="dotconstrules"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdotconstrules"></a><dl>
+<dt><a name="index-dotconstrules"></a>Optionsvariable: <strong>dotconstrules</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat <code>dotconstrules</code> den Wert <code>true</code>, werden nichtkommutative Produkte
+einer Konstanten und eines Termes zu einem kommutativen Produkt vereinfacht.
+Die folgenden Optionsvariablen <code>dot0simp</code>, <code>dot0nscsimp</code> und 
+<code>dot1simp</code> erhalten den Wert <code>true</code>, wenn <code>construles</code> 
+eingeschaltet wird.
+</p>
+</dd></dl>
+
+<a name="dotdistrib"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdotdistrib"></a><dl>
+<dt><a name="index-dotdistrib"></a>Optionsvariable: <strong>dotdistrib</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>dotdistrib</code> den Wert <code>true</code>, vereinfacht Maxima einen Ausdruck
+<code>A.(B + C)</code> zu <code>A.B + A.C</code>.
+</p>
+</dd></dl>
+
+<a name="dotexptsimp"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdotexptsimp"></a><dl>
+<dt><a name="index-dotexptsimp"></a>Optionsvariable: <strong>dotexptsimp</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat <code>dotexptsimp</code> den Wert <code>true</code>, vereinfacht Maxima einen Ausdruck 
+<code>A.A</code> zu <code>A^^2</code>.
+</p>
+</dd></dl>
+
+<a name="dotident"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdotident"></a><dl>
+<dt><a name="index-dotident"></a>Optionsvariable: <strong>dotident</strong></dt>
+<dd><p>Standardwert: 1
+</p>
+
+<p><code>dotident</code> ist der Wert der f&uuml;r den Ausdruck <code>X^^0</code> zur&uuml;ckgegeben 
+wird.
+</p>
+</dd></dl>
+
+<a name="dotscrules"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fdotscrules"></a><dl>
+<dt><a name="index-dotscrules"></a>Optionsvariable: <strong>dotscrules</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>dotscrules</code> den Wert <code>true</code>, vereinfacht Maxima Ausdr&uuml;cke 
+<code>A.SC</code> oder <code>SC.A</code> zu <code>SC*A</code> und <code>A.(SC*B)</code> zu 
+<code>SC*(A.B)</code>.
+</p>
+</dd></dl>
+
+<a name="echelon"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fechelon"></a><dl>
+<dt><a name="index-echelon"></a>Funktion: <strong>echelon</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+<p>Gibt die Matrix <var>m</var> in ihrer Stufenform zur&uuml;ck, wie sie im Gau&szlig;schen
+Eliminationsverfahren auftritt.
+</p>
+
+<p>Im Unterschied zur Funktion <code>triangularize</code> wird die Matrix so normiert,
+dass die Hauptdiagonalelemente den Wert 1 haben.
+</p>
+
+<p><code>lu_factor</code> und <code>cholesky</code> sind weitere Funktionen, um 
+Dreiecksmatrizen zu erhalten.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) M: matrix ([3, 7, aa, bb], [-1, 8, 5, 2], [9, 2, 11, 4]);
+                       [  3   7  aa  bb ]
+                       [                ]
+(%o1)                  [ - 1  8  5   2  ]
+                       [                ]
+                       [  9   2  11  4  ]
+(%i2) echelon (M);
+</pre><pre class="example">                  [ 1  - 8  - 5      - 2     ]
+                  [                          ]
+                  [         28       11      ]
+                  [ 0   1   --       --      ]
+(%o2)             [         37       37      ]
+                  [                          ]
+                  [              37 bb - 119 ]
+                  [ 0   0    1   ----------- ]
+                  [              37 aa - 313 ]
+</pre></div>
+</dd></dl>
+
+<a name="eigenvalues"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002feigenvalues"></a><dl>
+<dt><a name="index-eigenvalues"></a>Funktion: <strong>eigenvalues</strong> <em>(<var>M</var>)</em></dt>
+<dd><a name="Item_003a-Matrices_002ede_002fdeffn_002feivals"></a></dd><dt><a name="index-eivals"></a>Funktion: <strong>eivals</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+
+<p>Gibt eine Liste mit den Eigenwerten der Matrix <var>M</var> und deren
+Multiplizit&auml;ten zur&uuml;ck.  Die erste Teilliste enth&auml;lt die Eigenwerte, die
+zweite deren Multiplizit&auml;ten.
+</p>
+
+<p><code>eivals</code> ist ein Alias-Name der Funktion <code>eigenvalues</code>.
+</p>
+
+<p><code>eigenvalues</code> ruft die Funktion <code>solve</code> auf, um die Nullstellen des
+charakeristischen Polynoms der Matrix zu finden.  Wenn <code>solve</code> keine
+Nullstellen finden kann, funktionieren einige Funktionen des Pakets nicht.
+Dies trifft nicht auf die Funktionen <code>innerproduct</code>, <code>unitvector</code>, 
+<code>columnvector</code> und <code>gramschmidt</code> zu.
+</p>
+
+<p>Die Eigenwerte, die <code>solve</code> findet, k&ouml;nnen sehr komplizierte Ausdr&uuml;cke 
+sein.  Es kann m&ouml;glich sein, solche Ausdr&uuml;cke weiter zu vereinfachen.
+</p>
+
+<p>Das Paket <code>eigen</code> wird automatisch geladen, wenn eine der Funktionen
+<code>eigenvalues</code> oder <code>eigenvectors</code> aufgerufen wird.
+</p>
+</dd></dl>
+
+<a name="eigenvectors"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002feigenvectors"></a><dl>
+<dt><a name="index-eigenvectors"></a>Funktion: <strong>eigenvectors</strong> <em>(<var>M</var>)</em></dt>
+<dd><a name="Item_003a-Matrices_002ede_002fdeffn_002feivects"></a></dd><dt><a name="index-eivects"></a>Funktion: <strong>eivects</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+<p>Berechnet die Eigenvektoren der Matrix <var>M</var>.  Die R&uuml;ckgabe ist eine Liste, 
+die zwei weitere Listen enth&auml;lt.  Die erste Liste enth&auml;lt die Eigenwerte der
+Matrix <var>m</var> und deren Multiplizit&auml;ten.  Die zweite Liste enth&auml;lt die
+Eigenvektoren.
+</p>
+
+<p><code>eivects</code> ist ein Alias-Name der Funktion <code>eigenvectors</code>.
+</p>
+
+<p>Das Paket <code>eigen</code> wird automatisch geladen, wenn die Funktionen
+<code>eigenvalues</code> oder <code>eigenvectors</code> aufgerufen werden.
+</p>
+
+<p>Folgende Schalter kontrollieren <code>eigenvectors</code>:
+</p>
+<dl compact="compact">
+<dt><code>nondiagonalizable</code></dt>
+<dd><p><code>nondiagonalizabel</code> hat den Wert <code>true</code> oder <code>false</code> nach
+R&uuml;ckkehr der Funktion <code>eigenvectros</code> abh&auml;ngig davon, ob die Matrix 
+diagonalisierbar ist oder nicht.
+</p>
+
+</dd>
+<dt><code>hermitianmatrix</code></dt>
+<dd><p>Hat <code>hermitianmatrix</code> den Wert <code>true</code>, werden die entarteten
+Eigenvektoren einer Hermitischen Matrix mit dem Gram-Schmidt-Verfahren 
+orthogonalisiert.
+</p>
+
+</dd>
+<dt><code>knowneigvals</code></dt>
+<dd><p>Hat <code>knowneigvals</code> den Wert <code>true</code>, werden die Eigenwerte der Matrix 
+von den Funktionen des Paketes <code>eigen</code> als bekannt angenommen.  Die
+Eigenwerte sind in diesem Fall in der Liste <code>listeigvals</code> abgespeichert.
+Die Liste <code>listeigvals</code> muss dieselbe Form haben, wie die R&uuml;ckgabe der
+Funktion <code>eigenvalues</code>.
+</p>
+</dd>
+</dl>
+
+
+<p>Die Eigenvektoren werden von der Funktion <code>algsys</code> berechnet.  Es ist 
+m&ouml;glich, dass <code>algsys</code> die Eigenvektoren nicht findet.  In diesem Fall 
+k&ouml;nnen m&ouml;glicherweise zun&auml;chst die Eigenwerte bestimmt und weiter 
+vereinfacht werden.  Dannach kann die Funktion <code>eigenvectors</code> mit dem 
+Schalter <code>knowneigvals</code> aufgerufen werden.
+</p>
+
+<p>Siehe auch <code><a href="#eigenvalues">eigenvalues</a></code>.
+</p>
+<p>Beispiele:
+</p>
+
+<p>Eine Matrix, die einen Eigenvektor zu jedem Eigenwert hat.
+</p>
+<div class="example">
+<pre class="example">(%i1) M1 : matrix ([11, -1], [1, 7]);
+                           [ 11  - 1 ]
+(%o1)                      [         ]
+                           [ 1    7  ]
+(%i2) [vals, vecs] : eigenvectors (M1);
+(%o2) [[[9 - sqrt(3), sqrt(3) + 9], [1, 1]], 
+                        [[[1, sqrt(3) + 2]], [[1, 2 - sqrt(3)]]]]
+(%i3) for i thru length (vals[1]) do disp (val[i] = vals[1][i],
+  mult[i] = vals[2][i], vec[i] = vecs[i]);
+                       val  = 9 - sqrt(3)
+                          1
+
+                            mult  = 1
+                                1
+
+                    vec  = [[1, sqrt(3) + 2]]
+                       1
+
+                       val  = sqrt(3) + 9
+                          2
+
+                            mult  = 1
+                                2
+
+                    vec  = [[1, 2 - sqrt(3)]]
+                       2
+
+(%o3)                         done
+</pre></div>
+
+
+<p>Eine Matrix, die zwei Eigenvektoren zu jedem Eigenwert hat.
+</p>
+<div class="example">
+<pre class="example">(%i1) M1 : matrix([0, 1, 0, 0], [0, 0, 0, 0], [0, 0, 2, 0], 
+                  [0, 0, 0, 2]);
+</pre><pre class="example">                         [ 0  1  0  0 ]
+                         [            ]
+                         [ 0  0  0  0 ]
+(%o1)                    [            ]
+                         [ 0  0  2  0 ]
+                         [            ]
+                         [ 0  0  0  2 ]
+</pre><pre class="example">(%i2) [vals, vecs] : eigenvectors (M1);
+(%o2) [[[0, 2], [2, 2]], [[[1, 0, 0, 0]],
+                                   [[0, 0, 1, 0], [0, 0, 0, 1]]]]
+(%i3) for i thru length (vals[1]) do disp (val[i] = vals[1][i],
+  mult[i] = vals[2][i], vec[i] = vecs[i]);
+                            val  = 0
+                               1
+
+                            mult  = 2
+                                1
+
+                      vec  = [[1, 0, 0, 0]]
+                         1
+
+                            val  = 2
+                               2
+
+                            mult  = 2
+                                2
+
+               vec  = [[0, 0, 1, 0], [0, 0, 0, 1]]
+                  2
+
+(%o3)                         done
+</pre></div>
+</dd></dl>
+
+<a name="ematrix"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fematrix"></a><dl>
+<dt><a name="index-ematrix"></a>Funktion: <strong>ematrix</strong> <em>(<var>m</var>, <var>n</var>, <var>x</var>, <var>i</var>, <var>j</var>)</em></dt>
+<dd>
+
+<p>Gibt eine <var>m</var> <code>x</code> <var>n</var>-Matrix zur&uuml;ck, deren Elemente den Wert 0 
+haben, bis auf das Element <code>[<var>i</var>, <var>j</var>]</code>, das den Wert <var>x</var> hat.
+</p></dd></dl>
+
+<a name="entermatrix"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fentermatrix"></a><dl>
+<dt><a name="index-entermatrix"></a>Funktion: <strong>entermatrix</strong> <em>(<var>m</var>, <var>n</var>)</em></dt>
+<dd>
+
+<p>Gibt eine <var>m</var> <code>x</code> <var>n</var>-Matrix zur&uuml;ck, die von der Konsole 
+eingelesen wird.
+</p>
+
+<p>Ist <var>n</var> gleich <var>m</var>, fragt Maxima nach dem Typ der Matrix.  Folgende
+Typen k&ouml;nnen angegeben werden: diagonal, symmetric, antisymmetric oder 
+allgemein.  Dannach werden die einzelnen Elemente der Matrix abgefragt.
+</p>
+
+<p>Sind <var>n</var> und <var>m</var> voneinander verschieden, fragt Maxima nach jedem 
+Element der Matrix.
+</p>
+
+<p>Die Elemente k&ouml;nnen beliebige Ausdr&uuml;cke sein, die ausgewertet werden.
+<code>entermatrix</code> wertet die Argumente aus.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) n: 3$
+(%i2) m: entermatrix (n, n)$
+
+Is the matrix  1. Diagonal  2. Symmetric  3. Antisymmetric 
+4. General
+Answer 1, 2, 3 or 4 : 
+1$
+Row 1 Column 1: 
+(a+b)^n$
+Row 2 Column 2: 
+(a+b)^(n+1)$
+Row 3 Column 3: 
+(a+b)^(n+2)$
+
+Matrix entered.
+(%i3) m;
+                [        3                     ]
+                [ (b + a)      0         0     ]
+                [                              ]
+(%o3)           [                  4           ]
+                [    0      (b + a)      0     ]
+                [                              ]
+                [                            5 ]
+                [    0         0      (b + a)  ]
+</pre></div>
+</dd></dl>
+
+<a name="express"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fexpress"></a><dl>
+<dt><a name="index-express"></a>Funktion: <strong>express</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+
+<p>Expandiert Differentialoperatoren in einem Ausdruck in partielle Ableitungen.
+<code>express</code> erkennt die Operatoren <code>grad</code>, <code>div</code>, <code>curl</code>, 
+<code>laplacian</code> und das Kreuzprodukt <code>~</code>.
+</p>
+
+<p>Enth&auml;lt die R&uuml;ckgabe Substantivformen von Ableitungen, k&ouml;nnen diese mit 
+der Funktion <code>ev</code> und den Auswertungsschaltern <code>nouns</code> oder 
+<code>diff</code> ausgewertet werden.
+</p>
+
+<p>Mit dem Kommando <code>load(&quot;vect&quot;)</code> wird die Funktion geladen.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;vect&quot;)$
+(%i2) grad (x^2 + y^2 + z^2);
+                              2    2    2
+(%o2)                  grad (z  + y  + x )
+(%i3) express (%);
+       d    2    2    2   d    2    2    2   d    2    2    2
+(%o3) [-- (z  + y  + x ), -- (z  + y  + x ), -- (z  + y  + x )]
+       dx                 dy                 dz
+(%i4) ev (%, diff);
+(%o4)                    [2 x, 2 y, 2 z]
+(%i5) div ([x^2, y^2, z^2]);
+                              2   2   2
+(%o5)                   div [x , y , z ]
+(%i6) express (%);
+                   d    2    d    2    d    2
+(%o6)              -- (z ) + -- (y ) + -- (x )
+                   dz        dy        dx
+(%i7) ev (%, diff);
+(%o7)                    2 z + 2 y + 2 x
+(%i8) curl ([x^2, y^2, z^2]);
+                               2   2   2
+(%o8)                   curl [x , y , z ]
+(%i9) express (%);
+       d    2    d    2   d    2    d    2   d    2    d    2
+(%o9) [-- (z ) - -- (y ), -- (x ) - -- (z ), -- (y ) - -- (x )]
+       dy        dz       dz        dx       dx        dy
+(%i10) ev (%, diff);
+(%o10)                      [0, 0, 0]
+(%i11) laplacian (x^2 * y^2 * z^2);
+                                  2  2  2
+(%o11)                laplacian (x  y  z )
+(%i12) express (%);
+         2                2                2
+        d     2  2  2    d     2  2  2    d     2  2  2
+(%o12)  --- (x  y  z ) + --- (x  y  z ) + --- (x  y  z )
+          2                2                2
+        dz               dy               dx
+(%i13) ev (%, diff);
+                      2  2      2  2      2  2
+(%o13)             2 y  z  + 2 x  z  + 2 x  y
+(%i14) [a, b, c] ~ [x, y, z];
+(%o14)                [a, b, c] ~ [x, y, z]
+(%i15) express (%);
+(%o15)          [b z - c y, c x - a z, a y - b x]
+</pre></div>
+</dd></dl>
+
+<a name="genmatrix"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fgenmatrix"></a><dl>
+<dt><a name="index-genmatrix"></a>Funktion: <strong>genmatrix</strong> <em>(<var>a</var>, <var>i_2</var>, <var>j_2</var>, <var>i_1</var>, <var>j_1</var>)</em></dt>
+<dt><a name="index-genmatrix-1"></a>Funktion: <strong>genmatrix</strong> <em>(<var>a</var>, <var>i_2</var>, <var>j_2</var>, <var>i_1</var>)</em></dt>
+<dt><a name="index-genmatrix-2"></a>Funktion: <strong>genmatrix</strong> <em>(<var>a</var>, <var>i_2</var>, <var>j_2</var>)</em></dt>
+<dd>
+
+<p>Generiert eine Matrix aus einem Array <var>a</var>.  Das erste Element der Matrix
+ist der Wert <code><var>a</var>[<var>i_1</var>,<var>j_1</var>]</code> und das letzte Element der
+Matrix ist <code><var>a</var>[<var>i_2</var>,<var>j_2</var>]</code>.  <var>a</var> muss ein deklariertes
+Array sein, dass mit der Funktion <code>array</code> definiert wurde.  Weiterhin kann
+<var>a</var> ein undeklariertes Array, eine Array-Funktion oder ein lambda-Ausdruck
+mit zwei Argumenten sein.
+</p>
+
+<p>Wird <var>j_1</var> nicht angegeben, nimmt Maxima an, das der Wert gleich <var>i_1</var> 
+ist.  Werden beide Argumente <var>j_1</var> und <var>i_1</var> nicht angegeben, werden
+die Werte zu 1 angenommen.
+</p>
+
+<p>Ist eines der Elemente <code>[i,j]</code> des Arrays nicht definiert, enth&auml;lt die
+Matrix den symbolischen Wert <code><var>a</var>[i,j]</code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) h [i, j] := 1 / (i + j - 1);
+</pre><pre class="example">                                    1
+(%o1)                  h     := ---------
+                        i, j    i + j - 1
+</pre><pre class="example">(%i2) genmatrix (h, 3, 3);
+                           [    1  1 ]
+                           [ 1  -  - ]
+                           [    2  3 ]
+                           [         ]
+                           [ 1  1  1 ]
+(%o2)                      [ -  -  - ]
+                           [ 2  3  4 ]
+                           [         ]
+                           [ 1  1  1 ]
+                           [ -  -  - ]
+                           [ 3  4  5 ]
+(%i3) array (a, fixnum, 2, 2);
+(%o3)                           a
+(%i4) a [1, 1] : %e;
+(%o4)                          %e
+(%i5) a [2, 2] : %pi;
+(%o5)                          %pi
+(%i6) genmatrix (a, 2, 2);
+                           [ %e   0  ]
+(%o6)                      [         ]
+                           [ 0   %pi ]
+(%i7) genmatrix (lambda ([i, j], j - i), 3, 3);
+                         [  0    1   2 ]
+                         [             ]
+(%o7)                    [ - 1   0   1 ]
+                         [             ]
+                         [ - 2  - 1  0 ]
+(%i8) genmatrix (B, 2, 2);
+                        [ B      B     ]
+                        [  1, 1   1, 2 ]
+(%o8)                   [              ]
+                        [ B      B     ]
+                        [  2, 1   2, 2 ]
+</pre></div>
+</dd></dl>
+
+<a name="gramschmidt"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fgramschmidt"></a><dl>
+<dt><a name="index-gramschmidt"></a>Funktion: <strong>gramschmidt</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-gramschmidt-1"></a>Funktion: <strong>gramschmidt</strong> <em>(<var>x</var>, <var>F</var>)</em></dt>
+<dd>
+
+<p>Wendet das Gram-Schmidtsche Orthogonalisierungsverfahren auf das Argument
+<var>x</var> an.  <var>x</var> ist eine Matrix oder eine Liste mit Listen f&uuml;r die 
+Spalten.  Das Argument <var>x</var> wird von <code>gramschmidt</code> nicht ver&auml;ndert.
+<var>F</var> bezeichnet eine Funktion, die als Skalarprodukt f&uuml;r das Verfahren 
+verwendet wird.  Wird <var>F</var> nicht angegeben, wird die Funktion 
+<code>innerproduct</code> f&uuml;r das Skalarprodukt angewendet.
+</p>
+
+<p>Ist <var>x</var> eine Matrix, wird der Algorithmus auf die Zeilen der Matrix
+angewendet.  Ist <var>x</var> eine Liste mit Listen, wird der Algorithmus auf die
+Teillisten angewendet, die jeweils die gleiche Anzahl an Elementen haben
+m&uuml;ssen.
+</p>
+
+<p>Jede Stufe des Verfahrens ruft die Funktion <code>factor</code> auf, um die 
+Zwischenergebnisse zu vereinfachen.  Dadurch kann das Ergebnis faktorisierte
+ganze Zahlen enthalten.
+</p>
+
+<p>Das Kommando <code>load(&quot;eigen&quot;)</code> l&auml;dt die Funktion.
+</p>
+<p>Beispiele:
+</p>
+
+<p>Das Gram-Schmidtsche Orthogonalisierungsverfahren mit <code>innerproduct</code> 
+als Skalarprodukt.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;eigen&quot;)$
+(%i2) x: matrix ([1, 2, 3], [9, 18, 30], [12, 48, 60]);
+                         [ 1   2   3  ]
+                         [            ]
+(%o2)                    [ 9   18  30 ]
+                         [            ]
+                         [ 12  48  60 ]
+(%i3) y: gramschmidt (x);
+                       2      2            4     3
+                      3      3   3 5      2  3  2  3
+(%o3)  [[1, 2, 3], [- ---, - --, ---], [- ----, ----, 0]]
+                      2 7    7   2 7       5     5
+(%i4) map (innerproduct, [y[1], y[2], y[3]], [y[2], y[3], y[1]]);
+(%o4)                       [0, 0, 0]
+</pre></div>
+
+
+<p>Das Gram-Schmidtsche Orthogonalisierungsverfahren mit einer selbstdefinierten
+Funktion f&uuml;r das Skalarprodukt.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;eigen&quot;)$
+(%i2) ip (f, g) := integrate (f * g, u, a, b);
+(%o2)          ip(f, g) := integrate(f g, u, a, b)
+(%i3) y : gramschmidt([1, sin(u), cos(u)], ip), a=-%pi/2, b=%pi/2;
+                               %pi cos(u) - 2
+(%o3)              [1, sin(u), --------------]
+                                    %pi
+(%i4) map(ip,[y[1],y[2],y[3]],[y[2],y[3],y[1]]), a=-%pi/2, b=%pi/2;
+(%o4)                       [0, 0, 0]
+</pre></div>
+</dd></dl>
+
+<a name="ident"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fident"></a><dl>
+<dt><a name="index-ident"></a>Funktion: <strong>ident</strong> <em>(<var>n</var>)</em></dt>
+<dd>
+
+<p>Gibt eine <var>n</var> <code>x</code> <var>n</var>-Einheitsmatrix zur&uuml;ck.
+</p></dd></dl>
+
+<a name="innerproduct"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002finnerproduct"></a><dl>
+<dt><a name="index-innerproduct"></a>Funktion: <strong>innerproduct</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dd><a name="Item_003a-Matrices_002ede_002fdeffn_002finprod"></a></dd><dt><a name="index-inprod"></a>Funktion: <strong>inprod</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dd>
+
+<p>Gibt das Skalarprodukt der Argumente <var>x</var> und <var>y</var> zur&uuml;ck.  Die Argument
+k&ouml;nnen Listen oder 1-spaltige oder 1-reihige Matrizen sein.  Das Skalarprodukt
+wird als <code>conjugate(x) . y</code> berechnet, wobei <code>.</code> der Operator der
+nicht-kommutativen Multiplikation ist.
+</p>
+
+<p>Das Kommando <code>load(&quot;eigen&quot;)</code> l&auml;dt die Funktion.
+</p>
+
+<p><code>inprod</code> ist ein Alias-Name der Funktion <code>innerproduct</code>.
+</p>
+</dd></dl>
+
+
+<a name="invert"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002finvert"></a><dl>
+<dt><a name="index-invert"></a>Funktion: <strong>invert</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+<p>Gibt die inverse Matrix der Matrix <var>M</var> zur&uuml;ck.  Die inverse Matrix wird
+mittels der Adjunkten Matrix berechnet.
+</p>
+
+<p>Mit dieser Methode kann die inverse Matrix auch f&uuml;r gro&szlig;e Gleitkommazahlen
+sowie Polynomme als Matrixelemente berechnet werden.
+</p>
+
+<p>Die Kofaktoren werden mit der Funktion <code>determinant</code> berechnet.  Hat die
+Optionsvariable <code>ratmx</code> den Wert <code>true</code>, wird die inverse Matrix
+daher ohne einen Wechsel der Darstellung berechnet.
+</p>
+
+<p>Die implementierte Methode ist jedoch ineffizient f&uuml;r gro&szlig;e Matrizen.
+</p>
+
+<p>Hat die Optionsvariable <code>detout</code> den Wert <code>true</code>, wird die 
+Determinante als Faktor aus der Matrix herausgezogen.
+</p>
+
+<p>Die Elemente der inversen Matrix werden nicht automatisch expandiert.  Hat
+<var>M</var> Polynome als Elemente, hat das Ergebnis m&ouml;glicherweise mit dem
+Kommando <code>expand(invert(m)), detout</code> eine einfachere Form.  Mit der Funktion
+<code>multthru</code> die Determinate in die Matrix hereinmultipliziert werden.  Die
+inverse Matrix kann auch folgenderma&szlig;en berechnet werden:
+</p>
+<div class="example">
+<pre class="example">expand (adjoint (m)) / expand (determinant (m))
+invert (m) := adjoint (m) / determinant (m)
+</pre></div>
+
+
+<p>Siehe auch den Operator <code>^^</code> der nicht-kommutativen Exponentiation f&uuml;r 
+eine andere Methode zur Berechnung der inversen Matrix.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Matrices_002ede_002fdefvr_002flmxchar"></a><dl>
+<dt><a name="index-lmxchar"></a>Optionsvariable: <strong>lmxchar</strong></dt>
+<dd><p>Standardwert: <code>[</code>
+</p>
+
+<p><code>lmxchar</code> ist das Zeichen, das f&uuml;r die linke Seite einer Matrix 
+ausgegeben wird.  Siehe auch <code>rmxchar</code>.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) lmxchar: &quot;|&quot;$
+(%i2) matrix ([a, b, c], [d, e, f], [g, h, i]);
+                           | a  b  c ]
+                           |         ]
+(%o2)                      | d  e  f ]
+                           |         ]
+                           | g  h  i ]
+</pre></div>
+</dd></dl>
+
+<a name="matrix"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fmatrix"></a><dl>
+<dt><a name="index-matrix"></a>Funktion: <strong>matrix</strong> <em>(<var>row_1</var>, &hellip;, <var>row_n</var>)</em></dt>
+<dd>
+
+<p>Gibt eine Matrix mit den Spalten <var>row_1</var>, &hellip;, <var>row_n</var> zur&uuml;ck.
+Jede Spalte ist eine Liste mit Asudr&uuml;cken.  Alle Spalten m&uuml;ssen die gleiche
+L&auml;nge haben.
+</p>
+
+<p>Die Addition <code>+</code>, Subtraktion <code>-</code>, Multiplikation <code>*</code> und 
+Division <code>/</code> werden elementweise ausgef&uuml;hrt, wenn die Argumente zwei 
+Matrizen, ein Skalar und eine Matrix oder eine Matrix und ein Skalar sind.
+Die Exponentiation <code>^</code> wird elementweise ausgef&uuml;hrt, wenn die Argumente
+ein Skalar und eine Matrix oder umgekehrt sind.
+</p>
+
+<p>Die nichtkommutatie Multiplikation von Matrizen wird mit dem Operator <code>.</code>
+ausgef&uuml;hrt.  Der entsprechende Operator f&uuml;r die nichtkommutative 
+Exponentiation ist <code>^^</code>. F&uuml;r eine Matrix <code><var>A</var></code> ist 
+<code><var>A</var> . <var>A</var> = <var>A</var>^^2</code>. <code><var>A</var>^^-1</code> ist die inverse 
+Matrix, falls diese existiert.
+</p>
+
+<p>Folgende Schalter kontrollieren die Vereinfachung von Ausdr&uuml;cken, welche die
+nichtkommutative Multiplikation und Matrizen enthalten:
+</p>
+<p><code>doallmxops</code>,
+<code>domxexpt</code>,
+<code>domxmxops</code>, 
+<code>doscmxops</code> und 
+<code>doscmxplus</code>.
+</p>
+
+<p>Weitere Optionsvariablen f&uuml;r Matrizen sind:
+</p>
+<p><code>lmxchar</code>, 
+<code>rmxchar</code>, 
+<code>ratmx</code>, 
+<code>listarith</code>, 
+<code>detout</code>,
+<code>scalarmatrix</code> und
+<code>sparse</code>.
+</p>
+
+<p>Folgende Funktionen akzeptieren Matrizen als ein Argument oder haben eine 
+Matrix als R&uuml;ckgabewert: 
+</p>
+<p><code>eigenvalues</code>, 
+<code>eigenvectors</code>,
+<code>determinant</code>,
+<code>charpoly</code>, 
+<code>genmatrix</code>, 
+<code>addcol</code>, 
+<code>addrow</code>, 
+<code>copymatrix</code>, 
+<code>transpose</code>, 
+<code>echelon</code> and
+<code>rank</code>.
+</p>
+<p>Beispiele:
+</p>
+
+<p>Konstruiere eine Matrix mit Listen.
+</p>
+<div class="example">
+<pre class="example">(%i1) x: matrix ([17, 3], [-8, 11]);
+                           [ 17   3  ]
+(%o1)                      [         ]
+                           [ - 8  11 ]
+(%i2) y: matrix ([%pi, %e], [a, b]);
+                           [ %pi  %e ]
+(%o2)                      [         ]
+                           [  a   b  ]
+</pre></div>
+
+
+<p>Elementweise Addition zweier Matrizen.
+</p>
+<div class="example">
+<pre class="example">(%i3) x + y;
+                      [ %pi + 17  %e + 3 ]
+(%o3)                 [                  ]
+                      [  a - 8    b + 11 ]
+</pre></div>
+
+
+<p>Elementweise Subtraktion zweier Matrizen.
+</p>
+<div class="example">
+<pre class="example">(%i4) x - y;
+                      [ 17 - %pi  3 - %e ]
+(%o4)                 [                  ]
+                      [ - a - 8   11 - b ]
+</pre></div>
+
+
+<p>Elementweise Multiplikation zweier Matrizen.
+</p>
+<div class="example">
+<pre class="example">(%i5) x * y;
+                        [ 17 %pi  3 %e ]
+(%o5)                   [              ]
+                        [ - 8 a   11 b ]
+</pre></div>
+
+
+<p>Elementweise Division zweier Matrizen.
+</p>
+<div class="example">
+<pre class="example">(%i6) x / y;
+                        [ 17       - 1 ]
+                        [ ---  3 %e    ]
+                        [ %pi          ]
+(%o6)                   [              ]
+                        [   8    11    ]
+                        [ - -    --    ]
+                        [   a    b     ]
+</pre></div>
+
+
+<p>Elementweise Exponentiation einer Matrix mit einem Skalar.
+</p>
+<div class="example">
+<pre class="example">(%i7) x ^ 3;
+                         [ 4913    27  ]
+(%o7)                    [             ]
+                         [ - 512  1331 ]
+</pre></div>
+
+
+<p>Elementweise Exponentiation eines Skalars mit einer Matrix.
+</p>
+<div class="example">
+<pre class="example">(%i8) exp(y); 
+                         [   %pi    %e ]
+                         [ %e     %e   ]
+(%o8)                    [             ]
+                         [    a     b  ]
+                         [  %e    %e   ]
+</pre></div>
+
+
+<p>Die Exponentiation zweier Matrizen wird nicht elementweise ausgef&uuml;hrt.
+</p>
+<div class="example">
+<pre class="example">(%i9) x ^ y;
+                                [ %pi  %e ]
+                                [         ]
+                                [  a   b  ]
+                     [ 17   3  ]
+(%o9)                [         ]
+                     [ - 8  11 ]
+</pre></div>
+
+
+<p>Nichtkommutative Multiplikation zweier Matrizen.
+</p>
+<div class="example">
+<pre class="example">(%i10) x . y;
+                  [ 3 a + 17 %pi  3 b + 17 %e ]
+(%o10)            [                           ]
+                  [ 11 a - 8 %pi  11 b - 8 %e ]
+(%i11) y . x;
+                [ 17 %pi - 8 %e  3 %pi + 11 %e ]
+(%o11)          [                              ]
+                [  17 a - 8 b     11 b + 3 a   ]
+</pre></div>
+
+
+<p>Nichtkommutative Exponentiation einer Matrix.  Ist die Basis ein Skalar wird die
+Exponentiation elementweise ausgef&uuml;hrt.  Daher haben die Operationen <code>^^</code>
+und <code>^</code> f&uuml;r diesen Fall dasselbe Ergebnis.
+</p>
+<div class="example">
+<pre class="example">(%i12) x ^^ 3;
+                        [  3833   1719 ]
+(%o12)                  [              ]
+                        [ - 4584  395  ]
+(%i13) %e ^^ y;
+                         [   %pi    %e ]
+                         [ %e     %e   ]
+(%o13)                   [             ]
+                         [    a     b  ]
+                         [  %e    %e   ]
+</pre></div>
+
+
+<p>Berechnung der inversen Matrix mit <code>x^^-1</code>.
+</p>
+<div class="example">
+<pre class="example">(%i14) x ^^ -1;
+</pre><pre class="example">                         [ 11      3  ]
+                         [ ---  - --- ]
+                         [ 211    211 ]
+(%o14)                   [            ]
+                         [  8    17   ]
+                         [ ---   ---  ]
+                         [ 211   211  ]
+</pre><pre class="example">(%i15) x . (x ^^ -1);
+                            [ 1  0 ]
+(%o15)                      [      ]
+                            [ 0  1 ]
+</pre></div>
+</dd></dl>
+
+<a name="matrixmap"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fmatrixmap"></a><dl>
+<dt><a name="index-matrixmap"></a>Funktion: <strong>matrixmap</strong> <em>(<var>f</var>, <var>M</var>)</em></dt>
+<dd>
+
+<p>Gibt eine Matrix mit den Elementen <code>[i,j]</code> zur&uuml;ck, die mit
+<code><var>f</var>(<var>M</var>[i,j])</code> berechnet werden.
+</p>
+
+<p>Siehe auch <code>map</code>, <code>fullmap</code>, <code>fullmapl</code>, and <code>apply</code>.
+</p>
+</dd></dl>
+
+<a name="matrixp"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fmatrixp"></a><dl>
+<dt><a name="index-matrixp"></a>Funktion: <strong>matrixp</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+<p>Gibt <code>true</code> zur&uuml;ck, wenn <var>expr</var> eine Matrix ist.  Ansonsten wird
+<code>false</code> zur&uuml;ckgegeben.
+</p></dd></dl>
+
+<a name="matrix_005felement_005fadd"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fmatrix_005felement_005fadd"></a><dl>
+<dt><a name="index-matrix_005felement_005fadd"></a>Optionsvariable: <strong>matrix_element_add</strong></dt>
+<dd><p>Standardwert: <code>+</code>
+</p>
+
+<p><code>matrix_element_add</code> enth&auml;lt die Operation f&uuml;r die Ausf&uuml;hrung der
+Addition von Matrizen.  Der Optionsvariablen <code>matrix_element_add</code> kann
+ein N-Ary-Operator zugewiesen werden.  Der zugewiesene Wert kann der Name
+eines Operators, einer Funktion oder ein Lambda-Ausdruck sein.
+</p>
+
+<p>Siehe auch <code>matrix_element_mult</code> und <code>matrix_element_transpose</code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) matrix_element_add: &quot;*&quot;$
+(%i2) matrix_element_mult: &quot;^&quot;$
+(%i3) aa: matrix ([a, b, c], [d, e, f]);
+                           [ a  b  c ]
+(%o3)                      [         ]
+                           [ d  e  f ]
+(%i4) bb: matrix ([u, v, w], [x, y, z]);
+                           [ u  v  w ]
+(%o4)                      [         ]
+                           [ x  y  z ]
+(%i5) aa . transpose (bb);
+                     [  u  v  w   x  y  z ]
+                     [ a  b  c   a  b  c  ]
+(%o5)                [                    ]
+                     [  u  v  w   x  y  z ]
+                     [ d  e  f   d  e  f  ]
+</pre></div>
+</dd></dl>
+
+<a name="matrix_005felement_005fmult"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fmatrix_005felement_005fmult"></a><dl>
+<dt><a name="index-matrix_005felement_005fmult"></a>Optionsvariable: <strong>matrix_element_mult</strong></dt>
+<dd><p>Standardwert: <code>*</code>
+</p>
+
+<p><code>matrix_element_mult</code> enth&auml;lt die Operation f&uuml;r die Ausf&uuml;hrung der
+Multiplikation von Matrizen.  Der Optionsvariablen <code>matrix_element_mult</code> 
+kann ein bin&auml;rer Operator zugewiesen werden.  Der zugewiesene Wert kann der 
+Name eines Operators, einer Funktion oder ein Lambda-Ausdruck sein.
+</p>
+
+<p>Der nichtkommutative Operator <code>.</code> kann eine sinnvolle Alternative sein.
+</p>
+
+<p>Siehe auch <code>matrix_element_add</code> und <code>matrix_element_transpose</code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) matrix_element_add: lambda ([[x]], sqrt (apply (&quot;+&quot;, x)))$
+(%i2) matrix_element_mult: lambda ([x, y], (x - y)^2)$
+(%i3) [a, b, c] . [x, y, z];
+                          2          2          2
+(%o3)         sqrt((c - z)  + (b - y)  + (a - x) )
+(%i4) aa: matrix ([a, b, c], [d, e, f]);
+                           [ a  b  c ]
+(%o4)                      [         ]
+                           [ d  e  f ]
+(%i5) bb: matrix ([u, v, w], [x, y, z]);
+                           [ u  v  w ]
+(%o5)                      [         ]
+                           [ x  y  z ]
+(%i6) aa . transpose (bb);
+               [             2          2          2  ]
+               [ sqrt((c - w)  + (b - v)  + (a - u) ) ]
+(%o6)  Col 1 = [                                      ]
+               [             2          2          2  ]
+               [ sqrt((f - w)  + (e - v)  + (d - u) ) ]
+
+                         [             2          2          2  ]
+                         [ sqrt((c - z)  + (b - y)  + (a - x) ) ]
+                 Col 2 = [                                      ]
+                         [             2          2          2  ]
+                         [ sqrt((f - z)  + (e - y)  + (d - x) ) ]
+</pre></div>
+</dd></dl>
+
+<a name="matrix_005felement_005ftranspose"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fmatrix_005felement_005ftranspose"></a><dl>
+<dt><a name="index-matrix_005felement_005ftranspose"></a>Optionsvariable: <strong>matrix_element_transpose</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p><code>matrix_element_transpose</code> enth&auml;lt die Operation f&uuml;r die Ausf&uuml;hrung 
+der Transponierung einer Matrix.  Der Optionsvariablen
+<code>matrix_element_mult</code> kann ein un&auml;rer Operator zugewiesen werden.  Der 
+zugewiesene Wert kann der Name eines Operators, einer Funktion oder ein
+Lambda-Ausdruck sein.
+</p>
+
+<p>Hat <code>matrix_element_transpose</code> den Wert <code>transpose</code>, wird die 
+Funktion <code>transpose</code> auf jedes Element der Matrix angewendet.  Hat
+<code>matrix_element_transpose</code> den Wert <code>nonscalars</code>, wird die Funktion
+<code>transpose</code> auf nichtskalare Elemente der Matrix angewendet.  Ist eines
+der Elemente ein Atom, muss in diesem Fall das Atom als <code>nonscalar</code>
+deklariert sein.
+</p>
+
+<p>Mit dem Standardwert <code>false</code> wird keine Operation angewendet.
+</p>
+
+<p>Siehe auch <code>matrix_element_add</code> und <code>matrix_element_mult</code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (a, nonscalar)$
+(%i2) transpose ([a, b]);
+                        [ transpose(a) ]
+(%o2)                   [              ]
+                        [      b       ]
+(%i3) matrix_element_transpose: nonscalars$
+(%i4) transpose ([a, b]);
+                        [ transpose(a) ]
+(%o4)                   [              ]
+                        [      b       ]
+(%i5) matrix_element_transpose: transpose$
+(%i6) transpose ([a, b]);
+                        [ transpose(a) ]
+(%o6)                   [              ]
+                        [ transpose(b) ]
+(%i7) matrix_element_transpose: lambda ([x], realpart(x)
+      - %i*imagpart(x))$
+(%i8) m: matrix ([1 + 5*%i, 3 - 2*%i], [7*%i, 11]);
+                     [ 5 %i + 1  3 - 2 %i ]
+(%o8)                [                    ]
+                     [   7 %i       11    ]
+(%i9) transpose (m);
+                      [ 1 - 5 %i  - 7 %i ]
+(%o9)                 [                  ]
+                      [ 2 %i + 3    11   ]
+</pre></div>
+</dd></dl>
+
+
+<a name="mattrace"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fmattrace"></a><dl>
+<dt><a name="index-mattrace"></a>Funktion: <strong>mattrace</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+<p>Gibt die Spur einer quadratischen Matrix <var>M</var> zur&uuml;ck.
+</p>
+</dd></dl>
+
+<a name="minor"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fminor"></a><dl>
+<dt><a name="index-minor"></a>Funktion: <strong>minor</strong> <em>(<var>M</var>, <var>i</var>, <var>j</var>)</em></dt>
+<dd>
+
+<p>Gibt den Minor zu <var>i</var>, <var>j</var> der Matrix <var>M</var> zur&uuml;ck.  Die Matrix
+entsteht durch Streichen der <var>i</var>-ten Spalte und <var>j</var>-ten Zeile.
+</p></dd></dl>
+
+<a name="ncharpoly"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fncharpoly"></a><dl>
+<dt><a name="index-ncharpoly"></a>Funktion: <strong>ncharpoly</strong> <em>(<var>M</var>, <var>x</var>)</em></dt>
+<dd>
+
+<p>Gibt das charakteristische Polynom der Matrix <var>M</var> f&uuml;r die Variable <var>x</var>
+zur&uuml;ck.  Diese Funktion ist eine Alternative zur Funktion <code>charpoly</code>.
+</p>
+
+<p>Der Algorithmus von <code>ncharpoly</code> ist vorteilhaft gegen&uuml;ber 
+<code>charpoly</code>, wenn gro&szlig;e und d&uuml;nn besetzte Matrizen vorliegen.  Das 
+Kommando <code>load(&quot;nchrpl&quot;)</code> l&auml;dt die Funktion.
+</p></dd></dl>
+
+<a name="newdet"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fnewdet"></a><dl>
+<dt><a name="index-newdet"></a>Funktion: <strong>newdet</strong> <em>(<var>M</var>, <var>n</var>)</em></dt>
+<dd>
+
+<p>Berechnet die Determinate der Matrix oder eines Arrays <var>M</var> mit dem
+Johnson-Gentleman-Algorithmus.  Das Argument <var>n</var> ist die Ordnung.  F&uuml;r
+eine Matrix ist <var>n</var> ein optionales Argument.
+</p></dd></dl>
+
+<a name="permanent"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fpermanent"></a><dl>
+<dt><a name="index-permanent"></a>Funktion: <strong>permanent</strong> <em>(<var>M</var>, <var>n</var>)</em></dt>
+<dd>
+
+<p>Berechnet die Permanente der Matrix <var>M</var>.  Die Permanente ist &auml;hnlich der
+Determinate, aber es fehlen die Vorzeichenwechsel.
+</p></dd></dl>
+
+<a name="rank"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002frank"></a><dl>
+<dt><a name="index-rank"></a>Funktion: <strong>rank</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+<p>Berechnet den Rang der Matrix <var>M</var>.
+</p>
+
+<p><var>rank</var> kann ein falsches Ergebnis geben, wenn ein Element &auml;quivalent
+zu Null ist, dies aber nicht von Maxima festgestellt werden kann.
+</p></dd></dl>
+
+<a name="potenial"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fpotential"></a><dl>
+<dt><a name="index-potential"></a>Funktion: <strong>potential</strong> <em>(<var>givengradient</var>)</em></dt>
+<dd>
+<p>The calculation makes use of the global variable <code>potentialzeroloc[0]</code>
+which must be <code>nonlist</code> or of the form
+</p>
+<div class="example">
+<pre class="example">[indeterminatej=expressionj, indeterminatek=expressionk, ...]
+</pre></div>
+
+<p>the former being equivalent to the nonlist expression for all right-hand 
+sides in the latter.  The indicated right-hand sides are used as the lower 
+limit of integration.  The success of the integrations may depend upon their 
+values and order.  <code>potentialzeroloc</code> is initially set to 0.
+</p></dd></dl>
+
+<a name="ratmx"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fratmx"></a><dl>
+<dt><a name="index-ratmx"></a>Optionsvariable: <strong>ratmx</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>ratmx</code> den Wert <code>false</code>, werden die Berechnung einer Determinante
+sowie die Operationen der Addition, Subtraktion und Multiplikation in der
+allgemeinen Darstellung ausgef&uuml;hrt.  Das Ergebnis ist wieder eine allgemeine
+Darstellung.
+</p>
+
+<p>Hat <code>ratmx</code> den Wert <code>true</code>, werden die oben genannten Operationen
+in einer CRE-Darstellung ausgef&uuml;hrt un das Ergebnis ist in einer 
+CRE-Darstellung.
+</p></dd></dl>
+
+<a name="rmxchar"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002frmxchar"></a><dl>
+<dt><a name="index-rmxchar"></a>Optionsvariable: <strong>rmxchar</strong></dt>
+<dd><p>Standardwert: <code>]</code>
+</p>
+
+<p><code>rmxchar</code> ist das Zeichen, das f&uuml;r die rechte Seite einer Matrix 
+ausgegeben wird.  Siehe auch <code>lmxchar</code>.
+</p></dd></dl>
+
+<a name="row"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002frow"></a><dl>
+<dt><a name="index-row"></a>Funktion: <strong>row</strong> <em>(<var>M</var>, <var>i</var>)</em></dt>
+<dd>
+
+<p>Gibt die <var>i</var>-te Spalte der Matrix <var>M</var> zur&uuml;ck.  Der R&uuml;ckgabewert ist 
+eine Matrix.
+</p></dd></dl>
+
+<a name="scalarmatrixp"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fscalarmatrixp"></a><dl>
+<dt><a name="index-scalarmatrixp"></a>Optionsvariable: <strong>scalarmatrixp</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat <code>scalarmatrixp</code> den Wert <code>true</code>, dann werden 1 x 1-Matrizen, die
+als Ergebnis einer nicht-kommutativen Multiplikation auftreten, zu einem
+Skalar vereinfacht.
+</p>
+
+<p>Hat <code>scalarmatrixp</code> den Wert <code>all</code>, dann werden alle 1 x 1-Matrizen
+zu einem Skalar vereinfacht.
+</p>
+
+<p>Hat <code>scalarmatrixp</code> den Wert <code>false</code>, werden 1 x 1-Matrizen nicht zu
+einem Skalar vereinfacht.
+</p></dd></dl>
+
+
+<a name="Item_003a-Matrices_002ede_002fdeffn_002fscalefactors"></a><dl>
+<dt><a name="index-scalefactors"></a>Funktion: <strong>scalefactors</strong> <em>(<var>coordinatetransform</var>)</em></dt>
+<dd>
+<p>Here coordinatetransform evaluates to the form [[expression1, expression2,
+&hellip;], indeterminate1, indeterminat2, &hellip;], where indeterminate1, 
+indeterminate2, etc. are the curvilinear coordinate variables and where a set of
+rectangular Cartesian components is given in terms of the curvilinear
+coordinates by [expression1, expression2, &hellip;].  <code>coordinates</code> is set
+to the vector [indeterminate1, indeterminate2, &hellip;], and <code>dimension</code> is 
+set to the length of this vector.  SF[1], SF[2], &hellip;, SF[DIMENSION] are set
+to the coordinate scale factors, and <code>sfprod</code> is set to the product of
+these scale factors.  Initially, <code>coordinates</code> is [X, Y, Z],
+<code>dimension</code> is 3, and SF[1]=SF[2]=SF[3]=SFPROD=1, corresponding to 
+3-dimensional rectangular Cartesian coordinates.  To expand an expression into 
+physical components in the current coordinate system, there is a function with 
+usage of the form
+</p></dd></dl>
+
+<a name="setelmx"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fsetelmx"></a><dl>
+<dt><a name="index-setelmx"></a>Funktion: <strong>setelmx</strong> <em>(<var>x</var>, <var>i</var>, <var>j</var>, <var>M</var>)</em></dt>
+<dd>
+
+<p>Weist <var>x</var> dem Matrixelement <code>[<var>i</var>,<var>j</var>]</code> zu und gibt die
+modifizierte Matrix zur&uuml;ck.
+</p>
+
+<p><code><var>M</var>[<var>i</var>, <var>j</var>]: <var>x</var></code> hat denselben Effekt.  In diesem Fall
+wird jedoch der Wert <var>x</var> zur&uuml;ckgeben und nicht die Matrix.
+</p></dd></dl>
+
+<a name="similaritytransform"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fsimilaritytransform"></a><dl>
+<dt><a name="index-similaritytransform"></a>Funktion: <strong>similaritytransform</strong> <em>(<var>M</var>)</em></dt>
+<dd><a name="Item_003a-Matrices_002ede_002fdeffn_002fsimtran"></a></dd><dt><a name="index-simtran"></a>Funktion: <strong>simtran</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p><code>similaritytransform</code> computes a similarity transform of the matrix 
+<code>M</code>.  It returns a list which is the output of the <code>uniteigenvectors</code>
+command.  In addition if the flag <code>nondiagonalizable</code> is <code>false</code> two 
+global matrices <code>leftmatrix</code> and <code>rightmatrix</code> are computed.  These 
+matrices have the property that <code>leftmatrix . <var>M</var> . rightmatrix</code> is a 
+diagonal matrix with the eigenvalues of <var>M</var> on the diagonal.  If 
+<code>nondiagonalizable</code> is <code>true</code> the left and right matrices are not 
+computed.
+</p>
+<p>If the flag <code>hermitianmatrix</code> is <code>true</code> then <code>leftmatrix</code> is the 
+complex conjugate of the transpose of <code>rightmatrix</code>.  Otherwise 
+<code>leftmatrix</code> is the inverse of <code>rightmatrix</code>.
+</p>
+<p><code>rightmatrix</code> is the matrix the columns of which are the unit eigenvectors 
+of <var>M</var>.  The other flags (see <code>eigenvalues</code> and <code>eigenvectors</code>) 
+have the same effects since <code>similaritytransform</code> calls the other functions
+in the package in order to be able to form <code>rightmatrix</code>.
+</p>
+<p><code>load (&quot;eigen&quot;)</code> loads this function.
+</p>
+<p><code>simtran</code> is a synonym for <code>similaritytransform</code>.
+</p></dd></dl>
+
+<a name="sparse"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fsparse"></a><dl>
+<dt><a name="index-sparse"></a>Optionsvariable: <strong>sparse</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Haben <code>sparse</code> und <code>ratmx</code> den Wert <code>true</code>, verwendet die 
+Funktion <code>determinant</code> einen speziellen Algorithmus f&uuml;r d&uuml;nn besetzte
+Matrizen, um die Determinante einer Matrix zu berechnen.
+</p></dd></dl>
+
+<a name="submatrix"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fsubmatrix"></a><dl>
+<dt><a name="index-submatrix"></a>Funktion: <strong>submatrix</strong> <em>(<var>i_1</var>, &hellip;, <var>i_m</var>, <var>M</var>, <var>j_1</var>, &hellip;, <var>j_n</var>)</em></dt>
+<dt><a name="index-submatrix-1"></a>Funktion: <strong>submatrix</strong> <em>(<var>i_1</var>, &hellip;, <var>i_m</var>, <var>M</var>)</em></dt>
+<dt><a name="index-submatrix-2"></a>Funktion: <strong>submatrix</strong> <em>(<var>M</var>, <var>j_1</var>, &hellip;, <var>j_n</var>)</em></dt>
+<dd>
+<p>Gibt eine Kopie der Matrix <var>M</var> zur&uuml;ck, in der die Zeilen 
+<var>i_1</var>, &hellip;, <var>i_m</var> und Spalten <var>j_1</var>, &hellip;, <var>j_n</var> 
+nicht enthalten sind.
+</p></dd></dl>
+
+<a name="transpose"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002ftranspose"></a><dl>
+<dt><a name="index-transpose"></a>Funktion: <strong>transpose</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+<p>Gibt die Transponierte der Matrix <var>M</var> zur&uuml;ck.
+</p>
+
+<p>Ist <var>M</var> eine Matrix, ist das Ergebnis eine Matrix <var>N</var> mit den 
+Elementen <code>N[i,j] = M[j,i]</code>.
+</p>
+
+<p>Ist <var>M</var> eine Liste, ist die R&uuml;ckgabe eine Matrix <var>N</var> mit
+<code>length(M)</code> Spalten und einer Zeile.  Die Elemente sind 
+<code>N[i,1] = M[i]</code>.
+</p>
+
+<p>Ansonsten wird eine Substantivform <code>'transpose(<var>M</var>)</code> zur&uuml;ckgegeben.
+</p></dd></dl>
+
+<a name="triangularize"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002ftriangularize"></a><dl>
+<dt><a name="index-triangularize"></a>Funktion: <strong>triangularize</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+<p>Gibt die obere Dreiecksmatrix f&uuml;r die Matrix <code>M</code> zur&uuml;ck, wie sie mit 
+dem Gau&szlig;schen Eliminationsverfahren berechnet wird.  Die Dreiecksmatrix 
+entspricht der R&uuml;ckgabe der Funktion <code>echelon</code> mit dem Unterschied, dass 
+die Elemente auf der Diagonalen nicht zu 1 normalisiert sind.
+</p>
+
+<p>Mit den Funktionen <code>lu_factor</code> und <code>cholesky</code> kann ebenfalls eine
+Matrix in die Dreiecksform transformiert werden.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) M: matrix ([3, 7, aa, bb], [-1, 8, 5, 2], [9, 2, 11, 4]);
+                       [  3   7  aa  bb ]
+                       [                ]
+(%o1)                  [ - 1  8  5   2  ]
+                       [                ]
+                       [  9   2  11  4  ]
+(%i2) triangularize (M);
+             [ - 1   8         5            2      ]
+             [                                     ]
+(%o2)        [  0   - 74     - 56         - 22     ]
+             [                                     ]
+             [  0    0    626 - 74 aa  238 - 74 bb ]
+</pre></div>
+</dd></dl>
+
+<a name="uniteigenvectors"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002funiteigenvectors"></a><dl>
+<dt><a name="index-uniteigenvectors"></a>Funktion: <strong>uniteigenvectors</strong> <em>(<var>M</var>)</em></dt>
+<dd><a name="Item_003a-Matrices_002ede_002fdeffn_002fueivects"></a></dd><dt><a name="index-ueivects"></a>Funktion: <strong>ueivects</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+
+<p>Berechnet die Einheitsvektoren der Matrix <var>M</var>.  Die R&uuml;ckgabe ist eine 
+Liste, die zwei weitere Listen enth&auml;lt.  Die erste Liste enth&auml;lt die 
+Eigenwerte der Matrix <var>M</var> und deren Multiplizit&auml;ten.  Die zweite Liste 
+enth&auml;lt die Einheitsvektoren.
+</p>
+<p>Ansonsten entspricht <code>uniteigenvectors</code> der Funktion <code>eigenvectors</code>.
+</p>
+
+
+
+
+<p>Das Kommando <code>load(&quot;eigen&quot;)</code> l&auml;dt die Funktion.
+</p>
+
+<p><code>ueivects</code> ist ein Alias-Name der Funkion <code>uniteigenvectors</code>.
+</p></dd></dl>
+
+<a name="unitvector"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002funitvector"></a><dl>
+<dt><a name="index-unitvector"></a>Funktion: <strong>unitvector</strong> <em>(<var>x</var>)</em></dt>
+<dd><a name="Item_003a-Matrices_002ede_002fdeffn_002fuvect"></a></dd><dt><a name="index-uvect"></a>Funktion: <strong>uvect</strong> <em>(<var>x</var>)</em></dt>
+<dd>
+
+<p>Gibt den Einheitsvektor <em><var>x</var>/norm(<var>x</var>)</em> zur&uuml;ck.
+</p>
+
+<p>Das Kommando <code>load(&quot;eigen&quot;)</code> l&auml;dt die Funktion.
+</p>
+
+<p><code>uvect</code> ist ein Alias-Name der Funktion <code>unitvector</code>.
+</p></dd></dl>
+
+<a name="vectorpotential"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fvectorpotential"></a><dl>
+<dt><a name="index-vectorpotential"></a>Funktion: <strong>vectorpotential</strong> <em>(<var>givencurl</var>)</em></dt>
+<dd>
+<p>Returns the vector potential of a given curl vector, in the current 
+coordinate system.  <code>potentialzeroloc</code> has a similar role as for 
+<code>potential</code>, but the order of the left-hand sides of the equations must 
+be a cyclic permutation of the coordinate variables.
+</p></dd></dl>
+
+
+<a name="vectorsimp"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fvectorsimp"></a><dl>
+<dt><a name="index-vectorsimp"></a>Funktion: <strong>vectorsimp</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Applies simplifications and expansions according to the following global flags:
+</p>
+<pre class="verbatim">expandall         expanddot             expanddotplus
+expandcross       expandcrossplus       expandcrosscross
+expandgrad        expandgradplus        expandgradprod
+expanddiv         expanddivplus         expanddivprod
+expandcurl        expandcurlplus        expandcurlcurl 
+expandlaplacian   expandlaplacianplus   expandlaplacianprod
+</pre>
+<p>All these flags have default value <code>false</code>.  The <code>plus</code> suffix refers
+to employing additivity or distributivity.  The <code>prod</code> suffix refers to 
+the expansion for an operand that is any kind of product.
+</p>
+<dl compact="compact">
+<dt><code>expandcrosscross</code></dt>
+<dd><p>Simplifies <code>p ~ (q ~ r)</code> to <code>(p . r)*q - (p . q)*r</code>.
+</p>
+</dd>
+<dt><code>expandcurlcurl</code></dt>
+<dd><p>Simplifies <code>curl curl p</code> to <code>grad div p + div grad p</code>.
+</p>
+</dd>
+<dt><code>expandlaplaciantodivgrad</code></dt>
+<dd><p>Simplifies <code>laplacian p</code> to <code>div grad p</code>.
+</p>
+</dd>
+<dt><code>expandcross</code></dt>
+<dd><p>Enables <code>expandcrossplus</code> and <code>expandcrosscross</code>.
+</p>
+</dd>
+<dt><code>expandplus</code></dt>
+<dd><p align="left">Enables <code>expanddotplus</code>, <code>expandcrossplus</code>, <code>expandgradplus</code>,
+<code>expanddivplus</code>, <code>expandcurlplus</code>, and <code>expandlaplacianplus</code>.
+</p>
+</dd>
+<dt><code>expandprod</code></dt>
+<dd><p>Enables <code>expandgradprod</code>, <code>expanddivprod</code>, and 
+<code>expandlaplacianprod</code>.
+</p></dd>
+</dl>
+
+<p>These flags have all been declared <code>evflag</code>.
+</p>
+</dd></dl>
+
+<a name="vect_005fcross"></a><a name="Item_003a-Matrices_002ede_002fdefvr_002fvect_005fcross"></a><dl>
+<dt><a name="index-vect_005fcross"></a>Optionsvariable: <strong>vect_cross</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat <code>vect_cross</code> den Wert <code>true</code>, werden Ausdr&uuml;cke, die die 
+Ableitung eines Kreuzproduktes enthalten, vereinfacht.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;vect&quot;)$
+
+(%i2) vect_cross:false;
+(%o2)                         false
+(%i3) diff(f(x)~g(x),x);
+                        d
+(%o3)                   -- (f(x) ~ g(x))
+                        dx
+(%i4) vect_cross:true;
+(%o4)                         true
+(%i5) diff(f(x)~g(x),x);
+                     d                    d
+(%o5)        f(x) ~ (-- (g(x))) - g(x) ~ (-- (f(x)))
+                     dx                   dx
+</pre></div>
+</dd></dl>
+
+<a name="zeromatrix"></a><a name="Item_003a-Matrices_002ede_002fdeffn_002fzeromatrix"></a><dl>
+<dt><a name="index-zeromatrix"></a>Funktion: <strong>zeromatrix</strong> <em>(<var>m</var>, <var>n</var>)</em></dt>
+<dd>
+
+<p>Gibt eine <var>m</var> x <var>n</var>-Matrix zur&uuml;ck, deren Elemente alle Null sind.
+</p></dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_105.html#Einf_00fchrung-in-die-lineare-Algebra" accesskey="p" rel="previous">Einf&uuml;hrung in die lineare Algebra</a>, Nach oben: <a href="maxima_104.html#Lineare-Algebra" accesskey="u" rel="up">Lineare Algebra</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

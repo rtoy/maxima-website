@@ -1,0 +1,866 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Definições para distribuições discretas</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Definições para distribuições discretas">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições para distribuições discretas">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_145.html#distrib" rel="up" title="distrib">
+<link href="maxima_149.html#dynamics" rel="next" title="dynamics">
+<link href="maxima_147.html#Defini_00e7_00f5es-para-distribui_00e7_00f5es-cont_00ednuas" rel="previous" title="Definições para distribuições contínuas">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-para-distribui_00e7_00f5es-discretas"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_147.html#Defini_00e7_00f5es-para-distribui_00e7_00f5es-cont_00ednuas" accesskey="p" rel="previous">Definições para distribuições contínuas</a>, Acima: <a href="maxima_145.html#distrib" accesskey="u" rel="up">distrib</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-para-distribuicoes-discretas"></a>
+<h3 class="section">46.3 Definições para distribuições discretas</h3>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fbinomial"></a><dl>
+<dt><a name="index-pdf_005fbinomial"></a>Função: <strong>pdf_binomial</strong> <em>(<var>x</var>,<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função de probabilidade de uma <em>Binomial(n,p)</em>
+variável aleatória, com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Para fazer uso
+dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fbinomial"></a><dl>
+<dt><a name="index-cdf_005fbinomial"></a>Função: <strong>cdf_binomial</strong> <em>(<var>x</var>,<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função distribuição de probabilidade
+de uma <em>Binomial(n,p)</em> variável aleatória, com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo.
+</p>
+<p><code>cdf_binomial</code> é calculada numéricamente se a variável global <code>numer</code>
+for igual a <code>true</code>,  de outra forma <code>cdf_binomial</code> retorna uma expressão nominal.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_binomial(5,7,1/6);
+                                         1
+(%o2)                 cdf_binomial(5, 7, -)
+                                         6
+(%i3) cdf_binomial(5,7,1/6), numer;
+(%o3)                   .9998713991769548
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fbinomial"></a><dl>
+<dt><a name="index-quantile_005fbinomial"></a>Função: <strong>quantile_binomial</strong> <em>(<var>q</var>,<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o <var>q</var>-quantil de uma variável aleatória <em>Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo; em outras palavras, essa
+função é a inversa da função <code>cdf_binomial</code>. O argumento
+<var>q</var> deve ser um elemento de <em>[0,1]</em>. Para fazer uso dessa
+função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fbinomial"></a><dl>
+<dt><a name="index-mean_005fbinomial"></a>Função: <strong>mean_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna a média de uma variável aleatória <em>Binomial(n,p)</em>, com
+<em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Para fazer uso dessa função,
+escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fbinomial"></a><dl>
+<dt><a name="index-var_005fbinomial"></a>Função: <strong>var_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna a variância de uma variável aleatória <em>Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Para fazer uso dessa
+função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fbinomial"></a><dl>
+<dt><a name="index-std_005fbinomial"></a>Função: <strong>std_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o desvio padrão de uma variável aleatória <em>Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Para fazer uso dessa
+função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fbinomial"></a><dl>
+<dt><a name="index-skewness_005fbinomial"></a>Função: <strong>skewness_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o coeficiente de assimetria de uma variável aleatória 
+<em>Binomial(n,p)</em>, com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Para
+fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fbinomial"></a><dl>
+<dt><a name="index-kurtosis_005fbinomial"></a>Função: <strong>kurtosis_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o coeficiente de curtose de uma variável aleatória <em>Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Para fazer uso dessa função,
+escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdefvr_002frandom_005fbinomial_005falgorithm"></a><dl>
+<dt><a name="index-random_005fbinomial_005falgorithm"></a>Variável de opção: <strong>random_binomial_algorithm</strong></dt>
+<dd><p>Valor por omissão: <code>kachit</code>
+</p>
+<p>Esse é o algoritmo seleccionado para simular rvariáveis estatísticas pseudo-aleatórias
+binomiais. Os algoritmos implementados são <code>kachit</code>, <code>bernoulli</code> e <code>inverse</code>:
+</p><ul>
+<li> <code>kachit</code>, baseado no algoritmo descrito em Kachitvichyanukul, V. and
+Schmeiser, B.W. (1988) <var>Binomial Random Variate Generation</var>. Communications of the ACM, 31, Feb., 216.
+
+</li><li> <code>bernoulli</code>, baseado na simulação testes de Bernoulli.
+
+</li><li> <code>inverse</code>, baseado no método inverso genérico.
+
+</li></ul>
+
+<p>Veja também <code>random_binomial</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fbinomial"></a><dl>
+<dt><a name="index-random_005fbinomial"></a>Função: <strong>random_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dt><a name="index-random_005fbinomial-1"></a>Função: <strong>random_binomial</strong> <em>(<var>n</var>,<var>p</var>,<var>m</var>)</em></dt>
+<dd><p>Retorna uma variável estatística pseudo-aleatória <em>Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Chamando <code>random_binomial</code>
+com um terceiro argumento <var>m</var>, uma amostra aleatória de tamanho <var>m</var> será
+simulada.
+</p>
+<p>Existem três algoritmos implementado para essa função, se pode
+seleccionar o algoritmo a ser usado fornecendo um certo valor à variável
+global <code>random_binomial_algorithm</code>, cujo valor padrão é <code>kachit</code>.
+</p>
+<p>Veja também <code>random_binomial_algorithm</code>. Para fazer uso dessa
+função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fpoisson"></a><dl>
+<dt><a name="index-pdf_005fpoisson"></a>Função: <strong>pdf_poisson</strong> <em>(<var>x</var>,<var>m</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função de probabilidade de uma
+variável aleatória <em>Poisson(m)</em>, com <em>m&gt;0</em>. Para fazer
+uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fpoisson"></a><dl>
+<dt><a name="index-cdf_005fpoisson"></a>Função: <strong>cdf_poisson</strong> <em>(<var>x</var>,<var>m</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função distribuição de
+probabilidade de uma variável aleatória <em>Poisson(m)</em>, com <em>m&gt;0</em>.
+</p>
+<p>Essa função é calculada numéricamente se a variável global
+<code>numer</code> for igual a <code>true</code>,  de outra forma essa função
+retorna uma expressão nominal.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_poisson(3,5);
+(%o2)                   cdf_poisson(3, 5)
+(%i3) cdf_poisson(3,5), numer;
+(%o3)                   .2650259152973617
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fpoisson"></a><dl>
+<dt><a name="index-quantile_005fpoisson"></a>Função: <strong>quantile_poisson</strong> <em>(<var>q</var>,<var>m</var>)</em></dt>
+<dd><p>Retorna o <var>q</var>-quantil de uma variável aleatória <em>Poisson(m)</em>,
+com <em>m&gt;0</em>; em outras palavras, essa função é a inversa da
+função <code>cdf_poisson</code>. O argumento <var>q</var> deve ser um elemento de
+<em>[0,1]</em>. Para fazer uso dessa função,
+escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fpoisson"></a><dl>
+<dt><a name="index-mean_005fpoisson"></a>Função: <strong>mean_poisson</strong> <em>(<var>m</var>)</em></dt>
+<dd><p>Retorna a média de uma variável aleatória <em>Poisson(m)</em>,
+com <em>m&gt;0</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fpoisson"></a><dl>
+<dt><a name="index-var_005fpoisson"></a>Função: <strong>var_poisson</strong> <em>(<var>m</var>)</em></dt>
+<dd><p>Retorna a variância de uma variável aleatória <em>Poisson(m)</em>,
+com  <em>m&gt;0</em>. Para fazer uso dessa função, escreva
+primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fpoisson"></a><dl>
+<dt><a name="index-std_005fpoisson"></a>Função: <strong>std_poisson</strong> <em>(<var>m</var>)</em></dt>
+<dd><p>Retorna o desvio padrão de uma variável aleatória <em>Poisson(m)</em>,
+com <em>m&gt;0</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fpoisson"></a><dl>
+<dt><a name="index-skewness_005fpoisson"></a>Função: <strong>skewness_poisson</strong> <em>(<var>m</var>)</em></dt>
+<dd><p>Retorna o coeficiente de assimetria de uma variável aleatória <em>Poisson(m)</em>,
+com <em>m&gt;0</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fpoisson"></a><dl>
+<dt><a name="index-kurtosis_005fpoisson"></a>Função: <strong>kurtosis_poisson</strong> <em>(<var>m</var>)</em></dt>
+<dd><p>Retorna o coeficiente de curtose de uma Poisson variável aleatória  <em>Poi(m)</em>,
+com <em>m&gt;0</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdefvr_002frandom_005fpoisson_005falgorithm"></a><dl>
+<dt><a name="index-random_005fpoisson_005falgorithm"></a>Variável de opção: <strong>random_poisson_algorithm</strong></dt>
+<dd><p>Valor por omissão: <code>ahrens_dieter</code>
+</p>
+<p>Esse é o algoritmo seleccionado para simular variáveis estatísticas
+pseudo-aleatórias de Poisson.Os algoritmos implementados são <code>ahrens_dieter</code> e <code>inverse</code>:
+</p><ul>
+<li> <code>ahrens_dieter</code>, baseado no algoritmo descrito em Ahrens, J.H. and
+Dieter, U. (1982) <var>Computer Generation of Poisson Deviates From Modified Normal Distributions</var>.
+ACM Trans. Math. Software, 8, 2, June,163-179.
+
+</li><li> <code>inverse</code>, baseado no método inverso genérico.
+
+</li></ul>
+
+<p>Veja também <code>random_poisson</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fpoisson"></a><dl>
+<dt><a name="index-random_005fpoisson"></a>Função: <strong>random_poisson</strong> <em>(<var>m</var>)</em></dt>
+<dt><a name="index-random_005fpoisson-1"></a>Função: <strong>random_poisson</strong> <em>(<var>m</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna uma variável estatística pseudo-aleatória <em>Poisson(m)</em>, com <em>m&gt;0</em>.
+Chamando <code>random_poisson</code> com um segundo argumento <var>n</var>, uma amostra
+aleatória de tamanho <var>n</var> será simulada.
+</p>
+<p>Existem dois algoritmos implementado para essa função, se pode seleccionar o
+algoritmo a ser usado fornecendo um certo valor à variável global 
+<code>random_poisson_algorithm</code>, cujo valor padrão é
+<code>ahrens_dieter</code>.
+</p>
+<p>Veja também <code>random_poisson_algorithm</code>. Para fazer uso
+dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fbernoulli"></a><dl>
+<dt><a name="index-pdf_005fbernoulli"></a>Função: <strong>pdf_bernoulli</strong> <em>(<var>x</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função de probabilidade de uma
+variável aleatória <em>Bernoulli(p)</em>, com <em>0&lt;p&lt;1</em>.
+</p>
+<p>A variável aleatória <em>Bernoulli(p)</em> é equivalente a <em>Binomial(1,p)</em>,
+embora quando Maxima não tiver informação disponível para pegar o
+resultado, uma forma nominal baseada na função binomial de
+probabilidade é retornada.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) pdf_bernoulli(1,p);
+(%o2)                 pdf_binomial(1, 1, p)
+(%i3) assume(0&lt;p,p&lt;1)$ pdf_bernoulli(1,p);
+(%o4)                           p
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fbernoulli"></a><dl>
+<dt><a name="index-cdf_005fbernoulli"></a>Função: <strong>cdf_bernoulli</strong> <em>(<var>x</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função distribuição de
+probabilidade de uma variável aleatória <em>Bernoulli(p)</em>, com <em>0&lt;p&lt;1</em>.
+Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fbernoulli"></a><dl>
+<dt><a name="index-quantile_005fbernoulli"></a>Função: <strong>quantile_bernoulli</strong> <em>(<var>q</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o <var>q</var>-quantil de uma variável aleatória <em>Bernoulli(p)</em>,
+com <em>0&lt;p&lt;1</em>; em outras palavras, essa função é a inversa da
+função <code>cdf_bernoulli</code>. O argumento <var>q</var> deve ser um elemento de
+<em>[0,1]</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fbernoulli"></a><dl>
+<dt><a name="index-mean_005fbernoulli"></a>Função: <strong>mean_bernoulli</strong> <em>(<var>p</var>)</em></dt>
+<dd><p>Retorna a média de uma variável aleatória <em>Bernoulli(p)</em>, com <em>0&lt;p&lt;1</em>.
+</p>
+<p>A variável aleatória <em>Bernoulli(p)</em> é equivalente a <em>Binomial(1,p)</em>, embora
+quando Maxima não tiver informação disponível para pegar o resultado, uma forma
+nominal baseada na média binomial é retornada.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) mean_bernoulli(p);
+(%o2)                  mean_binomial(1, p)
+(%i3) assume(0&lt;p,p&lt;1)$ mean_bernoulli(p);
+(%o4)                           p
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fbernoulli"></a><dl>
+<dt><a name="index-var_005fbernoulli"></a>Função: <strong>var_bernoulli</strong> <em>(<var>p</var>)</em></dt>
+<dd><p>Retorna a variância de uma variável aleatória <em>Bernoulli(p)</em>, com <em>0&lt;p&lt;1</em>.
+</p>
+<p>A variável aleatória <em>Bernoulli(p)</em> é equivalente a <em>Binomial(1,p)</em>,
+embora quando Maxima não tiver informação disponível para pegar o resultado,
+uma forma nominal baseada na variância binomial é retornada.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) var_bernoulli(p);
+(%o2)                  var_binomial(1, p)
+(%i3) assume(0&lt;p,p&lt;1)$ var_bernoulli(p);
+(%o4)                       (1 - p) p
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fbernoulli"></a><dl>
+<dt><a name="index-std_005fbernoulli"></a>Função: <strong>std_bernoulli</strong> <em>(<var>p</var>)</em></dt>
+<dd><p>Retorna o desvio padrão de uma variável aleatória <em>Bernoulli(p)</em>, com <em>0&lt;p&lt;1</em>.
+</p>
+<p>A variável aleatória <em>Bernoulli(p)</em> é equivalente a
+<em>Binomial(1,p)</em>, embora quando Maxima não tiver informação
+disponível para pegar o resultado, uma forma nominal baseada no desvio
+padrão binomial é retornada.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) std_bernoulli(p);
+(%o2)                  std_binomial(1, p)
+(%i3) assume(0&lt;p,p&lt;1)$ std_bernoulli(p);
+(%o4)                  sqrt(1 - p) sqrt(p)
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fbernoulli"></a><dl>
+<dt><a name="index-skewness_005fbernoulli"></a>Função: <strong>skewness_bernoulli</strong> <em>(<var>p</var>)</em></dt>
+<dd><p>Retorna o coeficiente de assimetria de uma variável aleatória <em>Bernoulli(p)</em>, com <em>0&lt;p&lt;1</em>.
+</p>
+<p>A variável aleatória <em>Bernoulli(p)</em> é equivalente a <em>Binomial(1,p)</em>,
+embora quando Maxima não tiver informação disponível para pegar o resultado,
+uma forma nominal baseada no coeficiente de assimetria binomial é retornada.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) skewness_bernoulli(p);
+(%o2)                skewness_binomial(1, p)
+(%i3) assume(0&lt;p,p&lt;1)$ skewness_bernoulli(p);
+                             1 - 2 p
+(%o4)                  -------------------
+                       sqrt(1 - p) sqrt(p)
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fbernoulli"></a><dl>
+<dt><a name="index-kurtosis_005fbernoulli"></a>Função: <strong>kurtosis_bernoulli</strong> <em>(<var>p</var>)</em></dt>
+<dd><p>Retorna o coeficiente de curtose de uma variável aleatória <em>Bernoulli(p)</em>, com <em>0&lt;p&lt;1</em>.
+</p>
+<p>A variável aleatória <em>Bernoulli(p)</em> é equivalente a <em>Binomial(1,p)</em>,
+embora quando Maxima não tiver informação disponível para pegar o resultado,
+uma forma nominal baseada no coeficiente de curtose binomial é retornada.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) kurtosis_bernoulli(p);
+(%o2)                kurtosis_binomial(1, p)
+(%i3) assume(0&lt;p,p&lt;1)$ kurtosis_bernoulli(p);
+                         1 - 6 (1 - p) p
+(%o4)                    ---------------
+                            (1 - p) p
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fbernoulli"></a><dl>
+<dt><a name="index-random_005fbernoulli"></a>Função: <strong>random_bernoulli</strong> <em>(<var>p</var>)</em></dt>
+<dt><a name="index-random_005fbernoulli-1"></a>Função: <strong>random_bernoulli</strong> <em>(<var>p</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna uma variável estatística pseudo-aleatória <em>Bernoulli(p)</em>,
+com <em>0&lt;p&lt;1</em>. Chamando <code>random_bernoulli</code> com um segundo
+argumento <var>n</var>, uma amostra aleatória de tamanho <var>n</var> será simulada.
+</p>
+<p>Essa é uma aplicação directa da função <code>random</code> built-in função do Maxima.
+</p>
+<p>Veja também <code>random</code>. Para fazer uso dessa função, escreva
+primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fgeometric"></a><dl>
+<dt><a name="index-pdf_005fgeometric"></a>Função: <strong>pdf_geometric</strong> <em>(<var>x</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função de probabilidade de uma variável
+aleatória <em>Geometric(p)</em>, com <em>0&lt;p&lt;1</em>. Para fazer uso dessa
+função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fgeometric"></a><dl>
+<dt><a name="index-cdf_005fgeometric"></a>Função: <strong>cdf_geometric</strong> <em>(<var>x</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função distribuição de probabilidade
+de uma variável aleatória <em>Geometric(p)</em>, com <em>0&lt;p&lt;1</em>. Para fazer
+uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fgeometric"></a><dl>
+<dt><a name="index-quantile_005fgeometric"></a>Função: <strong>quantile_geometric</strong> <em>(<var>q</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o <var>q</var>-quantil de uma variável aleatória <em>Geometric(p)</em>,
+com <em>0&lt;p&lt;1</em>; em outras palavras, essa função é a inversa da
+função <code>cdf_geometric</code>. O argumento <var>q</var> deve ser um elemento de
+<em>[0,1]</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fgeometric"></a><dl>
+<dt><a name="index-mean_005fgeometric"></a>Função: <strong>mean_geometric</strong> <em>(<var>p</var>)</em></dt>
+<dd><p>Retorna a média de uma variável aleatória <em>Geometric(p)</em>,
+com <em>0&lt;p&lt;1</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fgeometric"></a><dl>
+<dt><a name="index-var_005fgeometric"></a>Função: <strong>var_geometric</strong> <em>(<var>p</var>)</em></dt>
+<dd><p>Retorna a variância de uma variável aleatória <em>Geometric(p)</em>,
+com <em>0&lt;p&lt;1</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fgeometric"></a><dl>
+<dt><a name="index-std_005fgeometric"></a>Função: <strong>std_geometric</strong> <em>(<var>p</var>)</em></dt>
+<dd><p>Retorna o desvio padrão de uma variável aleatória <em>Geometric(p)</em>,
+com <em>0&lt;p&lt;1</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fgeometric"></a><dl>
+<dt><a name="index-skewness_005fgeometric"></a>Função: <strong>skewness_geometric</strong> <em>(<var>p</var>)</em></dt>
+<dd><p>Retorna o coeficiente de assimetria de uma variável aleatória <em>Geometric(p)</em>,
+com <em>0&lt;p&lt;1</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fgeometric"></a><dl>
+<dt><a name="index-kurtosis_005fgeometric"></a>Função: <strong>kurtosis_geometric</strong> <em>(<var>p</var>)</em></dt>
+<dd><p>Retorna o coeficiente de curtose de uma geometric variável aleatória  <em>Geo(p)</em>,
+com <em>0&lt;p&lt;1</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdefvr_002frandom_005fgeometric_005falgorithm"></a><dl>
+<dt><a name="index-random_005fgeometric_005falgorithm"></a>Variável de opção: <strong>random_geometric_algorithm</strong></dt>
+<dd><p>Valor por omissão: <code>bernoulli</code>
+</p>
+<p>Esse é o algoritmo seleccionado para simular variáveis estatísticas pseudo-aleatórias
+geométricas. Algorítmos implementados são <code>bernoulli</code>, <code>devroye</code> e <code>inverse</code>:
+</p><ul>
+<li> <code>bernoulli</code>, baseado na simulação de testes de Bernoulli.
+
+</li><li> <code>devroye</code>, baseado no algoritmo descrito em Devroye, L. (1986)
+<var>Non-Uniform Random Variate Generation.</var> Springer Verlag, p. 480.
+
+</li><li> <code>inverse</code>, baseado no método inverso genérico.
+
+</li></ul>
+
+<p>Veja também <code>random_geometric</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fgeometric"></a><dl>
+<dt><a name="index-random_005fgeometric"></a>Função: <strong>random_geometric</strong> <em>(<var>p</var>)</em></dt>
+<dt><a name="index-random_005fgeometric-1"></a>Função: <strong>random_geometric</strong> <em>(<var>p</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna um <em>Geometric(p)</em> variável estatística pseudo-aleatória, com <em>0&lt;p&lt;1</em>.
+Chamando <code>random_geometric</code> com um segundo argumento <var>n</var>, uma amostra aleatória
+de tamanho <var>n</var> será simulada.
+</p>
+<p>Existem três algoritmos implementados para essa função, se
+pode seleccionar o algoritmo a ser usado fornecendo um certo valor à
+variável global <code>random_geometric_algorithm</code>, cujo valor padrão é
+<code>bernoulli</code>.
+</p>
+<p>Veja também <code>random_geometric_algorithm</code>. Para fazer uso dessa
+função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fdiscrete_005funiform"></a><dl>
+<dt><a name="index-pdf_005fdiscrete_005funiform"></a>Função: <strong>pdf_discrete_uniform</strong> <em>(<var>x</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função de probabilidade de uma variável
+aleatória <em>Discrete Uniform(n)</em>, com <em>n</em> a strictly positive integer. Para fazer uso dessa função, escreva primeiramente
+<code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fdiscrete_005funiform"></a><dl>
+<dt><a name="index-cdf_005fdiscrete_005funiform"></a>Função: <strong>cdf_discrete_uniform</strong> <em>(<var>x</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função distribuição de probabilidade
+de uma variável aleatória <em>Discrete Uniform(n)</em>, com <em>n</em> inteiro
+estritamente positivo. Para fazer uso dessa função, escreva
+primeiramente
+<code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fdiscrete_005funiform"></a><dl>
+<dt><a name="index-quantile_005fdiscrete_005funiform"></a>Função: <strong>quantile_discrete_uniform</strong> <em>(<var>q</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna o <var>q</var>-quantil de uma variável aleatória <em>Discrete Uniform(n)</em>,
+com <em>n</em> um inteiro estritamente positivo; em outras palavras, essa
+função é a inversa da função <code>cdf_discrete_uniform</code>. O
+argumento <var>q</var> deve ser um elemento de <em>[0,1]</em>. Para fazer uso dessa
+função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fdiscrete_005funiform"></a><dl>
+<dt><a name="index-mean_005fdiscrete_005funiform"></a>Função: <strong>mean_discrete_uniform</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Retorna a média de uma variável aleatória <em>Discrete Uniform(n)</em>,
+com <em>n</em> um inteiro estritamente positivo. Para fazer uso dessa
+função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fdiscrete_005funiform"></a><dl>
+<dt><a name="index-var_005fdiscrete_005funiform"></a>Função: <strong>var_discrete_uniform</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Retorna a variância de uma variável aleatória <em>Discrete Uniform(n)</em>,
+com <em>n</em> um inteiro estritamente positivo. Para fazer uso dessa função,
+escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fdiscrete_005funiform"></a><dl>
+<dt><a name="index-std_005fdiscrete_005funiform"></a>Função: <strong>std_discrete_uniform</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Retorna o desvio padrão de uma variável aleatória <em>Discrete Uniform(n)</em>,
+com <em>n</em> um inteiro estritamente positivo. Para fazer uso dessa função,
+escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fdiscrete_005funiform"></a><dl>
+<dt><a name="index-skewness_005fdiscrete_005funiform"></a>Função: <strong>skewness_discrete_uniform</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Retorna o coeficiente de assimetria de uma variável aleatória <em>Discrete Uniform(n)</em>,
+com <em>n</em> um inteiro estritamente positivo. Para fazer uso dessa função,
+escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fdiscrete_005funiform"></a><dl>
+<dt><a name="index-kurtosis_005fdiscrete_005funiform"></a>Função: <strong>kurtosis_discrete_uniform</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Retorna o coeficiente de curtose de uma variável aleatória <em>Discrete Uniform(n)</em>,
+com <em>n</em> um inteiro estritamente positivo. Para fazer uso dessa função,
+escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fdiscrete_005funiform"></a><dl>
+<dt><a name="index-random_005fdiscrete_005funiform"></a>Função: <strong>random_discrete_uniform</strong> <em>(<var>n</var>)</em></dt>
+<dt><a name="index-random_005fdiscrete_005funiform-1"></a>Função: <strong>random_discrete_uniform</strong> <em>(<var>n</var>,<var>m</var>)</em></dt>
+<dd><p>Retorna uma variável estatística pseudo-aleatória <em>Discrete Uniform(n)</em>,
+com <em>n</em> um inteiro estritamente positivo. Chamando <code>random_discrete_uniform</code>
+com um segundo argumento <var>m</var>, uma amostra aleatória de
+tamanho <var>m</var> será simulada.
+</p>
+<p>Isso é uma aplicação directa da função <code>random</code> built-in função do Maxima.
+</p>
+<p>Veja também <code>random</code>. Para fazer uso dessa função, escreva
+primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fhypergeometric"></a><dl>
+<dt><a name="index-pdf_005fhypergeometric"></a>Função: <strong>pdf_hypergeometric</strong> <em>(<var>x</var>,<var>n1</var>,<var>n2</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função de probabilidade de uma
+variável aleatória <em>Hypergeometric(n1,n2,n)</em>, com <var>n1</var>, <var>n2</var>
+e <var>n</var> inteiros não negativos e <em>n&lt;=n1+n2</em>. Para fazer uso dessa
+função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fhypergeometric"></a><dl>
+<dt><a name="index-cdf_005fhypergeometric"></a>Função: <strong>cdf_hypergeometric</strong> <em>(<var>x</var>,<var>n1</var>,<var>n2</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função distribuição de
+probabilidade de uma variável aleatória <em>Hypergeometric(n1,n2,n)</em>,
+com <var>n1</var>, <var>n2</var> e <var>n</var> inteiros não negativos e <em>n&lt;=n1+n2</em>. Para
+fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fhypergeometric"></a><dl>
+<dt><a name="index-quantile_005fhypergeometric"></a>Função: <strong>quantile_hypergeometric</strong> <em>(<var>q</var>,<var>n1</var>,<var>n2</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna o <var>q</var>-quantil de uma variável aleatória <em>Hypergeometric(n1,n2,n)</em>,
+com <var>n1</var>, <var>n2</var> e <var>n</var> inteiros não negativos e <em>n&lt;=n1+n2</em>; em outras
+palavras, essa função é a inversa da função <code>cdf_hypergeometric</code>.
+O argumento <var>q</var> deve ser um elemento de <em>[0,1]</em>. Para fazer uso dessa
+função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fhypergeometric"></a><dl>
+<dt><a name="index-mean_005fhypergeometric"></a>Função: <strong>mean_hypergeometric</strong> <em>(<var>n1</var>,<var>n2</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna a média de uma variável aleatória discreta univorme
+<em>Hyp(n1,n2,n)</em>, com <var>n1</var>, <var>n2</var> e <var>n</var> inteiros não negativos
+e <em>n&lt;=n1+n2</em>. Para fazer uso dessa função, escreva
+primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fhypergeometric"></a><dl>
+<dt><a name="index-var_005fhypergeometric"></a>Função: <strong>var_hypergeometric</strong> <em>(<var>n1</var>,<var>n2</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna a variância de uma variável aleatória hipergeométrica
+<em>Hyp(n1,n2,n)</em>, com <var>n1</var>, <var>n2</var> e <var>n</var> inteiros
+não negativos e <em>n&lt;=n1+n2</em>. Para fazer uso dessa função,
+escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fhypergeometric"></a><dl>
+<dt><a name="index-std_005fhypergeometric"></a>Função: <strong>std_hypergeometric</strong> <em>(<var>n1</var>,<var>n2</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna o desvio padrão de uma variável aleatória <em>Hypergeometric(n1,n2,n)</em>,
+com <var>n1</var>, <var>n2</var> e <var>n</var> inteiros não negativos e <em>n&lt;=n1+n2</em>. Para fazer uso dessa função, escreva primeiramente
+<code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fhypergeometric"></a><dl>
+<dt><a name="index-skewness_005fhypergeometric"></a>Função: <strong>skewness_hypergeometric</strong> <em>(<var>n1</var>,<var>n2</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna o coeficiente de assimetria de uma variável aleatória <em>Hypergeometric(n1,n2,n)</em>,
+com <var>n1</var>, <var>n2</var> e <var>n</var> inteiros não negativos e <em>n&lt;=n1+n2</em>. Para fazer uso
+dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fhypergeometric"></a><dl>
+<dt><a name="index-kurtosis_005fhypergeometric"></a>Função: <strong>kurtosis_hypergeometric</strong> <em>(<var>n1</var>,<var>n2</var>,<var>n</var>)</em></dt>
+<dd><p>Retorna o coeficiente de curtose de uma variável aleatória <em>Hypergeometric(n1,n2,n)</em>,
+com <var>n1</var>, <var>n2</var> e <var>n</var> inteiros não negativos e <em>n&lt;=n1+n2</em>. Para fazer uso
+dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<a name="Item_003a-distrib_002fdefvr_002frandom_005fhypergeometric_005falgorithm"></a><dl>
+<dt><a name="index-random_005fhypergeometric_005falgorithm"></a>Variável de opção: <strong>random_hypergeometric_algorithm</strong></dt>
+<dd><p>Valor por omissão: <code>kachit</code>
+</p>
+<p>Esse é o algoritmo seleccionado para simular variáveis estatísticas pseudo
+aleatórias hipergeométricas.Os algoritmos implementados são <code>kachit</code> e <code>inverse</code>:
+</p><ul>
+<li> <code>kachit</code>, baseado no algoritmo descrito em Kachitvichyanukul, V., Schmeiser, B.W. (1985)
+<var>Computer generation of hypergeometric variáveis estatística pseudo-aleatórias.</var> Journal
+of Statistical Computation and Simulation 22, 127-145.
+
+</li><li> <code>inverse</code>, baseado no método inverso genérico.
+
+</li></ul>
+
+<p>Veja também <code>random_hypergeometric</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fhypergeometric"></a><dl>
+<dt><a name="index-random_005fhypergeometric"></a>Função: <strong>random_hypergeometric</strong> <em>(<var>n1</var>,<var>n2</var>,<var>n</var>)</em></dt>
+<dt><a name="index-random_005fhypergeometric-1"></a>Função: <strong>random_hypergeometric</strong> <em>(<var>n1</var>,<var>n2</var>,<var>n</var>,<var>m</var>)</em></dt>
+<dd><p>Retorna uma variável estatística pseudo-aleatória <em>Hypergeometric(n1,n2,n)</em>,
+com <var>n1</var>, <var>n2</var> e <var>n</var> inteiros não negativos e <em>n&lt;=n1+n2</em>. Chamando
+<code>random_hypergeometric</code> com um quarto argumento <var>m</var>, uma amostra
+aleatória de tamanho <var>m</var> será simulada.
+</p>
+<p>Existem dois algoritmos implementados para essa função, se pode seleccionar o
+algoritmo a ser usado fornecendo um certo valor à variável global <code>random_hypergeometric_algorithm</code>,
+cujo valor padrão é <code>kachit</code>.
+</p>
+<p>Veja também <code>random_hypergeometric_algorithm</code>. Para fazer uso
+dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fpdf_005fnegative_005fbinomial"></a><dl>
+<dt><a name="index-pdf_005fnegative_005fbinomial"></a>Função: <strong>pdf_negative_binomial</strong> <em>(<var>x</var>,<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função de probabilidade de uma variável
+aleatória <em>Negative Binomial(n,p)</em>, com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro
+positivo. Para fazer uso dessa função, escreva
+primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fcdf_005fnegative_005fbinomial"></a><dl>
+<dt><a name="index-cdf_005fnegative_005fbinomial"></a>Função: <strong>cdf_negative_binomial</strong> <em>(<var>x</var>,<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o valor em <var>x</var> da função distribuição de probabilidade
+de uma <em>Negative Binomial(n,p)</em> variável aleatória, com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo.
+</p>
+<p>Essa função é calculada numéricamente se a variável global <code>numer</code> for
+igual a <code>true</code>,  de outra forma essa função retorna uma expressão nominal.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_negative_binomial(3,4,1/8);
+                                             1
+(%o2)            cdf_negative_binomial(3, 4, -)
+                                             8
+(%i3) cdf_negative_binomial(3,4,1/8), numer;
+(%o3)                  .006238937377929698
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fquantile_005fnegative_005fbinomial"></a><dl>
+<dt><a name="index-quantile_005fnegative_005fbinomial"></a>Função: <strong>quantile_negative_binomial</strong> <em>(<var>q</var>,<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o <var>q</var>-quantil de uma variável aleatória <em>Negative Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo; em outras palavras, essa função
+é a inversa da função <code>cdf_negative_binomial</code>. O argumento <var>q</var> deve ser
+um elemento de <em>[0,1]</em>. Para fazer uso dessa função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fmean_005fnegative_005fbinomial"></a><dl>
+<dt><a name="index-mean_005fnegative_005fbinomial"></a>Função: <strong>mean_negative_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna a média de uma variável aleatória <em>Negative Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Para fazer uso dessa função,
+escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fvar_005fnegative_005fbinomial"></a><dl>
+<dt><a name="index-var_005fnegative_005fbinomial"></a>Função: <strong>var_negative_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna a variância de uma variável aleatória <em>Negative Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Para fazer uso dessa função,
+escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fstd_005fnegative_005fbinomial"></a><dl>
+<dt><a name="index-std_005fnegative_005fbinomial"></a>Função: <strong>std_negative_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o desvio padrão de uma variável aleatória <em>Negative Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Para fazer uso dessa função,
+escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fskewness_005fnegative_005fbinomial"></a><dl>
+<dt><a name="index-skewness_005fnegative_005fbinomial"></a>Função: <strong>skewness_negative_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o coeficiente de assimetria de uma variável aleatória <em>Negative Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Para fazer uso dessa função, escreva
+primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002fkurtosis_005fnegative_005fbinomial"></a><dl>
+<dt><a name="index-kurtosis_005fnegative_005fbinomial"></a>Função: <strong>kurtosis_negative_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dd><p>Retorna o coeficiente de curtose de uma variável aleatória <em>Negative Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Para fazer uso dessa função, escreva
+primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdefvr_002frandom_005fnegative_005fbinomial_005falgorithm"></a><dl>
+<dt><a name="index-random_005fnegative_005fbinomial_005falgorithm"></a>Variável de opção: <strong>random_negative_binomial_algorithm</strong></dt>
+<dd><p>Valor por omissão: <code>bernoulli</code>
+</p>
+<p>Esse é o algoritmo seleccionado para simular variáveis estatísticas pseuso-aleatórias
+binomiais negativas. Os algoritmos implementados são <code>devroye</code>, <code>bernoulli</code>
+e <code>inverse</code>:
+</p><ul>
+<li> <code>devroye</code>, baseado no algoritmo descrito em Devroye, L. (1986)
+<var>Non-Uniform Random Variate Generation</var>. Springer Verlag, p. 480.
+
+</li><li> <code>bernoulli</code>, baseado na simulação de testes de Bernoulli.
+
+</li><li> <code>inverse</code>, baseado no método inverso genérico.
+
+</li></ul>
+
+<p>Veja também <code>random_negative_binomial</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-distrib_002fdeffn_002frandom_005fnegative_005fbinomial"></a><dl>
+<dt><a name="index-random_005fnegative_005fbinomial"></a>Função: <strong>random_negative_binomial</strong> <em>(<var>n</var>,<var>p</var>)</em></dt>
+<dt><a name="index-random_005fnegative_005fbinomial-1"></a>Função: <strong>random_negative_binomial</strong> <em>(<var>n</var>,<var>p</var>,<var>m</var>)</em></dt>
+<dd><p>Retorna uma variável estatística pseudo-aleatória <em>Negative Binomial(n,p)</em>,
+com <em>0&lt;p&lt;1</em> e <em>n</em> um inteiro positivo. Chamando <code>random_negative_binomial</code>
+com um terceiro argumento <var>m</var>, uma amostra aleatória de tamanho
+<var>m</var> será simulada.
+</p>
+<p>Existem três algoritmos implementados para essa função, se pode
+seleccionar o algoritmo a ser usado fornecendo um certo valor à variável global
+<code>random_negative_binomial_algorithm</code>, cujo valor padrão é <code>bernoulli</code>.
+</p>
+<p>Veja também <code>random_negative_binomial_algorithm</code>. Para fazer uso dessa
+função, escreva primeiramente <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_147.html#Defini_00e7_00f5es-para-distribui_00e7_00f5es-cont_00ednuas" accesskey="p" rel="previous">Definições para distribuições contínuas</a>, Acima: <a href="maxima_145.html#distrib" accesskey="u" rel="up">distrib</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

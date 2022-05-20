@@ -1,37 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on diciembre, 30 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual de Maxima 5.35.1: 73. solve_rec</title>
+<title>Manual de Maxima 5.46.0: Funciones y variables para salida TeX</title>
 
-<meta name="description" content="Manual de Maxima 5.35.1: 73. solve_rec">
-<meta name="keywords" content="Manual de Maxima 5.35.1: 73. solve_rec">
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para salida TeX">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para salida TeX">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_69.html#Lectura-y-escritura" rel="up" title="Lectura y escritura">
+<link href="maxima_74.html#Funciones-y-variables-para-salida-Fortran" rel="next" title="Funciones y variables para salida Fortran">
+<link href="maxima_72.html#Funciones-y-variables-para-lectura-y-escritura" rel="previous" title="Funciones y variables para lectura y escritura">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
 h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
@@ -52,383 +62,352 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="../figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="solve_005frec"></a>
-<a name="SEC354"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_72.html#SEC353" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC355" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC345" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC357" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 73. solve_rec </h1>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC355">73.1 Introducción a solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC356">73.2 Funciones y variables para solve_rec</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Introducci_00f3n-a-solve_005frec"></a>
-<a name="SEC355"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC354" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC356" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC354" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC354" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC357" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 73.1 Introducción a solve_rec </h2>
-
-<p>El paquete <code>solve_rec</code> resuelve expresiones recurrentes lineales con
-coeficientes polinomiales.
-</p>
-<p>Ejecútese <code>demo(solve_rec);</code> para ver una demostración sobre
-la utilización de este paquete.
-</p>
-<p>Ejemplo:
-</p>
-<pre class="example">(%i1) load(&quot;solve_rec&quot;)$
-(%i2) solve_rec((n+4)*s[n+2] + s[n+1] - (n+1)*s[n], s[n]);
-                                    n
-                 %k  (2 n + 3) (- 1)          %k
-                   1                            2
-(%o2)       s  = -------------------- + ---------------
-             n     (n + 1) (n + 2)      (n + 1) (n + 2)
-</pre>
-<hr size="6">
-<a name="Funciones-y-variables-para-solve_005frec"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC355" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC357" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC354" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC354" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC357" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-
-<a name="SEC356"></a>
-<h2 class="section"> 73.2 Funciones y variables para solve_rec </h2>
-
-
-<dl>
-<dt><u>Función:</u> <b>reduce_order</b><i> (<var>rec</var>, <var>sol</var>, <var>var</var>)</i>
-<a name="IDX2670"></a>
-</dt>
-<dd><p>Reduce el orden de la expresión recurrente lineal <var>rec</var> cuando
-se conoce una solución particular <var>sol</var>. La recurrencia
-reducida puede utilizarse para obterner más soluciones.
-</p>
-<p>Ejemplo:
-</p>
-<pre class="example">(%i3) rec: x[n+2] = x[n+1] + x[n]/n;
-                                      x
-                                       n
-(%o3)               x      = x      + --
-                     n + 2    n + 1   n
-(%i4) solve_rec(rec, x[n]);
-WARNING: found some hypergeometrical solutions! 
-(%o4)                    x  = %k  n
-                          n     1
-(%i5) reduce_order(rec, n, x[n]);
-(%t5)                    x  = n %z
-                          n       n
-
-                           n - 1
-                           ====
-                           \
-(%t6)                %z  =  &gt;     %u
-                       n   /        %j
-                           ====
-                           %j = 0
-
-(%o6)             (- n - 2) %u     - %u
-                              n + 1     n
-(%i6) solve_rec((n+2)*%u[n+1] + %u[n], %u[n]);
-                                     n
-                            %k  (- 1)
-                              1
-(%o6)                 %u  = ----------
-                        n    (n + 1)!
-
-So the general solution is
-
-             n - 1
-             ====        j
-             \      (- 1)
-       %k  n  &gt;    -------- + %k  n
-         2   /     (j + 1)!     1
-             ====
-             j = 0
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Variable opcional:</u> <b>simplify_products</b>
-<a name="IDX2671"></a>
-</dt>
-<dd><p>Valor por defecto: <code>true</code>
-</p>
-<p>Si <code>simplify_products</code> vale <code>true</code>, <code>solve_rec</code> intentará
-simplificar los productos del resultado.
-</p>
-<p>Véase también <code>solve_rec</code>.
-</p>
-</dd></dl>
-
-
-
-<dl>
-<dt><u>Función:</u> <b>simplify_sum</b><i> (<var>expr</var>)</i>
-<a name="IDX2672"></a>
-</dt>
-<dd><p>Intenta reducir todas las sumas que aparecen en <var>expr</var> a una forma
-cerrada.
-</p>
-<p>Para utilizar esta función cárguese previamente el paquete <code>simplify_sum</code>
-ejecutando la instrucción <code>load(simplify_sum)</code>.
-</p>
-<p>Ejemplo:
-</p>
-<pre class="example">(%i1) load(&quot;simplify_sum&quot;)$
-(%i2) sum(binomial(n+k,k)/2^k,k,1,n)+sum(binomial(2*n,2*k),k,1,n);
-        n                          n
-       ====                       ====
-       \     binomial(n + k, k)   \
-(%o2)   &gt;    ------------------ +  &gt;    binomial(2 n, 2 k)
-       /              k           /
-       ====          2            ====
-       k = 1                      k = 1
-(%i3) simplify_sum(%);
-
-                         2 n - 1    n
-(%o3)                   2        + 2  - 2
-</pre>
-
-</dd></dl>
-
-
-<dl>
-<dt><u>Función:</u> <b>solve_rec</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i>
-<a name="IDX2673"></a>
-</dt>
-<dd><p>Obtiene las soluciones hipergeométricas de la expresión recurrente <var>eqn</var>
-con coeficientes lineales en la variable <var>var</var>. Los argumentos opcionales
-<var>init</var> son condiciones iniciales.
-</p>
-<p>La función <code>solve_rec</code> puede resolver expresiones recurrentes con
-coeficientes constantes, encuentra soluciones hipergeométricas de
-expresiones recurrentes lineales homogéneas con coeficientes 
-polinomiales, obtiene soluciones racionales de expresiones recurrentes
-lineales con coeficientes lineales y resuelve también expresiones
-recurrentes de Ricatti.
-</p>
-<p>Nótese que el tiempo de ejecución del algoritmo para encontrar soluciones 
-hipergeométricas es exponencial respecto del grado del coeficiente principal.
-</p>
-<p>Para hacer uso de esta función ejecútese previamente <code>load(solve_rec);</code>.
-</p>
-<p>Ejemplo de recurrencia lineal con coeficientes constantes:
-</p>
-<pre class="example">(%i2) solve_rec(a[n]=a[n-1]+a[n-2]+n/2^n, a[n]);
-                        n          n
-           (sqrt(5) - 1)  %k  (- 1)
-                            1           n
-(%o2) a  = ------------------------- - ----
-       n               n                  n
-                      2                5 2
-                                                n
-                                   (sqrt(5) + 1)  %k
-                                                    2    2
-                                 + ------------------ - ----
-                                            n              n
-                                           2            5 2
-</pre>
-<p>Ejemplo de recurrencia lineal con coeficientes polinomiales:
-</p>
-<pre class="example">(%i7) 2*x*(x+1)*y[x] - (x^2+3*x-2)*y[x+1] + (x-1)*y[x+2];
-                         2
-(%o7) (x - 1) y      - (x  + 3 x - 2) y      + 2 x (x + 1) y
-               x + 2                   x + 1                x
-(%i8) solve_rec(%, y[x], y[1]=1, y[3]=3);
-                              x
-                           3 2    x!
-(%o9)                 y  = ---- - --
-                       x    4     2
-</pre>
-<p>Ejemplo de recurrencia de Ricatti:
-</p>
-<pre class="example">(%i2) x*y[x+1]*y[x] - y[x+1]/(x+2) + y[x]/(x-1) = 0;
-                            y         y
-                             x + 1     x
-(%o2)         x y  y      - ------ + ----- = 0
-                 x  x + 1   x + 2    x - 1
-(%i3) solve_rec(%, y[x], y[3]=5)$
-(%i4) ratsimp(minfactorial(factcomb(%)));
-                                   3
-                               30 x  - 30 x
-(%o4) y  = - -------------------------------------------------
-       x        6      5       4       3       2
-             5 x  - 3 x  - 25 x  + 15 x  + 20 x  - 12 x - 1584
-</pre>
-
-<p>Véanse también <code>solve_rec_rat</code>, <code>simplify_products</code> y <code>product_use_gamma</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>solve_rec_rat</b><i> (<var>eqn</var>, <var>var</var>, [<var>init</var>])</i>
-<a name="IDX2674"></a>
-</dt>
-<dd><p>Calcula las soluciones racionales de las expresiones recurrentes lineales. 
-Véase <code>solve_rec</code> para la descripción de sus argumentos.
-</p>
-<p>Para hacer uso de esta función ejecútese previamente <code>load(solve_rec);</code>.
-</p>
-<p>Ejemplo:
-</p>
-<pre class="example">(%i1) (x+4)*a[x+3] + (x+3)*a[x+2] - x*a[x+1] + (x^2-1)*a[x];
-(%o1)  (x + 4) a      + (x + 3) a      - x a
-                x + 3            x + 2      x + 1
-                                                   2
-                                               + (x  - 1) a
-                                                            x
-(%i2) solve_rec_rat(% = (x+2)/(x+1), a[x]);
-                       1
-(%o2)      a  = ---------------
-            x   (x - 1) (x + 1)
-</pre>
-<p>Véase también <code>solve_rec</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variable opcional:</u> <b>product_use_gamma</b>
-<a name="IDX2675"></a>
-</dt>
-<dd><p>Valor por defecto:<code>true</code> 
-</p>
-<p>Si <code>product_use_gamma</code> vale <code>true</code>,  <code>solve_rec</code>
-introduce la función gamma en la expresión del resultado
-cuando se simplifican productos.
-</p>
-<p>Véanse también <code>simplify_products</code> y <code>solve_rec</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>summand_to_rec</b><i> (<var>summand</var>, <var>k</var>, <var>n</var>)</i>
-<a name="IDX2676"></a>
-</dt>
-<dd><p>Devuelve la expresión recurrente que satisface la suma
-</p>
-<pre class="example">    inf
-    ====
-    \
-     &gt;     sumando
-    /
-    ====
-  k = minf
-</pre>
-<p>donde el sumando es hipergeométrico en  <var>k</var> y <var>n</var>.
-</p>
-<p>Para hacer uso de esta función deben cargarse previamente los paquetes
-<code>zeilberger</code> y <code>solve_rec</code> mediante la ejecución de las sentencias
-<code>load(solve_rec)</code> y <code>load(zeilberger)</code>.
-</p>
-<pre class="example">(%i17) load(&quot;zeilberger&quot;)$
-(%i18) summand: binom(3*k+1,k)*binom(3*(n-k),n-k)/(3*k+1)$
-(%i19) summand_to_rec(summand, k, n);
-Dependent equations eliminated:  (3 2)
-(%o19) - 4 (n + 2) (2 n + 3) (2 n + 5) sm
-                                         n + 2
-                    2
- + 12 (2 n + 3) (9 n  + 27 n + 22) sm
-                                     n + 1
- - 81 (n + 1) (3 n + 2) (3 n + 4) sm
-                                    n
-(%i21) sum(''summand, k, 0, n), n=0;
-(%o21)                       1
-(%i22) sum(''summand, k, 0, n), n=1;
-(%o22)                       4
-(%i23) product_use_gamma: false$
-(%i24) solve_rec(%o19, sm[n], sm[0]=1, sm[1]=4);
-              n - 1               n - 1
-              /===\               /===\
-               ! !                 ! !                n
-             ( ! !   (3 %j + 2)) ( ! !   (3 %j + 4)) 3
-               ! !                 ! !
-              %j = 0              %j = 0
-(%o24) sm  = ------------------------------------------
-         n            n - 1
-                      /===\
-                       ! !                n
-                     ( ! !   (2 %j + 3)) 2  n!
-                       ! !
-                      %j = 0
-</pre>
-</dd></dl>
-
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC354" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_74.html#SEC357" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Funciones-y-variables-para-salida-TeX"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>diciembre, 30 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Siguiente: <a href="maxima_74.html#Funciones-y-variables-para-salida-Fortran" accesskey="n" rel="next">Funciones y variables para salida Fortran</a>, Previous: <a href="maxima_72.html#Funciones-y-variables-para-lectura-y-escritura" accesskey="p" rel="previous">Funciones y variables para lectura y escritura</a>, Subir: <a href="maxima_69.html#Lectura-y-escritura" accesskey="u" rel="up">Lectura y escritura</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-salida-TeX-1"></a>
+<h3 class="section">13.4 Funciones y variables para salida TeX</h3>
 
+
+<a name="Item_003a-Input_002ees_002fdeffn_002ftex"></a><dl>
+<dt><a name="index-tex"></a>Función: <strong>tex</strong> <em>(<var>expr</var>)</em></dt>
+<dt><a name="index-tex-1"></a>Función: <strong>tex</strong> <em>(<var>expr</var>, <var>destination</var>)</em></dt>
+<dt><a name="index-tex-2"></a>Función: <strong>tex</strong> <em>(<var>expr</var>, false)</em></dt>
+<dt><a name="index-tex-3"></a>Función: <strong>tex</strong> <em>(<var>label</var>)</em></dt>
+<dt><a name="index-tex-4"></a>Función: <strong>tex</strong> <em>(<var>label</var>, <var>destination</var>)</em></dt>
+<dt><a name="index-tex-5"></a>Función: <strong>tex</strong> <em>(<var>label</var>, false)</em></dt>
+<dd>
+<p>Devuelve la expresión en un formato apropiado para para ser 
+incorporado a un documento basado en TeX. El resultado que se 
+obtiene es un fragmento de código que puede incluirse en un documento mayor, pero que
+no puede ser procesado aisladamente.
 </p>
+<p>La instrucción <code>tex (<var>expr</var>)</code> imprime en la consola 
+la representación en TeX de <var>expr</var>.
+</p>
+<p>La instrucción <code>tex (<var>label</var>)</code> imprime en la consola la 
+representación en TeX de la expresión a la que hace referencia la 
+etiqueta <var>label</var>, asignándole a su vez una etiqueta de ecuación 
+que será mostrada al lado izquierdo de la misma. La etiqueta de la 
+expresión en TeX es la misma que la de Maxima.
+</p>
+<p><var>destination</var> puede ser tanto un flujo de salida como el nombre de un fichero.
+</p>
+<p>Si <var>destination</var> es el nombre de un fichero, <code>tex</code> añade la salida al fichero.
+Las funciones <code>openw</code> y <code>opena</code> crean flujos de salida.
+</p>
+<p>Las instrucciones <code>tex (<var>expr</var>, false)</code> y <code>tex (<var>label</var>, false)</code>
+devuelven el código TeX en formato de cadena.
+</p>
+<p>La función <code>tex</code> evalúa su primer argumento tras
+comprobar si se trata de una etiqueta. La doble comilla simple <code>''</code> 
+fuerza la evaluación del argumento, anulando la comprobación sobre la etiqueta.
+</p>
+<p>Véase también <code>texput</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) integrate (1/(1+x^3), x);
+                                    2 x - 1
+                  2            atan(-------)
+             log(x  - x + 1)        sqrt(3)    log(x + 1)
+(%o1)      - --------------- + ------------- + ----------
+                    6             sqrt(3)          3
+(%i2) tex (%o1);
+$$-{{\log \left(x^2-x+1\right)}\over{6}}+{{\arctan \left({{2\,x-1
+ }\over{\sqrt{3}}}\right)}\over{\sqrt{3}}}+{{\log \left(x+1\right)
+ }\over{3}}\leqno{\tt (\%o1)}$$
+(%o2)                          (\%o1)
+(%i3) tex (integrate (sin(x), x));
+$$-\cos x$$
+(%o3)                           false
+(%i4) tex (%o1, &quot;foo.tex&quot;);
+(%o4)                          (\%o1)
+</pre></div>
+
+<p><code>tex (<var>expr</var>, false)</code> devuelve el código TeX en formato de cadena.
+</p>
+<div class="example">
+<pre class="example">(%i1) S : tex (x * y * z, false);
+(%o1) $$x\,y\,z$$
+(%i2) S;
+(%o2) $$x\,y\,z$$
+</pre></div>
+</dd></dl>
+
+
+
+
+<a name="Item_003a-Input_002ees_002fdeffn_002ftex1"></a><dl>
+<dt><a name="index-tex1"></a>Función: <strong>tex1</strong> <em>(<var>e</var>)</em></dt>
+<dd><p>Devuelve una cadena con el código TeX de la expresión <var>e</var>.
+El código TeX no se encierra entre delimitadores para una ecuación
+ni cualesquiera otros entornos.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) tex1 (sin(x) + cos(x));
+(%o1)                     \sin x+\cos x
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-Input_002ees_002fdeffn_002ftexput"></a><dl>
+<dt><a name="index-texput"></a>Función: <strong>texput</strong> <em>(<var>a</var>, <var>s</var>)</em></dt>
+<dt><a name="index-texput-1"></a>Función: <strong>texput</strong> <em>(<var>a</var>, <var>f</var>)</em></dt>
+<dt><a name="index-texput-2"></a>Función: <strong>texput</strong> <em>(<var>a</var>, <var>s</var>, <var>operator_type</var>)</em></dt>
+<dt><a name="index-texput-3"></a>Función: <strong>texput</strong> <em>(<var>a</var>, [<var>s_1</var>, <var>s_2</var>], matchfix)</em></dt>
+<dt><a name="index-texput-4"></a>Función: <strong>texput</strong> <em>(<var>a</var>, [<var>s_1</var>, <var>s_2</var>, <var>s_3</var>], matchfix)</em></dt>
+<dd>
+<p>Establece el formato en TeX del átomo <var>a</var>, el cual puede ser un
+símbolo o el nombre de un operador.
+</p>
+<p>La instrucción <code>texput (<var>a</var>, <var>s</var>)</code> hace que la función
+<code>tex</code> introduzca <var>s</var> en la salida TeX en el lugar de <var>a</var>.
+</p>
+<p>La instrucción <code>texput (<var>a</var>, <var>f</var>)</code> hace que <code>tex</code> llame
+a la función <var>f</var> para que genere código TeX. La función <var>f</var> 
+debe aceptar un único argumento, el cual es una expresión que tenga como
+operador <var>a</var> y que devuelva una cadena con el código TeX. Esta función
+puede llamar a <code>tex1</code> para generar el código TeX para los argumentos
+de la expresión de entrada.
+</p>
+<p>La instrucción <code>texput (<var>a</var>, <var>s</var>, <var>operator_type</var>)</code>,
+en la que <var>operator_type</var> es <code>prefix</code>, <code>infix</code> o
+<code>postfix</code>, <code>nary</code> o <code>nofix</code>,hace que la función
+<code>tex</code> introduzca <var>s</var> en la salida TeX en el lugar de <var>a</var>,
+colocándolo en el lugar correcto.
+</p>
+<p>La instrucción <code>texput (<var>a</var>, [<var>s_1</var>, <var>s_2</var>], matchfix)</code>
+hace que la función <code>tex</code> introduzca <var>s_1</var> y <var>s_2</var> en la
+salida TeX a los lados de los argumentos de <var>a</var>. Si son más de uno,
+los argumentos se separan por comas.
+</p>
+<p>La instrucción <code>texput (<var>a</var>, [<var>s_1</var>, <var>s_2</var>, <var>s_3</var>],
+matchfix)</code> hace que la función <code>tex</code> introduzca <var>s_1</var> y
+<var>s_2</var> en la salida TeX a los lados de los argumentos de <var>a</var>,
+con <var>s_3</var> separando los argumentos.
+</p>
+<p>Ejemplos:
+</p>
+<p>Asigna código TeX para una variable.
+</p>
+<p>Llama a una función que genera código TeX.
+</p>
+<div class="example">
+<pre class="example">(%i1) texfoo (e) := block ([a, b], [a, b] : args (e),
+  concat (&quot;\\left[\\stackrel{&quot;, tex1 (b), 
+          &quot;}{&quot;, tex1 (a), &quot;}\\right]&quot;))$
+(%i2) texput (foo, texfoo);
+(%o2)                        texfoo
+(%i3) tex (foo (2^x, %pi));
+$$\left[\stackrel{\pi}{2^{x}}\right]$$
+(%o3)                         false
+</pre></div>
+
+<div class="example">
+<pre class="example">(%i1) texput (me,&quot;\\mu_e&quot;);
+(%o1)                         \mu_e
+(%i2) tex (me);
+$$\mu_e$$
+(%o2)                         false
+</pre></div>
+
+<p>Asigna código TeX para una función ordinaria (no para un operador).
+</p>
+<div class="example">
+<pre class="example">(%i1) texput (lcm, &quot;\\mathrm{lcm}&quot;);
+(%o1)                     \mathrm{lcm}
+(%i2) tex (lcm (a, b));
+$$\mathrm{lcm}\left(a , b\right)$$
+(%o2)                         false
+</pre></div>
+
+<p>Asigna código TeX para un operador prefijo.
+</p>
+<div class="example">
+<pre class="example">(%i1) prefix (&quot;grad&quot;);
+(%o1)                         grad
+(%i2) texput (&quot;grad&quot;, &quot; \\nabla &quot;, prefix);
+(%o2)                        \nabla 
+(%i3) tex (grad f);
+$$ \nabla f$$
+(%o3)                         false
+</pre></div>
+
+<p>Asigna código TeX para un operador infijo.
+</p>
+<div class="example">
+<pre class="example">(%i1) infix (&quot;~&quot;);
+(%o1)                           ~
+(%i2) texput (&quot;~&quot;, &quot; \\times &quot;, infix);
+(%o2)                        \times 
+(%i3) tex (a ~ b);
+$$a \times b$$
+(%o3)                         false
+</pre></div>
+
+<p>Asigna código TeX para un operador postfijo..
+</p>
+<div class="example">
+<pre class="example">(%i1) postfix (&quot;##&quot;);
+(%o1)                          ##
+(%i2) texput (&quot;##&quot;, &quot;!!&quot;, postfix);
+(%o2)                          !!
+(%i3) tex (x ##);
+$$x!!$$
+(%o3)                         false
+</pre></div>
+
+<p>Asigna código TeX para un operador n-ario.
+</p>
+<div class="example">
+<pre class="example">(%i1) nary (&quot;@@&quot;);
+(%o1)                          @@
+(%i2) texput (&quot;@@&quot;, &quot; \\circ &quot;, nary);
+(%o2)                         \circ 
+(%i3) tex (a @@ b @@ c @@ d);
+$$a \circ b \circ c \circ d$$
+(%o3)                         false
+</pre></div>
+
+<p>Asigna código TeX para un operador &quot;no-fijo&quot;.
+</p>
+<div class="example">
+<pre class="example">(%i1) nofix (&quot;foo&quot;);
+(%o1)                          foo
+(%i2) texput (&quot;foo&quot;, &quot;\\mathsc{foo}&quot;, nofix);
+(%o2)                     \mathsc{foo}
+(%i3) tex (foo);
+$$\mathsc{foo}$$
+(%o3)                         false
+</pre></div>
+
+<p>Asigna código TeX para un operador &quot;bi-fijo&quot; (matchfix).
+</p>
+<div class="example">
+<pre class="example">(%i1) matchfix (&quot;&lt;&lt;&quot;, &quot;&gt;&gt;&quot;);
+(%o1)                          &lt;&lt;
+(%i2) texput (&quot;&lt;&lt;&quot;, [&quot; \\langle &quot;, &quot; \\rangle &quot;], matchfix);
+(%o2)                [ \langle ,  \rangle ]
+(%i3) tex (&lt;&lt;a&gt;&gt;);
+$$ \langle a \rangle $$
+(%o3)                         false
+(%i4) tex (&lt;&lt;a, b&gt;&gt;);
+$$ \langle a , b \rangle $$
+(%o4)                         false
+(%i5) texput (&quot;&lt;&lt;&quot;, [&quot; \\langle &quot;, &quot; \\rangle &quot;, &quot; \\, | \\,&quot;],
+      matchfix);
+(%o5)           [ \langle ,  \rangle ,  \, | \,]
+(%i6) tex (&lt;&lt;a&gt;&gt;);
+$$ \langle a \rangle $$
+(%o6)                         false
+(%i7) tex (&lt;&lt;a, b&gt;&gt;);
+$$ \langle a \, | \,b \rangle $$
+(%o7)                         false
+</pre></div>
+</dd></dl>
+
+
+
+
+<a name="Item_003a-Input_002ees_002fdeffn_002fget_005ftex_005fenvironment"></a><dl>
+<dt><a name="index-get_005ftex_005fenvironment"></a>Función: <strong>get_tex_environment</strong> <em>(<var>op</var>)</em></dt>
+<dd><a name="Item_003a-Input_002ees_002fdeffn_002fset_005ftex_005fenvironment"></a></dd><dt><a name="index-set_005ftex_005fenvironment"></a>Función: <strong>set_tex_environment</strong> <em>(<var>op</var>, <var>before</var>, <var>after</var>)</em></dt>
+<dd>
+<p>Gestiona el entorno de las salidas TeX que se obtienen de la función <code>tex</code>.
+El entorno TeX está formado por dos cadenas: una que se escribe antes que
+cualquier salida en TeX, y otra que se escribe después.
+</p>
+<p><code>get_tex_environment</code> devuelve el entorno TeX que se aplica al operador <var>op</var>.
+Si no se ha asignado ningún entorno, devolverá el que tenga por defecto.
+</p>
+<p><code>set_tex_environment</code> asigna el entorno TeX al operador <var>op</var>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) get_tex_environment (&quot;:=&quot;);
+(%o1) [
+\begin{verbatim}
+, ;
+\end{verbatim}
+]
+(%i2) tex (f (x) := 1 - x);
+
+\begin{verbatim}
+f(x):=1-x;
+\end{verbatim}
+
+(%o2)                         false
+(%i3) set_tex_environment (&quot;:=&quot;, &quot;$$&quot;, &quot;$$&quot;);
+(%o3)                       [$$, $$]
+(%i4) tex (f (x) := 1 - x);
+$$f(x):=1-x$$
+(%o4)                         false
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-Input_002ees_002fdeffn_002fget_005ftex_005fenvironment_005fdefault"></a><dl>
+<dt><a name="index-get_005ftex_005fenvironment_005fdefault"></a>Función: <strong>get_tex_environment_default</strong> <em>()</em></dt>
+<dd><a name="Item_003a-Input_002ees_002fdeffn_002fset_005ftex_005fenvironment_005fdefault"></a></dd><dt><a name="index-set_005ftex_005fenvironment_005fdefault"></a>Función: <strong>set_tex_environment_default</strong> <em>(<var>before</var>, <var>after</var>)</em></dt>
+<dd>
+<p>Gestiona el entorno de las salidas TeX que se obtienen de la función <code>tex</code>.
+El entorno TeX está formado por dos cadenas: una que se escribe antes que
+cualquier salida en TeX, y otra que se escribe después.
+</p>
+<p><code>get_tex_environment_default</code> devuelve el entorno TeX que se aplica
+a expresiones para las cuales el operador de mayor rango no tiene entorno
+TeX asignado (mediante <code>set_tex_environment</code>).
+</p>
+<p><code>set_tex_environment_default</code> asigna el entorno TeX por defecto.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) get_tex_environment_default ();
+(%o1)                       [$$, $$]
+(%i2) tex (f(x) + g(x));
+$$g\left(x\right)+f\left(x\right)$$
+(%o2)                         false
+(%i3) set_tex_environment_default (&quot;\\begin{equation}
+&quot;, &quot;
+\\end{equation}&quot;);
+(%o3) [\begin{equation}
+, 
+\end{equation}]
+(%i4) tex (f(x) + g(x));
+\begin{equation}
+g\left(x\right)+f\left(x\right)
+\end{equation}
+(%o4)                         false
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-Input_002ees_002fnode_002fFunciones-y-variables-para-salida-Fortran"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_74.html#Funciones-y-variables-para-salida-Fortran" accesskey="n" rel="next">Funciones y variables para salida Fortran</a>, Previous: <a href="maxima_72.html#Funciones-y-variables-para-lectura-y-escritura" accesskey="p" rel="previous">Funciones y variables para lectura y escritura</a>, Subir: <a href="maxima_69.html#Lectura-y-escritura" accesskey="u" rel="up">Lectura y escritura</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
 </body>
 </html>

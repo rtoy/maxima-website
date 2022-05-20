@@ -1,0 +1,715 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para gráficos estadísticos</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para gráficos estadísticos">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para gráficos estadísticos">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_187.html#descriptive" rel="up" title="descriptive">
+<link href="maxima_192.html#diag" rel="next" title="diag">
+<link href="maxima_190.html#Funciones-y-variables-de-par_00e1metros-descriptivos" rel="previous" title="Funciones y variables de parámetros descriptivos">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-gr_00e1ficos-estad_00edsticos"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_190.html#Funciones-y-variables-de-par_00e1metros-descriptivos" accesskey="p" rel="previous">Funciones y variables de parámetros descriptivos</a>, Subir: <a href="maxima_187.html#descriptive" accesskey="u" rel="up">descriptive</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-graficos-estadisticos"></a>
+<h3 class="section">44.4 Funciones y variables para gráficos estadísticos</h3>
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fbarsplot"></a><dl>
+<dt><a name="index-barsplot"></a>Función: <strong>barsplot</strong> <em>(<var>data1</var>, <var>data2</var>, &hellip;, <var>option_1</var>, <var>option_2</var>, &hellip;)</em></dt>
+<dd><a name="Item_003a-descriptive_002fdeffn_002fbarsplot_005fdescription"></a></dd><dt><a name="index-barsplot_005fdescription"></a>Función: <strong>barsplot_description</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Dibuja diagramas de barras para variables estadísticas
+discretas, tanto para una como para más muestras.
+</p>
+<p><var>data</var> puede ser una lista de resultados provenientes de una muestra
+o una matriz de <var>m</var> filas y <var>n</var> columnas, representando <var>n</var> 
+muestras de tamaño <var>m</var> cada una.
+</p>
+<p>Las opciones disponibles son:
+</p>
+<ul>
+<li>
+<var>box_width</var> (valor por defecto, <code>3/4</code>): ancho relativo de los rectángulos. Este 
+valor debe pertenecer al rango <code>[0,1]</code>.
+
+</li><li> <var>grouping</var> (valor por defecto, <code>clustered</code>): indica cómo se agrupan las 
+diferentes muestras. Son valores válidos: <code>clustered</code> y <code>stacked</code>.
+
+</li><li> <var>groups_gap</var> (valor por defecto, <code>1</code>): un número positivo que representa
+la separación entre dos grupos consecutivos de barras.
+
+</li><li> <var>bars_colors</var> (valor por defecto, <code>[]</code>): una lista de colores para múltiples 
+muestras. Cuando el número de muestras sea mayor que el de colores especificados, 
+los colores adicionales necesarios se seleccionan aleatoriamente. Véase <code>color</code> para más
+información.
+
+</li><li> <var>frequency</var> (valor por defecto, <code>absolute</code>): indica la escala de las ordenadas.
+Valores admitidos son:  <code>absolute</code>, <code>relative</code> y and <code>percent</code>.
+
+</li><li> <var>ordering</var> (valor por defecto, <code>orderlessp</code>): los valores admitidos para esta 
+opción son: <code>orderlessp</code> y <code>ordergreatp</code>, indicando cómo se deben ordenar
+los resultados muestrales sobre el eje-<var>x</var>.
+
+</li><li> <var>sample_keys</var> (valor por defecto, <code>[]</code>): es una lista de cadenas de 
+texto a usar como leyendas. Cuando la lista tenga una longitud diferente de cero o 
+del número de muestras, se devolverá un mensaje de error.
+
+</li><li> <var>start_at</var> (valor por defecto, <code>0</code>): indica a qué altura comienza 
+a dibujarse el gráfico de barra sobre el eje de abscisas.
+
+</li><li> Todas las opciones globales de <code>draw</code>, excepto <code>xtics</code>, que se asigna
+internamente por <code>barsplot</code>. Si es necesario que el usuario le dé su propio
+valor a esta opción, o quiere construir una escena más compleja,
+debe hacer uso de <code>barsplot_description</code>. Véase el ejemplo más abajo.
+
+</li><li> Las siguientes opciones locales de <code>draw</code>: <code>key</code>, <code>color</code>, 
+<code>fill_color</code>, <code>fill_density</code> y <code>line_width</code>. Véase también
+<code>bars</code>.
+
+</li></ul>
+
+<p>La función <code>barsplot_description</code> crea un objeto gráfico
+útil para formar escenas complejas, junto con otros objetos gráficos.
+Se dispone también de la función <code>wxbarsplot</code> para crear
+histogramas incorporados en los interfaces wxMaxima y iMaxima.
+</p>
+<p>Ejemplos:
+</p>
+<p>Muestra univariante en formato matricial. Frecuencias absolutas.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) m : read_matrix (file_search (&quot;biomed.data&quot;))$
+</pre><pre class="example">(%i3) barsplot(
+        col(m,2),
+        title        = &quot;Ages&quot;,
+        xlabel       = &quot;years&quot;,
+        box_width    = 1/2,
+        fill_density = 3/4)$
+</pre></div>
+
+<p>Dos muestras de diferente tamaño, con frecuencias
+relativas y colores definidos por el usuario.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) l1:makelist(random(10),k,1,50)$
+(%i3) l2:makelist(random(10),k,1,100)$
+</pre><pre class="example">(%i4) barsplot(
+        l1,l2,
+        box_width    = 1,
+        fill_density = 1,
+        bars_colors  = [black, grey],
+        frequency = relative,
+        sample_keys = [&quot;A&quot;, &quot;B&quot;])$
+</pre></div>
+
+<p>Cuatro muestras no numéricas de igual tamaño.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+</pre><pre class="example">(%i2) barsplot(
+        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
+        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
+        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
+        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
+        title  = &quot;Asking for something to four groups&quot;,
+        ylabel = &quot;# of individuals&quot;,
+        groups_gap   = 3,
+        fill_density = 0.5,
+        ordering     = ordergreatp)$
+</pre></div>
+
+<p>Barras apiladas verticalmente.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+</pre><pre class="example">(%i2) barsplot(
+        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
+        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
+        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
+        makelist([Yes, No, Maybe][random(3)+1],k,1,50),
+        title  = &quot;Asking for something to four groups&quot;,
+        ylabel = &quot;# of individuals&quot;,
+        grouping     = stacked,
+        fill_density = 0.5,
+        ordering     = ordergreatp)$
+</pre></div>
+
+<p><code>barsplot</code> en un contexto multiplot.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) l1:makelist(random(10),k,1,50)$
+(%i3) l2:makelist(random(10),k,1,100)$
+(%i4) bp1 : 
+        barsplot_description(
+         l1,
+         box_width = 1,
+         fill_density = 0.5,
+         bars_colors = [blue],
+         frequency = relative)$
+(%i5) bp2 : 
+        barsplot_description(
+         l2,
+         box_width = 1,
+         fill_density = 0.5,
+         bars_colors = [red],
+         frequency = relative)$
+(%i6) draw(gr2d(bp1), gr2d(bp2))$
+</pre></div>
+
+<p>Para las opciones relacionadas con los diagramas de barras, véase <code>bars</code>
+del paquete <code>draw</code>.
+</p>
+<p>Véanse también las funciones <code>histogram</code> y <code>piechart</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fboxplot"></a><dl>
+<dt><a name="index-boxplot"></a>Función: <strong>boxplot</strong> <em>(<var>data</var>)</em></dt>
+<dt><a name="index-boxplot-1"></a>Función: <strong>boxplot</strong> <em>(<var>data</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</em></dt>
+<dd><a name="Item_003a-descriptive_002fdeffn_002fboxplot_005fdescription"></a></dd><dt><a name="index-boxplot_005fdescription"></a>Función: <strong>boxplot_description</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Dibuja diagramas de cajas (box-and-whishker). El argumento <var>data</var> puede
+ser una lista, lo cual no es de gran interés, puesto que estos gráficos 
+se utilizan principalmente para comparar distintas muestras, o una matriz,
+de manera que sea posible comparar dos o más componentes de una muestra
+multivariante. También se permite que <var>data</var> sea una lista de muestras
+con posibles tamaños diferentes; de hecho, esta es la única función
+del paquete <code>descriptive</code> que admite esta estructura de datos.
+</p>
+<p>La caja se dibuja desde el primer cuartil hasta el tercero, con un segmento
+horizontal situado a la altura del segundo cuartil o mediana. Por defecto,
+los bigotes inferior y superior se sitúan a la altura de los valores mínimo
+y máximo, respectivamente. La opción <var>range</var> se puede utilizar para indicar
+que los valores mayores que
+<code>quantile(x,3/4)+range*(quantile(x,3/4)-quantile(x,1/4))</code>,
+o menores que
+<code>quantile(x,1/4)-range*(quantile(x,3/4)-quantile(x,1/4))</code>,
+deben considerarse atípicos, en cuyo caso se dibujan como puntos aislados, al
+tiempo que los bigotes se colocan en los extremos del resto de la muestra.
+</p>
+<p>Opciones disponibles:
+</p>
+<ul>
+<li> <var>box_width</var> (valor por defecto, <code>3/4</code>): ancho relativo de las cajas.
+This  value must be in the range <code>[0,1]</code>.
+
+</li><li> <var>box_orientation</var> (valor por defecto, <code>vertical</code>): valores posibles: <code>vertical</code>
+y <code>horizontal</code>.
+
+</li><li> <var>range</var> (valor por defecto, <code>inf</code>): coeficiente positivo del rango intercuartílico para
+declarar los límites de los datos atípicos.
+
+</li><li> <var>outliers_size</var> (valor por defecto, <code>1</code>): tamaño de los círculos para los datos atípicos.
+
+</li><li> Todas las opciones globales de <code>draw</code>, excepto <code>points_joined</code>, 
+<code>point_size</code>, <code>point_type</code>, <code>xtics</code>, <code>ytics</code>, <code>xrange</code>
+y <code>yrange</code>, que se asignan internamente por <code>boxplot</code>. Si es necesario 
+que el usuario le dé sus propios valores a estas opciones, o quiere construir 
+una escena más compleja, debe hacer uso de <code>boxplot_description</code>.
+
+</li><li> Las siguientes opciones locales de <code>draw</code>: <code>key</code>, <code>color</code>, 
+y <code>line_width</code>.
+
+</li></ul>
+
+<p>La función <code>boxplot_description</code> crea un objeto gráfico
+útil para formar escenas complejas, junto con otros objetos gráficos.
+Se dispone también de la función <code>wxboxplot</code> para crear
+histogramas incorporados en los interfaces wxMaxima y iMaxima.
+</p>
+<p>Ejemplos:
+</p>
+<p>Diagrama de cajas de una muestra multivariante.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) s2 : read_matrix(file_search(&quot;wind.data&quot;))$
+</pre><pre class="example">(%i3) boxplot(s2,
+        box_width  = 0.2,
+        title      = &quot;Windspeed in knots&quot;,
+        xlabel     = &quot;Stations&quot;,
+        color      = red,
+        line_width = 2)$
+</pre></div>
+
+<p>Diagrama de cajas de tres muestras de tamaños diferentes.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+</pre><pre class="example">(%i2) A :
+       [[6, 4, 6, 2, 4, 8, 6, 4, 6, 4, 3, 2],
+        [8, 10, 7, 9, 12, 8, 10],
+        [16, 13, 17, 12, 11, 18, 13, 18, 14, 12]]$
+</pre><pre class="example">(%i3) boxplot (A, box_orientation = horizontal)$
+</pre></div>
+
+<p>La opción <var>range</var> puede utilizarse para tratar con datos atípicos.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) B: [[7, 15, 5, 8, 6, 5, 7, 3, 1],
+          [10, 8, 12, 8, 11, 9, 20],
+          [23, 17, 19, 7, 22, 19]] $
+</pre><pre class="example">(%i3) boxplot (B, range=1)$
+(%i4) boxplot (B, range=1.5, box_orientation = horizontal)$
+</pre><pre class="example">(%i5) draw2d(
+        boxplot_description(
+          B,
+          range            = 1.5,
+          line_width       = 3,
+          outliers_size    = 2,
+          color            = red,
+          background_color = light_gray),
+        xtics = {[&quot;Low&quot;,1],[&quot;Medium&quot;,2],[&quot;High&quot;,3]}) $
+</pre></div>
+
+</dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fhistogram"></a><dl>
+<dt><a name="index-histogram"></a>Función: <strong>histogram</strong> <em>(<var>list</var>)</em></dt>
+<dt><a name="index-histogram-1"></a>Función: <strong>histogram</strong> <em>(<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</em></dt>
+<dt><a name="index-histogram-2"></a>Función: <strong>histogram</strong> <em>(<var>one_column_matrix</var>)</em></dt>
+<dt><a name="index-histogram-3"></a>Función: <strong>histogram</strong> <em>(<var>one_column_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</em></dt>
+<dt><a name="index-histogram-4"></a>Función: <strong>histogram</strong> <em>(<var>one_row_matrix</var>)</em></dt>
+<dt><a name="index-histogram-5"></a>Función: <strong>histogram</strong> <em>(<var>one_row_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</em></dt>
+<dd><a name="Item_003a-descriptive_002fdeffn_002fhistogram_005fdescription"></a></dd><dt><a name="index-histogram_005fdescription"></a>Función: <strong>histogram_description</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Dibuja un histograma a partir de una muestra continua. Los datos
+muestrales deben darse en forma de lista de números o como una
+matriz unidimensional.
+</p>
+<p>Opciones dispponibles:
+</p>
+<ul>
+<li> <var>nclasses</var> (valor por defecto, <code>10</code>): número de clases del histograma, o
+una lista indicando los límites de las clases y su número,
+o solamente los límites.
+
+</li><li> <var>frequency</var> (valor por defecto, <code>absolute</code>): indica la escala de las ordenadas.
+Valores admitidos son:  <code>absolute</code>, <code>relative</code>, <code>percent</code> y <code>density</code>.
+Con <code>density</code>, el histograma adquiere un área total igual a uno.
+
+</li><li> <var>htics</var> (valor por defecto, <code>auto</code>): formato para las marcas sobre el
+eje de las abscisas. Valores admitidos son: <code>auto</code>, <code>endpoints</code>, 
+<code>intervals</code> o una lista de etiquetas. 
+
+</li><li> Todas las opciones globales de <code>draw</code>, excepto <code>xrange</code>, <code>yrange</code>
+y <code>xtics</code>, que son asignadas internamente por <code>histogram</code>.
+Si es necesario que el usuario le dé sus propios valores a estas opciones,
+debe hacer uso de <code>histogram_description</code>. Véase el ejemplo más abajo.
+
+</li><li> Las siguientes opciones locales de <code>draw</code>: <code>key</code>, <code>color</code>, 
+<code>fill_color</code>, <code>fill_density</code> y <code>line_width</code>. Véase también
+<code>bars</code>.
+
+</li></ul>
+
+<p>La función <code>histogram_description</code> crea un objeto gráfico
+útil para formar escenas complejas, junto con otros objetos gráficos.
+Se dispone también de la función <code>wxhistogram</code> para crear
+histogramas incorporados en los interfaces wxMaxima y iMaxima.
+</p>
+<p>Ejemplos:
+</p>
+<p>Un histograma con seis clases:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i3) histogram (
+           s1,
+           nclasses     = 8,
+           title        = &quot;pi digits&quot;,
+           xlabel       = &quot;digits&quot;,
+           ylabel       = &quot;Absolute frequency&quot;,
+           fill_color   = grey,
+           fill_density = 0.6)$
+</pre></div>
+
+<p>Ajustando los límites del histograma a -2 y 12,
+con 3 clases. También se establece un formato predefinido a
+las marcas del eje de abscisas:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i3) histogram (
+           s1,
+           nclasses     = [-2,12,3],
+           htics        = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
+           terminal     = png,
+           fill_color   = &quot;#23afa0&quot;,
+           fill_density = 0.6)$
+</pre></div>
+
+<p>Se hace uso de <code>histogram_description</code> para ajustar
+la opción <code>xrange</code> y añadir una curva
+explícita a la escena:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) ( load(&quot;distrib&quot;),
+        m: 14, s: 2,
+        s2: random_normal(m, s, 1000) ) $
+(%i3) draw2d(
+        grid   = true,
+        xrange = [5, 25],
+        histogram_description(
+          s2,
+          nclasses     = 9,
+          frequency    = density,
+          fill_density = 0.5),
+        explicit(pdf_normal(x,m,s), x, m - 3*s, m + 3* s))$
+</pre></div>
+
+</dd></dl>
+
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fpiechart"></a><dl>
+<dt><a name="index-piechart"></a>Función: <strong>piechart</strong> <em>(<var>list</var>)</em></dt>
+<dt><a name="index-piechart-1"></a>Función: <strong>piechart</strong> <em>(<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</em></dt>
+<dt><a name="index-piechart-2"></a>Función: <strong>piechart</strong> <em>(<var>one_column_matrix</var>)</em></dt>
+<dt><a name="index-piechart-3"></a>Función: <strong>piechart</strong> <em>(<var>one_column_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</em></dt>
+<dt><a name="index-piechart-4"></a>Función: <strong>piechart</strong> <em>(<var>one_row_matrix</var>)</em></dt>
+<dt><a name="index-piechart-5"></a>Función: <strong>piechart</strong> <em>(<var>one_row_matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</em></dt>
+<dd><a name="Item_003a-descriptive_002fdeffn_002fpiechart_005fdescription"></a></dd><dt><a name="index-piechart_005fdescription"></a>Función: <strong>piechart_description</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Similar a <code>barsplot</code>, pero dibuja sectores en lugar de rectángulos.
+</p>
+<p>Opciones disponibles:
+</p>
+
+<ul>
+<li> <var>sector_colors</var> (valor por defecto, <code>[]</code>): una lista de colores para los
+sectores. Cuando el número de sectores sea mayor que el de colores especificados, 
+los colores adicionales necesarios se seleccionan aleatoriamente. Véase <code>color</code> para más
+información.
+
+</li><li> <var>pie_center</var> (valor por defecto, <code>[0,0]</code>): centro del diagrama
+
+</li><li> <var>pie_radius</var> (valor por defecto, <code>1</code>): radio del diagrama.
+
+</li><li> Todas las opciones globales de <code>draw</code>, excepto <code>key</code>, que se asigna
+internamente por <code>piechart</code>. Si es necesario que el usuario le dé su propio
+valor a esta opción, o quiere construir una escena más compleja,
+debe hacer uso de <code>piechart_description</code>.
+
+</li><li> Las siguientes opciones locales de <code>draw</code>: <code>key</code>, <code>color</code>, 
+<code>fill_density</code> y <code>line_width</code>. Véase también
+<code>bars</code>.
+
+</li></ul>
+
+<p>La función <code>piechart_description</code> crea un objeto gráfico
+útil para formar escenas complejas, junto con otros objetos gráficos.
+Se dispone también de la función <code>wxpiechart</code> para crear
+histogramas incorporados en los interfaces wxMaxima y iMaxima.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) s1 : read_list (file_search (&quot;pidigits.data&quot;))$
+(%i3) piechart(
+        s1,
+        xrange  = [-1.1, 1.3],
+        yrange  = [-1.1, 1.1],
+        title   = &quot;Digit frequencies in pi&quot;)$
+</pre></div>
+
+<p>Véase también la función <code>barsplot</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fscatterplot"></a><dl>
+<dt><a name="index-scatterplot"></a>Función: <strong>scatterplot</strong> <em>(<var>list</var>)</em></dt>
+<dt><a name="index-scatterplot-1"></a>Función: <strong>scatterplot</strong> <em>(<var>list</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</em></dt>
+<dt><a name="index-scatterplot-2"></a>Función: <strong>scatterplot</strong> <em>(<var>matrix</var>)</em></dt>
+<dt><a name="index-scatterplot-3"></a>Función: <strong>scatterplot</strong> <em>(<var>matrix</var>, <var>option_1</var>, <var>option_2</var>, &hellip;)</em></dt>
+<dd><a name="Item_003a-descriptive_002fdeffn_002fscatterplot_005fdescription"></a></dd><dt><a name="index-scatterplot_005fdescription"></a>Función: <strong>scatterplot_description</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Dibuja diagramas de dispersión, tanto de muestras univariantes (<var>list</var>)
+como multivariantes (<var>matrix</var>). 
+</p>
+<p>Las opciones disponibles son las mismas que admite <code>histogram</code>.
+</p>
+<p>La función <code>scatterplot_description</code> crea un objeto gráfico
+útil para formar escenas complejas, junto con otros objetos gráficos.
+Se dispone también de la función <code>wxscatterplot</code> para crear
+histogramas incorporados en los interfaces wxMaxima y iMaxima.
+</p>
+<p>Ejemplos:
+</p>
+<p>Diagrama de dispersión univariante a partir de una muestra normal
+simulada. 
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;distrib&quot;)$
+</pre><pre class="example">(%i3) scatterplot(
+        random_normal(0,1,200),
+        xaxis      = true,
+        point_size = 2,
+        dimensions = [600,150])$
+</pre></div>
+
+<p>Diagrama de dispersión bidimensional.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+</pre><pre class="example">(%i3) scatterplot(
+       submatrix(s2, 1,2,3),
+       title      = &quot;Data from stations #4 and #5&quot;,
+       point_type = diamant,
+       point_size = 2,
+       color      = blue)$
+</pre></div>
+
+<p>Diagrama de dispersión tridimensional.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i3) scatterplot(submatrix (s2, 1,2), nclasses=4)$
+</pre></div>
+
+<p>Diagrama de dispersión de cinco dimensiones, con histogramas de
+cinco classes.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+</pre><pre class="example">(%i3) scatterplot(
+        s2,
+        nclasses     = 5,
+        frequency    = relative,
+        fill_color   = blue,
+        fill_density = 0.3,
+        xtics        = 5)$
+</pre></div>
+
+<p>Para dibujar puntos aislados o unidos por segmentos, tanto en dos
+como en tres dimensiones, véase <code>points</code>.
+Véase también <code>histogram</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fstarplot"></a><dl>
+<dt><a name="index-starplot"></a>Función: <strong>starplot</strong> <em>(<var>data1</var>, <var>data2</var>, &hellip;, <var>option_1</var>, <var>option_2</var>, &hellip;)</em></dt>
+<dd><a name="Item_003a-descriptive_002fdeffn_002fstarplot_005fdescription"></a></dd><dt><a name="index-starplot_005fdescription"></a>Función: <strong>starplot_description</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Dibuja diagramas de estrellas para variables estadísticas
+discretas, tanto para una como para más muestras.
+</p>
+<p><var>data</var> puede ser una lista de resultados provenientes de una muestra
+o una matriz de <var>m</var> filas y <var>n</var> columnas, representando <var>n</var> 
+muestras de tamaño <var>m</var> cada una.
+</p>
+<p>Las opciones disponibles son:
+</p>
+<ul>
+<li> <var>stars_colors</var> (valor por defecto, <code>[]</code>): una lista de colores para muestras
+múltiples. Cuando haya más muestras que colores especificados, los colores que faltan
+se eligen aleatoriamente. Véase <code>color</code> para más información.
+
+</li><li> <var>frequency</var> (valor por defecto, <code>absolute</code>): indica la escala de los radios.
+Valores admitidos son:  <code>absolute</code> y <code>relative</code>.
+
+</li><li> <var>ordering</var> (valor por defecto, <code>orderlessp</code>): los valores admitidos para esta 
+opción son: <code>orderlessp</code> y <code>ordergreatp</code>, indicando cómo se deben ordenar
+los resultados muestrales sobre el eje-<var>x</var>.
+
+
+</li><li> <var>sample_keys</var> (valor por defecto, <code>[]</code>): es una lista de cadenas de 
+texto a usar como leyendas. Cuando la lista tenga una longitud diferente de cero o 
+del número de muestras, se devolverá un mensaje de error.
+
+</li><li> <var>star_center</var> (valor por defecto, <code>[0,0]</code>): centro del diagrama.
+
+</li><li> <var>star_radius</var> (valor por defecto, <code>1</code>): radio del diagrama.
+
+</li><li> Todas las opciones globales de <code>draw</code>, excepto <code>points_joined</code>, <code>point_type</code>, 
+and <code>key</code>, que se asignan internamente por <code>starplot</code>. Si es necesario que el 
+usuario les dé sus propios valores a estas opciones, o quiere construir una escena más compleja,
+debe hacer uso de <code>starplot_description</code>.
+
+</li><li> La siguiente opción local de <code>draw</code>: <code>line_width</code>.
+
+</li></ul>
+
+<p>La función <code>starplot_description</code> crea un objeto gráfico
+útil para formar escenas complejas, junto con otros objetos gráficos.
+Se dispone también de la función <code>wxstarplot</code> para crear
+histogramas incorporados en los interfaces wxMaxima y iMaxima.
+</p>
+<p>Ejemplo:
+</p>
+<p>Gráfico basado en frecuencias absolutas. La localización y
+el radios lo define el usuario.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) l1: makelist(random(10),k,1,50)$
+(%i3) l2: makelist(random(10),k,1,200)$
+</pre><pre class="example">(%i4) starplot(
+        l1, l2,
+        stars_colors = [blue,red],
+        sample_keys = [&quot;1st sample&quot;, &quot;2nd sample&quot;],
+        star_center = [1,2],
+        star_radius = 4,
+        proportional_axes = xy,
+        line_width = 2 ) $ 
+</pre></div>
+
+</dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fstemplot"></a><dl>
+<dt><a name="index-stemplot"></a>Función: <strong>stemplot</strong> <em>(<var>m</var>)</em></dt>
+<dt><a name="index-stemplot-1"></a>Función: <strong>stemplot</strong> <em>(<var>m</var>, <var>option</var>)</em></dt>
+<dd>
+<p>Dibuja diagrama de tallos y hojas.
+</p>
+<p>La única opción disponible es:
+</p>
+<ul>
+<li> <var>leaf_unit</var> (valor por defecto, <code>1</code>): indica la unidad de las hojas; debe ser
+una potencia de 10.
+
+</li></ul>
+
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load(&quot;distrib&quot;)$
+</pre><pre class="example">(%i3) stemplot(
+        random_normal(15, 6, 100),
+        leaf_unit = 0.1);
+-5|4
+ 0|37
+ 1|7
+ 3|6
+ 4|4
+ 5|4
+ 6|57
+ 7|0149
+ 8|3
+ 9|1334588
+10|07888
+11|01144467789
+12|12566889
+13|24778
+14|047
+15|223458
+16|4
+17|11557
+18|000247
+19|4467799
+20|00
+21|1
+22|2335
+23|01457
+24|12356
+25|455
+27|79
+key: 6|3 =  6.3
+(%o3)                  done
+</pre></div>
+
+</dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_190.html#Funciones-y-variables-de-par_00e1metros-descriptivos" accesskey="p" rel="previous">Funciones y variables de parámetros descriptivos</a>, Subir: <a href="maxima_187.html#descriptive" accesskey="u" rel="up">descriptive</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

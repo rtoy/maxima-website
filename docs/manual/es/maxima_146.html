@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para el entorno de ejecución</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para el entorno de ejecución">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para el entorno de ejecución">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_143.html#Entorno-de-Ejecuci_00f3n" rel="up" title="Entorno de Ejecución">
+<link href="maxima_147.html#Miscel_00e1nea-de-opciones" rel="next" title="Miscelánea de opciones">
+<link href="maxima_145.html#Interrupciones" rel="previous" title="Interrupciones">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-el-entorno-de-ejecuci_00f3n"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_145.html#Interrupciones" accesskey="p" rel="previous">Interrupciones</a>, Subir: <a href="maxima_143.html#Entorno-de-Ejecuci_00f3n" accesskey="u" rel="up">Entorno de Ejecución</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-el-entorno-de-ejecucion"></a>
+<h3 class="section">32.3 Funciones y variables para el entorno de ejecución</h3>
+
+
+<a name="Item_003a-Runtime_002ees_002fdefvr_002fmaxima_005ftempdir"></a><dl>
+<dt><a name="index-maxima_005ftempdir"></a>Variable del sistema: <strong>maxima_tempdir</strong></dt>
+<dd>
+<p>La variable <code>maxima_tempdir</code> almacena la ruta del directorio
+en el que Maxima crea ciertos ficheros temporales.
+En particular, los ficheros temporales para la realización de
+gráficos se guardan en <code>maxima_tempdir</code>.
+</p>
+<p>El valor que inicialmente toma esta variable es el directorio
+de inicio del usuario, si Maxima es capaz de localizarlo; en
+caso contrario, Maxima intenta encontrar un directorio que
+sea aceptable.
+</p>
+<p>A la variable <code>maxima_tempdir</code> se le puede asignar una
+cadena de caracteres con la ruta del directorio.
+</p></dd></dl>
+
+<a name="Item_003a-Runtime_002ees_002fdefvr_002fmaxima_005fuserdir"></a><dl>
+<dt><a name="index-maxima_005fuserdir"></a>Variable del sistema: <strong>maxima_userdir</strong></dt>
+<dd>
+<p>La variable <code>maxima_userdir</code> almacena la ruta del 
+directorio en el que Maxima buscará ficheros Lisp y de
+Maxima. Maxima también busca en otros directorios, guardando las variables
+<code>file_search_maxima</code> y <code>file_search_lisp</code> la lista
+completa de búsqueda.
+</p>
+<p>El valor que inicialmente toma esta variable es el de un subdirectorio
+del directorio de inicio del usuario, si Maxima es capaz de localizarlo;
+en caso contrario, Maxima intenta encontrar un directorio que
+sea aceptable.
+</p>
+<p>A la variable <code>maxima_userdir</code> se le puede asignar una
+cadena de caracteres con la ruta del directorio.
+Sin embargo, cambiando el valor de la variable <code>maxima_userdir</code>
+no se alteran <code>file_search_maxima</code> ni <code>file_search_lisp</code>,
+cuyos contenidos se modifican mediante otro sistema.
+</p></dd></dl>
+
+<a name="Item_003a-Runtime_002ees_002fdeffn_002froom"></a><dl>
+<dt><a name="index-room"></a>Función: <strong>room</strong> <em>()</em></dt>
+<dt><a name="index-room-1"></a>Función: <strong>room</strong> <em>(true)</em></dt>
+<dt><a name="index-room-2"></a>Función: <strong>room</strong> <em>(false)</em></dt>
+<dd>
+<p>Presenta una descrpción del estado de almacenamiento y gestión de la pila en Maxima. La llamada <code>room</code> invoca a la función Lisp homónima.
+</p>
+<ul>
+<li> <code>room ()</code> prints out a moderate description.
+</li><li> <code>room (true)</code> prints out a verbose description.
+</li><li> <code>room (false)</code> prints out a terse description.
+</li></ul>
+
+</dd></dl>
+
+<a name="Item_003a-Runtime_002ees_002fdeffn_002fsstatus"></a><dl>
+<dt><a name="index-sstatus"></a>Función: <strong>sstatus</strong> <em>(<var>keyword</var>, <var>item</var>)</em></dt>
+<dd>
+<p>Si <var>keyword</var> es el símbolo <code>feature</code>, <var>item</var>
+será colocado en la lista de propiedades del sistema. Una vez ejecutado
+<code>sstatus (keyword, item)</code>, <code>status (feature, item)</code> devuelve
+<code>true</code>. Si <var>keyword</var> es el símbolo <code>nofeature</code>,
+<var>item</var> se borrará de la lista de propiedades del sistema.
+Esto puede ser de utilidad para los autores de paquetes, permitiendo
+mantener el control sobre las propiedades que se han ido estableciendo.
+</p>
+<p>Véase también <code>status</code>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Runtime_002ees_002fdeffn_002fstatus"></a><dl>
+<dt><a name="index-status"></a>Función: <strong>status</strong> <em>(<code>feature</code>)</em></dt>
+<dt><a name="index-status-1"></a>Función: <strong>status</strong> <em>(<code>feature</code>, <var>item</var>)</em></dt>
+<dd>
+<p>Devuelve información sobre la presencia o ausencia de ciertas
+propiedades dependientes del sistema.
+</p>
+<ul>
+<li> <code>status (feature)</code> devuelve una lista con características
+del sistema. Éstas incluyen la versión de Lisp, tipo de sistema 
+operativo, etc. La lista puede variar de un Lisp a otro.
+
+</li><li> <code>status (feature, item)</code> devuelve <code>true</code> si <var>item</var>
+está en la lista de elementos retornados por <code>status (feature)</code>
+y <code>false</code> en otro caso.
+La función <code>status</code> no evalúa el argumento <var>item</var>. El operador
+de doble comilla simple, <code>'<!-- /@w -->'</code>, permite la evaluación. Una 
+propiedad cuyo nombre contenga un carácter especial debe ser suministrada
+como un argumento del tipo cadena. Por ejemplo,
+<code>status (feature, &quot;ansi-cl&quot;)</code>.
+</li></ul>
+
+<p>Véase también <code>sstatus</code>.
+</p>
+<p>La variable <code>features</code> contiene una lista de propiedades que se 
+aplican a expresiones matemáticas. Véanse <code>features</code> y <code>featurep</code>
+para más información.
+</p>
+</dd></dl>
+
+
+
+
+<a name="Item_003a-Runtime_002ees_002fdeffn_002fsystem"></a><dl>
+<dt><a name="index-system"></a>Función: <strong>system</strong> <em>(<var>command</var>)</em></dt>
+<dd><p>Ejecuta la instrucción <var>command</var> como un proceso independiente de Maxima.
+La instrucción se le pasa a la consola del sistema para su ejecución.
+La función <code>system</code> no está soportada por todos los sistemas operativos, pero suele estarlo en todos los entornos  Unix y similares.
+</p>
+<p>Suponiendo que <code>_hist.out</code> es una lista de frecuencias que se quieren representar en un diagrama de barras utilizando el programa <code>xgraph</code>,
+</p>
+<div class="example">
+<pre class="example">(%i1) (with_stdout(&quot;_hist.out&quot;,
+           for i:1 thru length(hist) do (
+             print(i,hist[i]))),
+       system(&quot;xgraph -bar -brw .7 -nl &lt; _hist.out&quot;));
+</pre></div>
+
+<p>A fin de hacer el diagrama y eliminar el archivo temporal posteriormente, hágase:
+</p>
+<div class="example">
+<pre class="example">system(&quot;(xgraph -bar -brw .7 -nl &lt; _hist.out;  rm -f _hist.out)&amp;&quot;)
+</pre></div>
+
+</dd></dl>
+
+
+
+<a name="Item_003a-Runtime_002ees_002fdeffn_002ftime"></a><dl>
+<dt><a name="index-time"></a>Función: <strong>time</strong> <em>(%o1, %o2, %o3, ...)</em></dt>
+<dd>
+<p>Devuelve una lista de los tiempos, en segundos, que fueron necesarios para calcular los resultados de las salidas <code>%o1</code>, <code>%o2</code>, <code>%o3</code>, .... Los tiempos devueltos son estimaciones hechas por Maxima del tiempo interno de computación. La función <code>time</code> sólo puede utilizarse para variables correspondientes a líneas de salida; para cualquier otro tipo de variables, <code>time</code> devuelve <code>unknown</code>.
+</p>
+<p>Hágase <code>showtime: true</code> para que Maxima devuelva el tiempo de ejecución de cada línea de salida.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Runtime_002ees_002fdeffn_002ftimedate"></a><dl>
+<dt><a name="index-timedate"></a>Función: <strong>timedate</strong> <em>()</em></dt>
+<dt><a name="index-timedate-1"></a>Función: <strong>timedate</strong> <em>(<var>T</var>)</em></dt>
+<dd>
+<p>Sin argumento, <code>timedate</code> devuelve una cadena que 
+representa la hora y fecha actuales. La cadena tiene el
+formato <code>YYYY-MM-DD HH:MM:SS[+|-]ZZ:ZZ</code>, donde
+los campos indicados son: año, mes, día,
+horas, minutos, segundos y número de horas de diferencia
+con respecto a la hora GMT.
+</p>
+<p>Con argumento, <code>timedate(<var>T</var>)</code> devuelve la hora
+<var>T</var> como una cadena con formato <code>YYYY-MM-DD HH:MM:SS[+|-]ZZ:ZZ</code>.
+<var>T</var> se interpreta como el número de segundos transcurridos
+desde la medianoche del uno de enero de 1900, tal como lo devuelve
+<code>absolute_real_time</code>.
+</p>
+<p>Ejemplos:
+</p>
+<p><code>timedate</code> sin argumento devuelve una cadena con la hora y fecha actuales.
+</p>
+<div class="example">
+<pre class="example">(%i1) d : timedate ();
+(%o1)                      2010-06-08 04:08:09+01:00
+(%i2) print (&quot;timedate reports current time&quot;, d) $
+timedate reports current time 2010-06-08 04:08:09+01:00
+</pre></div>
+
+<p><code>timedate</code> con argumento devuelve una cadena que representa al propio argumento.
+</p>
+<div class="example">
+<pre class="example">(%i1) timedate (0);
+(%o1)                      1900-01-01 01:00:00+01:00
+(%i2) timedate (absolute_real_time () - 7*24*3600);
+(%o2)                      2010-06-01 04:19:51+01:00
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-Runtime_002ees_002fdeffn_002fabsolute_005freal_005ftime"></a><dl>
+<dt><a name="index-absolute_005freal_005ftime"></a>Función: <strong>absolute_real_time</strong> <em>()</em></dt>
+<dd>
+<p>Devuelve el número de segundos transcurridos desde la medianoche
+del 1 de enero de 1900 UTC. Este valor es un número entero
+positivo.
+</p>
+<p>Véanse también <code>elapsed_real_time</code> y <code>elapsed_run_time</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) absolute_real_time ();
+(%o1)                      3385045277
+(%i2) 1900 + absolute_real_time () / (365.25 * 24 * 3600);
+(%o2)                   2007.265612087104
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Runtime_002ees_002fdeffn_002felapsed_005freal_005ftime"></a><dl>
+<dt><a name="index-elapsed_005freal_005ftime"></a>Función: <strong>elapsed_real_time</strong> <em>()</em></dt>
+<dd>
+<p>Devuelve los segundos (incluyendo fracciones de segundo) 
+transcurridos desde que Maxima se inició (o reinició) la sesión de
+Maxima. Este valor es un decimal en coma flotante.
+</p>
+<p>Véanse también <code>absolute_real_time</code> y <code>elapsed_run_time</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) elapsed_real_time ();
+(%o1)                       2.559324
+(%i2) expand ((a + b)^500)$
+(%i3) elapsed_real_time ();
+(%o3)                       7.552087
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Runtime_002ees_002fdeffn_002felapsed_005frun_005ftime"></a><dl>
+<dt><a name="index-elapsed_005frun_005ftime"></a>Función: <strong>elapsed_run_time</strong> <em>()</em></dt>
+<dd>
+<p>Devuelve una estimación en segundos (incluyendo fracciones de segundo) 
+durante los cuales Maxima ha estado realizando cálculos desde que se
+inició (o reinició) la sesión actual. 
+Este valor es un decimal en coma flotante.
+</p>
+<p>Véanse también <code>absolute_real_time</code> y <code>elapsed_real_time</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) elapsed_run_time ();
+(%o1)                         0.04
+(%i2) expand ((a + b)^500)$
+(%i3) elapsed_run_time ();
+(%o3)                         1.26
+</pre></div>
+
+</dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_145.html#Interrupciones" accesskey="p" rel="previous">Interrupciones</a>, Subir: <a href="maxima_143.html#Entorno-de-Ejecuci_00f3n" accesskey="u" rel="up">Entorno de Ejecución</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,627 +1,323 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Outubro, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual do Maxima: 46. diag</title>
+<title>Manual do Maxima: Funções e Variáveis Definidas para Logarítmos</title>
 
-<meta name="description" content="Manual do Maxima: 46. diag">
-<meta name="keywords" content="Manual do Maxima: 46. diag">
+<meta name="description" content="Manual do Maxima: Funções e Variáveis Definidas para Logarítmos">
+<meta name="keywords" content="Manual do Maxima: Funções e Variáveis Definidas para Logarítmos">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_45.html#Logar_00edtmos" rel="up" title="Logarítmos">
+<link href="maxima_47.html#Trigonometria" rel="next" title="Trigonometria">
+<link href="maxima_45.html#Logar_00edtmos" rel="previous" title="Logarítmos">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="diag"></a>
-<a name="SEC188"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_45.html#SEC187" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC189" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_45.html#SEC182" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#SEC190" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 46. diag </h1>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC189">46.1 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para diag</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-diag"></a>
-<a name="SEC189"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC188" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#SEC190" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC188" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC188" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#SEC190" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 46.1 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para diag </h2>
-
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>diag</b><i> (<var>lm</var>)</i>
-<a name="IDX1490"></a>
-</dt>
-<dd><p>Constr&oacute;i a matriz quadrada com as matrizes de <var>lm</var> na diagonal. <var>lm</var> &eacute; uma lista de matrizes ou escalares.
-</p>
-<p>Exemplo:
-</p><pre class="example">(%i1) load(&quot;diag&quot;)$
-
-(%i2) a1:matrix([1,2,3],[0,4,5],[0,0,6])$
-
-(%i3) a2:matrix([1,1],[1,0])$
-
-(%i4) diag([a1,x,a2]);
-                   [ 1  2  3  0  0  0 ]
-                   [                  ]
-                   [ 0  4  5  0  0  0 ]
-                   [                  ]
-                   [ 0  0  6  0  0  0 ]
-(%o4)              [                  ]
-                   [ 0  0  0  x  0  0 ]
-                   [                  ]
-                   [ 0  0  0  0  1  1 ]
-                   [                  ]
-                   [ 0  0  0  0  1  0 ]
-</pre>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(&quot;diag&quot;)</code>.
-</p></dd></dl>
-
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>JF</b><i> (<var>lambda</var>,<var>n</var>)</i>
-<a name="IDX1491"></a>
-</dt>
-<dd><p>Retorna a c&eacute;lula de Jordan de ordem <var>n</var> com autovalor <var>lambda</var>.
-</p>
-<p>Exemplo:
-</p><pre class="example">(%i1) load(&quot;diag&quot;)$
-
-(%i2) JF(2,5);
-                    [ 2  1  0  0  0 ]
-                    [               ]
-                    [ 0  2  1  0  0 ]
-                    [               ]
-(%o2)               [ 0  0  2  1  0 ]
-                    [               ]
-                    [ 0  0  0  2  1 ]
-                    [               ]
-                    [ 0  0  0  0  2 ]
-(%i3) JF(3,2);
-                         [ 3  1 ]
-(%o3)                    [      ]
-                         [ 0  3 ]
-</pre>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(&quot;diag&quot;)</code>.
-</p></dd></dl>
-
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>jordan</b><i> (<var>mat</var>)</i>
-<a name="IDX1492"></a>
-</dt>
-<dd><p>Retorna a forma de Jordan da matriz <var>mat</var>, mas codificada em uma lista do Maxima.
-Para pegar a matriz correspondente &agrave; codifica&ccedil;&atilde;o, chame a fun&ccedil;&atilde;o <code>dispJordan</code> sando como argumento
-a sa&iacute;da de <code>JF</code>.
-</p>
-<p>Exemplo:
-</p><pre class="example">(%i1) load(&quot;diag&quot;)$
-
-(%i3) a:matrix([2,0,0,0,0,0,0,0],
-               [1,2,0,0,0,0,0,0],
-               [-4,1,2,0,0,0,0,0],
-               [2,0,0,2,0,0,0,0],
-               [-7,2,0,0,2,0,0,0],
-               [9,0,-2,0,1,2,0,0],
-               [-34,7,1,-2,-1,1,2,0],
-               [145,-17,-16,3,9,-2,0,3])$
-
-(%i34) jordan(a);
-(%o4)             [[2, 3, 3, 1], [3, 1]]
-(%i5) dispJordan(%);
-                [ 2  1  0  0  0  0  0  0 ]
-                [                        ]
-                [ 0  2  1  0  0  0  0  0 ]
-                [                        ]
-                [ 0  0  2  0  0  0  0  0 ]
-                [                        ]
-                [ 0  0  0  2  1  0  0  0 ]
-(%o5)           [                        ]
-                [ 0  0  0  0  2  1  0  0 ]
-                [                        ]
-                [ 0  0  0  0  0  2  0  0 ]
-                [                        ]
-                [ 0  0  0  0  0  0  2  0 ]
-                [                        ]
-                [ 0  0  0  0  0  0  0  3 ]
-</pre>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(&quot;diag&quot;)</code>. Veja tamb&eacute;m <code>dispJordan</code> e <code>minimalPoly</code>.
-</p></dd></dl>
-
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>dispJordan</b><i> (<var>l</var>)</i>
-<a name="IDX1493"></a>
-</dt>
-<dd><p>Retorna a matriz de Jordan associada &agrave; codifica&ccedil;&atilde;o fornecida pela lista do Maxima <var>l</var>, que &eacute; a sa&iacute;da fornecida pela fun&ccedil;&atilde;o <code>jordan</code>.
-</p>
-<p>Exemplo:
-</p><pre class="example">(%i1) load(&quot;diag&quot;)$
-
-(%i2) b1:matrix([0,0,1,1,1],
-                [0,0,0,1,1],
-                [0,0,0,0,1],
-                [0,0,0,0,0],
-                [0,0,0,0,0])$
-
-(%i3) jordan(b1);
-(%o3)                  [[0, 3, 2]]
-(%i4) dispJordan(%);
-                    [ 0  1  0  0  0 ]
-                    [               ]
-                    [ 0  0  1  0  0 ]
-                    [               ]
-(%o4)               [ 0  0  0  0  0 ]
-                    [               ]
-                    [ 0  0  0  0  1 ]
-                    [               ]
-                    [ 0  0  0  0  0 ]
-</pre>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(&quot;diag&quot;)</code>. Veja tamb&eacute;m <code>jordan</code> e <code>minimalPoly</code>.
-</p></dd></dl>
-
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>minimalPoly</b><i> (<var>l</var>)</i>
-<a name="IDX1494"></a>
-</dt>
-<dd><p>Retorna o menor polin&ocirc;mio associado &agrave; codifica&ccedil;&atilde;o fornecida pela lista do Maxima <var>l</var>, que &eacute; a sa&iacute;da fornecida pela fun&ccedil;&atilde;o <code>jordan</code>.
-</p>
-<p>Exemplo:
-</p><pre class="example">(%i1) load(&quot;diag&quot;)$
-
-(%i2) a:matrix([2,1,2,0],
-               [-2,2,1,2],
-               [-2,-1,-1,1],
-               [3,1,2,-1])$
-
-(%i3) jordan(a);
-(%o3)               [[- 1, 1], [1, 3]]
-(%i4) minimalPoly(%);
-                            3
-(%o4)                (x - 1)  (x + 1)
-</pre>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(&quot;diag&quot;)</code>. Veja tamb&eacute;m <code>jordan</code> e <code>dispJordan</code>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>ModeMatrix</b><i> (<var>A</var>,<var>l</var>)</i>
-<a name="IDX1495"></a>
-</dt>
-<dd><p>Retorna a matriz <var>M</var> tal que <em>(M^^-1).A.M=J</em>, onde <var>J</var> &eacute; a forma de Jordan de <var>A</var>. A lista do Maxima <var>l</var> &eacute; a codifica&ccedil;&atilde;o da forma de Jordan como retornado pela fun&ccedil;&atilde;o <code>jordan</code>.
-</p>
-<p>Exemplo:
-</p><pre class="example">(%i1) load(&quot;diag&quot;)$
-
-(%i2) a:matrix([2,1,2,0],
-          [-2,2,1,2],
-          [-2,-1,-1,1],
-          [3,1,2,-1])$
-
-(%i3) jordan(a);
-(%o3)               [[- 1, 1], [1, 3]]
-(%i4) M: ModeMatrix(a,%);
-                  [  1    - 1   1   1 ]
-                  [                   ]
-                  [   1               ]
-                  [ - -   - 1   0   0 ]
-                  [   9               ]
-                  [                   ]
-(%o4)             [   13              ]
-                  [ - --   1   - 1  0 ]
-                  [   9               ]
-                  [                   ]
-                  [  17               ]
-                  [  --   - 1   1   1 ]
-                  [  9                ]
-(%i5) is(  (M^^-1).a.M = dispJordan(%o3)  );
-(%o5)                      true
-</pre><p>Note que <code>dispJordan(%o3)</code> &eacute; a forma de Jordan da matriz <code>a</code>.
-</p>
-<p>Para usa essa fun&ccedil;&atilde;o escreva primeiramente <code>load(&quot;diag&quot;)</code>. Veja tamb&eacute;m <code>jordan</code> e <code>dispJordan</code>.
-</p></dd></dl>
-
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>mat_function</b><i> (<var>f</var>,<var>mat</var>)</i>
-<a name="IDX1496"></a>
-</dt>
-<dd><p>Retorna <em>f(mat)</em>, onde <var>f</var> &eacute; uma fun&ccedil;&atilde;o anal&iacute;tica e <var>mat</var>
-uma matriz. Essa computa&ccedil;&atilde;o &eacute; baseada na f&oacute;rmula da integral de Cauchy, que estabelece que
-se <code>f(x)</code> for anal&iacute;tica e
-</p>
-<pre class="example">mat=diag([JF(m1,n1),...,JF(mk,nk)]),
-</pre>
-<p>ent&atilde;o
-</p>
-<pre class="example">f(mat)=ModeMatrix*diag([f(JF(m1,n1)),...,f(JF(mk,nk))])*ModeMatrix^^(-1)
-</pre>
-<p>Note que existem entre 6 ou 8 outros m&eacute;todos para esse c&aacute;lculo.
-</p>
-<p>Segue-se alguns exemplos.
-</p>
-<p>Exemplo 1:
-</p><pre class="example">(%i1) load(&quot;diag&quot;)$
-
-(%i2) b2:matrix([0,1,0], [0,0,1], [-1,-3,-3])$
-
-(%i3) mat_function(exp,t*b2);
-               2   - t
-              t  %e          - t     - t
-(%o3) matrix([-------- + t %e    + %e   ,
-                 2
-        - t     - t                           - t
- 2    %e      %e        - t           - t   %e
-t  (- ----- - ----- + %e   ) + t (2 %e    - -----)
-        t       2                             t
-               t
-                         - t          - t     - t
-       - t       - t   %e        2  %e      %e
- + 2 %e   , t (%e    - -----) + t  (----- - -----)
-                         t            2       t
-               2   - t            - t     - t
-     - t      t  %e        2    %e      %e        - t
- + %e   ], [- --------, - t  (- ----- - ----- + %e   ),
-                 2                t       2
-                                         t
-        - t     - t      2   - t
-   2  %e      %e        t  %e          - t
-- t  (----- - -----)], [-------- - t %e   ,
-        2       t          2
-        - t     - t                           - t
- 2    %e      %e        - t           - t   %e
-t  (- ----- - ----- + %e   ) - t (2 %e    - -----),
-        t       2                             t
-               t
-      - t     - t                 - t
- 2  %e      %e            - t   %e
-t  (----- - -----) - t (%e    - -----)])
-      2       t                   t
-(%i4) ratsimp(%);
-               [   2              - t ]
-               [ (t  + 2 t + 2) %e    ]
-               [ -------------------- ]
-               [          2           ]
-               [                      ]
-               [         2   - t      ]
-(%o4)  Col 1 = [        t  %e         ]
-               [      - --------      ]
-               [           2          ]
-               [                      ]
-               [     2          - t   ]
-               [   (t  - 2 t) %e      ]
-               [   ----------------   ]
-               [          2           ]
-         [      2        - t    ]
-         [    (t  + t) %e       ]
-         [                      ]
- Col 2 = [     2            - t ]
-         [ - (t  - t - 1) %e    ]
-         [                      ]
-         [     2          - t   ]
-         [   (t  - 3 t) %e      ]
-         [        2   - t       ]
-         [       t  %e          ]
-         [       --------       ]
-         [          2           ]
-         [                      ]
-         [      2          - t  ]
- Col 3 = [    (t  - 2 t) %e     ]
-         [  - ----------------  ]
-         [           2          ]
-         [                      ]
-         [   2              - t ]
-         [ (t  - 4 t + 2) %e    ]
-         [ -------------------- ]
-         [          2           ]
-
-</pre>
-
-<p>Exemplo 2:
-</p><pre class="example">(%i5) b1:matrix([0,0,1,1,1],
-                [0,0,0,1,1],
-                [0,0,0,0,1],
-                [0,0,0,0,0],
-                [0,0,0,0,0])$
-
-(%i6) mat_function(exp,t*b1);
-                  [              2     ]
-                  [             t      ]
-                  [ 1  0  t  t  -- + t ]
-                  [             2      ]
-                  [                    ]
-(%o6)             [ 0  1  0  t    t    ]
-                  [                    ]
-                  [ 0  0  1  0    t    ]
-                  [                    ]
-                  [ 0  0  0  1    0    ]
-                  [                    ]
-                  [ 0  0  0  0    1    ]
-(%i7) minimalPoly(jordan(b1));
-                             3
-(%o7)                       x
-(%i8) ident(5)+t*b1+1/2*(t^2)*b1^^2;
-                  [              2     ]
-                  [             t      ]
-                  [ 1  0  t  t  -- + t ]
-                  [             2      ]
-                  [                    ]
-(%o8)             [ 0  1  0  t    t    ]
-                  [                    ]
-                  [ 0  0  1  0    t    ]
-                  [                    ]
-                  [ 0  0  0  1    0    ]
-                  [                    ]
-                  [ 0  0  0  0    1    ]
-(%i9) mat_function(exp,%i*t*b1);
-             [                           2 ]
-             [                          t  ]
-             [ 1  0  %i t  %i t  %i t - -- ]
-             [                          2  ]
-             [                             ]
-(%o9)        [ 0  1   0    %i t    %i t    ]
-             [                             ]
-             [ 0  0   1     0      %i t    ]
-             [                             ]
-             [ 0  0   0     1        0     ]
-             [                             ]
-             [ 0  0   0     0        1     ]
-(%i10) mat_function(cos,t*b1)+%i*mat_function(sin,t*b1);
-              [                           2 ]
-              [                          t  ]
-              [ 1  0  %i t  %i t  %i t - -- ]
-              [                          2  ]
-              [                             ]
-(%o10)        [ 0  1   0    %i t    %i t    ]
-              [                             ]
-              [ 0  0   1     0      %i t    ]
-              [                             ]
-              [ 0  0   0     1        0     ]
-              [                             ]
-              [ 0  0   0     0        1     ]
-</pre>
-<p>Exemplo 3:
-</p><pre class="example">(%i11) a1:matrix([2,1,0,0,0,0],
-                 [-1,4,0,0,0,0],
-                 [-1,1,2,1,0,0],
-                 [-1,1,-1,4,0,0],
-                 [-1,1,-1,1,3,0],
-                 [-1,1,-1,1,1,2])$
-
-(%i12) fpow(x):=block([k],declare(k,integer),x^k)$
-
-(%i13) mat_function(fpow,a1);
-                [  k      k - 1 ]         [      k - 1    ]
-                [ 3  - k 3      ]         [   k 3         ]
-                [               ]         [               ]
-                [       k - 1   ]         [  k      k - 1 ]
-                [  - k 3        ]         [ 3  + k 3      ]
-                [               ]         [               ]
-                [       k - 1   ]         [      k - 1    ]
-                [  - k 3        ]         [   k 3         ]
-(%o13)  Col 1 = [               ] Col 2 = [               ]
-                [       k - 1   ]         [      k - 1    ]
-                [  - k 3        ]         [   k 3         ]
-                [               ]         [               ]
-                [       k - 1   ]         [      k - 1    ]
-                [  - k 3        ]         [   k 3         ]
-                [               ]         [               ]
-                [       k - 1   ]         [      k - 1    ]
-                [  - k 3        ]         [   k 3         ]
-         [       0       ]         [       0       ]
-         [               ]         [               ]
-         [       0       ]         [       0       ]
-         [               ]         [               ]
-         [  k      k - 1 ]         [      k - 1    ]
-         [ 3  - k 3      ]         [   k 3         ]
-         [               ]         [               ]
- Col 3 = [       k - 1   ] Col 4 = [  k      k - 1 ]
-         [  - k 3        ]         [ 3  + k 3      ]
-         [               ]         [               ]
-         [       k - 1   ]         [      k - 1    ]
-         [  - k 3        ]         [   k 3         ]
-         [               ]         [               ]
-         [       k - 1   ]         [      k - 1    ]
-         [  - k 3        ]         [   k 3         ]
-         [    0    ]
-         [         ]         [ 0  ]
-         [    0    ]         [    ]
-         [         ]         [ 0  ]
-         [    0    ]         [    ]
-         [         ]         [ 0  ]
- Col 5 = [    0    ] Col 6 = [    ]
-         [         ]         [ 0  ]
-         [    k    ]         [    ]
-         [   3     ]         [ 0  ]
-         [         ]         [    ]
-         [  k    k ]         [  k ]
-         [ 3  - 2  ]         [ 2  ]
-</pre>
-<p>Para usar essa fun&ccedil;&atilde;o escreva primeiramente <code>load(&quot;diag&quot;)</code>.
-</p></dd></dl>
-
-
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC188" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_47.html#SEC190" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Logar_00edtmos"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Outubro, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Previous: <a href="maxima_45.html#Logar_00edtmos" accesskey="p" rel="previous">Logarítmos</a>, Acima: <a href="maxima_45.html#Logar_00edtmos" accesskey="u" rel="up">Logarítmos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funcoes-e-Variaveis-Definidas-para-Logaritmos"></a>
+<h3 class="section">14.1 Funções e Variáveis Definidas para Logarítmos</h3>
 
+<a name="Item_003a-Logarithms_002fdefvr_002f_0025e_005fto_005fnumlog"></a><dl>
+<dt><a name="index-_0025e_005fto_005fnumlog"></a>Variável de opção: <strong>%e_to_numlog</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
 </p>
+<p>Quando <code>true</code>, sendo <code>r</code> algum número racional, e
+<code>x</code> alguma expressão, <code>%e^(r*log(x))</code> será simplificado em <code>x^r</code> .
+Note-se que o comando <code>radcan</code> também faz essa transformação,
+e transformações mais complicadas desse tipo também.
+O comando <code>logcontract</code> &quot;contrai&quot; expressões contendo <code>log</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Logarithms_002fdeffn_002fli"></a><dl>
+<dt><a name="index-li"></a>Função: <strong>li</strong> <em>[<var>s</var>] (<var>z</var>)</em></dt>
+<dd><p>Representa a função polilogarítmo de ordem <var>s</var> e argumento <var>z</var>,
+definida por meio de séries infinitas
+</p>
+<div class="example">
+<pre class="example">                                 inf
+                                 ====   k
+                                 \     z
+                        Li (z) =  &gt;    --
+                          s      /      s
+                                 ====  k
+                                 k = 1
+</pre></div>
+
+<p><code>li [1]</code> é <code>- log (1 - z)</code>.
+<code>li [2]</code> e <code>li [3]</code> são as funções dilogarítmo e trilogarítmo, respectivamente.
+</p>
+<p>Quando a ordem for 1, o polilogarítmo simplifica para <code>- log (1 - z)</code>,
+o qual por sua vez simplifica para um valor numérico
+se <var>z</var> for um número em ponto flutuante real ou complexo ou o sinalizador de avaliação <code>numer</code> estiver presente.
+</p>
+<p>Quando a ordem for 2 ou 3,
+o polilogarítmo simplifica para um valor numérico
+se <var>z</var> for um número real em ponto flutuante
+ou o sinalizador de avaliação <code>numer</code> estiver presente.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) assume (x &gt; 0);
+(%o1)                        [x &gt; 0]
+(%i2) integrate ((log (1 - t)) / t, t, 0, x);
+(%o2)                       - li (x)
+                                2
+(%i3) li [2] (7);
+(%o3)                        li (7)
+                               2
+(%i4) li [2] (7), numer;
+(%o4)        1.24827317833392 - 6.113257021832577 %i
+(%i5) li [3] (7);
+(%o5)                        li (7)
+                               3
+(%i6) li [2] (7), numer;
+(%o6)        1.24827317833392 - 6.113257021832577 %i
+(%i7) L : makelist (i / 4.0, i, 0, 8);
+(%o7)   [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
+(%i8) map (lambda ([x], li [2] (x)), L);
+(%o8) [0, .2676526384986274, .5822405249432515, 
+.9784693966661848, 1.64493407, 2.190177004178597
+ - .7010261407036192 %i, 2.374395264042415
+ - 1.273806203464065 %i, 2.448686757245154
+ - 1.758084846201883 %i, 2.467401098097648
+ - 2.177586087815347 %i]
+(%i9) map (lambda ([x], li [3] (x)), L);
+(%o9) [0, .2584613953442624, 0.537213192678042, 
+.8444258046482203, 1.2020569, 1.642866878950322
+ - .07821473130035025 %i, 2.060877505514697
+ - .2582419849982037 %i, 2.433418896388322
+ - .4919260182322965 %i, 2.762071904015935
+ - .7546938285978846 %i]
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Logarithms_002fdeffn_002flog"></a><dl>
+<dt><a name="index-log"></a>Função: <strong>log</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Representa o logarítmo natural (base <em>e</em>) de <var>x</var>.
+</p>
+<p>Maxima não possui uma função interna para logarítmo de base 10 ou de outras bases.
+<code>log10(x) := log(x) / log(10)</code> é uma definição útil.
+</p>
+<p>Simplificação e avaliação de logarítmos são governadas por muitos sinalizadores globais:
+</p>
+<p><code>logexpand</code> - faz com que <code>log(a^b)</code> torne-se <code>b*log(a)</code>.
+Se <code>logexpand</code> for escolhida para <code>all</code>, <code>log(a*b)</code> irá também simplificar para <code>log(a)+log(b)</code>.
+Se <code>logexpand</code> for escolhida para <code>super</code>, então <code>log(a/b)</code> irá também simplificar para <code>log(a)-log(b)</code> para números
+racionais <code>a/b</code>, <code>a#1</code>.  (<code>log(1/b)</code>, para <code>b</code> inteiro, sempre simplifica).  Se
+<code>logexpand</code> for escolhida para <code>false</code>, todas essas simplificações irão ser desabilitadas.
+</p>
+<p><code>logsimp</code> - se <code>false</code> então nenhuma simplificação de <code>%e</code> para um expoente
+contendo <code>log</code>&rsquo;s é concluída.
+</p>
+<p><code>lognumer</code> - se <code>true</code> então argumentos negativos em ponto flutuante para
+<code>log</code> irá sempre ser convertido para seu valor absoluto antes que <code>log</code> seja
+tomado.  Se <code>numer</code> for também <code>true</code>, então argumentos negativos inteiros para <code>log</code>
+irão também ser convertidos para seu valor absoluto.
+</p>
+<p><code>lognegint</code> - se <code>true</code> implementa a regra <code>log(-n)</code> -&gt;
+<code>log(n)+%i*%pi</code> para <code>n</code> um inteiro positivo.
+</p>
+<p><code>%e_to_numlog</code> - quando <code>true</code>, <code>r</code> sendo algum número racional, e
+<code>x</code> alguma expressão, <code>%e^(r*log(x))</code> será simplificado em
+<code>x^r</code> .  Note-se que o comando <code>radcan</code> também
+faz essa transformação, e transformações mais complicadas desse tipo também.
+O comando <code>logcontract</code> &quot;contrai&quot; expressões contendo <code>log</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Logarithms_002fdefvr_002flogabs"></a><dl>
+<dt><a name="index-logabs"></a>Variável de opção: <strong>logabs</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Quando fazendo integração indefinida onde
+logs são gerados, e.g. <code>integrate(1/x,x)</code>, a resposta é dada em
+termos de <code>log(abs(...))</code> se <code>logabs</code> for <code>true</code>, mas em termos de <code>log(...)</code> se
+<code>logabs</code> for <code>false</code>.  Para integração definida, a escolha <code>logabs:true</code> é
+usada, porque aqui &quot;avaliação&quot; de integral indefinida nos
+extremos é muitas vezes necessária.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Logarithms_002fdefvr_002flogarc"></a><dl>
+<dt><a name="index-logarc"></a>Variável de opção: <strong>logarc</strong></dt>
+<dt><a name="index-logarc-1"></a>Função: <strong>logarc</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Quando a variável global <code>logarc</code> for <code>true</code>,
+funções circulares inversas e funções hiperbólicas serão convertidas
+em funções logarítimicas equivalentes.
+O valor padrão de <code>logarc</code> é <code>false</code>.
+</p>
+<p>A função <code>logarc(<var>expr</var>)</code> realiza aquela substituíção para
+uma expressão <var>expr</var>
+sem modificar o valor da variável global <code>logarc</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Logarithms_002fdefvr_002flogconcoeffp"></a><dl>
+<dt><a name="index-logconcoeffp"></a>Variável de opção: <strong>logconcoeffp</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Controla quais coeficientes são
+contraídos quando usando <code>logcontract</code>.  Pode ser escolhida para o nome de uma
+função predicado de um argumento.  E.g. se você gosta de gerar
+raízes quadradas, você pode fazer <code>logconcoeffp:'logconfun$
+logconfun(m):=featurep(m,integer) ou ratnump(m)$</code> .  Então
+<code>logcontract(1/2*log(x));</code> irá fornecer <code>log(sqrt(x))</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Logarithms_002fdeffn_002flogcontract"></a><dl>
+<dt><a name="index-logcontract"></a>Função: <strong>logcontract</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Recursivamente examina a expressão <var>expr</var>, transformando
+subexpressões da forma <code>a1*log(b1) + a2*log(b2) + c</code> em
+<code>log(ratsimp(b1^a1 * b2^a2)) + c</code>
+</p>
+<div class="example">
+<pre class="example">(%i1) 2*(a*log(x) + 2*a*log(y))$
+(%i2) logcontract(%);
+                                 2  4
+(%o2)                     a log(x  y )
+
+</pre></div>
+
+<p>Se você faz <code>declare(n,integer);</code> então <code>logcontract(2*a*n*log(x));</code> fornece
+<code>a*log(x^(2*n))</code>.  Os coeficientes que &quot;contraem&quot; dessa maneira são
+aqueles tais que 2 e <code>n</code> que satisfazem
+<code>featurep(coeff,integer)</code>.  O usuário pode controlar quais coeficientes são
+contraídos escolhendo a opção <code>logconcoeffp</code> para o nome de uma
+função predicado de um argumento.  E.g. se você gosta de gerara
+raízes quadradas, você pode fazer <code>logconcoeffp:'logconfun$
+logconfun(m):=featurep(m,integer) ou ratnump(m)$</code> .  Então
+<code>logcontract(1/2*log(x));</code> irá fornecer <code>log(sqrt(x))</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Logarithms_002fdefvr_002flogexpand"></a><dl>
+<dt><a name="index-logexpand"></a>Variável de opção: <strong>logexpand</strong></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Faz com que <code>log(a^b)</code> torne-se <code>b*log(a)</code>.  Se
+for escolhida para <code>all</code>, <code>log(a*b)</code> irá também simplificar para <code>log(a)+log(b)</code>.  Se
+for escolhida para <code>super</code>, então <code>log(a/b)</code> irá também simplificar para <code>log(a)-log(b)</code> para
+números racionais <code>a/b</code>, <code>a#1</code>.  (<code>log(1/b)</code>, para <code>b</code> inteiro, sempre
+simplifica).  Se for escolhida para <code>false</code>, todas essas simplificações irão
+ser desabilitadas.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Logarithms_002fdefvr_002flognegint"></a><dl>
+<dt><a name="index-lognegint"></a>Variável de opção: <strong>lognegint</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Se <code>true</code> implementa a regra
+<code>log(-n)</code> -&gt; <code>log(n)+%i*%pi</code> para <code>n</code> um inteiro positivo.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Logarithms_002fdefvr_002flognumer"></a><dl>
+<dt><a name="index-lognumer"></a>Variável de opção: <strong>lognumer</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Se <code>true</code> então argumentos negativos em ponto
+flutuante para <code>log</code> irão sempre ser convertidos para seus valores absolutos
+antes que o <code>log</code> seja tomado.  Se <code>numer</code> for também <code>true</code>, então argumentos inteiros
+negativos para <code>log</code> irão também ser convertidos para seus valores absolutos.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Logarithms_002fdefvr_002flogsimp"></a><dl>
+<dt><a name="index-logsimp"></a>Variável de opção: <strong>logsimp</strong></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Se <code>false</code> então nenhuma simplificação de <code>%e</code> para um
+expoente contendo <code>log</code>&rsquo;s é concluída.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Logarithms_002fdeffn_002fplog"></a><dl>
+<dt><a name="index-plog"></a>Função: <strong>plog</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Representa o principal ramo logarítmos naturais avaliados para
+complexos com <code>-%pi</code> &lt; <code>carg(<var>x</var>)</code> &lt;= <code>+%pi</code> .
+</p>
+</dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_45.html#Logar_00edtmos" accesskey="p" rel="previous">Logarítmos</a>, Acima: <a href="maxima_45.html#Logar_00edtmos" accesskey="u" rel="up">Logarítmos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
 </body>
 </html>

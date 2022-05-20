@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Combinatorial Functions (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Combinatorial Functions</title>
 
-<meta name="description" content="Combinatorial Functions (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Combinatorial Functions (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Combinatorial Functions">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Combinatorial Functions">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_47.html" rel="up" title="Mathematical Functions">
-<link href="maxima_51.html" rel="next" title="Root Exponential and Logarithmic Functions">
-<link href="maxima_49.html" rel="prev" title="Functions for Complex Numbers">
+<link href="maxima_47.html#Mathematical-Functions" rel="up" title="Mathematical Functions">
+<link href="maxima_51.html#Root-Exponential-and-Logarithmic-Functions" rel="next" title="Root Exponential and Logarithmic Functions">
+<link href="maxima_49.html#Functions-for-Complex-Numbers" rel="previous" title="Functions for Complex Numbers">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,15 +73,17 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Combinatorial-Functions"></span><div class="header">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Combinatorial-Functions"></a>
+<div class="header">
 <p>
-Next: <a href="maxima_51.html" accesskey="n" rel="next">Root Exponential and Logarithmic Functions</a>, Previous: <a href="maxima_49.html" accesskey="p" rel="prev">Functions for Complex Numbers</a>, Up: <a href="maxima_47.html" accesskey="u" rel="up">Mathematical Functions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_51.html#Root-Exponential-and-Logarithmic-Functions" accesskey="n" rel="next">Root Exponential and Logarithmic Functions</a>, Previous: <a href="maxima_49.html#Functions-for-Complex-Numbers" accesskey="p" rel="previous">Functions for Complex Numbers</a>, Up: <a href="maxima_47.html#Mathematical-Functions" accesskey="u" rel="up">Mathematical Functions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Combinatorial-Functions-1"></span><h3 class="section">10.3 Combinatorial Functions</h3>
+<a name="Combinatorial-Functions-1"></a>
+<h3 class="section">10.3 Combinatorial Functions</h3>
 
-<span id="g_t_0021_0021"></span><span id="Item_003a-MathFunctions_002fdeffn_002f_0021_0021"></span><dl>
-<dt id="index-_0021_0021">Operator: <strong>!!</strong></dt>
+<a name="g_t_0021_0021"></a><a name="Item_003a-MathFunctions_002fdeffn_002f_0021_0021"></a><dl>
+<dt><a name="index-_0021_0021"></a>Operator: <strong>!!</strong></dt>
 <dd>
 <p>The double factorial operator.
 </p>
@@ -89,15 +101,12 @@ inclusive.
 yields a noun form <code>genfact (n, n/2, 2)</code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
+&middot;<a href="maxima_378.html#Category_003a-Operators">Operators</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-
-<a href="maxima_370.html#Category_003a-Operators">Operators</a>
-</div>
-</p></dd></dl>
-
-<span id="binomial"></span><span id="Item_003a-MathFunctions_002fdeffn_002fbinomial"></span><dl>
-<dt id="index-binomial">Function: <strong>binomial</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<a name="binomial"></a><a name="Item_003a-MathFunctions_002fdeffn_002fbinomial"></a><dl>
+<dt><a name="index-binomial"></a>Function: <strong>binomial</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd>
 <p>The binomial coefficient <code><var>x</var>!/(<var>y</var>! (<var>x</var> - <var>y</var>)!)</code>.
 If <var>x</var> and <var>y</var> are integers, then the numerical value of the binomial
@@ -124,13 +133,11 @@ binomial coefficient is expressed as a polynomial.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Number-theory">Number theory</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Number-theory">Number theory</a>
-</div>
-</p></dd></dl>
-
-<span id="factcomb"></span><span id="Item_003a-MathFunctions_002fdeffn_002ffactcomb"></span><dl>
-<dt id="index-factcomb">Function: <strong>factcomb</strong> <em>(<var>expr</var>)</em></dt>
+<a name="factcomb"></a><a name="Item_003a-MathFunctions_002fdeffn_002ffactcomb"></a><dl>
+<dt><a name="index-factcomb"></a>Function: <strong>factcomb</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Tries to combine the coefficients of factorials in <var>expr</var>
 with the factorials themselves by converting, for example, <code>(n + 1)*n!</code>
@@ -159,14 +166,12 @@ applied after a <code>factcomb</code>.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-</div>
-</p></dd></dl>
-
-<span id="g_t_0021"></span><span id="factorial"></span><span id="Item_003a-MathFunctions_002fdeffn_002ffactorial"></span><dl>
-<dt id="index-factorial">Function: <strong>factorial</strong></dt>
-<dd><span id="Item_003a-MathFunctions_002fdeffn_002f_0021"></span></dd><dt id="index-_0021">Operator: <strong>!</strong></dt>
+<a name="g_t_0021"></a><a name="factorial"></a><a name="Item_003a-MathFunctions_002fdeffn_002ffactorial"></a><dl>
+<dt><a name="index-factorial"></a>Function: <strong>factorial</strong></dt>
+<dd><a name="Item_003a-MathFunctions_002fdeffn_002f_0021"></a></dd><dt><a name="index-_0021"></a>Operator: <strong>!</strong></dt>
 <dd>
 <p>Represents the factorial function.  Maxima treats <code>factorial (<var>x</var>)</code>
 the same as <code><var>x</var>!</code>.
@@ -261,29 +266,24 @@ simplification of expressions with the factorial function.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-
-<a href="maxima_370.html#Category_003a-Operators">Operators</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
+&middot;<a href="maxima_378.html#Category_003a-Operators">Operators</a>
+&middot;</div></dd></dl>
 
 
-<span id="factlim"></span><span id="Item_003a-MathFunctions_002fdefvr_002ffactlim"></span><dl>
-<dt id="index-factlim">Option variable: <strong>factlim</strong></dt>
+<a name="factlim"></a><a name="Item_003a-MathFunctions_002fdefvr_002ffactlim"></a><dl>
+<dt><a name="index-factlim"></a>Option variable: <strong>factlim</strong></dt>
 <dd><p>Default value: 100000
 </p>
 <p><code>factlim</code> specifies the highest factorial which is
 automatically expanded.  If it is -1 then all integers are expanded.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-</div>
-</p></dd></dl>
-
-<span id="factorial_005fexpand"></span><span id="Item_003a-MathFunctions_002fdefvr_002ffactorial_005fexpand"></span><dl>
-<dt id="index-factorial_005fexpand">Option variable: <strong>factorial_expand</strong></dt>
+<a name="factorial_005fexpand"></a><a name="Item_003a-MathFunctions_002fdefvr_002ffactorial_005fexpand"></a><dl>
+<dt><a name="index-factorial_005fexpand"></a>Option variable: <strong>factorial_expand</strong></dt>
 <dd><p>Default value: false
 </p>
 <p>The option variable <code>factorial_expand</code> controls the simplification of 
@@ -291,27 +291,23 @@ expressions like <code>(n+1)!</code>, where <code>n</code> is an integer.
 See <code><a href="#factorial">factorial</a></code> for an example.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
+&middot;</div></dd></dl>
 
 
-<span id="genfact"></span><span id="Item_003a-MathFunctions_002fdeffn_002fgenfact"></span><dl>
-<dt id="index-genfact">Function: <strong>genfact</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<a name="genfact"></a><a name="Item_003a-MathFunctions_002fdeffn_002fgenfact"></a><dl>
+<dt><a name="index-genfact"></a>Function: <strong>genfact</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
 <dd>
 <p>Returns the generalized factorial, defined as
 <code>x (x-z) (x - 2 z) ... (x - (y - 1) z)</code>.  Thus, when <var>x</var> is an integer,
 <code>genfact (x, x, 1) = x!</code> and <code>genfact (x, x/2, 2) = x!!</code>.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-</div>
-</p></dd></dl>
-
-<span id="minfactorial"></span><span id="Item_003a-MathFunctions_002fdeffn_002fminfactorial"></span><dl>
-<dt id="index-minfactorial">Function: <strong>minfactorial</strong> <em>(<var>expr</var>)</em></dt>
+<a name="minfactorial"></a><a name="Item_003a-MathFunctions_002fdeffn_002fminfactorial"></a><dl>
+<dt><a name="index-minfactorial"></a>Function: <strong>minfactorial</strong> <em>(<var>expr</var>)</em></dt>
 <dd>
 <p>Examines <var>expr</var> for occurrences of two factorials
 which differ by an integer.
@@ -330,13 +326,11 @@ which differ by an integer.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Number-theory">Number theory</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Number-theory">Number theory</a>
-</div>
-</p></dd></dl>
-
-<span id="sumsplitfact"></span><span id="Item_003a-MathFunctions_002fdefvr_002fsumsplitfact"></span><dl>
-<dt id="index-sumsplitfact">Option variable: <strong>sumsplitfact</strong></dt>
+<a name="sumsplitfact"></a><a name="Item_003a-MathFunctions_002fdefvr_002fsumsplitfact"></a><dl>
+<dt><a name="index-sumsplitfact"></a>Option variable: <strong>sumsplitfact</strong></dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>sumsplitfact</code> is <code>false</code>,
@@ -366,17 +360,14 @@ which differ by an integer.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
+&middot;<a href="maxima_378.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Gamma-and-factorial-functions">Gamma and factorial functions</a>
-
-<a href="maxima_370.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
-</div>
-</p></dd></dl>
-
-<span id="Item_003a-MathFunctions_002fnode_002fRoot-Exponential-and-Logarithmic-Functions"></span><hr>
+<a name="Item_003a-MathFunctions_002fnode_002fRoot-Exponential-and-Logarithmic-Functions"></a><hr>
 <div class="header">
 <p>
-Next: <a href="maxima_51.html" accesskey="n" rel="next">Root Exponential and Logarithmic Functions</a>, Previous: <a href="maxima_49.html" accesskey="p" rel="prev">Functions for Complex Numbers</a>, Up: <a href="maxima_47.html" accesskey="u" rel="up">Mathematical Functions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_51.html#Root-Exponential-and-Logarithmic-Functions" accesskey="n" rel="next">Root Exponential and Logarithmic Functions</a>, Previous: <a href="maxima_49.html#Functions-for-Complex-Numbers" accesskey="p" rel="previous">Functions for Complex Numbers</a>, Up: <a href="maxima_47.html#Mathematical-Functions" accesskey="u" rel="up">Mathematical Functions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

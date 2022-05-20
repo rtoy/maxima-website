@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Introducción a zeilberger</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Introducción a zeilberger">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Introducción a zeilberger">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_301.html#zeilberger" rel="up" title="zeilberger">
+<link href="maxima_303.html#Funciones-y-variables-para-zeilberger" rel="next" title="Funciones y variables para zeilberger">
+<link href="maxima_301.html#zeilberger" rel="previous" title="zeilberger">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introducci_00f3n-a-zeilberger"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_303.html#Funciones-y-variables-para-zeilberger" accesskey="n" rel="next">Funciones y variables para zeilberger</a>, Previous: <a href="maxima_301.html#zeilberger" accesskey="p" rel="previous">zeilberger</a>, Subir: <a href="maxima_301.html#zeilberger" accesskey="u" rel="up">zeilberger</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introduccion-a-zeilberger"></a>
+<h3 class="section">79.1 Introducción a zeilberger</h3>
+
+<p>El paquete <code>zeilberger</code> implementa el algoritmo de Zeilberger
+para la suma hipergeométrica definida y el algoritmo de Gosper
+para la suma hipergeométrica indefinida. Además, hace uso del 
+método de optimización por filtrado desarrollado por Axel Riese.
+</p>
+<p>El autor de este paquete es Fabrizio Caruso.
+</p>
+<p>Antes de hacer uso de las funciones aquí definidas,
+ejecútese la sentencia <code>load (&quot;zeilberger&quot;)</code>.
+</p>
+
+<a name="El-problema-de-la-suma-indefinida"></a>
+<h4 class="subsection">79.1.1 El problema de la suma indefinida</h4>
+
+<p>El paquete <code>zeilberger</code> implementa el algoritmo de Gosper
+para la suma hipergeométrica indefinida.
+Dado el término general hipergeométrico <em>F_k</em> de
+índice <em>k</em>, se plantea el problema de encontrar su
+antidiferencia hipergeométrica, esto es, el término
+hipergeométrico tal que
+</p>
+<p><em>F_k = f_(k+1) - f_k</em>.
+</p>
+<a name="El-problema-de-la-suma-definida"></a>
+<h4 class="subsection">79.1.2 El problema de la suma definida</h4>
+
+<p>El paquete <code>zeilberger</code> implementa el algoritmo de Zeilberger
+para la suma hipergeométrica definida.
+Dados el término hipergeométrico propio <em>F_(n,k)</em>, de 
+índices <em>n</em> y <em>k</em>, y el entero positivo
+<em>d</em>, se plantea el problema de encontrar una expresión recurrente
+lineal de orden <em>d</em> con coeficientes polinomiales en <em>n</em>
+y una función racional <em>R</em> en <em>n</em> y <em>k</em> tales que
+</p>
+<p><em>a_0 F_(n,k) + ... + a_d F_(n+d),k = Delta_K(R(n,k) F_(n,k))</em>
+</p>
+<p>donde <em>Delta_k</em> es el <em>k</em>-ésimo operador diferencia hacia
+adelante, esto es,
+<em>Delta_k(t_k) := t_(k+1) - t_k</em>.
+</p>
+<a name="Niveles-de-informacion"></a>
+<h4 class="subsection">79.1.3 Niveles de información</h4>
+
+<p>Hay versiones extendidas de los nombres de las instrucciones,
+que se construyen añadiendo uno de los siguientes prefijos:
+</p>
+<dl compact="compact">
+<dt><code>Summary</code></dt>
+<dd><p>Tan solo muestra un sumario al final
+</p></dd>
+<dt><code>Verbose</code></dt>
+<dd><p>Alguna información en los niveles intermedios
+</p></dd>
+<dt><code>VeryVerbose</code></dt>
+<dd><p>Más información
+</p></dd>
+<dt><code>Extra</code></dt>
+<dd><p>Aún más información, incluida alguna sobre
+el sistema lineal en el algoritmo de Zeilberger.
+</p></dd>
+</dl>
+
+<p>Por ejemplo:
+<code>GosperVerbose</code>, <code>parGosperVeryVerbose</code>,
+<code>ZeilbergerExtra</code>, <code>AntiDifferenceSummary</code>.
+</p>
+
+<a name="Item_003a-zeilberger_002fnode_002fFunciones-y-variables-para-zeilberger"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_303.html#Funciones-y-variables-para-zeilberger" accesskey="n" rel="next">Funciones y variables para zeilberger</a>, Previous: <a href="maxima_301.html#zeilberger" accesskey="p" rel="previous">zeilberger</a>, Subir: <a href="maxima_301.html#zeilberger" accesskey="u" rel="up">zeilberger</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

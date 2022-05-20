@@ -1,263 +1,124 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Outubro, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual do Maxima: 33. Grupos</title>
+<title>Manual do Maxima: Comentários</title>
 
-<meta name="description" content="Manual do Maxima: 33. Grupos">
-<meta name="keywords" content="Manual do Maxima: 33. Grupos">
+<meta name="description" content="Manual do Maxima: Comentários">
+<meta name="keywords" content="Manual do Maxima: Comentários">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_32.html#Entrada-e-Sa_00edda" rel="up" title="Entrada e Saída">
+<link href="maxima_34.html#Arquivos" rel="next" title="Arquivos">
+<link href="maxima_32.html#Entrada-e-Sa_00edda" rel="previous" title="Entrada e Saída">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="Grupos"></a>
-<a name="SEC135"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_32.html#SEC134" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC136" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_32.html#SEC126" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_34.html#SEC137" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 33. Grupos </h1>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC136">33.1 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para Grupos</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Grupos"></a>
-<a name="SEC136"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC135" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_34.html#SEC137" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC135" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC135" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_34.html#SEC137" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 33.1 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para Grupos </h2>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>todd_coxeter</b><i> (<var>rela&ccedil;&atilde;o</var>, <var>subgroupo</var>)</i>
-<a name="IDX1128"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>todd_coxeter</b><i> (<var>rela&ccedil;&atilde;o</var>)</i>
-<a name="IDX1129"></a>
-</dt>
-<dd><p>Acha a ordem de G/H onde G &eacute; o m&oacute;dulo do Grupo Livre <var>rela&ccedil;&atilde;o</var>, e
-H &eacute; o subgroupo de G gerado por <var>subgroupo</var>.  <var>subgroupo</var> &eacute; um argumento
-opcional, cujo valor padr&atilde;o &eacute; [].  Em fazendo isso a fun&ccedil;&atilde;o produz uma
-tabela de multiplica&ccedil;&atilde;o &agrave; direita de G sobre G/H, onde os
-co-conjuntos s&atilde;o enumerados [H,Hg2,Hg3,...].  Isso pode ser visto internamente no
-<code>todd_coxeter_state</code>.
-</p>
-<p>Exemplo:
-</p>
-<pre class="example">(%i1) symet(n):=create_list(
-        if (j - i) = 1 then (p(i,j))^^3 else
-            if (not i = j) then (p(i,j))^^2 else
-                p(i,i) , j, 1, n-1, i, 1, j);
-                                                       &lt;3&gt;
-(%o1) symet(n) := create_list(if j - i = 1 then p(i, j)
-
-                                &lt;2&gt;
- else (if not i = j then p(i, j)    else p(i, i)), j, 1, n - 1, 
-
-i, 1, j)
-(%i2) p(i,j) := concat(x,i).concat(x,j);
-(%o2)        p(i, j) := concat(x, i) . concat(x, j)
-(%i3) symet(5);
-         &lt;2&gt;           &lt;3&gt;    &lt;2&gt;           &lt;2&gt;           &lt;3&gt;
-(%o3) [x1   , (x1 . x2)   , x2   , (x1 . x3)   , (x2 . x3)   , 
-
-            &lt;2&gt;           &lt;2&gt;           &lt;2&gt;           &lt;3&gt;    &lt;2&gt;
-          x3   , (x1 . x4)   , (x2 . x4)   , (x3 . x4)   , x4   ]
-(%i4) todd_coxeter(%o3);
-
-Rows tried 426
-(%o4)                          120
-(%i5) todd_coxeter(%o3,[x1]);
-
-Rows tried 213
-(%o5)                          60
-(%i6) todd_coxeter(%o3,[x1,x2]);
-
-Rows tried 71
-(%o6)                          20
-</pre>
-</dd></dl>
-
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC135" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_34.html#SEC137" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Coment_00e1rios"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Outubro, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Pr&oacute;ximo: <a href="maxima_34.html#Arquivos" accesskey="n" rel="next">Arquivos</a>, Previous: <a href="maxima_32.html#Entrada-e-Sa_00edda" accesskey="p" rel="previous">Entrada e Saída</a>, Acima: <a href="maxima_32.html#Entrada-e-Sa_00edda" accesskey="u" rel="up">Entrada e Saída</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Comentarios"></a>
+<h3 class="section">9.1 Comentários</h3>
 
+<p>Um comentário na entrada do Maxima é qualquer texto entre <code>/*</code> e <code>*/</code>.
 </p>
+<p>O analisador do Maxima trata um comentário como espação em branco para o propósito de
+encontrar indicações no fluxo de entrada;
+uma indicação sempre termina um comentário.
+Uma entrada tal como <code>a/* foo */b</code> contém duas indicações, <code>a</code> e <code>b</code>,
+e não uma indicação simples <code>ab</code>.
+Comentários são de outra ignorados pelo Maxima;
+nem o conteúdo nem a localização dos comentários são armazenados pelo analisador de expressões de entrada.
+</p>
+<p>Comentários podem ser aninhados de forma a terem um nível de estratificação arbitrario.
+O delimitador <code>/*</code> e o delimitador <code>*/</code> formam pares.
+A quantidade de <code>/*</code> deve ser a mesma quantidade de <code>*/</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) /* aa is a variable of interest */  aa : 1234;
+(%o1)                         1234
+(%i2) /* Value of bb depends on aa */  bb : aa^2;
+(%o2)                        1522756
+(%i3) /* User-defined infix operator */  infix (&quot;b&quot;);
+(%o3)                           b
+(%i4) /* Parses same as a b c, not abc */  a/* foo */b/* bar */c;
+(%o4)                         a b c
+(%i5) /* Comments /* can be nested /* to arbitrary depth */ */ */  1 + xyz;
+(%o5)                        xyz + 1
+</pre></div>
+
+
+<a name="Item_003a-Input_002fnode_002fArquivos"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_34.html#Arquivos" accesskey="n" rel="next">Arquivos</a>, Previous: <a href="maxima_32.html#Entrada-e-Sa_00edda" accesskey="p" rel="previous">Entrada e Saída</a>, Acima: <a href="maxima_32.html#Entrada-e-Sa_00edda" accesskey="u" rel="up">Entrada e Saída</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
 </body>
 </html>

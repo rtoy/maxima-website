@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_157.html#Definici_00f3n-de-Funciones" rel="up" title="Definición de Funciones">
+<link href="maxima_160.html#Macros" rel="next" title="Macros">
+<link href="maxima_158.html#Introducci_00f3n-a-la-definici_00f3n-de-funciones" rel="previous" title="Introducción a la definición de funciones">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_160.html#Macros" accesskey="n" rel="next">Macros</a>, Previous: <a href="maxima_158.html#Introducci_00f3n-a-la-definici_00f3n-de-funciones" accesskey="p" rel="previous">Introducción a la definición de funciones</a>, Subir: <a href="maxima_157.html#Definici_00f3n-de-Funciones" accesskey="u" rel="up">Definición de Funciones</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+<a name="Funciones-1"></a>
+<h3 class="section">36.2 Funciones</h3>
+<a name="Funciones-ordinarias"></a>
+<h4 class="subsection">36.2.1 Funciones ordinarias</h4>
+
+<p>Para definir una función en Maxima es necesario utilizar el operador &rsquo;:=&rsquo;.
+</p>
+<p>Por ejemplo,
+</p>
+<div class="example">
+<pre class="example">f(x) := sin(x)
+</pre></div>
+
+<p>define una función <code>f</code>. También se pueden definir funciones anónimas utilizando <code>lambda</code>; por ejemplo,
+</p>
+<div class="example">
+<pre class="example">lambda ([i, j], ...)
+</pre></div>
+
+<p>puede utilizarse en lugar de <code>f</code> donde
+</p>
+<div class="example">
+<pre class="example">f(i,j) := block ([], ...);
+map (lambda ([i], i+1), l)
+</pre></div>
+
+<p>devolvería una lista con todos sus elementos aumentados en una unidad.
+</p>
+<p>También se puede definir una función con un número variable de argumentos, sin más que añadir un argumento final al que se le asigna una lista con todos los argumentos adicionales.:
+</p>
+<div class="example">
+<pre class="example">(%i1) f ([u]) := u;
+(%o1)                      f([u]) := u
+(%i2) f (1, 2, 3, 4);
+(%o2)                     [1, 2, 3, 4]
+(%i3) f (a, b, [u]) := [a, b, u];
+(%o3)               f(a, b, [u]) := [a, b, u]
+(%i4) f (1, 2, 3, 4, 5, 6);
+(%o4)                 [1, 2, [3, 4, 5, 6]]
+</pre></div>
+
+<p>El miembro derecho de una función debe ser una expresión. Así, si se quiere una secuencia de expresiones, se debe hacer
+</p>
+<div class="example">
+<pre class="example">f(x) := (expr1, expr2, ...., exprn);
+</pre></div>
+
+<p>siendo el valor que alcance exprn el devuelto por la función.
+</p>
+<p>Si se quiere hacer un <code>return</code> desde alguna de las expresiones de la función, se debe utilizar la estructura  <code>block</code> junto con <code>return</code>. Por ejemplo,
+</p>
+<div class="example">
+<pre class="example">block ([], expr1, ..., if (a &gt; 10) then return(a), ..., exprn)
+</pre></div>
+
+<p>es una expresión de pleno derecho, por lo que puede ocupar el lado derecho de la definición de una función. Aquí puede ocurrir que el retorno se produzca antes que se alcance la última expresión.
+</p>
+<p>Los primeros corchetes del bloque (<code>[]</code>) pueden contener una lista de variables junto con posibles asignaciones, tal como <code>[a: 3, b, c: []]</code>, lo que provocará que las tres variables <code>a</code>,<code>b</code> y <code>c</code> se consideren locales y sean independientes de otras globales con el mismo nombre; las variables locales sólo estarán activas mientras se ejecute el código que está dentro de la estructura <code>block</code>, o dentro de funciones que son llamadas desde dentro de <code>block</code>. A esto se le llama asignación dinámica, pues las variables sobreviven desde el inicio del bloque hasta que éste deje de estar operativo. Una vez se salga del bloque los valores originales de las variables, si es que los había, quedan restaurados. Es recomendable proteger las variables de esta forma. Se tendrá en cuenta que las asignaciones a las variables del bloque se hacen en paralelo, lo que significa que si como en el ejemplo anterior se hace <code>c: a</code> en el momento de entrar en el bloque, el valor de <code>c</code> será el que tenía <code>a</code> antes de entrar en el bloque, es decir, antes de la asignación <code>a: 3</code>. Así, haciendo lo siguiente
+</p>
+
+<div class="example">
+<pre class="example">block ([a: a], expr1, ... a: a+3, ..., exprn)
+</pre></div>
+
+<p>se prevendría de que el valor externo de <code>a</code> fuese alterado, pero permitiría acceder a él desde dentro del bloque. La parte derecha de las asignaciones se evalúa dentro de su contexto antes de hacer efectiva la asignación. Utilizando únicamente <code>block([x],..</code> haría que <code>x</code> se tuviese a sí misma como valor, justo como si se acabase de iniciar una nueva sesión de Maxima.
+</p>
+<p>Los valores de los argumentos de una funcón se tratan exactamente de la misma forma que las variables de un bloque. Así, con
+</p>
+<div class="example">
+<pre class="example">f(x) := (expr1, ..., exprn);
+</pre></div>
+
+<p>y
+</p>
+<div class="example">
+<pre class="example">f(1);
+</pre></div>
+
+<p>se estaría en un contexto similar para la evaluación de las expresiones como si se hubiera hecho
+</p>
+<div class="example">
+<pre class="example">block ([x: 1], expr1, ..., exprn)
+</pre></div>
+
+<p>Dentro de las funciones, cuando el lado derecho de la definición deba ser evaluado será útil hacer uso de <code>define</code> y posiblemente de <code>buildq</code>. 
+</p>
+<a name="Funciones-array"></a>
+<h4 class="subsection">36.2.2 Funciones array</h4>
+
+<p>Una función array almacena el valor de la función la primera
+vez que es invocada con un argumento dado, devolviendo el valor
+almacenado sin recalcularlo cuando es llamada con ese mismo argumento.
+Estas funciones reciben también el nombre de <i>funciones memorizadoras</i>.
+</p>
+<p>Los nombres de las funciones array son añadidos a la lista global 
+<code>arrays</code>, no a la lista global <code>functions</code>.
+La función <code>arrayinfo</code> devuelve la lista de argumentos para
+los que hay valores almacenados y <code>listarray</code> devuelve precisamente
+estos valores almacenados.
+Las funciones <code>dispfun</code> y <code>fundef</code> devuelven la definición
+de la función array.
+</p>
+<p>La función <code>arraymake</code> construye una llamada a una función array,
+de forma similar a como lo hace <code>funmake</code> para las funciones 
+ordinarias. Por otro lado, <code>arrayapply</code> aplica una función array
+a sus argumentos, tal como lo hace <code>apply</code> con las funciones
+ordinarias. No existe para las funciones array nada similar a <code>map</code>,
+aunque <code>map(lambda([<var>x</var>], <var>a</var>[<var>x</var>]), <var>L</var>)</code> o
+<code>makelist(<var>a</var>[<var>x</var>], <var>x</var>, <var>L</var>)</code>,
+siendo <var>L</var> una lista, podrían suplantar esta
+carencia.
+</p>
+<p>La función <code>remarray</code> borra la definición de una función array,
+así como cualesquiera valores almacenados que tenga asociados,
+tal como <code>remfunction</code> lo hace con las funciones ordinarias.
+</p>
+<p>La llamada <code>kill(<var>a</var>[<var>x</var>])</code> borra el valor de la función array
+<var>a</var> almacenado para el argumento <var>x</var>;
+la próxima vez que se llame a <var>a</var> con el argumento <var>x</var>,
+se recalculará el valor correspondiente.
+Sin embargo, no hay forma de borrar todos los valores almacenados de
+una sola vez, excepto mediante <code>kill(<var>a</var>)</code> o <code>remarray(<var>a</var>)</code>,
+con lo que se borra también la definición de la propia función.
+</p>
+<a name="Item_003a-Function_002ees_002fnode_002fMacros"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_160.html#Macros" accesskey="n" rel="next">Macros</a>, Previous: <a href="maxima_158.html#Introducci_00f3n-a-la-definici_00f3n-de-funciones" accesskey="p" rel="previous">Introducción a la definición de funciones</a>, Subir: <a href="maxima_157.html#Definici_00f3n-de-Funciones" accesskey="u" rel="up">Definición de Funciones</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for mnewton (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Functions and Variables for minpack</title>
 
-<meta name="description" content="Functions and Variables for mnewton (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Functions and Variables for mnewton (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Functions and Variables for minpack">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Functions and Variables for minpack">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_281.html" rel="up" title="mnewton-pkg">
-<link href="maxima_284.html" rel="next" title="numericalio-pkg">
-<link href="maxima_282.html" rel="prev" title="Introduction to mnewton">
+<link href="maxima_281.html#minpack_002dpkg" rel="up" title="minpack-pkg">
+<link href="maxima_284.html#makeOrders_002dpkg" rel="next" title="makeOrders-pkg">
+<link href="maxima_282.html#Introduction-to-minpack" rel="previous" title="Introduction to minpack">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,99 +73,154 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Functions-and-Variables-for-mnewton"></span><div class="header">
-<p>
-Previous: <a href="maxima_282.html" accesskey="p" rel="prev">Introduction to mnewton</a>, Up: <a href="maxima_281.html" accesskey="u" rel="up">mnewton-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<span id="Functions-and-Variables-for-mnewton-1"></span><h3 class="section">74.2 Functions and Variables for mnewton</h3>
-
-<span id="newtonepsilon"></span><span id="Item_003a-mnewton_002fdefvr_002fnewtonepsilon"></span><dl>
-<dt id="index-newtonepsilon">Option variable: <strong>newtonepsilon</strong></dt>
-<dd><p>Default value: <code>10.0^(-fpprec/2)</code>
-</p>
-<p>Precision to determine when the <code>mnewton</code> function has converged towards
-the solution.  If <code>newtonepsilon</code> is a bigfloat, then <code>mnewton</code>
-computations are done with bigfloats.  See also <code><a href="#mnewton">mnewton</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-mnewton">Package mnewton</a>
-</div>
-</p></dd></dl>
-
-<span id="newtonmaxiter"></span><span id="Item_003a-mnewton_002fdefvr_002fnewtonmaxiter"></span><dl>
-<dt id="index-newtonmaxiter">Option variable: <strong>newtonmaxiter</strong></dt>
-<dd><p>Default value: <code>50</code>
-</p>
-<p>Maximum number of iterations to stop the <code>mnewton</code> function
-if it does not converge or if it converges too slowly.
-</p>
-<p>See also <code><a href="#mnewton">mnewton</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-mnewton">Package mnewton</a>
-</div>
-</p></dd></dl>
-
-<span id="mnewton"></span><span id="Item_003a-mnewton_002fdeffn_002fmnewton"></span><dl>
-<dt id="index-mnewton">Function: <strong>mnewton</strong> <em>(<var>FuncList</var>,<var>VarList</var>,<var>GuessList</var>)</em></dt>
-<dd>
-<p>Multiple nonlinear functions solution using the Newton method.
-<var>FuncList</var> is the list of functions to solve,
-<var>VarList</var> is the list of variable names, and
-<var>GuessList</var> is the list of initial approximations.
-</p>
-<p>The solution is returned in the same format that <code>solve()</code> returns.
-If the solution is not found, <code>[]</code> is returned.
-</p>
-<p>This function is controlled by global variables <code><a href="#newtonepsilon">newtonepsilon</a></code> and
-<code><a href="#newtonmaxiter">newtonmaxiter</a></code>.
-</p>
-<p>See also <code><a href="maxima_102.html#realroots">realroots</a></code>, <code><a href="maxima_102.html#allroots">allroots</a></code>, <code><a href="maxima_110.html#find_005froot">find_root</a></code> and
-<code><a href="maxima_110.html#newton">newton</a></code>.
-</p>
-<div class="example">
-<pre class="example">(%i1) load(&quot;mnewton&quot;)$
-
-(%i2) mnewton([x1+3*log(x1)-x2^2, 2*x1^2-x1*x2-5*x1+1],
-              [x1, x2], [5, 5]);
-(%o2) [[x1 = 3.756834008012769, x2 = 2.779849592817897]]
-(%i3) mnewton([2*a^a-5],[a],[1]);
-(%o3)             [[a = 1.70927556786144]]
-(%i4) mnewton([2*3^u-v/u-5, u+2^v-4], [u, v], [2, 2]);
-(%o4) [[u = 1.066618389595407, v = 1.552564766841786]]
-</pre></div>
-
-<p>The variable <code>newtonepsilon</code> controls the precision of the
-approximations.  It also controls if computations are performed with
-floats or bigfloats.
-</p>
-<div class="example">
-<pre class="example">(%i1) load(mnewton)$
-
-(%i2) (fpprec : 25, newtonepsilon : bfloat(10^(-fpprec+5)))$
-
-(%i3) mnewton([2*3^u-v/u-5, u+2^v-4], [u, v], [2, 2]);
-(%o3) [[u = 1.066618389595406772591173b0, 
-                               v = 1.552564766841786450100418b0]]
-</pre></div>
-
-<p>To use this function write first <code>load(&quot;mnewton&quot;)</code>.
-See also <code><a href="#newtonepsilon">newtonepsilon</a></code> and <code><a href="#newtonmaxiter">newtonmaxiter</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-mnewton">Package mnewton</a>
-</div>
-</p></dd></dl>
-
-
-<span id="Item_003a-include_002dmaxima_002fnode_002fnumericalio_002dpkg"></span><hr>
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Functions-and-Variables-for-minpack"></a>
 <div class="header">
 <p>
-Previous: <a href="maxima_282.html" accesskey="p" rel="prev">Introduction to mnewton</a>, Up: <a href="maxima_281.html" accesskey="u" rel="up">mnewton-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_282.html#Introduction-to-minpack" accesskey="p" rel="previous">Introduction to minpack</a>, Up: <a href="maxima_281.html#minpack_002dpkg" accesskey="u" rel="up">minpack-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Functions-and-Variables-for-minpack-1"></a>
+<h3 class="section">73.2 Functions and Variables for minpack</h3>
+
+<a name="minpack_005flsquares"></a><a name="Item_003a-minpack_002fdeffn_002fminpack_005flsquares"></a><dl>
+<dt><a name="index-minpack_005flsquares"></a>Function: <strong>minpack_lsquares</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>minpack_lsquares</tt> (<var>flist</var>, <var>varlist</var>, <var>guess</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>minpack_lsquares</tt> (..., 'tolerance = <var>tolerance</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>minpack_lsquares</tt> (..., 'jacobian = <var>jacobian</var>)</em></dt>
+<dd>
+<p>Compute the point that minimizes the sum of the squares of the
+functions in the list <var>flist</var>.  The variables are in the list
+<var>varlist</var>.  An initial guess of the optimum point must be provided
+in <var>guess</var>.  
+</p>
+<p>The optional keyword arguments, <var>tolerance</var> and <var>jacobian</var>
+provide some control over the algorithm.  <var>tolerance</var> is the
+estimated relative error desired in the sum of squares.
+<var>jacobian</var> can be used to specify the Jacobian.  If <var>jacobian</var>
+is not given or is <code>true</code> (the default), the Jacobian is computed
+from <var>flist</var>.  If <var>jacobian</var> is <code>false</code>, a numerical
+approximation is used.
+</p>
+<p><code>minpack_lsquares</code> returns a list.  The first item is the
+estimated solution; the second is the sum of squares, and the third
+indicates the success of the algorithm.  The possible values are
+</p>
+<dl compact="compact">
+<dt><code>0</code></dt>
+<dd><p>improper input parameters.
+</p></dd>
+<dt><code>1</code></dt>
+<dd><p>algorithm estimates that the relative error in the sum of squares is
+at most <code>tolerance</code>. 
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>algorithm estimates that the relative error between x and the solution
+is at most <code>tolerance</code>. 
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p>conditions for info = 1 and info = 2 both hold.
+</p></dd>
+<dt><code>4</code></dt>
+<dd><p>fvec is orthogonal to the columns of the jacobian to machine
+precision. 
+</p></dd>
+<dt><code>5</code></dt>
+<dd><p>number of calls to fcn with iflag = 1 has reached 100*(n+1).
+</p></dd>
+<dt><code>6</code></dt>
+<dd><p>tol is too small. no further reduction in the sum of squares is
+possible. 
+</p></dd>
+<dt><code>7</code></dt>
+<dd><p>tol is too small. no further improvement in the approximate solution x
+is possible. 
+</p></dd>
+</dl>
+
+<div class="example">
+<pre class="example">/* Problem 6: Powell singular function */
+(%i1) powell(x1,x2,x3,x4) := 
+         [x1+10*x2, sqrt(5)*(x3-x4), (x2-2*x3)^2, 
+              sqrt(10)*(x1-x4)^2]$
+(%i2) minpack_lsquares(powell(x1,x2,x3,x4), [x1,x2,x3,x4], 
+                       [3,-1,0,1]);
+(%o2) [[1.652117596168394e-17, - 1.652117596168393e-18, 
+        2.643388153869468e-18, 2.643388153869468e-18], 
+       6.109327859207777e-34, 4] 
+</pre></div>
+
+<div class="example">
+<pre class="example">/* Same problem but use numerical approximation to Jacobian */
+(%i3) minpack_lsquares(powell(x1,x2,x3,x4), [x1,x2,x3,x4], 
+                       [3,-1,0,1], jacobian = false);
+(%o3) [[5.060282149485331e-11, - 5.060282149491206e-12, 
+        2.179447843547218e-11, 2.179447843547218e-11], 
+       3.534491794847031e-21, 5]
+</pre></div>
+
+</dd></dl>
+
+<a name="minpack_005fsolve"></a><a name="Item_003a-minpack_002fdeffn_002fminpack_005fsolve"></a><dl>
+<dt><a name="index-minpack_005fsolve"></a>Function: <strong>minpack_solve</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>minpack_solve</tt> (<var>flist</var>, <var>varlist</var>, <var>guess</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>minpack_solve</tt> (..., 'tolerance = <var>tolerance</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>minpack_solve</tt> (..., 'jacobian = <var>jacobian</var>)</em></dt>
+<dd>
+<p>Solve a system of <code>n</code> equations in <code>n</code> unknowns.
+The <code>n</code> equations are given in the list <var>flist</var>, and the
+unknowns are in <var>varlist</var>.  An initial guess of the solution must
+be provided in <var>guess</var>.
+</p>
+<p>The optional keyword arguments, <var>tolerance</var> and <var>jacobian</var>
+provide some control over the algorithm.  <var>tolerance</var> is the
+estimated relative error desired in the sum of squares.
+<var>jacobian</var> can be used to specify the Jacobian.  If <var>jacobian</var>
+is not given or is <code>true</code> (the default), the Jacobian is computed
+from <var>flist</var>.  If <var>jacobian</var> is <code>false</code>, a numerical
+approximation is used.
+</p>
+<p><code>minpack_solve</code> returns a list.  The first item is the
+estimated solution; the second is the sum of squares, and the third
+indicates the success of the algorithm.  The possible values are
+</p>
+<dl compact="compact">
+<dt><code>0</code></dt>
+<dd><p>improper input parameters.
+</p></dd>
+<dt><code>1</code></dt>
+<dd><p>algorithm estimates that the relative error in the solution is
+at most <code>tolerance</code>. 
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>number of calls to fcn with iflag = 1 has reached 100*(n+1).
+</p></dd>
+<dt><code>3</code></dt>
+<dd><p>tol is too small. no further reduction in the sum of squares is
+possible. 
+</p></dd>
+<dt><code>4</code></dt>
+<dd><p>Iteration is not making good progress.
+</p></dd>
+</dl>
+
+<div class="example">
+<pre class="example">/* Problem 6: Powell singular function */
+(%i1) powell(x1,x2,x3,x4) := 
+         [x1+10*x2, sqrt(5)*(x3-x4), (x2-2*x3)^2, 
+              sqrt(10)*(x1-x4)^2]$
+(%i2) minpack_lsquares(powell(x1,x2,x3,x4), [x1,x2,x3,x4], 
+                       [3,-1,0,1]);
+(%o2) [[8.586306796471285e-19, - 8.586306796471285e-20, 
+       1.902656479186597e-18, 1.902656479186597e-18], 1.552862701642987e-35, 4]
+</pre></div>
+<p>In this particular case, we can solve this analytically:
+</p><div class="example">
+<pre class="example">(%i3) solve(powell(x1,x2,x3,x4),[x1,x2,x3,x4]);
+(%o3)       [[x1 = 0, x2 = 0, x3 = 0, x4 = 0]] 
+</pre></div>
+<p>and we see that the numerical solution is quite close the analytical one.
+</p>
+</dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_282.html#Introduction-to-minpack" accesskey="p" rel="previous">Introduction to minpack</a>, Up: <a href="maxima_281.html#minpack_002dpkg" accesskey="u" rel="up">minpack-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

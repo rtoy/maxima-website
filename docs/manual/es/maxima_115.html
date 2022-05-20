@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Operador punto</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Operador punto">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Operador punto">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_114.html#Introducci_00f3n-a-las-matrices-y-el-_00e1lgebra-lineal" rel="up" title="Introducción a las matrices y el álgebra lineal">
+<link href="maxima_116.html#Vectores" rel="next" title="Vectores">
+<link href="maxima_114.html#Introducci_00f3n-a-las-matrices-y-el-_00e1lgebra-lineal" rel="previous" title="Introducción a las matrices y el álgebra lineal">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Operador-punto"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_116.html#Vectores" accesskey="n" rel="next">Vectores</a>, Previous: <a href="maxima_114.html#Introducci_00f3n-a-las-matrices-y-el-_00e1lgebra-lineal" accesskey="p" rel="previous">Introducción a las matrices y el álgebra lineal</a>, Subir: <a href="maxima_114.html#Introducci_00f3n-a-las-matrices-y-el-_00e1lgebra-lineal" accesskey="u" rel="up">Introducción a las matrices y el álgebra lineal</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Operador-punto-1"></a>
+<h4 class="subsection">23.1.1 Operador punto</h4>
+<p>El operador  <code>.</code> realiza la multiplicación matricial y el producto escalar.
+Cuando los operandos son dos matrices columna o matrices fila <code>a</code> y <code>b</code>,
+la expresión <code>a.b</code> es equivalente a <code>sum (a[i]*b[i], i, 1, length(a))</code>.
+Si <code>a</code> y <code>b</code> no son complejos, estamos en el caso del producto escalar.
+En caso de ser <code>a</code> y <code>b</code> vectores en el campo complejo, el producto 
+escalar se define como <code>conjugate(a).b</code>; la función <code>innerproduct</code> del
+paquete <code>eigen</code> realiza el producto escalar complejo.
+</p>
+<p>Cuando los operandos son matrices de índole más general,
+el resultado que se obtiene es el producto matricial de <code>a</code> por <code>b</code>.
+El número de filas de <code>b</code> debe ser igual al número de columnas de <code>a</code>,
+y el resultado tiene un número de filas igual al de <code>a</code> y un número de
+columnas igual al de <code>b</code>.
+</p>
+<p>Al objeto de distinguir <code>.</code> como operador aritmético del punto decimal
+de la notación en coma flotante, puede ser necesario dejar espacios a ambos lados.
+Por ejemplo, <code>5.e3</code> es <code>5000.0</code> pero <code>5 . e3</code> es <code>5</code> por <code>e3</code>.
+</p>
+<p>Hay algunas variables globales que controlan la simplificación de expresiones que
+contengan al operador <code>.</code>, a saber,
+<code>dot</code>, <code>dot0nscsimp</code>, <code>dot0simp</code>, <code>dot1simp</code>, <code>dotassoc</code>, 
+<code>dotconstrules</code>, <code>dotdistrib</code>, <code>dotexptsimp</code>, <code>dotident</code>,
+y <code>dotscrules</code>.
+</p>
+<a name="Item_003a-Matrices_002ees_002fnode_002fVectores"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_116.html#Vectores" accesskey="n" rel="next">Vectores</a>, Previous: <a href="maxima_114.html#Introducci_00f3n-a-las-matrices-y-el-_00e1lgebra-lineal" accesskey="p" rel="previous">Introducción a las matrices y el álgebra lineal</a>, Subir: <a href="maxima_114.html#Introducci_00f3n-a-las-matrices-y-el-_00e1lgebra-lineal" accesskey="u" rel="up">Introducción a las matrices y el álgebra lineal</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

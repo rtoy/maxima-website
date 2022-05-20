@@ -1,229 +1,613 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Oktober, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Maxima Manual: 53. impdiff</title>
+<title>Maxima Manual: Wurzel- Exponential- und Logarithmusfunktion</title>
 
-<meta name="description" content="Maxima Manual: 53. impdiff">
-<meta name="keywords" content="Maxima Manual: 53. impdiff">
+<meta name="description" content="Maxima Manual: Wurzel- Exponential- und Logarithmusfunktion">
+<meta name="keywords" content="Maxima Manual: Wurzel- Exponential- und Logarithmusfunktion">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_49.html#Mathematische-Funktionen" rel="up" title="Mathematische Funktionen">
+<link href="maxima_54.html#Winkelfunktionen" rel="next" title="Winkelfunktionen">
+<link href="maxima_52.html#Funktionen-der-Kombinatorik" rel="previous" title="Funktionen der Kombinatorik">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Wurzel_002d-Exponential_002d-und-Logarithmusfunktion"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_54.html#Winkelfunktionen" accesskey="n" rel="next">Winkelfunktionen</a>, Previous: <a href="maxima_52.html#Funktionen-der-Kombinatorik" accesskey="p" rel="previous">Funktionen der Kombinatorik</a>, Nach oben: <a href="maxima_49.html#Mathematische-Funktionen" accesskey="u" rel="up">Mathematische Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Wurzel_002d_002c-Exponential_002d-und-Logarithmusfunktion"></a>
+<h3 class="section">10.4 Wurzel-, Exponential- und Logarithmusfunktion</h3>
 
-<a name="impdiff"></a>
-<a name="SEC307"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_52.html#SEC306" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC308" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_54.html#SEC309" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 53. impdiff </h1>
-
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC308">53.1 Functions and Variables for impdiff</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Functions-and-Variables-for-impdiff"></a>
-<a name="SEC308"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC307" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_54.html#SEC309" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC307" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC307" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_54.html#SEC309" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 53.1 Functions and Variables for impdiff </h2>
-
-<dl>
-<dt><u>Function:</u> <b>implicit_derivative</b><i> (<var>f</var>, <var>indvarlist</var>, <var>orderlist</var>, <var>depvar</var>)</i>
-<a name="IDX2404"></a>
-</dt>
-<dd><p>This subroutine computes implicit derivatives of multivariable functions. 
-<var>f</var> is an array function, the indexes are the derivative degree in the 
-<var>indvarlist</var> order; <var>indvarlist</var> is the independent variable list; 
-<var>orderlist</var> is the order desired; and <var>depvar</var> is the dependent 
-variable.
+<a name="g_t_0025e_005fto_005fnumlog"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002f_0025e_005fto_005fnumlog"></a><dl>
+<dt><a name="index-_0025e_005fto_005fnumlog"></a>Optionsvariable: <strong>%e_to_numlog</strong></dt>
+<dd><p>Standardwert: <code>false</code>
 </p>
-<p>To use this function write first <code>load(&quot;impdiff&quot;)</code>.
+<p>Hat die Optionsvariable <code>%e_to_numlog</code> den Wert <code>true</code>, wird ein 
+Ausdruck mit der Exponentialfunktion <code><a href="#exp">exp</a></code> der Form <code>%e^(r*log(x))</code>
+zu <code>x^r</code> vereinfacht, wenn <code>r</code> eine rationale Zahl ist.  Ist <code>r</code>
+eine ganze Zahl, wird die Vereinfachung von der Optionsvariablen
+<code><a href="#logsimp">logsimp</a></code> kontrolliert.
 </p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) exp(1/2*log(x));
+                              log(x)
+                              ------
+                                2
+(%o1)                       %e
+(%i2) exp(1/2*log(x)), %e_to_numlog:true;
+(%o2)                        sqrt(x)
+</pre></div>
 </dd></dl>
 
-
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC307" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_54.html#SEC309" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Oktober, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
-
+<a name="g_t_0025emode"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002f_0025emode"></a><dl>
+<dt><a name="index-_0025emode"></a>Optionsvariable: <strong>%emode</strong></dt>
+<dd><p>Standardwert: <code>true</code>
 </p>
+<p>Die Optionsvariable <code>%emode</code> kontrolliert die Vereinfachung von
+Ausdr&uuml;cken mit der Exponentialfunktion <code><a href="#exp">exp</a></code> der Form
+<code>%e^(%pi %i x)</code>.
+</p>
+<p>Ist das Argument <var>x</var> eine ganze Zahl oder eine rationale Zahl, die ein
+Vielfaches von 1/2, 1/3, 1/4 oder 1/6 ist, dann wird der Ausdruck
+<code>%e^(%pi %i x)</code> zu einer reellen oder komplexen Zahl vereinfacht.  F&uuml;r
+Gleitkommazahlen wird diese Vereinfachung dann ausgef&uuml;hrt, wenn diese eine
+ganze Zahl oder halbzahlige rationale Zahl repr&auml;sentieren.
+</p>
+<p>Eine Summe im Exponenten wie zum Beispiel <code>%e^(%pi *%i (x+n))</code>, wobei 
+<var>n</var> eine der oben genannten Zahlen und <var>x</var> ein allgemeiner Ausdruck ist,
+wird vereinfacht, indem der Faktor <code>%^(%pi %i n)</code> entsprechend vereinfacht
+wird.
+</p>
+<p>Hat <code>%emode</code> den Wert <code>false</code>, werden keine speziellen Vereinfachungen
+f&uuml;r den Ausdruck <code>%e^(%pi %i x)</code> vorgenommen.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) exp([2*%pi*%i, 1/2*%pi*%i, 0.5*%pi*%i, 0.5b0*%pi*%i]);
+(%o1)               [1, %i, 1.0 %i, 1.0b0 %i]
+
+(%i2) exp([1/3*%pi*%i, 1/4*%pi*%i, 1/6*%pi*%i]);
+         sqrt(3) %i   1    %i         1     %i   sqrt(3)
+(%o2)   [---------- + -, ------- + -------, -- + -------]
+             2        2  sqrt(2)   sqrt(2)  2       2
+
+(%i3) exp((1/3+x)*%pi*%i);
+                    sqrt(3) %i   1    %i %pi x
+(%o3)              (---------- + -) %e
+                        2        2
+</pre></div>
+</dd></dl>
+
+<a name="g_t_0025enumer"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002f_0025enumer"></a><dl>
+<dt><a name="index-_0025enumer"></a>Optionsvariable: <strong>%enumer</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p>Hat <code>%enumer</code> den Wert <code>true</code>, wird die Konstante <code>%e</code> immer dann
+durch ihren nummerischen Wert ersetzt, wenn die Optionsvariable <code><a href="maxima_14.html#numer">numer</a></code> den
+Wert <code>true</code> hat.
+</p>
+<p>Hat <code>%enumer</code> den Wert <code>false</code>, wird die Konstante <code>%e</code> nur dann
+durch ihren nummerischen Wert ersetzt, wenn der Exponent von <code>%e^x</code> zu 
+einer Gleitkommazahl ausgewertet wird.
+</p>
+<p>Siehe auch <code><a href="maxima_45.html#ev">ev</a></code> und <code><a href="maxima_14.html#numer">numer</a></code>.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) %enumer:true;
+(%o1)                         true
+(%i2) exp(x);
+                                 x
+(%o2)                          %e
+(%i3) exp(x),numer;
+                                        x
+(%o3)                  2.718281828459045
+</pre></div>
+</dd></dl>
+
+<a name="exp"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fexp"></a><dl>
+<dt><a name="index-exp"></a>Funktion: <strong>exp</strong> <em>(<var>z</var>)</em></dt>
+<dd>
+<p>Ist die Exponentialfunktion.  Die Exponentialfunktion <code>exp</code> wird von Maxima
+sofort zu <code>%e^<var>z</var></code> vereinfacht und tritt in vereinfachten
+Ausdr&uuml;cken nicht auf.  Maxima vereinfacht die Exponentialfunktion daher wie
+die allgemeine Exponentiation <code><a href="maxima_35.html#g_t_005e">^</a></code>.  Dar&uuml;berhinaus kennt Maxima
+spezielle Regeln f&uuml;r die Vereinfachung der Exponentialfunktion.
+</p>
+<p>Ist das Argument <var>z</var> der Exponentialfunktion eine ganze oder rationale
+Zahl wird ein vereinfachter Ausdruck zur&uuml;ckgegeben.  Ist das Argument
+<var>z</var> eine reelle oder komplexe Gleitkommazahl wird ein numerisches
+Ergebnis berechnet.
+</p>
+<p>Folgende Optionsvariablen kontrollieren die Vereinfachung der
+Exponentialfunktion:
+</p>
+<dl compact="compact">
+<dt><code>%enumer</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="#g_t_0025enumer">%enumer</a></code> den Wert <code>true</code>, vereinfacht Maxima
+die Eulersche Zahl <code><a href="maxima_18.html#g_t_0025e">%e</a></code> immer dann zu ihrem numerischen Wert, wenn die
+Optionsvariable <code><a href="maxima_14.html#numer">numer</a></code> auch den Wert <code>true</code> hat.
+</p>
+</dd>
+<dt><code>%emode</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="#g_t_0025emode">%emode</a></code> den Wert <code>true</code>, wendet Maxima
+Regeln an, um Ausdr&uuml;cke der Form <code>%e^(x*%i*%pi)</code> zu vereinfachen.
+Der Standardwert von <code>%emode</code> ist <code>true</code>.  Wenn mit komplexen Zahlen
+in der Polarform gerechnet wird, kann es hilfreich sein, die Optionsvariable
+<code>%emode</code> auf den Wert <code>false</code> zu setzen.
+</p>
+</dd>
+<dt><code>%e_to_numlog</code></dt>
+<dd><p>Hat die Optionsvariable <code><a href="#g_t_0025e_005fto_005fnumlog">%e_to_numlog</a></code> den Wert <code>true</code>, vereinfacht
+Maxima einen Ausdruck <code>%e^(r*log(x)</code> zu <code>x^r</code>, wobei <var>r</var>
+eine rationale Zahl ist.  Ist <var>r</var> eine ganze Zahl wird diese Vereinfachung
+von der Optionsvariablen <code><a href="#logsimp">logsimp</a></code> kontrolliert.  F&uuml;r reelle oder
+komplexe Gleitkommazahlen wird diese Vereinfachung nicht ausgef&uuml;hrt.
+</p>
+</dd>
+<dt><code>radexpand</code></dt>
+<dd><p>Die Optionsvariable <code><a href="maxima_48.html#radexpand">radexpand</a></code> kontrolliert die Vereinfachung von
+Ausdr&uuml;cken der Form <code>(%e^a)^b</code>.  Ist <var>a</var> ein reelles Argument
+vereinfacht Maxima immer zu einem Ausdruck <code>%e^(a*b)</code>.  Ist <var>a</var> ein
+komplexes Argument, wird die Vereinfachung <code>%e^(a*b)</code> dann ausgef&uuml;hrt,
+wenn die Optionsvariable <code>radexpand</code> den Wert <code>all</code> hat.
+</p>
+</dd>
+<dt><code>logsimp</code></dt>
+<dd><p>Die Optionsvariable <code><a href="#logsimp">logsimp</a></code> kontrolliert die Vereinfachung der 
+Exponentialfunktion f&uuml;r den Fall, dass im Argument <var>expr</var> die
+Logarithmusfunktion <code><a href="#log">log</a></code> auftritt.  Hat die <code>logsimp</code> den Wert
+<code>true</code>, wird ein Ausdruck <code>%e^(n*log(x)</code> zu <code>x^n</code> vereinfacht,
+wenn <var>n</var> eine ganze Zahl ist.  Mit der Optionsvariablen
+<code><a href="#g_t_0025e_005fto_005fnumlog">%e_to_numlog</a></code> wird diese Vereinfachung f&uuml;r eine rationale Zahl <var>n</var>
+kontrolliert.
+</p>
+</dd>
+<dt><code>demoivre</code></dt>
+<dd><p>Ist eine Optionsvariable und eine Funktion, die auch als Auswertungsschalter
+<code><a href="maxima_45.html#evflag">evflag</a></code> definiert ist.  Hat die Optionsvariable <code><a href="maxima_48.html#demoivre">demoivre</a></code> den Wert
+<code>true</code>, wird ein Ausdruck <code>%e^(x + %i y)</code> zu
+<code>%e^x (cos(y) + %i sin(y))</code> vereinfacht.  Siehe auch die Optionsvariable
+<code><a href="maxima_48.html#exponentialize">exponentialize</a></code>.
+</p></dd>
+</dl>
+
+<p>Maxima kennt viele spezielle unbestimmte und bestimmte Integrale mit der 
+Exponentialfunktion.
+</p></dd></dl>
+
+<a name="log"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002flog"></a><dl>
+<dt><a name="index-log"></a>Funktion: <strong>log</strong> <em>(<var>z</var>)</em></dt>
+<dd>
+<p>Ist der nat&uuml;rliche Logarithmus zur Basis <em>e</em>.  Die Logarithmusfunktion
+ist f&uuml;r das numerische und symbolische Rechnen geeignet.
+</p>
+<p>Maxima hat keine vordefinierte Logarithmusfunktion zur Basis 10 oder anderen 
+Basen.  Eine einfache Definition ist zum Beispiel 
+<code>log10(x) := log(x)/log(10)</code>.  Mit dem Kommando <code>load(&quot;log10&quot;)</code> kann ein
+Paket geladen werden, dass eine dekadische Logarithmusfunktion <code>log10</code>
+definiert.
+</p>
+<p>Ist das Argument <var>z</var> der Logarithmusfunktion eine ganze oder rationale
+Zahl wird ein vereinfachter Ausdruck zur&uuml;ckgegeben.  Ist das Argument
+<var>z</var> eine reelle oder komplexe Gleitkommazahl wird ein numerisches
+Ergebnis berechnet.
+</p>
+<p>Die folgenden Optionsvariablen kontrollieren die Vereinfachung und Auswertung
+der Logarithmusfunktion:
+</p>
+<dl compact="compact">
+<dt><code>logexpand</code></dt>
+<dd><p>Hat die Optionsvariable <code>logexpand</code> den Wert <code>true</code>, dann wird
+<code>log(a^b)</code> zu <code>b*log(a)</code> vereinfacht.  Hat <code>logexpand</code> den
+Wert <code>all</code>, wird zus&auml;tzlich <code>log(a*b)</code> zu <code>log(a)+log(b)</code>
+vereinfacht.  Mit den Wert <code>super</code> vereinfacht Maxima weiterhin
+<code>log(a/b)</code> zu <code>log(a)-log(b)</code>, wobei <code>a/b</code> eine rationale Zahl
+ist.  <code>log(1/b</code> wird f&uuml;r eine ganze Zahl <code>b</code> immer vereinfacht.
+Hat die Optionsvariable <code>logexpand</code> den Wert <code>false</code> werden alle
+obigen Vereinfachungen ausgeschaltet.
+</p>
+</dd>
+<dt><code>logsimp</code></dt>
+<dd><p>Hat die Optionsvariable <code>logsimp</code> den Wert <code>false</code>, werden 
+Exponentialfunktionen <code><a href="#exp">exp</a></code>, die Logarithmusfunktionen im Exponenten
+enthalten, nicht vereinfacht.
+</p>
+</dd>
+<dt><code>lognegint</code></dt>
+<dd><p>Hat die Optionsvariable <code>lognegint</code> den Wert <code>true</code>, wird
+<code>log(-n)</code> zu <code>log(n)+%i*%pi</code> f&uuml;r positive <code>n</code> vereinfacht.
+</p>
+</dd>
+<dt><code>%e_to_numlog</code></dt>
+<dd><p>Hat die Optionsvariable <code>%e_to_numlog</code> den Wert <code>true</code>, wird ein 
+Ausdruck <code>%e^(r*log(x))</code> zu <code>x^r</code> vereinfacht.  Dabei sind <code>r</code>  
+eine rationale Zahl und <code>x</code> ein beliebiger Ausdruck.  Die Funktion 
+<code>radcan</code> f&uuml;hrt diese Vereinfachung ebenfalls aus.
+</p></dd>
+</dl>
+
+<p>Die Logarithmusfunktion wird automatisch auf die Elemente von Listen und
+Matrizen sowie auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<p>Verschiedene Beispiele mit der Logarithmusfunktion.
+</p>
+<div class="example">
+<pre class="example">(%i1) log(%e);
+(%o1)                           1
+(%i2) log(100.0);
+(%o2)                   4.605170185988092
+(%i3) log(2.5+%i);
+(%o3)       .3805063771123649 %i + .9905007344332917
+(%i4) taylor(log(1+x),x,0,5);
+                       2    3    4    5
+                      x    x    x    x
+(%o4)/T/          x - -- + -- - -- + -- + . . .
+                      2    3    4    5
+(%i5) rectform(log(x+%i*y));
+                       2    2
+                  log(y  + x )
+(%o5)             ------------ + %i atan2(y, x)
+                       2
+(%i6) limit(log(x),x,0,plus);
+(%o6)                         minf
+(%i7) integrate(log(z)^n,z);
+</pre><pre class="example">                                                    - n - 1
+(%o7) - gamma_incomplete(n + 1, - log(z)) (- log(z))
+                                                            n + 1
+                                                      log(z)
+</pre><pre class="example">(%i8) laplace(log(t),t,s);
+</pre><pre class="example">                        - log(s) - %gamma
+(%o8)                   -----------------
+                                s
+</pre><pre class="example">(%i9) depends(y,x);
+(%o9)                        [y(x)]
+(%i10) ode2(diff(y,x)+log(y)+1,y,x);
+            - 1
+(%o10)    %e    expintegral_e(1, - log(y) - 1) = x + %c
+</pre></div>
+</dd></dl>
+
+<a name="logabs"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002flogabs"></a><dl>
+<dt><a name="index-logabs"></a>Optionsvariable: <strong>logabs</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p>Treten bei der unbestimmten Integration Logarithmusfunktionen im Ergebnis auf,
+so wird der Betrag der Argumente der Logarithmusfunktionen gebildet, wenn die
+Optionsvariable <code>logabs</code> den Wert <code>true</code> hat.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) logabs:true;
+(%o1)                         true
+(%i2) integrate(1/x,x);
+(%o2)                      log(abs(x))
+(%i3) integrate(1/(1+x^3),x);
+                                                   2 x - 1
+            ! 2        !                      atan(-------)
+        log(!x  - x + 1!)   log(abs(x + 1))        sqrt(3)
+(%o3) - ----------------- + --------------- + -------------
+                6                  3             sqrt(3)
+</pre></div>
+</dd></dl>
+
+<a name="logarc"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002flogarc"></a><dl>
+<dt><a name="index-logarc"></a>Funktion: <strong>logarc</strong> <em>(<var>expr</var>)</em></dt>
+<dt><a name="index-logarc-1"></a>Optionsvariable: <strong>logarc</strong></dt>
+<dd>
+<p>Hat die Optionsvariable <code>logarc</code> den Wert <code>true</code>, werden inverse
+Winkel- und Hyperbelfunktionen durch Logarithmusfunktionen ersetzt.  Der 
+Standardwert von <code>logarc</code> ist <code>false</code>.
+</p>
+<p>Die Funktion <code>logarc(<var>expr</var>)</code> f&uuml;hrt diese Ersetzung aus, ohne dass 
+die Optionsvariable <code>logarc</code> gesetzt wird.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) logarc(asin(x));
+                                     2
+(%o1)             - %i log(sqrt(1 - x ) + %i x)
+(%i2) logarc:true;
+(%o2)                         true
+(%i3) asin(x);
+                                     2
+(%o3)             - %i log(sqrt(1 - x ) + %i x)
+</pre></div>
+</dd></dl>
+
+<a name="logconcoeffp"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002flogconcoeffp"></a><dl>
+<dt><a name="index-logconcoeffp"></a>Optionsvariable: <strong>logconcoeffp</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p>Der Optionsvariablen <code>logconcoeffp</code> kann eine Aussagefunktion mit einem
+Argument zugewiesen werden, die kontrolliert, welche Koeffizienten von
+der Funktion <code><a href="#logcontract">logcontract</a></code> zusammengezogen werden.  Sollen zum Beispiel
+Wurzeln generiert werden, kann folgende Aussagefunktion definiert werden:
+</p>
+<div class="example">
+<pre class="example">logconcoeffp:'logconfun$ 
+logconfun(m) := featurep(m,integer) or ratnump(m)$
+</pre></div>
+
+<p>Das Kommando <code>logcontract(1/2*log(x))</code> liefert nun das Ergebnis
+<code>log(sqrt(x))</code>.
+</p></dd></dl>
+
+<a name="logcontract"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002flogcontract"></a><dl>
+<dt><a name="index-logcontract"></a>Funktion: <strong>logcontract</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Der Ausdruck <var>expr</var> wird rekursiv nach Ausdr&uuml;cken der Form 
+<code>a1*log(b1) + a2*log(b2) + c</code> durchsucht.  Diese werden zu
+<code>log(ratsimp(b1^a1 * b2^a2)) + c</code> transformiert.
+</p>
+<div class="example">
+<pre class="example">(%i1) 2*(a*log(x) + 2*a*log(y))$
+(%i2) logcontract(%);
+                                 2  4
+(%o2)                     a log(x  y )
+</pre></div>
+
+<p>Wird die Variable <var>n</var> mit dem Kommando <code>declare(n, integer)</code> als eine
+ganze Zahl deklariert, dann wird  <code>logcontract(2*a*n*log(x))</code> zu
+<code>a*log(x^(2*n))</code> vereinfacht.  Die Koeffizienten, die zusammengezogen 
+werden, sind in diesem Fall die Zahl 2 und die Variable <var>n</var>, welche
+die folgende Aussage erf&uuml;llen <code>featurep(coeff, integer)</code>.
+Der Nutzer kann kontrollieren, welche Koeffizienten zusammengezogen werden.
+Dazu wird der Optionsvariablen <code><a href="#logconcoeffp">logconcoeffp</a></code> eine Aussagefunktion mit 
+einem Argument zugewiesen.  Sollen zum Beispiel Wurzeln generiert werden, kann 
+folgende Definition verwendet: <code>logconcoeffp: 'logconfun$ logconfun(m) :=
+featurep(m,integer) or ratnump(m)$</code>.  Dann hat das Kommando
+<code>logcontract(1/2*log(x))</code> das Ergebnis <code>log(sqrt(x))</code>.
+</p></dd></dl>
+
+<a name="logexpand"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002flogexpand"></a><dl>
+<dt><a name="index-logexpand"></a>Optionsvariable: <strong>logexpand</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+<p>Die Optionsvariable <code>logexpand</code> kontrolliert die Vereinfachung der
+Logarithmusfunktion <code><a href="#log">log</a></code>.
+</p>
+<p>Hat <code>logexpand</code> den Wert <code>true</code>, wird <code>log(a^b)</code> zu
+<code>b*log(a)</code> vereinfacht.  Hat <code>logexpand</code> den Wert <code>all</code>, wird
+zus&auml;tzlich <code>log(a*b)</code> zu <code>log(a)+log(b)</code> vereinfacht.  Mit dem Wert
+<code>super</code> vereinfacht Maxima weiterhin <code>log(a/b)</code> zu
+<code>log(a)-log(b)</code>, wobei <code>a/b</code> eine rationale Zahl ist.  <code>log(1/b</code>
+wird f&uuml;r eine ganze Zahl <code>b</code> immer vereinfacht.  Hat die Optionsvariable
+<code>logexpand</code> den Wert <code>false</code> werden alle obigen Vereinfachungen
+ausgeschaltet.
+</p></dd></dl>
+
+<a name="lognegint"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002flognegint"></a><dl>
+<dt><a name="index-lognegint"></a>Optionsvariable: <strong>lognegint</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p>Hat die Optionsvariable <code>lognegint</code> den Wert <code>true</code>, wird
+<code>log(-n)</code> zu <code>log(n)+%i*%pi</code> f&uuml;r positive <code>n</code> vereinfacht.
+</p></dd></dl>
+
+<a name="logsimp"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002flogsimp"></a><dl>
+<dt><a name="index-logsimp"></a>Optionsvariable: <strong>logsimp</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+<p>Hat die Optionsvariable <code>logsimp</code> den Wert <code>false</code>, werden 
+Exponentialfunktionen <code><a href="#exp">exp</a></code>, die Logarithmusfunktionen im Exponenten
+enthalten, nicht vereinfacht.
+</p></dd></dl>
+
+<a name="plog"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fplog"></a><dl>
+<dt><a name="index-plog"></a>Funktion: <strong>plog</strong> <em>(<var>x</var>)</em></dt>
+<dd>
+<p>Gibt den Hauptwert des komplexen nat&uuml;rlichen Logarithmus im Intervall
+<code>-%pi</code> &lt; <code>carg(<var>x</var>)</code> &lt;= <code>+%pi</code> zur&uuml;ck.
+</p></dd></dl>
+
+<a name="rootsconmode"></a><a name="Item_003a-MathFunctions_002ede_002fdefvr_002frootsconmode"></a><dl>
+<dt><a name="index-rootsconmode"></a>Optionsvariable: <strong>rootsconmode</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+<p><code>rootsconmode</code> kontrolliert das Verhalten der Funktion 
+<code>rootscontract</code>.  Siehe die Funktion <code><a href="#rootscontract">rootscontract</a></code> f&uuml;r Details.
+</p></dd></dl>
+
+<a name="rootscontract"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002frootscontract"></a><dl>
+<dt><a name="index-rootscontract"></a>Funktion: <strong>rootscontract</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Konvertiert Produkte von Wurzeln in Wurzeln von Produkten.  Zum Beispiel hat 
+<code>rootscontract(sqrt(x)*y^(3/2))</code> das Ergebnis <code>sqrt(x*y^3)</code>.
+</p>
+<p>Hat die Optionsvariable <code><a href="maxima_48.html#radexpand">radexpand</a></code> den Wert <code>true</code> und die
+Optionsvariable <code><a href="maxima_48.html#domain">domain</a></code> den Wert <code>real</code>, das sind die Standardwerte,
+wird <code>abs(x)</code> zu <code>sqrt(x^2)</code> vereinfacht.  Zum Beispiel hat
+<code>rootscontract(abs(x) * sqrt(y))</code> das Ergebnis <code>sqrt(x^2*y)</code>.
+</p>
+<p>Die Optionsvariable <code><a href="#rootsconmode">rootsconmode</a></code> kontrolliert das Ergebnis
+folgenderma&szlig;en:
+</p>
+<div class="example">
+<pre class="example">Problem             Wert             Ergebnis 
+                    rootsconmode     rootscontract
+      
+x^(1/2)*y^(3/2)     false            sqrt(x*y^3)
+x^(1/2)*y^(1/4)     false            sqrt(x)*y^(1/4)
+x^(1/2)*y^(1/4)     true             sqrt(x*sqrt(y))
+x^(1/2)*y^(1/3)     true             sqrt(x)*y^(1/3)
+x^(1/2)*y^(1/4)     all              (x^2*y)^(1/4)
+x^(1/2)*y^(1/3)     all              (x^3*y^2)^(1/6)
+</pre></div>
+
+<p>Hat <code>rootsconmode</code> den Wert <code>false</code>, kontrahiert <code>rootscontract</code>
+nur Faktoren mit rationalen Exponenten, die den gleichen Nenner haben.  Hat
+<code>rootsconmode</code> den Wert <code>all</code>, wird das kleinste gemeinsame Vielfache
+des Nenners der Faktoren verwendet, um die Faktoren zusammenzufassen.
+</p>
+<p>&Auml;hnlich wie bei der Funktion <code><a href="#logcontract">logcontract</a></code> werden von
+<code>rootscontract</code> die Argumente unter der Wurzel mit der Funktion 
+<code><a href="maxima_101.html#ratsimp">ratsimp</a></code> vereinfacht.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) rootsconmode: false$
+(%i2) rootscontract (x^(1/2)*y^(3/2));
+                                   3
+(%o2)                      sqrt(x y )
+(%i3) rootscontract (x^(1/2)*y^(1/4));
+                                   1/4
+(%o3)                     sqrt(x) y
+(%i4) rootsconmode: true$
+(%i5) rootscontract (x^(1/2)*y^(1/4));
+(%o5)                    sqrt(x sqrt(y))
+</pre><pre class="example">(%i6) rootscontract (x^(1/2)*y^(1/3));
+                                   1/3
+(%o6)                     sqrt(x) y
+</pre><pre class="example">(%i7) rootsconmode: all$
+(%i8) rootscontract (x^(1/2)*y^(1/4));
+                              2   1/4
+(%o8)                       (x  y)
+(%i9) rootscontract (x^(1/2)*y^(1/3));
+                             3  2 1/6
+(%o9)                      (x  y )
+(%i10) rootsconmode: false$
+(%i11) rootscontract (sqrt(sqrt(x) + sqrt(1 + x))
+                    *sqrt(sqrt(1 + x) - sqrt(x)));
+(%o11)                          1
+(%i12) rootsconmode: true$
+(%i13) rootscontract (sqrt(5+sqrt(5)) - 5^(1/4)*sqrt(1+sqrt(5)));
+(%o13)                          0
+</pre></div>
+</dd></dl>
+
+<a name="sqrt"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fsqrt"></a><dl>
+<dt><a name="index-sqrt"></a>Funktion: <strong>sqrt</strong> <em>(<var>z</var>)</em></dt>
+<dd>
+<p>Ist die Wurzelfunktion.  Die Wurzelfunktion wird von Maxima sofort zu
+<code><var>x</var>^(1/2)</code> vereinfacht und tritt in Ausdr&uuml;cken nicht auf.
+</p>
+<p>Die Wurzelfunktion ist f&uuml;r das numerische und symbolische Rechnen geeignet.
+Ist das Argument <var>z</var> der Wurzelfunktion eine Gleitkommazahl, wird ein
+numerisches Ergebnis zur&uuml;ckgegeben.  F&uuml;r ganze und rationale Zahlen wird
+die Wurzelfunktion vereinfacht.  Die numerische Berechnung kann mit den 
+Optionsvariablen und Auswertungsschaltern <code><a href="maxima_14.html#numer">numer</a></code> und
+<code><a href="maxima_14.html#float">float</a></code> kontrolliert werden.
+</p>
+<p>Hat die Optionsvariable <code><a href="maxima_48.html#radexpand">radexpand</a></code> den Wert <code>true</code>, werden die
+n-ten Wurzeln von Faktoren unter einer Wurzel aus der Wurzel herausgezogen.
+So wird zum Beispiel <code>sqrt(16*x^2)</code> nur dann zu <code>4*x</code> vereinfacht,
+wenn <code>radexpand</code> den Wert <code>true</code> hat.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#rootscontract">rootscontract</a></code> und <code><a href="maxima_305.html#sqrtdenest">sqrtdenest</a></code> f&uuml;r die
+Vereinfachung von Ausdr&uuml;cken, die die Wurzelfunktion enthalten.
+</p>
+<p>Beispiele:
+</p>
+<p>Verschiedene Beispiele mit der Wurzelfunktion.
+</p>
+<div class="example">
+<pre class="example">(%i1) sqrt(4);
+(%o1)                           2
+(%i2) sqrt(24);
+(%o2)                       2 sqrt(6)
+(%i3) sqrt(2.0);
+(%o3)                   1.414213562373095
+(%i4) taylor(sqrt(1+x),x,0,5);
+                       2    3      4      5
+                  x   x    x    5 x    7 x
+(%o4)/T/      1 + - - -- + -- - ---- + ---- + . . .
+                  2   8    16   128    256
+(%i5) rectform(sqrt(x+%i*y));
+           2    2 1/4     atan2(y, x)
+(%o5) %i (y  + x )    sin(-----------)
+                               2
+                                      2    2 1/4     atan2(y, x)
+                                  + (y  + x )    cos(-----------)
+                                                          2
+(%i6) integrate(sqrt(t)*(t+1)^-2,t,0,1);
+                             %pi - 2
+(%o6)                        -------
+                                4
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-MathFunctions_002ede_002fnode_002fWinkelfunktionen"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_54.html#Winkelfunktionen" accesskey="n" rel="next">Winkelfunktionen</a>, Previous: <a href="maxima_52.html#Funktionen-der-Kombinatorik" accesskey="p" rel="previous">Funktionen der Kombinatorik</a>, Nach oben: <a href="maxima_49.html#Mathematische-Funktionen" accesskey="u" rel="up">Mathematische Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

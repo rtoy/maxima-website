@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Vectores</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Vectores">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Vectores">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_114.html#Introducci_00f3n-a-las-matrices-y-el-_00e1lgebra-lineal" rel="up" title="Introducción a las matrices y el álgebra lineal">
+<link href="maxima_117.html#Paquete-eigen" rel="next" title="Paquete eigen">
+<link href="maxima_115.html#Operador-punto" rel="previous" title="Operador punto">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Vectores"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_117.html#Paquete-eigen" accesskey="n" rel="next">Paquete eigen</a>, Previous: <a href="maxima_115.html#Operador-punto" accesskey="p" rel="previous">Operador punto</a>, Subir: <a href="maxima_114.html#Introducci_00f3n-a-las-matrices-y-el-_00e1lgebra-lineal" accesskey="u" rel="up">Introducción a las matrices y el álgebra lineal</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Vectores-1"></a>
+<h4 class="subsection">23.1.2 Vectores</h4>
+<p>El paquete <code>vect</code> define funciones para análisis vectorial. Para cargar el paquete en memoria se debe hacer
+<code>load (&quot;vect&quot;)</code>  y con <code>demo (&quot;vect&quot;)</code> se presenta una demostración sobre las funciones del paquete.
+</p>
+<p>El paquete de análisis vectorial puede combinar y simplificar expresiones
+simbólicas que incluyan productos escalares y vectoriales, junto con los operadores
+de gradiente, divergencia, rotacional y laplaciano. La distribución de estos operadores
+sobre sumas o productos se gobierna por ciertas variables, al igual que otras transformaciones,
+incluida la expansión en componentes en cualquier sistema de coordenadas especificado. 
+También hay funciones para obtener el potencial escalar o vectorial de un campo.
+</p>
+<p>El paquete <code>vect</code> contiene las siguientes funciones:
+<code>vectorsimp</code>, <code>scalefactors</code>,
+<code>express</code>, <code>potential</code> y <code>vectorpotential</code>.
+</p>
+<p>Por defecto, el paquete <code>vect</code> no declara el operador <code>.</code> como conmutativo.
+Para transformarlo en conmutativo, se debe ejecutar previamente la instrucción
+<code>declare(&quot;.&quot;, commutative)</code>.
+</p>
+<a name="Item_003a-Matrices_002ees_002fnode_002fPaquete-eigen"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_117.html#Paquete-eigen" accesskey="n" rel="next">Paquete eigen</a>, Previous: <a href="maxima_115.html#Operador-punto" accesskey="p" rel="previous">Operador punto</a>, Subir: <a href="maxima_114.html#Introducci_00f3n-a-las-matrices-y-el-_00e1lgebra-lineal" accesskey="u" rel="up">Introducción a las matrices y el álgebra lineal</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

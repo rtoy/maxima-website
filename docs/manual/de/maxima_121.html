@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Gra&szlig;mann-Algebra</title>
+
+<meta name="description" content="Maxima Manual: Gra&szlig;mann-Algebra">
+<meta name="keywords" content="Maxima Manual: Gra&szlig;mann-Algebra">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" rel="up" title="Funktionen und Variablen f&uuml;r itensor">
+<link href="maxima_122.html#Exportiere-als-TeX" rel="next" title="Exportiere als TeX">
+<link href="maxima_120.html#Torsion-und-Nichtmetrizit_00e4t" rel="previous" title="Torsion und Nichtmetrizit&auml;t">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Gra_00dfmann_002dAlgebra"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_122.html#Exportiere-als-TeX" accesskey="n" rel="next">Exportiere als TeX</a>, Previous: <a href="maxima_120.html#Torsion-und-Nichtmetrizit_00e4t" accesskey="p" rel="previous">Torsion und Nichtmetrizit&auml;t</a>, Nach oben: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Grassmann_002dAlgebra"></a>
+<h4 class="subsubsection">20.2.2.7 Gra&szlig;mann-Algebra</h4>
+
+<p>The <code>itensor</code> package can perform operations on totally antisymmetric
+covariant tensor fields. A totally antisymmetric tensor field of rank
+(0,L) corresponds with a differential L-form. On these objects, a
+multiplication operation known as the exterior product, or wedge product,
+is defined.
+</p>
+<p>Unfortunately, not all authors agree on the definition of the wedge
+product. Some authors prefer a definition that corresponds with the
+notion of antisymmetrization: in these works, the wedge product of
+two vector fields, for instance, would be defined as
+</p>
+<div class="example">
+<pre class="example">            a a  - a a
+             i j    j i
+ a  /\ a  = -----------
+  i     j        2
+</pre></div>
+
+<p>More generally, the product of a p-form and a q-form would be defined as
+</p>
+<div class="example">
+<pre class="example">                       1     k1..kp l1..lq
+A       /\ B       = ------ D              A       B
+ i1..ip     j1..jq   (p+q)!  i1..ip j1..jq  k1..kp  l1..lq
+</pre></div>
+
+<p>where <code>D</code> stands for the Kronecker-delta.
+</p>
+<p>Other authors, however, prefer a &ldquo;geometric&rdquo; definition that corresponds
+with the notion of the volume element:
+</p>
+<div class="example">
+<pre class="example">a  /\ a  = a a  - a a
+ i     j    i j    j i
+</pre></div>
+
+<p>and, in the general case
+</p>
+<div class="example">
+<pre class="example">                       1    k1..kp l1..lq
+A       /\ B       = ----- D              A       B
+ i1..ip     j1..jq   p! q!  i1..ip j1..jq  k1..kp  l1..lq
+</pre></div>
+
+<p>Since <code>itensor</code> is a tensor algebra package, the first of these two
+definitions appears to be the more natural one. Many applications, however,
+utilize the second definition. To resolve this dilemma, a flag has been
+implemented that controls the behavior of the wedge product: if
+<code>igeowedge_flag</code> is <code>false</code> (the default), the first, &quot;tensorial&quot;
+definition is used, otherwise the second, &quot;geometric&quot; definition will
+be applied.
+</p>
+<a name="Item_003a-Itensor_002ede_002fdefvr_002f_007e"></a><dl>
+<dt><a name="index-_007e"></a>Operator: <strong>~</strong></dt>
+<dd>
+<p>The wedge product operator is denoted by the tilde <code>~</code>. This is
+a binary operator. Its arguments should be expressions involving scalars,
+covariant tensors of rank one, or covariant tensors of rank <code>l</code> that
+have been declared antisymmetric in all covariant indices.
+</p>
+<p>The behavior of the wedge product operator is controlled by the
+<code>igeowedge_flag</code> flag, as in the following example:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(a([i])~b([j]))$
+                                 a  b  - b  a
+                                  i  j    i  j
+(%t2)                            -------------
+                                       2
+(%i3) decsym(a,2,0,[anti(all)],[]);
+(%o3)                                done
+(%i4) ishow(a([i,j])~b([k]))$
+                          a    b  + b  a    - a    b
+                           i j  k    i  j k    i k  j
+(%t4)                     ---------------------------
+                                       3
+(%i5) igeowedge_flag:true;
+(%o5)                                true
+(%i6) ishow(a([i])~b([j]))$
+(%t6)                            a  b  - b  a
+                                  i  j    i  j
+(%i7) ishow(a([i,j])~b([k]))$
+(%t7)                     a    b  + b  a    - a    b
+                           i j  k    i  j k    i k  j
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-Itensor_002ede_002fdefvr_002f_007c"></a><dl>
+<dt><a name="index-_007c"></a>Operator: <strong>|</strong></dt>
+<dd>
+<p>The vertical bar <code>|</code> denotes the &quot;contraction with a vector&quot; binary
+operation. When a totally antisymmetric covariant tensor is contracted
+with a contravariant vector, the result is the same regardless which index
+was used for the contraction. Thus, it is possible to define the
+contraction operation in an index-free manner.
+</p>
+<p>In the <code>itensor</code> package, contraction with a vector is always carried out
+with respect to the first index in the literal sorting order. This ensures
+better simplification of expressions involving the <code>|</code> operator. For instance:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) decsym(a,2,0,[anti(all)],[]);
+(%o2)                                done
+(%i3) ishow(a([i,j],[])|v)$
+                                    %1
+(%t3)                              v   a
+                                        %1 j
+(%i4) ishow(a([j,i],[])|v)$
+                                     %1
+(%t4)                             - v   a
+                                         %1 j
+</pre></div>
+
+<p>Note that it is essential that the tensors used with the <code>|</code> operator be
+declared totally antisymmetric in their covariant indices. Otherwise,
+the results will be incorrect.
+</p></dd></dl>
+
+<a name="extdiff"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fextdiff"></a><dl>
+<dt><a name="index-extdiff"></a>Function: <strong>extdiff</strong> <em>(<var>expr</var>, <var>i</var>)</em></dt>
+<dd>
+<p>Computes the exterior derivative of <var>expr</var> with respect to the index
+<var>i</var>. The exterior derivative is formally defined as the wedge
+product of the partial derivative operator and a differential form. As
+such, this operation is also controlled by the setting of <code>igeowedge_flag</code>.
+For instance:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(extdiff(v([i]),j))$
+                                  v    - v
+                                   j,i    i,j
+(%t2)                             -----------
+                                       2
+(%i3) decsym(a,2,0,[anti(all)],[]);
+(%o3)                                done
+(%i4) ishow(extdiff(a([i,j]),k))$
+                           a      - a      + a
+                            j k,i    i k,j    i j,k
+(%t4)                      ------------------------
+                                      3
+(%i5) igeowedge_flag:true;
+(%o5)                                true
+(%i6) ishow(extdiff(v([i]),j))$
+(%t6)                             v    - v
+                                   j,i    i,j
+(%i7) ishow(extdiff(a([i,j]),k))$
+(%t7)                    - (a      - a      + a     )
+                             k j,i    k i,j    j i,k
+
+</pre></div>
+</dd></dl>
+
+<a name="hodge"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fhodge"></a><dl>
+<dt><a name="index-hodge"></a>Function: <strong>hodge</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Compute the Hodge-dual of <var>expr</var>. For instance:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) imetric(g);
+(%o2)                            done
+(%i3) idim(4);
+(%o3)                            done
+(%i4) icounter:100;
+(%o4)                             100
+(%i5) decsym(A,3,0,[anti(all)],[])$
+
+(%i6) ishow(A([i,j,k],[]))$
+(%t6)                           A
+                                 i j k
+(%i7) ishow(canform(hodge(%)))$
+</pre><pre class="example">                          %1 %2 %3 %4
+               levi_civita            g        A
+                                       %1 %102  %2 %3 %4
+(%t7)          -----------------------------------------
+                                   6
+</pre><pre class="example">(%i8) ishow(canform(hodge(%)))$
+                 %1 %2 %3 %8            %4 %5 %6 %7
+(%t8) levi_civita            levi_civita            g       
+                                                     %1 %106
+                             g        g        g      A         /6
+                              %2 %107  %3 %108  %4 %8  %5 %6 %7
+(%i9) lc2kdt(%)$
+
+(%i10) %,kdelta$
+
+(%i11) ishow(canform(contract(expand(%))))$
+(%t11)                     - A
+                              %106 %107 %108
+</pre></div>
+</dd></dl>
+
+<a name="igeowedge_005fflag"></a><a name="Item_003a-Itensor_002ede_002fdefvr_002figeowedge_005fflag"></a><dl>
+<dt><a name="index-igeowedge_005fflag"></a>Option variable: <strong>igeowedge_flag</strong></dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>Controls the behavior of the wedge product and exterior derivative. When
+set to <code>false</code> (the default), the notion of differential forms will
+correspond with that of a totally antisymmetric covariant tensor field.
+When set to <code>true</code>, differential forms will agree with the notion
+of the volume element.
+</p></dd></dl>
+
+<a name="Item_003a-Itensor_002ede_002fnode_002fExportiere-als-TeX"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_122.html#Exportiere-als-TeX" accesskey="n" rel="next">Exportiere als TeX</a>, Previous: <a href="maxima_120.html#Torsion-und-Nichtmetrizit_00e4t" accesskey="p" rel="previous">Torsion und Nichtmetrizit&auml;t</a>, Nach oben: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

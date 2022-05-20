@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Definições para inference_result</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Definições para inference_result">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições para inference_result">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_toc.html#Top" rel="up" title="Top">
+<link href="maxima_203.html#Defini_00e7_00f5es-para-stats" rel="next" title="Definições para stats">
+<link href="maxima_201.html#Introdu_00e7_00e3o-a-stats" rel="previous" title="Introdução a stats">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-para-inference_005fresult"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_203.html#Defini_00e7_00f5es-para-stats" accesskey="n" rel="next">Definições para stats</a>, Previous: <a href="maxima_201.html#Introdu_00e7_00e3o-a-stats" accesskey="p" rel="previous">Introdução a stats</a>, Acima: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-para-inference_005fresult"></a>
+<h3 class="section">67.2 Definições para inference_result</h3>
+
+<a name="Item_003a-stats_002fdeffn_002finference_005fresult"></a><dl>
+<dt><a name="index-inference_005fresult"></a>Função: <strong>inference_result</strong> <em>(<var>título</var>, <var>valores</var>, <var>números</var>)</em></dt>
+<dd>
+<p>Constrói um objecto <code>inference_result</code> do tipo retornado pelas
+funções stats. O argumento <var>título</var> é uma
+sequência de caracteres do Maxima co o nome do procedimento; <var>valores</var> é uma lissta com
+elementos da forma <code>símbolo = valor</code> e <var>números</var> é uma lista
+com números inteiros positivos no intervalo de um para <code>length(<var>valores</var>)</code>,
+indicando que valores serão mostrados por padrão.
+</p>
+<p>Exemplo:
+</p>
+<p>Este é um exemplo que mostras os resultados associados a um retángulo. O
+título deste bojeto é a sequência de caraceteres <code>&quot;Retângulo&quot;</code>, o qual
+armazena cinco resultados, a saber, <code>'base</code>, <code>'altura</code>, 
+<code>'diagonal</code>, <code>'área</code> y <code>'perímetro</code>, porém só mostra
+o primeiro, segundo, quinto e quarto resultado. O resultado <code>'diagonal</code> também
+é armazenado neste objecto, no entanto não é mostrado por padrão; para se ter acesso
+a este valor, faz-se uso da função <code>take_inference</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;inference_result&quot;)$
+(%i2) b: 3$ h: 2$
+(%i3) inference_result(&quot;Retângulo&quot;,
+                        ['base=b,
+                         'altura=h,
+                         'diagonal=sqrt(b^2+h^2),
+                         'área=b*h,
+                         'perímetro=2*(b+h)],
+                        [1,2,5,4] );
+                        |   Retângulo
+                        |
+                        |    base = 3
+                        |
+(%o3)                   |   altura = 2
+                        |
+                        | perímetro = 10
+                        |
+                        |    area = 6
+(%i4) take_inference('diagonal,%);
+(%o4)                        sqrt(13)
+</pre></div>
+
+<p>Veja também <code>take_inference</code>.
+</p></dd></dl>
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002finferencep"></a><dl>
+<dt><a name="index-inferencep"></a>Função: <strong>inferencep</strong> <em>(<var>obj</var>)</em></dt>
+<dd>
+<p>Retorna <code>true</code> ou <code>false</code>, dependendo se <var>obj</var> é
+um objecto <code>inference_result</code> ou não.
+</p>
+</dd></dl>
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002fitems_005finference"></a><dl>
+<dt><a name="index-items_005finference"></a>Função: <strong>items_inference</strong> <em>(<var>obj</var>)</em></dt>
+<dd>
+<p>Retorna uma lista com os nomes dos itens em <var>obj</var>, que devem
+ser um objecto <code>inference_result</code>.
+</p>
+<p>Exemplo:
+</p>
+<p>O objecto <code>inference_result</code> armazena dois valores, a saber <code>'pi</code> e <code>'e</code>,
+mas somente o segundo é mostrado. A função <code>items_inference</code> retorna os nomes
+de todos os itens, não importa se eles são ou não mostrados.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;inference_result&quot;)$
+(%i2) inference_result(&quot;Hi&quot;, ['pi=%pi,'e=%e],[2]);
+                            |   Hi
+(%o2)                       |
+                            | e = %e
+(%i3) items_inference(%);
+(%o3)                        [pi, e]
+</pre></div>
+</dd></dl>
+
+
+
+
+
+
+
+<a name="Item_003a-stats_002fdeffn_002ftake_005finference"></a><dl>
+<dt><a name="index-take_005finference"></a>Função: <strong>take_inference</strong> <em>(<var>n</var>, <var>obj</var>)</em></dt>
+<dt><a name="index-take_005finference-1"></a>Função: <strong>take_inference</strong> <em>(<var>nome</var>, <var>obj</var>)</em></dt>
+<dt><a name="index-take_005finference-2"></a>Função: <strong>take_inference</strong> <em>(<var>lista</var>, <var>obj</var>)</em></dt>
+<dd>
+<p>Retorna o <var>n</var>-ésimo valor armazenado em <var>obj</var> se <var>n</var> for um inteiro positivo,
+ou o item chamado <var>nome</var> se esse for o nome de um item. Se o primeiro
+argumento for uma lista de números e/ou símbolos, a função <code>take_inference</code> retorna
+uma lista com os resultados correspondentes.
+</p>
+<p>Exemplo:
+</p>
+<p>Fornece um objecto <code>inference_result</code>, a função <code>take_inference</code> é
+chamada com o objectivo de extrair alguma informação armazenada nesse objecto.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;inference_result&quot;)$
+(%i2) b: 3$ h: 2$
+(%i3) sol: inference_result(&quot;Retângulo&quot;,
+                            ['base=b,
+                             'altura=h,
+                             'diagonal=sqrt(b^2+h^2),
+                             'area=b*h,
+                             'perímetro=2*(b+h)],
+                            [1,2,5,4] );
+                        |   Retângulo
+                        |
+                        |    base = 3
+                        |
+(%o3)                   |   altura = 2
+                        |
+                        | perímetro = 10
+                        |
+                        |    area = 6
+(%i4) take_inference('base,sol);
+(%o4)                           3
+(%i5) take_inference(5,sol);
+(%o5)                          10
+(%i6) take_inference([1,'diagonal],sol);
+(%o6)                     [3, sqrt(13)]
+(%i7) take_inference(items_inference(sol),sol);
+(%o7)                [3, 2, sqrt(13), 6, 10]
+</pre></div>
+
+<p>Veja também <code>inference_result</code> e <code>take_inference</code>.
+</p></dd></dl>
+
+
+
+
+
+
+
+
+
+<a name="Item_003a-stats_002fnode_002fDefini_00e7_00f5es-para-stats"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_203.html#Defini_00e7_00f5es-para-stats" accesskey="n" rel="next">Definições para stats</a>, Previous: <a href="maxima_201.html#Introdu_00e7_00e3o-a-stats" accesskey="p" rel="previous">Introdução a stats</a>, Acima: <a href="maxima_toc.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

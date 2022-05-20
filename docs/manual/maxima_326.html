@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for inference_result (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Package ineq</title>
 
-<meta name="description" content="Functions and Variables for inference_result (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Functions and Variables for inference_result (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Package ineq">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Package ineq">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="index.html" rel="up" title="Top">
-<link href="maxima_327.html" rel="next" title="Functions and Variables for stats">
-<link href="maxima_325.html" rel="prev" title="Introduction to stats">
+<link href="maxima_321.html#simplification_002dpkg" rel="up" title="simplification-pkg">
+<link href="maxima_327.html#Package-rducon" rel="next" title="Package rducon">
+<link href="maxima_325.html#Package-functs" rel="previous" title="Package functs">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,185 +73,119 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Functions-and-Variables-for-inference_005fresult"></span><div class="header">
-<p>
-Next: <a href="maxima_327.html" accesskey="n" rel="next">Functions and Variables for stats</a>, Previous: <a href="maxima_325.html" accesskey="p" rel="prev">Introduction to stats</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<span id="Functions-and-Variables-for-inference_005fresult-1"></span><h3 class="section">86.2 Functions and Variables for inference_result</h3>
-
-<span id="inference_005fresult"></span><span id="Item_003a-stats_002fdeffn_002finference_005fresult"></span><dl>
-<dt id="index-inference_005fresult">Function: <strong>inference_result</strong> <em>(<var>title</var>, <var>values</var>, <var>numbers</var>)</em></dt>
-<dd>
-<p>Constructs an <code>inference_result</code> object of the type returned by the
-stats functions. Argument <var>title</var> is a
-string with the name of the procedure; <var>values</var> is a list with
-elements of the form <code>symbol = value</code> and <var>numbers</var> is a list
-with positive integer numbers ranging from one to <code>length(<var>values</var>)</code>,
-indicating which values will be shown by default.
-</p>
-<p>Example:
-</p>
-<p>This is a simple example showing results concerning a rectangle. The title of
-this object is the string <code>&quot;Rectangle&quot;</code>, it stores five results, named
-<code>'base</code>, <code>'height</code>, <code>'diagonal</code>, <code>'area</code>,
-and <code>'perimeter</code>, but only the first, second, fifth, and fourth
-will be displayed. The <code>'diagonal</code> is stored in this object, but it is
-not displayed; to access its value, make use of function <code>take_inference</code>.
-</p>
-<div class="example">
-<pre class="example">(%i1) load(inference_result)$
-(%i2) b: 3$ h: 2$
-(%i3) inference_result(&quot;Rectangle&quot;,
-                        ['base=b,
-                         'height=h,
-                         'diagonal=sqrt(b^2+h^2),
-                         'area=b*h,
-                         'perimeter=2*(b+h)],
-                        [1,2,5,4] );
-                        |   Rectangle
-                        |
-                        |    base = 3
-                        |
-(%o3)                   |   height = 2
-                        |
-                        | perimeter = 10
-                        |
-                        |    area = 6
-(%i4) take_inference('diagonal,%);
-(%o4)                        sqrt(13)
-</pre></div>
-
-<p>See also <code><a href="#take_005finference">take_inference</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stats">Package stats</a>
-</div>
-</p>
-</dd></dl>
-
-
-
-
-
-
-<span id="inferencep"></span><span id="Item_003a-stats_002fdeffn_002finferencep"></span><dl>
-<dt id="index-inferencep">Function: <strong>inferencep</strong> <em>(<var>obj</var>)</em></dt>
-<dd>
-<p>Returns <code>true</code> or <code>false</code>, depending on whether <var>obj</var> is an
-<code>inference_result</code> object or not.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stats">Package stats</a>
-</div>
-</p>
-</dd></dl>
-
-
-
-
-
-
-<span id="items_005finference"></span><span id="Item_003a-stats_002fdeffn_002fitems_005finference"></span><dl>
-<dt id="index-items_005finference">Function: <strong>items_inference</strong> <em>(<var>obj</var>)</em></dt>
-<dd>
-<p>Returns a list with the names of the items stored in <var>obj</var>, which must
-be an <code>inference_result</code> object.
-</p>
-<p>Example:
-</p>
-<p>The <code>inference_result</code> object stores two values, named <code>'pi</code> and <code>'e</code>,
-but only the second is displayed. The <code>items_inference</code> function returns the names
-of all items, no matter they are displayed or not.
-</p>
-<div class="example">
-<pre class="example">(%i1) load(inference_result)$
-(%i2) inference_result(&quot;Hi&quot;, ['pi=%pi,'e=%e],[2]);
-                            |   Hi
-(%o2)                       |
-                            | e = %e
-(%i3) items_inference(%);
-(%o3)                        [pi, e]
-</pre></div>
-
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stats">Package stats</a>
-</div>
-</p>
-</dd></dl>
-
-
-
-
-
-
-
-<span id="take_005finference"></span><span id="Item_003a-stats_002fdeffn_002ftake_005finference"></span><dl>
-<dt id="index-take_005finference">Function: <strong>take_inference</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>take_inference</tt> (<var>n</var>, <var>obj</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>take_inference</tt> (<var>name</var>, <var>obj</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>take_inference</tt> (<var>list</var>, <var>obj</var>)</em></dt>
-<dd>
-<p>Returns the <var>n</var>-th value stored in <var>obj</var> if <var>n</var> is a positive integer,
-or the item named <var>name</var> if this is the name of an item. If the first
-argument is a list of numbers and/or symbols, function <code>take_inference</code> returns
-a list with the corresponding results.
-</p>
-<p>Example:
-</p>
-<p>Given an <code>inference_result</code> object, function <code>take_inference</code> is
-called in order to extract some information stored in it.
-</p>
-<div class="example">
-<pre class="example">(%i1) load(inference_result)$
-(%i2) b: 3$ h: 2$
-(%i3) sol: inference_result(&quot;Rectangle&quot;,
-                            ['base=b,
-                             'height=h,
-                             'diagonal=sqrt(b^2+h^2),
-                             'area=b*h,
-                             'perimeter=2*(b+h)],
-                            [1,2,5,4] );
-                        |   Rectangle
-                        |
-                        |    base = 3
-                        |
-(%o3)                   |   height = 2
-                        |
-                        | perimeter = 10
-                        |
-                        |    area = 6
-(%i4) take_inference('base,sol);
-(%o4)                           3
-(%i5) take_inference(5,sol);
-(%o5)                          10
-(%i6) take_inference([1,'diagonal],sol);
-(%o6)                     [3, sqrt(13)]
-(%i7) take_inference(items_inference(sol),sol);
-(%o7)                [3, 2, sqrt(13), 6, 10]
-</pre></div>
-
-<p>See also <code><a href="#inference_005fresult">inference_result</a></code>, and <code><a href="#take_005finference">take_inference</a></code>.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Package-stats">Package stats</a>
-</div>
-</p>
-</dd></dl>
-
-
-
-
-
-
-
-
-
-<span id="Item_003a-stats_002fnode_002fFunctions-and-Variables-for-stats"></span><hr>
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Package-ineq"></a>
 <div class="header">
 <p>
-Next: <a href="maxima_327.html" accesskey="n" rel="next">Functions and Variables for stats</a>, Previous: <a href="maxima_325.html" accesskey="p" rel="prev">Introduction to stats</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_327.html#Package-rducon" accesskey="n" rel="next">Package rducon</a>, Previous: <a href="maxima_325.html#Package-functs" accesskey="p" rel="previous">Package functs</a>, Up: <a href="maxima_321.html#simplification_002dpkg" accesskey="u" rel="up">simplification-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Package-ineq-1"></a>
+<h3 class="section">86.5 Package ineq</h3>
+
+<p>The <code>ineq</code> package contains simplification rules
+for inequalities.
+</p>
+<p>Example session:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;ineq&quot;)$
+tellsimp: warning: rule will treat '+
+                          ' as noncommutative and nonassociative.
+tellsimp: warning: rule will treat '+
+                          ' as noncommutative and nonassociative.
+tellsimp: warning: rule will treat '+
+                          ' as noncommutative and nonassociative.
+tellsimp: warning: rule will treat '+
+                          ' as noncommutative and nonassociative.
+tellsimp: warning: rule will treat '+
+                          ' as noncommutative and nonassociative.
+tellsimp: warning: rule will treat '+
+                          ' as noncommutative and nonassociative.
+tellsimp: warning: rule will treat '+
+                          ' as noncommutative and nonassociative.
+tellsimp: warning: rule will treat '+
+                          ' as noncommutative and nonassociative.
+</pre><pre class="example">(%i2) a&gt;=4;  /* a sample inequality */
+(%o2)                        a &gt;= 4
+(%o3)                     b + a &gt; c + 4
+(%o4)                       7 x &lt; 7 y
+(%o5)                    - 2 x &lt;= - 6 z
+                                 2
+(%o6)                      1 &lt;= a  + 1
+(%o8)                       2 x &lt; 3 x
+(%o9)                        a &gt;= b
+(%o10)                   a + 3 &gt;= b + 3
+(%o11)                       a &gt;= b
+(%o12)                     a &gt;= c - b
+(%o13)                     b + a &gt;= c
+(%o14)                 (- c) + b + a &gt;= 0
+(%o15)                   c - b - a &lt;= 0
+                               2
+(%o16)                  (z - 1)  &gt; - 2 z
+                            2
+(%o17)                     z  + 1 &gt; 0
+(%o18)                        true
+</pre><pre class="example">(%i19) (b&gt;c)+%; /* add a second, strict inequality */
+</pre></div>
+
+<p>Be careful about using parentheses
+around the inequalities: when the user types in <code>(A &gt; B) + (C = 5)</code> the
+result is <code>A + C &gt; B + 5</code>, but <code>A &gt; B + C = 5</code> is a syntax error,
+and <code>(A &gt; B + C) = 5</code> is something else entirely.
+</p>
+<p>Do <code>disprule (all)</code> to see a complete listing
+of the rule definitions.
+</p>
+<p>The user will be queried if Maxima is
+unable to decide the sign of a quantity multiplying an inequality.
+</p>
+<p>The most common mis-feature is illustrated by:
+</p>
+<div class="example">
+<pre class="example">(%i1) eq: a &gt; b;
+(%o1)                         a &gt; b
+</pre><pre class="example">(%i2) 2*eq;
+(%o2)                       2 (a &gt; b)
+</pre><pre class="example">(%i3) % - eq;
+(%o3)                         a &gt; b
+</pre></div>
+
+<p>Another problem is 0 times an inequality; the default to have this
+turn into 0 has been left alone. However, if you type 
+<code>X*<var>some_inequality</var></code> and Maxima asks about the sign of <code>X</code> and you
+respond <code>zero</code> (or <code>z</code>), the program returns <code>X*<var>some_inequality</var></code>
+and not use the information that <code>X</code> is 0. You should do <code>ev (%, x: 0)</code> in such
+a case, as the database will only be used for comparison purposes
+in decisions, and not for the purpose of evaluating <code>X</code>.
+</p>
+<p>The user may note a slower response when this package is loaded, as
+the simplifier is forced to examine more rules than without the
+package, so you might wish to remove the rules after making use of
+them. Do <code>kill (rules)</code> to eliminate all of the rules (including any
+that you might have defined); or you may be more selective by
+killing only some of them; or use <code>remrule</code> on a specific rule.
+</p>
+<p>Note that if you load this package after defining your own
+rules you will clobber your rules that have the same name. The
+rules in this package are:
+<code>*rule1</code>, ..., <code>*rule8</code>,
+<code>+rule1</code>, ..., <code>+rule18</code>,
+and you must enclose the rulename in quotes to refer to it, as
+in <code>remrule (&quot;+&quot;, &quot;+rule1&quot;)</code> to specifically remove the first rule on <code>&quot;+&quot;</code>
+or <code>disprule (&quot;*rule2&quot;)</code> to display the definition of the second multiplicative rule.
+</p>
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Simplification-functions">Simplification functions</a>
+&middot;<a href="maxima_378.html#Category_003a-Rules-and-patterns">Rules and patterns</a>
+&middot;<a href="maxima_378.html#Category_003a-Share-packages">Share packages</a>
+&middot;<a href="maxima_378.html#Category_003a-Package-ineq">Package ineq</a>
+&middot;</div>
+
+
+<a name="Item_003a-simplifications_002fnode_002fPackage-rducon"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_327.html#Package-rducon" accesskey="n" rel="next">Package rducon</a>, Previous: <a href="maxima_325.html#Package-functs" accesskey="p" rel="previous">Package functs</a>, Up: <a href="maxima_321.html#simplification_002dpkg" accesskey="u" rel="up">simplification-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

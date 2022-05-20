@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Definições para simplex</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Definições para simplex">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições para simplex">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_191.html#simplex" rel="up" title="simplex">
+<link href="maxima_194.html#simplification" rel="next" title="simplification">
+<link href="maxima_192.html#Introdu_00e7_00e3o-a-simplex" rel="previous" title="Introdução a simplex">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-para-simplex"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_192.html#Introdu_00e7_00e3o-a-simplex" accesskey="p" rel="previous">Introdução a simplex</a>, Acima: <a href="maxima_191.html#simplex" accesskey="u" rel="up">simplex</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-para-simplex"></a>
+<h3 class="section">64.2 Definições para simplex</h3>
+
+<a name="Item_003a-simplex_002fdefvr_002fepsilon_005fsx"></a><dl>
+<dt><a name="index-epsilon_005fsx"></a>Variável de opção: <strong>epsilon_sx</strong></dt>
+<dd><p>Valor por omissão: <code>10^-8</code>
+</p>
+<p>Epsilon usando para cálculos numéricos em <code>linear_program</code>.
+</p>
+<p>Veja também: <code>linear_program</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-simplex_002fdeffn_002flinear_005fprogram"></a><dl>
+<dt><a name="index-linear_005fprogram"></a>Função: <strong>linear_program</strong> <em>(<var>A</var>, <var>b</var>, <var>c</var>)</em></dt>
+<dd>
+<p><code>linear_program</code> é uma implementação do algoritmo simplex.
+<code>linear_program(A, b, c)</code> calcula um vetor <var>x</var> para o qual <code>c.x</code> é o mínimo
+possível entre vetores para os quais <code>A.x = b</code> e <code>x &gt;= 0</code>. O argumento
+<var>A</var> é uma matriz e os argumentos <var>b</var> e <var>c</var> são listas.
+</p>
+<p><code>linear_program</code> retorna uma lista contendo o vetor minimizado <var>x</var> e o
+valor mínimo <code>c.x</code>. Se o problema for não associado, é retornado &quot;Problem not bounded!&quot; e
+se o problema for não viável, é retornado &quot;Problem not feasible!&quot;.
+</p>
+<p>Para usar essa função primeiramente chame o pacote <code>simplex</code> com <code>load(&quot;simplex&quot;);</code>.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i2) A: matrix([1,1,-1,0], [2,-3,0,-1], [4,-5,0,0])$
+(%i3) b: [1,1,6]$
+(%i4) c: [1,-2,0,0]$
+(%i5) linear_program(A, b, c);
+                   13     19        3
+(%o5)            [[--, 4, --, 0], - -]
+                   2      2         2
+</pre></div>
+
+<p>Veja também: <code>minimize_sx</code>, <code>scale_sx</code>, e <code>epsilon_sx</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-simplex_002fdeffn_002fmaximize_005fsx"></a><dl>
+<dt><a name="index-maximize_005fsx"></a>Função: <strong>maximize_sx</strong> <em>(<var>obj</var>, <var>cond</var>, [<var>pos</var>])</em></dt>
+<dd>
+<p>Maximiza a função linear objetiva <var>obj</var> submetida a alguma restrição linear
+<var>cond</var>. Veja <code>minimize_sx</code> para uma descrição detalhada de argumentos e valores de
+retorno.
+</p>
+
+<p>Veja também: <code>minimize_sx</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-simplex_002fdeffn_002fminimize_005fsx"></a><dl>
+<dt><a name="index-minimize_005fsx"></a>Função: <strong>minimize_sx</strong> <em>(<var>obj</var>, <var>cond</var>, [<var>pos</var>])</em></dt>
+<dd>
+<p>Minimiza uma função linear objetiva <var>obj</var> submetida a alguma restrição
+linear <var>cond</var>. <var>cond</var> é uma lista de equações lineares ou
+desigualdades. Em desigualdades estritas <code>&gt;</code> é  substituido por <code>&gt;=</code>
+e <code>&lt;</code> por <code>&lt;=</code>. O argumento opcional <var>pos</var> é uma lista de
+variáveis de decisão que são assumidas como sendo positivas.
+</p>
+<p>Se o mínimo existir, <code>minimize_sx</code> retorna uma lista que contém
+o menor valor da função objetiva e uma lista de valores de variáveis de
+decisão para os quais o mínimo é alcançado. Se o problema for não associado,
+<code>minimize_sx</code> retorna &quot;Problem not bounded!&quot; e se o problema for
+não viável, é retornado &quot;Ploblem not feasible!&quot;.
+</p>
+<p>As variáveis de decisão não são assumidas para serem não negativas por padrão. Se todas
+as variáveis de dicisão forem não negativas, escolha <code>nonegative_sx</code> para <code>true</code>.
+Se somente algumas das variáveis de decisão forem positivas, coloque-as então no argumento
+opcional <var>pos</var> (note que isso é mais eficiente que adicionar
+restrições).
+</p>
+<p><code>minimize_sx</code> utiliza o algoritmo simplex que é implementado na função
+<code>linear_program</code> do Maxima.
+</p>
+<p>Para usar essa função primeiramente chame o pacote <code>simplex</code> com <code>load(&quot;simplex&quot;);</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) minimize_sx(x+y, [3*x+y=0, x+2*y&gt;2]);
+                      4       6        2
+(%o1)                [-, [y = -, x = - -]]
+                      5       5        5
+(%i2) minimize_sx(x+y, [3*x+y&gt;0, x+2*y&gt;2]), nonegative_sx=true;
+(%o2)                [1, [y = 1, x = 0]]
+(%i3) minimize_sx(x+y, [3*x+y=0, x+2*y&gt;2]), nonegative_sx=true;
+(%o3)                Problem not feasible!
+(%i4) minimize_sx(x+y, [3*x+y&gt;0]);
+(%o4)                Problem not bounded!
+</pre></div>
+
+
+<p>Veja também: <code>maximize_sx</code>, <code>nonegative_sx</code>, <code>epsilon_sx</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-simplex_002fdefvr_002fnonegative_005fsx"></a><dl>
+<dt><a name="index-nonegative_005fsx"></a>Variável de opção: <strong>nonegative_sx</strong></dt>
+<dd><p>Valor por omissão: <code>false</code>
+</p>
+<p>Se <code>nonegative_sx</code> for verdadeiro (true) todas as variáveis de decisão para <code>minimize_sx</code>
+e <code>maximize_sx</code> são assumidas para serem positivas.
+</p>
+<p>Veja também: <code>minimize_sx</code>.
+</p>
+</dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_192.html#Introdu_00e7_00e3o-a-simplex" accesskey="p" rel="previous">Introdução a simplex</a>, Acima: <a href="maxima_191.html#simplex" accesskey="u" rel="up">simplex</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

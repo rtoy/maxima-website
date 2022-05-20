@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Funktionen</title>
+
+<meta name="description" content="Maxima Manual: Funktionen">
+<meta name="keywords" content="Maxima Manual: Funktionen">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_157.html#Funktionsdefinitionen" rel="up" title="Funktionsdefinitionen">
+<link href="maxima_159.html#Makros" rel="next" title="Makros">
+<link href="maxima_157.html#Funktionsdefinitionen" rel="previous" title="Funktionsdefinitionen">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funktionen"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_159.html#Makros" accesskey="n" rel="next">Makros</a>, Previous: <a href="maxima_157.html#Funktionsdefinitionen" accesskey="p" rel="previous">Funktionsdefinitionen</a>, Nach oben: <a href="maxima_157.html#Funktionsdefinitionen" accesskey="u" rel="up">Funktionsdefinitionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-1"></a>
+<h3 class="section">25.1 Funktionen</h3>
+
+<a name="Gewohnliche-Funktionen"></a>
+<h4 class="subsection">25.1.1 Gew&ouml;hnliche Funktionen</h4>
+
+<p>Eine Maxima-Funktion wird mit dem Operator <code><a href="maxima_39.html#g_t_003a_003d">:=</a></code> oder der Funktion
+<code><a href="maxima_160.html#define">define</a></code> definiert.  Im folgenden wird die Funktion <code>f</code> mit
+dem Operator <code>:=</code> definiert:
+</p>
+<div class="example">
+<pre class="example">f(x) := sin(x)
+</pre></div>
+
+<p>Funktionen, die mit der Funktion <code><a href="maxima_160.html#lambda">lambda</a></code> definiert werden, sind anonyme 
+Funktionen, die keinen Namen haben.  Diese werden auch <code>lambda</code>-Ausdr&uuml;cke
+genannt:
+</p>
+<div class="example">
+<pre class="example">lambda ([i, j], ...)
+</pre></div>
+
+<p>Anonyme Funktionen k&ouml;nnen &uuml;berall dort verwendet werden, wo eine Funktion 
+als Argument erwartet wird.  Das folgende Beispiel gibt eine Liste zur&uuml;ck,
+bei der jedes Element der Liste <code>L</code> mit 1 addiert wird:
+</p>
+<div class="example">
+<pre class="example">map (lambda ([i], i+1), L)
+</pre></div>
+
+<p>Ist das letzte oder einzige Argument einer Funktion eine Liste mit einem 
+Element, kann eine variable Anzahl an Argumenten an die Funktion &uuml;bergeben 
+werden:
+</p>
+<div class="example">
+<pre class="example">(%i1) f ([u]) := u;
+(%o1)                      f([u]) := u
+(%i2) f (1, 2, 3, 4);
+(%o2)                     [1, 2, 3, 4]
+(%i3) f (a, b, [u]) := [a, b, u];
+(%o3)               f(a, b, [u]) := [a, b, u]
+(%i4) f (1, 2, 3, 4, 5, 6);
+(%o4)                 [1, 2, [3, 4, 5, 6]]
+</pre></div>
+
+<p>Die rechte Seite einer Funktionsdefinition ist ein Ausdruck.  Mehrere
+Ausdr&uuml;cke werden durch Kommata getrennt und mit Klammern umgeben.  Das
+Ergebnis der Funktion ist der Wert des letzten Ausdrucks <code>exprn</code>:
+</p>
+<div class="example">
+<pre class="example">f(x) := (expr1, expr2, ...., exprn);
+</pre></div>
+
+<p>Ein R&uuml;cksprung mit der Anweisung <code><a href="maxima_168.html#return">return</a></code> aus einer Funktion ist 
+m&ouml;glich, wenn die Definition der Funktion in einen Block eingef&uuml;gt wird.
+Ein Block wird mit der <code><a href="maxima_168.html#block">block</a></code>-Anweisung definiert.  Das folgende Beispiel 
+hat entweder den Wert <code>a</code> oder den Wert des Ausdrucks <var>exprn</var> als 
+Ergebnis:
+</p>
+<div class="example">
+<pre class="example">block ([], expr1, ..., if (a &gt; 10) then return(a), ..., exprn)
+</pre></div>
+
+<p>Das erste paar Klammern <code>[]</code> in einem Block enth&auml;lt die Definition von 
+lokalen Variablen wie zum Beispiel <code>[a: 3, b, c: []]</code>.  Die Variablen sind 
+au&szlig;erhalb des Blocks nicht sichtbar.  Die Werte von globalen Variablen 
+werden von den lokalen Werten &uuml;berschrieben.  Au&szlig;erhalb des Blocks haben 
+die Variablen, wenn vorhanden, wieder ihre alten Werte.  Die Zuweisung der Werte
+an die lokalen Variablen wird parallel ausgef&uuml;hrt.
+</p>
+<p>Im folgenden Beispiel wird der Wert der globalen Variablen <var>a</var> der lokalen 
+Variablen <var>a</var> zugewiesen.  &Auml;nderungen von <var>a</var> im Block wirken sich 
+nicht auf den globalen Wert der Variablen aus.
+</p>
+<div class="example">
+<pre class="example">block ([a: a], expr1, ... a: a+3, ..., exprn)
+</pre></div>
+
+<p>Die Anweisung <code>block ([x], ...)</code> bewirkt, dass <code>x</code> als lokale Variable
+ohne einen Wert verwendet werden kann.
+</p>
+<p>Die Argumente einer Funktion werden in gleicher Weise wie lokal definierte
+Variable behandelt.  Die folgende Definition
+</p>
+<div class="example">
+<pre class="example">f(x) := (expr1, ..., exprn);
+</pre></div>
+
+<p>mit
+</p>
+<div class="example">
+<pre class="example">f(1);
+</pre></div>
+
+<p>hat denselben Effekt wie der folgende Block:
+</p>
+<div class="example">
+<pre class="example">block ([x: 1], expr1, ..., exprn)
+</pre></div>
+
+<p>Soll die rechte Seite einer Funktionsdefinition ausgewertet werden,
+kann die Funktionen <code><a href="maxima_160.html#define">define</a></code> f&uuml;r die Definition der Funktion verwendet
+werden.  Mit der Funktion <code><a href="maxima_159.html#buildq">buildq</a></code> kann die Definition einer Funktion
+konstruiert werden, wobei die Auswertung gezielt kontrolliert werden kann.
+</p>
+<a name="Array_002dFunktionen"></a><a name="Array_002dFunktionen-1"></a>
+<h4 class="subsection">25.1.2 Array-Funktionen</h4>
+
+<p>Eine Array-Funktion speichert bei dem ersten Aufruf den Funktionswert zu dem 
+Argument.  Wird die Array-Funktion mit demselben Argument aufgerufen, wird der
+gespeicherte Wert zur&uuml;ckgeben, ohne diesen neu zu berechnen.  Dies wird auch
+Memoisation genannt.
+</p>
+<p>Beispiel:
+</p>
+<p>Das folgende Beispiel zeigt die Definition einer Array-Funktion <code>f</code>, die
+die Fakult&auml;t einer Zahl faktorisiert.  Im ersten Aufruf der Funktion mit dem
+Argument <code>25000</code> wird eine Rechenzeit von etwa 24 Sekunden ben&ouml;tigt.
+Der zweite Aufruf mit demselben Argument gibt sofort den abgespeicherten Wert
+zur&uuml;ck.
+</p>
+<div class="example">
+<pre class="example">(%i1) f[x]:=factor(x!);
+(%o1)                   f  := factor(x!)
+                         x
+(%i2) showtime:true;
+Evaluation took 0.0000 seconds (0.0000 elapsed) using 0 bytes.
+(%o2)                         true
+(%i3) f[25000]$
+Evaluation took 23.9250 seconds (26.0790 elapsed) using 3829.778 MB.
+(%i4) f[25000]$
+Evaluation took 0.0000 seconds (0.0000 elapsed) using 0 bytes. 
+</pre></div>
+
+<p>Die Namen der Array-Funktionen werden in die Informationsliste <code><a href="maxima_24.html#arrays">arrays</a></code><!-- /@w -->
+und nicht in die Liste <code><a href="maxima_160.html#functions">functions</a></code> eingetragen.  <code><a href="maxima_24.html#arrayinfo">arrayinfo</a></code> gibt eine
+Liste der Argumente zur&uuml;ck, f&uuml;r die Werte gespeichert sind und 
+<code><a href="maxima_24.html#listarray">listarray</a></code> gibt die Werte zur&uuml;ck.  Die Funktionen <code><a href="maxima_160.html#dispfun">dispfun</a></code> und
+<code><a href="maxima_160.html#fundef">fundef</a></code> geben die Definition der Array-Funktion zur&uuml;ck.
+</p>
+<p>Beispiele:
+</p>
+<p>Mit dem obigen Beispiel werden die folgenden Ergebnisse ausgegeben.
+</p>
+<div class="example">
+<pre class="example">(%i5) arrays;
+(%o5)                          [f]
+(%i6) arrayinfo(f);
+(%o6)                 [hashed, 1, [25000]]
+(%i7) dispfun(f);
+(%t7)                   f  := factor(x!)
+                         x
+(%o7)                         [%t7]
+</pre></div>
+
+<p><code><a href="maxima_24.html#arraymake">arraymake</a></code> erzeugt den Aufruf einer Array-Funktion.  Dies ist analog zu
+der Funktion <code><a href="maxima_160.html#funmake">funmake</a></code> f&uuml;r gew&ouml;hnliche Funktionen.
+<code><a href="maxima_24.html#arrayapply">arrayapply</a></code> wendet eine Array-Funktion auf die Argumente an.  Dies
+entspricht der Funktion <code><a href="maxima_160.html#apply">apply</a></code> f&uuml;r gew&ouml;hnliche Funktionen.  Die
+Funktion <code><a href="maxima_160.html#map">map</a></code> hat keine Entsprechung f&uuml;r Array-Funktionen.
+Vergleichbare Konstruktionen sind
+<code>map(lambda([<var>x</var>], <var>a</var>[<var>x</var>]), <var>L</var>)</code> oder 
+<code>makelist(<var>a</var>[<var>x</var>], <var>x</var>, <var>L</var>)</code>, wobei <var>L</var> eine Liste
+ist.
+</p>
+<p><code><a href="maxima_24.html#remarray">remarray</a></code> entfernt die Definition einer Array-Funktion einschlie&szlig;lich 
+der gespeicherten Werte.  Dies entspricht <code><a href="maxima_160.html#remfunction">remfunction</a></code> f&uuml;r gew&ouml;hnliche
+Funktionen.
+</p>
+<p><code>kill(<var>a</var>[<var>x</var>])</code> entfernt den f&uuml;r das Argument <var>x</var> 
+gespeicherten Wert einer Array-Funktion <var>a</var>.  Beim n&auml;chsten Aufruf von 
+<var>a</var> mit dem Argument <var>x</var> wird der Funktionswert neu berechnet.  Es gibt
+keine M&ouml;glichkeit, alle gespeicherten Werte zu l&ouml;schen, ohne dass die
+Definition der Funktion entfernt wird.  Die Kommandos <code>kill(<var>a</var>)</code> und
+<code>remarray(<var>a</var>)</code> l&ouml;schen alle Werte einschlie&szlig;lich der Definition
+der Funktion.
+</p>
+<a name="Item_003a-Function_002ede_002fnode_002fMakros"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_159.html#Makros" accesskey="n" rel="next">Makros</a>, Previous: <a href="maxima_157.html#Funktionsdefinitionen" accesskey="p" rel="previous">Funktionsdefinitionen</a>, Nach oben: <a href="maxima_157.html#Funktionsdefinitionen" accesskey="u" rel="up">Funktionsdefinitionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

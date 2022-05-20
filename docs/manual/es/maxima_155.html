@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Introducción a los conjuntos</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Introducción a los conjuntos">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Introducción a los conjuntos">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_154.html#Conjuntos" rel="up" title="Conjuntos">
+<link href="maxima_156.html#Funciones-y-variables-para-los-conjuntos" rel="next" title="Funciones y variables para los conjuntos">
+<link href="maxima_154.html#Conjuntos" rel="previous" title="Conjuntos">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introducci_00f3n-a-los-conjuntos"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_156.html#Funciones-y-variables-para-los-conjuntos" accesskey="n" rel="next">Funciones y variables para los conjuntos</a>, Previous: <a href="maxima_154.html#Conjuntos" accesskey="p" rel="previous">Conjuntos</a>, Subir: <a href="maxima_154.html#Conjuntos" accesskey="u" rel="up">Conjuntos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introduccion-a-los-conjuntos"></a>
+<h3 class="section">35.1 Introducción a los conjuntos</h3>
+
+<p>Maxima dispone de funciones para realizar operaciones con conjuntos, como la intersección o la unión. Los conjuntos deben ser finitos y definidos por enumeración. Maxima trata a los conjuntos y a las listas como objectos de distinta naturaleza, lo que permite trabajar con conjuntos cuyos elementos puedan ser también conjuntos o listas.
+</p>
+<p>Además de funciones para operar con conjuntos finitos, Maxima dispone también de algunas funciones sobre combinatoria, como los números de Stirling de primera y segunda especie, números de Bell, coeficientes multinomiales, particiones de enteros no negativos y algunos otros. Maxima también define la función delta de Kronecker.
+</p>
+
+<a name="Utilizacion"></a>
+<h4 class="subsection">35.1.1 Utilización</h4>
+
+<p>Para construir un conjunto cuyos elementos sean <code>a_1, ..., a_n</code>, se utiliza la instrucción  <code>set(a_1, ..., a_n)</code> o <code>{a_1, ..., a_n}</code>; para formar un conjunto vacío, basta con hacer <code>set()</code> o <code>{}</code>. Para introducir conjuntos en Maxima, <code>set (...)</code> y <code>{ ... }</code> son equivalentes. Los conjuntos se muestran siempre con llave.
+</p>
+<p>Si un elemento se indica más de una vez, el proceso 
+de simplificación elimina los elementos redundantes.
+</p>
+<div class="example">
+<pre class="example">(%i1) set();
+(%o1)                          {}
+(%i2) set(a, b, a);
+(%o2)                        {a, b}
+(%i3) set(a, set(b));
+(%o3)                       {a, {b}}
+(%i4) set(a, [b]);
+(%o4)                       {a, [b]}
+(%i5) {};
+(%o5)                          {}
+(%i6) {a, b, a};
+(%o6)                        {a, b}
+(%i7) {a, {b}};
+(%o7)                       {a, {b}}
+(%i8) {a, [b]};
+(%o8)                       {a, [b]}
+</pre></div>
+
+
+<p>Dos elementos candidatos a formar parte de un conjunto, <var>x</var> e <var>y</var>,
+son redundantes, esto es, se consideran el mismo elemento a 
+efectos de consruir el conjunto, si y sólo si <code>is (<var>x</var> = <var>y</var>)</code>
+devuelve el valor <code>true</code>. Nótese que <code>is (equal (<var>x</var>, <var>y</var>))</code>
+puede devolver <code>true</code> y <code>is (<var>x</var> = <var>y</var>)</code> retornar
+<code>false</code>; en cuyo caso los elementos <var>x</var> e <var>y</var> se
+considerarían distintos.
+</p>
+<div class="example">
+<pre class="example">(%i1) x: a/c + b/c;
+                              b   a
+(%o1)                         - + -
+                              c   c
+(%i2) y: a/c + b/c;
+                              b   a
+(%o2)                         - + -
+                              c   c
+(%i3) z: (a + b)/c;
+                              b + a
+(%o3)                         -----
+                                c
+(%i4) is (x = y);
+(%o4)                         true
+(%i5) is (y = z);
+(%o5)                         false
+(%i6) is (equal (y, z));
+(%o6)                         true
+(%i7) y - z;
+                           b + a   b   a
+(%o7)                    - ----- + - + -
+                             c     c   c
+(%i8) ratsimp (%);
+(%o8)                           0
+(%i9) {x, y, z};
+                          b + a  b   a
+(%o9)                    {-----, - + -}
+                            c    c   c
+</pre></div>
+
+
+<p>Para formar un conjunto a partir de los miembros de una lista úsese <code>setify</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) setify([b, a]);
+(%o1)                        {a, b}
+</pre></div>
+
+<p>Los elementos <code>x</code> e <code>y</code> de un conjunto se consideran iguales si <code>is(x = y)</code> devuelve el valor <code>true</code>. Así, <code>rat(x)</code> y <code>x</code> se consideran el mismo elemento de un conjunto; consecuentemente, 
+</p>
+<div class="example">
+<pre class="example">(%i1) {x, rat(x)};
+(%o1)                          {x}
+</pre></div>
+
+<p>Además, puesto que  <code>is((x-1)*(x+1) = x^2 - 1)</code> devuelve <code>false</code>,  <code>(x-1)*(x+1)</code> y <code>x^2-1</code> se consideran elementos diferentes; así
+</p>
+<div class="example">
+<pre class="example">(%i1) {(x - 1)*(x + 1), x^2 - 1};
+                                       2
+(%o1)               {(x - 1) (x + 1), x  - 1}
+</pre></div>
+
+<p>Para reducir este conjunto a otro unitario, aplicar <code>rat</code> a cada elemento del conjunto:
+</p>
+<div class="example">
+<pre class="example">(%i1) {(x - 1)*(x + 1), x^2 - 1};
+                                       2
+(%o1)               {(x - 1) (x + 1), x  - 1}
+(%i2) map (rat, %);
+                              2
+(%o2)/R/                    {x  - 1}
+</pre></div>
+
+<p>Para eliminar redundancias con otros conjuntos, será necesario utilizar otras funciones de simplificación. He aquí un ejemplo que utiliza  <code>trigsimp</code>:
+</p>
+<div class="example">
+<pre class="example">(%i1) {1, cos(x)^2 + sin(x)^2};
+                            2         2
+(%o1)                {1, sin (x) + cos (x)}
+(%i2) map (trigsimp, %);
+(%o2)                          {1}
+</pre></div>
+
+<p>Se entiende que un conjunto está simplificado cuando entre sus elementos no hay redundancias y se hayan ordenados. La versión actual de las funciones para conjuntos utiliza la función <code>orderlessp</code> de Maxima para ordenar sus elementos; sin embargo, <i>futuras versiones de las funciones para operar con conjuntos podrán utilizar otras funciones de ordenación</i>.
+</p>
+<p>Algunas operaciones con conjuntos, tales como la sustitución, fuerzan automáticamente una re-simplificación; por ejemplo,
+</p>
+<div class="example">
+<pre class="example">(%i1) s: {a, b, c}$
+(%i2) subst (c=a, s);
+(%o2)                        {a, b}
+(%i3) subst ([a=x, b=x, c=x], s);
+(%o3)                          {x}
+(%i4) map (lambda ([x], x^2), set (-1, 0, 1));
+(%o4)                        {0, 1}
+</pre></div>
+
+<p>Maxima considera a las listas y conjuntos como objetos diferentes;
+funciones tales como <code>union</code> y <code>intersection</code> emitirán
+un error si alguno de sus argumentos no es un conjunto. Si se 
+necesita aplicar una función de conjunto a una lista, se deberá 
+utilizar la función <code>setify</code> para convertirla previamente en conjunto. 
+Así,
+</p>
+<div class="example">
+<pre class="example">(%i1) union ([1, 2], {a, b});
+Function union expects a set, instead found [1,2]
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i2) union (setify ([1, 2]), {a, b});
+(%o2)                     {1, 2, a, b}
+</pre></div>
+
+<p>Para extraer todos los elementos de un conjunto <code>s</code> que satisfagan un predicado <code>f</code>, úsese <code>subset(s,f)</code>. (Un <i>predicado</i> es una función booleana.) Por ejemplo, para encontrar las ecuaciones en un conjunto dado que no dependan de la variable <code>z</code>, se hará
+</p>
+<div class="example">
+<pre class="example">(%i1) subset ({x + y + z, x - y + 4, x + y - 5},
+              lambda ([e], freeof (z, e)));
+(%o1)               {- y + x + 4, y + x - 5}
+</pre></div>
+
+<p>La sección <code>Funciones y variables para los conjuntos</code> incluye una lista completa de funciones para operar con conjuntos en  Maxima.
+</p>
+<a name="Iteraciones-con-elementos"></a>
+<h4 class="subsection">35.1.2 Iteraciones con elementos</h4>
+
+<p>Hay dos formas para operar iterativamente sobre los elementos de un conjunto. Una es utilizar <code>map</code>; por ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) map (f, {a, b, c});
+(%o1)                  {f(a), f(b), f(c)}
+</pre></div>
+
+<p>La otra forma consiste en hacer uso de la construcción <code>for <var>x</var> in <var>s</var> do</code>
+</p>
+<div class="example">
+<pre class="example">(%i1) s: {a, b, c};
+(%o1)                       {a, b, c}
+(%i2) for si in s do print (concat (si, 1));
+a1 
+b1 
+c1 
+(%o2)                         done
+</pre></div>
+
+<p>Las funciones de Maxima  <code>first</code> y <code>rest</code> funcionan también con conjuntos.  En este caso, <code>first</code> devuelve el primer elemento que se muestra del conjunto, el cual puede depender de la implementación del sistema. Si <code>s</code> es un conjunto, entonces <code>rest(s)</code> equivale a <code>disjoin (first(s), s)</code>. Hay otras funciones que trabajan correctamente con conjuntos. En próximas versiones de las funciones para operar con conjuntos es posible que <code>first</code> y <code>rest</code> trabajen de modo diferente o que ya no lo hagan en absoluto.
+</p>
+<a name="Fallos"></a>
+<h4 class="subsection">35.1.3 Fallos</h4>
+
+<p>Las funciones para operar con conjuntos utilizan la función <code>orderlessp</code>
+de Maxima para ordenar los elementos de los conjuntos, así
+como la función <code>like</code> de Lisp para decidir sobre la igualdad de dichos
+elementos. Ambas funciones tienen fallos que son conocidos y que pueden
+aflorar si se trabaja con conjuntos que tengan elementos en formato de
+listas o matrices y que contengan expresiones racionales canónicas (CRE).
+Un ejemplo es
+</p>
+<div class="example">
+<pre class="example">(%i1) {[x], [rat (x)]};
+Maxima encountered a Lisp error:
+
+  The value #:X1440 is not of type LIST.
+
+Automatically continuing.
+To reenable the Lisp debugger set *debugger-hook* to nil.
+</pre></div>
+
+<p>Esta expresión provoca una parada de Maxima junto con la 
+emisión de un mensaje de error, el cual dependerá de 
+la versión de Lisp que utilice Maxima. Otro ejemplo es
+</p>
+<div class="example">
+<pre class="example">(%i1) setify ([[rat(a)], [rat(b)]]);
+Maxima encountered a Lisp error:
+
+  The value #:A1440 is not of type LIST.
+
+Automatically continuing.
+To reenable the Lisp debugger set *debugger-hook* to nil.
+</pre></div>
+
+<p>Estos fallos son causados por fallos en  <code>orderlessp</code> y <code>like</code>,
+no por fallos cuyo origen se encuentre en las funciones para conjuntos.
+Para ilustrarlo, se pueden ejecutar las siguientes expresiones
+</p>
+<div class="example">
+<pre class="example">(%i1) orderlessp ([rat(a)], [rat(b)]);
+Maxima encountered a Lisp error:
+
+  The value #:B1441 is not of type LIST.
+
+Automatically continuing.
+To reenable the Lisp debugger set *debugger-hook* to nil.
+(%i2) is ([rat(a)] = [rat(a)]);
+(%o2)                         false
+</pre></div>
+
+<p>Hasta que estos errores no se corrijan, no es aconsejable construir conjuntos que tengan por elementos listas o matrices que contengan expresiones en forma CRE; sin embargo, un conjunto con elementos de la forma CRE no deberían dar problemas:
+</p>
+<div class="example">
+<pre class="example">(%i1) {x, rat (x)};
+(%o1)                          {x}
+</pre></div>
+
+<p>La función <code>orderlessp</code> de Maxima tiene otro fallo que puede causar problemas con las funciones para conjuntos, en concreto, que el predicado de ordenación <code>orderlessp</code> no es transitivo. El ejemplo más simple que ilustra este punto es
+</p>
+<div class="example">
+<pre class="example">(%i1) q: x^2$
+(%i2) r: (x + 1)^2$
+(%i3) s: x*(x + 2)$
+(%i4) orderlessp (q, r);
+(%o4)                         true
+(%i5) orderlessp (r, s);
+(%o5)                         true
+(%i6) orderlessp (q, s);
+(%o6)                         false
+</pre></div>
+
+<p>El fallo puede causar problemas con todas las funciones para conjuntos,
+así como también con otras funciones de Maxima.
+Es probable, pero no seguro, que este fallo se puede evitar si todos 
+los elementos del conjunto están en la forma de expresión racional
+canónica (CRE) o han sido simplificados con <code>ratsimp</code>.
+</p>
+<p>Los mecanismos <code>orderless</code> y <code>ordergreat</code> de Maxima son incompatibles
+con las funciones para conjuntos. Si se necesitan utilizar <code>orderless</code> o
+<code>ordergreat</code>, hágase antes de construir los conjuntos y no se utilice 
+la instrucción <code>unorder</code>.
+</p>
+<p>Se ruega a todo usuario que crea haber encontrado un fallo en las funciones para conjuntos que lo comunique en la base de datos de Maxima. Véase <code>bug_report</code>.
+</p>
+<a name="Autores"></a>
+<h4 class="subsection">35.1.4 Autores</h4>
+
+<p>Stavros Macrakis de Cambridge, Massachusetts y Barton Willis de la University of Nebraska at Kearney (UNK).
+</p>
+<a name="Item_003a-nset_002ees_002fnode_002fFunciones-y-variables-para-los-conjuntos"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_156.html#Funciones-y-variables-para-los-conjuntos" accesskey="n" rel="next">Funciones y variables para los conjuntos</a>, Previous: <a href="maxima_154.html#Conjuntos" accesskey="p" rel="previous">Conjuntos</a>, Subir: <a href="maxima_154.html#Conjuntos" accesskey="u" rel="up">Conjuntos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

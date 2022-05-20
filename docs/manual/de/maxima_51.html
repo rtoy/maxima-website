@@ -1,889 +1,514 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Oktober, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Maxima Manual: 51. grobner</title>
+<title>Maxima Manual: Funktionen f&uuml;r komplexe Zahlen</title>
 
-<meta name="description" content="Maxima Manual: 51. grobner">
-<meta name="keywords" content="Maxima Manual: 51. grobner">
+<meta name="description" content="Maxima Manual: Funktionen f&uuml;r komplexe Zahlen">
+<meta name="keywords" content="Maxima Manual: Funktionen f&uuml;r komplexe Zahlen">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_49.html#Mathematische-Funktionen" rel="up" title="Mathematische Funktionen">
+<link href="maxima_52.html#Funktionen-der-Kombinatorik" rel="next" title="Funktionen der Kombinatorik">
+<link href="maxima_50.html#Funktionen-f_00fcr-Zahlen" rel="previous" title="Funktionen f&uuml;r Zahlen">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="grobner"></a>
-<a name="SEC296"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_50.html#SEC295" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC297" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_50.html#SEC288" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 51. grobner </h1>
-
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC297">51.1 Introduction to grobner</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC300">51.2 Functions and Variables for grobner</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Introduction-to-grobner"></a>
-<a name="SEC297"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC296" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC298" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 51.1 Introduction to grobner </h2>
-
-<p><code>grobner</code> is a package for working with Groebner bases in Maxima.
-</p>
-<p>A tutorial on <em>Groebner Bases</em> can be found at<br>
-<a href="http://www.geocities.com/CapeCanaveral/Hall/3131/">http://www.geocities.com/CapeCanaveral/Hall/3131/</a>
-</p>
-<p>To use the following functions you must load the <tt>`grobner.lisp'</tt> package.
-</p>
-<pre class="example">load(grobner);
-</pre>
-<p>A demo can be started by 
-</p><pre class="example">demo(&quot;grobner.demo&quot;);
-</pre>
-<p>or
-</p><pre class="example">batch(&quot;grobner.demo&quot;)
-</pre>
-<p>Some of the calculation in the demo will take a lot of time therefore the output
-<tt>`grobner-demo.output'</tt> of the demo can be found in the same directory as the
-demo file.
-</p>
-<hr size="6">
-<a name="SEC298"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC297" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC299" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC297" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 51.1.1 Notes on the grobner package </h3>
-
-<p>The package was written by Marek Rychlik <a href="http://alamos.math.arizona.edu">http://alamos.math.arizona.edu</a>
-and is released 2002-05-24 under the terms of the General Public License(GPL)
-(see file <tt>`grobner.lisp'</tt>.  This documentation was extracted from the files
-</p><p align="left"><tt>`README'</tt>, <tt>`grobner.lisp'</tt>, <tt>`grobner.demo'</tt>, <tt>`grobner-demo.output'</tt>
-</p><p>by G&uuml;nter Nowak.  Suggestions for improvement of the documentation can be
-discussed at the <em>maxima</em>-mailing-list <a href="mailto:maxima@math.utexas.edu">maxima@math.utexas.edu</a>.
-The code is a little bit out of date now.  Modern implementation use the fast
-<em>F4</em> algorithm described in &quot;A new efficient algorithm for computing
-Gr&ouml;bner bases (F4)&quot;, Jean-Charles Faug&egrave;re, LIP6/CNRS Universit&eacute; Paris VI,
-January 20, 1999.
-</p>
-<hr size="6">
-<a name="SEC299"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC298" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC300" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC297" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 51.1.2 Implementations of admissible monomial orders in grobner </h3>
-
-<ul>
-<li> <code>lex</code>
-pure lexicographic,
-default order for monomial comparisons
-
-</li><li> <code>grlex</code>
-total degree order, ties broken by lexicographic
-
-</li><li> <code>grevlex</code>
-total degree, ties broken by reverse lexicographic
-
-</li><li> <code>invlex</code>
-inverse lexicographic order
-</li></ul>
-
-<hr size="6">
-<a name="Functions-and-Variables-for-grobner"></a>
-<a name="SEC300"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC299" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC301" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 51.2 Functions and Variables for grobner </h2>
-
-<hr size="6">
-<a name="SEC301"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC300" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC302" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC300" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 51.2.1 Global switches for grobner </h3>
-
-<dl>
-<dt><u>Option variable:</u> <b>poly_monomial_order</b>
-<a name="IDX2359"></a>
-</dt>
-<dd><p>Default value: <code>lex</code>
-</p>
-<p>This global switch controls which monomial order is used in polynomial and
-Groebner Bases calculations.  If not set, <code>lex</code> will be used.
-</p></dd></dl>
-
-<dl>
-<dt><u>Option variable:</u> <b>poly_coefficient_ring</b>
-<a name="IDX2360"></a>
-</dt>
-<dd><p>Default value: <code>expression_ring</code>
-</p>
-<p>This switch indicates the coefficient ring of the polynomials that will be used
-in grobner calculations.  If not set, <em>maxima's</em> general expression ring
-will be used.  This variable may be set to <code>ring_of_integers</code> if desired.
-</p></dd></dl>
-
-<dl>
-<dt><u>Option variable:</u> <b>poly_primary_elimination_order</b>
-<a name="IDX2361"></a>
-</dt>
-<dd><p>Default value: <code>false</code>
-</p>
-<p>Name of the default order for eliminated variables in elimination-based
-functions.  If not set, <code>lex</code> will be used.
-</p></dd></dl>
-
-<dl>
-<dt><u>Option variable:</u> <b>poly_secondary_elimination_order</b>
-<a name="IDX2362"></a>
-</dt>
-<dd><p>Default value: <code>false</code>
-</p>
-<p>Name of the default order for kept variables in elimination-based functions.
-If not set, <code>lex</code> will be used.
-</p></dd></dl>
-
-<dl>
-<dt><u>Option variable:</u> <b>poly_elimination_order</b>
-<a name="IDX2363"></a>
-</dt>
-<dd><p>Default value: <code>false</code>
-</p>
-<p>Name of the default elimination order used in elimination calculations.  If set,
-it overrides the settings in variables <code>poly_primary_elimination_order</code> and
-<code>poly_secondary_elimination_order</code>.  The user must ensure that this is a
-true elimination order valid for the number of eliminated variables.
-</p></dd></dl>
-
-<dl>
-<dt><u>Option variable:</u> <b>poly_return_term_list</b>
-<a name="IDX2364"></a>
-</dt>
-<dd><p>Default value: <code>false</code>
-</p>
-<p>If set to <code>true</code>, all functions in this package will return each polynomial
-as a list of terms in the current monomial order rather than a <em>maxima</em>
-general expression.
-</p></dd></dl>
-
-<dl>
-<dt><u>Option variable:</u> <b>poly_grobner_debug</b>
-<a name="IDX2365"></a>
-</dt>
-<dd><p>Default value: <code>false</code>
-</p>
-<p>If set to <code>true</code>, produce debugging and tracing output.
-</p></dd></dl>
-
-<dl>
-<dt><u>Option variable:</u> <b>poly_grobner_algorithm</b>
-<a name="IDX2366"></a>
-</dt>
-<dd><p>Default value: <code>buchberger</code>
-</p>
-<p>Possible values: 
-</p><ul class="toc">
-<li> <code>buchberger</code>
-</li><li> <code>parallel_buchberger</code>
-</li><li> <code>gebauer_moeller</code>
-</li></ul>
-
-<p>The name of the algorithm used to find the Groebner Bases.
-</p></dd></dl>
-
-<dl>
-<dt><u>Option variable:</u> <b>poly_top_reduction_only</b>
-<a name="IDX2367"></a>
-</dt>
-<dd><p>Default value: <code>false</code>
-</p>
-<p>If not <code>false</code>, use top reduction only whenever possible.  Top reduction
-means that division algorithm stops after the first reduction.
-</p></dd></dl>
-
-<hr size="6">
-<a name="SEC302"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC301" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC303" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC300" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 51.2.2 Simple operators in grobner </h3>
-
-<p><code>poly_add</code>, <code>poly_subtract</code>, <code>poly_multiply</code> and <code>poly_expt</code>
-are the arithmetical operations on polynomials.  These are performed using the
-internal representation, but the results are converted back to the <em>maxima</em>
-general form.
-</p>
-<dl>
-<dt><u>Function:</u> <b>poly_add</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
-<a name="IDX2368"></a>
-</dt>
-<dd><p>Adds two polynomials <var>poly1</var> and <var>poly2</var>.
-</p>
-<pre class="example">(%i1) poly_add(z+x^2*y,x-z,[x,y,z]);
-                                    2
-(%o1)                              x  y + x
-</pre></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_subtract</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
-<a name="IDX2369"></a>
-</dt>
-<dd><p>Subtracts a polynomial <var>poly2</var> from <var>poly1</var>.
-</p>
-<pre class="example">(%i1) poly_subtract(z+x^2*y,x-z,[x,y,z]);
-                                      2
-(%o1)                          2 z + x  y - x
-</pre></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_multiply</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
-<a name="IDX2370"></a>
-</dt>
-<dd><p>Returns the product of polynomials <var>poly1</var> and <var>poly2</var>.
-</p>
-<pre class="example">(%i1) poly_multiply(z+x^2*y,x-z,[x,y,z])-(z+x^2*y)*(x-z),expand;
-(%o1)                                  0
-</pre></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_s_polynomial</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
-<a name="IDX2371"></a>
-</dt>
-<dd><p>Returns the <em>syzygy polynomial</em> (<em>S-polynomial</em>) of two polynomials
-<var>poly1</var> and <var>poly2</var>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_primitive_part</b><i> (<var>poly1</var>, <var>varlist</var>)</i>
-<a name="IDX2372"></a>
-</dt>
-<dd><p>Returns the polynomial <var>poly</var> divided by the GCD of its coefficients.
-</p>
-<pre class="example">(%i1) poly_primitive_part(35*y+21*x,[x,y]);
-(%o1)                              5 y + 3 x
-</pre></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_normalize</b><i> (<var>poly</var>, <var>varlist</var>)</i>
-<a name="IDX2373"></a>
-</dt>
-<dd><p>Returns the polynomial <var>poly</var> divided by the leading coefficient.  It
-assumes that the division is possible, which may not always be the case in rings
-which are not fields.
-</p></dd></dl>
-
-<hr size="6">
-<a name="SEC303"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC302" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC304" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC300" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 51.2.3 Other functions in grobner </h3>
-
-<dl>
-<dt><u>Function:</u> <b>poly_expand</b><i> (<var>poly</var>, <var>varlist</var>)</i>
-<a name="IDX2374"></a>
-</dt>
-<dd><p>This function parses polynomials to internal form and back.  It is equivalent
-to <code>expand(<var>poly</var>)</code> if <var>poly</var> parses correctly to a polynomial.
-If the representation is not compatible with a polynomial in variables
-<var>varlist</var>, the result is an error.  It can be used to test whether an
-expression correctly parses to the internal representation.  The following
-examples illustrate that indexed and transcendental function variables are
-allowed.
-</p>
-<pre class="example">(%i1) poly_expand((x-y)*(y+x),[x,y]);
-                                     2    2
-(%o1)                               x  - y
-(%i2) poly_expand((y+x)^2,[x,y]);
-                                2            2
-(%o2)                          y  + 2 x y + x
-(%i3) poly_expand((y+x)^5,[x,y]);
-                  5      4         2  3       3  2      4      5
-(%o3)            y  + 5 x y  + 10 x  y  + 10 x  y  + 5 x  y + x
-(%i4) poly_expand(-1-x*exp(y)+x^2/sqrt(y),[x]);
-                                          2
-                                  y      x
-(%o4)                       - x %e  + ------- - 1
-                                       sqrt(y)
-
-(%i5) poly_expand(-1-sin(x)^2+sin(x),[sin(x)]);
-                                2
-(%o5)                      - sin (x) + sin(x) - 1
-</pre></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_expt</b><i> (<var>poly</var>, <var>number</var>, <var>varlist</var>)</i>
-<a name="IDX2375"></a>
-</dt>
-<dd><p>exponentitates <var>poly</var> by a positive integer <var>number</var>.  If <var>number</var>
-is not a positive integer number an error will be raised.
-</p>
-<pre class="example">(%i1) poly_expt(x-y,3,[x,y])-(x-y)^3,expand;
-(%o1)                                  0
-</pre></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_content</b><i> (<var>poly</var>, <var>varlist</var>)</i>
-<a name="IDX2376"></a>
-</dt>
-<dd><p><code>poly_content</code> extracts the GCD of its coefficients
-</p>
-<pre class="example">(%i1) poly_content(35*y+21*x,[x,y]);
-(%o1)                                  7
-</pre></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_pseudo_divide</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</i>
-<a name="IDX2377"></a>
-</dt>
-<dd><p>Pseudo-divide a polynomial <var>poly</var> by the list of <em>n</em> polynomials
-<var>polylist</var>.  Return multiple values.  The first value is a list of quotients
-<em>a</em>.  The second value is the remainder <em>r</em>.  The third argument is a
-scalar coefficient <em>c</em>, such that <em>c*poly</em> can be divided by
-<var>polylist</var> within the ring of coefficients, which is not necessarily a
-field.  Finally, the fourth value is an integer count of the number of
-reductions performed.  The resulting objects satisfy the equation:
-</p>
-<p><em>c*poly=sum(a[i]*polylist[i],i=1...n)+r</em>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_exact_divide</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
-<a name="IDX2378"></a>
-</dt>
-<dd><p>Divide a polynomial <var>poly1</var> by another polynomial <var>poly2</var>.  Assumes
-that exact division with no remainder is possible.  Returns the quotient.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_normal_form</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</i>
-<a name="IDX2379"></a>
-</dt>
-<dd><p><code>poly_normal_form</code> finds the normal form of a polynomial <var>poly</var> with
-respect to a set of polynomials <var>polylist</var>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_buchberger_criterion</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
-<a name="IDX2380"></a>
-</dt>
-<dd><p>Returns <code>true</code> if <var>polylist</var> is a Groebner basis with respect to the
-current term order, by using the Buchberger criterion: for every two polynomials
-<em>h1</em> and <em>h2</em> in <var>polylist</var> the S-polynomial <em>S(h1,h2)</em>
-reduces to 0 <em>modulo</em> <var>polylist</var>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_buchberger</b><i> (<var>polylist_fl</var> <var>varlist</var>)</i>
-<a name="IDX2381"></a>
-</dt>
-<dd><p><code>poly_buchberger</code> performs the Buchberger algorithm on a list of
-polynomials and returns the resulting Groebner basis.
-</p></dd></dl>
-
-<hr size="6">
-<a name="SEC304"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC303" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC300" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 51.2.4 Standard postprocessing of Groebner Bases </h3>
-
-
-<p>The <em>k-th elimination Ideal</em> <em>I_k</em> of an Ideal <em>I</em> over
-<em>K[ x[1],...,x[n] ]</em> is the ideal
-<em>intersect(I, K[ x[k+1],...,x[n] ])</em>.<br>
-The <em>colon ideal</em> <em>I:J</em> is the ideal
-<em>{h|for all w in J: w*h in I}</em>.<br>
-The ideal <em>I:p^inf</em> is the ideal
-<em>{h| there is a n in N: p^n*h in I}</em>.<br>
-The ideal <em>I:J^inf</em> is the ideal
-<em>{h| there is a n in N and a p in J: p^n*h in I}</em>.<br>
-The <em>radical ideal</em> <em>sqrt(I)</em> is the ideal 
-<em>{h| there is a n in N : h^n in I }</em>.
-</p>
-<dl>
-<dt><u>Function:</u> <b>poly_reduction</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
-<a name="IDX2382"></a>
-</dt>
-<dd><p><code>poly_reduction</code> reduces a list of polynomials <var>polylist</var>, so that
-each polynomial is fully reduced with respect to the other polynomials.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_minimization</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
-<a name="IDX2383"></a>
-</dt>
-<dd><p>Returns a sublist of the polynomial list <var>polylist</var> spanning the same
-monomial ideal as <var>polylist</var> but minimal, i.e. no leading monomial of a
-polynomial in the sublist divides the leading monomial of another polynomial.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_normalize_list</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
-<a name="IDX2384"></a>
-</dt>
-<dd><p><code>poly_normalize_list</code> applies <code>poly_normalize</code> to each polynomial in
-the list.  That means it divides every polynomial in a list <var>polylist</var> by
-its leading coefficient.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_grobner</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
-<a name="IDX2385"></a>
-</dt>
-<dd><p>Returns a Groebner basis of the ideal span by the polynomials <var>polylist</var>.
-Affected by the global flags.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_reduced_grobner</b><i> (<var>polylist</var>, <var>varlist</var>)</i>
-<a name="IDX2386"></a>
-</dt>
-<dd><p>Returns a reduced Groebner basis of the ideal span by the polynomials
-<var>polylist</var>.  Affected by the global flags.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_depends_p</b><i> (<var>poly</var>, <var>var</var>, <var>varlist</var>)</i>
-<a name="IDX2387"></a>
-</dt>
-<dd><p><code>poly_depends</code> tests whether a polynomial depends on a variable <var>var</var>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_elimination_ideal</b><i> (<var>polylist</var>, <var>number</var>, <var>varlist</var>)</i>
-<a name="IDX2388"></a>
-</dt>
-<dd><p><code>poly_elimination_ideal</code> returns the grobner basis of the <em>number</em>-th
-elimination ideal of an ideal specified as a list of generating polynomials
-(not necessarily Groebner basis).
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_colon_ideal</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
-<a name="IDX2389"></a>
-</dt>
-<dd><p>Returns the reduced Groebner basis of the colon ideal 
-</p>
-<p><em>I(polylist1):I(polylist2)</em>
-</p>
-<p>where <em>polylist1</em> and <em>polylist2</em> are two lists of polynomials.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_ideal_intersection</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
-<a name="IDX2390"></a>
-</dt>
-<dd><p><code>poly_ideal_intersection</code> returns the intersection of two ideals.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_lcm</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
-<a name="IDX2391"></a>
-</dt>
-<dd><p>Returns the lowest common multiple of <var>poly1</var> and <var>poly2</var>.
-</p></dd></dl>
-
-<p><a name="poly_005fgcd"></a>
-</p><dl>
-<dt><u>Function:</u> <b>poly_gcd</b><i> (<var>poly1</var>, <var>poly2</var>, <var>varlist</var>)</i>
-<a name="IDX2392"></a>
-</dt>
-<dd><p>Returns the greatest common divisor of <var>poly1</var> and <var>poly2</var>.
-</p>
-<p>See also <code><a href="maxima_17.html#ezgcd">ezgcd</a></code>, <code><a href="maxima_17.html#gcd">gcd</a></code>, <code><a href="maxima_17.html#gcdex">gcdex</a></code>, and
-<code><a href="maxima_69.html#gcdivide">gcdivide</a></code>.
-</p>
-<p>Example:
-</p>
-<pre class="example">(%i1) p1:6*x^3+19*x^2+19*x+6; 
-                        3       2
-(%o1)                6 x  + 19 x  + 19 x + 6
-(%i2) p2:6*x^5+13*x^4+12*x^3+13*x^2+6*x;
-                  5       4       3       2
-(%o2)          6 x  + 13 x  + 12 x  + 13 x  + 6 x
-(%i3) poly_gcd(p1, p2, [x]);
-                            2
-(%o3)                    6 x  + 13 x + 6
-</pre></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_grobner_equal</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
-<a name="IDX2393"></a>
-</dt>
-<dd><p><code>poly_grobner_equal</code> tests whether two Groebner Bases generate the same
-ideal.  Returns <code>true</code> if two lists of polynomials <var>polylist1</var> and
-<var>polylist2</var>, assumed to be Groebner Bases, generate the same ideal, and
-<code>false</code> otherwise.  This is equivalent to checking that every polynomial
-of the first basis reduces to 0 modulo the second basis and vice versa.  Note
-that in the example below the first list is not a Groebner basis, and thus the
-result is <code>false</code>.
-</p>
-<pre class="example">(%i1) poly_grobner_equal([y+x,x-y],[x,y],[x,y]);
-(%o1)                         false
-</pre></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_grobner_subsetp</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
-<a name="IDX2394"></a>
-</dt>
-<dd><p><code>poly_grobner_subsetp</code> tests whether an ideal generated by <var>polylist1</var>
-is contained in the ideal generated by <var>polylist2</var>.  For this test to always
-succeed, <var>polylist2</var> must be a Groebner basis.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_grobner_member</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist</var>)</i>
-<a name="IDX2395"></a>
-</dt>
-<dd><p>Returns <code>true</code> if a polynomial <var>poly</var> belongs to the ideal generated by
-the polynomial list <var>polylist</var>, which is assumed to be a Groebner basis.
-Returns <code>false</code> otherwise.
-</p>
-<p><code>poly_grobner_member</code> tests whether a polynomial belongs to an ideal
-generated by a list of polynomials, which is assumed to be a Groebner basis.
-Equivalent to <code>normal_form</code> being 0.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_ideal_saturation1</b><i> (<var>polylist</var>, <var>poly</var>, <var>varlist</var>)</i>
-<a name="IDX2396"></a>
-</dt>
-<dd><p>Returns the reduced Groebner basis of the saturation of the ideal
-</p>
-<p>I(polylist):poly^inf
-</p>
-<p>Geometrically, over an algebraically closed field, this is the set of
-polynomials in the ideal generated by <var>polylist</var> which do not identically
-vanish on the variety of <var>poly</var>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_ideal_saturation</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
-<a name="IDX2397"></a>
-</dt>
-<dd><p>Returns the reduced Groebner basis of the saturation of the ideal
-</p>
-<p>I(polylist1):I(polylist2)^inf
-</p>
-<p>Geometrically, over an algebraically closed field, this is the set of
-polynomials in the ideal generated by <var>polylist1</var> which do not identically
-vanish on the variety of <var>polylist2</var>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_ideal_polysaturation1</b><i> (<var>polylist1</var>, <var>polylist2</var>, <var>varlist</var>)</i>
-<a name="IDX2398"></a>
-</dt>
-<dd><p><var>polylist2</var> ist a list of n polynomials <code>[poly1,...,polyn]</code>.
-Returns the reduced Groebner basis of the ideal
-</p>
-<p>I(polylist):poly1^inf:...:polyn^inf
-</p>
-<p>obtained by a sequence of successive saturations in the polynomials of the
-polynomial list <var>polylist2</var> of the ideal generated by the polynomial list
-<var>polylist1</var>.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_ideal_polysaturation</b><i> (<var>polylist</var>, <var>polylistlist</var>, <var>varlist</var>)</i>
-<a name="IDX2399"></a>
-</dt>
-<dd><p><var>polylistlist</var> is a list of n list of polynomials
-<code>[polylist1,...,polylistn]</code>.  Returns the reduced Groebner basis of the
-saturation of the ideal
-</p>
-<p>I(polylist):I(polylist_1)^inf:...:I(polylist_n)^inf
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_saturation_extension</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist1</var>, <var>varlist2</var>)</i>
-<a name="IDX2400"></a>
-</dt>
-<dd><p><code>poly_saturation_extension</code> implements the famous Rabinowitz trick.
-</p></dd></dl>
-
-<dl>
-<dt><u>Function:</u> <b>poly_polysaturation_extension</b><i> (<var>poly</var>, <var>polylist</var>, <var>varlist1</var>, <var>varlist2</var>)</i>
-<a name="IDX2401"></a>
-</dt>
-</dl>
-
-
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC296" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_52.html#SEC305" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Funktionen-f_00fcr-komplexe-Zahlen"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Oktober, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Next: <a href="maxima_52.html#Funktionen-der-Kombinatorik" accesskey="n" rel="next">Funktionen der Kombinatorik</a>, Previous: <a href="maxima_50.html#Funktionen-f_00fcr-Zahlen" accesskey="p" rel="previous">Funktionen f&uuml;r Zahlen</a>, Nach oben: <a href="maxima_49.html#Mathematische-Funktionen" accesskey="u" rel="up">Mathematische Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-fur-komplexe-Zahlen"></a>
+<h3 class="section">10.2 Funktionen f&uuml;r komplexe Zahlen</h3>
 
+<a name="cabs"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fcabs"></a><dl>
+<dt><a name="index-cabs"></a>Funktion: <strong>cabs</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Berechnet den Betrag eines komplexen Ausdrucks <var>expr</var>.  Im Unterschied
+zu der Funktion <code><a href="maxima_50.html#abs">abs</a></code>, zerlegt die Funktion <code>cabs</code> einen komplexen
+Ausdruck immer in einen Realteil und Imagin&auml;rteil, um den komplexen Betrag zu
+berechnen.  Sind <var>x</var> und <var>y</var> zwei reelle Variablen oder Ausdr&uuml;cke,
+berechnet die Funktion <code>cabs</code> den Betrag des komplexen Ausdrucks
+<code>x + %i*y</code> als:
+</p><div class="example">
+<pre class="example">                           2    2
+                     sqrt(y  + x )
+</pre></div>
+
+<p>Die Funktion <code>cabs</code> nutzt Symmetrieeigenschaften und implementierte
+Eigenschaften komplexer Funktionen, um den Betrag eines Ausdrucks zu berechnen.
+Sind solche Eigenschaften f&uuml;r eine Funktion vorhanden, k&ouml;nnen diese mit der
+Funktion <code><a href="maxima_63.html#properties">properties</a></code> angezeigt werden.  Eigenschaften, die das Ergebnis
+der Funktion <code>cabs</code> bestimmen, sind: <code>mirror symmetry</code>,
+<code>conjugate function</code> und <code>complex characteristic</code>.
 </p>
+<p><code>cabs</code> ist eine Verbfunktion, die nicht f&uuml;r das symbolische Rechnen
+geeignet ist.  F&uuml;r das symbolische Rechnen wie der Integration oder der
+Ableitung von Ausdr&uuml;cken mit der Betragsfunktion muss die Funktion <code>abs</code>
+verwendet werden.
+</p>
+<p>Das Ergebnis der Funktion <code>cabs</code> kann die Betragsfunktion <code><a href="maxima_50.html#abs">abs</a></code> und
+den Arkustangens <code><a href="maxima_56.html#atan2">atan2</a></code> enthalten.
+</p>
+<p><code>cabs</code> wird automatisch auf die Elemente von Listen und Matrizen sowie auf
+die beiden Seiten von Gleichungen angewendet.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#rectform">rectform</a></code>, <code><a href="#realpart">realpart</a></code>,<!-- /@w -->
+<code><a href="#imagpart">imagpart</a></code>, <code><a href="#carg">carg</a></code>, <code><a href="#conjugate">conjugate</a></code>, und 
+<code><a href="#polarform">polarform</a></code> f&uuml;r das Rechnen mit komplexen Zahlen.
+</p>
+<p>Beispiele:
+</p>
+<p>Zwei Beispiele mit der Wurzelfunktion <code><a href="maxima_53.html#sqrt">sqrt</a></code> und der Sinusfunktion
+<code><a href="maxima_56.html#sin">sin</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) cabs(sqrt(1+%i*x));
+                             2     1/4
+(%o1)                      (x  + 1)
+(%i2) cabs(sin(x+%i*y));
+                    2        2         2        2
+(%o2)       sqrt(cos (x) sinh (y) + sin (x) cosh (y))
+</pre></div>
+
+<p>Die Funktion <code><a href="maxima_142.html#erf">erf</a></code> hat Spiegelsymmetrie, die hier f&uuml;r die Berechnung des
+komplexen Betrages angewendet wird.
+</p>
+<div class="example">
+<pre class="example">(%i3) cabs(erf(x+%i*y));
+</pre><pre class="example">                                          2
+           (erf(%i y + x) - erf(%i y - x))
+(%o3) sqrt(--------------------------------
+                          4
+                                                               2
+                                (erf(%i y + x) + erf(%i y - x))
+                              - --------------------------------)
+                                               4
+</pre></div>
+
+<p>Maxima kennt komplexe Eigenschaften der Besselfunktionen, um den komplexen
+Betrag zu vereinfachen.  Dies ist ein Beispiel f&uuml;r die Besselfunktion
+<code><a href="maxima_136.html#bessel_005fj">bessel_j</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i4) cabs(bessel_j(1,%i));
+(%o4)                 abs(bessel_j(1, %i))
+</pre></div>
+</dd></dl>
+
+<a name="carg"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fcarg"></a><dl>
+<dt><a name="index-carg"></a>Funktion: <strong>carg</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Gibt das komplexe Argument des Ausdrucks <var>expr</var> zur&uuml;ck.  Das komplexe
+Argument ist ein Winkel <code>theta</code> im Intervall <code>(-%pi, %pi)</code> derart,
+dass <var>expr</var> = <code>r exp (theta %i)</code> gilt, wobei <code>r</code> den Betrag des
+komplexen Ausdrucks <var>expr</var> bezeichnet.  Das ist die Polarform des Ausdrucks,
+wie sie auch von der Funktion <code><a href="#polarform">polarform</a></code> zur&uuml;ckgegeben wird.  Der Betrag
+des komplexen Ausdrucks kann mit der Funktion <code><a href="#cabs">cabs</a></code> berechnet werden.
+</p>
+<p>Das Ergebnis der Funktion <code>carg</code> kann die Funktion <code><a href="maxima_56.html#atan2">atan2</a></code> enthalten.
+</p>
+<p><code>carg</code> wird automatisch auf die Elemente von Listen und Matrizen sowie auf
+die beiden Seiten von Gleichungen angewendet.  Siehe <code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Die Funktion <code>carg</code> ist eine Verbfunktion, mit der nicht symbolisch
+gerechnet werden kann.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#rectform">rectform</a></code>, <code><a href="#realpart">realpart</a></code> und
+<code><a href="#imagpart">imagpart</a></code> sowie die Funktionen <code><a href="#cabs">cabs</a></code> und <code><a href="#conjugate">conjugate</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) carg (1);
+(%o1)                           0
+(%i2) carg (1 + %i);
+</pre><pre class="example">                               %pi
+(%o2)                          ---
+                                4
+</pre><pre class="example">(%i3) carg (exp (%i));
+(%o3)                           1
+
+(%i4) carg (exp (3/2 * %pi * %i));
+                                %pi
+(%o4)                         - ---
+                                 2
+(%i5) carg(exp(x+%i*y));
+(%o5)                atan2(sin(y), cos(y))
+
+(%i6) carg(sqrt(x+%i*y));
+                          atan2(y, x)
+(%o6)                     -----------
+                               2
+(%i7) carg(sqrt(1+%i*y));
+                            atan(y)
+(%o7)                       -------
+                               2
+</pre></div>
+</dd></dl>
+
+<a name="conjugate"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fconjugate"></a><dl>
+<dt><a name="index-conjugate"></a>Funktion: <strong>conjugate</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Gibt den konjugiert komplexen Wert des Ausdrucks <var>expr</var> zur&uuml;ck.  Sind
+<var>x</var> und <var>y</var> reelle Variablen oder Ausdr&uuml;cke, dann hat der Ausdruck
+<code>x + %i*y</code> das Ergebnis <code>x - %i*y</code>.  Die Funktion <code>conjugate</code> ist
+f&uuml;r numerische und symbolische Rechnungen geeignet.
+</p>
+<p>Maxima kennt Regeln, um den konjugierten Wert f&uuml;r Summen, Produkte und
+Quotienten von komplexen Ausdr&uuml;cken zu vereinfachen.  Weiterhin kennt Maxima
+Symmetrieeigenschaften und komplexe Eigenschaften von Funktionen, um den 
+konjugierten Wert mit diesen Funktionen zu vereinfachen.  Sind solche
+Eigenschaften f&uuml;r eine Funktion vorhanden, k&ouml;nnen diese mit der
+Funktion <code><a href="maxima_63.html#properties">properties</a></code> angezeigt werden.  Eigenschaften, die das Ergebnis
+der Funktion <code>conjugate</code> bestimmen, sind: <code>mirror symmetry</code>,
+<code>conjugate function</code> und <code>complex characteristic</code>.
+</p>
+<p><code>conjugate</code> wird automatisch auf die Elemente von Listen und Matrizen sowie
+auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>F&uuml;r das Rechnen mit komplexen Ausdr&uuml;cken siehe auch die Funktionen
+<code><a href="#cabs">cabs</a></code> und <code><a href="#carg">carg</a></code> sowie <code><a href="#rectform">rectform</a></code> und <code><a href="#polarform">polarform</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<p>Beispiele mit reellen, imagin&auml;ren und komplexen Variablen.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare ([x, y], real, [z1, z2], complex, j, imaginary);
+(%o1)                         done
+(%i2) conjugate(x + %i*y);
+(%o2)                       x - %i y
+(%i3) conjugate(z1*z2);
+(%o3)              conjugate(z1) conjugate(z2)
+(%i4) conjugate(j/z2);
+                                 j
+(%o4)                    - -------------
+                           conjugate(z2)
+</pre></div>
+
+<p>Im Folgenden nutzt Maxima Symmetrieeigenschaften, um den konjugiert komplexen
+Wert der Funktionen <code><a href="maxima_140.html#gamma">gamma</a></code> und <code><a href="maxima_56.html#sin">sin</a></code> zu berechnen.  Die
+Logarithmusfunktion <code><a href="maxima_53.html#log">log</a></code> hat Spiegelsymmetrie, wenn das Argument einen
+positiven Realteil hat.
+</p>
+<div class="example">
+<pre class="example">(%i5) conjugate(gamma(x+%i*y));
+(%o5)                    gamma(x - %i y)
+(%i6) conjugate(sin(x+%i*y));
+(%o6)                    - sin(%i y - x)
+(%i7) conjugate(log(x+%i*y));
+(%o7)               conjugate(log(%i y + x))
+(%i8) conjugate(log(1+%i*y));
+(%o8)                     log(1 - %i y)
+</pre></div>
+</dd></dl>
+
+<a name="imagpart"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fimagpart"></a><dl>
+<dt><a name="index-imagpart"></a>Funktion: <strong>imagpart</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Gibt den Imagin&auml;rteil des Ausrucks <var>expr</var> zur&uuml;ck.  Intern berechnet
+Maxima den Imagin&auml;rteil mit der Funktion <code><a href="#rectform">rectform</a></code>, die einen
+Ausdruck in den Realteil und in den Imagin&auml;rteil zerlegt.  Daher treffen die
+Ausf&uuml;hrungen zu <code>rectform</code> auch auf die Funktion <code>imagpart</code> zu.
+</p>
+<p>Wie die Funktion <code>rectform</code> ist auch die Funktion <code>imagpart</code> eine
+Verbfunktion, mit der nicht symbolisch gerechnet werden kann.
+</p>
+<p><code>imagpart</code> wird automatisch auf die Elemente von Listen und Matrizen sowie
+auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Mit der Funktion <code><a href="#realpart">realpart</a></code> wird der Realteil eines Ausdrucks berechnet.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>, <code><a href="#carg">carg</a></code> und
+<code><a href="#conjugate">conjugate</a></code> f&uuml;r das Rechnen mit komplexen Zahlen.  Mit der Funktion
+<code><a href="#polarform">polarform</a></code> kann ein komplexer Ausdruck in die Polarform gebracht werden.
+</p>
+<p>Beispiele:
+</p>
+<p>F&uuml;r weitere Erl&auml;uterungen dieser Beispiele siehe auch die Funktion
+<code><a href="#rectform">rectform</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) imagpart((2-%i)/(1-%i));
+                                1
+(%o1)                           -
+                                2
+(%i2) imagpart(sin(x+%i*y));
+(%o2)                    cos(x) sinh(y)
+(%i3) imagpart(gamma(x+%i*y));
+             %i (gamma(x - %i y) - gamma(%i y + x))
+(%o3)        --------------------------------------
+                               2
+(%i4) imagpart(bessel_j(1,%i));
+(%o4)                    bessel_j(1, %i)
+</pre></div>
+</dd></dl>
+
+<a name="polarform"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002fpolarform"></a><dl>
+<dt><a name="index-polarform"></a>Funktion: <strong>polarform</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Gibt den Ausdruck <var>expr</var> in der Polarform <code>r %e^(%i theta)</code> zur&uuml;ck.
+<code>r</code> ist der Betrag des komplexen Ausdrucks, wie er auch mit der Funktion
+<code><a href="#cabs">cabs</a></code> berechnet werden kann.  <code>theta</code> ist das Argument des komplexen
+Ausdrucks, das mit der Funktion <code><a href="#carg">carg</a></code> berechnet werden kann.
+</p>
+<p>Maxima kennt komplexe Eigenschaften von Funktionen, die bei der Berechnung der
+Polarform angewendet werden.  Siehe die Funktion <code><a href="#cabs">cabs</a></code> f&uuml;r weitere
+Erl&auml;uterungen.
+</p>
+<p>Wenn mit komplexen Ausdr&uuml;cken in der Polarform gerechnet werden soll, ist es
+hilfreich die Optionsvariable <code><a href="maxima_53.html#g_t_0025emode">%emode</a></code> auf den Wert <code>false</code> zu setzen.
+Damit wird verhindert, dass Maxima komplexe Ausdr&uuml;cke mit der
+Exponentialfunktion <code><a href="maxima_53.html#exp">exp</a></code> automatisch in die Standardform vereinfacht.
+</p>
+<p><code>polarform</code> wird automatisch auf die Elemente von Listen und Matrizen sowie
+auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Die Funktion <code>polarform</code> ist eine Verbfunktion, mit der nicht symbolisch
+gerechnet werden kann.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>, <code><a href="#carg">carg</a></code> und
+<code><a href="#conjugate">conjugate</a></code> f&uuml;r das Rechnen mit komplexen Zahlen.  Mit der Funktion
+<code><a href="#rectform">rectform</a></code> kann ein komplexer Ausdruck in die Standardform gebracht werden.
+</p>
+<p>Beispiele:
+</p>
+<p>Die allgemeine Polarform eines komplexen Ausdrucks.  Die Variablen <var>x</var> und
+<var>y</var> werden von Maxima als reell angenommen.
+</p>
+<div class="example">
+<pre class="example">(%i1) polarform(x+%i*y);
+</pre><pre class="example">                       2    2    %i atan2(y, x)
+(%o1)            sqrt(y  + x ) %e
+</pre></div>
+
+<p>Die Polarform einer komplexen Zahl und eines Ausdrucks mit einer reellen 
+Variablen <var>x</var>.
+</p>
+<div class="example">
+<pre class="example">(%i2) polarform(4/5+3*%i/5);
+                           %i atan(3/4)
+(%o2)                    %e
+(%i3) polarform(sqrt(1+%i*x));
+                                  %i atan(x)
+                                  ----------
+                      2     1/4       2
+(%o3)               (x  + 1)    %e
+</pre></div>
+
+<p>Wenn in der Polarform gerechnet werden soll, ist es hilfreich die
+Optionsvariable <code><a href="maxima_53.html#g_t_0025emode">%emode</a></code> auf den Wert <code>false</code> zu setzen.  Damit wird
+verhindert, dass Maxima komplexe Ausdr&uuml;cke mit der Exponentialfunktion 
+<code><a href="maxima_53.html#exp">exp</a></code> automatisch in eine Standardform vereinfacht.
+</p>
+<div class="example">
+<pre class="example">(%i4) z:polarform(1+%i);
+                                  %i %pi
+                                  ------
+                                    4
+(%o4)                   sqrt(2) %e
+(%i5) z^3;
+                     3/2    %i         1
+(%o5)               2    (------- - -------)
+                          sqrt(2)   sqrt(2)
+(%i6) %emode:false;
+(%o6)                         false
+(%i7) z^3;
+                                3 %i %pi
+                                --------
+                          3/2      4
+(%o7)                    2    %e
+</pre></div>
+</dd></dl>
+
+<a name="realpart"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002frealpart"></a><dl>
+<dt><a name="index-realpart"></a>Funktion: <strong>realpart</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Gibt den Realteil des Ausdrucks <var>expr</var> zur&uuml;ck.  Intern berechnet Maxima
+den Realteil mit der Funktion <code><a href="#rectform">rectform</a></code>, die einen Ausdruck in den
+Realteil und in den Imagin&auml;rteil zerlegt.  Daher treffen die Ausf&uuml;hrungen
+zu <code>rectform</code> auch auf die Funktion <code>realpart</code> zu.
+</p>
+<p>Wie die Funktion <code>rectform</code> ist auch die Funktion <code>realpart</code> eine
+Verbfunktion, mit der nicht symbolisch gerechnet werden kann.
+</p>
+<p><code>realpart</code> wird automatisch auf die Elemente von Listen und Matrizen sowie
+auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Mit der Funktion <code><a href="#imagpart">imagpart</a></code> wird der Imagin&auml;rteil eines Ausdrucks
+berechnet.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>, <code><a href="#carg">carg</a></code> und
+<code><a href="#conjugate">conjugate</a></code> f&uuml;r das Rechnen mit komplexen Zahlen.  Mit der Funktion
+<code><a href="#polarform">polarform</a></code> kann ein komplexer Ausdruck in die Polarform gebracht werden.
+</p>
+<p>Beispiele:
+</p>
+<p>F&uuml;r weitere Erl&auml;uterungen dieser Beispiele siehe auch die Funktion
+<code><a href="#rectform">rectform</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) realpart((2-%i)/(1-%i));
+                                3
+(%o1)                           -
+                                2
+(%i2) realpart(sin(x+%i*y));
+(%o2)                    sin(x) cosh(y)
+(%i3) realpart(gamma(x+%i*y));
+                gamma(%i y + x) + gamma(x - %i y)
+(%o3)           ---------------------------------
+                                2
+(%i4) realpart(bessel_j(1,%i));
+(%o4)                           0
+</pre></div>
+</dd></dl>
+
+<a name="rectform"></a><a name="Item_003a-MathFunctions_002ede_002fdeffn_002frectform"></a><dl>
+<dt><a name="index-rectform"></a>Funktion: <strong>rectform</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Zerlegt den Ausdruck <var>expr</var> in den Realteil <code>a</code> und den Imagin&auml;rteil
+<code>b</code> und gibt den komplexen Ausdruck in der Standardform <code>a + b %i</code>
+zur&uuml;ck.
+</p>
+<p>Die Funktion <code>rectform</code> nutzt Symmetrieeigenschaften und implementierte
+Eigenschaften komplexer Funktionen, um den Realteil und Imagin&auml;rteil eines
+komplexen Ausdrucks zu berechnen.  Sind solche Eigenschaften f&uuml;r eine Funktion
+vorhanden, k&ouml;nnen diese mit der Funktion <code><a href="maxima_63.html#properties">properties</a></code> angezeigt werden.
+Eigenschaften, die das Ergebnis der Funktion <code>rectform</code> bestimmen, sind:
+<code>mirror symmetry</code>, <code>conjugate function</code> und
+<code>complex characteristic</code>.
+</p>
+<p><code>rectform</code> ist eine Verbfunktion, die nicht f&uuml;r das symbolische Rechnen
+geeignet ist.
+</p>
+<p><code>rectform</code> wird automatisch auf die Elemente von Listen und Matrizen sowie
+auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Die Funktionen <code><a href="#realpart">realpart</a></code> und <code><a href="#imagpart">imagpart</a></code> geben jeweils allein den
+Realteil und den Imagin&auml;rteil eines Ausdrucks zur&uuml;ck.  Um einen Ausdruck in
+die Polarform zu bringen, kann die Funktion <code><a href="#polarform">polarform</a></code> verwendet werden.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>, <code><a href="#carg">carg</a></code> und
+<code><a href="#conjugate">conjugate</a></code> f&uuml;r das Rechnen mit komplexen Zahlen.
+</p>
+<p>Beispiele:
+</p>
+<p>Zerlegung eines komplexen Ausdrucks und der Sinusfunktion <code><a href="maxima_56.html#sin">sin</a></code> in den
+Realteil und Imagin&auml;rteil.  Maxima kennt komplexe Eigenschaften der
+trigonometrischen Funktionen, um den Realteil und den Imagin&auml;rteil zu
+bestimmen.
+</p>
+<div class="example">
+<pre class="example">(%i1) rectform((2-%i)/(1-%i));
+</pre><pre class="example">                             %i   3
+(%o1)                        -- + -
+                             2    2
+</pre><pre class="example">(%i2) rectform(sin(x+%i*y));
+(%o2)          %i cos(x) sinh(y) + sin(x) cosh(y)
+</pre></div>
+
+<p>Bei der Zerlegung in einen Realteil und einen Imagin&auml;rteil nutzt Maxima die
+Spiegelsymmetrie der Gammfunktion <code><a href="maxima_140.html#gamma">gamma</a></code>.  Die Eigenschaft der 
+Spiegelsymmetrie wird mit der Funktion <code><a href="maxima_63.html#properties">properties</a></code> angezeigt, der Eintrag
+lautet <code>mirror symmetry</code>.
+</p>
+<div class="example">
+<pre class="example">(%i3) properties(gamma);
+(%o3)    [mirror symmetry, noun, rule, gradef, transfun]
+
+(%i4) rectform(gamma(x+%i*y));
+      gamma(%i y + x) + gamma(x - %i y)
+(%o4) ---------------------------------
+                      2
+                                gamma(x - %i y) - gamma(%i y + x)
+                              - ---------------------------------
+                                                2
+</pre></div>
+
+<p>Maxima kennt komplexe Eigenschaften der Besselfunktionen.  Die Besselfunktion
+<code><a href="maxima_136.html#bessel_005fj">bessel_j</a></code> ist f&uuml;r eine ganzzahlige Ordnung und einem imagin&auml;ren
+Argument rein imagin&auml;r.
+</p>
+<div class="example">
+<pre class="example">(%i5) rectform(bessel_j(1,%i));
+(%o5)                  %i bessel_j(1, %i)
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-MathFunctions_002ede_002fnode_002fFunktionen-der-Kombinatorik"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_52.html#Funktionen-der-Kombinatorik" accesskey="n" rel="next">Funktionen der Kombinatorik</a>, Previous: <a href="maxima_50.html#Funktionen-f_00fcr-Zahlen" accesskey="p" rel="previous">Funktionen f&uuml;r Zahlen</a>, Nach oben: <a href="maxima_49.html#Mathematische-Funktionen" accesskey="u" rel="up">Mathematische Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>

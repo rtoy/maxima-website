@@ -1,0 +1,1791 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Definições para Conjuntos</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Definições para Conjuntos">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições para Conjuntos">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_118.html#Conjuntos" rel="up" title="Conjuntos">
+<link href="maxima_121.html#Defini_00e7_00e3o-de-Fun_00e7_00e3o" rel="next" title="Definição de Função">
+<link href="maxima_119.html#Introdu_00e7_00e3o-a-Conjuntos" rel="previous" title="Introdução a Conjuntos">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-para-Conjuntos"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_119.html#Introdu_00e7_00e3o-a-Conjuntos" accesskey="p" rel="previous">Introdução a Conjuntos</a>, Acima: <a href="maxima_118.html#Conjuntos" accesskey="u" rel="up">Conjuntos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-para-Conjuntos"></a>
+<h3 class="section">38.2 Definições para Conjuntos</h3>
+
+<a name="adjoin"></a><a name="Item_003a-nset_002fdeffn_002fadjoin"></a><dl>
+<dt><a name="index-adjoin"></a>Função: <strong>adjoin</strong> <em>(<var>x</var>, <var>a</var>) </em></dt>
+<dd>
+<p>Calcula a união do conjunto <var>a</var> com <code>{<var>x</var>}</code>.
+</p>
+<p><code>adjoin</code> falha se <var>a</var> não for um conjunto literal.
+</p>
+<p><code>adjoin(<var>x</var>, <var>a</var>)</code> e <code>union(set(<var>x</var>), <var>a</var>)</code>
+são equivalentes; contudo, <code>adjoin</code> pode ser um pouco mais
+rápida que <code>union</code>.
+</p>
+<p>Veja também <code>disjoin</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) adjoin (c, {a, b});
+(%o1)                       {a, b, c}
+(%i2) adjoin (a, {a, b});
+(%o2)                        {a, b}
+</pre></div>
+
+</dd></dl>
+
+<a name="belln"></a><a name="Item_003a-nset_002fdeffn_002fbelln"></a><dl>
+<dt><a name="index-belln"></a>Função: <strong>belln</strong> <em>(<var>n</var>)</em></dt>
+<dd>
+<p>Representa o <em>n</em>-ésimo número de Bell.  <code>belln(n)</code> é o
+número de partições de um conjunto de <var>n</var>
+elementos.
+</p>
+<p>Para inteiros não negativos <var>n</var>, <code>belln(<var>n</var>)</code> simplifica
+para o <em>n</em>-ésimo número de Bell.  <code>belln</code> não simplifica
+para qualquer outro tipo de argumento.
+</p>
+<p><code>belln</code>, aplicada a equações, listas, matrizes
+e conjuntos, é calculada em forma distributiva.
+</p>
+<p>Exemplos:
+</p>
+<p><code>belln</code> aplicado a inteiros não negativos.
+</p>
+<div class="example">
+<pre class="example">(%i1) makelist (belln (i), i, 0, 6);
+(%o1)               [1, 1, 2, 5, 15, 52, 203]
+(%i2) is (cardinality (set_partitions ({})) = belln (0));
+(%o2)                         true
+(%i3) is (cardinality (set_partitions ({1, 2, 3, 4, 5, 6})) = belln (6));
+(%o3)                         true
+</pre></div>
+
+<p><code>belln</code> aplicado a argumentos que não são inteiros não negativos.
+</p>
+<div class="example">
+<pre class="example">(%i1) [belln (x), belln (sqrt(3)), belln (-9)];
+(%o1)        [belln(x), belln(sqrt(3)), belln(- 9)]
+</pre></div>
+
+</dd></dl>
+
+<a name="cardinality"></a><a name="Item_003a-nset_002fdeffn_002fcardinality"></a><dl>
+<dt><a name="index-cardinality"></a>Função: <strong>cardinality</strong> <em>(<var>a</var>)</em></dt>
+<dd>
+<p>Calcula o número de elementos distintos do conjunto <var>a</var>.
+</p>
+<p><code>cardinality</code> ignora elementos redundantes mesmo quando a
+simplificação não estiver habilitada.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) cardinality ({});
+(%o1)                           0
+(%i2) cardinality ({a, a, b, c});
+(%o2)                           3
+(%i3) simp : false;
+(%o3)                         false
+(%i4) cardinality ({a, a, b, c});
+(%o4)                           3
+</pre></div>
+
+</dd></dl>
+
+<a name="cartesian_005fproduct"></a><a name="Item_003a-nset_002fdeffn_002fcartesian_005fproduct"></a><dl>
+<dt><a name="index-cartesian_005fproduct"></a>Função: <strong>cartesian_product</strong> <em>(<var>b_1</var>, ... , <var>b_n</var>)</em></dt>
+<dd><p>Retorna um conjunto de listas da forma <code>[<var>x_1</var>, ...,
+<var>x_n</var>]</code>, onde <var>x_1</var>, ..., <var>x_n</var> são elementos dos
+conjuntos <var>b_1</var>, ... , <var>b_n</var>, respectivamente.
+</p>
+<p><code>cartesian_product</code> falha se qualquer argumento não for um
+conjunto literal.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) cartesian_product ({0, 1});
+(%o1)                      {[0], [1]}
+(%i2) cartesian_product ({0, 1}, {0, 1});
+(%o2)           {[0, 0], [0, 1], [1, 0], [1, 1]}
+(%i3) cartesian_product ({x}, {y}, {z});
+(%o3)                      {[x, y, z]}
+(%i4) cartesian_product ({x}, {-1, 0, 1});
+(%o4)              {[x, - 1], [x, 0], [x, 1]}
+</pre></div>
+</dd></dl>
+
+
+<a name="disjoin"></a><a name="Item_003a-nset_002fdeffn_002fdisjoin"></a><dl>
+<dt><a name="index-disjoin"></a>Função: <strong>disjoin</strong> <em>(<var>x</var>, <var>a</var>)</em></dt>
+<dd><p>Retorna o conjunto <var>a</var> sem o elemento <var>x</var>.  Se <var>x</var> não for
+um elemento de <var>a</var>, retorna <var>a</var> sem
+modificações.
+</p>
+<p><code>disjoin</code> reclama se <var>a</var> não for um conjunto literal.
+</p>
+<p><code>disjoin(<var>x</var>, <var>a</var>)</code>, <code>delete(<var>x</var>, <var>a</var>)</code>, e
+<code>setdifference(<var>a</var>, set(<var>x</var>))</code> são todos equivalentes.
+Desses, <code>disjoin</code> é geralmente mais rápido que os outros.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) disjoin (a, {a, b, c, d});
+(%o1)                       {b, c, d}
+(%i2) disjoin (a + b, {5, z, a + b, %pi});
+(%o2)                      {5, %pi, z}
+(%i3) disjoin (a - b, {5, z, a + b, %pi});
+(%o3)                  {5, %pi, b + a, z}
+</pre></div>
+
+</dd></dl>
+
+<a name="disjointp"></a><a name="Item_003a-nset_002fdeffn_002fdisjointp"></a><dl>
+<dt><a name="index-disjointp"></a>Função: <strong>disjointp</strong> <em>(<var>a</var>, <var>b</var>) </em></dt>
+<dd><p>Retorna <code>true</code> se e somente se os conjuntos <var>a</var> e <var>b</var> forem
+disjuntos.
+</p>
+<p><code>disjointp</code> falha se ou <var>a</var> ou <var>b</var> não forem conjuntos
+literais.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) disjointp ({a, b, c}, {1, 2, 3});
+(%o1)                         true
+(%i2) disjointp ({a, b, 3}, {1, 2, 3});
+(%o2)                         false
+</pre></div>
+
+</dd></dl>
+
+<a name="divisors"></a><a name="Item_003a-nset_002fdeffn_002fdivisors"></a><dl>
+<dt><a name="index-divisors"></a>Função: <strong>divisors</strong> <em>(<var>n</var>)</em></dt>
+<dd>
+<p>Representa o conjunto dos divisores de <var>n</var>.
+</p>
+<p><code>divisors(<var>n</var>)</code> produz um conjunto de divisores inteiros quando
+<var>n</var> for um inteiro não nulo. O conjunto dos divisores inclui os
+elementos 1 e <var>n</var>. Os divisores de um inteiro negativo são os
+divisores do seu valor absoluto.
+</p>
+<p><code>divisors</code>, aplicada a equações, listas, matrizes
+e conjuntos, é calculada em forma distributiva.
+</p>
+<p>Exemplos:
+</p>
+<p>Podemos verificar que 28 é um número perfeito: a
+adição dos seus divisores (excepto o próprio 28) é
+28.
+</p>
+<div class="example">
+<pre class="example">(%i1) s: divisors(28);
+(%o1)                 {1, 2, 4, 7, 14, 28}
+(%i2) lreduce (&quot;+&quot;, args(s)) - 28;
+(%o2)                          28
+</pre></div>
+
+<p><code>divisors</code> é uma função de
+simplificação.  Substituindo 8 por <code>a</code> em
+<code>divisors(a)</code> calcula os divisores sem ser preciso pedir que
+<code>divisors(8)</code> seja reavaliada.
+</p>
+<div class="example">
+<pre class="example">(%i1) divisors (a);
+(%o1)                      divisors(a)
+(%i2) subst (8, a, %);
+(%o2)                     {1, 2, 4, 8}
+</pre></div>
+
+<p><code>divisors</code>, aplicada a equações, listas, matrizes
+e conjuntos, é calculada em forma distributiva.
+</p>
+<div class="example">
+<pre class="example">(%i1) divisors (a = b);
+(%o1)               divisors(a) = divisors(b)
+(%i2) divisors ([a, b, c]);
+(%o2)        [divisors(a), divisors(b), divisors(c)]
+(%i3) divisors (matrix ([a, b], [c, d]));
+                  [ divisors(a)  divisors(b) ]
+(%o3)             [                          ]
+                  [ divisors(c)  divisors(d) ]
+(%i4) divisors ({a, b, c});
+(%o4)        {divisors(a), divisors(b), divisors(c)}
+</pre></div>
+</dd></dl>
+
+<a name="elementp"></a><a name="Item_003a-nset_002fdeffn_002felementp"></a><dl>
+<dt><a name="index-elementp"></a>Função: <strong>elementp</strong> <em>(<var>x</var>, <var>a</var>)</em></dt>
+<dd><p>Retorna <code>true</code> se e somente se <var>x</var> for um elemento do conjunto
+<var>a</var>.
+</p>
+<p><code>elementp</code> falha se <var>a</var> não for um conjunto literal.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) elementp (sin(1), {sin(1), sin(2), sin(3)});
+(%o1)                         true
+(%i2) elementp (sin(1), {cos(1), cos(2), cos(3)});
+(%o2)                         false
+</pre></div>
+
+</dd></dl>
+
+<a name="emptyp"></a><a name="Item_003a-nset_002fdeffn_002femptyp"></a><dl>
+<dt><a name="index-emptyp"></a>Função: <strong>emptyp</strong> <em>(<var>a</var>)</em></dt>
+<dd><p>Retorna <code>true</code> se e somente se <var>a</var> for o conjunto vazio ou uma
+lista vazia.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) map (emptyp, [{}, []]);
+(%o1)                     [true, true]
+(%i2) map (emptyp, [a + b, {{}}, %pi]);
+(%o2)                 [false, false, false]
+</pre></div>
+</dd></dl>
+       
+<a name="equiv_005fclasses"></a><a name="Item_003a-nset_002fdeffn_002fequiv_005fclasses"></a><dl>
+<dt><a name="index-equiv_005fclasses"></a>Função: <strong>equiv_classes</strong> <em>(<var>s</var>, <var>F</var>)</em></dt>
+<dd><p>Retorna um conjunto das classes de equivalências do conjunto <var>s</var>
+com relação à relação de
+equivalência <var>F</var>.
+</p>
+<p><var>F</var> é uma função de duas variáveis definida
+sobre o produto cartesiano <var>s</var> por <var>s</var>.  O valor de retorno de
+<var>F</var> é ou <code>true</code> ou <code>false</code>, ou uma expressão
+<var>expr</var> tal que <code>is(<var>expr</var>)</code> é ou <code>true</code> ou
+<code>false</code>.
+</p>
+<p>Quando <var>F</var> não for uma relação de equivalência,
+<code>equiv_classes</code> aceita-a sem reclamação,
+mas o resultado é geralmente incorrecto nesse caso.
+</p>
+
+<p>Exemplos:
+</p>
+<p>A relação de equivalência é uma expressão lambda a
+qual retorna <code>true</code> ou <code>false</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) equiv_classes ({1, 1.0, 2, 2.0, 3, 3.0}, lambda ([x, y], is (equal (x, y))));
+(%o1)            {{1, 1.0}, {2, 2.0}, {3, 3.0}}
+</pre></div>
+
+<p>A relação de equivalência é o nome de uma
+função relacional que avalia para <code>true</code> ou
+<code>false</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) equiv_classes ({1, 1.0, 2, 2.0, 3, 3.0}, equal);
+(%o1)            {{1, 1.0}, {2, 2.0}, {3, 3.0}}
+</pre></div>
+
+<p>As classes de equivalência são números que diferem por um múltiplo
+de 3.
+</p>
+<div class="example">
+<pre class="example">(%i1) equiv_classes ({1, 2, 3, 4, 5, 6, 7}, lambda ([x, y], remainder (x - y, 3) = 0));
+(%o1)              {{1, 4, 7}, {2, 5}, {3, 6}}
+</pre></div>
+</dd></dl>
+
+<a name="every"></a><a name="Item_003a-nset_002fdeffn_002fevery"></a><dl>
+<dt><a name="index-every"></a>Função: <strong>every</strong> <em>(<var>f</var>, <var>s</var>)</em></dt>
+<dt><a name="index-every-1"></a>Função: <strong>every</strong> <em>(<var>f</var>, <var>L_1</var>, ..., <var>L_n</var>)</em></dt>
+<dd>
+<p>Retorna <code>true</code> se o predicado <var>f</var> for <code>true</code> para todos os
+argumentos fornecidos.
+</p>
+<p>Dado um conjunto como segundo argumento, <code>every(<var>f</var>, <var>s</var>)</code>
+retorna <code>true</code> se <code>is(<var>f</var>(<var>a_i</var>))</code> retornar
+<code>true</code> para todos os <var>a_i</var> em <var>s</var>.  <code>every</code> pode ou
+não avaliar <var>f</var> para todos os <var>a_i</var> em <var>s</var>. Uma vez que
+os conjuntos são desordenados, <code>every</code> pode avaliar
+<code><var>f</var>(<var>a_i</var>)</code> em qualquer ordem.
+</p>
+<p>Dada uma ou mais listas como argumentos, <code>every(<var>f</var>, <var>L_1</var>,
+..., <var>L_n</var>)</code> retorna <code>true</code> se <code>is(<var>f</var>(<var>x_1</var>, ...,
+<var>x_n</var>))</code> retornar <code>true</code> para todos os <var>x_1</var>, ...,
+<var>x_n</var> em <var>L_1</var>, ..., <var>L_n</var>, respectivamente. <code>every</code>
+pode ou não avaliar <var>f</var> para toda combinação
+<var>x_1</var>, ..., <var>x_n</var>.  <code>every</code> avalia listas na ordem de
+incremento do índice.
+</p>
+<p>Dado um conjunto vazio <code>{}</code> ou uma lista vazia <code>[]</code> como
+argumentos, <code>every</code> retorna <code>false</code>.
+</p>
+<p>Quando o sinalizador global <code>maperror</code> for <code>true</code>, todas as
+listas <var>L_1</var>, ..., <var>L_n</var> deverão ter o mesmo comprimento.
+Quando <code>maperror</code> for falso, as listas dadas como argumentos
+serão efectivamente truncadas para o comprimento da menor lista.
+</p>
+<p>Os resultados do predicado <var>f</var> que avaliarem (via <code>is</code>) para
+algo diferente de <code>true</code> ou <code>false</code> são governados através
+da variável global <code>prederror</code>. Quando <code>prederror</code> for
+<code>true</code>, tais valores são tratados como <code>false</code>, e o valor de
+retorno de <code>every</code> é <code>false</code>.  Quando <code>prederror</code> for
+<code>false</code>, tais valores são tratados como <code>unknown</code>, e o valor
+de retorno de <code>every</code> é <code>unknown</code>.
+</p>
+<p>Exemplos:
+</p>
+<p><code>every</code> aplicada a um conjunto simples. O predicado é uma
+função de um argumento.
+</p>
+<div class="example">
+<pre class="example">(%i1) every (integerp, {1, 2, 3, 4, 5, 6});
+(%o1)                         true
+(%i2) every (atom, {1, 2, sin(3), 4, 5 + y, 6});
+(%o2)                         false
+</pre></div>
+
+<p><code>every</code> aplicada a duas listas. O predicado é uma
+função de dois argumentos.
+</p>
+<div class="example">
+<pre class="example">(%i1) every (&quot;=&quot;, [a, b, c], [a, b, c]);
+(%o1)                         true
+(%i2) every (&quot;#&quot;, [a, b, c], [a, b, c]);
+(%o2)                         false
+</pre></div>
+
+<p>Predicado <var>f</var> que produz resultados diferentes de <code>true</code> ou
+<code>false</code>, governados por meio da variável global <code>prederror</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) prederror : false;
+(%o1)                         false
+(%i2) map (lambda ([a, b], is (a &lt; b)), [x, y, z], [x^2, y^2, z^2]);
+(%o2)              [unknown, unknown, unknown]
+(%i3) every (&quot;&lt;&quot;, [x, y, z], [x^2, y^2, z^2]);
+(%o3)                        unknown
+(%i4) prederror : true;
+(%o4)                         true
+(%i5) every (&quot;&lt;&quot;, [x, y, z], [x^2, y^2, z^2]);
+(%o5)                         false
+</pre></div>
+
+</dd></dl>
+ 
+<a name="extremal_005fsubset"></a><a name="Item_003a-nset_002fdeffn_002fextremal_005fsubset"></a><dl>
+<dt><a name="index-extremal_005fsubset"></a>Função: <strong>extremal_subset</strong> <em>(<var>s</var>, <var>f</var>, max)</em></dt>
+<dt><a name="index-extremal_005fsubset-1"></a>Função: <strong>extremal_subset</strong> <em>(<var>s</var>, <var>f</var>, min)</em></dt>
+<dd>
+<p>Encontra o subconjunto de <var>s</var> para o qual a função
+<var>f</var> toma valores máximos ou mínimos.
+</p>
+<p><code>extremal_subset(<var>s</var>, <var>f</var>, max)</code> encontra o subconjunto do
+conjunto ou lista <var>s</var> para os quais a função real
+<var>f</var> assume um valor máximo.
+</p>
+<p><code>extremal_subset(<var>s</var>, <var>f</var>, min)</code> encontra o subconjunto do
+conjunto ou lista <var>s</var> para a qual a função real
+<var>f</var> assume um valor mínimo.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) extremal_subset ({-2, -1, 0, 1, 2}, abs, max);
+(%o1)                       {- 2, 2}
+(%i2) extremal_subset ({sqrt(2), 1.57, %pi/2}, sin, min);
+(%o2)                       {sqrt(2)}
+</pre></div>
+</dd></dl>
+
+<a name="flatten"></a><a name="Item_003a-nset_002fdeffn_002fflatten"></a><dl>
+<dt><a name="index-flatten"></a>Função: <strong>flatten</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Colecta argumentos de subexpressões que possuem o mesmo operador que
+<var>expr</var> e constrói uma expressão a partir desses argumentos
+colectados.
+</p>
+<p>Subexpressões nas quais o operador é diferente do operador principal
+de <code>expr</code> são copiadas sem modificação, mesmo se
+tiverem subexpressões com o mesmo operador que <code>expr</code>.
+</p>
+<p>É possível que <code>flatten</code> construia expressões nas
+quais o número de argumentos difira dos argumentos declarados para um
+operador; isso pode provocar uma mensagem de erro do simplificador ou do
+avaliador.  <code>flatten</code> não tenta detectar tais
+situações.
+</p>
+<p>Expressões com representações especiais, por exemplo,
+expressões racionais canónicas (CRE), não podem usar a
+função <code>flatten</code>; nesses casos, <code>flatten</code>
+retorna os seus argumentos sem modificação.
+</p>
+<p>Exemplos:
+</p>
+<p>Aplicado a uma lista, <code>flatten</code> reúne todos os elementos da
+lista que sejam listas.
+</p>
+<div class="example">
+<pre class="example">(%i1) flatten ([a, b, [c, [d, e], f], [[g, h]], i, j]);
+(%o1)            [a, b, c, d, e, f, g, h, i, j]
+</pre></div>
+
+<p>Aplicado a um conjunto, <code>flatten</code> reúne todos os elementos do
+conjunto que sejam conjuntos.
+</p>
+<div class="example">
+<pre class="example">(%i1) flatten ({a, {b}, {{c}}});
+(%o1)                       {a, b, c}
+(%i2) flatten ({a, {[a], {a}}});
+(%o2)                       {a, [a]}
+</pre></div>
+
+<p>o efeito de <code>flatten</code> é similar a declarar o operador principal
+para ser enário. No entanto, <code>flatten</code> não faz efeito sobre
+subexpressões que possuem um operador diferente do operador principal,
+enquanto uma declaração enária faz efeito.
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: flatten (f (g (f (f (x)))));
+(%o1)                     f(g(f(f(x))))
+(%i2) declare (f, nary);
+(%o2)                         done
+(%i3) ev (expr);
+(%o3)                      f(g(f(x)))
+</pre></div>
+
+<p><code>flatten</code> trata funções subscritas da mesma forma
+que qualquer outro operador.
+</p>
+<div class="example">
+<pre class="example">(%i1) flatten (f[5] (f[5] (x, y), z));
+(%o1)                      f (x, y, z)
+                            5
+</pre></div>
+
+<p>É possível que <code>flatten</code> construa expressões nas
+quais o número de argumentos difira dos argumentos declarados para um
+operador;
+</p>
+<div class="example">
+<pre class="example">(%i1) 'mod (5, 'mod (7, 4));
+(%o1)                   mod(5, mod(7, 4))
+(%i2) flatten (%);
+(%o2)                     mod(5, 7, 4)
+(%i3) ''%, nouns;
+Wrong number of arguments to mod
+ -- an error.  Quitting.  To debug this try debugmode(true);
+</pre></div>
+</dd></dl>
+
+<a name="full_005flistify"></a><a name="Item_003a-nset_002fdeffn_002ffull_005flistify"></a><dl>
+<dt><a name="index-full_005flistify"></a>Função: <strong>full_listify</strong> <em>(<var>a</var>)</em></dt>
+<dd><p>Substitui todo operador de conjunto em <var>a</var> por um operador de lista,
+e retorna o resultado. <code>fullt_listify</code> substitui operadores de
+conjunto em subexpressões aninhadas, mesmo se o operador principal
+não for (<code>set</code>).
+</p>
+<p><code>listify</code> substitui unicamente o operador principal.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) full_listify ({a, b, {c, {d, e, f}, g}});
+(%o1)               [a, b, [c, [d, e, f], g]]
+(%i2) full_listify (F (G ({a, b, H({c, d, e})})));
+(%o2)              F(G([a, b, H([c, d, e])]))
+</pre></div>
+
+</dd></dl>
+
+<a name="fullsetify"></a><a name="Item_003a-nset_002fdeffn_002ffullsetify"></a><dl>
+<dt><a name="index-fullsetify"></a>Função: <strong>fullsetify</strong> <em>(<var>a</var>)</em></dt>
+<dd><p>Quando <var>a</var> for uma lista, substitui o operador de lista por um
+operador de conjunto, e aplica <code>fullsetify</code> a cada elemento que for
+um conjunto.  Quando <var>a</var> não for uma lista, o resultado é
+<var>a</var> na sua forma original e sem modificações.
+</p>
+<p><code>setify</code> substitui unicamente o operador principal.
+</p>
+<p>Exemplos:
+</p>
+<p>Na linha (%o2), o argumento de <code>f</code> não é convertido para um
+conjunto porque o operador principal de <code>f([b])</code> não é uma
+lista.
+</p>
+<div class="example">
+<pre class="example">(%i1) fullsetify ([a, [a]]);
+(%o1)                       {a, {a}}
+(%i2) fullsetify ([a, f([b])]);
+(%o2)                      {a, f([b])}
+</pre></div>
+
+</dd></dl>
+
+<a name="identity"></a><a name="Item_003a-nset_002fdeffn_002fidentity"></a><dl>
+<dt><a name="index-identity"></a>Função: <strong>identity</strong> <em>(<var>x</var>)</em></dt>
+<dd>
+<p>Retorna <var>x</var> para qualquer argumento <var>x</var>.
+</p>
+<p>Exemplos:
+</p>
+<p><code>identity</code> pode ser usado como um predicado quando os argumentos
+forem valores Booleanos.
+</p>
+<div class="example">
+<pre class="example">(%i1) every (identity, [true, true]);
+(%o1)                         true
+</pre></div>
+</dd></dl>
+
+<a name="integer_005fpartitions"></a><a name="Item_003a-nset_002fdeffn_002finteger_005fpartitions"></a><dl>
+<dt><a name="index-integer_005fpartitions"></a>Função: <strong>integer_partitions</strong> <em>(<var>n</var>)</em></dt>
+<dt><a name="index-integer_005fpartitions-1"></a>Função: <strong>integer_partitions</strong> <em>(<var>n</var>, <var>len</var>)</em></dt>
+<dd>
+<p>Calcula partições inteiras de <var>n</var>, isto é, listas
+de inteiros cuja soma dos elementos de cada lista é <var>n</var>.
+</p>
+<p><code>integer_partitions(<var>n</var>)</code> encontra o conjunto de todas as
+partições do inteiro <var>n</var>. Cada
+partição é uma lista ordenada do maior para o menor.
+</p>
+<p><code>integer_partitions(<var>n</var>, <var>len</var>)</code> encontra todas as
+partições com comprimento <var>len</var> ou menor; nesse
+caso, serão adicionados zeros ao final de cada
+partição de comprimento menor que <var>len</var>, para fazer
+com que todas as partições tenham exactamente <var>len</var> termos.
+Cada partição é uma lista ordenada do maior para o
+menor.
+</p>
+<p>Uma lista <em>[a_1, ..., a_m]</em> é uma partição de um
+inteiro não negativo <em>n</em> quando: (1) cada <em>a_i</em> é um
+inteiro não nulo, e (2) <em>a_1 + ... + a_m = n.</em> Dessa forma, 0
+não tem partições.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) integer_partitions (3);
+(%o1)               {[1, 1, 1], [2, 1], [3]}
+(%i2) s: integer_partitions (25)$
+(%i3) cardinality (s);
+(%o3)                         1958
+(%i4) map (lambda ([x], apply (&quot;+&quot;, x)), s);
+(%o4)                         {25}
+(%i5) integer_partitions (5, 3);
+(%o5) {[2, 2, 1], [3, 1, 1], [3, 2, 0], [4, 1, 0], [5, 0, 0]}
+(%i6) integer_partitions (5, 2);
+(%o6)               {[3, 2], [4, 1], [5, 0]}
+</pre></div>
+
+<p>Para encontrar todas as partições que satisfazem uma
+condição, use a função <code>subset</code>;
+aqui está um exemplo que encontra todas as partições
+de 10 cujos elementos da lista são números primos.
+</p>
+<div class="example">
+<pre class="example">(%i1) s: integer_partitions (10)$
+(%i2) cardinality (s);
+(%o2)                          42
+(%i3) xprimep(x) := integerp(x) and (x &gt; 1) and primep(x)$
+(%i4) subset (s, lambda ([x], every (xprimep, x)));
+(%o4) {[2, 2, 2, 2, 2], [3, 3, 2, 2], [5, 3, 2], [5, 5], [7, 3]}
+</pre></div>
+
+</dd></dl>
+
+<a name="intersect"></a><a name="Item_003a-nset_002fdeffn_002fintersect"></a><dl>
+<dt><a name="index-intersect"></a>Função: <strong>intersect</strong> <em>(<var>a_1</var>, ..., <var>a_n</var>)</em></dt>
+<dd>
+<p><code>intersect</code> é o mesmo que <code>intersection</code>, como veremos.
+</p>
+</dd></dl>
+
+<a name="intersection"></a><a name="Item_003a-nset_002fdeffn_002fintersection"></a><dl>
+<dt><a name="index-intersection"></a>Função: <strong>intersection</strong> <em>(<var>a_1</var>, ..., <var>a_n</var>)</em></dt>
+<dd><p>Retorna um conjunto contendo os elementos que são comuns aos conjuntos
+<var>a_1</var> até <var>a_n</var>.
+</p>
+<p><code>intersection</code> falha se qualquer dos argumentos não for um
+conjunto literal.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) S_1 : {a, b, c, d};
+(%o1)                     {a, b, c, d}
+(%i2) S_2 : {d, e, f, g};
+(%o2)                     {d, e, f, g}
+(%i3) S_3 : {c, d, e, f};
+(%o3)                     {c, d, e, f}
+(%i4) S_4 : {u, v, w};
+(%o4)                       {u, v, w}
+(%i5) intersection (S_1, S_2);
+(%o5)                          {d}
+(%i6) intersection (S_2, S_3);
+(%o6)                       {d, e, f}
+(%i7) intersection (S_1, S_2, S_3);
+(%o7)                          {d}
+(%i8) intersection (S_1, S_2, S_3, S_4);
+(%o8)                          {}
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-nset_002fdeffn_002fkron_005fdelta"></a><dl>
+<dt><a name="index-kron_005fdelta"></a>Função: <strong>kron_delta</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dd>
+<p>Representa a função delta de Kronecker.
+</p>
+<p><code>kron_delta</code> simplifica para 1 quando <var>x</var> e <var>y</var> forem
+idênticos ou equivalentes, e simplifica para 0 quando <var>x</var> e
+<var>y</var> não forem equivalentes. De outra forma, se não for certo que
+<var>x</var> e <var>y</var> são equivalentes, <code>kron_delta</code> simplificará
+para uma expressão substantiva. <code>kron_delta</code> implementa uma
+política de segurança para expressões em
+ponto flutuante: se a diferença <code><var>x</var> - <var>y</var></code>
+for um número em ponto flutuante, <code>kron_delta</code> simplifica para
+uma expressão substantiva quando <var>x</var> for aparentemente equivalente
+a <var>y</var>.
+</p>
+<p>Especificamente, <code>kron_delta(<var>x</var>, <var>y</var>)</code> simplifica para 1
+quando <code>is(x = y)</code> for <code>true</code>. <code>kron_delta</code> também
+simplifica para 1 quando <code>sign(abs(<var>x</var> - <var>y</var>))</code> for
+<code>zero</code> e <code><var>x</var> - <var>y</var></code> não for um número em ponto
+flutuante (e também não for um número de precisão simples em
+ponto flutuante nem um número de precisão dupla em poto flutuante,
+isto é, não for um bigfloat). <code>kron_delta</code> simplifica para 0
+quando <code>sign(abs(<var>x</var> - <var>y</var>))</code> for <code>pos</code>.
+</p>
+<p>Caso contrário, <code>sign(abs(<var>x</var> - <var>y</var>))</code> é diferente de
+<code>pos</code> ou <code>zero</code>, ou é <code>zero</code> e <code><var>x</var> - <var>y</var></code>
+é um número em ponto flutuante. Nesses casos, <code>kron_delta</code>
+retorna um expressão substantiva.
+</p>
+<p><code>kron_delta</code> é declarada como sendo simétrica. Isto é,
+<code>kron_delta(<var>x</var>, <var>y</var>)</code> é igual a
+<code>kron_delta(<var>y</var>, <var>x</var>)</code>.
+</p>
+<p>Exemplos:
+</p>
+<p>Os argumentos de <code>kron_delta</code> são idênticos. <code>kron_delta</code>
+simplifica para 1.
+</p>
+<div class="example">
+<pre class="example">(%i1) kron_delta (a, a);
+(%o1)                           1
+(%i2) kron_delta (x^2 - y^2, x^2 - y^2);
+(%o2)                           1
+(%i3) float (kron_delta (1/10, 0.1));
+(%o3)                           1
+</pre></div>
+
+<p>Os argumentos de <code>kron_delta</code> são equivalentes, e a
+diferença entre eles não é um número em ponto
+flutuante.  <code>kron_delta</code> simplifica para 1.
+</p>
+<div class="example">
+<pre class="example">(%i1) assume (equal (x, y));
+(%o1)                     [equal(x, y)]
+(%i2) kron_delta (x, y);
+(%o2)                           1
+</pre></div>
+
+<p>Os argumentos de <code>kron_delta</code> não são equivalentes.
+<code>kron_delta</code> simplifica para 0.
+</p>
+<div class="example">
+<pre class="example">(%i1) kron_delta (a + 1, a);
+(%o1)                           0
+(%i2) assume (a &gt; b)$
+(%i3) kron_delta (a, b);
+(%o3)                           0
+(%i4) kron_delta (1/5, 0.7);
+(%o4)                           0
+</pre></div>
+
+<p>Os argumentos de <code>kron_delta</code> podem ou não ser equivalentes.
+<code>kron_delta</code> simplifica para uma expressão substantiva.
+</p>
+<div class="example">
+<pre class="example">(%i1) kron_delta (a, b);
+(%o1)                   kron_delta(a, b)
+(%i2) assume(x &gt;= y)$
+(%i3) kron_delta (x, y);
+(%o3)                   kron_delta(x, y)
+</pre></div>
+
+<p>Os argumentos de <code>kron_delta</code> são equivalentes, mas a
+diferença entre eles é um número em ponto flutuante.
+<code>kron_delta</code> simplifica para uma expressão substantiva.
+</p>
+<div class="example">
+<pre class="example">(%i1) 1/4 - 0.25;
+(%o1)                          0.0
+(%i2) 1/10 - 0.1;
+(%o2)                          0.0
+(%i3) 0.25 - 0.25b0;
+Warning:  Float to bigfloat conversion of 0.25
+(%o3)                         0.0b0
+(%i4) kron_delta (1/4, 0.25);
+                                  1
+(%o4)                  kron_delta(-, 0.25)
+                                  4
+(%i5) kron_delta (1/10, 0.1);
+                                  1
+(%o5)                  kron_delta(--, 0.1)
+                                  10
+(%i6) kron_delta (0.25, 0.25b0);
+Warning:  Float to bigfloat conversion of 0.25
+(%o6)               kron_delta(0.25, 2.5b-1)
+</pre></div>
+
+<p><code>kron_delta</code> é simétrica.
+</p>
+<div class="example">
+<pre class="example">(%i1) kron_delta (x, y);
+(%o1)                   kron_delta(x, y)
+(%i2) kron_delta (y, x);
+(%o2)                   kron_delta(x, y)
+(%i3) kron_delta (x, y) - kron_delta (y, x);
+(%o3)                           0
+(%i4) is (equal (kron_delta (x, y), kron_delta (y, x)));
+(%o4)                         true
+(%i5) is (kron_delta (x, y) = kron_delta (y, x));
+(%o5)                         true
+</pre></div>
+
+</dd></dl>
+
+<a name="listify"></a><a name="Item_003a-nset_002fdeffn_002flistify"></a><dl>
+<dt><a name="index-listify"></a>Função: <strong>listify</strong> <em>(<var>a</var>)</em></dt>
+<dd>
+<p>Retorna uma lista contendo os elementos de <var>a</var> quando <var>a</var> for um
+conjunto. De outra forma, <code>listify</code> retorna <var>a</var>.
+</p>
+<p><code>full_listify</code> substitui todos os operadores de conjunto em <var>a</var>
+por operadores de lista.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) listify ({a, b, c, d});
+(%o1)                     [a, b, c, d]
+(%i2) listify (F ({a, b, c, d}));
+(%o2)                    F({a, b, c, d})
+</pre></div>
+
+</dd></dl>
+
+<a name="lreduce"></a><a name="Item_003a-nset_002fdeffn_002flreduce"></a><dl>
+<dt><a name="index-lreduce"></a>Função: <strong>lreduce</strong> <em>(<var>F</var>, <var>s</var>)</em></dt>
+<dt><a name="index-lreduce-1"></a>Função: <strong>lreduce</strong> <em>(<var>F</var>, <var>s</var>, <var>s_0</var>)</em></dt>
+<dd>
+<p>Extende a função de dois argumentos <var>F</var> para uma
+função de <code>n</code> argumentos, usando
+composição, onde <var>s</var> é uma lista.
+</p>
+<p><code>lreduce(<var>F</var>, <var>s</var>)</code> retorna <code>F(... F(F(s_1, s_2),
+s_3), ... s_n)</code>.  Quando o argumento opcional <var>s_0</var> estiver
+presente, o resultado é equivalente a <code>lreduce(<var>F</var>,
+cons(<var>s_0</var>, <var>s</var>))</code>.
+</p>
+<p>A função <var>F</var> é aplicada primeiro aos elementos
+mais à <em>esquerda</em> de lista; daí o nome &quot;lreduce&quot;.
+</p>
+<p>Veja também <code>rreduce</code>, <code>xreduce</code>, e <code>tree_reduce</code>.
+</p>
+<p>Exemplos:
+</p>
+<p><code>lreduce</code> sem o argumento opcional.
+</p>
+<div class="example">
+<pre class="example">(%i1) lreduce (f, [1, 2, 3]);
+(%o1)                     f(f(1, 2), 3)
+(%i2) lreduce (f, [1, 2, 3, 4]);
+(%o2)                  f(f(f(1, 2), 3), 4)
+</pre></div>
+
+<p><code>lreduce</code> com o argumento opcional.
+</p>
+<div class="example">
+<pre class="example">(%i1) lreduce (f, [1, 2, 3], 4);
+(%o1)                  f(f(f(4, 1), 2), 3)
+</pre></div>
+
+<p><code>lreduce</code> aplicada a operadores binários internos do Maxima
+<code>/</code> é o operador de divisão.
+</p>
+<div class="example">
+<pre class="example">(%i1) lreduce (&quot;^&quot;, args ({a, b, c, d}));
+                               b c d
+(%o1)                       ((a ) )
+(%i2) lreduce (&quot;/&quot;, args ({a, b, c, d}));
+                                a
+(%o2)                         -----
+                              b c d
+</pre></div>
+
+</dd></dl>
+
+<a name="makeset"></a><a name="Item_003a-nset_002fdeffn_002fmakeset"></a><dl>
+<dt><a name="index-makeset"></a>Função: <strong>makeset</strong> <em>(<var>expr</var>, <var>x</var>, <var>s</var>)</em></dt>
+<dd>
+<p>Retorna um conjunto com elementos gerados a partir da expressão
+<var>expr</var>, onde <var>x</var> é uma lista de variáveis em <var>expr</var>, e
+<var>s</var>é um conjunto ou lista de listas.  Para gerar cada elemento do
+conjunto, <var>expr</var> é avaliada com as variáveis <var>x</var>
+substituídas, em paralelo, por elementos de <var>s</var>.
+</p>
+<p>Cada elemento de <var>s</var> deve ter o mesmo comprimento que <var>x</var>.  A
+lista de variáveis <var>x</var> deve ser uma lista de
+símbolos, sem índices.  Mesmo se existir
+somente um símbolo, <var>x</var> deve ser uma lista de um
+elemento, e cada elemento de <var>s</var> deve ser uma lista de um elemento.
+</p>
+
+<p>Veja também <code>makelist</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) makeset (i/j, [i, j], [[1, a], [2, b], [3, c], [4, d]]);
+                           1  2  3  4
+(%o1)                     {-, -, -, -}
+                           a  b  c  d
+(%i2) S : {x, y, z}$
+(%i3) S3 : cartesian_product (S, S, S);
+(%o3) {[x, x, x], [x, x, y], [x, x, z], [x, y, x], [x, y, y], 
+[x, y, z], [x, z, x], [x, z, y], [x, z, z], [y, x, x], 
+[y, x, y], [y, x, z], [y, y, x], [y, y, y], [y, y, z], 
+[y, z, x], [y, z, y], [y, z, z], [z, x, x], [z, x, y], 
+[z, x, z], [z, y, x], [z, y, y], [z, y, z], [z, z, x], 
+[z, z, y], [z, z, z]}
+(%i4) makeset (i + j + k, [i, j, k], S3);
+(%o4) {3 x, 3 y, y + 2 x, 2 y + x, 3 z, z + 2 x, z + y + x, 
+                                       z + 2 y, 2 z + x, 2 z + y}
+(%i5) makeset (sin(x), [x], {[1], [2], [3]});
+(%o5)               {sin(1), sin(2), sin(3)}
+</pre></div>
+</dd></dl>
+
+<a name="moebius"></a><a name="Item_003a-nset_002fdeffn_002fmoebius"></a><dl>
+<dt><a name="index-moebius"></a>Função: <strong>moebius</strong> <em>(<var>n</var>)</em></dt>
+<dd>
+<p>Representa a função de Moebius.
+</p>
+<p>Quando <var>n</var> for o produto de <em>k</em> primos distintos,
+<code>moebius(<var>n</var>)</code> simplifica para <em>(-1)^k</em>; quando
+<em><var>n</var> = 1</em>, simplifica para 1; e simplifica para 0 para todos os
+outros inteiros positivos.
+</p>
+<p><code>moebius</code>, aplicada a equações, listas, matrizes
+e conjuntos, é calculada em forma distributiva.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) moebius (1);
+(%o1)                           1
+(%i2) moebius (2 * 3 * 5);
+(%o2)                          - 1
+(%i3) moebius (11 * 17 * 29 * 31);
+(%o3)                           1
+(%i4) moebius (2^32);
+(%o4)                           0
+(%i5) moebius (n);
+(%o5)                      moebius(n)
+(%i6) moebius (n = 12);
+(%o6)                    moebius(n) = 0
+(%i7) moebius ([11, 11 * 13, 11 * 13 * 15]);
+(%o7)                      [- 1, 1, 1]
+(%i8) moebius (matrix ([11, 12], [13, 14]));
+                           [ - 1  0 ]
+(%o8)                      [        ]
+                           [ - 1  1 ]
+(%i9) moebius ({21, 22, 23, 24});
+(%o9)                      {- 1, 0, 1}
+</pre></div>
+
+</dd></dl>
+ 
+<a name="multinomial_005fcoeff"></a><a name="Item_003a-nset_002fdeffn_002fmultinomial_005fcoeff"></a><dl>
+<dt><a name="index-multinomial_005fcoeff"></a>Função: <strong>multinomial_coeff</strong> <em>(<var>a_1</var>, ..., <var>a_n</var>)</em></dt>
+<dt><a name="index-multinomial_005fcoeff-1"></a>Função: <strong>multinomial_coeff</strong> <em>()</em></dt>
+<dd>
+<p>Calcula o coeficiente multinomial.
+</p>
+<p>Quando cada <var>a_k</var> for um inteiro não negativo, o coeficiente
+multinomial indica o número de formas possíveis de
+colocar <code><var>a_1</var> + ... + <var>a_n</var></code> objectos distintos em
+<em>n</em> caixas com <var>a_k</var> elementos na <em>k</em>&rsquo;ésima caixa. Em
+geral, <code>multinomial_coeff (<var>a_1</var>, ..., <var>a_n</var>)</code> calcula
+<code>(<var>a_1</var> + ... + <var>a_n</var>)!/(<var>a_1</var>! ... <var>a_n</var>!)</code>.
+</p>
+<p><code>multinomial_coeff()</code> (sem argumentos) produz 1.
+</p>
+<p><code>minfactorial</code> poderá conseguir simplificar o valor calculado por
+<code>multinomial_coeff</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) multinomial_coeff (1, 2, x);
+                            (x + 3)!
+(%o1)                       --------
+                              2 x!
+(%i2) minfactorial (%);
+                     (x + 1) (x + 2) (x + 3)
+(%o2)                -----------------------
+                                2
+(%i3) multinomial_coeff (-6, 2);
+                             (- 4)!
+(%o3)                       --------
+                            2 (- 6)!
+(%i4) minfactorial (%);
+(%o4)                          10
+</pre></div>
+</dd></dl>
+
+<a name="num_005fdistinct_005fpartitions"></a><a name="Item_003a-nset_002fdeffn_002fnum_005fdistinct_005fpartitions"></a><dl>
+<dt><a name="index-num_005fdistinct_005fpartitions"></a>Função: <strong>num_distinct_partitions</strong> <em>(<var>n</var>)</em></dt>
+<dt><a name="index-num_005fdistinct_005fpartitions-1"></a>Função: <strong>num_distinct_partitions</strong> <em>(<var>n</var>, list)</em></dt>
+<dd>
+<p>Calcula o n;umero de partições de inteiros distintos de <var>n</var>
+quando <var>n</var> for um inteiro não negativo.
+De outra forma, <code>num_distinct_partitions</code> retorna uma expressão substantiva.
+</p>
+<p><code>num_distinct_partitions(<var>n</var>, list)</code> retorna uma 
+lista do número de partições distintas de 1, 2, 3, ..., <var>n</var>. 
+</p>
+<p>Uma partição distinta de <var>n</var> é
+uma lista de inteiros positivos distintos <em>k_1</em>, ..., <em>k_m</em>
+tais que <em><var>n</var> = k_1 + ... + k_m</em>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) num_distinct_partitions (12);
+(%o1)                          15
+(%i2) num_distinct_partitions (12, list);
+(%o2)      [1, 1, 1, 2, 2, 3, 4, 5, 6, 8, 10, 12, 15]
+(%i3) num_distinct_partitions (n);
+(%o3)              num_distinct_partitions(n)
+</pre></div>
+
+</dd></dl>
+
+<a name="num_005fpartitions"></a><a name="Item_003a-nset_002fdeffn_002fnum_005fpartitions"></a><dl>
+<dt><a name="index-num_005fpartitions"></a>Função: <strong>num_partitions</strong> <em>(<var>n</var>)</em></dt>
+<dt><a name="index-num_005fpartitions-1"></a>Função: <strong>num_partitions</strong> <em>(<var>n</var>, list)</em></dt>
+<dd>
+<p>Calcula o número das partições inteiras de <var>n</var>
+quando <var>n</var> for um inteiro não negativo.  De outra forma,
+<code>num_partitions</code> retorna uma expressão substantiva.
+</p>
+<p><code>num_partitions(<var>n</var>, list)</code> retorna uma
+lista do número de partições inteiras de 1, 2, 3, ..., <var>n</var>.
+</p>
+<p>Para um inteiro não negativo <var>n</var>, <code>num_partitions(<var>n</var>)</code> é igual a
+<code>cardinality(integer_partitions(<var>n</var>))</code>; todavia, <code>num_partitions</code> 
+não constrói actualmente o conjunto das partições, nesse sentido <code>num_partitions</code> é mais rápida.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) num_partitions (5) = cardinality (integer_partitions (5));
+(%o1)                         7 = 7
+(%i2) num_partitions (8, list);
+(%o2)            [1, 1, 2, 3, 5, 7, 11, 15, 22]
+(%i3) num_partitions (n);
+(%o3)                   num_partitions(n)
+</pre></div>
+
+</dd></dl>
+
+
+
+<a name="partition_005fset"></a><a name="Item_003a-nset_002fdeffn_002fpartition_005fset"></a><dl>
+<dt><a name="index-partition_005fset"></a>Função: <strong>partition_set</strong> <em>(<var>a</var>, <var>f</var>)</em></dt>
+<dd>
+<p>Partições do conjunto <var>a</var> que satisfazem o predicado <var>f</var>.
+</p>
+<p><code>partition_set</code> retorna uma lista de dois conjuntos.
+O primeiro conjunto compreende os elementos de <var>a</var> para os quais <var>f</var> avalia para <code>false</code>,
+e o segundo conjunto compreende quaisquer outros elementos de <var>a</var>.
+<code>partition_set</code> não aplica <code>is</code> ao valor de retorno de <var>f</var>.
+</p>
+<p><code>partition_set</code> reclama se <var>a</var> não for um conjunto literal.
+</p>
+<p>Veja também <code>subset</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) partition_set ({2, 7, 1, 8, 2, 8}, evenp);
+(%o1)                   [{1, 7}, {2, 8}]
+(%i2) partition_set ({x, rat(y), rat(y) + z, 1}, lambda ([x], ratp(x)));
+(%o2)/R/              [{1, x}, {y, y + z}]
+</pre></div>
+</dd></dl>
+
+<a name="permutations"></a><a name="Item_003a-nset_002fdeffn_002fpermutations"></a><dl>
+<dt><a name="index-permutations"></a>Função: <strong>permutations</strong> <em>(<var>a</var>)</em></dt>
+<dd>
+<p>Retorna um conjunto todas as permutações distintas dos elementos da 
+lista ou do conjunto <var>a</var>. Cada permutação é uma lista, não um conjunto. 
+</p>
+<p>Quando <var>a</var> for uma lista, elementos duplicados de <var>a</var> são incluídos
+nas permutações.
+</p>
+<p><code>permutations</code> reclama se <var>a</var> não for um conjunto literal ou uma lista literal.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) permutations ([a, a]);
+(%o1)                       {[a, a]}
+(%i2) permutations ([a, a, b]);
+(%o2)           {[a, a, b], [a, b, a], [b, a, a]}
+</pre></div>
+
+</dd></dl>
+
+<a name="powerset"></a><a name="Item_003a-nset_002fdeffn_002fpowerset"></a><dl>
+<dt><a name="index-powerset"></a>Função: <strong>powerset</strong> <em>(<var>a</var>)</em></dt>
+<dt><a name="index-powerset-1"></a>Função: <strong>powerset</strong> <em>(<var>a</var>, <var>n</var>)</em></dt>
+<dd>
+<p>Retorna o conjunto de todos os dubconjuntos de <var>a</var>, ou um subconjunto de <var>a</var>.
+</p>
+<p><code>powerset(<var>a</var>)</code> retorna o conjunto de todos os subconjuntos do conjunto <var>a</var>.
+<code>powerset(<var>a</var>)</code> tem <code>2^cardinality(<var>a</var>)</code> elementos.
+</p>
+<p><code>powerset(<var>a</var>, <var>n</var>)</code> retorna o conjunto de todos os subconjuntos de <var>a</var> que possuem 
+cardinalidade <var>n</var>.
+</p>
+<p><code>powerset</code> reclama se <var>a</var> não for um conjunto literal,
+ou se <var>n</var> não for um inteiro não negativo.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) powerset ({a, b, c});
+(%o1) {{}, {a}, {a, b}, {a, b, c}, {a, c}, {b}, {b, c}, {c}}
+(%i2) powerset ({w, x, y, z}, 4);
+(%o2)                    {{w, x, y, z}}
+(%i3) powerset ({w, x, y, z}, 3);
+(%o3)     {{w, x, y}, {w, x, z}, {w, y, z}, {x, y, z}}
+(%i4) powerset ({w, x, y, z}, 2);
+(%o4)   {{w, x}, {w, y}, {w, z}, {x, y}, {x, z}, {y, z}}
+(%i5) powerset ({w, x, y, z}, 1);
+(%o5)                 {{w}, {x}, {y}, {z}}
+(%i6) powerset ({w, x, y, z}, 0);
+(%o6)                         {{}}
+</pre></div>
+
+</dd></dl>
+
+<a name="rreduce"></a><a name="Item_003a-nset_002fdeffn_002frreduce"></a><dl>
+<dt><a name="index-rreduce"></a>Função: <strong>rreduce</strong> <em>(<var>F</var>, <var>s</var>)</em></dt>
+<dt><a name="index-rreduce-1"></a>Função: <strong>rreduce</strong> <em>(<var>F</var>, <var>s</var>, <var>s_{n + 1}</var>)</em></dt>
+<dd>
+<p>Extende a função de dois argumentos <var>F</var> para uma função de <var>n</var> argumentos usando composição de funções,
+onde <var>s</var> é uma lista.
+</p>
+<p><code>rreduce(<var>F</var>, <var>s</var>)</code> retorna <code>F(s_1, ... F(s_{n - 2}, F(s_{n - 1}, s_n)))</code>.
+Quando o argumento opcional <var>s_{n + 1}</var> estiver presente,
+o resultado é equivalente a <code>rreduce(<var>F</var>, endcons(<var>s_{n + 1}</var>, <var>s</var>))</code>.
+</p>
+<p>A função <var>F</var> é primeiro aplicada à
+lista de elementos <i>mais à direita - rightmost</i>, daí o nome &quot;rreduce&quot;. 
+</p>
+<p>Veja também <code>lreduce</code>, <code>tree_reduce</code>, e <code>xreduce</code>.
+</p>
+<p>Exemplos:
+</p>
+<p><code>rreduce</code> sem o argumento opcional.
+</p>
+<div class="example">
+<pre class="example">(%i1) rreduce (f, [1, 2, 3]);
+(%o1)                     f(1, f(2, 3))
+(%i2) rreduce (f, [1, 2, 3, 4]);
+(%o2)                  f(1, f(2, f(3, 4)))
+</pre></div>
+
+<p><code>rreduce</code> com o argumento opcional.
+</p>
+<div class="example">
+<pre class="example">(%i1) rreduce (f, [1, 2, 3], 4);
+(%o1)                  f(1, f(2, f(3, 4)))
+</pre></div>
+
+<p><code>rreduce</code> aplicada a operadores de dois argumentos internos ( definidos por padrão) ao Maxima.
+<code>/</code> é o operadro de divisão.
+</p>
+<div class="example">
+<pre class="example">(%i1) rreduce (&quot;^&quot;, args ({a, b, c, d}));
+                                 d
+                                c
+                               b
+(%o1)                         a
+(%i2) rreduce (&quot;/&quot;, args ({a, b, c, d}));
+                               a c
+(%o2)                          ---
+                               b d
+</pre></div>
+
+</dd></dl>
+
+<a name="setdifference"></a><a name="Item_003a-nset_002fdeffn_002fsetdifference"></a><dl>
+<dt><a name="index-setdifference"></a>Função: <strong>setdifference</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd>
+<p>Retorna um conjunto contendo os elementos no conjunto <var>a</var> que
+não estãono conjunto <var>b</var>.
+</p>
+<p><code>setdifference</code> reclama se ou <var>a</var> ou <var>b</var> não for um conjunto literal.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) S_1 : {a, b, c, x, y, z};
+(%o1)                  {a, b, c, x, y, z}
+(%i2) S_2 : {aa, bb, c, x, y, zz};
+(%o2)                 {aa, bb, c, x, y, zz}
+(%i3) setdifference (S_1, S_2);
+(%o3)                       {a, b, z}
+(%i4) setdifference (S_2, S_1);
+(%o4)                     {aa, bb, zz}
+(%i5) setdifference (S_1, S_1);
+(%o5)                          {}
+(%i6) setdifference (S_1, {});
+(%o6)                  {a, b, c, x, y, z}
+(%i7) setdifference ({}, S_1);
+(%o7)                          {}
+</pre></div>
+
+</dd></dl>
+
+<a name="setequalp"></a><a name="Item_003a-nset_002fdeffn_002fsetequalp"></a><dl>
+<dt><a name="index-setequalp"></a>Função: <strong>setequalp</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd>
+<p>Retorna <code>true</code> se os conjuntos <var>a</var> e <var>b</var> possuirem o mesmo número de elementos
+e <code>is(<var>x</var> = <var>y</var>)</code> for <code>true</code>
+para <code>x</code> nos elementos de <var>a</var>
+e <code>y</code> nos elementos de <var>b</var>,
+considerados na ordem determinada por <code>listify</code>.
+De outra forma, <code>setequalp</code> retorna <code>false</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) setequalp ({1, 2, 3}, {1, 2, 3});
+(%o1)                         true
+(%i2) setequalp ({a, b, c}, {1, 2, 3});
+(%o2)                         false
+(%i3) setequalp ({x^2 - y^2}, {(x + y) * (x - y)});
+(%o3)                         false
+</pre></div>
+
+</dd></dl>
+
+<a name="setify"></a><a name="Item_003a-nset_002fdeffn_002fsetify"></a><dl>
+<dt><a name="index-setify"></a>Função: <strong>setify</strong> <em>(<var>a</var>)</em></dt>
+<dd>
+<p>Constrói um conjunto de elementos a partir da lista <var>a</var>. Elementos
+duplicados da lista <var>a</var> são apagados e os elementos
+são ordenados de acordo com o predicado <code>orderlessp</code>.
+</p>
+<p><code>setify</code> reclama se <var>a</var> não for uma lista literal.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) setify ([1, 2, 3, a, b, c]);
+(%o1)                  {1, 2, 3, a, b, c}
+(%i2) setify ([a, b, c, a, b, c]);
+(%o2)                       {a, b, c}
+(%i3) setify ([7, 13, 11, 1, 3, 9, 5]);
+(%o3)                {1, 3, 5, 7, 9, 11, 13}
+</pre></div>
+
+</dd></dl>
+
+<a name="setp"></a><a name="Item_003a-nset_002fdeffn_002fsetp"></a><dl>
+<dt><a name="index-setp"></a>Função: <strong>setp</strong> <em>(<var>a</var>)</em></dt>
+<dd>
+<p>Retorna <code>true</code> se e somente se <var>a</var> for um conjunto na interpretação do Maxima.
+</p>
+<p><code>setp</code> retorna <code>true</code> para conjuntos não simplificados (isto é, conjuntos com elementos redundantes)
+e também para conjuntos simplificados.
+</p>
+<p><code>setp</code> é equivalente à função do Maxima
+<code>setp(a) := not atom(a) and op(a) = 'set</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) simp : false;
+(%o1)                         false
+(%i2) {a, a, a};
+(%o2)                       {a, a, a}
+(%i3) setp (%);
+(%o3)                         true
+</pre></div>
+
+</dd></dl>
+
+<a name="set_005fpartitions"></a><a name="Item_003a-nset_002fdeffn_002fset_005fpartitions"></a><dl>
+<dt><a name="index-set_005fpartitions"></a>Função: <strong>set_partitions</strong> <em>(<var>a</var>)</em></dt>
+<dt><a name="index-set_005fpartitions-1"></a>Função: <strong>set_partitions</strong> <em>(<var>a</var>, <var>n</var>)</em></dt>
+<dd>
+<p>Retorna o conjunto de todas as partições de <var>a</var>, ou um subconjunto daquele conjunto de partições.
+</p>
+<p><code>set_partitions(<var>a</var>, <var>n</var>)</code> retorna um conjunto de todas as
+decomposições de <var>a</var> em <var>n</var> subconjutnos disjuntos não vazios.
+</p>
+<p><code>set_partitions(<var>a</var>)</code> retorna o conjunto de todas as partições.
+</p>
+<p><code>stirling2</code> retorna a cardinalidade de um conjuntode partições de um conjunto.
+</p>
+<p>Um conjunto de conjuntos <em>P</em> é uma partição de um conjunto <em>S</em> quando
+</p>
+<ol>
+<li> cada elemento de <em>P</em> é um conjunto não vazio,
+</li><li> elementos distintos de <em>P</em> são disjuntos,
+</li><li> a união dos elementos de <em>P</em> é igual a <em>S</em>.
+</li></ol>
+
+<p>Exemplos:
+</p>
+<p>O conjunto vazio é uma partição de si mesmo, as ondições 1 e 2 são &quot;vaziamente&quot; verdadeiras.
+</p>
+<div class="example">
+<pre class="example">(%i1) set_partitions ({});
+(%o1)                         {{}}
+</pre></div>
+
+<p>A cardinalidade do conjunto de partições de um conjunto pode ser encontrada usando <code>stirling2</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) s: {0, 1, 2, 3, 4, 5}$
+(%i2) p: set_partitions (s, 3)$ 
+(%i3) cardinality(p) = stirling2 (6, 3);
+(%o3)                        90 = 90
+</pre></div>
+
+<p>Cada elemento de <code>p</code> pode ter <var>n</var> = 3 elementos; vamos verificar.
+</p>
+<div class="example">
+<pre class="example">(%i1) s: {0, 1, 2, 3, 4, 5}$
+(%i2) p: set_partitions (s, 3)$ 
+(%i3) map (cardinality, p);
+(%o3)                          {3}
+</pre></div>
+
+<p>Finalmente, para cada elementos de <code>p</code>, a união de seus elementos possivelmente será 
+igua a <code>s</code>; novamente vamos comprovar.
+</p>
+<div class="example">
+<pre class="example">(%i1) s: {0, 1, 2, 3, 4, 5}$
+(%i2) p: set_partitions (s, 3)$ 
+(%i3) map (lambda ([x], apply (union, listify (x))), p);
+(%o3)                 {{0, 1, 2, 3, 4, 5}}
+</pre></div>
+</dd></dl>
+
+<a name="some"></a><a name="Item_003a-nset_002fdeffn_002fsome"></a><dl>
+<dt><a name="index-some"></a>Função: <strong>some</strong> <em>(<var>f</var>, <var>a</var>)</em></dt>
+<dt><a name="index-some-1"></a>Função: <strong>some</strong> <em>(<var>f</var>, <var>L_1</var>, ..., <var>L_n</var>)</em></dt>
+<dd>
+<p>Retorna <code>true</code> se o predicado <var>f</var> for <code>true</code> para um ou mais argumentos dados.
+</p>
+<p>Given one set as the second argument, 
+<code>some(<var>f</var>, <var>s</var>)</code> returns <code>true</code>
+if <code>is(<var>f</var>(<var>a_i</var>))</code> returns <code>true</code> for one or more <var>a_i</var> in <var>s</var>.
+<code>some</code> may or may not evaluate <var>f</var> for all <var>a_i</var> in <var>s</var>.
+Since sets are unordered,
+<code>some</code> may evaluate <code><var>f</var>(<var>a_i</var>)</code> in any order.
+</p>
+<p>Dadas uma ou mais listas como argumentos,
+<code>some(<var>f</var>, <var>L_1</var>, ..., <var>L_n</var>)</code> retorna <code>true</code>
+se <code>is(<var>f</var>(<var>x_1</var>, ..., <var>x_n</var>))</code> retornar <code>true</code> 
+para um ou mais <var>x_1</var>, ..., <var>x_n</var> em <var>L_1</var>, ..., <var>L_n</var>, respectivamente.
+<code>some</code> pode ou não avaliar 
+<var>f</var> para algumas combinações <var>x_1</var>, ..., <var>x_n</var>.
+<code>some</code> avalia listas na ordem do índice de incremento.
+</p>
+<p>Dado um conjunto vazio <code>{}</code> ou uma lista vazia <code>[]</code> como argumentos,
+<code>some</code> retorna <code>false</code>.
+</p>
+<p>Quando o sinalizador global <code>maperror</code> for <code>true</code>, todas as listas
+<var>L_1</var>, ..., <var>L_n</var> devem ter obrigatóriamente comprimentos iguais.
+Quando <code>maperror</code> for <code>false</code>, argumentos do tipo lista são
+efectivamente truncados para o comprimento da menor lista. 
+</p>
+<p>Retorna o valor de um predicado <var>f</var> o qual avalia (por meio de <code>is</code>)
+para alguma coisa outra que não <code>true</code> ou <code>false</code>
+e são governados pelo sinalizador global <code>prederror</code>.
+Quando <code>prederror</code> for <code>true</code>,
+tais valores são tratados como <code>false</code>.
+Quando <code>prederror</code> for <code>false</code>,
+tais valores são tratados como <code>unknown</code> (desconhecidos).
+</p>
+<p>Exemplos:
+</p>
+<p><code>some</code> aplicado a um conjunto simples.
+O predicado é uma função de um argumento.
+</p>
+<div class="example">
+<pre class="example">(%i1) some (integerp, {1, 2, 3, 4, 5, 6});
+(%o1)                         true
+(%i2) some (atom, {1, 2, sin(3), 4, 5 + y, 6});
+(%o2)                         true
+</pre></div>
+
+<p><code>some</code> aplicada a duas listas.
+O predicado é uma função de dois argumentos.
+</p>
+<div class="example">
+<pre class="example">(%i1) some (&quot;=&quot;, [a, b, c], [a, b, c]);
+(%o1)                         true
+(%i2) some (&quot;#&quot;, [a, b, c], [a, b, c]);
+(%o2)                         false
+</pre></div>
+
+<p>Retorna o valor do predicado <var>f</var> o qual avalia
+para alguma coisa que não <code>true</code> ou <code>false</code>
+e são governados através do sinalizador global <code>prederror</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) prederror : false;
+(%o1)                         false
+(%i2) map (lambda ([a, b], is (a &lt; b)), [x, y, z], [x^2, y^2, z^2]);
+(%o2)              [unknown, unknown, unknown]
+(%i3) some (&quot;&lt;&quot;, [x, y, z], [x^2, y^2, z^2]);
+(%o3)                        unknown
+(%i4) some (&quot;&lt;&quot;, [x, y, z], [x^2, y^2, z + 1]);
+(%o4)                         true
+(%i5) prederror : true;
+(%o5)                         true
+(%i6) some (&quot;&lt;&quot;, [x, y, z], [x^2, y^2, z^2]);
+(%o6)                         false
+(%i7) some (&quot;&lt;&quot;, [x, y, z], [x^2, y^2, z + 1]);
+(%o7)                         true
+</pre></div>
+</dd></dl>
+
+<a name="stirling1"></a><a name="Item_003a-nset_002fdeffn_002fstirling1"></a><dl>
+<dt><a name="index-stirling1"></a>Função: <strong>stirling1</strong> <em>(<var>n</var>, <var>m</var>)</em></dt>
+<dd>
+<p>Representa o número de Stirling de primeiro tipo.
+</p>
+<p>Quando <var>n</var> e <var>m</var> forem não negativos 
+inteiros, a magnitude de <code>stirling1 (<var>n</var>, <var>m</var>)</code> é o número de 
+permutações de um conjunto com <var>n</var> elementos que possui <var>m</var> ciclos.
+Para detalhes, veja Graham, Knuth e Patashnik <i>Concrete Mathematics</i>.
+Maxima utiliza uma relação recursiva para definir <code>stirling1 (<var>n</var>, <var>m</var>)</code> para
+<var>m</var> menor que 0; <code>stirling1</code> não é definida para <var>n</var> menor que 0 e para argumentos
+não inteiros.
+</p>
+<p><code>stirling1</code> é uma função de simplificação.
+Maxima conhece as seguintes identidades:
+</p>
+<ol>
+<li> <em>stirling1(0, n) = kron_delta(0, n)</em> (Ref. [1])
+</li><li> <em>stirling1(n, n) = 1</em> (Ref. [1])
+</li><li> <em>stirling1(n, n - 1) = binomial(n, 2)</em> (Ref. [1])
+</li><li> <em>stirling1(n + 1, 0) = 0</em> (Ref. [1])
+</li><li> <em>stirling1(n + 1, 1) = n!</em> (Ref. [1])
+</li><li> <em>stirling1(n + 1, 2) = 2^n  - 1</em> (Ref. [1])
+</li></ol>
+
+<p>Essas identidades são aplicadas quando os argumentos forem inteiros literais
+ou símbolos declarados como inteiros, e o primeiro argumento for não negativo.
+<code>stirling1</code> não simplififca para argumentos não inteiros.
+</p>
+<p>Referências:
+</p>
+<p>[1] Donald Knuth, <i>The Art of Computer Programming,</i>
+terceira edição, Volume 1, Seção 1.2.6, Equações 48, 49, e 50.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (n, integer)$
+(%i2) assume (n &gt;= 0)$
+(%i3) stirling1 (n, n);
+(%o3)                           1
+</pre></div>
+
+<p><code>stirling1</code> não simplifica para argumentos não inteiros.
+</p>
+<div class="example">
+<pre class="example">(%i1) stirling1 (sqrt(2), sqrt(2));
+(%o1)              stirling1(sqrt(2), sqrt(2))
+</pre></div>
+
+<p>Maxima aplica identidades a <code>stirling1</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (n, integer)$
+(%i2) assume (n &gt;= 0)$
+(%i3) stirling1 (n + 1, n);
+                            n (n + 1)
+(%o3)                       ---------
+                                2
+(%i4) stirling1 (n + 1, 1);
+(%o4)                          n!
+</pre></div>
+</dd></dl>
+
+<a name="stirling2"></a><a name="Item_003a-nset_002fdeffn_002fstirling2"></a><dl>
+<dt><a name="index-stirling2"></a>Função: <strong>stirling2</strong> <em>(<var>n</var>, <var>m</var>)</em></dt>
+<dd>
+<p>Representa o número de Stirling de segundo tipo.
+</p>
+<p>Quando <var>n</var> e <var>m</var> forem inteiros
+não negativos, <code>stirling2 (<var>n</var>, <var>m</var>)</code> é o número de maneiras através dos quais um conjunto com
+cardinalidade <var>n</var> pode ser particionado em <var>m</var> subconjuntos disjuntos.
+Maxima utiliza uma relação recursiva para definir <code>stirling2 (<var>n</var>, <var>m</var>)</code> para
+<var>m</var> menor que 0; <code>stirling2</code> é indefinida para <var>n</var> menor que 0 e para argumentos
+não inteiros.
+</p>
+<p><code>stirling2</code> é uma função de simplificação.
+Maxima conhece as seguintes identidades.
+</p>
+<ol>
+<li> <em>stirling2(0, n) = kron_delta(0, n)</em> (Ref. [1])
+</li><li> <em>stirling2(n, n) = 1</em> (Ref. [1])
+</li><li> <em>stirling2(n, n - 1) = binomial(n, 2)</em> (Ref. [1])
+</li><li> <em>stirling2(n + 1, 1) = 1</em> (Ref. [1])
+</li><li> <em>stirling2(n + 1, 2) = 2^n  - 1</em> (Ref. [1])
+</li><li> <em>stirling2(n, 0) = kron_delta(n, 0)</em> (Ref. [2])
+</li><li> <em>stirling2(n, m) = 0</em> when <em>m &gt; n</em> (Ref. [2])
+</li><li> <em>stirling2(n, m) = sum((-1)^(m - k) binomial(m k) k^n,i,1,m) / m!</em>
+onde <em>m</em> e <em>n</em> são inteiros, e <em>n</em> é não negativo. (Ref. [3])
+</li></ol>
+
+<p>Essas identidades são aplicadas quando os argumentos forem inteiros literais
+ou símbolos declarados como inteiros, e o primeiro argumento for não negativo.
+<code>stirling2</code> não simplifica para argumentos não inteiros.
+</p>
+<p>Referências:
+</p>
+<p>[1] Donald Knuth. <i>The Art of Computer Programming</i>,
+terceira edição, Volume 1, Seção 1.2.6, Equações 48, 49, e 50.
+</p>
+<p>[2] Graham, Knuth, e Patashnik. <i>Concrete Mathematics</i>, Tabela 264.
+</p>
+<p>[3] Abramowitz e Stegun. <i>Handbook of Mathematical Functions</i>, Seção 24.1.4.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (n, integer)$
+(%i2) assume (n &gt;= 0)$
+(%i3) stirling2 (n, n);
+(%o3)                           1
+</pre></div>
+
+<p><code>stirling2</code> não simplifica para argumentos não inteiros.
+</p>
+<div class="example">
+<pre class="example">(%i1) stirling2 (%pi, %pi);
+(%o1)                  stirling2(%pi, %pi)
+</pre></div>
+
+<p>Maxima aplica identidades a <code>stirling2</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (n, integer)$
+(%i2) assume (n &gt;= 0)$
+(%i3) stirling2 (n + 9, n + 8);
+                         (n + 8) (n + 9)
+(%o3)                    ---------------
+                                2
+(%i4) stirling2 (n + 1, 2);
+                              n
+(%o4)                        2  - 1
+</pre></div>
+</dd></dl>
+
+<a name="subset"></a><a name="Item_003a-nset_002fdeffn_002fsubset"></a><dl>
+<dt><a name="index-subset"></a>Função: <strong>subset</strong> <em>(<var>a</var>, <var>f</var>)</em></dt>
+<dd>
+<p>Retorna o subconjuntode um conjunto <var>a</var> que satisfaz o predicado <var>f</var>. 
+</p>
+<p><code>subset</code> returns um conjunto which comprises the elements of <var>a</var>
+for which <var>f</var> returns anything other than <code>false</code>.
+<code>subset</code> does not apply <code>is</code> to the return value of <var>f</var>.
+</p>
+<p><code>subset</code> reclama se <var>a</var> não for um conjunto literal.
+</p>
+<p>See also <code>partition_set</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) subset ({1, 2, x, x + y, z, x + y + z}, atom);
+(%o1)                     {1, 2, x, z}
+(%i2) subset ({1, 2, 7, 8, 9, 14}, evenp);
+(%o2)                      {2, 8, 14}
+</pre></div>
+
+</dd></dl>
+
+<a name="subsetp"></a><a name="Item_003a-nset_002fdeffn_002fsubsetp"></a><dl>
+<dt><a name="index-subsetp"></a>Função: <strong>subsetp</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd>
+<p>Retorna <code>true</code> se e somente se o conjunto <var>a</var> for um subconjunto de <var>b</var>.
+</p>
+<p><code>subsetp</code> reclama se ou <var>a</var> ou <var>b</var> não forem um conjunto literal.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) subsetp ({1, 2, 3}, {a, 1, b, 2, c, 3});
+(%o1)                         true
+(%i2) subsetp ({a, 1, b, 2, c, 3}, {1, 2, 3});
+(%o2)                         false
+</pre></div>
+
+</dd></dl>
+
+<a name="symmdifference"></a><a name="Item_003a-nset_002fdeffn_002fsymmdifference"></a><dl>
+<dt><a name="index-symmdifference"></a>Função: <strong>symmdifference</strong> <em>(<var>a_1</var>, ..., <var>a_n</var>)</em></dt>
+<dd>
+<p>Retorna a diferença simétrica, isto é,
+o conjunto dos elemetnos que ocorrem em exactamente um conjunto <var>a_k</var>.
+</p>
+<p>Given two arguments, <code>symmdifference(<var>a</var>, <var>b</var>)</code> is
+the same as <code>union(setdifference(<var>a</var>, <var>b</var>), setdifference(<var>b</var>, <var>a</var>))</code>.
+</p>
+<p><code>symmdifference</code> reclama se any argument não for um conjunto literal.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) S_1 : {a, b, c};
+(%o1)                       {a, b, c}
+(%i2) S_2 : {1, b, c};
+(%o2)                       {1, b, c}
+(%i3) S_3 : {a, b, z};
+(%o3)                       {a, b, z}
+(%i4) symmdifference ();
+(%o4)                          {}
+(%i5) symmdifference (S_1);
+(%o5)                       {a, b, c}
+(%i6) symmdifference (S_1, S_2);
+(%o6)                        {1, a}
+(%i7) symmdifference (S_1, S_2, S_3);
+(%o7)                        {1, z}
+(%i8) symmdifference ({}, S_1, S_2, S_3);
+(%o8)                        {1, z}
+</pre></div>
+
+</dd></dl>
+
+<a name="tree_005freduce"></a><a name="Item_003a-nset_002fdeffn_002ftree_005freduce"></a><dl>
+<dt><a name="index-tree_005freduce"></a>Função: <strong>tree_reduce</strong> <em>(<var>F</var>, <var>s</var>)</em></dt>
+<dt><a name="index-tree_005freduce-1"></a>Função: <strong>tree_reduce</strong> <em>(<var>F</var>, <var>s</var>, <var>s_0</var>)</em></dt>
+<dd>
+<p>Extende a função binária <var>F</var> a uma função enária através de composição,
+onde <var>s</var> é um conjunto ou uma lista.
+</p>
+<p><code>tree_reduce</code> é equivalente ao seguinte:
+Aplicar <var>F</var> a sucessivos pares de elementos
+para formar uma nova lista <code>[<var>F</var>(<var>s_1</var>, <var>s_2</var>), <var>F</var>(<var>s_3</var>, <var>s_4</var>), ...]</code>,
+mantendo o elemento final inalterado caso haja um número ímpar de elementos.
+Repetindo então o processo até que a lista esteja reduzida a um elemento simples, o qual é o valor de retorno da função.
+</p>
+<p>Quando o argumento opcional <var>s_0</var> estiver presente,
+o resultado é equivalente a <code>tree_reduce(<var>F</var>, cons(<var>s_0</var>, <var>s</var>)</code>.
+</p>
+<p>Para adições em ponto flutuante,
+<code>tree_reduce</code> pode retornar uma soma que possui um menor ero de arredondamento
+que <code>rreduce</code> ou <code>lreduce</code>.
+</p>
+<p>Os elementos da lista <var>s</var> e os resultados parciais podem ser arranjados em uma árvore binária de profundidade mínima,
+daí o nome &quot;tree_reduce&quot;.
+</p>
+<p>Exemplos:
+</p>
+<p><code>tree_reduce</code> aplicada a uma lista com um número par de elementos.
+</p>
+<div class="example">
+<pre class="example">(%i1) tree_reduce (f, [a, b, c, d]);
+(%o1)                  f(f(a, b), f(c, d))
+</pre></div>
+
+<p><code>tree_reduce</code> aplicada a uma lista com um número ímpar de elementos.
+</p>
+<div class="example">
+<pre class="example">(%i1) tree_reduce (f, [a, b, c, d, e]);
+(%o1)               f(f(f(a, b), f(c, d)), e)
+</pre></div>
+
+</dd></dl>
+
+<a name="union"></a><a name="Item_003a-nset_002fdeffn_002funion"></a><dl>
+<dt><a name="index-union"></a>Função: <strong>union</strong> <em>(<var>a_1</var>, ..., <var>a_n</var>)</em></dt>
+<dd><p>Retorna a união dos conjuntos de <var>a_1</var> a <var>a_n</var>. 
+</p>
+<p><code>union()</code> (sem argumentos) retorna o conjunto vazio.
+</p>
+<p><code>union</code> reclama se qualquer argumento não for um conjunto literal.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) S_1 : {a, b, c + d, %e};
+(%o1)                   {%e, a, b, d + c}
+(%i2) S_2 : {%pi, %i, %e, c + d};
+(%o2)                 {%e, %i, %pi, d + c}
+(%i3) S_3 : {17, 29, 1729, %pi, %i};
+(%o3)                {17, 29, 1729, %i, %pi}
+(%i4) union ();
+(%o4)                          {}
+(%i5) union (S_1);
+(%o5)                   {%e, a, b, d + c}
+(%i6) union (S_1, S_2);
+(%o6)              {%e, %i, %pi, a, b, d + c}
+(%i7) union (S_1, S_2, S_3);
+(%o7)       {17, 29, 1729, %e, %i, %pi, a, b, d + c}
+(%i8) union ({}, S_1, S_2, S_3);
+(%o8)       {17, 29, 1729, %e, %i, %pi, a, b, d + c}
+</pre></div>
+
+</dd></dl>
+
+<a name="xreduce"></a><a name="Item_003a-nset_002fdeffn_002fxreduce"></a><dl>
+<dt><a name="index-xreduce"></a>Função: <strong>xreduce</strong> <em>(<var>F</var>, <var>s</var>)</em></dt>
+<dt><a name="index-xreduce-1"></a>Função: <strong>xreduce</strong> <em>(<var>F</var>, <var>s</var>, <var>s_0</var>)</em></dt>
+<dd>
+<p>Extendendo a função <var>F</var> para uma função enária por composição,
+ou, se <var>F</var> já for enária, aplica-se <var>F</var> a <var>s</var>.
+Quando <var>F</var> não for enária, <code>xreduce</code> funciona da mesma forma que <code>lreduce</code>.
+O argumento <var>s</var> é uma lista.
+</p>
+<p>Funções sabidamente enárias inclui
+adição <code>+</code>, multiplicação <code>*</code>, <code>and</code>, <code>or</code>, <code>max</code>,
+<code>min</code>, e <code>append</code>.
+Funções podem também serem declaradas enárias por meio de <code>declare(<var>F</var>, nary)</code>.
+Para essas funções,
+é esperado que <code>xreduce</code> seja mais rápida que ou <code>rreduce</code> ou <code>lreduce</code>.
+</p>
+<p>Quando o argumento opcional <var>s_0</var> estiver presente,
+o resultado é equivalente a <code>xreduce(<var>s</var>, cons(<var>s_0</var>, <var>s</var>))</code>.
+</p>
+<p>Adições em ponto flutuante não são exactamente associativas; quando a associatividade ocorrer,
+<code>xreduce</code> aplica a adição enária do Maxima quando <var>s</var> contiver números em ponto flutuante.
+</p>
+<p>Exemplos:
+</p>
+<p><code>xreduce</code> aplicada a uma função sabidamente enária.
+<code>F</code> é chamada uma vez, com todos os argumentos.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (F, nary);
+(%o1)                         done
+(%i2) F ([L]) := L;
+(%o2)                      F([L]) := L
+(%i3) xreduce (F, [a, b, c, d, e]);
+(%o3)         [[[[[(&quot;[&quot;, simp), a], b], c], d], e]
+</pre></div>
+
+<p><code>xreduce</code> aplicada a uma função não sabidamente enária.
+<code>G</code> é chamada muitas vezes, com dois argumentos de cada vez.
+</p>
+<div class="example">
+<pre class="example">(%i1) G ([L]) := L;
+(%o1)                      G([L]) := L
+(%i2) xreduce (G, [a, b, c, d, e]);
+(%o2)         [[[[[(&quot;[&quot;, simp), a], b], c], d], e]
+(%i3) lreduce (G, [a, b, c, d, e]);
+(%o3)                 [[[[a, b], c], d], e]
+</pre></div>
+
+</dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_119.html#Introdu_00e7_00e3o-a-Conjuntos" accesskey="p" rel="previous">Introdução a Conjuntos</a>, Acima: <a href="maxima_118.html#Conjuntos" accesskey="u" rel="up">Conjuntos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Interrupts</title>
+
+<meta name="description" content="Maxima Manual: Interrupts">
+<meta name="keywords" content="Maxima Manual: Interrupts">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_161.html#Laufzeitumgebung" rel="up" title="Laufzeitumgebung">
+<link href="maxima_164.html#Funktionen-und-Variablen-der-Laufzeitumgebung" rel="next" title="Funktionen und Variablen der Laufzeitumgebung">
+<link href="maxima_162.html#Initialisierung-von-Maxima" rel="previous" title="Initialisierung von Maxima">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Interrupts"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_164.html#Funktionen-und-Variablen-der-Laufzeitumgebung" accesskey="n" rel="next">Funktionen und Variablen der Laufzeitumgebung</a>, Previous: <a href="maxima_162.html#Initialisierung-von-Maxima" accesskey="p" rel="previous">Initialisierung von Maxima</a>, Nach oben: <a href="maxima_161.html#Laufzeitumgebung" accesskey="u" rel="up">Laufzeitumgebung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Interrupts-1"></a>
+<h3 class="section">26.2 Interrupts</h3>
+
+<p>Eine Berechnung kann mit dem Kommando <kbd>^c</kbd> (<kbd>control-c</kbd>) abgebrochen 
+werden.  Standardm&auml;&szlig;ig kehrt Maxima zu der Eingabeaufforderung der Konsole
+zur&uuml;ck.  In diesem Fall ist es nicht m&ouml;glich, die Berechnung fortzusetzen.
+</p>
+<p>Beispiel:
+</p>
+<p>Eine lange Rechnung wird mit <kbd>^c</kbd> abgebrochen.  Maxima kehrt zur
+Eingabeaufforderung zur&uuml;ck.
+</p>
+<div class="example">
+<pre class="example">(%i1) factor(factorial(10000))$
+
+Maxima encountered a Lisp error:
+ Interactive interrupt at #x9224192.
+
+Automatically continuing.
+To enable the Lisp debugger set *debugger-hook* to nil.
+(%i2) 
+</pre></div>
+
+<p>Wird die Lisp-Variable <code>*debugger-hook*</code> mit dem Kommando
+<code>:lisp (setq *debugger-hook* nil)</code> auf den Wert <code>nil</code> gesetzt, dann 
+startet Maxima den Lisp-Debugger, wenn das Kommando <kbd>^c</kbd> ausgef&uuml;hrt wird.
+Mit dem Kommando <code>continue</code> im Lisp-Debugger kann die unterbrochene
+Berechnung fortgesetzt werden.
+</p>
+<p>Beispiel:
+</p>
+<p>Die Variable <code>*debugger-hook*</code> wird auf den Wert <code>nil</code> gesetzt.
+Der Abbruch der Rechnung startet in diesem Fall den Lisp-Debugger.  Die
+Rechnung kann mit der Auswahl <code>0</code> f&uuml;r das Kommando <code>continue</code>
+fortgesetzt werden.
+</p>
+<div class="example">
+<pre class="example">(%i2) :lisp (setq *debugger-hook* nil)
+NIL
+(%i2) factor(factorial(10000))$
+
+debugger invoked on a SB-SYS:INTERACTIVE-INTERRUPT
+     in thread #&lt;THREAD
+     &quot;initial thread&quot; RUNNING
+     {C597F49}&gt;:
+  Interactive interrupt at #x9224192.
+
+Type HELP for debugger help, or (SB-EXT:QUIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [CONTINUE    ] Return from SB-UNIX:SIGINT.
+  1: [MACSYMA-QUIT] Maxima top-level
+  2: [ABORT       ] Exit debugger, returning to top level.
+
+(SB-BIGNUM:BIGNUM-TRUNCATE #&lt;unavailable argument&gt;
+                           #&lt;unavailable argument&gt;)
+0] 0
+
+(%i3) 
+</pre></div>
+
+<p>Hinweis:
+</p>
+<p>Mit dem Kommando <code>:lisp (setq *debugger-hook* 'maxima-lisp-debugger)</code> kann
+das Standardverhalten von Maxima wiederhergestellt werden.
+</p>
+<p>In Unix-Systemen kann die Ausf&uuml;hrung auch mit Kommando <kbd>^z</kbd> 
+(<kbd>control-z</kbd>) abgebrochen werden.  In diesem Fall wird eine Unix-Shell 
+gestartet.  Das Kommando <code>fg</code> kehrt zu Maxima zur&uuml;ck.
+</p>
+<p>Wie mit dem Kommando <kbd>^c</kbd> kann auch ein Lisp-Fehler zu einem Abbruch
+der Berechnung f&uuml;hren.  Maxima meldet den Lisp-Fehler und kehrt
+standardm&auml;&szlig;ig zu der Eingabeaufforderung zur&uuml;ck.  Wurde die
+Lisp-Variable <code>*debugger-hook*</code> auf den Wert <code>nil</code> gesetzt, startet
+Maxima den Lisp-Debugger.
+</p>
+<p>Beispiel:
+</p>
+<p>Es wird eine Lisp-Funktion <code>$sqr</code> definiert, die aus Maxima mit <code>sqr</code>
+aufgerufen werden kann und ihr Argument quadriert.  Wird die Funktion mit mehr
+als einem Argument aufgerufen, wird ein Lisp-Fehler generiert und Maxima
+kehrt zu der Eingabeaufforderung zur&uuml;ck.
+</p>
+<div class="example">
+<pre class="example">(%i1) :lisp (defun $sqr (x) (* x x))
+$SQR
+(%i1) sqr(3);
+(%o1)                           9
+(%i2) sqr(2,3);
+
+Maxima encountered a Lisp error:
+
+ invalid number of arguments: 2
+
+Automatically continuing.
+To enable the Lisp debugger set *debugger-hook* to nil.
+
+(%i3)
+</pre></div>
+
+<p>Jetzt wird die Lisp-Variable <code>*debugger-hook*</code> auf den Wert <code>nil</code>
+gesetzt.  In diesem Fall wird der Lisp-Debugger aufgerufen.  Die Ausf&uuml;hrung
+kann in diesem Fall nicht mit dem Kommando <code>continue</code> fortgesetzt werden,
+da ein Syntax-Fehler aufgetreten ist.  Jedoch ist es m&ouml;glich, Maxima mit dem
+Kommando <code>(run)</code> vom Lisp-Prompt neu zu starten.
+</p>
+<div class="example">
+<pre class="example">(%i3) :lisp (setq *debugger-hook* nil)
+NIL
+(%i3) sqr(2,3);
+
+debugger invoked on a SB-INT:
+   SIMPLE-PROGRAM-ERROR in thread #&lt;THREAD
+   &quot;initial thread&quot; RUNNING {C597F49}&gt;:
+  invalid number of arguments: 2
+
+Type HELP for debugger help, or (SB-EXT:QUIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [MACSYMA-QUIT] Maxima top-level
+  1: [CONTINUE    ] Ignore runtime option --eval &quot;(cl-user::run)&quot;.
+  2: [ABORT       ] Skip rest of --eval and --load options.
+  3:                Skip to toplevel READ/EVAL/PRINT loop.
+  4: [QUIT        ] Quit SBCL (calling #'QUIT, killing the process).
+
+($SQR 2)[:EXTERNAL]
+0] continue
+
+* (run)
+Maxima restarted.
+(%i4)
+</pre></div>
+
+<a name="Item_003a-Runtime_002ede_002fnode_002fFunktionen-und-Variablen-der-Laufzeitumgebung"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_164.html#Funktionen-und-Variablen-der-Laufzeitumgebung" accesskey="n" rel="next">Funktionen und Variablen der Laufzeitumgebung</a>, Previous: <a href="maxima_162.html#Initialisierung-von-Maxima" accesskey="p" rel="previous">Initialisierung von Maxima</a>, Nach oben: <a href="maxima_161.html#Laufzeitumgebung" accesskey="u" rel="up">Laufzeitumgebung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

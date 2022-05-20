@@ -1,37 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on diciembre, 30 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual de Maxima 5.35.1: 38. Depurado</title>
+<title>Manual de Maxima 5.46.0: Funciones y variables para la evaluación</title>
 
-<meta name="description" content="Manual de Maxima 5.35.1: 38. Depurado">
-<meta name="keywords" content="Manual de Maxima 5.35.1: 38. Depurado">
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para la evaluación">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para la evaluación">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_36.html#Evaluaci_00f3n" rel="up" title="Evaluación">
+<link href="maxima_39.html#Expresiones" rel="next" title="Expresiones">
+<link href="maxima_37.html#Introducci_00f3n-a-la-evaluaci_00f3n" rel="previous" title="Introducción a la evaluación">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
 h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
@@ -52,510 +62,685 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="../figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-la-evaluaci_00f3n"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_37.html#Introducci_00f3n-a-la-evaluaci_00f3n" accesskey="p" rel="previous">Introducción a la evaluación</a>, Subir: <a href="maxima_36.html#Evaluaci_00f3n" accesskey="u" rel="up">Evaluación</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-la-evaluacion"></a>
+<h3 class="section">7.2 Funciones y variables para la evaluación</h3>
 
-<a name="Depurado"></a>
-<a name="SEC209"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_37.html#SEC208" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC210" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_37.html#SEC204" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_39.html#SEC213" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 38. Depurado </h1>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC210">38.1 Depuración del código fuente</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC211">38.2 Claves de depuración</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC212">38.3 Funciones y variables para depurado</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Depuraci_00f3n-del-c_00f3digo-fuente"></a>
-<a name="SEC210"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC209" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC211" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC209" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC209" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_39.html#SEC213" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 38.1 Depuración del código fuente </h2>
-
-<p>Maxima es capaz de dar asistencia en la depuración del código fuente. Un usuario puede establecer un punto de referencia dentro del código de una función a partir del cual se siga la ejecución línea a línea. La compliación puede ser posteriormente examinada, conjuntamente con los valores que se han ido asignando a las variables.
+<a name="Item_003a-Evaluation_002ees_002fdeffn_002f_0027"></a><dl>
+<dt><a name="index-_0027"></a>Operador: <strong>'</strong></dt>
+<dd><p>El operador comilla simple <code>'</code> evita la evaluación. 
 </p>
-<p>La instrucción <code>:help</code>, o <code>:h</code>, muestra la lista de comandos para la depuración. (En general, los comandos pueden abreviarse; en algunos casos la lista de alternativas podrá ser listada.) Dentro del depurador, el usuario podrá examinar también cualquier función propia de Maxima, definirla y manipular variables y expresiones.
+<p>Aplicado a un símbolo, 
+la comilla simple evita la evaluación del símbolo. 
 </p>
-<p>El punto de referencia se establecerá con la instrucción <code>:br</code>. Ya dentro del depurador, el usuario podrá avanzar una línea de cada vez utilizando la instrucción <code>:n</code> (de &quot;next&quot;, en inglés). La orden <code>:bt</code> (de &quot;backtrace&quot;) muestra la lista de la pila. Finalmente, con el comando <code>:r</code> (&quot;resume&quot;) se abandona el depurador continuando con la ejecución. El uso de estas instrucciones se muestra en el siguiente ejemplo.
+<p>Aplicado a la llamada de una función,
+la comilla simple evita la evaluación de la función llamada,
+aunque los argumentos de la función son evaluados (siempre y cuando 
+la evaluación no se evite de otra manera). 
+El resultado es una forma de nombre de la función llamada.  
 </p>
-<pre class="example">(%i1) load (&quot;/tmp/foobar.mac&quot;);
-
-(%o1)                           /tmp/foobar.mac
-
-(%i2) :br foo
-Turning on debugging debugmode(true)
-Bkpt 0 for foo (in /tmp/foobar.mac line 1) 
-
-(%i2) bar (2,3);
-Bkpt 0:(foobar.mac 1)
-/tmp/foobar.mac:1::
-
-(dbm:1) :bt                  &lt;-- pulsando :bt se retrocede
-#0: foo(y=5)(foobar.mac line 1)
-#1: bar(x=2,y=3)(foobar.mac line 9)
-
-(dbm:1) :n                   &lt;-- pulsando :n se avanza una línea
-(foobar.mac 2)
-/tmp/foobar.mac:2::
-
-(dbm:1) :n                   &lt;-- pulsando :n se avanza otra línea
-(foobar.mac 3)
-/tmp/foobar.mac:3::
-
-(dbm:1) u;                   &lt;-- se pide el valor de u
-28
-
-(dbm:1) u: 33;               &lt;-- se cambia el valor de u a 33
-33
-
-(dbm:1) :r                   &lt;-- pulsando :r se termina la depuración
-
-(%o2)                                1094
-</pre>
-<p>El fichero <code>/tmp/foobar.mac</code> contiene lo siguiente:
+<p>Aplicado a una expresión con paréntesis, 
+la comilla simple evita la evaluación de todos los símbolos y llamadas a funciones que hayan en la expresión. 
+E.g., <code>'(f(x))</code> significa que no se evalua la expresión <code>f(x)</code>. 
+<code>'f(x)</code> (con la comilla simple aplicada a <code>f</code> en cambio de a <code>f(x)</code>)
+significa el retorno de la forma de nombre de <code>f</code> aplicada a <code>[x]</code>. 
 </p>
-<pre class="example">foo(y) := block ([u:y^2],
-  u: u+3,
-  u: u^2,
-  u);
- 
-bar(x,y) := (
-  x: x+2,
-  y: y+2,
-  x: foo(y),
-  x+y);
-</pre>
-<p>USO DEL DEPURADOR EN EMACS
+<p>La comilla simple no evita la simplificación. 
 </p>
-<p>Si el usuario está corriendo el código bajo GNU emacs en un entorno de texto (dbl shell), o está ejecutando el  entorno gráfico <code>xmaxima</code>, entonces cuando una función pare en el punto de referencia, podrá observar su
-posición actual en el archivo fuente, el cual será mostrado en la otra mitad de la ventana, bien resaltada en rojo, o con una pequeña flecha apuntando a la línea correcta. El usuario puede avanzar líneas simples 
-tecleando M-n (Alt-n).
+<p>Cuando el interruptor global <code>noundisp</code> es <code>true</code>, 
+los nombres se muestran con una comilla simple. 
+Este interruptor siempre tiene como valor <code>true</code> cuando 
+se muestran definiciones de funciones. 
 </p>
-<p>Bajo Emacs se debe ejecutar el programa en una ventana de texto <code>dbl</code>, la cual requiere el archivo <code>dbl.el</code> que está en el directorio elisp. El usuario debe instalar los archivos elisp o agregar el directorio elisp de Maxima a la ruta de búsqueda: por ejemplo, se puede añadir lo siguiente al archivo <tt>`.emacs'</tt> o al <code>site-init.el</code>
+<p>Ver también los operadores comilla-comilla <code>'<!-- /@w -->'</code> y <code>nouns</code>. 
 </p>
-<pre class="example">(setq load-path (cons &quot;/usr/share/maxima/5.9.1/emacs&quot; load-path))
-(autoload 'dbl &quot;dbl&quot;)
-</pre>
-<p>entonces en emacs
+<p>Ejemplos:
 </p>
-<pre class="example">M-x dbl
-</pre>
-<p>debería abrir una ventana del sistema en la cual se pueden ejecutar programas, por ejemplo
-Maxima, gcl, gdb, etc.  En esta ventana también se puede ejecutar el depurador, mostrando el código fuente en la otra ventana.
+<p>Aplicado a un símbolo, 
+la comilla simple evita la evaluación del símbolo. 
 </p>
-<p>El usuario puede colocar un punto de referencia en una línea determinada sin más que teclear <code>C-x space</code>. Con esto se le hace saber al depurador en qué función está el cursor y en qué línea del mismo. Si el cursor está en la línea 2 de <code>foo</code>, entonces insertará en la otra ventana la instrucción &quot;<code>:br foo 2</code>&quot;, a fin de detener <code>foo</code> justo en la segunda línea. Para tener esto operativo, el usuario debe tener activo maxima-mode.el (modo-maxima.el) en la ventana en la que está <code>foobar.mac</code>. Hay otros comandos disponibles en la ventana, como evaluar la función dentro de Maxima tecleando <code>Alt-Control-x</code>.
-</p>
+<div class="example">
+<pre class="example">(%i1) aa: 1024;
+(%o1)                         1024
+(%i2) aa^2;
+(%o2)                        1048576
+(%i3) 'aa^2;
+                                 2
+(%o3)                          aa
+(%i4) ''%;
+(%o4)                        1048576
+</pre></div>
 
-<hr size="6">
-<a name="Claves-de-depuraci_00f3n"></a>
-<a name="SEC211"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC210" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC212" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC209" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC209" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_39.html#SEC213" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 38.2 Claves de depuración </h2>
-
-<p>Las claves de depuración son palabras que no son interpretadas como expresiones de Maxima. Una clave de depuración puede introducirse dentro de Maxima o del depurador. Las claves de depuración comienzan con dos puntos, ':'. Por ejemplo, para evaluar una expresión Lisp, se puede teclear <code>:lisp</code> seguido de la expresión a ser evaluada.
+<p>Aplicado a la llamada de una función,
+la comilla simple evita la evaluación de la función llamada,
+aunque los argumentos de la función son evaluados (siempre y cuando 
+la evaluación no se evite de otra manera). 
+El resultado es una forma de nombre de la función llamada.  
 </p>
-<pre class="example">(%i1) :lisp (+ 2 3) 
-5
-</pre>
-<p>El número de argumentos depende del comando en particular. Además, tampoco es necesario teclear el nombre completo de la instrucción, tan solo lo justo para diferenciarla de las otras instrucciones. Así, <code>:br</code> sería suficiente para <code>:break</code>.
-</p>
-<p>Las claves de depuración se listan a continuación.
-</p>
-<dl compact="compact">
-<dt> <code>:break F n</code></dt>
-<dd><p>Establece un punto de referencia en la función <code>F</code> en la línea <code>n</code> contando a partir del comienzo de la función. Si <code>F</code> es una cadena, entonces se entiende que se trata de un fichero, siendo entonces <code>n</code> el número de línea a partir del comienzo del fichero. El valor <code>n</code> es opcional; en caso de no ser suministrado, se entenderá que vale cero (primera línea de la función o fichero).
-</p></dd>
-<dt> <code>:bt</code></dt>
-<dd><p>Retrocede en la pila.
-</p></dd>
-<dt> <code>:continue</code></dt>
-<dd><p>Continua el cómputo de la función.
-</p></dd>
-<dt> <code>:delete</code></dt>
-<dd><p>Borra los punto de referencia especificados, o todos si no se especifica ninguno.
-</p></dd>
-<dt> <code>:disable</code></dt>
-<dd><p>Deshabilita los puntos de referencia especificados, o todos si no se especifica ninguno.
-</p></dd>
-<dt> <code>:enable</code></dt>
-<dd><p>Habilita los puntos de referencia especificados, o todos si no se especifica ninguno.
-</p></dd>
-<dt> <code>:frame n</code></dt>
-<dd><p>Imprime el elemento <code>n</code> de la pila, o el actualmente activo si no se especifica ninguno.
-</p></dd>
-<dt> <code>:help</code></dt>
-<dd><p>Imprime la ayuda sobre un comando del depurador, o de todos los comandos si no se especifica ninguno.
-</p></dd>
-<dt> <code>:info</code></dt>
-<dd><p>Imprime información sobre un elemento.
-</p></dd>
-<dt> <code>:lisp expresión</code></dt>
-<dd><p>Evalúa la <code>expresión</code> Lisp.
-</p></dd>
-<dt> <code>:lisp-quiet expresión</code></dt>
-<dd><p>Evalúa la <code>expresión</code> Lisp sin devolver el resultado.
-</p></dd>
-<dt> <code>:next</code></dt>
-<dd><p>Como <code>:step</code>, excepto que <code>:next</code> se salta las llamadas a funciones.
-</p></dd>
-<dt> <code>:quit</code></dt>
-<dd><p>Sale del nivel actual del depurador sin completar el cómputo.
-</p></dd>
-<dt> <code>:resume</code></dt>
-<dd><p>Continúa con el cómputo.
-</p></dd>
-<dt> <code>:step</code></dt>
-<dd><p>Sigue con el cómputo de la función o fichero hasta que alcance una nueva línea fuente.
-</p></dd>
-<dt> <code>:top</code></dt>
-<dd><p>Retorna a Maxima desde cualquier nivel del depurador sin completar el cómputo.
-</p></dd>
-</dl>
+<div class="example">
+<pre class="example">(%i1) x0: 5;
+(%o1)                           5
+(%i2) x1: 7;
+(%o2)                           7
+(%i3) integrate (x^2, x, x0, x1);
+                               218
+(%o3)                          ---
+                                3
+(%i4) 'integrate (x^2, x, x0, x1);
+                             7
+                            /
+                            [   2
+(%o4)                       I  x  dx
+                            ]
+                            /
+                             5
+(%i5) %, nouns;
+                               218
+(%o5)                          ---
+                                3
+</pre></div>
 
-
-
-<hr size="6">
-<a name="Funciones-y-variables-para-depurado"></a>
-<a name="SEC212"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC211" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_39.html#SEC213" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC209" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC209" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_39.html#SEC213" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 38.3 Funciones y variables para depurado </h2>
-
-
-<dl>
-<dt><u>Variable opcional:</u> <b>debugmode</b>
-<a name="IDX1569"></a>
-</dt>
-<dd><p>Valor por defecto: <code>false</code>
+<p>Aplicado a una expresión con paréntesis, la comilla simple evita
+la evaluación de todos los símbolos y llamadas a 
+funciones que haya dentro en la expresión. 
 </p>
-<p>Cuando en Maxima ocurre un error, Maxima inicializará el depurador si <code>debugmode</code> tiene el valor <code>true</code>. 
-El usuario puede ingresar comandos para examinar la pila de llamadas, los puntos de interrupción; en pocas palabras ir a través del código de Maxima. Vea <code>debugging</code> para una lista de los comandos del depurador.  
+<div class="example">
+<pre class="example">(%i1) aa: 1024;
+(%o1)                         1024
+(%i2) bb: 19;
+(%o2)                          19
+(%i3) sqrt(aa) + bb;
+(%o3)                          51
+(%i4) '(sqrt(aa) + bb);
+(%o4)                     bb + sqrt(aa)
+(%i5) ''%;
+(%o5)                          51
+</pre></div>
+
+<p>La comilla simple no evita la simplificación. 
 </p>
-<p>Habilitando <code>debugmode</code> no se capturarán los errores tipo Lisp. 
+<div class="example">
+<pre class="example">(%i1) sin (17 * %pi) + cos (17 * %pi);
+(%o1)                          - 1
+(%i2) '(sin (17 * %pi) + cos (17 * %pi));
+(%o2)                          - 1
+</pre></div>
+
+<p>Internamente, Maxima considera que las operaciones con números
+decimales de coma flotante son simples simplificaciones.
 </p>
+<div class="example">
+<pre class="example">(%i1) sin(1.0);
+(%o1)                          .8414709848078965
+(%i2) '(sin(1.0));
+(%o2)                          .8414709848078965
+</pre></div>
 
 </dd></dl>
 
 
-<dl>
-<dt><u>Variable opcional:</u> <b>refcheck</b>
-<a name="IDX1570"></a>
-</dt>
-<dd><p>Valor por defecto: <code>false</code>
+
+
+
+<a name="Item_003a-Evaluation_002ees_002fdeffn_002f_0027_0027"></a><dl>
+<dt><a name="index-_0027_0027"></a>Operador: <strong>''</strong></dt>
+<dd><p>El operador comilla-comilla <code>'<!-- /@w -->'</code> (dos comillas simples) modifica la evaluación
+en las expresiones de entrada.
 </p>
-<p>Cuando <code>refcheck</code> vale <code>true</code>, Maxima imprime un mensaje cada vez que una variable es utilizada por vez primera en un cálculo.
+<p>Aplicado a cualquier expresión general <var>expr</var>, las dos comillas simples hacen que
+el valor de <var>expr</var> sea sustituido por <var>expr</var> en la expresión de entrada.
 </p>
+<p>Aplicado al operador de una expresión, el operador comilla-comilla hace que el operador
+pase de ser un nombre a ser un verbo, a menos que ya sea un verbo.
+</p>
+<p>El operador comilla-comilla es aplicado por el analizador sintáctico de entrada;
+no se almacena como una parte de la expresión de entrada analizada.
+Este operador se aplica siempre tan pronto como es detectado y no puede ser comentado con
+una comilla simple. De esta manera, el operador comilla-comilla provoca la evaluación de
+una expresión cuando ésta no estaba previsto que fuese evaluada, como en la
+definición de funciones, expresiones lambda y expresiones comentadas con una comilla simple
+<code>'</code>.
+</p>
+<p>El operador comilla-comilla es reconocido tanto por <code>batch</code> como por <code>load</code>.
+</p>
+<p>Véanse también el operador comilla simple <code>'</code> y <code>nouns</code>.
+</p>
+<p>Ejemplos:
+</p>
+<p>Aplicado a cualquier expresión general <var>expr</var>, las dos comillas simples hacen que
+el valor de <var>expr</var> sea sustituido por <var>expr</var> en la expresión de entrada.
+</p>
+<div class="example">
+<pre class="example">(%i1) expand ((a + b)^3);
+                     3        2      2      3
+(%o1)               b  + 3 a b  + 3 a  b + a
+(%i2) [_, ''_];
+                         3    3        2      2      3
+(%o2)     [expand((b + a) ), b  + 3 a b  + 3 a  b + a ]
+(%i3) [%i1, ''%i1];
+                         3    3        2      2      3
+(%o3)     [expand((b + a) ), b  + 3 a b  + 3 a  b + a ]
+(%i4) [aa : cc, bb : dd, cc : 17, dd : 29];
+(%o4)                   [cc, dd, 17, 29]
+(%i5) foo_1 (x) := aa - bb * x;
+(%o5)                 foo_1(x) := aa - bb x
+(%i6) foo_1 (10);
+(%o6)                      cc - 10 dd
+(%i7) ''%;
+(%o7)                         - 273
+(%i8) ''(foo_1 (10));
+(%o8)                         - 273
+(%i9) foo_2 (x) := ''aa - ''bb * x;
+(%o9)                 foo_2(x) := cc - dd x
+(%i10) foo_2 (10);
+(%o10)                        - 273
+(%i11) [x0 : x1, x1 : x2, x2 : x3];
+(%o11)                    [x1, x2, x3]
+(%i12) x0;
+(%o12)                         x1
+(%i13) ''x0;
+(%o13)                         x2
+(%i14) '' ''x0;
+(%o14)                         x3
+</pre></div>
+
+<p>Aplicado al operador de una expresión, la
+doble comilla simple hace que el operador
+pase de ser nominal a verbal, a menos que ya sea un verbo.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (foo, noun);
+(%o1)                         done
+(%i2) foo (x) := x - 1729;
+(%o2)                 ''foo(x) := x - 1729
+(%i3) foo (100);
+(%o3)                       foo(100)
+(%i4) ''foo (100);
+(%o4)                        - 1629
+</pre></div>
+
+
+<p>El operador comilla-comilla es aplicado por el analizador sintáctico de entrada;
+no se almacena como una parte de la expresión de entrada analizada.
+</p>
+<div class="example">
+<pre class="example">(%i1) [aa : bb, cc : dd, bb : 1234, dd : 5678];
+(%o1)                 [bb, dd, 1234, 5678]
+(%i2) aa + cc;
+(%o2)                        dd + bb
+(%i3) display (_, op (_), args (_));
+                           _ = cc + aa
+
+                         op(cc + aa) = +
+
+                    args(cc + aa) = [cc, aa]
+
+(%o3)                         done
+(%i4) ''(aa + cc);
+(%o4)                         6912
+(%i5) display (_, op (_), args (_));
+                           _ = dd + bb
+
+                         op(dd + bb) = +
+
+                    args(dd + bb) = [dd, bb]
+
+(%o5)                         done
+</pre></div>
+
+<p>El operador comilla-comilla provoca la evaluación de
+una expresión cuando ésta no estaba previsto que fuese evaluada, como en la
+definición de funciones, expresiones lambda y expresiones comentadas con una comilla simple
+<code>'</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) foo_1a (x) := ''(integrate (log (x), x));
+(%o1)               foo_1a(x) := x log(x) - x
+(%i2) foo_1b (x) := integrate (log (x), x);
+(%o2)           foo_1b(x) := integrate(log(x), x)
+(%i3) dispfun (foo_1a, foo_1b);
+(%t3)               foo_1a(x) := x log(x) - x
+
+(%t4)           foo_1b(x) := integrate(log(x), x)
+
+(%o4)                      [%t3, %t4]
+(%i5) integrate (log (x), x);
+(%o5)                     x log(x) - x
+(%i6) foo_2a (x) := ''%;
+(%o6)               foo_2a(x) := x log(x) - x
+(%i7) foo_2b (x) := %;
+(%o7)                    foo_2b(x) := %
+(%i8) dispfun (foo_2a, foo_2b);
+(%t8)               foo_2a(x) := x log(x) - x
+
+(%t9)                    foo_2b(x) := %
+
+(%o9)                      [%t7, %t8]
+(%i10) F : lambda ([u], diff (sin (u), u));
+(%o10)             lambda([u], diff(sin(u), u))
+(%i11) G : lambda ([u], ''(diff (sin (u), u)));
+(%o11)                  lambda([u], cos(u))
+(%i12) '(sum (a[k], k, 1, 3) + sum (b[k], k, 1, 3));
+(%o12)         sum(b , k, 1, 3) + sum(a , k, 1, 3)
+                    k                  k
+(%i13) '(''(sum (a[k], k, 1, 3)) + ''(sum (b[k], k, 1, 3)));
+(%o13)             b  + a  + b  + a  + b  + a
+                    3    3    2    2    1    1
+</pre></div>
+
 </dd></dl>
 
-<dl>
-<dt><u>Variable opcional:</u> <b>setcheck</b>
-<a name="IDX1571"></a>
-</dt>
-<dd><p>Valor por defecto: <code>false</code>
-</p>
-<p>Cuando el valor de <code>setcheck</code> es una lista de variables (se admite que tengan subíndices) Maxima devuelve un mensaje indicando si los valores que han sido asignados a las variables lo han sido con el operador ordinario <code>:</code>, o con el operador de asignación <code>::</code> o como resultado de haberse realizado una llamada de función, pero en ningún caso cuando la asignación haya sido hecha mediante los operadores <code>:=</code> o <code>::=</code>. El mensaje contiene el nombre de la variable y su valor.
-</p>
-<p>La variable <code>setcheck</code> admite también los valores <code>all</code> o <code>true</code> con lo que el informe incluirá todas las variables.
-</p>
-<p>Cada nueva asignación de <code>setcheck</code> establece una nueva lista de variables a ser monitorizada, de forma que cualquier otra variable previamente asignada a <code>setcheck</code> es olvidada.
-</p>
-<p>Los nombres asignados a <code>setcheck</code> deben estar precedidos del apóstrofo <code>'</code> a fin de evitar que las variables sean evaluadas antes de ser almacenadas en <code>setcheck</code>. Por ejemplo, si <code>x</code>, <code>y</code> y <code>z</code> ya guardan algún valor entoces se hará
-</p>
-<pre class="example">setcheck: ['x, 'y, 'z]$
-</pre>
-<p>para colocarlas en la lista de variables a monitorizar.
-</p>
-<p>No se generará ninguna salida cuando una variable de la lista <code>setcheck</code> sea asignada a ella misma, como en <code>X: 'X</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variable opcional:</u> <b>setcheckbreak</b>
-<a name="IDX1572"></a>
-</dt>
-<dd><p>Valor por defecto: <code>false</code>
-</p>
-<p>Si <code>setcheckbreak</code> es igual <code>true</code>, Maxima se detendrá siempre que a una variable de la lista <code>setcheck</code> se le asigne un nuevo valor. La detención tendrá lugar justo antes de hacerse la asignación. En ese momento <code>setval</code> guarda el valor que se le va a dar a la variable. Entonces el usuario podrá darle un valor diferente pasándoselo a la variable <code>setval</code>.
-</p>
-<p>Véanse también <code>setcheck</code> y <code>setval</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variable del sistema:</u> <b>setval</b>
-<a name="IDX1573"></a>
-</dt>
-<dd><p>Guarda el valor que va a ser asignado a una variable cuando <code>setcheckbreak</code> realiza una detención. Entonces se podrá asignarle otro valor pasándoselo previamente a <code>setval</code>.
-</p>
-<p>Véanse también <code>setcheck</code> y <code>setcheckbreak</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>timer</b><i> (<var>f_1</var>, ..., <var>f_n</var>)</i>
-<a name="IDX1574"></a>
-</dt>
-<dt><u>Función:</u> <b>timer</b><i> (all)</i>
-<a name="IDX1575"></a>
-</dt>
-<dt><u>Función:</u> <b>timer</b><i> ()</i>
-<a name="IDX1576"></a>
-</dt>
-<dd><p>Dadas las funciones <var>f_1</var>, ..., <var>f_n</var>, <code>timer</code> coloca cada una de ellas en la lista de funciones para las cuales se generarán estadísticas relativas al tiempo de cómputo. Así, <code>timer(f)$ timer(g)$</code> coloca a <code>f</code> y luego a <code>g</code> en dicha lista de forma acumulativa.
-</p>
-<p>La sentencia <code>timer(all)</code> coloca todas las funciones de usuario 
-(las referenciadas por la variable global <code>functions</code>) en la lista
-de funciones cuyos tiempos de ejecución se quieren monitorizar.
-</p>
-<p>Si no se le pasan argumentos a <code>timer</code> se obtendrá la lista de funciones cuyos tiempos de ejecución se quieren monitorizar.
-</p>
-<p>Maxima almacena la duración del cómputo de cada función de la lista, de forma que <code>timer_info</code> devolverá las estadísticas correspondientes, incluyendo el tiempo medio de cada llamada a la función, el número de llamadas realizadas y el tiempo total transcurrido. La instrucción <code>untimer</code> borra las funciones de la lista.
-</p>
-<p>La función <code>timer</code> no evalúa sus argumentos, de forma que <code>f(x) := x^2$ g:f$ timer(g)$</code> no coloca a <code>f</code> en la lista.
-</p>
-<p>Si <code>trace(f)</code> está activada, entonces <code>timer(f)</code> está desactivada; <code>trace</code> y <code>timer</code> no pueden estar operativas al mismo tiempo.
-</p>
-<p>Véase también <code>timer_devalue</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>untimer</b><i> (<var>f_1</var>, ..., <var>f_n</var>)</i>
-<a name="IDX1577"></a>
-</dt>
-<dt><u>Función:</u> <b>untimer</b><i> ()</i>
-<a name="IDX1578"></a>
-</dt>
-<dd><p>Dadas las funciones <var>f_1</var>, ..., <var>f_n</var>, <code>untimer</code> las elimina de la lista de funciones cuyos tiempos de ejecución se quiere monitorizar.
-</p>
-<p>Si no se le suministran argumentos, <code>untimer</code> borra completamente la lista.
-</p>
-<p>Tras la ejecución de <code>untimer (f)</code>, <code>timer_info (f)</code> aún devuelve las estadísticas de tiempo previamente registradas, pero <code>timer_info()</code> (sin argumentos) no devuelve información sobre aquellas funciones que ya no están en la lista. La ejecución de <code>timer (f)</code> inicializa todas las estadísticas a cero y coloca <code>f</code> nuevamente en la lista.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variable opcional:</u> <b>timer_devalue</b>
-<a name="IDX1579"></a>
-</dt>
-<dd><p>Valor por defecto: <code>false</code>
-</p>
-<p>Si <code>timer_devalue</code> es igual a <code>true</code>, Maxima le resta a cada función cuyos tiempos de ejecución se quiere monitorizar el tiempo gastado en llamadas a otras funciones presentes también en la lista de monitorización. En caso contrario, los tiempos que se obtienen para cada función incluyen también los consumidos en otras funciones. Nótese que el tiempo consumido en llamadas a otras funciones que no están en la lista de monitorización no se resta del tiempo total.
-</p>
-<p>Véanse también <code>timer</code> y <code>timer_info</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Función:</u> <b>timer_info</b><i> (<var>f_1</var>, ..., <var>f_n</var>)</i>
-<a name="IDX1580"></a>
-</dt>
-<dt><u>Función:</u> <b>timer_info</b><i> ()</i>
-<a name="IDX1581"></a>
-</dt>
-<dd><p>Dadas las funciones <var>f_1</var>, ..., <var>f_n</var>, <code>timer_info</code> devuelve una matriz con información relativa a los tiempos de ejecución de cada una de estas funciones. Sin argumentos, <code>timer_info</code> devuelve la información asociada a todas las funciones cuyos tiempos de ejecución se quiere monitorizar.
-</p>
-<p>La matriz devuelta por <code>timer_info</code> incluye los nombres de las funciones, tiempo de ejecución en cada llamada, número de veces que ha sido llamada, tiempo total de ejecución y tiempo consumido en la recolección de basura, <code>gctime</code> (del inglés, &quot;garbage collection time&quot;) en la versión original de Macsyma, aunque ahora toma el valor constante cero.
-</p>
-<p>Los datos con los que <code>timer_info</code> construye su respuesta pueden obtenerse también con la función <code>get</code>:
-</p>
-<pre class="example">get(f, 'calls);  get(f, 'runtime);  get(f, 'gctime);
-</pre>
-<p>Véase también <code>timer</code>.
-</p>
-</dd></dl>
 
 
-<dl>
-<dt><u>Función:</u> <b>trace</b><i> (<var>f_1</var>, ..., <var>f_n</var>)</i>
-<a name="IDX1582"></a>
-</dt>
-<dt><u>Función:</u> <b>trace</b><i> (all)</i>
-<a name="IDX1583"></a>
-</dt>
-<dt><u>Función:</u> <b>trace</b><i> ()</i>
-<a name="IDX1584"></a>
-</dt>
-<dd><p>Dadas las funciones <var>f_1</var>, ..., <var>f_n</var>, <code>trace</code> imprime información sobre depuración cada vez que estas funciones son llamadas; <code>trace(f)$ trace(g)$</code> coloca de forma acumulativa a <code>f</code> y luego a <code>g</code> en la lista de funciones a ser rastradas.
+<a name="Item_003a-Evaluation_002ees_002fdeffn_002fev"></a><dl>
+<dt><a name="index-ev"></a>Función: <strong>ev</strong> <em>(<var>expr</var>, <var>arg_1</var>, &hellip;, <var>arg_n</var>)</em></dt>
+<dd><p>Evalua la expresión <var>expr</var> en el entorno especificado
+por los argumentos <var>arg_1</var>, ..., <var>arg_n</var>.
+Los argumentos son interruptores (Variables Booleanas), variables de
+asignación, ecuaciones y funciones. 
+<code>ev</code> retorna el resultado (otra expresión) de la evaluación. 
 </p>
-<p>La sentencia <code>trace(all)</code> coloca todas las funciones de usuario 
-(las referenciadas por la variable global <code>functions</code>) en la lista
-de funciones a ser rastreadas.
+<p>La evaluación se realiza por etapas, como sigue: 
 </p>
-<p>Si no se suministran argumentos, <code>trace</code> devuelve una lista con todas las funciones a ser rastreadas.
-</p>
-<p>La función <code>untrace</code> desactiva el rastreo. Véase también <code>trace_options</code>.
-</p>
-<p>La función <code>trace</code> no evalúa sus argumentos, de forma que <code>f(x) := x^2$ g:f$ trace(g)$</code> no coloca a <code>f</code> en la lista de rastreo.
-</p>
-<p>Cuando una función se redefine es eliminada de la lista de rastreo. Así, tras  <code>timer(f)$ f(x) := x^2$</code>, la función <code>f</code> dejará de estar en dicha lista.
-</p>
-<p>Si <code>timer (f)</code> está activado, entonces <code>trace (f)</code> está desactivado, ya que <code>trace</code> y <code>timer</code> no pueden estar ambos activos para la misma función.
-</p>
-</dd></dl>
+<ol>
+<li> Primero se configura el entorno de acuerdo a los argumentos los
+cuales pueden ser algunos o todos de la siguiente lista:  
 
-<dl>
-<dt><u>Función:</u> <b>trace_options</b><i> (<var>f</var>, <var>option_1</var>, ..., <var>option_n</var>)</i>
-<a name="IDX1585"></a>
-</dt>
-<dt><u>Función:</u> <b>trace_options</b><i> (<var>f</var>)</i>
-<a name="IDX1586"></a>
-</dt>
-<dd><p>Establece las opciones de rastreo para la función <var>f</var>. Cualquier otra opción previamente especificada queda reemplazada por las nuevas. La ejecución de <code>trace_options (<var>f</var>, ...)</code> no tiene ningún efecto, a menos que se haya invocado previamente a <code>trace (<var>f</var>)</code> (es indiferente que esta invocación sea anterior o posterior a <code>trace_options</code>). 
-</p>
-<p><code>trace_options (<var>f</var>)</code> inicializa todas las opciones a sus valores por defecto.
-</p>
-<p>Las claves de opciones son:
-</p>
 <ul>
-<li>
-<code>noprint</code>:
-No se imprime mensaje alguno ni a la entrada ni a la salida de la función.
-</li><li>
-<code>break</code>:
-Coloca un punto de referencia antes de que la función comience a ejecutarse y otro después de que termine su ejecución. Véase <code>break</code>.
-</li><li>
-<code>lisp_print</code>:
-Muestra los argumentos y valores retornados como objetos de Lisp.
-</li><li>
-<code>info</code>:
-Imprime <code>-&gt; true</code> tanto a la entrada como a la salida de la función.
-</li><li>
-<code>errorcatch</code>:
-Detecta errores, otorgando la posibilidad de marcar un error, reintentar la llamada a la función o especificar un valor de retorno.
+<li> <code>simp</code> causa que <var>expr</var> sea simplificada sin importar el valor de la variable interruptor <code>simp</code> la cual inhibe la simplificación cuando su valor es <code>false</code>. 
+</li><li> <code>noeval</code> suprime la fase de evaluación de <code>ev</code> (Vea el paso (4) más adelante). 
+Esto es muy útil en conjunción con otras variables interruptor y causan en <var>expr</var> que sea resimplificada sin ser reevaluada. 
+</li><li> <code>nouns</code> causa la evaluación de las formas nominales
+(típicamente funciones sin evaluar tales como
+<code>'integrate</code> or <code>'diff</code>) en <code>expr</code>. 
+</li><li> <code>expand</code> causa expansión. 
+</li><li> <code>expand (<var>m</var>, <var>n</var>)</code> causa expansión, asignando los valores de <code>maxposex</code> y
+<code>maxnegex</code> a <var>m</var> y <var>n</var>, respectivamente.
+</li><li> <code>detout</code> hace que cualesquiera matrices inversas calculadas en <var>expr</var> conserven su determinante fuera de la inversa, en vez de que divida a cada elemento.  
+</li><li> <code>diff</code> realiza todas las diferenciaciones indicadas en <var>expr</var>. 
+</li><li> <code>derivlist (<var>x</var>, <var>y</var>, <var>z</var>, ...)</code> realiza sólo las diferenciaciones con respecto a las variables indicadas. 
+</li><li> <code>risch</code> hace que las integrales presentes en <var>expr</var> se evalúen mediante
+el algoritmo de Risch. Véase también <code>risch</code>. Cuando se utiliza el 
+símbolo especial <code>nouns</code>, se aplica la rutina estándar de integración.
+</li><li> <code>float</code> provoca la conversión de los números racionales no-enteros a números decimales de coma flotante. 
+</li><li> <code>numer</code> causa que algunas funciones matemáticas (incluyendo potenciación) con argumentos numéricos sean evaluados como punto flotante. Esto causa que las variables en <var>expr</var> las cuales hayan sido declaradas como variables numéricas sean reemplazadas por sus respectivos valores. Esto también configura la variable interruptor <code>float</code> a <code>true</code>. 
+</li><li> <code>pred</code> provoca la evaluación de los predicados (expresiones las cuales se evaluan a <code>true</code> o <code>false</code>). 
+</li><li> <code>eval</code> provoca una post-evaluación extra de <var>expr</var> (véase el paso (5) más adelante), pudiendo aparecer
+<code>eval</code> varias veces; por cada aparición de <code>eval</code>, la expresión es reevaluada.
+</li><li> <code>A</code>, donde <code>A</code> es un átomo declarado como una variable de tipo interruptor, (Vea <code>evflag</code>)
+causa que <code>A</code> tenga como valor <code>true</code> durante 
+la evaluación de <var>expr</var>.  
+</li><li> <code>V: expresion</code> (o alternativamente <code>V=expresion</code>) causa que 
+<code>V</code> tenga el valor de <code>expresion</code> durante la evaluación
+de <var>expr</var>. Notese que si <code>V</code> es una opción Maxima, entonces
+<code>expresion</code> se usa como su valor durante la evaluación de
+<var>expr</var>. Si más de un argumento de <code>ev</code> es de este 
+tipo entonces el vínculo se hace en paralelo. Si <code>V</code> es una
+expresión no atómica entonces se hace una sustitución más que 
+un vínculo.
+</li><li> <code>F</code> donde <code>F</code>, un nombre de función, ha sido declarado para 
+ser una función de evaluación (Vea <code>evfun</code>) causa que
+<code>F</code> sea aplicada a <var>expr</var>. 
+</li><li> Cualquier otro nombre de función (e.g., <code>sum</code>) causa la evaluación de las ocurrencias de esos nombres en <code>expr</code> como si ellos fueran
+verbos. 
+</li><li> En adición de que una función ocurra en <var>expr</var> (digamos <code>F(x)</code>) puede ser definida localmente para el propósito de esta evaluación 
+de <var>expr</var> pasando <code>F(x) := expresion</code> como un argumento a
+<code>ev</code>. 
+</li><li> Si un átomo no mencionado anteriormente o una variable o expresión 
+con subíndices fueran pasadas como un argumento, esta es evaluada y
+si el resultado es una ecuación o una asignación entonces el 
+vínculo o sustitución se llevará a cabo. Si el resultado es una
+lista entonces los miembros de la lista tratados como si ellos fueran
+argumentos adicionales pasados a <code>ev</code>. Esto permite que una
+lista de argumentos sea pasada (e.g., <code>[X=1, Y=A**2]</code>) o una lista
+de nombres de ecuaciones (e.g., <code>[%t1, %t2]</code> donde <code>%t1</code> y
+<code>%t2</code> son ecuaciones) tal como lo que es retornado por 
+<code>solve</code>. 
 </li></ul>
 
-<p>Las opciones de rastreo se especifican de dos formas. La única presencia de la clave de opción ya activa la opción. (Nótese que la opción <var>foo</var> no se activa mediante <code><var>foo</var>: true</code> u otra forma similar; se tendrá en cuenta también que las claves no necesitan ir precedidas del apóstrofo.) Especificando la clave de opción junto con una función de predicado se hace que la opción quede condicionada al predicado.
+<p>Los argumentos de <code>ev</code> pueden ser pasados en cualquier orden con excepción de la sustitución de ecuaciones las cuales son manipuladas en 
+secuencia, de izquierda a derecha y las funciones de evaluación las 
+cuales son compuestas, e.g., <code>ev (<var>expr</var>, ratsimp, realpart)</code>
+es manipulada como <code>realpart (ratsimp (<var>expr</var>))</code>. 
 </p>
-<p>La lista de argumentos para las funciones de predicado es siempre <code>[level, direction, function, item]</code> donde <code>level</code> es el nivel de recursión para la función,  <code>direction</code> puede ser tanto <code>enter</code> como <code>exit</code>, <code>function</code> es el nombre de la función  y <code>item</code> es la lista de argumentos (a la entrada) o el valor de retorno (a la salida).
+<p>Los interruptores <code>simp</code>, <code>numer</code> y <code>float</code> 
+pueden también ser configurados localmente en una sentencia block, o
+globalmente en Maxima para que su efecto permanezca hasta que
+sean reconfiguradas.   
 </p>
-<p>A continuación un ejemplo de opciones de rastreo no condicionales:
+<p>Si <var>expr</var> es una Expresión Racional Canónica (CRE, por sus siglas en inglés), entonces la expresión retornada por <code>ev</code> es también 
+de tipo CRE, siempre que los interruptores <code>numer</code> y <code>float</code> no sean <code>true</code>. 
 </p>
-<pre class="example">(%i1) ff(n) := if equal(n, 0) then 1 else n * ff(n - 1)$
+</li><li> Durante el paso (1), se fabrica una lista de las variables que no contienen subíndices que aparecen en el lado izquierdo de las ecuaciones en los
+argumentos o en el valor de algunos argumentos si el valor es una ecuación. Las variables (variables que contienen subíndices las cuales no tienen asociado un arreglo de funciones como también las variables que no contienen subíndices) en la expresión <var>expr</var> son reemplazadas por sus valores globales, excepto por aquellos que aparezcan en esa lista. 
+Usualmente, <var>expr</var> es sólo una etiqueta o un <code>%</code> 
+(como en <code>%i2</code> en el ejemplo de más abajo) así que 
+este paso simplemente recupera la expresión a la que hace referencia 
+la etiqueta y así <code>ev</code> puede trabajarla. 
 
-(%i2) trace (ff)$
+</li><li> Si algunas sustituciones son indicadas por los argumentos, ellas
+serán llevadas a cabo ahora. 
 
-(%i3) trace_options (ff, lisp_print, break)$
+</li><li> La expresión resultante es también reevaluada (a menos que uno de 
+los argumentos fuese <code>noeval</code>) y simplificada de acuerdo a los 
+argumentos. Notese que cualquier llamada a una función en <var>expr</var> 
+será llevada a cabo después de que las variables sean evaluadas 
+en ella y que <code>ev(F(x))</code> pueda comportarse como <code>F(ev(x))</code>. 
 
-(%i4) ff(3);
-</pre>
-<p>Para la misma función, con la opción <code>break</code> condicionada a un predicado:
+</li><li> Por cada aparición de <code>eval</code> en los argumentos, se repetirán los pasos (3) y (4).
+</li></ol>
+
+<p>Ejemplos:
 </p>
-<pre class="example">(%i5) trace_options (ff, break(pp))$
+<div class="example">
+<pre class="example">(%i1) sin(x) + cos(y) + (w+1)^2 + 'diff (sin(w), w);
+                                     d                    2
+(%o1)              cos(y) + sin(x) + -- (sin(w)) + (w + 1)
+                                     dw
+(%i2) ev (%, numer, expand, diff, x=2, y=1);
+                               2
+(%o2)                cos(w) + w  + 2 w + 2.449599732693821
+</pre></div>
 
-(%i6) pp (level, direction, function, item) := block (print (item),
-    return (function = 'ff and level = 3 and direction = exit))$
 
-(%i7) ff(6);
-</pre>
+<p>Una sintaxis alternativa de alto nivel ha sido desarrollada para <code>ev</code>
+por medio de la cual se pueden escribir solamente sus argumentos, sin 
+el comando <code>ev()</code>; se trata de una forma de escritura simplificada:
+</p>
+<div class="example">
+<pre class="example"><var>expr</var>, <var>arg_1</var>, ..., <var>arg_n</var>
+</pre></div>
+
+<p>Esta sintaxis no está permitida dentro de otras expresiones, como
+funciones, bloques, etc.
+</p>
+<p>Nótese el proceso de vínculo en paralelo en el siguiente ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i3) programmode: false;
+(%o3)                                false
+(%i4) x+y, x: a+y, y: 2;
+(%o4)                              y + a + 2
+(%i5) 2*x - 3*y = 3$
+(%i6) -3*x + 2*y = -4$
+(%i7) solve ([%o5, %o6]);
+Solución
+
+                                          1
+(%t7)                               y = - -
+                                          5
+
+                                         6
+(%t8)                                x = -
+                                         5
+(%o8)                            [[%t7, %t8]]
+(%i8) %o6, %o8;
+(%o8)                              - 4 = - 4
+(%i9) x + 1/x &gt; gamma (1/2);
+                                   1
+(%o9)                          x + - &gt; sqrt(%pi)
+                                   x
+(%i10) %, numer, x=1/2;
+(%o10)                      2.5 &gt; 1.772453850905516
+(%i11) %, pred;
+(%o11)                               true
+</pre></div>
+
 </dd></dl>
 
-<dl>
-<dt><u>Función:</u> <b>untrace</b><i> (<var>f_1</var>, ..., <var>f_n</var>)</i>
-<a name="IDX1587"></a>
-</dt>
-<dt><u>Función:</u> <b>untrace</b><i> ()</i>
-<a name="IDX1588"></a>
-</dt>
-<dd><p>Dadas las funciones <var>f_1</var>, ..., <var>f_n</var>,
-<code>untrace</code> desactiva el rastreo previamente activado por la función <code>trace</code>. Si no se aportan argumentos, <code>untrace</code> desactiva el rastreo de todas las funciones.
+
+
+<a name="Item_003a-Evaluation_002ees_002fdefvr_002feval"></a><dl>
+<dt><a name="index-eval"></a>Símbolo especial: <strong>eval</strong></dt>
+<dd><p>Como argumento en una llamada a <code>ev (<var>expr</var>)</code>, <code>eval</code> 
+fuerza una evaluación extra de <var>expr</var>.
 </p>
-<p>La llamada a <code>untrace</code> devuelve una lista con las funciones para las que el rastreo se ha desactivado.
+<p>Véase también <code>ev</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) [a:b,b:c,c:d,d:e];
+(%o1)                            [b, c, d, e]
+(%i2) a;
+(%o2)                                  b
+(%i3) ev(a);
+(%o3)                                  c
+(%i4) ev(a),eval;
+(%o4)                                  e
+(%i5) a,eval,eval;
+(%o5)                                  e
+</pre></div>
+
+</dd></dl>
+
+
+
+
+<a name="Item_003a-Evaluation_002ees_002fdefvr_002fevflag"></a><dl>
+<dt><a name="index-evflag"></a>Propiedad: <strong>evflag</strong></dt>
+<dd><p>Cuando un símbolo <var>x</var> goza de la propiedad <code>evflag</code>,
+las expresiones <code>ev(<var>expr</var>, <var>x</var>)</code> y <code><var>expr</var>, <var>x</var></code>
+(en modo interactivo) equivalen a <code>ev(<var>expr</var>, <var>x</var> = true)</code>.
+Esto es, a <var>x</var> se le asigna <code>true</code> al tiempo que se evalúa <var>expr</var>.
+</p>
+<p>La expresión <code>declare(<var>x</var>, evflag)</code> dota a la variable <var>x</var>
+de la propiedad <code>evflag</code>.
+</p>
+<p>Los interruptores que tienen la propiedad <code>evflag</code> son: 
+</p>
+<pre class="verbatim">   algebraic           cauchysum       demoivre         
+   dotscrules          %emode          %enumer     
+   exponentialize      exptisolate     factorflag
+   float               halfangles      infeval
+   isolate_wrt_times   keepfloat       letrat
+   listarith           logabs          logarc
+   logexpand           lognegint
+   m1pbranch           numer_pbranch   programmode
+   radexpand           ratalgdenom     ratfac
+   ratmx               ratsimpexpons   simp
+   simpproduct         simpsum         sumexpand
+   trigexpand
+</pre>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) sin (1/2);
+                                 1
+(%o1)                        sin(-)
+                                 2
+(%i2) sin (1/2), float;
+(%o2)                   0.479425538604203
+(%i3) sin (1/2), float=true;
+(%o3)                   0.479425538604203
+(%i4) simp : false;
+(%o4)                         false
+(%i5) 1 + 1;
+(%o5)                         1 + 1
+(%i6) 1 + 1, simp;
+(%o6)                           2
+(%i7) simp : true;
+(%o7)                         true
+(%i8) sum (1/k^2, k, 1, inf);
+                            inf
+                            ====
+                            \     1
+(%o8)                        &gt;    --
+                            /      2
+                            ====  k
+                            k = 1
+(%i9) sum (1/k^2, k, 1, inf), simpsum;
+                                 2
+                              %pi
+(%o9)                         ----
+                               6
+(%i10) declare (aa, evflag);
+(%o10)                        done
+(%i11) if aa = true then YES else NO;
+(%o11)                         NO
+(%i12) if aa = true then YES else NO, aa;
+(%o12)                         YES
+</pre></div>
+ 
+</dd></dl>
+
+
+
+
+<a name="Item_003a-Evaluation_002ees_002fdefvr_002fevfun"></a><dl>
+<dt><a name="index-evfun"></a>Propiedad: <strong>evfun</strong></dt>
+<dd><p>Cuando la función <var>F</var> goza de la propiedad <code>evfun</code>,
+las expresiones <code>ev(<var>expr</var>, <var>F</var>)</code> y <code><var>expr</var>, <var>F</var></code>
+(en modo interactivo) equivalen a <code><var>F</var>(ev(<var>expr</var>))</code>.
+</p>
+<p>Si se especifican dos o más funciones, <var>F</var>, <var>G</var>, etc., como poseedoras 
+de la propiedad <code>evfun</code>, éstas se aplican en el mismo orden en el que han sido 
+especificadas como tales.
+</p>
+<p>La expresión <code>declare(<var>F</var>, evfun)</code> dota a la función  <var>F</var>
+de la propiedad <code>evfun</code>.
+</p>
+<p>Las funciones que tienen la propiedad <code>evfun</code> por defecto son: 
+</p>
+<pre class="verbatim">   bfloat          factor       fullratsimp
+   logcontract     polarform    radcan
+   ratexpand       ratsimp      rectform
+   rootscontract   trigexpand   trigreduce
+</pre>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) x^3 - 1;
+                              3
+(%o1)                        x  - 1
+(%i2) x^3 - 1, factor;
+                                2
+(%o2)                 (x - 1) (x  + x + 1)
+(%i3) factor (x^3 - 1);
+                                2
+(%o3)                 (x - 1) (x  + x + 1)
+(%i4) cos(4 * x) / sin(x)^4;
+                            cos(4 x)
+(%o4)                       --------
+                               4
+                            sin (x)
+(%i5) cos(4 * x) / sin(x)^4, trigexpand;
+                 4           2       2         4
+              sin (x) - 6 cos (x) sin (x) + cos (x)
+(%o5)         -------------------------------------
+                                4
+                             sin (x)
+(%i6) cos(4 * x) / sin(x)^4, trigexpand, ratexpand;
+                           2         4
+                      6 cos (x)   cos (x)
+(%o6)               - --------- + ------- + 1
+                          2          4
+                       sin (x)    sin (x)
+(%i7) ratexpand (trigexpand (cos(4 * x) / sin(x)^4));
+                           2         4
+                      6 cos (x)   cos (x)
+(%o7)               - --------- + ------- + 1
+                          2          4
+                       sin (x)    sin (x)
+(%i8) declare ([F, G], evfun);
+(%o8)                         done
+(%i9) (aa : bb, bb : cc, cc : dd);
+(%o9)                          dd
+(%i10) aa;
+(%o10)                         bb
+(%i11) aa, F;
+(%o11)                        F(cc)
+(%i12) F (aa);
+(%o12)                        F(bb)
+(%i13) F (ev (aa));
+(%o13)                        F(cc)
+(%i14) aa, F, G;
+(%o14)                      G(F(cc))
+(%i15) G (F (ev (aa)));
+(%o15)                      G(F(cc))
+</pre></div>
+ 
+</dd></dl>
+
+
+
+<a name="Item_003a-Evaluation_002ees_002fdefvr_002finfeval"></a><dl>
+<dt><a name="index-infeval"></a>Variable opcional: <strong>infeval</strong></dt>
+<dd><p>Habilita el modo de &quot;evaluación infinita&quot;. <code>ev</code> repetidamente 
+evalua una expresión hasta que se pare de hacer cambios. Para prevenir
+que una variable, digamos <code>X</code>, sea evaluada sin parar en este modo, 
+simplemente incluya <code>X='X</code> como argumento de <code>ev</code>. 
+Esta claro que expresiones como <code>ev (X, X=X+1, infeval)</code> generarán un bucle infinito.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-Evaluation_002ees_002fdefvr_002fnoeval"></a><dl>
+<dt><a name="index-noeval"></a>Símbolo especial: <strong>noeval</strong></dt>
+<dd><p>El símbolo <code>noeval</code> evita la fase de evaluación de <code>ev</code>.
+Es útil conjuntamente con otras variables globales y para poder volver a 
+simplificar expresiones sin tener que evaluarlas otra vez.
 </p>
 </dd></dl>
 
 
 
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC209" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_39.html#SEC213" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_80.html#SEC380" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Item_003a-Evaluation_002ees_002fdefvr_002fnouns"></a><dl>
+<dt><a name="index-nouns"></a>Símbolo especial: <strong>nouns</strong></dt>
+<dd><p>El símbolo <code>nouns</code> es una <code>evflag</code>, lo que significa 
+que cuando se utilice como una opción de la instrucción <code>ev</code>, 
+todas las formas nominales que aparezcan en una expresión las convierte en 
+verbales, esto es, las evalúa.  Véanse también <code>noun</code>, <code>nounify</code>, 
+<code>verb</code> y <code>verbify</code>.
+</p>
+</dd></dl>
+
+
+
+<a name="Item_003a-Evaluation_002ees_002fdefvr_002fpred"></a><dl>
+<dt><a name="index-pred"></a>Símbolo especial: <strong>pred</strong></dt>
+<dd><p>Cuando se utiliza como argumento en una llamada a
+<code>ev (<var>expr</var>)</code>, <code>pred</code> provoca que los
+predicados (expresiones que se reducen a <code>true</code> o
+<code>false</code>) se evalúen.
+</p>
+<p>Véase <code>ev</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) 1&lt;2;
+(%o1)                                1 &lt; 2
+(%i2) 1&lt;2,pred;
+(%o2)                                true
+</pre></div>
+</dd></dl>
+
+
+<hr>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>diciembre, 30 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Previous: <a href="maxima_37.html#Introducci_00f3n-a-la-evaluaci_00f3n" accesskey="p" rel="previous">Introducción a la evaluación</a>, Subir: <a href="maxima_36.html#Evaluaci_00f3n" accesskey="u" rel="up">Evaluación</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
 
-</p>
+
+
 </body>
 </html>

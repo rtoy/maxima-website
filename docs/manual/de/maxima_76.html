@@ -1,738 +1,630 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Oktober, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Maxima Manual: 76. unit</title>
+<title>Maxima Manual: Funktionen und Variablen f&uuml;r die Eingabe und Ausgabe</title>
 
-<meta name="description" content="Maxima Manual: 76. unit">
-<meta name="keywords" content="Maxima Manual: 76. unit">
+<meta name="description" content="Maxima Manual: Funktionen und Variablen f&uuml;r die Eingabe und Ausgabe">
+<meta name="keywords" content="Maxima Manual: Funktionen und Variablen f&uuml;r die Eingabe und Ausgabe">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_73.html#Eingabe-und-Ausgabe" rel="up" title="Eingabe und Ausgabe">
+<link href="maxima_77.html#Funktionen-und-Variablen-f_00fcr-die-TeX_002dAusgabe" rel="next" title="Funktionen und Variablen f&uuml;r die TeX-Ausgabe">
+<link href="maxima_75.html#Dateien" rel="previous" title="Dateien">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funktionen-und-Variablen-f_00fcr-die-Eingabe-und-Ausgabe"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_77.html#Funktionen-und-Variablen-f_00fcr-die-TeX_002dAusgabe" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r die TeX-Ausgabe</a>, Previous: <a href="maxima_75.html#Dateien" accesskey="p" rel="previous">Dateien</a>, Nach oben: <a href="maxima_73.html#Eingabe-und-Ausgabe" accesskey="u" rel="up">Eingabe und Ausgabe</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-und-Variablen-fur-die-Eingabe-und-Ausgabe"></a>
+<h3 class="section">13.3 Funktionen und Variablen f&uuml;r die Eingabe und Ausgabe</h3>
 
-<a name="unit"></a>
-<a name="SEC397"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_75.html#SEC396" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC398" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_75.html#SEC395" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC400" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 76. unit </h1>
-
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC398">76.1 Introduction to Units</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC399">76.2 Functions and Variables for Units</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Introduction-to-Units"></a>
-<a name="SEC398"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC397" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC399" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC397" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC397" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC400" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 76.1 Introduction to Units </h2>
-
-<p>The <em>unit</em> package enables the user to convert between arbitrary
-units and work with dimensions in equations.  The functioning of this package
-is radically different from the original Maxima units package - whereas the
-original was a basic list of definitions, this package uses rulesets to allow
-the user to chose, on a per dimension basis, what unit final answers should be
-rendered in.  It will separate units instead of intermixing them in the display,
-allowing the user to readily identify the units associated with a particular
-answer.  It will allow a user to simplify an expression to its fundamental Base
-Units, as well as providing fine control over simplifying to derived units.
-Dimensional analysis is possible, and a variety of tools are available to
-manage conversion and simplification options.  In addition to customizable
-automatic conversion, <em>units</em> also provides a traditional manual
-conversion option.
+<a name="appendfile"></a><a name="Item_003a-Input_002ede_002fdeffn_002fappendfile"></a><dl>
+<dt><a name="index-appendfile"></a>Funktion: <strong>appendfile</strong> <em>(<var>filename</var>)</em></dt>
+<dd>
+<p>Startet wie die Funktion <code><a href="#writefile">writefile</a></code> eine Aufzeichnung aller Ein- und 
+Ausgaben der Konsole.  Die Ein- und Ausgaben werden in die Datei <var>filename</var> 
+geschrieben.  Im Unterschied zu <code>writefile</code> werden die Daten immer an eine 
+existierende Datei angeh&auml;ngt, wenn diese existiert.  Existiert die Datei 
+nicht, wird diese angelegt.
 </p>
-<p>Note - when unit conversions are inexact Maxima will make approximations
-resulting in fractions.  This is a consequence of the techniques used to
-simplify units.  The messages warning of this type of substitution are disabled
-by default in the case of units (normally they are on) since this situation
-occurs frequently and the warnings clutter the output.  (The existing state of
-ratprint is restored after unit conversions, so user changes to that setting
-will be preserved otherwise.)  If  the user needs this information for units,
-they can set <em>unitverbose:on</em> to reactivate the printing of warnings from
-the unit conversion process.
-</p>
-<p><em>unit</em> is included in Maxima in the share/contrib/unit directory.  It obeys
-normal Maxima package loading conventions:
-</p>
-<pre class="example">(%i1) load(&quot;unit&quot;)$
-*******************************************************************
-*                       Units version 0.50                        *
-*          Definitions based on the NIST Reference on             *
-*              Constants, Units, and Uncertainty                  *
-*       Conversion factors from various sources including         *
-*                   NIST and the GNU units package                *
-*******************************************************************
-
-Redefining necessary functions...
-WARNING: DEFUN/DEFMACRO: redefining function TOPLEVEL-MACSYMA-EVAL ...
-WARNING: DEFUN/DEFMACRO: redefining function MSETCHK ...
-WARNING: DEFUN/DEFMACRO: redefining function KILL1 ...
-WARNING: DEFUN/DEFMACRO: redefining function NFORMAT ...
-Initializing unit arrays...
-Done.
-</pre>
-<p>The WARNING messages are expected and not a cause for concern - they indicate
-the <em>unit</em> package is redefining functions already defined in Maxima
-proper.  This is necessary in order to properly handle units.  The user
-should be aware that if other changes have been made to these functions by other
-packages those changes will be overwritten by this loading process.
-</p>
-<p>The <em>unit.mac</em> file also loads a lisp file <em>unit-functions.lisp</em> which
-contains the lisp functions needed for the package.
-</p>
-<p>Clifford Yapp is the primary author.  He has received valuable assistance from
-Barton Willis of the University of Nebraska at Kearney (UNK), Robert Dodier,
-and other intrepid folk of the Maxima mailing list.
-</p>
-<p>There are probably lots of bugs.  Let me know.  <code>float</code> and <code>numer</code>
-don't do what is expected.
-</p>
-<p>TODO : dimension functionality, handling of temperature,
-showabbr and friends.  Show examples with addition of quantities containing
-units.
-</p>
-<hr size="6">
-<a name="Functions-and-Variables-for-Units"></a>
-<a name="SEC399"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC398" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC400" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC397" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC397" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC400" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 76.2 Functions and Variables for Units </h2>
-
-<dl>
-<dt><u>Function:</u> <b>setunits</b><i> (<var>list</var>)</i>
-<a name="IDX2809"></a>
-</dt>
-<dd><p>By default, the <em>unit</em> package does not use any derived dimensions, but
-will convert all units to the seven fundamental dimensions using MKS units.
-</p>
-<pre class="example">(%i2) N;
-                                     kg m
-(%o2)                                ----
-                                       2
-                                      s
-(%i3) dyn;
-                                   1      kg m
-(%o3)                           (------) (----)
-                                 100000     2
-                                           s
-(%i4) g;
-                                    1
-(%o4)                             (----) (kg)
-                                   1000
-(%i5) centigram*inch/minutes^2;
-                                  127        kg m
-(%o5)                       (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre>
-<p>In some cases this is the desired behavior.  If the user wishes to use other
-units, this is achieved with the <code>setunits</code> command:
-</p>
-<pre class="example">(%i6) setunits([centigram,inch,minute]);
-(%o6)                                done
-(%i7) N;
-                            1800000000000   %in cg
-(%o7)                      (-------------) (------)
-                                 127            2
-                                            %min
-(%i8) dyn;
-                               18000000   %in cg
-(%o8)                         (--------) (------)
-                                 127          2
-                                          %min
-(%i9) g;
-(%o9)                             (100) (cg)
-(%i10) centigram*inch/minutes^2;
-                                    %in cg
-(%o10)                              ------
-                                        2
-                                    %min
-</pre>
-<p>The setting of units is quite flexible.  For example, if we want to get back to
-kilograms, meters, and seconds as defaults for those dimensions we can do:
-</p>
-<pre class="example">(%i11) setunits([kg,m,s]);
-(%o11)                               done
-(%i12) centigram*inch/minutes^2;
-                                  127        kg m
-(%o12)                      (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre>
-<p>Derived units are also handled by this command:
-</p>
-<pre class="example">(%i17) setunits(N);
-(%o17)                               done
-(%i18) N;
-(%o18)                                 N
-(%i19) dyn;
-                                    1
-(%o19)                           (------) (N)
-                                  100000
-(%i20) kg*m/s^2;
-(%o20)                                 N
-(%i21) centigram*inch/minutes^2;
-                                    127
-(%o21)                        (-------------) (N)
-                               1800000000000
-</pre>
-<p>Notice that the <em>unit</em> package recognized the non MKS combination
-of mass, length, and inverse time squared as a force, and converted it
-to Newtons.  This is how Maxima works in general.  If, for example, we
-prefer dyne to Newtons, we simply do the following:
-</p>
-<pre class="example">(%i22) setunits(dyn);
-(%o22)                               done
-(%i23) kg*m/s^2;
-(%o23)                          (100000) (dyn)
-(%i24) centigram*inch/minutes^2;
-                                  127
-(%o24)                         (--------) (dyn)
-                                18000000
-</pre>
-<p>To discontinue simplifying to any force, we use the uforget command:
-</p>
-<pre class="example">(%i26) uforget(dyn);
-(%o26)                               false
-(%i27) kg*m/s^2;
-                                     kg m
-(%o27)                               ----
-                                       2
-                                      s
-(%i28) centigram*inch/minutes^2;
-                                  127        kg m
-(%o28)                      (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre>
-<p>This would have worked equally well with <code>uforget(N)</code> or
-<code>uforget(%force)</code>.
-</p>
-<p>See also <code>uforget</code>.  To use this function write first <code>load(&quot;unit&quot;)</code>.
+<p>Die Funktion <code><a href="#closefile">closefile</a></code> beendet die Aufzeichnung.
 </p></dd></dl>
 
-<dl>
-<dt><u>Function:</u> <b>uforget</b><i> (<var>list</var>)</i>
-<a name="IDX2810"></a>
-</dt>
-<dd><p>By default, the <em>unit</em> package converts all units to the seven fundamental
-dimensions using MKS units.  This behavior can be changed with the
-<code>setunits</code> command.  After that, the user can restore the default behavior
-for a particular dimension by means of the <code>uforget</code> command:
+<a name="batch"></a><a name="Item_003a-Input_002ede_002fdeffn_002fbatch"></a><dl>
+<dt><a name="index-batch"></a>Funktion: <strong>batch</strong> <em>(<var>filename</var>)</em></dt>
+<dt><a name="index-batch-1"></a>Funktion: <strong>batch</strong> <em>(<var>filename</var>, option)</em></dt>
+<dd>
+<p>Das Kommando <code>batch(<var>filename</var>)</code> liest Maxima-Ausdr&uuml;cke aus der Datei 
+<var>filename</var> ein, wertet diese aus und gibt die Ergebnisse auf der Konsole 
+aus.  <code>batch</code> sucht die Datei <var>filename</var> in den Verzeichnissen, die in 
+der Liste <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code> enthalten sind.  Siehe auch die Funktion
+<code><a href="#file_005fsearch">file_search</a></code>.
 </p>
-<pre class="example">(%i13) setunits([centigram,inch,minute]);
-(%o13)                               done
-(%i14) centigram*inch/minutes^2;
-                                    %in cg
-(%o14)                              ------
-                                        2
-                                    %min
-(%i15) uforget([cg,%in,%min]);
-(%o15)                      [false, false, false]
-(%i16) centigram*inch/minutes^2;
-                                  127        kg m
-(%o16)                      (-------------) (----)
-                             1800000000000     2
-                                              s
-</pre>
-<p><code>uforget</code> operates on dimensions, not units, so any unit of a particular
-dimension will work.  The dimension itself is also a legal argument.
+<p><code>batch(<var>filename</var>, <code>demo</code>)</code> entspricht dem Kommando
+<code>demo(<var>filename</var>)</code>.  <code>batch</code> sucht f&uuml;r diesen Fall die Datei in
+der Liste der Verzeichnisse <code><a href="#file_005fsearch_005fdemo">file_search_demo</a></code>.  Siehe auch die Funktion
+<code><a href="maxima_6.html#demo">demo</a></code>.
 </p>
-<p>See also <code>setunits</code>.  To use this function write first <code>load(&quot;unit&quot;)</code>.
+<p><code>batch(<var>filename</var>, <code>test</code>)</code> entspricht dem Kommando
+<code><a href="maxima_3.html#run_005ftestsuite">run_testsuite</a></code> mit der Option <code>display_all=true</code>.  Im Unterschied zur
+Funktion <code>run_testsuite</code> sucht die Funktion <code>batch</code> die Datei 
+<var>filename</var> in den Verzeichnissen der Liste <code>file_search_maxima</code> und 
+nicht in der Liste <code><a href="#file_005fsearch_005ftests">file_search_tests</a></code>.
+</p>
+<p>Die Maxima-Ausdr&uuml;cke in der Datei werden wie auf der Konsole mit den 
+Zeichen <code>;</code> oder <code>$</code> beendet.  Die Systemvariable <code>%</code> und die
+Funktion <code>%th</code> beziehen sich auf vorhergehende Zeilen in der Datei.  Die
+Datei kann <code>:lisp</code>-Unterbrechungskommandos enthalten.  Leerzeichen, 
+Tabulatoren, Zeilenschaltungen und Kommentare werden ignoriert.  Eine geeignete 
+Datei kann mit einem Texteditor oder der Funktion <code><a href="#stringout">stringout</a></code> erstellt 
+werden.
+</p>
+<p>Den Ein- und Ausgaben werden jeweils Ein- und Ausgabemarken zugewiesen.  Tritt 
+w&auml;hrend der Auswertung eines Ausdrucks ein Fehler auf, wird das Einlesen der 
+Datei abgebrochen.  Werden Eingaben vom Nutzer ben&ouml;tigt, wie zum Beispiel bei
+Fragen der Funktionen <code>asksign</code> oder <code>askinteger</code>, dann wartet 
+<code>batch</code> auf die Antworten, um dann die Verarbeitung der Datei fortzusetzen.
+</p>
+<p>Die Verarbeitung von <code>batch</code> kann durch die Eingabe von <code>control-C</code> 
+abgebrochen werden.  Die weitere Reaktion auf einen Abbruch mit <code>control-C</code>
+h&auml;ngt von der Lisp-Implementation ab.
+</p>
+<p><code>batch</code> wertet die Argumente aus.  <code>batch</code> gibt den Namen der Datei
+<var>filename</var> als Zeichenkette zur&uuml;ck, wenn die Funktion ohne zweites 
+Argument oder mit der Option <code>demo</code> aufgerufen wird.  Wird die Funktion mit 
+der Option <code>test</code> aufgerufen, ist die R&uuml;ckgabe eine leere Liste <code>[]</code> 
+oder eine Liste, die <var>filename</var> und die Nummern der fehlgeschlagenen Tests
+enth&auml;lt.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#load">load</a></code> und <code><a href="#batchload">batchload</a></code>, um Dateien
+zu laden, sowie die Funktionen <code><a href="maxima_3.html#run_005ftestsuite">run_testsuite</a></code> und <code><a href="maxima_6.html#demo">demo</a></code>.
 </p></dd></dl>
 
-<dl>
-<dt><u>Function:</u> <b>convert</b><i> (<var>expr</var>, <var>list</var>)</i>
-<a name="IDX2811"></a>
-</dt>
-<dd><p>When resetting the global environment is overkill, there is the <code>convert</code>
-command, which allows one time conversions.  It can accept either a single
-argument or a list of units to use in conversion.  When a convert operation is
-done, the normal global evaluation system is bypassed, in order to avoid the
-desired result being converted again.  As a consequence, for inexact
-calculations &quot;rat&quot; warnings will be visible if the global environment
-controlling this behavior (<code>ratprint</code>) is true.  This is also useful for
-spot-checking the accuracy of a global conversion.  Another feature is
-<code>convert</code> will allow a user to do Base Dimension conversions even if the
-global environment is set to simplify to a Derived Dimension.
+<a name="batchload"></a><a name="Item_003a-Input_002ede_002fdeffn_002fbatchload"></a><dl>
+<dt><a name="index-batchload"></a>Funktion: <strong>batchload</strong> <em>(<var>filename</var>)</em></dt>
+<dd>
+<p>Liest Ausdr&uuml;cke aus der Datei <var>filename</var> ein und wertet diese aus, ohne 
+die eingelesenen und ausgewerteten Ausdr&uuml;cke anzuzeigen und ohne Zuweisung von
+Eingabe- und Ausgabemarken.  Die Ausgabe von Fehlermeldungen oder sonstigem 
+Text, der von Funktionen ausgegeben wird, wird nicht unterdr&uuml;ckt.
 </p>
-<pre class="example">(%i2) kg*m/s^2;
-                                     kg m
-(%o2)                                ----
-                                       2
-                                      s
-(%i3) convert(kg*m/s^2,[g,km,s]);
-                                     g km
-(%o3)                                ----
-                                       2
-                                      s
-(%i4) convert(kg*m/s^2,[g,inch,minute]);
-
-`rat' replaced 39.37007874015748 by 5000/127 = 39.37007874015748
-                              18000000000   %in g
-(%o4)                        (-----------) (-----)
-                                  127           2
-                                            %min
-(%i5) convert(kg*m/s^2,[N]);
-(%o5)                                  N
-(%i6) convert(kg*m^2/s^2,[N]);
-(%o6)                                 m N
-(%i7) setunits([N,J]);
-(%o7)                                done
-(%i8) convert(kg*m^2/s^2,[N]);
-(%o8)                                 m N
-(%i9) convert(kg*m^2/s^2,[N,inch]);
-
-`rat' replaced 39.37007874015748 by 5000/127 = 39.37007874015748
-                                 5000
-(%o9)                           (----) (%in N)
-                                 127
-(%i10) convert(kg*m^2/s^2,[J]);
-(%o10)                                 J
-(%i11) kg*m^2/s^2;
-(%o11)                                 J
-(%i12) setunits([g,inch,s]);
-(%o12)                               done
-(%i13) kg*m/s^2;
-(%o13)                                 N
-(%i14) uforget(N);
-(%o14)                               false
-(%i15) kg*m/s^2;
-                                5000000   %in g
-(%o15)                         (-------) (-----)
-                                  127       2
-                                           s
-(%i16) convert(kg*m/s^2,[g,inch,s]);
-
-`rat' replaced 39.37007874015748 by 5000/127 = 39.37007874015748
-                                5000000   %in g
-(%o16)                         (-------) (-----)
-                                  127       2
-                                           s
-</pre>
-<p>See also <code>setunits</code> and <code>uforget</code>.  To use this function write first
-<code>load(&quot;unit&quot;)</code>.
+<p>Die Systemvariable <code>%</code> und die Funktion <code>%th</code> beziehen sich auf die
+letzte Eingabe auf der Konsole und nicht auf Zeilen oder Ergebnisse der Datei.
+Im Gegensatz zur Funktion <code>batch</code> darf eine Datei, die von <code>batchload</code>
+geladen wird, keine <code>:lisp</code>-Unterbrechungskommandos enthalten.
+</p>
+<p><code>batchload</code> gibt eine Zeichenkette mit dem Pfad der Datei <var>filename</var> 
+zur&uuml;ck.  Siehe auch die Funktionen <code><a href="#batch">batch</a></code> und <code><a href="#load">load</a></code>, um 
+Dateien zu laden.
 </p></dd></dl>
 
-<dl>
-<dt><u>Optional variable:</u> <b>usersetunits</b>
-<a name="IDX2812"></a>
-</dt>
-<dd><p>Default value: none
-</p>
-<p>If a user wishes to have a default unit behavior other than that described,
-they can make use of <em>maxima-init.mac</em> and the <em>usersetunits</em>
-variable.  The <em>unit</em> package will check on startup to see if this variable
-has been assigned a list.  If it has, it will use setunits on that list and take
-the units from that list to be defaults.  <code>uforget</code> will revert to the
-behavior defined by usersetunits over its own defaults.  For example, if we
-have a <em>maxima-init.mac</em> file containing:
-</p>
-<pre class="example">usersetunits : [N,J];
-</pre>
-<p>we would see the following behavior:
-</p>
-<pre class="example">(%i1) load(&quot;unit&quot;)$
-*******************************************************************
-*                       Units version 0.50                        *
-*          Definitions based on the NIST Reference on             *
-*              Constants, Units, and Uncertainty                  *
-*       Conversion factors from various sources including         *
-*                   NIST and the GNU units package                *
-*******************************************************************
+<a name="closefile"></a><a name="Item_003a-Input_002ede_002fdeffn_002fclosefile"></a><dl>
+<dt><a name="index-closefile"></a>Funktion: <strong>closefile</strong> <em>()</em></dt>
+<dd>
+<p>Beendet eine Aufzeichnung, die von den Funktionen <code><a href="#writefile">writefile</a></code> oder 
+<code><a href="#appendfile">appendfile</a></code> gestartet wurde, und schlie&szlig;t die Ausgabedatei.
+</p></dd></dl>
 
-Redefining necessary functions...
-WARNING: DEFUN/DEFMACRO: redefining function
- TOPLEVEL-MACSYMA-EVAL ...
-WARNING: DEFUN/DEFMACRO: redefining function MSETCHK ...
-WARNING: DEFUN/DEFMACRO: redefining function KILL1 ...
-WARNING: DEFUN/DEFMACRO: redefining function NFORMAT ...
-Initializing unit arrays...
-Done.
-User defaults found...
-User defaults initialized.
-(%i2) kg*m/s^2;
-(%o2)                                  N
-(%i3) kg*m^2/s^2;
-(%o3)                                  J
-(%i4) kg*m^3/s^2;
-(%o4)                                 J m
-(%i5) kg*m*km/s^2;
-(%o5)                             (1000) (J)
-(%i6) setunits([dyn,eV]);
-(%o6)                                done
-(%i7) kg*m/s^2;
-(%o7)                           (100000) (dyn)
-(%i8) kg*m^2/s^2;
-(%o8)                     (6241509596477042688) (eV)
-(%i9) kg*m^3/s^2;
-(%o9)                    (6241509596477042688) (eV m)
-(%i10) kg*m*km/s^2;
-(%o10)                   (6241509596477042688000) (eV)
-(%i11) uforget([dyn,eV]);
-(%o11)                           [false, false]
-(%i12) kg*m/s^2;
-(%o12)                                 N
-(%i13) kg*m^2/s^2;
-(%o13)                                 J
-(%i14) kg*m^3/s^2;
-(%o14)                                J m
-(%i15) kg*m*km/s^2;
-(%o15)                            (1000) (J)
-</pre>
-<p>Without <code>usersetunits</code>, the initial inputs would have been converted
-to MKS, and uforget would have resulted in a return to MKS rules.  Instead,
-the user preferences are respected in both cases.  Notice these can still
-be overridden if desired.  To completely eliminate this simplification - i.e.
-to have the user defaults reset to factory defaults - the
-<code>dontusedimension</code> command can be used.  <code>uforget</code> can restore user
-settings again, but only if <code>usedimension</code> frees it for use.  Alternately,
-<code>kill(usersetunits)</code> will completely remove all knowledge of the user
-defaults from the session.  Here are some examples of how these various options
-work.
+<a name="file_005foutput_005fappend"></a><a name="Item_003a-Input_002ede_002fdefvr_002ffile_005foutput_005fappend"></a><dl>
+<dt><a name="index-file_005foutput_005fappend"></a>Optionsvariable: <strong>file_output_append</strong></dt>
+<dd><p>Standardwert: <code>false</code>
 </p>
-<pre class="example">(%i2) kg*m/s^2;
-(%o2)                                  N
-(%i3) kg*m^2/s^2;
-(%o3)                                  J
-(%i4) setunits([dyn,eV]);
-(%o4)                                done
-(%i5) kg*m/s^2;
-(%o5)                           (100000) (dyn)
-(%i6) kg*m^2/s^2;
-(%o6)                     (6241509596477042688) (eV)
-(%i7) uforget([dyn,eV]);
-(%o7)                          [false, false]
-(%i8) kg*m/s^2;
-(%o8)                                  N
-(%i9) kg*m^2/s^2;
-(%o9)                                  J
-(%i10) dontusedimension(N);
-(%o10)                             [%force]
-(%i11) dontusedimension(J);
-(%o11)                         [%energy, %force]
-(%i12) kg*m/s^2;
-                                     kg m
-(%o12)                               ----
-                                       2
-                                      s
-(%i13) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o13)                               -----
-                                       2
-                                      s
-(%i14) setunits([dyn,eV]);
-(%o14)                               done
-(%i15) kg*m/s^2;
-                                     kg m
-(%o15)                               ----
-                                       2
-                                      s
-(%i16) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o16)                               -----
-                                       2
-                                      s
-(%i17) uforget([dyn,eV]);
-(%o17)                         [false, false]
-(%i18) kg*m/s^2;
-                                     kg m
-(%o18)                               ----
-                                       2
-                                      s
-(%i19) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o19)                               -----
-                                       2
-                                      s
-(%i20) usedimension(N);
-Done.  To have Maxima simplify to this dimension, use
-setunits([unit]) to select a unit.
-(%o20)                               true
-(%i21) usedimension(J);
-Done.  To have Maxima simplify to this dimension, use
-setunits([unit]) to select a unit.
-(%o21)                               true
-(%i22) kg*m/s^2;
-                                     kg m
-(%o22)                               ----
-                                       2
-                                      s
-(%i23) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o23)                               -----
-                                       2
-                                      s
-(%i24) setunits([dyn,eV]);
-(%o24)                               done
-(%i25) kg*m/s^2;
-(%o25)                          (100000) (dyn)
-(%i26) kg*m^2/s^2;
-(%o26)                    (6241509596477042688) (eV)
-(%i27) uforget([dyn,eV]);
-(%o27)                           [false, false]
-(%i28) kg*m/s^2;
-(%o28)                                 N
-(%i29) kg*m^2/s^2;
-(%o29)                                 J
-(%i30) kill(usersetunits);
-(%o30)                               done
-(%i31) uforget([dyn,eV]);
-(%o31)                          [false, false]
-(%i32) kg*m/s^2;
-                                     kg m
-(%o32)                               ----
-                                       2
-                                      s
-(%i33) kg*m^2/s^2;
-                                         2
-                                     kg m
-(%o33)                               -----
-                                       2
-                                      s
-</pre>
-<p>Unfortunately this wide variety of options is a little confusing at first,
-but once the user grows used to them they should find they have very full
-control over their working environment.
+<p>Die Optionsvariable <code>file_output_append</code> kontrolliert, ob die Funktionen 
+<code><a href="#save">save</a></code>, <code><a href="#stringout">stringout</a></code> oder <code><a href="#with_005fstdout">with_stdout</a></code>, die in eine Datei 
+schreiben, diese l&ouml;schen und neu anlegen oder die Daten anh&auml;ngen.  Wenn 
+<code>file_output_append</code> den Wert <code>true</code> hat, werden die Daten an die 
+existierende Datei angeh&auml;ngt.  Ansonsten wird eine neue Datei erstellt.
 </p>
+<p>Plot-Funktionen und der &Uuml;bersetzer erstellen grunds&auml;tzlich neue Dateien und
+die Funktionen <code><a href="maxima_77.html#tex">tex</a></code> und <code><a href="#appendfile">appendfile</a></code> h&auml;ngen die Ausgabe immer an 
+eine bestehende Datei an.
+</p></dd></dl>
+
+<a name="filename_005fmerge"></a><a name="Item_003a-Input_002ede_002fdeffn_002ffilename_005fmerge"></a><dl>
+<dt><a name="index-filename_005fmerge"></a>Funktion: <strong>filename_merge</strong> <em>(<var>path</var>, <var>filename</var>)</em></dt>
+<dd>
+<p>Setzt einen Pfad aus <var>path</var> und <var>filename</var> zusammen.  Endet <var>path</var>
+mit einer Zeichenkette der Form <code>###.<var>something</var></code>, wird diese 
+Zeichenkette durch <code><var>filename.something</var></code> ersetzt.  Ansonsten 
+wird der Endbestandteil durch <var>filename</var> ersetzt.
+</p>
+<p>Die R&uuml;ckgabe ist ein Lisp-Dateiname.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) filename_merge(&quot;user/&quot;, &quot;myfile&quot;);
+(%o1)                      user/myfile
+
+(%i2) filename_merge(&quot;user/###.lisp&quot;, &quot;myfile&quot;);
+(%o2)                   user/myfile.lisp
+</pre></div>
 </dd></dl>
 
-<dl>
-<dt><u>Function:</u> <b>metricexpandall</b><i> (<var>x</var>)</i>
-<a name="IDX2813"></a>
-</dt>
-<dd><p>Rebuilds global unit lists automatically creating all desired metric units.
-<var>x</var> is a numerical argument which is used to specify how many metric
-prefixes the user wishes defined.  The arguments are as follows, with each
-higher number defining all lower numbers' units:
+<a name="file_005fsearch"></a><a name="Item_003a-Input_002ede_002fdeffn_002ffile_005fsearch"></a><dl>
+<dt><a name="index-file_005fsearch"></a>Funktion: <strong>file_search</strong> <em>(<var>filename</var>)</em></dt>
+<dt><a name="index-file_005fsearch-1"></a>Funktion: <strong>file_search</strong> <em>(<var>filename</var>, <var>pathlist</var>)</em></dt>
+<dd>
+<p><code>file_search</code> sucht die Datei <var>filename</var> und gibt den Pfad als eine
+Zeichenkette zur&uuml;ck, wenn die Datei gefunden wurde.  Ansonsten wird 
+<code>false</code> zur&uuml;ckgegeben.  <code>file_search(<var>filename</var>)</code> sucht in den 
+Standardsuchverzeichnissen, die mit den Optionsvariablen 
+<code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>, <code><a href="#file_005fsearch_005flisp">file_search_lisp</a></code> und 
+<code><a href="#file_005fsearch_005fdemo">file_search_demo</a></code> spezifiziert werden.
 </p>
-<pre class="example">           0 - none. Only base units
-           1 - kilo, centi, milli
-(default)  2 - giga, mega, kilo, hecto, deka, deci, centi, milli,
-               micro, nano
-           3 - peta, tera, giga, mega, kilo, hecto, deka, deci,
-               centi, milli, micro, nano, pico, femto
-           4 - all
-</pre>
-<p>Normally, Maxima will not define the full expansion since this results in a
-very large number of units, but <code>metricexpandall</code> can be used to
-rebuild the list in a more or less complete fashion.  The relevant variable
-in the <em>unit.mac</em> file is <var>%unitexpand</var>.
+<p><code>file_search</code> pr&uuml;ft zuerst, ob die Datei <code>filename</code> existiert.  Dann
+pr&uuml;ft <code>file_search</code>, ob die Datei anhand von Mustern im Dateinamen 
+gefunden werden kann.  Siehe <code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code> f&uuml;r die Suche von
+Dateien.
+</p>
+<p>Das Argument <var>filename</var> kann ein Name mit einer Pfadangabe oder allein der
+Dateiname sein.  Sind in den Suchverzeichnissen Dateinamen mit Mustern 
+enthalten, kann die Datei auch ohne Endung angegeben werden.  Zum Beispiel 
+finden die folgenden Kommandos dieselbe Datei, wenn 
+<code>/home/wfs/special/###.mac</code> in der Liste <code>file_search_maxima</code> 
+enthalten ist:
+</p>
+<div class="example">
+<pre class="example">file_search (&quot;/home/wfs/special/zeta.mac&quot;);
+file_search (&quot;zeta.mac&quot;);
+file_search (&quot;zeta&quot;);
+</pre></div>
+
+<p><code>file_search(<var>filename</var>, <var>pathlist</var>)</code> sucht nur in den
+Verzeichnissen <var>pathlist</var>.  Das Argument <var>pathlist</var> &uuml;berschreibt die
+Standardsuchverzeichnisse.  Auch ein einzelnes Verzeichnis muss als eine Liste 
+&uuml;bergeben werden.
+</p>
+<p>Die Standardsuchverzeichnisse k&ouml;nnen modifiziert werden.  Siehe dazu auch
+<code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code>.
+</p>
+<p><code>file_search</code> wird von der Funktion <code><a href="#load">load</a></code> mit den Verzeichnislisten
+<code>file_search_maxima</code> und <code>file_search_lisp</code> aufgerufen.
 </p></dd></dl>
 
-<dl>
-<dt><u>Variable:</u> <b>%unitexpand</b>
-<a name="IDX2814"></a>
-</dt>
-<dd><p>Default value: <code>2</code>
+<a name="file_005fsearch_005fmaxima"></a><a name="file_005fsearch_005flisp"></a><a name="file_005fsearch_005fdemo"></a><a name="file_005fsearch_005fusage"></a><a name="file_005fsearch_005ftests"></a><a name="Item_003a-Input_002ede_002fdefvr_002ffile_005fsearch_005fmaxima"></a><dl>
+<dt><a name="index-file_005fsearch_005fmaxima"></a>Optionsvariable: <strong>file_search_maxima</strong></dt>
+<dd><a name="Item_003a-Input_002ede_002fdefvr_002ffile_005fsearch_005flisp"></a></dd><dt><a name="index-file_005fsearch_005flisp"></a>Optionsvariable: <strong>file_search_lisp</strong></dt>
+<dd><a name="Item_003a-Input_002ede_002fdefvr_002ffile_005fsearch_005fdemo"></a></dd><dt><a name="index-file_005fsearch_005fdemo"></a>Optionsvariable: <strong>file_search_demo</strong></dt>
+<dd><a name="Item_003a-Input_002ede_002fdefvr_002ffile_005fsearch_005fusage"></a></dd><dt><a name="index-file_005fsearch_005fusage"></a>Optionsvariable: <strong>file_search_usage</strong></dt>
+<dd><a name="Item_003a-Input_002ede_002fdefvr_002ffile_005fsearch_005ftests"></a></dd><dt><a name="index-file_005fsearch_005ftests"></a>Optionsvariable: <strong>file_search_tests</strong></dt>
+<dd>
+<p>Diese Optionsvariablen bezeichnen Listen mit Verzeichnissen, die von Funktionen 
+wie <code><a href="#load">load</a></code> und <code><a href="maxima_6.html#demo">demo</a></code> durchsucht werden, um eine Datei zu finden.  Die
+Standardwerte bezeichnen verschiedene Verzeichnisse der Maxima-Installation.
 </p>
-<p>This is the value supplied to <code>metricexpandall</code> during the initial loading
-of <em>unit</em>.
+<p>Diese Variablen k&ouml;nnen modifiziert werden, indem die Standardwerte ersetzt 
+oder weitere Verzeichnisse angeh&auml;ngt werden.  Zum Beispiel wird im Folgenden 
+der Standardwert der Optionsvariablen <code>file_search_maxima</code> ersetzt:
+</p>
+<div class="example">
+<pre class="example">file_search_maxima: [&quot;/usr/local/foo/###.mac&quot;,
+    &quot;/usr/local/bar/###.mac&quot;]$
+</pre></div>
+
+<p>In diesem Beispiel werden zwei weitere Verzeichnisse zu der Optionsvariablen 
+<code>file_search_maxima</code> hinzugef&uuml;gt:
+</p>
+<div class="example">
+<pre class="example">file_search_maxima: append (file_search_maxima,
+    [&quot;/usr/local/foo/###.mac&quot;, &quot;/usr/local/bar/###.mac&quot;])$
+</pre></div>
+
+<p>Soll eine erweiterte Liste der Suchverzeichnisse nach jedem Start von Maxima
+zur Verf&uuml;gung stehen, kann das obige Kommando in die Datei
+<code>maxima-init.mac</code> aufgenommen werden.
+</p>
+<p>Mehrere Dateiendungen und Pfade k&ouml;nnen mit Wildcard-Konstruktionen 
+spezifiziert werden.  Eine Zeichenkette <code>###</code> wird durch einen Dateinamen
+ersetzt.  Werden mehrere Zeichenketten durch Kommata getrennt und mit 
+geschweiften Klammern angegeben wie zum Beispiel <code>{foo, bar, baz}</code>, 
+expandiert die Liste in mehrere Zeichenketten.  Das folgende Beispiel expandiert
+f&uuml;r <code>neumann</code> 
+</p>
+<div class="example">
+<pre class="example">&quot;/home/{wfs,gcj}/###.{lisp,mac}&quot;
+</pre></div>
+
+<p>in <code>/home/wfs/neumann.lisp</code>, <code>/home/gcj/neumann.lisp</code>, 
+<code>/home/wfs/neumann.mac</code> und <code>/home/gcj/neumann.mac</code>.
 </p></dd></dl>
 
+<a name="file_005ftype"></a><a name="Item_003a-Input_002ede_002fdeffn_002ffile_005ftype"></a><dl>
+<dt><a name="index-file_005ftype"></a>Funktion: <strong>file_type</strong> <em>(<var>filename</var>)</em></dt>
+<dd>
+<p>Gibt eine Vermutung &uuml;ber den Typ der Datei <var>filename</var> zur&uuml;ck.  Es 
+wird nur die Dateiendung betrachtet.
+</p>
+<p>Die R&uuml;ckgabe ist das Symbol <code>maxima</code> oder <code>lisp</code>, wenn die
+Dateiendung einen der Werte der Optionsvariablen <code><a href="#file_005ftype_005fmaxima">file_type_maxima</a></code> oder
+der Optionsvariablen <code><a href="#file_005ftype_005flisp">file_type_lisp</a></code> entspricht.  Ansonsten ist die
+R&uuml;ckgabe das Symbol <code>object</code>.
+</p>
+<p>Siehe auch die Funktion <code><a href="#pathname_005ftype">pathname_type</a></code>.
+</p></dd></dl>
 
+<a name="file_005ftype_005flisp"></a><a name="Item_003a-Input_002ede_002fdefvr_002ffile_005ftype_005flisp"></a><dl>
+<dt><a name="index-file_005ftype_005flisp"></a>Optionsvariable: <strong>file_type_lisp</strong></dt>
+<dd><p>Standardwert:  <code>[l, lsp, lisp]</code>
+</p>
+<p>Die Optionsvariable <code>file_type_lisp</code> enth&auml;lt die Dateiendungen, die
+Maxima als die Bezeichnung f&uuml;r eine Lisp-Datei annimmt.
+</p>
+<p>Siehe auch die Funktion <code><a href="#file_005ftype">file_type</a></code>.
+</p></dd></dl>
 
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC397" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC400" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="file_005ftype_005fmaxima"></a><a name="Item_003a-Input_002ede_002fdefvr_002ffile_005ftype_005fmaxima"></a><dl>
+<dt><a name="index-file_005ftype_005fmaxima"></a>Optionsvariable: <strong>file_type_maxima</strong></dt>
+<dd><p>Standardwert:  <code>[mac, mc, demo, dem, dm1, dm2, dm3, dmt]</code>
+</p>
+<p>Die Optionsvariable <code>file_type_maxima</code> enth&auml;lt die Dateiendungen, die
+Maxima als die Bezeichnung f&uuml;r eine Maxima-Datei annimmt.
+</p>
+<p>Siehe auch die Funktion <code><a href="#file_005ftype">file_type</a></code>.
+</p></dd></dl>
+
+<a name="load"></a><a name="Item_003a-Input_002ede_002fdeffn_002fload"></a><dl>
+<dt><a name="index-load"></a>Funktion: <strong>load</strong> <em>(<var>filename</var>)</em></dt>
+<dd>
+<p>Wertet die Ausdr&uuml;cke in der Datei <var>filename</var> aus, wodurch die Variablen,
+Funktionen und andere Objekte in Maxima geladen werden.  Alle bisher zugewiesen
+Variablen und Definitionen werden &uuml;berschrieben.  Um die Datei zu finden, wird
+von <code>load</code> die Funktion <code><a href="#file_005fsearch">file_search</a></code> mit den Verzeichnislisten
+<code><a href="#file_005fsearch_005fmaxima">file_search_maxima</a></code> und <code><a href="#file_005fsearch_005flisp">file_search_lisp</a></code> aufgerufen.  Ist 
+<code>load</code> erfolgreich, wird der Dateiname zur&uuml;ckgegeben.  Ansonsten gibt
+<code>load</code> eine Fehlermeldung aus.
+</p>
+<p><code>load</code> verarbeitet Dateien mit Lisp-Code oder Maxima-Code.  Dateien, die 
+mit den Funktionen <code><a href="#save">save</a></code>, <code><a href="maxima_171.html#translate_005ffile">translate_file</a></code> und
+<code><a href="maxima_171.html#compile_005ffile">compile_file</a></code> erstellt wurden, enthalten Lisp-Code.  Dateien, die mit
+<code><a href="#stringout">stringout</a></code> erstellt wurden, enthalten Maxima-Code.  Die Ausgabedateien
+dieser Funktionen k&ouml;nnen mit <code>load</code> geladen werden.  <code>load</code> ruft die
+Funktion <code><a href="#loadfile">loadfile</a></code> auf, um Lisp-Dateien und <code><a href="#batchload">batchload</a></code> auf, um 
+Maxima-Dateien zu verarbeiten.
+</p>
+<p><code>load</code> erkennt keine <code>:lisp</code>-Unterbrechungskommandos in 
+Maxima-Dateien.  Die Systemvariablen <code><a href="maxima_9.html#g_t_005f">_</a></code>, <code><a href="maxima_9.html#g_t_005f_005f">__</a></code> und <code><a href="maxima_9.html#g_t_0025">%</a></code> und 
+die Funktion <code><a href="maxima_9.html#g_t_0025th">%th</a></code> behalten jeweils ihren letzten Wert vor dem Aufruf von 
+<code>load</code>.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#loadfile">loadfile</a></code>, <code><a href="#batch">batch</a></code>, 
+<code><a href="#batchload">batchload</a></code> und <code><a href="maxima_6.html#demo">demo</a></code>.  <code>loadfile</code> verarbeitet 
+Lisp-Dateien.  <code>batch</code>, <code>batchload</code> und <code>demo</code> verarbeiten 
+Maxima-Dateien.
+</p>
+<p>Siehe <code><a href="#file_005fsearch">file_search</a></code> f&uuml;r mehr Informationen, wie Maxima Dateien in 
+Verzeichnissen findet.  <code>load</code> wertet die Argumente aus.
+</p></dd></dl>
+
+<a name="load_005fpathname"></a><a name="Item_003a-Input_002ede_002fdefvr_002fload_005fpathname"></a><dl>
+<dt><a name="index-load_005fpathname"></a>Systemvariable: <strong>load_pathname</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p>Wird eine Datei mit den Funktionen <code><a href="#load">load</a></code>, <code><a href="#loadfile">loadfile</a></code> oder
+<code><a href="#batchload">batchload</a></code> geladen, enth&auml;lt die Systemvariable <code>load_pathname</code>
+den Namen der Datei.  Der Wert der Systemvariablen kann in der Datei, die 
+geladen wird, ausgelesen werden.
+</p>
+<p>Beispiele:
+</p>
+<p>Ist eine Batch-Datei mit den Namen <code>test.mac</code> in dem Verzeichnis
+</p><div class="example">
+<pre class="example">&quot;/home/dieter/workspace/mymaxima/temp/&quot;
+</pre></div>
+<p>abgelegt und enth&auml;lt die Datei die folgenden Befehle
+</p>
+<div class="example">
+<pre class="example">print(&quot;The value of load_pathname is: &quot;, load_pathname)$
+print(&quot;End of batchfile&quot;)$
+</pre></div>
+
+<p>dann wird das Folgende ausgegeben:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;/home/dieter/workspace/mymaxima/temp/test.mac&quot;)$
+The value of load_pathname is:  
+              /home/dieter/workspace/mymaxima/temp/test.mac 
+End of batchfile
+</pre></div>
+</dd></dl>
+
+<a name="loadfile"></a><a name="Item_003a-Input_002ede_002fdeffn_002floadfile"></a><dl>
+<dt><a name="index-loadfile"></a>Funktion: <strong>loadfile</strong> <em>(<var>filename</var>)</em></dt>
+<dd>
+<p>L&auml;dt die Datei <var>filename</var> und wertet die Lisp-Ausdr&uuml;cke in der Datei 
+aus.  <code>filename</code> ruft nicht <code><a href="#file_005fsearch">file_search</a></code> auf, um eine Datei zu 
+finden.  Daher muss <code>filename</code> ein vollst&auml;ndiger Dateiname sein.
+</p>
+<p><code>loadfile</code> kann Dateien verarbeiten, die mit den Funktionen 
+<code><a href="#save">save</a></code>, <code><a href="maxima_171.html#translate_005ffile">translate_file</a></code> und <code><a href="maxima_171.html#compile_005ffile">compile_file</a></code> erzeugt wurden.
+</p></dd></dl>
+
+<a name="loadprint"></a><a name="Item_003a-Input_002ede_002fdefvr_002floadprint"></a><dl>
+<dt><a name="index-loadprint"></a>Optionsvariable: <strong>loadprint</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+<p><code>loadprint</code> kontrolliert, ob Meldungen ausgegeben werden, wenn eine Datei
+geladen wird.
+</p>
+<ul>
+<li> Hat <code>loadprint</code> den Wert <code>true</code>, wird immer eine Meldung 
+      ausgegeben.
+</li><li> Hat <code>loadprint</code> den Wert <code>'loadfile</code>, wird eine Meldung 
+      ausgegeben, wenn die Datei mit der Funktion <code><a href="#loadfile">loadfile</a></code> geladen wird.
+</li><li> Hat <code>loadprint</code> den Wert <code>'autoload</code>, wird eine Meldung 
+      ausgegeben, wenn eine Datei automatisch geladen wird.
+</li><li> Hat <code>loadprint</code> den Wert <code>false</code>, werden keine Meldungen beim 
+      Laden von Dateien ausgegeben.
+</li></ul>
+</dd></dl>
+
+<a name="pathname_005fdirectory"></a><a name="pathname_005fname"></a><a name="pathname_005ftype"></a><a name="Item_003a-Input_002ede_002fdeffn_002fpathname_005fdirectory"></a><dl>
+<dt><a name="index-pathname_005fdirectory"></a>Funktion: <strong>pathname_directory</strong> <em>(<var>pathname</var>)</em></dt>
+<dd><a name="Item_003a-Input_002ede_002fdeffn_002fpathname_005fname"></a></dd><dt><a name="index-pathname_005fname"></a>Funktion: <strong>pathname_name</strong> <em>(<var>pathname</var>)</em></dt>
+<dd><a name="Item_003a-Input_002ede_002fdeffn_002fpathname_005ftype"></a></dd><dt><a name="index-pathname_005ftype"></a>Funktion: <strong>pathname_type</strong> <em>(<var>pathname</var>)</em></dt>
+<dd>
+<p>Diese Funktionen geben die Bestandteile eines Pfadnamens zur&uuml;ck.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) pathname_directory(&quot;/home/dieter/maxima/changelog.txt&quot;);
+(%o1)                 /home/dieter/maxima/
+(%i2) pathname_name(&quot;/home/dieter/maxima/changelog.txt&quot;);
+(%o2)                       changelog
+(%i3) pathname_type(&quot;/home/dieter/maxima/changelog.txt&quot;);
+(%o3)                          txt
+</pre></div>
+</dd></dl>
+
+<a name="printfile"></a><a name="Item_003a-Input_002ede_002fdeffn_002fprintfile"></a><dl>
+<dt><a name="index-printfile"></a>Funktion: <strong>printfile</strong> <em>(<var>path</var>)</em></dt>
+<dd>
+<p>Druckt eine Datei mit dem Namen <var>path</var> auf der Konsole aus.  <var>path</var> kann
+ein Symbol oder eine Zeichenkette sein.  <code>printfile</code> sucht die Datei in den 
+Verzeichnissen, die in der Optionsvariablen <code><a href="#file_005fsearch_005fusage">file_search_usage</a></code> enthalten 
+sind.
+</p>
+<p><code>printfile</code> gibt <var>path</var> zur&uuml;ck, wenn die Datei existiert.
+</p></dd></dl>
+
+<a name="save"></a><a name="Item_003a-Input_002ede_002fdeffn_002fsave"></a><dl>
+<dt><a name="index-save"></a>Funktion: <strong>save</strong> <em>(<var>filename</var>, <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, &hellip;)</em></dt>
+<dt><a name="index-save-1"></a>Funktion: <strong>save</strong> <em>(<var>filename</var>, values, functions, labels, &hellip;)</em></dt>
+<dt><a name="index-save-2"></a>Funktion: <strong>save</strong> <em>(<var>filename</var>, [<var>m</var>, <var>n</var>])</em></dt>
+<dt><a name="index-save-3"></a>Funktion: <strong>save</strong> <em>(<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, &hellip;)</em></dt>
+<dt><a name="index-save-4"></a>Funktion: <strong>save</strong> <em>(<var>filename</var>, all)</em></dt>
+<dt><a name="index-save-5"></a>Funktion: <strong>save</strong> <em>(<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, <var>name_2</var>=<var>expr_2</var>, &hellip;)</em></dt>
+<dd>
+<p>Speichert die aktuellen Werte von <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, 
+&hellip;, in die Datei <var>filename</var>.  Die Argumente sind die Namen von 
+Variablen, Funktionen oder anderen Objekten.  Argumente, die keinen Wert haben, 
+werden ignoriert.  <code>save</code> gibt den Namen der Datei <code>filename</code> 
+zur&uuml;ck.
+</p>
+<p><code>save</code> speichert die Daten in einem Lisp-Format.  Die gespeicherten Daten
+k&ouml;nnen mit dem Kommando <code>load(<var>filename</var>)</code> zur&uuml;ckgelesen werden.
+Siehe <code><a href="#load">load</a></code>.
+</p>
+<p>Die Optionsvariable <code><a href="#file_005foutput_005fappend">file_output_append</a></code> kontrolliert, ob <code>save</code> die
+Daten an die Ausgabedatei anh&auml;ngt, wenn diese bereits existiert, oder die 
+Ausgabedatei zuvor l&ouml;scht.  Hat <code>file_output_append</code> den Wert 
+<code>true</code>, werden die Daten angeh&auml;ngt.  Ansonsten wird die Datei gel&ouml;scht
+und neu angelegt, wenn diese bereits existiert.  Existiert die Ausgabedatei
+noch nicht, wird diese angelegt.
+</p>
+<p><code>save(<var>filename</var>, values, functions, labels, ...)</code> speichert die
+Werte aller Eintr&auml;ge der Listen <code>values</code>, <code>functions</code>, 
+<code>labels</code>, u.s.w. in die Ausgabedatei.  Es kann jede der vorhandenen
+Informationslisten, die in der Systemvariablen <code>infolists</code> enthalten ist, 
+als Argument &uuml;bergeben werden.  <code>values</code> enth&auml;lt zum Beispiel alle vom
+Nutzer definierten Variablen.
+</p>
+<p><code>save(<var>filename</var>, [<var>m</var>, <var>n</var>])</code> speichert die Werte der Eingabe-
+und Ausgabemarken von <var>m</var> bis <var>n</var>.  <var>m</var> und <var>n</var> m&uuml;ssen ganze 
+Zahlen sein.  Die Eingabe- und Ausgabemarken k&ouml;nnen auch einzeln gespeichert 
+werden, zum Beispiel mit dem Kommando <code>save(&quot;foo.1&quot;, %i42, %o42)</code>.
+<code>save(<var>filename</var>, labels)</code> speichert alle Eingabe- und Ausgabemarken.
+Beim Zur&uuml;cklesen der Marken werden vorhandene Werte &uuml;berschrieben.
+</p>
+<p><code>save(<var>filename</var>, <var>name_1</var> = <var>expr_1</var>, <var>name_2</var> = 
+<var>expr_2</var>, ...)</code> speichert die Werte <var>expr_1</var>, <var>expr_2</var>, &hellip;, 
+unter den Namen <var>name_1</var>, <var>name_2</var>, &hellip; ab.  Dies kann  n&uuml;tzlich
+sein, um zum Beispiel die Werte von Marken unter einem neuen Namen 
+abzuspeichern.  Die rechte Seite der Gleichungen kann ein beliebiger 
+ausgewerteter Ausdruck sein.  Die neuen Namen werden der aktuellen Sitzung nicht
+hinzugef&uuml;gt und nur in der Ausgabedatei gespeichert.
+</p>
+<p>Die verschiedenen M&ouml;glichkeiten der Funktion <code>save</code>, k&ouml;nnen
+miteinander kombiniert werden.  Das Kommando
+<code>save(<var>filename</var>, aa, bb, cc=42, functions, [11,17])</code> ist daf&uuml;r ein
+Beispiel.
+</p>
+<p><code>save(<var>filename</var>, all)</code> speichert den aktuellen Zustand von Maxima
+in eine Ausgabedatei.  Eingeschlossen sind alle nutzerdefinierten Variablen, 
+Funktionen oder Arrays, einschlie&szlig;lich automatischer Definitionen.  Die 
+gespeicherten Daten enthalten auch die Werte von ge&auml;nderten System- oder
+Optionsvariablen.  Siehe dazu auch <code><a href="maxima_9.html#myoptions">myoptions</a></code>.
+</p>
+<p><code>save</code> wertet das Argument <var>filename</var> aus.  Alle anderen Argumente
+werden nicht ausgewertet.
+</p></dd></dl>
+
+<a name="stringout"></a><a name="Item_003a-Input_002ede_002fdeffn_002fstringout"></a><dl>
+<dt><a name="index-stringout"></a>Funktion: <strong>stringout</strong> <em>(<var>filename</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;)</em></dt>
+<dt><a name="index-stringout-1"></a>Funktion: <strong>stringout</strong> <em>(<var>filename</var>, [<var>m</var>, <var>n</var>])</em></dt>
+<dt><a name="index-stringout-2"></a>Funktion: <strong>stringout</strong> <em>(<var>filename</var>, input)</em></dt>
+<dt><a name="index-stringout-3"></a>Funktion: <strong>stringout</strong> <em>(<var>filename</var>, functions)</em></dt>
+<dt><a name="index-stringout-4"></a>Funktion: <strong>stringout</strong> <em>(<var>filename</var>, values)</em></dt>
+<dd>
+<p><code>stringout</code> schreibt Ausdr&uuml;cke in einem Format in eine Datei, dass 
+identisch mit dem Format der Eingabe ist.  Die Datei kann als Eingabedatei f&uuml;r
+die Funktionen <code><a href="#batch">batch</a></code> oder <code><a href="maxima_6.html#demo">demo</a></code> genutzt werden.  Sie kann mit 
+einem Texteditor f&uuml;r jeden Zweck editiert werden.  <code>stringout</code> kann
+ausgef&uuml;hrt werden, wenn das Kommando <code><a href="#writefile">writefile</a></code> aktiv ist.
+</p>
+<p>Die Optionsvariable <code><a href="#file_005foutput_005fappend">file_output_append</a></code> kontrolliert, ob <code>stringout</code>
+die Daten an die Ausgabedatei anh&auml;ngt, wenn diese bereits existiert oder die 
+Ausgabedatei zuvor l&ouml;scht.  Hat <code>file_output_append</code> den Wert 
+<code>true</code>, werden die Daten angeh&auml;ngt, wenn die Datei bereits existiert.  
+Ansonsten wird die Datei gel&ouml;scht und neu angelegt.  Existiert die 
+Ausgabedatei noch nicht, wird diese angelegt.
+</p>
+<p>Die allgemeine Form von <code>stringout</code> schreibt die Werte eines oder mehrerer
+Ausdr&uuml;cke in die Ausgabedatei.  Ist ein Ausdruck eine Variable, wird nur der
+Wert der Variablen, nicht jedoch der Name der Variablen in die Ausgabedatei 
+geschrieben.  Ein n&uuml;tzlicher Spezialfall ist, dass die Werte der Eingabe- 
+und Ausgabemarken (<code>%i1</code>, <code>%i2</code>, <code>%i3</code>, &hellip; und <code>%o1</code>, 
+<code>%o2</code>, <code>%o3</code>, &hellip;) in die Datei geschrieben werden k&ouml;nnen.
+</p>
+<p>Hat die Optionsvariable <code>grind</code> den Wert <code>true</code>, wird die Ausgabe
+im Format der Funktion <code><a href="maxima_10.html#grind">grind</a></code> in die Ausgabedatei geschrieben.  Ansonsten
+wird das Format der Funktion <code><a href="maxima_17.html#string">string</a></code> f&uuml;r die Ausgabe genutzt.
+</p>
+<p><code>stringout(<var>filename</var>, [<var>m</var>, <var>n</var>])</code> schreibt die Werte aller
+Eingabemarken von <var>m</var> bis <var>n</var> in die Ausgabedatei.
+<code>stringout(<var>filename</var>, input)</code> schreibt alle Eingabemarken in die
+Ausgabedatei.  <code>stringout(<var>filename</var>, functions)</code> schreibt alle vom 
+Nutzer definierten Funktionen, die in der Informationsliste <code>functions</code> 
+enthalten sind, in die Ausgabedatei.
+</p>
+<p><code>stringout(<var>filename</var>, values)</code> schreibt alle benuzterdefinierten
+Variablen, die in der Informationsliste <code>values</code> enthalten sind, in die
+Ausgabedatei.  Die Variablen werden als eine Zuweisung, mit dem Namen der 
+Variablen, dem Zuweisungsoperator <code>:</code> und dem Wert in die Datei 
+geschrieben.  Im Unterschied dazu, speichert die allgemeine Form der Funktion
+<code>stringout</code> die Variablen nicht als Zuweisung.
+</p></dd></dl>
+
+<a name="with_005fstdout"></a><a name="Item_003a-Input_002ede_002fdeffn_002fwith_005fstdout"></a><dl>
+<dt><a name="index-with_005fstdout"></a>Funktion: <strong>with_stdout</strong> <em>(<var>f</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;)</em></dt>
+<dt><a name="index-with_005fstdout-1"></a>Funktion: <strong>with_stdout</strong> <em>(<var>s</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, &hellip;)</em></dt>
+<dd>
+<p><code>with_stdout</code> wertet Argumente <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, 
+&hellip; aus und schreibt die Ergebnisse der Auswertung in die Ausgabedatei 
+<code>f</code> oder in den Stream <code>s</code>.  Die Ergebnisse werden nicht auf der 
+Konsole ausgegeben.
+</p>
+<p>Die Optionsvariable <code>file_output_append</code> bestimmt, ob <code>with_stdout</code> 
+die Daten an die Ausgabedatei anh&auml;ngt oder die Ausgabedatei zuvor l&ouml;scht. 
+Hat <code>file_output_append</code> den Wert <code>true</code>, werden die Daten 
+angeh&auml;ngt.  Ansonsten wird die Datei gel&ouml;scht und neu angelegt.  Existiert
+die Ausgabedatei noch nicht, wird diese angelegt.
+</p>
+<p><code>with_stout</code> gibt das Ergebnis des letzten Argumentes zur&uuml;ck.  
+</p>
+<p>Siehe auch <code><a href="#writefile">writefile</a></code>.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) with_stdout (&quot;tmp.out&quot;, for i:5 thru 10 do
+         print (i, &quot;! yields&quot;, i!))$
+(%i2) printfile (&quot;tmp.out&quot;)$
+5 ! yields 120 
+6 ! yields 720 
+7 ! yields 5040 
+8 ! yields 40320 
+9 ! yields 362880 
+10 ! yields 3628800
+</pre></div>
+</dd></dl>
+
+<a name="writefile"></a><a name="Item_003a-Input_002ede_002fdeffn_002fwritefile"></a><dl>
+<dt><a name="index-writefile"></a>Funktion: <strong>writefile</strong> <em>(<var>filename</var>)</em></dt>
+<dd>
+<p>Startet eine Aufzeichnung aller Ein- und Ausgaben der Konsole.  Die Ein- und 
+Ausgaben werden in die Datei <var>filename</var> geschrieben.
+</p>
+<p>Die Ausgabedatei kann von Maxima nicht wieder zur&uuml;ckgelesen werden.  Um ein 
+Datei zu erzeugen, die von Maxima zur&uuml;ckgelesen werden kann, siehe die 
+Funktionen <code><a href="#save">save</a></code> und <code><a href="#stringout">stringout</a></code>.  <code>save</code> speichert 
+Ausdr&uuml;cke in einem Lisp-Format und <code>stringout</code> in einem Maxima-Format.
+</p>
+<p>Die Reaktion der Funktion <code>writefile</code> f&uuml;r den Fall, dass die Ausgabedatei
+bereits existiert, h&auml;ngt von der Lisp-Implementation ab.  Die Ausgabedatei
+kann zur&uuml;ckgesetzt werden oder die Daten werden angeh&auml;ngt.  Die Funktion
+<code><a href="#appendfile">appendfile</a></code> h&auml;ngt die Daten immer an eine existierende Datei an.
+</p>
+<p>Um eine Aufzeichnung ohne Textausgaben von Funktionen zu erhalten, kann 
+<code>writefile</code> nach der Ausf&uuml;hrung von <code>playback</code> ausgef&uuml;hrt werden. 
+<code>playback</code> gibt alle vorhergenden Eingabe- und Ausgabemarken aus, jedoch 
+nicht sonstige Textausgaben von Maxima-Funktionen.
+</p>
+<p>Mit <code><a href="#closefile">closefile</a></code> wird die Aufzeichnung beendet.
+</p></dd></dl>
+
+<a name="Item_003a-Input_002ede_002fnode_002fFunktionen-und-Variablen-f_00fcr-die-TeX_002dAusgabe"></a><hr>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Oktober, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Next: <a href="maxima_77.html#Funktionen-und-Variablen-f_00fcr-die-TeX_002dAusgabe" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r die TeX-Ausgabe</a>, Previous: <a href="maxima_75.html#Dateien" accesskey="p" rel="previous">Dateien</a>, Nach oben: <a href="maxima_73.html#Eingabe-und-Ausgabe" accesskey="u" rel="up">Eingabe und Ausgabe</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
 
-</p>
+
+
 </body>
 </html>

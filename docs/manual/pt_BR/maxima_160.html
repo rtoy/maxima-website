@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima: Funções e Variáveis Definidas para dynamics</title>
+
+<meta name="description" content="Manual do Maxima: Funções e Variáveis Definidas para dynamics">
+<meta name="keywords" content="Manual do Maxima: Funções e Variáveis Definidas para dynamics">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_158.html#dynamics" rel="up" title="dynamics">
+<link href="maxima_161.html#eval_005fstring" rel="next" title="eval_string">
+<link href="maxima_159.html#Introdu_00e7_00e3o-a-dynamics" rel="previous" title="Introdução a dynamics">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-dynamics"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_159.html#Introdu_00e7_00e3o-a-dynamics" accesskey="p" rel="previous">Introdução a dynamics</a>, Acima: <a href="maxima_158.html#dynamics" accesskey="u" rel="up">dynamics</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funcoes-e-Variaveis-Definidas-para-dynamics"></a>
+<h3 class="section">49.2 Funções e Variáveis Definidas para dynamics</h3>
+
+<a name="Item_003a-dynamics_002fdeffn_002fchaosgame"></a><dl>
+<dt><a name="index-chaosgame"></a>Função: <strong>chaosgame</strong> <em>(<code>[[</code><var>x1</var>, <var>y1</var><code>]</code>...<code>[</code><var>xm</var>, <var>ym</var><code>]]</code>, <code>[</code><var>x0</var>, <var>y0</var><code>]</code>, <var>b</var>, <var>n</var>, ...opções...);</em></dt>
+<dd>
+<p>Implementa o então chamado jogo do caos: o ponto inicial (<var>x0</var>,
+<var>y0</var>) é colocado no gráfico e então um dos <var>m</var> pontos
+<code>[</code><var>x1</var>, <var>y1</var><code>]</code>...<code>[</code><var>xm</var>, <var>ym</var><code>]</code>
+será selecionado de forma aleatória. O próximo ponto colocado no gráfico será sobre o
+segmento que vai do ponto anteriormente colocado no gráfico ao ponto escolhido aleatóriamente, à
+distância do ponto aleatório que será <var>b</var> vezes o comprimento daquele
+segmento. o procedimento é repetido <var>n</var> vezes.
+</p>
+</dd></dl>
+
+<a name="Item_003a-dynamics_002fdeffn_002fevolution"></a><dl>
+<dt><a name="index-evolution"></a>Função: <strong>evolution</strong> <em>(<var>F</var>, <var>y0</var>, <var>n</var>, ..., opções, ...);</em></dt>
+<dd>
+<p>Desenha <var>n+1</var> pontos em gráfico bidimensional, onde as coordenadas
+horizontais dos pontos são os inteiros 0, 1, 2, ..., <var>n</var>, e
+as coordenadas verticais são os valores correspondentes <var>y(n)</var> da
+seq&uuml;ência definida pela relação de recorrência
+</p><div class="example">
+<pre class="example">        y(n+1) = F(y(n))
+</pre></div>
+
+<p>com valor inicial <var>y(0)</var> igual a <var>y0</var>. <var>F</var> deve ser uma
+expressão que depende somente de uma variável (no exemplo, essa variável
+dependente de <var>y</var>, mas qualquer outra variável pode ser usada em lugar de <var>y</var>),
+<var>y0</var> deve ser um número real e <var>n</var> deve ser um inteiro positivo.
+</p>
+</dd></dl>
+
+<a name="Item_003a-dynamics_002fdeffn_002fevolution2d"></a><dl>
+<dt><a name="index-evolution2d"></a>Função: <strong>evolution2d</strong> <em>(<code>[</code><var>F</var>, <var>G</var><code>]</code>, <code>[</code><var>u</var>, <var>v</var><code>]</code>, <code>[</code><var>u0</var>, <var>y0</var><code>]</code>, <var>n</var>, ..., opções, ...);</em></dt>
+<dd>
+<p>Mostra, em um gráfico bidimensional, os primeiros <var>n+1</var> pontos na
+seq&uuml;ência de pontos definida por meio do sistema dinâmico discreto
+bidimensional com relações de recorrência
+</p><div class="example">
+<pre class="example">        u(n+1) = F(u(n), v(n))    v(n+1) = G(u(n), v(n))
+</pre></div>
+
+<p>Com valores iniciais <var>u0</var> e <var>v0</var>. <var>F</var> e <var>G</var> devem ser
+duas expressões que dependem somente de duas variáveis <var>u</var> e
+<var>v</var>, que devem ser nomeadas explicitamente em uma lista. 
+</p>
+</dd></dl>
+
+<a name="Item_003a-dynamics_002fdeffn_002fifs"></a><dl>
+<dt><a name="index-ifs"></a>Função: <strong>ifs</strong> <em>(<code>[</code><var>r1</var>, ..., <var>rm</var><code>]</code>, <code>[</code><var>A1</var>, ..., <var>Am</var><code>]</code>, <code>[[</code><var>x1</var>, <var>y1</var><code>]</code>, ..., <code>[</code><var>xm</var>, <var>ym</var><code>]]</code>, <code>[</code><var>x0</var>, <var>y0</var><code>]</code>, <var>n</var>, ..., opções, ...);</em></dt>
+<dd>
+<p>Implemanta o método de Sistemas de Funções iteradas. Esse método é similar
+ao método descrito na função <code>chaosgame</code>, mas em lugar de
+encolher o segmento do ponto corrente ao ponto escolhido
+aleatóriamente, as duas componentes daquele segmento irão ser multiplicadas pela matrix 2 por 2
+<var>Ai</var> que corresponde ao ponto escolhido aleatóriamente.
+</p>
+<p>A escolha aleatória de um dos <var>m</var> pontos de atração pode ser feita com
+uma distribuição de probabilidade não uniforme definida por meio dos pesos
+<var>r1</var>,...,<var>rm</var>. Esses pesos são fornecidos de forma cumulativa; por exemplo se existem 3 pontos com probabilidades 0.2, 0.5 e
+0.3, os pesos <var>r1</var>, <var>r2</var> e <var>r3</var> podem ser 2, 7 e 10.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-dynamics_002fdeffn_002frk"></a><dl>
+<dt><a name="index-rk"></a>Função: <strong>rk</strong> <em>(EDO, var, inicio, domain)</em></dt>
+<dt><a name="index-rk-1"></a>Função: <strong>rk</strong> <em>([EDO1,...,EDOm], [v1,...,vm], [inic1,...,inicm], domain)</em></dt>
+<dd>
+<p>A primeira forma resolve numericamente uma equação diferencial  de primeira
+ordem, e a segunda formaresolve um sistema de m dessas equações,
+usando o método de Runge-Kutta de quarta ordem. <code>var</code> representa a variável
+dependente. EDO deve ser uma expressão que dependa somente da variável  independente e da
+variável dependente e defina a derivada da variável
+dependente com relação à variável independente.
+</p>
+<p>A variável independente é especificada com <code>domain</code>, que deve ser uma
+lista dde quatro elementos como, por exemplo:
+</p><div class="example">
+<pre class="example">[t, 0, 10, 0.1]
+</pre></div>
+<p>O primeiro elemento da lista identifica a variável independente, o
+segundo e o terceiro elementos são os valores inicial e final para para aquela
+variável, e o último elemento escolhe o incremento que pode ser usado
+dentro daquele intervalo.
+</p>
+<p>Se <var>m</var> equações estão sendo resolvidas, podem existir <var>m</var>
+variáveis dependentes <var>v1</var>, <var>v2</var>, ..., <var>vm</var>. Os valores iniciais
+para aquelas variáveis serão <var>inic1</var>, <var>inic2</var>, ..., <var>inicm</var>.
+Ainda pode ser apenas uma variável independente definida por <code>domain</code>,
+como no caso anterior. <var>EDO1</var>, ..., <var>EDOm</var> são as expressões
+que definem as derivadas de cada variável dependente em
+termos da variável independente. As variáveis que podem aparecer
+naquelas expressões são a variável independente e quaisquer outras variáveis
+dependentes. É importante fornecer as derivadas <var>EDO1</var>, ...,
+<var>EDOm</var> na lista exatamente na mesma ordem usada para variáveis
+dependentes; por exemplo, o terceiro elemento na lista irá ser interpretado
+com a derivada da terceira variável dependente.
+</p>
+<p>O programa tentará integrar as equações a partir do valor inicial
+da variável independente até seu último valor, usando incrementos
+constantes. Se em algum passo uma das variáveis dependentes recebe um
+valor absoluto muito grande, a integração será interrompida naquele
+ponto. O resultado será uma lista com tamtos elementos quantos forem o número de
+iterações feitas. Cada elemento na lista de resultado é em si mesmo outra lista
+comh <var>m</var>+1 elementos: o valor da variável independente, seguido
+pelos valores das variáveis dependentes correspondentes àquele ponto.
+</p>
+</dd></dl>
+
+<a name="Item_003a-dynamics_002fdeffn_002fstaircase"></a><dl>
+<dt><a name="index-staircase"></a>Função: <strong>staircase</strong> <em>(<var>F</var>, <var>y0</var>, <var>n</var>, ...opções...);</em></dt>
+<dd>
+<p>Desenha um diagrama em escada para a seq&uuml;ência definida pela relação de
+recorrência
+</p><div class="example">
+<pre class="example">        y(n+1) = F(y(n))
+</pre></div>
+
+<p>A interpretação e os valores permitidos dos parâmetros de entrada são os
+mesmos que para a função <code>evolution</code>. Um diagrama em escada consiste
+de um gráfico da função <var>F(y)</var>, juntamente com a linha
+<var>G(y)</var> <code>=</code> <var>y</var>. Um segmento vertical é desenhado a partir das
+point (<var>y0</var>, <var>y0</var>) on that line until the point where it
+intersecções com a função <var>F</var>. A partir daquele ponto um segmento horizontal é
+desenhado até encontrar o ponto (<var>y1</var>, <var>y1</var>) sobre a linha, e
+o procedimento é repetido <var>n</var> vezes até que o ponto (<var>yn</var>, <var>yn</var>)
+é encontrado.
+</p>
+</dd></dl>
+
+<p><b>opções</b>
+</p>
+<p>Cada opção é uma lista de dois ou mais itens. O primeiro item é o nome
+da opção, e os restantes compreendem os argumentos para a opção.
+</p>
+<p>As opções aceitas pelas funções <code>evolution</code>, <code>evolution2d</code>,
+<code>staircase</code>, <code>orbits</code>, <code>ifs</code> e <code>chaosgame</code> são as mesmas opções para
+<code>plot2d</code>. Adicionalmente para aquelas opções, <code>orbits</code> aceita a
+opção extra <var>pixels</var> que escolhe o número máximo de pontos
+diferentes que irão ser representados na direção vertical.
+</p>
+
+<p><b>Exemplos</b>
+</p>
+<p>Representação gráfica e diagrama em escada para a seq&uuml;ência:
+2, cos(2), cos(cos(2)),...
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;dynamics&quot;)$
+
+(%i2) evolution(cos(y), 2, 11);
+
+(%i3) staircase(cos(y), 1, 11, [y, 0, 1.2]);
+</pre></div>
+
+<img src="./figures/dynamics1.png" alt="./figures/dynamics1">
+<img src="./figures/dynamics2.png" alt="./figures/dynamics2">
+
+<p>Se seu sistema for lento, você deverá reduzir o número de iterações nos
+seguintes exemplos. E se os pontos parecerem muito pequenos no seu
+monitor, você pode querer tentar um estilo diferente, tal como
+<code>[</code><var>style</var>,<code>[</code><var>points</var>,0.8<code>]]</code>.
+</p>
+<p>Diagrama de órbitas para o mapa quadrático, com um parâmetro <var>a</var>.
+</p><div class="example">
+<pre class="example">        x(n+1) = a + x(n)^2
+</pre></div>
+
+<div class="example">
+<pre class="example">(%i4) orbits(x^2+a, 0, 50, 200, [a, -2, 0.25], [style, dots]);
+</pre></div>
+
+<img src="./figures/dynamics3.png" alt="./figures/dynamics3">
+
+<p>Para ampliar a região em torno da bifurcação menor perto de x <code>=</code> -1.25 use:
+</p><div class="example">
+<pre class="example">(%i5) orbits(x+y^2, 0, 100, 400, [a,-1,-1.53], [x,-1.6,-0.8],
+             [nticks, 400], [style,dots]);
+</pre></div>
+
+<img src="./figures/dynamics4.png" alt="./figures/dynamics4">
+
+<p>Evolução de um sistemma bidimensional que leva a um fractal:
+</p>
+<div class="example">
+<pre class="example">(%i6) f: 0.6*x*(1+2*x)+0.8*y*(x-1)-y^2-0.9$
+
+(%i7) g: 0.1*x*(1-6*x+4*y)+0.1*y*(1+9*y)-0.4$
+
+(%i8) evolution2d([f,g], [x,y], [-0.5,0], 50000, [style,dots]);
+</pre></div>
+
+<img src="./figures/dynamics5.png" alt="./figures/dynamics5">
+
+<p>E uma ampliação de uma pequena regial naquele fractal:
+</p>
+<div class="example">
+<pre class="example">(%i9) evolution2d([f,g], [x,y], [-0.5,0], 300000, [x,-0.8,-0.6],
+                  [y,-0.4,-0.2], [style, dots]);
+</pre></div>
+
+<img src="./figures/dynamics6.png" alt="./figures/dynamics6">
+
+<p>Um gráfico do triângulo de Sierpinsky, obtido com o jogo do caos:
+</p>
+<div class="example">
+<pre class="example">(%i9) chaosgame([[0, 0], [1, 0], [0.5, sqrt(3)/2]], [0.1, 0.1], 1/2,
+                 30000, [style, dots]);
+</pre></div>
+
+<img src="./figures/dynamics7.png" alt="./figures/dynamics7">
+
+<p>A samambaia de Barnsley, obtida com um Sistema de Funções Iteradas:
+</p>
+<div class="example">
+<pre class="example">(%i10) a1: matrix([0.85,0.04],[-0.04,0.85])$
+
+(%i11) a2: matrix([0.2,-0.26],[0.23,0.22])$
+
+(%i12) a3: matrix([-0.15,0.28],[0.26,0.24])$
+
+(%i13) a4: matrix([0,0],[0,0.16])$
+
+(%i14) p1: [0,1.6]$
+
+(%i15) p2: [0,1.6]$
+
+(%i16) p3: [0,0.44]$
+
+(%i17) p4: [0,0]$
+
+(%i18) w: [85,92,99,100]$
+
+(%i19) ifs(w, [a1,a2,a3,a4], [p1,p2,p3,p4], [5,0], 50000, [style,dots]);
+</pre></div>
+
+<img src="./figures/dynamics8.png" alt="./figures/dynamics8">
+
+<p>Para resolver numericamente a equação diferencial
+</p>
+<div class="example">
+<pre class="example">          dx/dt = t - x^2
+</pre></div>
+
+<p>Com valor inicial x(t=0) = 1, no intervalo de <code>t</code> de 0 a 8 e com
+incrementos de 0.1 para <code>t</code>, use:
+</p>
+<div class="example">
+<pre class="example">(%i20) results: rk(t-x^2,x,1,[t,0,8,0.1])$
+</pre></div>
+
+<p>os resultados serão salvos na lista de resultados.
+</p>
+<p>Para resolver numericamente o sistema:
+</p>
+<div class="example">
+<pre class="example">        dx/dt = 4-x^2-4*y^2     dy/dt = y^2-x^2+1
+</pre></div>
+
+<p>para <code>t</code> entre 0 e 4, e com valores de -1.25 e 0.75 para x e y em t=0:
+</p>
+<div class="example">
+<pre class="example">(%i21) sol: rk([4-x^2-4*y^2,y^2-x^2+1],[x,y],[-1.25,0.75],[t,0,4,0.02])$
+</pre></div>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_159.html#Introdu_00e7_00e3o-a-dynamics" accesskey="p" rel="previous">Introdução a dynamics</a>, Acima: <a href="maxima_158.html#dynamics" accesskey="u" rel="up">dynamics</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

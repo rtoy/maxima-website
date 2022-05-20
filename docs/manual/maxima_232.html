@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Introduction to ezunits (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Introduction to physical_constants</title>
 
-<meta name="description" content="Introduction to ezunits (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Introduction to ezunits (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Introduction to physical_constants">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Introduction to physical_constants">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_231.html" rel="up" title="ezunits-pkg">
-<link href="maxima_233.html" rel="next" title="Introduction to physical_constants">
-<link href="maxima_231.html" rel="prev" title="ezunits-pkg">
+<link href="maxima_230.html#ezunits_002dpkg" rel="up" title="ezunits-pkg">
+<link href="maxima_233.html#Functions-and-Variables-for-ezunits" rel="next" title="Functions and Variables for ezunits">
+<link href="maxima_231.html#Introduction-to-ezunits" rel="previous" title="Introduction to ezunits">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,102 +73,230 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Introduction-to-ezunits"></span><div class="header">
-<p>
-Next: <a href="maxima_233.html" accesskey="n" rel="next">Introduction to physical_constants</a>, Previous: <a href="maxima_231.html" accesskey="p" rel="prev">ezunits-pkg</a>, Up: <a href="maxima_231.html" accesskey="u" rel="up">ezunits-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<span id="Introduction-to-ezunits-1"></span><h3 class="section">57.1 Introduction to ezunits</h3>
-
-<p><code>ezunits</code> is a package for working with dimensional quantities,
-including some functions for dimensional analysis.
-<code>ezunits</code> can carry out arithmetic operations on dimensional quantities and unit conversions.
-The built-in units include Systeme Internationale (SI) and US customary units,
-and other units can be declared.
-See also <code><a href="maxima_233.html#physical_005fconstants">physical_constants</a></code>, a collection of physical constants.
-</p>
-<p><code>load(&quot;ezunits&quot;)</code> loads this package.
-<code>demo(&quot;ezunits&quot;)</code> displays several examples.
-The convenience function <code>known_units</code> returns a list of
-the built-in and user-declared units,
-while <code>display_known_unit_conversions</code> displays
-the set of known conversions in an easy-to-read format.
-</p>
-<p>An expression <em>a ` b</em> represents a dimensional quantity,
-with <code>a</code> indicating a nondimensional quantity and <code>b</code> indicating the dimensional units.
-A symbol can be used as a unit without declaring it as such;
-unit symbols need not have any special properties.
-The quantity and unit of an expression <em>a ` b</em> can
-be extracted by the <code>qty</code> and <code>units</code> functions, respectively.
-</p>
-<p>A symbol may be declared to be a dimensional quantity,
-with specified quantity or specified units or both.
-</p>
-<p>An expression <em>a ` b `<!-- /@w -->` c</em> converts from unit <code>b</code> to unit <code>c</code>.
-<code>ezunits</code> has built-in conversions for SI base units,
-SI derived units, and some non-SI units.
-Unit conversions not already known to <code>ezunits</code> can be declared.
-The unit conversions known to <code>ezunits</code> are specified by the
-global variable <code>known_unit_conversions</code>,
-which comprises built-in and user-defined conversions.
-Conversions for products, quotients, and powers of units are
-derived from the set of known unit conversions.
-</p>
-<p>As Maxima generally prefers exact numbers (integers or rationals)
-to inexact (float or bigfloat),
-so <code>ezunits</code> preserves exact numbers when they appear
-in dimensional quantities.
-All built-in unit conversions are expressed in terms of exact numbers;
-inexact numbers in declared conversions are coerced to exact.
-</p>
-<p>There is no preferred system for display of units;
-input units are not converted to other units
-unless conversion is explicitly indicated.
-<code>ezunits</code> recognizes the prefixes m-, k-, M, and G-
-(for milli-, kilo-, mega-, and giga-)
-as applied to SI base units and SI derived units,
-but such prefixes are applied only when indicated by an explicit conversion.
-</p>
-<p>Arithmetic operations on dimensional quantities are carried out by
-conventional rules for such operations.
-</p>
-<ul>
-<li> <em>(x ` a) * (y ` b)</em> is equal to <em>(x * y) ` (a * b)</em>.
-</li><li> <em>(x ` a) + (y ` a)</em> is equal to <em>(x + y) ` a</em>.
-</li><li> <em>(x ` a)^y</em> is equal to <em>x^y ` a^y</em> when <code>y</code> is nondimensional.
-</li></ul>
-
-<p><code>ezunits</code> does not require that units in a sum have the same dimensions;
-such terms are not added together, and no error is reported.
-</p>
-<p><code>ezunits</code> includes functions for elementary dimensional analysis,
-namely the fundamental dimensions and fundamental units
-of a dimensional quantity,
-and computation of dimensionless quantities and natural units.
-The functions for dimensional analysis were adapted from similar
-functions in another package, written by Barton Willis.
-</p>
-<p>For the purpose of dimensional analysis,
-a list of fundamental dimensions and an associated list of fundamental units
-are maintained;
-by default the fundamental dimensions are
-length, mass, time, charge, temperature, and quantity,
-and the fundamental units are the associated SI units,
-but other fundamental dimensions and units can be declared.
-</p>
-<div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Physical-units">Physical units</a>
-
-<a href="maxima_370.html#Category_003a-Share-packages">Share packages</a>
-
-<a href="maxima_370.html#Category_003a-Package-ezunits">Package ezunits</a>
-</div>
-</p>
-<span id="Item_003a-ezunits_002fnode_002fIntroduction-to-physical_005fconstants"></span><hr>
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introduction-to-physical_005fconstants"></a>
 <div class="header">
 <p>
-Next: <a href="maxima_233.html" accesskey="n" rel="next">Introduction to physical_constants</a>, Previous: <a href="maxima_231.html" accesskey="p" rel="prev">ezunits-pkg</a>, Up: <a href="maxima_231.html" accesskey="u" rel="up">ezunits-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_233.html#Functions-and-Variables-for-ezunits" accesskey="n" rel="next">Functions and Variables for ezunits</a>, Previous: <a href="maxima_231.html#Introduction-to-ezunits" accesskey="p" rel="previous">Introduction to ezunits</a>, Up: <a href="maxima_230.html#ezunits_002dpkg" accesskey="u" rel="up">ezunits-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Introduction-to-physical_005fconstants-1"></a>
+<h3 class="section">57.2 Introduction to physical_constants</h3>
+
+<a name="physical_005fconstants"></a><p><code>physical_constants</code> is a collection of physical constants,
+copied from CODATA 2006 recommended values
+(<a href="https://physics.nist.gov/cuu/Constants/">https://physics.nist.gov/cuu/Constants/</a>).
+<code>load (&quot;physical_constants&quot;)</code> loads this package,
+and loads <code>ezunits</code> also, if it is not already loaded.
+</p>
+<p>A physical constant is represented as a symbol which has a property
+which is the constant value.
+The constant value is a dimensional quantity, as represented by <code>ezunits</code>.
+The function <code>constvalue</code> fetches the constant value;
+the constant value is not the ordinary value of the symbol,
+so symbols of physical constants persist in evaluated expressions until their
+values are fetched by <code>constvalue</code>.
+</p>
+<p><code>physical_constants</code> includes some auxiliary information,
+namely, a description string for each constant,
+an estimate of the error of its numerical value,
+and a property for TeX display.
+To identify physical constants, each symbol has the
+<code>physical_constant</code> property;
+<code>propvars(physical_constant)</code> therefore shows the list
+of all such symbols.
+</p>
+<p><code>physical_constants</code> comprises the following constants.
+</p>
+<dl compact="compact">
+<dt><code>%c</code></dt>
+<dd><p>speed of light in vacuum
+</p></dd>
+<dt><code>%mu_0</code></dt>
+<dd><p>magnetic constant
+</p></dd>
+<dt><code>%e_0</code></dt>
+<dd><p>electric constant
+</p></dd>
+<dt><code>%Z_0</code></dt>
+<dd><p>characteristic impedance of vacuum
+</p></dd>
+<dt><code>%G</code></dt>
+<dd><p>Newtonian constant of gravitation
+</p></dd>
+<dt><code>%h</code></dt>
+<dd><p>Planck constant
+</p></dd>
+<dt><code>%h_bar</code></dt>
+<dd><p>Planck constant
+</p></dd>
+<dt><code>%m_P</code></dt>
+<dd><p>Planck mass
+</p></dd>
+<dt><code>%T_P</code></dt>
+<dd><p>Planck temperature
+</p></dd>
+<dt><code>%l_P</code></dt>
+<dd><p>Planck length
+</p></dd>
+<dt><code>%t_P</code></dt>
+<dd><p>Planck time
+</p></dd>
+<dt><code>%%e</code></dt>
+<dd><p>elementary charge
+</p></dd>
+<dt><code>%Phi_0</code></dt>
+<dd><p>magnetic flux quantum
+</p></dd>
+<dt><code>%G_0</code></dt>
+<dd><p>conductance quantum
+</p></dd>
+<dt><code>%K_J</code></dt>
+<dd><p>Josephson constant
+</p></dd>
+<dt><code>%R_K</code></dt>
+<dd><p>von Klitzing constant
+</p></dd>
+<dt><code>%mu_B</code></dt>
+<dd><p>Bohr magneton
+</p></dd>
+<dt><code>%mu_N</code></dt>
+<dd><p>nuclear magneton
+</p></dd>
+<dt><code>%alpha</code></dt>
+<dd><p>fine-structure constant
+</p></dd>
+<dt><code>%R_inf</code></dt>
+<dd><p>Rydberg constant
+</p></dd>
+<dt><code>%a_0</code></dt>
+<dd><p>Bohr radius
+</p></dd>
+<dt><code>%E_h</code></dt>
+<dd><p>Hartree energy
+</p></dd>
+<dt><code>%ratio_h_me</code></dt>
+<dd><p>quantum of circulation
+</p></dd>
+<dt><code>%m_e</code></dt>
+<dd><p>electron mass
+</p></dd>
+<dt><code>%N_A</code></dt>
+<dd><p>Avogadro constant
+</p></dd>
+<dt><code>%m_u</code></dt>
+<dd><p>atomic mass constant
+</p></dd>
+<dt><code>%F</code></dt>
+<dd><p>Faraday constant
+</p></dd>
+<dt><code>%R</code></dt>
+<dd><p>molar gas constant
+</p></dd>
+<dt><code>%%k</code></dt>
+<dd><p>Boltzmann constant
+</p></dd>
+<dt><code>%V_m</code></dt>
+<dd><p>molar volume of ideal gas
+</p></dd>
+<dt><code>%n_0</code></dt>
+<dd><p>Loschmidt constant
+</p></dd>
+<dt><code>%ratio_S0_R</code></dt>
+<dd><p>Sackur-Tetrode constant (absolute entropy constant)
+</p></dd>
+<dt><code>%sigma</code></dt>
+<dd><p>Stefan-Boltzmann constant
+</p></dd>
+<dt><code>%c_1</code></dt>
+<dd><p>first radiation constant
+</p></dd>
+<dt><code>%c_1L</code></dt>
+<dd><p>first radiation constant for spectral radiance
+</p></dd>
+<dt><code>%c_2</code></dt>
+<dd><p>second radiation constant
+</p></dd>
+<dt><code>%b</code></dt>
+<dd><p>Wien displacement law constant
+</p></dd>
+<dt><code>%b_prime</code></dt>
+<dd><p>Wien displacement law constant
+</p></dd>
+</dl>
+
+<p>Reference: <a href="https://physics.nist.gov/cuu/Constants/">https://physics.nist.gov/cuu/Constants/</a>
+</p>
+<p>Examples:
+</p>
+<p>The list of all symbols which have the <code>physical_constant</code> property.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;physical_constants&quot;)$
+(%i2) propvars (physical_constant);
+(%o2) [%c, %mu_0, %e_0, %Z_0, %G, %h, %h_bar, %m_P, %T_P, %l_P, 
+%t_P, %%e, %Phi_0, %G_0, %K_J, %R_K, %mu_B, %mu_N, %alpha, 
+%R_inf, %a_0, %E_h, %ratio_h_me, %m_e, %N_A, %m_u, %F, %R, %%k, 
+%V_m, %n_0, %ratio_S0_R, %sigma, %c_1, %c_1L, %c_2, %b, %b_prime]
+</pre></div>
+
+<p>Properties of the physical constant <code>%c</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;physical_constants&quot;)$
+(%i2) constantp (%c);
+(%o2)                         true
+(%i3) get (%c, description);
+(%o3)               speed of light in vacuum
+(%i4) constvalue (%c);
+                                      m
+(%o4)                     299792458 ` -
+                                      s
+(%i5) get (%c, RSU);
+(%o5)                           0
+(%i6) tex (%c);
+$$c$$
+(%o6)                         false
+</pre></div>
+
+<p>The energy equivalent of 1 pound-mass.
+The symbol <code>%c</code> persists until its value is fetched by <code>constvalue</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;physical_constants&quot;)$
+(%i2) m * %c^2;
+                                2
+(%o2)                         %c  m
+(%i3) %, m = 1 ` lbm;
+                              2
+(%o3)                       %c  ` lbm
+(%i4) constvalue (%);
+                                            2
+                                       lbm m
+(%o4)              89875517873681764 ` ------
+                                          2
+                                         s
+(%i5) E : % `` J;
+Computing conversions to base units; may take a moment. 
+                     366838848464007200
+(%o5)                ------------------ ` J
+                             9
+(%i6) E `` GJ;
+                      458548560580009
+(%o6)                 --------------- ` GJ
+                         11250000
+(%i7) float (%);
+(%o7)              4.0759872051556356e+7 ` GJ
+</pre></div>
+
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Physical-units">Physical units</a>
+&middot;<a href="maxima_378.html#Category_003a-Share-packages">Share packages</a>
+&middot;<a href="maxima_378.html#Category_003a-Package-physical_005fconstants">Package physical_constants</a>
+&middot;</div>
+<a name="Item_003a-ezunits_002fnode_002fFunctions-and-Variables-for-ezunits"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_233.html#Functions-and-Variables-for-ezunits" accesskey="n" rel="next">Functions and Variables for ezunits</a>, Previous: <a href="maxima_231.html#Introduction-to-ezunits" accesskey="p" rel="previous">Introduction to ezunits</a>, Up: <a href="maxima_230.html#ezunits_002dpkg" accesskey="u" rel="up">ezunits-pkg</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

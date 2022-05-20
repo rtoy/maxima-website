@@ -1,1310 +1,864 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Oktober, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Maxima Manual: 21. Zahlentheorie</title>
+<title>Maxima Manual: Funktionen und Variablen f&uuml;r Listen</title>
 
-<meta name="description" content="Maxima Manual: 21. Zahlentheorie">
-<meta name="keywords" content="Maxima Manual: 21. Zahlentheorie">
+<meta name="description" content="Maxima Manual: Funktionen und Variablen f&uuml;r Listen">
+<meta name="keywords" content="Maxima Manual: Funktionen und Variablen f&uuml;r Listen">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_19.html#Listen" rel="up" title="Listen">
+<link href="maxima_22.html#Arrays" rel="next" title="Arrays">
+<link href="maxima_20.html#Einf_00fchrung-in-Listen" rel="previous" title="Einf&uuml;hrung in Listen">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funktionen-und-Variablen-f_00fcr-Listen"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_20.html#Einf_00fchrung-in-Listen" accesskey="p" rel="previous">Einf&uuml;hrung in Listen</a>, Nach oben: <a href="maxima_19.html#Listen" accesskey="u" rel="up">Listen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-und-Variablen-fur-Listen"></a>
+<h4 class="subsection">5.4.2 Funktionen und Variablen f&uuml;r Listen</h4>
 
-<a name="Zahlentheorie"></a>
-<a name="SEC160"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_20.html#SEC159" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC161" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_20.html#SEC128" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_22.html#SEC162" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 21. Zahlentheorie </h1>
-
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC161">21.1 Funktionen und Variablen der Zahlentheorie</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Funktionen-und-Variablen-der-Zahlentheorie"></a>
-<a name="SEC161"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC160" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_22.html#SEC162" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC160" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC160" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_22.html#SEC162" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 21.1 Funktionen und Variablen der Zahlentheorie </h2>
-
-<p><a name="bern"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>bern</b><i> (<var>n</var>)</i>
-<a name="IDX1183"></a>
-</dt>
+<a name="g_t_005b"></a><a name="g_t_005d"></a><a name="Item_003a-Lists_002ede_002fdefvr_002f_005b"></a><dl>
+<dt><a name="index-_005b"></a>Operator: <strong>[</strong></dt>
+<dd><a name="Item_003a-Lists_002ede_002fdefvr_002f_005d"></a></dd><dt><a name="index-_005d"></a>Operator: <strong>]</strong></dt>
 <dd>
-<p>Gibt die <var>n</var>-te Bernoulli-Zahl der ganzen Zahl <var>n</var> zur&uuml;ck. Hat die
-Optionsvariable <code>zerobern</code> den Wert <code>false</code>, werden Bernoulli-Zahlen
-unterdr&uuml;ckt, die Null sind.
+<p>Die Operatoren <code>[</code> und <code>]</code> markieren den Anfang und das Ende einer
+Liste.
 </p>
-<p>Siehe auch <code><a href="#burn">burn</a></code>.
+<p><code>[</code> und <code>]</code> schlie&szlig;en auch die Indizes von Symbolen, Arrays, 
+Hash-Arrays oder Array-Funktionen ein.
 </p>
-<pre class="example">(%i1) zerobern: true$
-(%i2) map (bern, [0, 1, 2, 3, 4, 5, 6, 7, 8]);
-                  1  1       1      1        1
-(%o2)       [1, - -, -, 0, - --, 0, --, 0, - --]
-                  2  6       30     42       30
-(%i3) zerobern: false$
-(%i4) map (bern, [0, 1, 2, 3, 4, 5, 6, 7, 8]);
-            1  1    1   5     691   7    3617  43867
-(%o4) [1, - -, -, - --, --, - ----, -, - ----, -----]
-            2  6    30  66    2730  6    510    798
-</pre></dd></dl>
-
-<p><a name="bernpoly"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>bernpoly</b><i> (<var>x</var>, <var>n</var>)</i>
-<a name="IDX1184"></a>
-</dt>
-<dd>
-<p>Gibt das <var>n</var>-te Bernoulli-Polynom in der Variablen <var>x</var> zur&uuml;ck.
-</p></dd></dl>
-
-
-<p><a name="bfzeta"></a>
-</p><dl>
-<dt><u>Function:</u> <b>bfzeta</b><i> (<var>s</var>, <var>n</var>)</i>
-<a name="IDX1185"></a>
-</dt>
-<dd>
-<p>Die Riemannsche Zeta-Funktion f&uuml;r das Argument <var>s</var>, die wie folgt 
-definiert ist:
+<p>Beispiele:
 </p>
-<pre class="example">                 inf
-                 ====
-                 \     1
-     zeta(s) =    &gt;    --
-                 /      s
-                 ====  k
-                 k = 1
-</pre>
-<p><code>bfzeta</code> gibt einen Wert als gro&szlig;e Gleitkommazahl zur&uuml;ck.  Die Anzahl 
-der Stellen wird durch das Argument <var>n</var> angegeben.
-</p>
-<p>Anstatt der Funktion <code>bfzeta</code> ist die Funktion <code><a href="#zeta">zeta</a></code> zu bevorzugen,
-die sowohl f&uuml;r reelle und komplexe Gleitkommazahlen und Gleitkommazahlen mit
-eine beliebigen Genauigkeit die Riemannsche Zeta-Funktion berechnen kann.
-</p></dd></dl>
-
-<p><a name="bfhzeta"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>bfhzeta</b><i> (<var>s</var>, <var>h</var>, <var>n</var>)</i>
-<a name="IDX1186"></a>
-</dt>
-<dd>
-
-<p>Die Hurwitzsche Zeta-Funktion f&uuml;r die Argumente <var>s</var> und <var>h</var>, die wie
-folgt definiert ist:
-</p>
-<pre class="example">                        inf
-                        ====
-                        \        1
-         zeta (s,h)  =   &gt;    --------
-                        /            s
-                        ====  (k + h)
-                        k = 0
-</pre>
-<p><code>bfhzeta</code> gibt einen Wert als gro&szlig;e Gleitkommazahl zur&uuml;ck.  Die 
-Anzahl der Stellen wird durch das Argument <var>n</var> angegeben.
-</p>
+<div class="example">
+<pre class="example">(%i1) x: [a, b, c];
+(%o1)                       [a, b, c]
+(%i2) x[3];
+(%o2)                           c
+(%i3) array (y, fixnum, 3);
+(%o3)                           y
+(%i4) y[2]: %pi;
+(%o4)                          %pi
+(%i5) y[2];
+(%o5)                          %pi
+(%i6) z['foo]: 'bar;
+(%o6)                          bar
+(%i7) z['foo];
+(%o7)                          bar
+(%i8) g[k] := 1/(k^2+1);
+                                  1
+(%o8)                     g  := ------
+                           k     2
+                                k  + 1
+(%i9) g[10];
+                                1
+(%o9)                          ---
+                               101
+</pre></div>
 </dd></dl>
 
-<p><a name="burn"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>burn</b><i> (<var>n</var>)</i>
-<a name="IDX1187"></a>
-</dt>
+<a name="append"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fappend"></a><dl>
+<dt><a name="index-append"></a>Funktion: <strong>append</strong> <em>(<var>list_1</var>, &hellip;, <var>list_n</var>)</em></dt>
 <dd>
-<p>Gibt eine rational Zahl zur&uuml;ck, die eine N&auml;herung f&uuml;r die <var>n</var>-te 
-Bernoulli Zahl f&uuml;r die ganze Zahl <var>n</var> ist.  <code>burn</code> berechnet eine 
-N&auml;herung als gro&szlig;e Gleitkommatzahl mit der folgenden Beziehung:
+<p>Gibt eine Liste mit den Elementen der Listen <var>list_1</var>, &hellip;, <var>list_n</var>
+zur&uuml;ck.  Ist eines der Argumente <var>list_1</var>, &hellip;, <var>list_n</var> keine
+Liste meldet Maxima einen Fehler.
 </p>
-<pre class="example">                   n - 1  1 - 2 n
-              (- 1)      2        zeta(2 n) (2 n)!
-     B(2 n) = ------------------------------------
-                                2 n
-                             %pi
-</pre>
-
-<p><code>burn</code> kann effizienter als die Funktion <code>bern</code> f&uuml;r gro&szlig;e, 
-einzelne ganze Zahlen <var>n</var> sein, da <code>bern</code> zun&auml;chst alle Bernoulli 
-Zahlen bis <var>n</var> berechnet.  <code>burn</code> ruft f&uuml;r ungerade ganze Zahlen und 
-Zahlen die kleiner oder gleich 255 die Funktion <code>bern</code> auf.
+<p><code>append</code> kann auch f&uuml;r allgemeine Ausdr&uuml;cke genutzt werden.
+So hat zum Beispiel <code>append(f(a,b), f(c,d,e))</code> das Ergebnis
+<code>f(a,b,c,d,e)</code>.  In diesem Fall muss der Operator, der hier <code>f</code> ist,
+f&uuml;r beide Ausdr&uuml;cke identisch sein, ansonsten meldet Maxima einen Fehler.
 </p>
+<p>Siehe auch die Funktionen <code><a href="#cons">cons</a></code> und <code><a href="#endcons">endcons</a></code>, um ein Element
+einer Liste hinzuzuf&uuml;gen.
+</p>
+<p>Beispiele:
+</p>
+<p>In den ersten Beispielen werden jeweils Listen mit verschiedenen Elementen
+zusammengef&uuml;gt.  Im letzten Beispiel wird <code>append</code> genutzt, um zwei
+Additionen zusammenzusetzen.
+</p>
+<div class="example">
+<pre class="example">(%i1) append([a,b], [x,y,z], [1]);
+(%o1)                  [a, b, x, y, z, 1]
+(%i2) append([x+y, 0, -3.2], [2.5e+20, x]);
+(%o2)             [y + x, 0, - 3.2, 2.5e+20, x]
+(%i3) append([2*a+b], [x+y]);
+(%o3)                   [b + 2 a, y + x]
+(%i4) append(2*a+b, x+y);
+(%o4)                    y + x + b + 2 a
+</pre></div>
+</dd></dl>
 
-<p>Das Kommando <code>load(bffac)</code> l&auml;dt die Funktion.  Siehe auch <code><a href="#bern">bern</a></code>.
+<a name="assoc"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fassoc"></a><dl>
+<dt><a name="index-assoc"></a>Funktion: <strong>assoc</strong> <em>(<var>key</var>, <var>list</var>, <var>default</var>)</em></dt>
+<dt><a name="index-assoc-1"></a>Funktion: <strong>assoc</strong> <em>(<var>key</var>, <var>list</var>)</em></dt>
+<dd>
+<p>Ist das Argument <code>list</code> eine Liste mit paarweisen Elementen der Form
+<code>[[key_1, value_1], [key_2, value_2], ...]</code>, wobei <var>key_i</var> ein
+Schl&uuml;ssel und <var>value_i</var> der dazugeh&ouml;rige Wert ist, dann gibt die
+Funktion <code>assoc</code> den zum Schl&uuml;ssel <var>key</var> geh&ouml;renden Wert
+<code>value</code> zur&uuml;ck.  Wird der Schl&uuml;ssel nicht gefunden, wird das Argument
+<code>default</code> zur&uuml;ckgegeben, wenn es vorhanden ist, oder der Wert
+<code>false</code>.
+</p>
+<p>Anstatt Paare <code>[key_i, value_i]</code> k&ouml;nnen auch allgemeine Ausdr&uuml;cke in 
+der Liste enthalten sein, die zwei Argumente haben.  Zum Beispiel sind 
+Eintr&auml;ge der Form <code>x=1</code> oder <code>a^b</code> m&ouml;glich.  Im ersten Fall ist 
+<code>x</code> der Schl&uuml;ssel und im zweiten Fall <code>a</code>.  Die Werte sind jeweils 
+<code>1</code> und <code>b</code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) l : [[info, 10], [warn, 20], [err, 30]];
+(%o1)          [[info, 10], [warn, 20], [err, 30]]
+(%i2) assoc(info, l);
+(%o2)                          10
+(%i3) assoc(warn, l);
+(%o3)                          20
+(%i4) assoc(err, l);
+(%o4)                          30
+(%i5) l : [x+y, a^(2*b), sin(x) = 0.5];
+                            2 b
+(%o5)              [y + x, a   , sin(x) = 0.5]
+(%i6) assoc(x, l);
+(%o6)                           y
+(%i7) assoc(y, l);
+(%o7)                         false
+(%i8) assoc(a, l);
+(%o8)                          2 b
+(%i9) assoc(sin(x), l);
+(%o9)                          0.5
+</pre></div>
+</dd></dl>
+
+<a name="cons"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fcons"></a><dl>
+<dt><a name="index-cons"></a>Funktion: <strong>cons</strong> <em>(<var>expr</var>, <var>list</var>)</em></dt>
+<dd>
+<p>F&uuml;gt den Ausdruck <var>expr</var> als erstes Element der Liste <var>list</var> hinzu.
+</p>
+<p><code>cons</code> arbeitet auch mit allgemeinen Ausdr&uuml;cken als Argument <var>list</var>.
+In diesem Fall wird dem Hauptoperator des Arguments <var>list</var> der Ausdruck
+<var>expr</var> als erstes Argument hinzugef&uuml;gt.
+</p>
+<p>Siehe auch die Funktion <code><a href="#endcons">endcons</a></code>, um ein Element an das Ende einer
+Liste anzuh&auml;ngen sowie die Funktion <code><a href="#append">append</a></code>, um zwei Listen
+zusammenzuf&uuml;gen.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) cons(x, [a, b, c]);
+(%o1)                     [x, a, b, c]
+(%i2) cons(x^2+1, [a, b, c]);
+                          2
+(%o2)                   [x  + 1, a, b, c]
+(%i3) cons(x^2+1, a+b+c);
+                        2
+(%o3)                  x  + c + b + a + 1
+(%i4) cons(x^2+1, f(a,b,c));
+                          2
+(%o4)                  f(x  + 1, a, b, c)
+</pre></div>
+</dd></dl>
+
+<a name="copylist"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fcopylist"></a><dl>
+<dt><a name="index-copylist"></a>Funktion: <strong>copylist</strong> <em>(<var>list</var>)</em></dt>
+<dd>
+<p>Gibt eine Kopie der Liste <var>list</var> zur&uuml;ck.
+</p>
+<p>Im Unterschied zur Funktion <code>copylist</code> wird mit dem Zuweisungsoperator
+<code><a href="maxima_39.html#g_t_003a">:</a></code> keine Kopie, sondern eine Referenz auf das Original zugewiesen.  Das
+folgende Beispiel zeigt den Unterschied f&uuml;r den Fall, dass das Original
+modifiziert wird.
+</p>
+<div class="example">
+<pre class="example">(%i1) list : [x,y,z];
+(%o1)                       [x, y, z]
+(%i2) a: list;
+(%o2)                       [x, y, z]
+(%i3) b: copylist(list);
+(%o3)                       [x, y, z]
+(%i4) list[2]:99;
+(%o4)                          99
+(%i5) list;
+(%o5)                      [x, 99, z]
+(%i6) a;
+(%o6)                      [x, 99, z]
+(%i7) b;
+(%o7)                       [x, y, z]
+</pre></div>
+</dd></dl>
+
+<a name="create_005flist"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fcreate_005flist"></a><dl>
+<dt><a name="index-create_005flist"></a>Funktion: <strong>create_list</strong> <em>(<var>expr</var>, <var>x_1</var>, <var>list_1</var>, &hellip;, <var>x_n</var>, <var>list_n</var>)</em></dt>
+<dd>
+<p>Erzeugt eine Liste, indem der Ausdruck <var>expr</var> zun&auml;chst f&uuml;r die Variable
+<var>x_1</var> ausgewertet wird.  Der Variablen <var>x_1</var> werden f&uuml;r die Auswertung 
+nacheinander die Werte der Liste <var>list_1</var> zugewiesen.  Dann wird der
+Ausdruck <var>expr</var> f&uuml;r die Variable <var>x_2</var> mit den Werten der Liste
+<var>list_2</var> ausgewertet u.s.w.  Die Anzahl der Elemente der Ergebnisliste ist
+das Produkt der Anzahl der Elemente der einzelnen Listen <var>list_i</var>.  Die
+Variablen <var>x_i</var> m&uuml;ssen Symbole sein, die nicht ausgewertet werden.  Die 
+Elemente der Listen <var>list_i</var> werden vor der Iteration ausgewertet.
+</p>
+<p>Anstatt einer Liste <var>list_i</var> mit den Elementen f&uuml;r die Iteration kann auch
+eine untere und obere Grenze angegeben werden.  Die Grenzen k&ouml;nnen ganze
+Zahlen oder Gleitkommazahlen sowie Ausdr&uuml;cke sein, die zu einer Zahl
+auswerten.  Die Schrittweite ist immer 1.  Siehe auch das Beispiel weiter unten.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) create_list(x^i, i, [1, 3, 7]);
+                 3   7
+(%o1)       [x, x , x ]
+</pre></div>
+
+<p>In diesem Beispiel wird f&uuml;r zwei Listen iteriert.
+</p>
+<div class="example">
+<pre class="example">(%i1) create_list([i, j], i, [a, b], j, [e, f, h]);
+(%o1) [[a, e], [a, f], [a, h], [b, e], [b, f], [b, h]]
+</pre></div>
+
+<p>Anstatt einer Liste <var>list_i</var> k&ouml;nnen auch zwei Argumente &uuml;bergeben 
+werden, die jedes zu einer Nummer auswerten.  Diese Werte sind die untere und
+die obere Grenze f&uuml;r die Iteration.
+</p>
+<div class="example">
+<pre class="example">(%i1) create_list([i,j],i,[1,2,3],j,1,i);
+(%o1) [[1, 1], [2, 1], [2, 2], [3, 1], [3, 2], [3, 3]]
+</pre></div>
+</dd></dl>
+
+<a name="delete"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fdelete"></a><dl>
+<dt><a name="index-delete"></a>Funktion: <strong>delete</strong> <em>(<var>expr</var>, <var>list</var>)</em></dt>
+<dt><a name="index-delete-1"></a>Funktion: <strong>delete</strong> <em>(<var>expr</var>, <var>list</var>, <var>n</var>)</em></dt>
+<dd>
+<p><code>delete(<var>expr</var>, <var>list</var>)</code> entfernt aus der Liste <var>list</var> die
+Elemente, die gleich dem Ausdruck <var>expr</var> sind.  Mit dem Argument <var>n</var>
+kann die Anzahl der Elemente spezifiziert werden, die aus der Liste entfernt
+werden sollen.  <code>delete</code> gibt eine neue Liste zur&uuml;ck.  Das Argument
+<var>list</var> wird nicht modifiziert.
+</p>
+<p>Die Gleichheit wird mit dem Operator <code><a href="maxima_38.html#g_t_003d">=</a></code> gepr&uuml;ft.  Daher werden nur
+Ausdr&uuml;cke als gleich erkannt, die syntaktisch &uuml;bereinstimmen.  &Auml;quivalente
+Ausdr&uuml;cke, die syntaktisch voneinander verschieden sind, werden nicht aus der
+Liste entfernt.  Zum Beispiel sind die Ausdr&uuml;cke <code>x^2-1</code> und
+<code>(x+1)*(x-1)</code> &auml;quivalent, aber syntaktisch verschieden.
+</p>
+<p>Das zweite Argument <var>list</var> kann auch ein allgemeiner Ausdruck sein.  In 
+diesem Fall werden die Argumente des Hauptoperators als die Elemente einer Liste
+angenommen.
+</p>
+<p>Beispiele:
+</p>
+<p>Entferne Elemente einer Liste.
+</p>
+<div class="example">
+<pre class="example">(%i1) delete (y, [w, x, y, z, z, y, x, w]);
+(%o1)                  [w, x, z, z, x, w]
+</pre></div>
+
+<p>Entferne Terme einer Summe.
+</p>
+<div class="example">
+<pre class="example">(%i1) delete (sin(x), x + sin(x) + y);
+(%o1)                         y + x
+</pre></div>
+
+<p>Entferne Faktoren eines Produkts.
+</p>
+<div class="example">
+<pre class="example">(%i1) delete (u - x, (u - w)*(u - x)*(u - y)*(u - z));
+(%o1)                (u - w) (u - y) (u - z)
+</pre></div>
+
+<p>Entferne Argumente einer Funktion.
+</p>
+<div class="example">
+<pre class="example">(%i1) delete (a, f(a, b, c, d, a));
+(%o1)                     f(b, c, d)
+</pre></div>
+
+<p>Das Element <code>a</code> tritt mehrfach auf.  Es werden zwei Elemente entfernt.
+</p>
+<div class="example">
+<pre class="example">(%i1) delete (a, f(a, b, a, c, d, a), 2);
+(%o1)                    f(b, c, d, a)
+</pre></div>
+
+<p>Die Gleichheit wird mit dem Operator <code>=</code> gepr&uuml;ft.
+</p>
+<div class="example">
+<pre class="example">(%i1) [is(equal (0, 0)), is(equal (0, 0.0)), is(equal (0, 0b0))];
+
+`rat' replaced 0.0 by 0/1 = 0.0
+`rat' replaced 0.0B0 by 0/1 = 0.0B0
+(%o1)                  [true, true, true]
+(%i2) [is (0 = 0), is (0 = 0.0), is (0 = 0b0)];
+(%o2)                 [true, false, false]
+(%i3) delete (0, [0, 0.0, 0b0]);
+(%o3)                     [0.0, 0.0b0]
+(%i4) is (equal ((x + y)*(x - y), x^2 - y^2));
+(%o4)                         true
+(%i5) is ((x + y)*(x - y) = x^2 - y^2);
+(%o5)                         false
+(%i6) delete ((x + y)*(x - y), [(x + y)*(x - y), x^2 - y^2]);
+                              2    2
+(%o6)                       [x  - y ]
+</pre></div>
+</dd></dl>
+
+<a name="endcons"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fendcons"></a><dl>
+<dt><a name="index-endcons"></a>Funktion: <strong>endcons</strong> <em>(<var>expr</var>, <var>list</var>)</em></dt>
+<dd>
+<p>F&uuml;gt den Ausdruck <var>expr</var> als letztes Element der Liste <var>list</var> hinzu.
+</p>
+<p><code>endcons</code> arbeitet auch mit allgemeinen Ausdr&uuml;cken als Argument
+<var>list</var>.  In diesem Fall wird dem Hauptoperator des Arguments <var>list</var> der
+Ausdruck <var>expr</var> als letztes Argument hinzugef&uuml;gt.
+</p>
+<p>Siehe auch die Funktion <code><a href="#cons">cons</a></code>, um ein Element am Anfang einer
+Liste einzuf&uuml;gen sowie die Funktion <code><a href="#append">append</a></code>, um zwei Listen
+zusammenzuf&uuml;gen.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) endcons(x, [a, b, c]);
+(%o1)                     [a, b, c, x]
+(%i2) endcons(x^2+1, [a, b, c]);
+                                   2
+(%o2)                   [a, b, c, x  + 1]
+(%i3) endcons(x^2+1, a+b+c);
+                        2
+(%o3)                  x  + c + b + a + 1
+(%i4) endcons(x^2+1, f(a,b,c));
+                                   2
+(%o4)                  f(a, b, c, x  + 1)
+</pre></div>
+</dd></dl>
+
+<a name="first"></a><a name="Item_003a-Lists_002ede_002fdeffn_002ffirst"></a><dl>
+<dt><a name="index-first"></a>Funktion: <strong>first</strong> <em>(<var>list</var>)</em></dt>
+<dd>
+<p>Gibt das erste Element der Liste <var>list</var> zur&uuml;ck.
+</p>
+<p>Das Argument <var>list</var> kann auch ein allgemeiner Ausdruck wie zum Beispiel
+der Term einer Summe, der Faktor eines Produktes oder die erste Spalte einer
+Matrix sein.  Die Funktion <code>first</code> und verwandte Funktionen wie
+<code><a href="#last">last</a></code> oder <code><a href="#rest">rest</a></code> arbeiten mit der externen Darstellung eines
+Ausdrucks, wie sie in der Anzeige erscheint.  Dies kann mit der Optionsvariablen
+<code><a href="maxima_32.html#inflag">inflag</a></code> kontrolliert werden.  Hat die Optionsvariable <code>inflag</code> den
+Wert <code>true</code>, wird von diesen Funktionen die interne Darstellung betrachtet.
+</p>
+<p>Die Funktionen <code><a href="#second">second</a></code> bis <code><a href="#tenth">tenth</a></code> geben jeweils das 2. bis 10. 
+Element zur&uuml;ck.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) l: [a,b,c];
+(%o1)                       [a, b, c]
+(%i2) first(l);
+(%o2)                           a
+(%i3) first(x + y);
+(%o3)                           y
+(%i4) first(x * y);
+(%o4)                           x
+(%i5) first(f(x, y, z));
+(%o5)                           x
+</pre></div>
+</dd></dl>
+
+<a name="join"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fjoin"></a><dl>
+<dt><a name="index-join"></a>Funktion: <strong>join</strong> <em>(<var>list_1</var>, <var>list_2</var>)</em></dt>
+<dd>
+<p>Erzeugt eine neue Liste aus den Elementen der Listen <var>list_1</var> und
+<var>list_2</var>, wobei die Elemente abwechselnd &uuml;bernommen werden.  Das Ergebnis
+hat die Form <code>[<var>list_1</var>[1], <var>list_2</var>[1], <var>list_1</var>[2],
+<var>list_2</var>[2], ...]</code>.
+</p>
+<p>Haben die Listen verschiedene L&auml;ngen, werden die zus&auml;tzlichen Elemente der
+l&auml;ngeren Liste ignoriert.
+</p>
+<p>Sind <var>list_1</var> oder <var>list_2</var> keine Listen, gibt Maxima einen Fehler aus.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) L1: [a, sin(b), c!, d - 1];
+(%o1)                [a, sin(b), c!, d - 1]
+(%i2) join (L1, [1, 2, 3, 4]);
+(%o2)          [a, 1, sin(b), 2, c!, 3, d - 1, 4]
+(%i3) join (L1, [aa, bb, cc, dd, ee, ff]);
+(%o3)        [a, aa, sin(b), bb, c!, cc, d - 1, dd]
+</pre></div>
+</dd></dl>
+
+<a name="last"></a><a name="Item_003a-Lists_002ede_002fdeffn_002flast"></a><dl>
+<dt><a name="index-last"></a>Funktion: <strong>last</strong> <em>(<var>list</var>)</em></dt>
+<dd>
+<p>Gibt das letzte Element der Liste <var>list</var> zur&uuml;ck.
+</p>
+<p>Das Argument <var>list</var> kann auch ein allgemeiner Ausdruck sein.  Siehe
+<code><a href="#first">first</a></code> f&uuml;r weitere Erl&auml;uterungen.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) l: [a,b,c];
+(%o1)                       [a, b, c]
+(%i2) last(x + y);
+(%o2)                           x
+(%i3) last(x * y);
+(%o3)                           y
+(%i4) last(f(x, y, z));
+(%o4)                           z
+</pre></div>
+</dd></dl>
+
+<a name="length"></a><a name="Item_003a-Lists_002ede_002fdeffn_002flength"></a><dl>
+<dt><a name="index-length"></a>Funktion: <strong>length</strong> <em>(<var>list</var>)</em></dt>
+<dd>
+<p>Gibt die Anzahl der Elemente der Liste <var>list</var> zur&uuml;ck.
+</p>
+<p>Das Argument <var>list</var> kann auch ein allgemeiner Ausdruck sein.  Wie bei
+anderen Funktionen f&uuml;r Listen wird auch von der Funktion <code>length</code> die
+externe Darstellung eines Ausdrucks betrachtet, wie sie f&uuml;r die Ausgabe
+vorliegt.  Die Optionsvariable <code><a href="maxima_32.html#inflag">inflag</a></code> hat daher Einfluss auf das Ergebnis
+der Funktion <code>length</code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) length([a, x^2, sin(x), y+3]);
+(%o1)                           4
+(%i2) length(a/(b*x));
+(%o2)                           2
+(%i3) length(a/(b*x)),inflag:true;
+(%o3)                           3
+</pre></div>
+</dd></dl>
+
+
+<a name="listarith"></a><a name="Item_003a-Lists_002ede_002fdefvr_002flistarith"></a><dl>
+<dt><a name="index-listarith"></a>Optionsvariable: <strong>listarith</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+<p>Hat die Optionsvariable <code>listarith</code> den Wert <code>true</code>, werden 
+Rechenoperationen mit Matrizen und Listen elementweise ausgef&uuml;hrt.  Das 
+Ergebnis von Rechnungen mit Listen und Matrizen sind wieder Listen und Matrizen.
+Hat die Optionsvariable <code>listarith</code> den Wert <code>false</code>, wird die
+elementweise Ausf&uuml;hrung der Rechenoperationen unterdr&uuml;ckt.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) listarith: true;
+(%o1)                         true
+(%i2) 2 + [a, b, c];
+(%o2)                 [a + 2, b + 2, c + 2]
+(%i3) 2^[a, b, c];
+                            a   b   c
+(%o3)                     [2 , 2 , 2 ]
+(%i4) [1, 2, 3] + [a, b, c];
+(%o4)                 [a + 1, b + 2, c + 3]
+(%i5) listarith: false;
+(%o5)                         false
+(%i6) 2 + [a, b, c];
+(%o6)                     [a, b, c] + 2
+(%i7) 2^[a, b, c];
+                            [a, b, c]
+(%o7)                      2
+(%i8) [1, 2, 3] + [a, b, c];
+(%o8)                 [a, b, c] + [1, 2, 3]
+</pre></div>
+</dd></dl>
+
+<a name="listp"></a><a name="Item_003a-Lists_002ede_002fdeffn_002flistp"></a><dl>
+<dt><a name="index-listp"></a>Funktion: <strong>listp</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Gibt <code>true</code> zur&uuml;ck, wenn <var>expr</var> eine Liste ist.  Ansonsten ist der 
+R&uuml;ckgabewert <code>false</code>.
 </p></dd></dl>
 
-<p><a name="chinese"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>chinese</b><i> ([<var>r_1</var>, &hellip;, <var>r_n</var>], [<var>m_1</var>, &hellip;, <var>m_n</var>])</i>
-<a name="IDX1188"></a>
-</dt>
-<dd><p>L&ouml;st die simultanen Kongruenzen <code>x = r_1 mod m_1</code>, &hellip;, <code>x = r_n mod m_n</code>.
-Die Reste <var>r_n</var> und die Moduli <var>m_n</var> m&uuml;ssen ganze Zahlen sein, 
-die Moduli zus&auml;tzlich positiv und paarweise teilerfremd.
-</p>
-<pre class="example">(%i1) mods : [1000, 1001, 1003, 1007];
-(%o1)                   [1000, 1001, 1003, 1007]
-(%i2) lreduce('gcd, mods);
-(%o2)                               1
-(%i3) x : random(apply(&quot;*&quot;, mods));
-(%o3)                         685124877004
-(%i4) rems : map(lambda([z], mod(x, z)), mods);
-(%o4)                       [4, 568, 54, 624]
-(%i5) chinese(rems, mods);
-(%o5)                         685124877004
-(%i6) chinese([1, 2], [3, n]);
-(%o6)                    chinese([1, 2], [3, n])
-(%i7) %, n = 4;
-(%o7)                              10
-</pre></dd></dl>
-
-<p><a name="divsum"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>divsum</b><i> (<var>n</var>, <var>k</var>)</i>
-<a name="IDX1189"></a>
-</dt>
-<dt><u>Funktion:</u> <b>divsum</b><i> (<var>n</var>)</i>
-<a name="IDX1190"></a>
-</dt>
+<a name="makelist"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fmakelist"></a><dl>
+<dt><a name="index-makelist"></a>Funktion: <strong>makelist</strong> <em>(<var>expr</var>, <var>i</var>, <var>i_0</var>, <var>i_1</var>)</em></dt>
+<dt><a name="index-makelist-1"></a>Funktion: <strong>makelist</strong> <em>(<var>expr</var>, <var>x</var>, <var>list</var>)</em></dt>
 <dd>
-<p><code>divsum(<var>n</var>, <var>k</var>)</code> potenziert die Teiler des Argumentes <var>n</var> 
-mit dem Argument <var>k</var> und gibt die Summe als Ergebnis zur&uuml;ck.
+<p>Erzeugt eine Liste, indem der Ausdruck <var>expr</var> f&uuml;r die Variable <var>i</var>
+ausgewertet wird.  Die Variable <var>i</var> nimmt nacheinander die Werte von
+<var>i_0</var> bis <var>i_1</var> an, wobei die Schrittweite 1 ist.  Alternativ kann eine
+Liste <var>list</var> als Argument &uuml;bergeben werden.  In diesem Fall nimmt die
+Variable <var>i</var> nacheinander die Werte der Liste <var>list</var> an.
 </p>
-
-<p><code>divsum(<var>n</var>)</code> gibt die Summe der Teiler der Zahl <var>n</var> zur&uuml;ck.
+<p>Siehe auch die Funktion <code><a href="#create_005flist">create_list</a></code>, um eine Liste zu generieren.
 </p>
-<pre class="example">(%i1) divsum (12);
-(%o1)                          28
-(%i2) 1 + 2 + 3 + 4 + 6 + 12;
-(%o2)                          28
-(%i3) divsum (12, 2);
-(%o3)                          210
-(%i4) 1^2 + 2^2 + 3^2 + 4^2 + 6^2 + 12^2;
-(%o4)                          210
-</pre></dd></dl>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) makelist(concat(x, i), i, 1, 6);
+(%o1)               [x1, x2, x3, x4, x5, x6]
+(%i2) makelist(x = y, y, [a, b, c]);
+(%o2)                 [x = a, x = b, x = c]
+</pre></div>
+</dd></dl>
 
-<p><a name="euler"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>euler</b><i> (<var>n</var>)</i>
-<a name="IDX1191"></a>
-</dt>
+<a name="member"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fmember"></a><dl>
+<dt><a name="index-member"></a>Funktion: <strong>member</strong> <em>(<var>expr</var>, <var>list</var>)</em></dt>
 <dd>
-<p>Gibt die <var>n</var>-te Eulersche Zahl f&uuml;r eine nichtnegative ganze Zahl <var>n</var>
+<p>Gibt <code>true</code> zur&uuml;ck, wenn der Ausdruck <var>expr</var> gleich einem Element in
+der Liste <var>list</var> ist.  Die Gleichheit wird dem Operator
+<code><a href="maxima_38.html#g_t_003d">=</a></code> festgestellt.
+</p>
+<p>Die Gleichheit wird mit dem Operator <code><a href="maxima_38.html#g_t_003d">=</a></code> gepr&uuml;ft.  Daher werden nur
+Ausdr&uuml;cke als gleich erkannt, die syntaktisch &uuml;bereinstimmen.  &Auml;quivalente
+Ausdr&uuml;cke, die syntaktisch voneinander verschieden sind, werden nicht aus der
+Liste entfernt.  Zum Beispiel sind die Ausdr&uuml;cke <code>x^2-1</code> und
+<code>(x+1)*(x-1)</code> &auml;quivalent, aber syntaktisch verschieden.
+</p>
+<p>Das Argument <var>list</var> kann auch ein allgemeiner Ausdruck sein.  Dabei werden
+die Argumente des Hauptoperators betrachtet.
+</p>
+<p>Siehe auch die Funktion <code><a href="maxima_81.html#elementp">elementp</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) member (8, [8, 8.0, 8b0]);
+(%o1)                         true
+(%i2) member (8, [8.0, 8b0]);
+(%o2)                         false
+(%i3) member (b, [a, b, c]);
+(%o3)                         true
+(%i4) member (b, [[a, b], [b, c]]);
+(%o4)                         false
+(%i5) member ([b, c], [[a, b], [b, c]]);
+(%o5)                         true
+(%i6) F (1, 1/2, 1/4, 1/8);
+                               1  1  1
+(%o6)                     F(1, -, -, -)
+                               2  4  8
+(%i7) member (1/8, %);
+(%o7)                         true
+(%i8) member (&quot;ab&quot;, [&quot;aa&quot;, &quot;ab&quot;, sin(1), a + b]);
+(%o8)                         true
+</pre></div>
+</dd></dl>
+
+<a name="pop"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fpop"></a><dl>
+<dt><a name="index-pop"></a>Funktion: <strong>pop</strong> <em>(<var>list</var>)</em></dt>
+<dd>
+<p>Die Funktion <code>pop</code> entfernt das erste Element der Liste <var>list</var> und
+gibt dieses Element zur&uuml;ck.  <var>list</var> muss ein Symbol sein, dem eine Liste
+zugewiesen wurde, und kann nicht selbst eine Liste sein.
+</p>
+<p>Ist dem Argument <var>list</var> keine Liste zugewiesen, gibt Maxima eine
+Fehlermeldung aus.
+</p>
+<p>Siehe auch die Funktion <code><a href="#push">push</a></code> f&uuml;r Beispiele.
+</p>
+<p>Mit dem Kommando <code>load(&quot;basic&quot;)</code> wird die Funktion geladen.
+</p></dd></dl>
+
+<a name="push"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fpush"></a><dl>
+<dt><a name="index-push"></a>Funktion: <strong>push</strong> <em>(<var>item</var>, <var>list</var>)</em></dt>
+<dd>
+<p>Die Funktion <code>push</code> f&uuml;gt das Argument <var>item</var> als erstes Element der
+Liste <var>list</var> hinzu und gibt die neue Liste zur&uuml;ck.  Das Argument
+<var>list</var> muss ein Symbol sein, dem eine Liste zugewiesen wurde, und kann nicht
+selbst eine Liste sein.  Das Argument <var>item</var> kann ein beliebiger Ausdruck
+sein.
+</p>
+<p>Ist dem Argument <var>list</var> keine Liste zugewiesen, gibt Maxima eine 
+Fehlermeldung aus.
+</p>
+<p>Siehe auch die Funktion <code><a href="#pop">pop</a></code>, um das erste Element einer Liste zu
+entfernen.
+</p>
+<p>Mit dem Kommando <code>load(&quot;basic&quot;)</code> wird die Funktion geladen.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) ll:[];
+(%o1)                          []
+(%i2) push(x,ll);
+(%o2)                          [x]
+(%i3) push(x^2+y,ll);
+                                 2
+(%o3)                      [y + x , x]
+(%i4) a:push(&quot;string&quot;,ll);
+                                     2
+(%o4)                  [string, y + x , x]
+(%i5) pop(ll);
+(%o5)                        string
+(%i6) pop(ll);
+                                  2
+(%o6)                        y + x
+(%i7) pop(ll);
+(%o7)                           x
+(%i8) ll;
+(%o8)                          []
+(%i9) a;
+                                     2
+(%o9)                  [string, y + x , x]
+</pre></div>
+</dd></dl>
+
+<a name="rest"></a><a name="Item_003a-Lists_002ede_002fdeffn_002frest"></a><dl>
+<dt><a name="index-rest"></a>Funktion: <strong>rest</strong> <em>(<var>list</var>, <var>n</var>)</em></dt>
+<dt><a name="index-rest-1"></a>Funktion: <strong>rest</strong> <em>(<var>list</var>)</em></dt>
+<dd>
+<p>Entfernt das erste Element oder, wenn <var>n</var> eine positive ganze Zahl ist, die
+ersten <var>n</var> Elemente der Liste <var>list</var> und gibt den Rest der Liste als
+Ergebnis zur&uuml;ck.  Ist <var>n</var> eine negative Zahl, werden die letzten <var>n</var>
+Elemente von der Liste entfernt und der Rest als Ergebnis zur&uuml;ckgegeben.
+</p>
+<p>Das Argument <var>list</var> kann auch ein allgemeiner Ausdruck sein.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#first">first</a></code> und <code><a href="#last">last</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) rest([a,b,c]);
+(%o1)                        [b, c]
+(%i2) rest(a+b+c);
+(%o2)                         b + a
+</pre></div>
+</dd></dl>
+
+<a name="reverse"></a><a name="Item_003a-Lists_002ede_002fdeffn_002freverse"></a><dl>
+<dt><a name="index-reverse"></a>Funktion: <strong>reverse</strong> <em>(<var>list</var>)</em></dt>
+<dd>
+<p>Kehrt die Anordnung der Elemente einer Liste <var>list</var> um und gibt die
+Ergebnisliste zur&uuml;ck.  Das Argument <var>list</var> kann auch ein allgemeiner
+Ausdruck sein.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) reverse([a, b, c]);
+(%o1)                       [c, b, a]
+(%i2) reverse(sin(x)=2*x^2+1);
+                           2
+(%o2)                   2 x  + 1 = sin(x)
+</pre></div>
+</dd></dl>
+
+<a name="second"></a><a name="third"></a><a name="fourth"></a><a name="fifth"></a><a name="sixth"></a><a name="seventh"></a><a name="eighth"></a><a name="ninth"></a><a name="tenth"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fsecond"></a><dl>
+<dt><a name="index-second"></a>Funktion: <strong>second</strong> <em>(<var>list</var>)</em></dt>
+<dd><a name="Item_003a-Lists_002ede_002fdeffn_002fthird"></a></dd><dt><a name="index-third"></a>Funktion: <strong>third</strong> <em>(<var>list</var>)</em></dt>
+<dd><a name="Item_003a-Lists_002ede_002fdeffn_002ffourth"></a></dd><dt><a name="index-fourth"></a>Funktion: <strong>fourth</strong> <em>(<var>list</var>)</em></dt>
+<dd><a name="Item_003a-Lists_002ede_002fdeffn_002ffifth"></a></dd><dt><a name="index-fifth"></a>Funktion: <strong>fifth</strong> <em>(<var>list</var>)</em></dt>
+<dd><a name="Item_003a-Lists_002ede_002fdeffn_002fsixth"></a></dd><dt><a name="index-sixth"></a>Funktion: <strong>sixth</strong> <em>(<var>list</var>)</em></dt>
+<dd><a name="Item_003a-Lists_002ede_002fdeffn_002fseventh"></a></dd><dt><a name="index-seventh"></a>Funktion: <strong>seventh</strong> <em>(<var>list</var>)</em></dt>
+<dd><a name="Item_003a-Lists_002ede_002fdeffn_002feighth"></a></dd><dt><a name="index-eighth"></a>Funktion: <strong>eighth</strong> <em>(<var>list</var>)</em></dt>
+<dd><a name="Item_003a-Lists_002ede_002fdeffn_002fninth"></a></dd><dt><a name="index-ninth"></a>Funktion: <strong>ninth</strong> <em>(<var>list</var>)</em></dt>
+<dd><a name="Item_003a-Lists_002ede_002fdeffn_002ftenth"></a></dd><dt><a name="index-tenth"></a>Funktion: <strong>tenth</strong> <em>(<var>list</var>)</em></dt>
+<dd>
+<p>Die Funktionen <code>second</code> bis <code>tenth</code> geben das 2. bis 10. Element eines
+Ausdrucks oder einer Liste <var>list</var> zur&uuml;ck.  Siehe <code><a href="#first">first</a></code>.
+</p></dd></dl>
+
+<a name="sort"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fsort"></a><dl>
+<dt><a name="index-sort"></a>Funktion: <strong>sort</strong> <em>(<var>L</var>, <var>P</var>)</em></dt>
+<dt><a name="index-sort-1"></a>Funktion: <strong>sort</strong> <em>(<var>L</var>)</em></dt>
+<dd>
+<p>Sortiert eine Liste <var>L</var> und gibt die sortierte Liste zur&uuml;ck.  Das
+optionale Argument <var>P</var> ist eine Aussagefunktion mit zwei Argumenten, die
+eine Ordnung der Elemente definiert.  Die Aussagefunktion kann eine Funktion,
+ein bin&auml;rer Operator oder ein Lambda-Ausdruck sein.  Wird kein Argument
+<var>P</var> angegeben, werden die Elemente der Liste mit der Aussagefunktion
+<code><a href="maxima_32.html#orderlessp">orderlessp</a></code> geordnet.
+</p>
+<p>Die Aussagefunktion <code><a href="maxima_32.html#orderlessp">orderlessp</a></code> sortiert eine List aufsteigend.  Mit der
+Aussagefunktion <code><a href="maxima_32.html#ordergreatp">ordergreatp</a></code> kann die Liste absteigend sortiert werden.
+Die Aussagefunktion <code><a href="maxima_32.html#ordermagnitudep">ordermagnitudep</a></code> sortiert Maxima Zahlen, Konstante 
+oder Ausdr&uuml;cke, die zu einer Zahl oder Konstanten ausgewertet werden k&ouml;nnen,
+nach der Gr&ouml;&szlig;e.  Mit dem Operator <code><a href="maxima_36.html#g_t_003c">&lt;</a></code> kann auch nach der Gr&ouml;&szlig;e
+sortiert werden.  Im Unterschied zur Aussagefunktion <code>ordermagnitudep</code> ist
+die Ordnung nicht vollst&auml;ndig, wenn einzelne Elemente der Liste nicht
+vergleichbar unter dem Operator <code>&lt;</code> sind.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) sort ([11, -17, 29b0, 7.55, 3, -5/2, b + a, 9 * c,
+      19 - 3 * x]);
+               5
+(%o1) [- 17, - -, 3, 7.55, 11, 2.9b1, b + a, 9 c, 19 - 3 x]
+               2
+(%i2) sort ([11, -17, 29b0, 7.55, 3, -5/2, b + a, 9*c, 19 - 3*x],
+      ordergreatp);
+                                                   5
+(%o2) [19 - 3 x, 9 c, b + a, 2.9b1, 11, 7.55, 3, - -, - 17]
+                                                   2
+(%i3) sort ([%pi, 3, 4, %e, %gamma]);
+(%o3)                [3, 4, %e, %gamma, %pi]
+(%i4) sort ([%pi, 3, 4, %e, %gamma], &quot;&lt;&quot;);
+(%o4)                [%gamma, %e, 3, %pi, 4]
+(%i5) my_list: [[aa,hh,uu], [ee,cc], [zz,xx,mm,cc], [%pi,%e]];
+(%o5) [[aa, hh, uu], [ee, cc], [zz, xx, mm, cc], [%pi, %e]]
+(%i6) sort (my_list);
+(%o6) [[%pi, %e], [aa, hh, uu], [ee, cc], [zz, xx, mm, cc]]
+(%i7) sort (my_list, lambda ([a, b], orderlessp (reverse (a),
+      reverse (b))));
+(%o7) [[%pi, %e], [ee, cc], [zz, xx, mm, cc], [aa, hh, uu]]
+</pre></div>
+
+<p>Ordne Maxima Zahlen, Konstante und konstante Ausdr&uuml;cke nach der Gr&ouml;&szlig;e.
+Alle anderen Elemente werden aufsteigend sortiert.
+</p>
+<div class="example">
+<pre class="example">(%i8) sort([%i,1+%i,2*x,minf,inf,%e,sin(1),0,1,2,3,1.0,1.0b0],
+           ordermagnitudep);
+</pre><pre class="example">(%o8) [minf, 0, sin(1), 1, 1.0, 1.0b0, 2, %e, 3, inf, %i, 
+                                                     %i + 1, 2 x]
+</pre></div>
+</dd></dl>
+
+<a name="sublist"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fsublist"></a><dl>
+<dt><a name="index-sublist"></a>Funktion: <strong>sublist</strong> <em>(<var>L</var>, <var>P</var>)</em></dt>
+<dd>
+<p>Gibt die Elemente der Liste <var>L</var> als eine Liste zur&uuml;ck, f&uuml;r die die
+Aussagefunktion <code>P</code> das Ergebnis <code>true</code> hat.  <code>P</code> ist eine
+Funktion mit einem Argument wie zum Beispiel die Funktion
+<code><a href="maxima_14.html#integerp">integerp</a></code>.  Siehe auch die Funktion <code><a href="#sublist_005findices">sublist_indices</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) L: [1, 2, 3, 4, 5, 6];
+(%o1)                  [1, 2, 3, 4, 5, 6]
+(%i2) sublist (L, evenp);
+(%o2)                       [2, 4, 6]
+</pre></div>
+</dd></dl>
+
+<a name="sublist_005findices"></a><a name="Item_003a-Lists_002ede_002fdeffn_002fsublist_005findices"></a><dl>
+<dt><a name="index-sublist_005findices"></a>Funktion: <strong>sublist_indices</strong> <em>(<var>L</var>, <var>P</var>)</em></dt>
+<dd>
+<p>Gibt die Indizes der Elemente der Liste <var>L</var> zur&uuml;ck, f&uuml;r die die
+Aussagefunktion <code>P</code> das Ergebnis <code>true</code> hat.  <code>P</code> ist eine
+Funktion mit einem Argument wie zum Beispiel die Funktion
+<code><a href="maxima_14.html#integerp">integerp</a></code>.  Siehe auch die Funktion <code><a href="#sublist">sublist</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) sublist_indices ('[a, b, b, c, 1, 2, b, 3, b],
+                       lambda ([x], x='b));
+(%o1)                     [2, 3, 7, 9]
+(%i2) sublist_indices ('[a, b, b, c, 1, 2, b, 3, b], symbolp);
+(%o2)                  [1, 2, 3, 4, 7, 9]
+(%i3) sublist_indices ([1 &gt; 0, 1 &lt; 0, 2 &lt; 1, 2 &gt; 1, 2 &gt; 0],
+                       identity);
+(%o3)                       [1, 4, 5]
+(%i4) assume (x &lt; -1);
+(%o4)                       [x &lt; - 1]
+(%i5) map (maybe, [x &gt; 0, x &lt; 0, x &lt; -2]);
+(%o5)                [false, true, unknown]
+(%i6) sublist_indices ([x &gt; 0, x &lt; 0, x &lt; -2], identity);
+(%o6)                          [2]
+</pre></div>
+</dd></dl>
+
+<a name="unique"></a><a name="Item_003a-Lists_002ede_002fdeffn_002funique"></a><dl>
+<dt><a name="index-unique"></a>Funktion: <strong>unique</strong> <em>(<var>L</var>)</em></dt>
+<dd>
+<p>Gibt eine Liste mit den Elementen der Liste <var>L</var> zur&uuml;ck, die sich
+voneinander unterscheiden.  Sind alle Elemente der Liste <var>L</var> verschieden,
+gibt <code>unique</code> eine Kopie der Liste <var>L</var> und nicht die Liste selbst
+zur&uuml;ck.  Ist <var>L</var> keine Liste, gibt <code>unique</code> den Ausdruck <var>L</var>
 zur&uuml;ck.
-</p>
-
-<p>F&uuml;r die Euler-Mascheroni Konstante siehe <code><a href="maxima_5.html#g_t_0025gamma">%gamma</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<pre class="example">(%i1) map (euler, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-(%o1)    [1, 0, - 1, 0, 5, 0, - 61, 0, 1385, 0, - 50521]
-</pre></dd></dl>
-
-<p><a name="factors_005fonly"></a>
-</p><dl>
-<dt><u>Optionsvariable:</u> <b>factors_only</b>
-<a name="IDX1192"></a>
-</dt>
-<dd><p>Standardwert: <code>false</code>
-</p>
-<p>Hat <code>factors_only</code> den Standardwert <code>false</code>, werden von der 
-Funktion <code><a href="#ifactors">ifactors</a></code> zusammen mit den berechneten Primfaktoren auch deren 
-Multiplizit&auml;ten angegeben. Hat <code>factors_only</code> den Wert <code>true</code>, 
-werden nur die Primfaktoren zur&uuml;ck gegeben.
-</p>
-<p>Beispiel: Siehe <code><a href="#ifactors">ifactors</a></code>.
-</p></dd></dl>
-
-<p><a name="fib"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>fib</b><i> (<var>n</var>)</i>
-<a name="IDX1193"></a>
-</dt>
-<dd><p>Gibt die <var>n</var>-te Fibonacci-Zahl zur&uuml;ck.  Die Fibonacci-Folge ist rekursiv 
-definiert:
-</p>
-<pre class="example">   fib(0) = 0
-   fib(1) = 1
-   fib(n) = fib(n-1) + fib(n-2)
-</pre>
-<p>F&uuml;r negative ganze Zahlen kann die Fibonacci-Folge wie folgt erweitert werden:
-</p>
-<pre class="example">                   n + 1
-   fib(- n) = (- 1)      fib(n)
-</pre>
-
-
-
-<p>Nach einem Aufruf der Funktion <code>fib(n)</code>, enth&auml;lt die Systemvariable 
-<code>prevfib</code> die zur Zahl <code>n</code> vorhergehende Fibonacci-Zahl.
-</p>
-<pre class="example">(%i1) map (fib, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-(%o1)         [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
-</pre></dd></dl>
-
-<p><a name="fibtophi"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>fibtophi</b><i> (<var>expr</var>)</i>
-<a name="IDX1194"></a>
-</dt>
-<dd>
-<p>Fibonacci-Zahlen im Ausdruck <var>expr</var> werden durch die Goldene Zahl 
-<code>%phi</code> ausgedr&uuml;ckt.  Siehe <code><a href="maxima_5.html#g_t_0025phi">%phi</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<pre class="example">(%i1) fibtophi (fib (n));
-                           n             n
-                       %phi  - (1 - %phi)
-(%o1)                  -------------------
-                           2 %phi - 1
-(%i2) fib (n-1) + fib (n) - fib (n+1);
-(%o2)          - fib(n + 1) + fib(n) + fib(n - 1)
-(%i3) fibtophi (%);
-            n + 1             n + 1       n             n
-        %phi      - (1 - %phi)        %phi  - (1 - %phi)
-(%o3) - --------------------------- + -------------------
-                2 %phi - 1                2 %phi - 1
-                                          n - 1             n - 1
-                                      %phi      - (1 - %phi)
-                                    + ---------------------------
-                                              2 %phi - 1
-(%i4) ratsimp (%);
-(%o4)                           0
-</pre></dd></dl>
-
-<p><a name="ifactors"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>ifactors</b><i> (<var>n</var>)</i>
-<a name="IDX1195"></a>
-</dt>
-<dd><p>Faktorisiert eine positive ganze Zahl <var>n</var>.  Sind <code>n = p1^e1 * ... * pk^nk</code> die
-Faktoren der ganzen Zahl <var>n</var>, dann gibt <code>ifactor</code> das Ergebnis
-<code>[[p1, e1], ..., [pk, ek]]</code> zur&uuml;ck.
-</p>
-<p>F&uuml;r die Faktorisierung kommen Probedivisionen mit Primzahlen bis 9973, 
-Pollards Rho- und p-1-Methode oder Elliptischen Kurven zum Einsatz.
-</p>
-<p>Die R&uuml;ckgabe von ifactors wird von der Optionsvariablen <code><a href="#factors_005fonly">factors_only</a></code>  
-beeinflusst. 
-Werden lediglich die Primfaktoren ohne ihre Multiplizit&auml;t ben&ouml;tigt, 
-gen&uuml;gt es hierf&uuml;r, <code>factors_only : true</code> zu setzen.
-</p>
-<pre class="example">(%i1) ifactors(51575319651600);
-(%o1)     [[2, 4], [3, 2], [5, 2], [1583, 1], [9050207, 1]]
-(%i2) apply(&quot;*&quot;, map(lambda([u], u[1]^u[2]), %));
-(%o2)                        51575319651600
-(%i3) ifactors(51575319651600), factors_only : true;
-(%o3)                   [2, 3, 5, 1583, 9050207]
-</pre></dd></dl>
-
-<p><a name="igcdex"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>igcdex</b><i> (<var>n</var>, <var>k</var>)</i>
-<a name="IDX1196"></a>
-</dt>
-<dd><p>Gibt die Liste <code>[a, b, u]</code> zur&uuml;ck, in der <code>u</code> der 
-gr&ouml;&szlig;te gemeinsame Teiler von <var>n</var> und <var>k</var> ist und in der zus&auml;tzlich 
-gilt, dass <code>u = a * <var>n</var> + b * <var>k</var></code>. 
-</p>
-<p><code>igcdex</code> verwendet den Euklidischen Algorithmus.  Siehe auch <code><a href="maxima_17.html#gcdex">gcdex</a></code>.
-</p>
-<p>Die Eingabe <code>load(gcdex)</code> l&auml;dt diese Funktion.
-</p>
-<p>Beispiele:
-</p>
-<pre class="example">(%i1) load(gcdex)$
-
-(%i2) igcdex(30, 18);
-(%o2)                      [- 1, 2, 6]
-(%i3) igcdex(1526757668, 7835626735736);
-(%o3)            [845922341123, - 164826435, 4]
-(%i4) igcdex(fib(20), fib(21));
-(%o4)                   [4181, - 2584, 1]
-</pre></dd></dl>
-
-<p><a name="inrt"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>inrt</b><i> (<var>x</var>, <var>n</var>)</i>
-<a name="IDX1197"></a>
-</dt>
-<dd>
-<p>Gibt die ganzzahlige <var>n</var>-te Wurzel des Betrags von <var>x</var> zur&uuml;ck.
-</p>
-<pre class="example">(%i1) l: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]$
-(%i2) map (lambda ([a], inrt (10^a, 3)), l);
-(%o2) [2, 4, 10, 21, 46, 100, 215, 464, 1000, 2154, 4641, 10000]
-</pre></dd></dl>
-
-<p><a name="inv_005fmod"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>inv_mod</b><i> (<var>n</var>, <var>m</var>)</i>
-<a name="IDX1198"></a>
-</dt>
-<dd><p>Berechnet das modulare Inverse von <var>n</var> zum Modul <var>m</var>.  Das Argument
-<var>n</var> muss eine ganze Zahl und der Modul <var>p</var> eine positive ganze Zahl 
-sein.  <code>inv_mod(n, m)</code> gibt <code>false</code> zur&uuml;ck, wenn das modulare Inverse
-nicht existiert.  Das modulare Inverse existiert, wenn <var>n</var> teilerfremd zum 
-Modul <var>m</var> ist.
-</p>
-<p>Siehe auch die Funktionen <code><a href="#power_005fmod">power_mod</a></code> und <code><a href="#mod">mod</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<pre class="example">(%i1) inv_mod(3, 41);
-(%o1)                           14
-(%i2) ratsimp(3^-1), modulus = 41;
-(%o2)                           14
-(%i3) inv_mod(3, 42);
-(%o3)                          false
-</pre></dd></dl>
-
-<p><a name="isqrt"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>isqrt</b><i> (<var>x</var>)</i>
-<a name="IDX1199"></a>
-</dt>
-<dd>
-<p>Gibt die ganzzahlige Wurzel des Betrages von <var>x</var> zur&uuml;ck, wenn <var>x</var> eine
-ganze Zahl ist.  Andernfalls wird eine Substantivform zur&uuml;ckgegeben.
-</p></dd></dl>
-
-<p><a name="jacobi"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>jacobi</b><i> (<var>p</var>, <var>q</var>)</i>
-<a name="IDX1200"></a>
-</dt>
-<dd>
-<p>Berechnet das Jacobi-Symbol f&uuml;r die Argumente <var>p</var> und <var>q</var>.
-</p>
-<pre class="example">(%i1) l: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]$
-(%i2) map (lambda ([a], jacobi (a, 9)), l);
-(%o2)         [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0]
-</pre></dd></dl>
-
-<p><a name="lcm"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>lcm</b><i> (<var>expr_1</var>, &hellip;, <var>expr_n</var>)</i>
-<a name="IDX1201"></a>
-</dt>
-<dd>
-<p>Gibt das kleinste gemeinsame Vielfache der Argumente zur&uuml;ck.  Die Argumente 
-k&ouml;nnen ganze Zahlen und allgemeine Ausdr&uuml;cke sein.
-</p>
-
-<p>Mit dem Kommando <code>load(functs)</code> wird die Funktion geladen.
-</p></dd></dl>
-
-<p><a name="lucas"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>lucas</b><i> (<var>n</var>)</i>
-<a name="IDX1202"></a>
-</dt>
-<dd><p>Gibt die <var>n</var>-te Lucas-Zahl zur&uuml;ck.  Die Lucas-Folge ist rekursiv 
-definiert:
-</p>
-<pre class="example">   lucas(0) = 0
-   lucas(1) = 1
-   lucas(n) = lucas(n-1) + lucas(n-2)
-</pre>
-<p>F&uuml;r negative ganze Zahlen kann die Lucas-Folge wie folgt erweitert werden:
-</p>
-<pre class="example">                     -n
-   lucas(- n) = (- 1)   lucas(n)
-</pre>
-
-<pre class="example">(%i1) map (lucas, [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8]);
-(%o1)             [7, - 4, 3, - 1, 2, 1, 3, 4, 7, 11, 18, 29, 47]
-</pre>
-<p>Nach einem Aufruf von <code>lucas</code> enth&auml;lt die globale Variable 
-<code>next_lucas</code> den Nachfolger der zuletzt zurc"k gegebenen Lucas-Zahl.
-Das Beispiel zeigt, wie Fibonacci-Zahlen mit Hilfe von <code>lucas</code> 
-und <code>next_lucas</code> berechnet werden k&ouml;nnen.
-</p>
-<pre class="example">(%i1) fib_via_lucas(n) := 
-         block([lucas : lucas(n)],
-         signum(n) * (2*next_lucas - lucas)/5 )$
-(%i2) map (fib_via_lucas, [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8]);
-(%o2)             [- 3, 2, - 1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
-</pre></dd></dl>
-
-<p><a name="mod"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>mod</b><i> (<var>x</var>, <var>p</var>)</i>
-<a name="IDX1203"></a>
-</dt>
-<dd>
-<p>Berechnet den Divisionsrest <code>x mod y</code> des Arguments <var>x</var> zum Modul <var>y</var>. 
-<var>x</var> und <var>y</var> k&ouml;nnen ganze Zahlen, rationale Zahlen, Gleitkommazahlen 
-oder allgemeine Ausdr&uuml;cke sein.
-</p>
-<p>Sind <var>x</var> und <var>y</var> reelle Zahlen und ist <var>y</var> ungleich Null, gibt 
-<code>mod(<var>x</var>, <var>y</var>)</code> das Ergebnis von <code><var>x</var> - <var>y</var> * 
-floor(<var>x</var> / <var>y</var>)</code> zur&uuml;ck.  Weiterhin gilt f&uuml;r alle reellen Zahlen
-<code>mod(<var>x</var>, 0) = <var>x</var></code>.  F&uuml;r eine Diskussion dieser Definition siehe
-Kapitel 3.4, &quot;Concrete Mathematics&quot; von Graham, Knuth, and Patashnik.  Die 
-Funktion <code>mod(<var>x</var>, 1)</code> ist eine S&auml;gezahnfunktion mit der Periode 1 
-mit <code>mod(1, 1) = 0</code> und <code>mod(0, 1) = 0</code>.
-</p>
-
-<p>Der Hauptwert einer komplexen Zahl, die im Intervall <code>(-%pi, %pi)</code> liegt,
-kann mit <code>%pi - mod(%pi - <var>x</var>, 2*%pi)</code> bestimmt werden, wobei <var>x</var>
-die komplexe Zahl ist.
-</p>
-
-<p>Sind <var>x</var> und <var>y</var> konstante Ausdr&uuml;cke, wie zum Beispiel <code>10 * %pi</code>,
-verwendet <code>mod</code> dasselbe <code><a href="maxima_5.html#bfloat">bfloat</a></code>-Auswertungsschema wie <code>floor</code> 
-und <code>ceiling</code>. Diese Umwandlung kann, wenn auch unwahrscheinlich, 
-zu Fehlern f&uuml;hren.
-</p>
-
-<p>F&uuml;r nicht numerische Argumente <var>x</var> oder <var>y</var> kennt <code>mod</code>
-verschiedene Vereinfachungen.
-</p>
-<p>Siehe auch die Funktionen <code><a href="#power_005fmod">power_mod</a></code> und <code><a href="#inv_005fmod">inv_mod</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<p>Zeige f&uuml;r zwei gro&szlig;e ganze Zahlen, dass f&uuml;r das modulare Rechnen die 
-Regel <code>mod(a+b, m) = mod(mod(a, m) + mod(b, m), m)</code> gilt.
-</p>
-<pre class="example">(%i1) a : random(10^20) + 10^19;
-(%o1)                 72588919020045581148
-(%i2) b : random(10^20) + 10^19;
-(%o2)                 35463666253140008825
-(%i3) m : random(10^20) + 10^19;
-(%o3)                 39127433614020247557
-(%i4) mod(a+b, m);
-(%o4)                 29797718045145094859
-(%i5) mod(mod(a, m) + mod(b, m), m);
-(%o5)                 29797718045145094859
-</pre>
-<p>Vereinfachung f&uuml;r nicht numerische Argumente.
-</p>
-<pre class="example">(%i1) mod (x, 0);
-(%o1)                           x
-(%i2) mod (a*x, a*y);
-(%o2)                      a mod(x, y)
-(%i3) mod (0, x);
-(%o3)                           0
-</pre></dd></dl>
-
-<p><a name="next_005fprime"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>next_prime</b><i> (<var>n</var>)</i>
-<a name="IDX1204"></a>
-</dt>
-<dd>
-<p>Gibt die kleinste Primzahl zur&uuml;ck, die der Zahl <var>n</var> folgt.
-</p>
-<pre class="example">(%i1) next_prime(27);
-(%o1)                       29
-</pre></dd></dl>
-
-<p><a name="power_005fmod"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>power_mod</b><i> (<var>a</var>, <var>n</var>, <var>m</var>)</i>
-<a name="IDX1205"></a>
-</dt>
-<dd><p>Verwendet einen modularen Algorithmus, um <code>a^n mod m</code> zu berechnen. 
-Die Argumente <var>a</var> und <var>n</var> m&uuml;ssen ganze Zahlen und der Modul <var>m</var> 
-eine positive ganze Zahl sein.  Ist <var>n</var> negativ, wird <code><a href="#inv_005fmod">inv_mod</a></code> zur 
-Berechnung des modularen Inversen aufgerufen.
-</p>
-<p><code>power_mod (<var>a</var>, <var>n</var>, <var>m</var>)</code> ist &auml;quivalent zu 
-<code>mod(a^n, m)</code>.  Der Algorithmus von <code>power_mod</code> ist jedoch 
-insbesondere f&uuml;r gro&szlig;e ganze Zahlen wesentlich effizienter.
-</p>
-<p>Siehe auch die Funktionen <code><a href="#inv_005fmod">inv_mod</a></code> und <code><a href="#mod">mod</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<p><code>power_mod(a, n, m)</code> ist &auml;quivalent zu <code>mod(a^n, m</code>.  Das modulare
-Inverse wird mit der Funktion <code>inv_mod</code> berechnet.
-</p>
-<pre class="example">(%i1) power_mod(3, 15, 5);
-(%o1)                          2
-(%i2) mod(3^15, 5);
-(%o2)                          2
-(%i3) power_mod(2, -1, 5);
-(%o3)                          3
-(%i4) inv_mod(2, 5);
-(%o4)                          3
-</pre>
-<p>F&uuml;r gro&szlig;e ganze Zahlen ist <code>power_mod</code> effizienter.  Der folgende 
-Wert kann in keiner vern&uuml;nftigen Zeit mit <code>mod(a^n, m)</code> berechnet
-werden.
-</p>
-<pre class="example">(%i1) power_mod(123456789, 123456789, 987654321);
-(%o1)                       598987215
-</pre></dd></dl>
-
-<p><a name="primep"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>primep</b><i> (<var>n</var>)</i>
-<a name="IDX1206"></a>
-</dt>
-<dd><p>F&uuml;hrt einen Primzahltest f&uuml;r das Argument <var>n</var> durch.  Liefert
-<code>primep</code> das Ergebnis <code>false</code>, ist <var>n</var> keine Primzahl.  Ist das
-Ergebnis <code>true</code>, ist <var>n</var> mit sehr gro&szlig;er Wahrscheinlichkeit eine 
-Primzahl.
-</p>
-<p>F&uuml;r ganze Zahlen <var>n</var> kleiner als 341550071728321 wird eine deterministische
-Variante des Miller-Rabin-Tests angewandt.  Hat in diesem Fall <code>primep</code> den Wert
-<code>true</code>, dann ist <var>n</var> mit Sicherheit eine Primzahl.
-</p>
-<p>F&uuml;r ganze Zahlen <var>n</var> gr&ouml;&szlig;er 341550071728321 f&uuml;hrt <code>primep</code>
-<code><a href="#primep_005fnumber_005fof_005ftests">primep_number_of_tests</a></code> Pseudo-Primzahl-Tests nach Miller-Rabin und 
-einen Pseudo-Primzahl-Test nach Lucas durch.  Die Wahrscheinlichkeit, dass 
-eine zusammen gesetzte Zahl <var>n</var> einen Miller-Rabin-Test besteht, ist kleiner
-als 1/4.  Mit dem Standardwert 25 <code>primpe_number_of_tests</code> sinkt diese 
-Wahrscheinlichkeit damit unter einen Wert von 10^-15.
-</p></dd></dl>
-
-<p><a name="primep_005fnumber_005fof_005ftests"></a>
-</p><dl>
-<dt><u>Optionsvariable:</u> <b>primep_number_of_tests</b>
-<a name="IDX1207"></a>
-</dt>
-<dd><p>Standardwert: 25
-</p>
-
-<p>Die Anzahl der Pseudo-Primzahl-Tests nach Miller-Rabin in der Funktion 
-<code><a href="#primep">primep</a></code>.
-</p></dd></dl>
-
-<p><a name="prev_005fprime"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>prev_prime</b><i> (<var>n</var>)</i>
-<a name="IDX1208"></a>
-</dt>
-<dd>
-<p>Gibt die gr&ouml;&szlig;te Primzahl zur&uuml;ck, die kleiner als die Zahl <var>n</var> ist.
-</p>
-<pre class="example">(%i1) prev_prime(27);
-(%o1)                       23
-</pre></dd></dl>
-
-<p><a name="qunit"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>qunit</b><i> (<var>n</var>)</i>
-<a name="IDX1209"></a>
-</dt>
-<dd>
-<p>Findet f&uuml;r das Argument <var>n</var> L&ouml;sungen der Pellschen Gleichung 
-<code>a^2 - <var>n</var> b^2 = 1</code>.
-</p>
-<pre class="example">(%i1) qunit (17);
-(%o1)                     sqrt(17) + 4
-(%i2) expand (% * (sqrt(17) - 4));
-(%o2)                           1
-</pre></dd></dl>
-
-<p><a name="totient"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>totient</b><i> (<var>n</var>)</i>
-<a name="IDX1210"></a>
-</dt>
-<dd><p>Gibt die Anzahl der ganzen Zahlen zur&uuml;ck, die kleiner oder gleich <var>n</var>
-und teilerfremd zu <var>n</var> sind.
-</p></dd></dl>
-
-<p><a name="zerobern"></a>
-</p><dl>
-<dt><u>Optionsvariable:</u> <b>zerobern</b>
-<a name="IDX1211"></a>
-</dt>
-<dd><p>Standardwert: <code>true</code>
-</p>
-
-<p>Hat <code>zerobern</code> den Wert <code>false</code>, werden von den Funktionen <code>bern</code>
-diejenigen Bernoulli-Zahlen und von <code>euler</code> diejenigen Euler-Zahlen 
-ausgeschlossen, die gleich Null sind.  Siehe <code><a href="#bern">bern</a></code> und <code><a href="#euler">euler</a></code>.
-</p></dd></dl>
-
-<p><a name="zeta"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>zeta</b><i> (<var>n</var>)</i>
-<a name="IDX1212"></a>
-</dt>
-<dd>
-<p>Die Riemannsche Zeta-Funktion f&uuml;r <var>s</var>, die wie folgt definiert ist:
-</p>
-<pre class="example">                 inf
-                 ====
-                 \     1
-     zeta(s) =    &gt;    --
-                 /      s
-                 ====  k
-                 k = 1
-</pre>
-<p>F&uuml;r negative ganze Zahlen <var>n</var>, Null und positive gerade ganze Zahlen 
-wird <code>zeta</code> zu einem exakten Ergebnis vereinfacht.  
-Damit diese Vereinfachung f&uuml;r positive ganze Zahlen ausgef&uuml;hrt wird, 
-muss die Optionsvariable <code>zeta%pi</code> den Wert <code>true</code> haben.  
-Siehe <code><a href="#zeta_0025pi">zeta%pi</a></code>. F&uuml;r einfache und beliebig genaue Gleitkommazahlen 
-(Typ <code>bfloat</code>) hat <code>zeta</code> ein numerisches Ergebnis.  
-F&uuml;r alle anderen Argumente einschlie&szlig;lich der komplexen und 
-rationalen Zahlen gibt <code>zeta</code> eine Substantivform zur&uuml;ck.  Hat die 
-Optionsvariable <code>zeta%pi</code> den Wert <code>false</code>, gibt <code>zeta</code> auch 
-f&uuml;r gerade ganze Zahlen eine Substantivform zur&uuml;ck.
-</p>
-
-<p><code>zeta(1)</code> ist nicht definiert.  Maxima kennt jedoch die einseitigen
-Grenzwerte <code>limit(zeta(x), x, 1, plus</code> und 
-<code>limit(zeta(x), x, 1, minus</code>.
-</p>
-
-<p>Die Riemannsche Zeta-Funktion wird auf die Argumente von Listen, Matrizen und 
-Gleichungen angewendet, wenn die Optionsvariable <code>distribute_over</code>
-den Wert <code>true</code> hat.
-</p>
-
-<p>Siehe auch <code><a href="#bfzeta">bfzeta</a></code> und <code><a href="#zeta_0025pi">zeta%pi</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<pre class="example">(%i1) zeta([-2,-1,0,0.5,2,3,1+%i]);
-                                             2
-            1     1                       %pi
-(%o1) [0, - --, - -, - 1.460354508809586, ----, zeta(3), 
-            12    2                        6
-                                                    zeta(%i + 1)]
-(%i2) limit(zeta(x),x,1,plus);
-(%o2)                          inf
-(%i3) limit(zeta(x),x,1,minus);
-(%o3)                         minf
-</pre></dd></dl>
-
-<p><a name="zeta_0025pi"></a>
-</p><dl>
-<dt><u>Optionsvariable:</u> <b>zeta%pi</b>
-<a name="IDX1213"></a>
-</dt>
-<dd><p>Standardwert: <code>true</code>
-</p>
-
-<p>Hat <code>zeta%pi</code> den Wert <code>true</code>, vereinfacht die Funktion <code>zeta(n)</code>
-f&uuml;r gerade ganzen Zahlen <var>n</var> zu einem Ergebnis, das proportional zu 
-<code>%pi^n</code> ist.  Ansonsten ist das Ergebnis von <code>zeta</code> eine 
-Substantivform f&uuml;r gerade ganze Zahlen.
-</p>
-<p>Beispiele:
-</p>
-<pre class="example">(%i1) zeta%pi: true$
-(%i2) zeta (4);
-                                 4
-                              %pi
-(%o2)                         ----
-                               90
-(%i3) zeta%pi: false$
-(%i4) zeta (4);
-(%o4)                        zeta(4)
-</pre></dd></dl>
-
-<p><a name="zn_005fadd_005ftable"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>zn_add_table</b><i> (<var>n</var>) </i>
-<a name="IDX1214"></a>
-</dt>
-<dd><p>zeigt eine Additionstabelle von allen Elementen in (Z/<var>n</var>Z).
-</p>
-<p>Siehe auch <code><a href="#zn_005fmult_005ftable">zn_mult_table</a></code>, <code><a href="#zn_005fpower_005ftable">zn_power_table</a></code>.
-</p></dd></dl>
-
-<p><a name="zn_005fdeterminant"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>zn_determinant</b><i> (<var>matrix</var>, <var>p</var>) </i>
-<a name="IDX1215"></a>
-</dt>
-<dd><p>verwendet die Technik der LR-Dekomposition, um die Determinante der 
-Matrix <var>matrix</var> &uuml;ber (Z/<var>p</var>Z) zu berechnen, wobei <var>p</var> 
-eine Primzahl sein muss. 
-</p>
-<p>Ist die Determinante nicht von Null verschieden, kann es sein, dass die 
-LR-Dekomposition nicht m&ouml;glich ist. <code>zn_determinant</code> berechnet 
-diesem Fall die Determinante nicht-modular und reduziert im Nachhinein.
-</p>
-<p>Siehe auch <code><a href="#zn_005finvert_005fby_005flu">zn_invert_by_lu</a></code>.
 </p>
 <p>Beispiel:
 </p>
-<pre class="example">(%i1) m : matrix([1,3],[2,4]);
-                                [ 1  3 ]
-(%o1)                           [      ]
-                                [ 2  4 ]
-(%i2) zn_determinant(m, 5);
-(%o2)                               3
-(%i3) m : matrix([2,4,1],[3,1,4],[4,3,2]);
-                               [ 2  4  1 ]
-                               [         ]
-(%o3)                          [ 3  1  4 ]
-                               [         ]
-                               [ 4  3  2 ]
-(%i4) zn_determinant(m, 5);
-(%o4)                               0
-</pre></dd></dl>
-
-<p><a name="zn_005finvert_005fby_005flu"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>zn_invert_by_lu</b><i> (<var>matrix</var>, <var>p</var>) </i>
-<a name="IDX1216"></a>
-</dt>
-<dd><p>verwendet die Technik der LR-Dekomposition, um ein modulares Inverses der 
-Matrix <var>matrix</var> &uuml;ber (Z/<var>p</var>Z) zu berechnen. Voraussetzung ist, 
-dass <var>matrix</var> invertierbar und <var>p</var> eine Primzahl ist. 
-Sollte <var>matrix</var> nicht invertierbar sein, gibt <code>zn_invert_by_lu</code> 
-<code>false</code> zurc"k.
-</p>
-<p>Siehe auch <code><a href="#zn_005fdeterminant">zn_determinant</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<pre class="example">(%i1) m : matrix([1,3],[2,4]);
-                                [ 1  3 ]
-(%o1)                           [      ]
-                                [ 2  4 ]
-(%i2) zn_determinant(m, 5);
-(%o2)                               3
-(%i3) mi : zn_invert_by_lu(m, 5);
-                                [ 3  4 ]
-(%o3)                           [      ]
-                                [ 1  2 ]
-(%i4) matrixmap(lambda([a], mod(a, 5)), m . mi);
-                                [ 1  0 ]
-(%o4)                           [      ]
-                                [ 0  1 ]
-</pre></dd></dl>
-
-<p><a name="zn_005flog"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>zn_log</b><i> (<var>a</var>, <var>g</var>, <var>n</var>) </i>
-<a name="IDX1217"></a>
-</dt>
-<dt><u>Funktion:</u> <b>zn_log</b><i> (<var>a</var>, <var>g</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
-<a name="IDX1218"></a>
-</dt>
-<dd><p>Berechnet den diskreten Logarithmus.  Sei (Z/<var>n</var>Z)* eine zyklische Gruppe, 
-<var>g</var> eine Primitivwurzel modulo <var>n</var> und <var>a</var> ein Element dieser Gruppe.
-Dann berechnet <code>zn_log (a, g, n)</code> eine L&ouml;sung der Kongruenz 
-<code>g^x = a mod n</code>.
-</p>
-<p>Der verwendete Algorithmus ben&ouml;tigt die Primfaktorzerlegung des Totienten von <var>n</var>. 
-Da diese Berechnung ebenfalls zeitaufw&auml;ndig ist, kann es eventuell sinnvoll 
-sein, die Primfaktoren des Totienten vorab zu berechnen und <code>zn_log</code> als 
-viertes Argument zu &uuml;bergeben. Die Form muss dabei der R&uuml;ckgabe von 
-<code>ifactors(totient(n))</code> mit der Standardeinstellung <code>false</code> der 
-Optionsvariable <code>factors_only</code> entsprechen. 
-</p>
-<p>Als Algorithmus wird die Pohlig-Hellman-Reduktion und das Rho-Verfahren von 
-Pollard f&uuml;r den diskreten Logarithmus verwendet. Die Laufzeit von <code>zn_log</code> 
-h&auml;ngt im Wesentlichen von der Bitl&auml;nge des gr&ouml;&szlig;ten Primfaktors des 
-Totienten von <var>n</var> ab. 
-</p>
-<p>Siehe auch <code><a href="#zn_005fprimroot">zn_primroot</a></code>, <code><a href="#zn_005forder">zn_order</a></code>, <code><a href="#ifactors">ifactors</a></code>, <code><a href="#totient">totient</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<p><code>zn_log (a, g, n)</code> findet eine L&ouml;sung der Kongruenz <code>g^x = a mod n</code>.
-</p>
-<pre class="example">(%i1) n : 22$
-(%i2) g : zn_primroot(n);
-(%o2)                               7
-(%i3) ord_7 : zn_order(7, n);
-(%o3)                              10
-(%i4) powers_7 : makelist(power_mod(g, x, n), x, 0, ord_7 - 1);
-(%o4)              [1, 7, 5, 13, 3, 21, 15, 17, 9, 19]
-(%i5) zn_log(21, g, n);
-(%o5)                               5
-(%i6) map(lambda([x], zn_log(x, g, n)), powers_7);
-(%o6)                [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-</pre>
-<p>Das optionale vierte Argument muss der R&uuml;ckgabe von <code>ifactors(totient(n))</code> 
-entsprechen. 
-Die Laufzeit h&auml;ngt im Wesentlichen von der Bitl&auml;nge des gr&ouml;&szlig;ten
-Primfaktors des Totienten ab.
-</p>
-<pre class="example">(%i1) (p : 2^127-1, primep(p));
-(%o1)                             true
-(%i2) ifs : ifactors(p - 1)$
-(%i3) g : zn_primroot(p, ifs);
-(%o3)                              43
-(%i4) a : power_mod(g, 1234567890, p)$
-(%i5) zn_log(a, g, p, ifs);
-(%o5)                          1234567890
-(%i6) time(%o5);  
-(%o6)                            [1.204]
-(%i7) f_max : last(ifs);
-(%o7)                       [77158673929, 1]
-(%i8) slength( printf(false, &quot;~b&quot;, f_max[1]) );
-(%o8)                              37
-</pre></dd></dl>
-
-<p><a name="zn_005fmult_005ftable"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>zn_mult_table</b><i> (<var>n</var>) </i>
-<a name="IDX1219"></a>
-</dt>
-<dt><u>Funktion:</u> <b>zn_mult_table</b><i> (<var>n</var>, all)</i>
-<a name="IDX1220"></a>
-</dt>
-<dd><p>Ohne das optionale Argument <var>all</var> zeigt <code>zn_mult_table(n)</code> 
-eine Multiplikationstabelle von allen Elementen in (Z/<var>n</var>Z)*, 
-d.h. von allen modulo <var>n</var> invertierbaren Elementen.
-</p>
-<p>Das optionale Argument <var>all</var> bewirkt, dass die Tabelle f&uuml;r alle von Null 
-verschiedenen Elemente gezeigt wird.
-</p>
-<p>Siehe auch <code><a href="#zn_005fadd_005ftable">zn_add_table</a></code>, <code><a href="#zn_005fpower_005ftable">zn_power_table</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<pre class="example">(%i1) zn_mult_table(4);
-                                [ 1  3 ]
-(%o1)                           [      ]
-                                [ 3  1 ]
-(%i2) zn_mult_table(4, all);
-                               [ 1  2  3 ]
-                               [         ]
-(%o2)                          [ 2  0  2 ]
-                               [         ]
-                               [ 3  2  1 ]
-</pre></dd></dl>
-
-<p><a name="zn_005forder"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>zn_order</b><i> (<var>x</var>, <var>n</var>) </i>
-<a name="IDX1221"></a>
-</dt>
-<dt><u>Funktion:</u> <b>zn_order</b><i> (<var>x</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
-<a name="IDX1222"></a>
-</dt>
-<dd><p>Ist <var>x</var> eine Einheit in der endlichen Gruppe (Z/<var>n</var>Z)*, so berechnet 
-<code>zn_order</code> die Ordnung dieses Elements.  Andernfalls gibt <code>zn_order</code> 
-<code>false</code> zur&uuml;ck.  <var>x</var> ist eine Einheit modulo <var>n</var>, falls <var>x</var> 
-teilerfremd zu <var>n</var> ist.
-</p>
-<p>Der verwendete Algorithmus ben&ouml;tigt die Primfaktorzerlegung des Totienten von <var>n</var>. 
-Da diese Berechnung manchmal recht zeitaufw&auml;ndig ist, kann es eventuell sinnvoll 
-sein, die Primfaktoren des Totienten vorab zu berechnen und <code>zn_order</code> als 
-drittes Argument zu &uuml;bergeben. Die Form muss dabei der R&uuml;ckgabe von 
-<code>ifactors(totient(n))</code> mit der Standardeinstellung <code>false</code> der 
-Optionsvariable <code>factors_only</code> entsprechen. 
-</p>
-<p>Siehe auch <code><a href="#zn_005fprimroot">zn_primroot</a></code>, <code><a href="#ifactors">ifactors</a></code>, <code><a href="#totient">totient</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<p><code>zn_order</code> berechnet die Ordnung einer Einheit <var>x</var> aus (Z/<var>n</var>Z)*.
-</p>
-<pre class="example">(%i1) n : 22$
-(%i2) g : zn_primroot(n);
-(%o2)                               7
-(%i3) units_22 : sublist(makelist(i,i,1,21), lambda([x], gcd(x, n) = 1));
-(%o3)              [1, 3, 5, 7, 9, 13, 15, 17, 19, 21]
-(%i4) (ord_7 : zn_order(7, n)) = totient(n);
-(%o4)                            10 = 10
-(%i5) powers_7 : makelist(power_mod(g,i,n), i,0,ord_7 - 1);
-(%o5)              [1, 7, 5, 13, 3, 21, 15, 17, 9, 19]
-(%i6) map(lambda([x], zn_order(x, n)), powers_7);
-(%o6)              [1, 10, 5, 10, 5, 2, 5, 10, 5, 10]
-(%i7) map(lambda([x], ord_7/gcd(x, ord_7)), makelist(i, i,0,ord_7 - 1));
-(%o7)              [1, 10, 5, 10, 5, 2, 5, 10, 5, 10]
-(%i8) totient(totient(n));
-(%o8)                               4
-</pre>
-<p>Das optionale dritte Argument muss der R&uuml;ckgabe von <code>ifactors(totient(n))</code> 
-entsprechen. 
-</p>
-<pre class="example">(%i1) (p : 2^142 + 217, primep(p));
-(%o1)                             true
-(%i2) ifs : ifactors( totient(p) )$
-(%i3) g : zn_primroot(p, ifs);
-(%o3)                               3
-(%i4) is( (ord_3 : zn_order(g, p, ifs)) = totient(p) );
-(%o4)                             true
-(%i5) map(lambda([x], ord_3/zn_order(x, p, ifs)), makelist(i,i,2,15));
-(%o5)        [22, 1, 44, 10, 5, 2, 22, 2, 8, 2, 1, 1, 20, 1]
-</pre></dd></dl>
-
-<p><a name="zn_005fpower_005ftable"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>zn_power_table</b><i> (<var>n</var>) </i>
-<a name="IDX1223"></a>
-</dt>
-<dt><u>Funktion:</u> <b>zn_power_table</b><i> (<var>n</var>, all)</i>
-<a name="IDX1224"></a>
-</dt>
-<dd><p>Ohne das optionale Argument <var>all</var> zeigt <code>zn_power_table(n)</code> 
-eine Potenzierungstabelle von allen Elementen in (Z/<var>n</var>Z)*, 
-d.h. von allen modulo <var>n</var> invertierbaren Elementen. 
-Der Exponent variiert dabei jeweils zwischen <code>1</code> und 
-dem gr&ouml;&szlig;ten charakteristischen Faktor des Totienten von <var>n</var>, 
-so dass die Tabelle rechts mit einer Spalte von Einsen endet.
-</p>
-<p>Das optionale Argument <var>all</var> bewirkt, dass die Tabelle f&uuml;r alle von Null 
-verschiedenen Elemente gezeigt wird. In diesem Fall 
-variiert der Exponent zwischen <code>1</code> und <code>totient(n) + 1</code>. 
-Ist der Modulus aus voneinander verschiedenen Primzahlen zusammen gesetzt, stimmen dann 
-die erste und letzte Spalte &uuml;berein.
-</p>
-<p>Siehe auch <code><a href="#zn_005fadd_005ftable">zn_add_table</a></code>, <code><a href="#zn_005fmult_005ftable">zn_mult_table</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<pre class="example">(%i1) zn_power_table(6);
-                                [ 1  1 ]
-(%o1)                           [      ]
-                                [ 5  1 ]
-(%i2) zn_power_table(6, all);
-                               [ 1  1  1 ]
-                               [         ]
-                               [ 2  4  2 ]
-                               [         ]
-(%o2)                          [ 3  3  3 ]
-                               [         ]
-                               [ 4  4  4 ]
-                               [         ]
-                               [ 5  1  5 ]
-</pre></dd></dl>
-
-<p><a name="zn_005fprimroot"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>zn_primroot</b><i> (<var>n</var>) </i>
-<a name="IDX1225"></a>
-</dt>
-<dt><u>Funktion:</u> <b>zn_primroot</b><i> (<var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
-<a name="IDX1226"></a>
-</dt>
-<dd><p>Ist die multiplikative Gruppe (Z/<var>n</var>Z)* zyklisch, berechnet <code>zn_primroot</code> 
-die kleinste Primitivwurzel modulo <var>n</var>.  Dies ist der Fall, wenn <var>n</var> gleich 
-<code>2</code>, <code>4</code>, <code>p^k</code> oder <code>2*p^k</code> ist, wobei <code>p</code> ungerade und 
-prim und <code>k</code> eine nat&uuml;rliche Zahl ist.  <code>zn_primroot</code> 
-f&uuml;hrt einen entsprechenden Pr&auml;test durch, wenn die Optionsvariable 
-<code><a href="#zn_005fprimroot_005fpretest">zn_primroot_pretest</a></code> (Standardwert: <code>false</code>) <code>true</code> gesetzt wurde.
-In jedem Fall wird die Suche durch die obere Schranke <code><a href="#zn_005fprimroot_005flimit">zn_primroot_limit</a></code> begrenzt.
-</p>
-<p>Ist (Z/<var>n</var>Z)* nicht zyklisch oder kann bis <code>zn_primroot_limit</code> 
-keine Primitivwurzel modulo <var>n</var> gefunden werden, gibt <code>zn_primroot</code> 
-<code>false</code> zur&uuml;ck. 
-</p>
-<p>Der verwendete Algorithmus ben&ouml;tigt die Primfaktorzerlegung des Totienten von <var>n</var>. 
-Diese Berechnung kann zeitaufw&auml;ndig sein und es kann daher eventuell sinnvoll 
-sein, die Primfaktoren des Totienten vorab zu berechnen und <code>zn_primroot</code> 
-als zus&auml;tzliches Argument zu &uuml;bergeben. Die Form muss dabei der R&uuml;ckgabe  
-von <code>ifactors(totient(n))</code> mit der Standardeinstellung <code>false</code> der 
-Optionsvariable <code>factors_only</code> entsprechen. 
-</p>
-<p>Siehe auch <code><a href="#zn_005fprimroot_005fp">zn_primroot_p</a></code>, <code><a href="#zn_005forder">zn_order</a></code>, <code><a href="#ifactors">ifactors</a></code>, <code><a href="#totient">totient</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<p><code>zn_primroot</code> berechnet die kleinste Primitivwurzel modulo <var>n</var> oder gibt 
-<code>false</code> zur&uuml;ck.
-</p>
-<pre class="example">(%i1) n : 14$
-(%i2) g : zn_primroot(n);
-(%o2)                               3
-(%i3) zn_order(g, n) = totient(n);
-(%o3)                             6 = 6
-(%i4) n : 15$
-(%i5) zn_primroot(n);
-(%o5)                             false
-</pre>
-<p>Das optionale zweite Argument muss der R&uuml;ckgabe von <code>ifactors(totient(n))</code> 
-entsprechen. 
-</p>
-<pre class="example">(%i1) (p : 2^142 + 217, primep(p));
-(%o1)                             true
-(%i2) ifs : ifactors( totient(p) )$
-(%i3) g : zn_primroot(p, ifs);
-(%o3)                               3
-(%i4) [time(%o2), time(%o3)];
-(%o4)                    [[15.556972], [0.004]]
-(%i5) is(zn_order(g, p, ifs) = p - 1);
-(%o5)                             true
-(%i6) n : 2^142 + 216$
-(%i7) ifs : ifactors(totient(n))$
-(%i8) zn_primroot(n, ifs), 
-      zn_primroot_limit : 200, zn_primroot_verbose : true;
-`zn_primroot' stopped at zn_primroot_limit = 200
-(%o8)                             false
-</pre></dd></dl>
-
-<p><a name="zn_005fprimroot_005flimit"></a>
-</p><dl>
-<dt><u>Optionsvariable:</u> <b>zn_primroot_limit</b>
-<a name="IDX1227"></a>
-</dt>
-<dd><p>Standardwert: <code>1000</code> 
-</p>
-<p>Definiert die obere Schranke f&uuml;r die Suche von <code><a href="#zn_005fprimroot">zn_primroot</a></code> nach einer 
-Primitivwurzel.  Wurde die Optionsvariable <code><a href="#zn_005fprimroot_005fverbose">zn_primroot_verbose</a></code>
-(Standardwert: <code>false</code>) <code>true</code> gesetzt, wird beim Erreichen von 
-<code>zn_primroot_limit</code> ein entsprechender Hinweis ausgegeben.
-</p></dd></dl>
-
-<p><a name="zn_005fprimroot_005fp"></a>
-</p><dl>
-<dt><u>Funktion:</u> <b>zn_primroot_p</b><i> (<var>x</var>, <var>n</var>) </i>
-<a name="IDX1228"></a>
-</dt>
-<dt><u>Funktion:</u> <b>zn_primroot_p</b><i> (<var>x</var>, <var>n</var>, [[<var>p1</var>, <var>e1</var>], &hellip;, [<var>pk</var>, <var>ek</var>]])</i>
-<a name="IDX1229"></a>
-</dt>
-<dd><p>Testet, ob <var>x</var> eine Primitivwurzel in der multiplikativen Gruppe (Z/<var>n</var>Z)* 
-ist. 
-</p>
-<p>Der verwendete Algorithmus ben&ouml;tigt die Primfaktorzerlegung des Totienten von  
-<var>n</var>.  Wird dieser Test nacheinander auf mehrere Zahlen angewandt, 
-kann es sinnvoll sein, die Primfaktoren des Totienten vorab zu berechnen 
-und <code>zn_primroot_p</code> als zus&auml;tzliches drittes Argument zu &uuml;bergeben. 
-Die Form muss dabei der R&uuml;ckgabe von <code>ifactors(totient(n))</code> mit der 
-Standardeinstellung <code>false</code> der Optionsvariable <code>factors_only</code> 
-entsprechen. 
-</p>
-<p>Siehe auch <code><a href="#zn_005fprimroot">zn_primroot</a></code>, <code><a href="#zn_005forder">zn_order</a></code>, <code><a href="#ifactors">ifactors</a></code>, <code><a href="#totient">totient</a></code>.
-</p>
-<p>Beispiele:
-</p>
-<p><code>zn_primroot_p</code> als Pr&auml;dikatfunktion.
-</p>
-<pre class="example">(%i1) n : 14$
-(%i2) units_14 : sublist(makelist(i,i,1,13), lambda([i], gcd(i, n) = 1));
-(%o2)                     [1, 3, 5, 9, 11, 13]
-(%i3) zn_primroot_p(13, n);
-(%o3)                            false
-(%i4) sublist(units_14, lambda([x], zn_primroot_p(x, n)));
-(%o4)                            [3, 5]
-(%i5) map(lambda([x], zn_order(x, n)), units_14);
-(%o5)                      [1, 6, 6, 3, 3, 2]
-</pre>
-<p>Das optionale dritte Argument muss der R&uuml;ckgabe von <code>ifactors(totient(n))</code> 
-entsprechen. 
-</p>
-<pre class="example">(%i1) (p : 2^142 + 217, primep(p));
-(%o1)                             true
-(%i2) ifs : ifactors( totient(p) )$
-(%i3) sublist(makelist(i,i,1,50), lambda([x], zn_primroot_p(x, p, ifs)));
-(%o3)      [3, 12, 13, 15, 21, 24, 26, 27, 29, 33, 38, 42, 48]
-(%i4) [time(%o2), time(%o3)];
-(%o4)                   [[7.748484], [0.036002]]
-</pre></dd></dl>
-
-<p><a name="zn_005fprimroot_005fpretest"></a>
-</p><dl>
-<dt><u>Optionsvariable:</u> <b>zn_primroot_pretest</b>
-<a name="IDX1230"></a>
-</dt>
-<dd><p>Standardwert: <code>false</code> 
-</p>
-<p>Eine multiplikative Gruppe (Z/<code>n</code>Z)* ist zyklisch, wenn <code>n</code> gleich 
-<code>2</code>, <code>4</code>, <code>p^k</code> oder <code>2*p^k</code> ist, wobei <code>p</code> prim und 
-gr&ouml;&szlig;er <code>2</code> und <code>k</code> eine nat&uuml;rliche Zahl ist. 
-</p>
-<p><code>zn_primroot_pretest</code> entscheidet dar&uuml;ber, ob <code><a href="#zn_005fprimroot">zn_primroot</a></code> vor 
-der Berechnung der kleinsten Primitivwurzel in (Z/<code>n</code>Z)* &uuml;berpr&uuml;ft, 
-ob auf <code>n</code> &uuml;berhaupt einer der oben genannten F&auml;lle zutrifft.  Nur wenn  
-<code>zn_primroot_pretest</code> <code>true</code> ist, wird dieser Pr&auml;test ausgef&uuml;hrt.
-</p></dd></dl>
-
-<p><a name="zn_005fprimroot_005fverbose"></a>
-</p><dl>
-<dt><u>Optionsvariable:</u> <b>zn_primroot_verbose</b>
-<a name="IDX1231"></a>
-</dt>
-<dd><p>Standardwert: <code>false</code> 
-</p>
-<p>Entscheidet, ob <code><a href="#zn_005fprimroot">zn_primroot</a></code> beim Erreichen von <code><a href="#zn_005fprimroot_005flimit">zn_primroot_limit</a></code>
-einen Hinweis ausgibt.
-</p></dd></dl>
+<div class="example">
+<pre class="example">(%i1) unique ([1, %pi, a + b, 2, 1, %e, %pi, a + b, [1]]);
+(%o1)              [1, 2, %e, %pi, [1], b + a]
+</pre></div>
+</dd></dl>
 
 
 
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC160" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_22.html#SEC162" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_79.html#SEC409" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Item_003a-Arrays_002ede_002fnode_002fArrays"></a><hr>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Oktober, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Previous: <a href="maxima_20.html#Einf_00fchrung-in-Listen" accesskey="p" rel="previous">Einf&uuml;hrung in Listen</a>, Nach oben: <a href="maxima_19.html#Listen" accesskey="u" rel="up">Listen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
 
-</p>
+
+
 </body>
 </html>

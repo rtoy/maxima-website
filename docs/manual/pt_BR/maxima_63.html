@@ -1,399 +1,613 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Outubro, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual do Maxima: 63. numericalio</title>
+<title>Manual do Maxima: Funções e Variáveis Definidas para Integração</title>
 
-<meta name="description" content="Manual do Maxima: 63. numericalio">
-<meta name="keywords" content="Manual do Maxima: 63. numericalio">
+<meta name="description" content="Manual do Maxima: Funções e Variáveis Definidas para Integração">
+<meta name="keywords" content="Manual do Maxima: Funções e Variáveis Definidas para Integração">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_61.html#Integra_00e7_00e3o" rel="up" title="Integração">
+<link href="maxima_64.html#Introdu_00e7_00e3o-a-QUADPACK" rel="next" title="Introdução a QUADPACK">
+<link href="maxima_62.html#Introdu_00e7_00e3o-a-Integra_00e7_00e3o" rel="previous" title="Introdução a Integração">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="numericalio"></a>
-<a name="SEC236"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_62.html#SEC235" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC237" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_62.html#SEC234" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC239" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 63. numericalio </h1>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC237">63.1 Introdu&ccedil;&atilde;o a numericalio</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC238">63.2 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para numericalio</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Introdu_00e7_00e3o-a-numericalio"></a>
-<a name="SEC237"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC236" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC238" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC236" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC239" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 63.1 Introdu&ccedil;&atilde;o a numericalio </h2>
-
-<p><code>numericalio</code> &eacute; uma cole&ccedil;&atilde;o de fun&ccedil;&otilde;es para ler e escrever arquivos de dados.
-O arquivo &eacute; lido completamente para construir um objeto;
-leituras parciais n&atilde;o s&atilde;o suportadas.
-</p>
-<p>&Eacute; assumido que cada item a ler ou escrever &eacute; at&ocirc;mico:
-um n&uacute;mero inteiro, n&uacute;mero em ponto flutuante, grande n&uacute;mero em ponto flutuante, seq&uuml;&ecirc;ncia de caracteres, ou s&iacute;mbolo,
-e n&atilde;o um n&uacute;mero racional ou um n&uacute;mero complexo ou qualquer outro tipo de express&atilde;o n&atilde;o at&ocirc;mica.
-Essas fun&ccedil;&otilde;es podem tentar fazer alguma coisa levemente parecida com express&otilde;es n&atilde;o at&ocirc;micas,
-mas os resultados n&atilde;o s&atilde;o especificados aqui e s&atilde;o sujeitos a mudan&ccedil;as.
-</p>
-<p>&Aacute;tomos em ambos os arquivos de entrada e sa&iacute;da possuem o mesmo formato que
-em arquivos de lote do Maxima ou no console interativo.
-Em particular, seq&uuml;&ecirc;ncia de caracteres s&atilde;o contidas dentro de aspas duplas,
-contrabarra <code>\</code> evita qualquer interpreta&ccedil;&atilde;o especial do caractere seguinte,
-e o ponto de interroga&ccedil;&atilde;o <code>?</code> &eacute; reconhecido no in&iacute;cio de um s&iacute;mbolo
-para significar um s&iacute;mbolo do Lisp (em oposi&ccedil;&atilde;o a um s&iacute;mbolo do Maxima).
-Nenhum caractere de continua&ccedil;&atilde;o (para continuar linhas quebradas) &eacute; reconhecido.
-</p>
-<p><var>separator_flag</var> diz que caracteres separa elementos.
-<var>separator_flag</var> &eacute; um argumento opcional para todas as fun&ccedil;&otilde;es de leitura e escrita.
-</p>
-<p>Para entrada, os valores de <var>separator_flag</var> reconhecidos s&atilde;o:
-<code>comma</code> para valores separados por v&iacute;rgula,
-<code>pipe</code> para valores separados pelo caractere barra vertical <code>|</code>,
-<code>semicolon</code> para valores separados por ponto e v&iacute;rgula <code>;</code>, 
-e <code>space</code> para valores separados pelos caracteres de espa&ccedil;o e de tabula&ccedil;&atilde;o.
-Se o nome do arquivo a ser lido/escrito termina em <code>.csv</code> e <var>separator_flag</var> n&atilde;o for especificado,
-<code>comma</code> &eacute; assumido.
-Se o nome do arquivo termina em alguma outra coisa que n&atilde;o <code>.csv</code> e <code>separator_flag</code> n&atilde;o for especificado,
-<code>space</code> &eacute; assumido.
-</p>
-<p>Para sa&iacute;da, os mesmos quatro sinalizadores s&atilde;o reconhecidos como na entrada,
-e tamb&eacute;m <code>tab</code>, para valores separados pelo caractere de tabula&ccedil;ao.
-</p>
-<p>Em entrada, m&uacute;ltiplos espa&ccedil;os e multiplas tabula&ccedil;&otilde;es sucessivas contam como um separador simples.
-Todavia, m&uacute;ltiplas v&iacute;rgulas, barras verticais, ou ponto-e-v&iacute;rgulas s&atilde;o significativos.
-Sucessivas v&iacute;rgulas, barras verticais, ou ponto-e-v&iacute;rgulas (com ou sem intercala&ccedil;&atilde;o de espa&ccedil;os ou tabula&ccedil;&otilde;es)
-s&atilde;o considerados como tendo <code>false</code> entre os separadores.
-Por exemplo, <code>1234,,Foo</code> &eacute; tratado da mesma forma que <code>1234,false,Foo</code>.
-Em sa&iacute;das, os &aacute;tomos <code>false</code> s&atilde;o escritos como tais;
-uma lista <code>[1234, false, Foo]</code> &eacute; escrita <code>1234,false,Foo</code>,
-e n&atilde;o &eacute; tentado colapsar a sa&iacute;da para <code>1234,,Foo</code>.
-</p>
-<hr size="6">
-<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-numericalio"></a>
-<a name="SEC238"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC237" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC239" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC236" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC239" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 63.2 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para numericalio </h2>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_matrix</b><i> (<var>nomearquivo</var>)</i>
-<a name="IDX1934"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_matrix</b><i> (<var>nomearquivo</var>, <var>separator_flag</var>)</i>
-<a name="IDX1935"></a>
-</dt>
-<dd><p>L&ecirc; o arquivo <var>nomearquivo</var> e retorna seu conte&uacute;do completo como uma matriz.
-Se <var>separator_flag</var> n&atilde;o for especificado, o arquivo &eacute; assumido como delimitado por espa&ccedil;os em branco.
-</p>
-<p><code>read_matrix</code> infere o tamanho da matriz dos dados de entrada.
-Cada linha do arquivo inicia uma linha da matriz.
-Se algumas linhas possuirem diferentes comprimentos, <code>read_matrix</code> reclama.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_lisp_array</b><i> (<var>nomearquivo</var>, <var>A</var>)</i>
-<a name="IDX1936"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_lisp_array</b><i> (<var>nomearquivo</var>, <var>A</var>, <var>separator_flag</var>)</i>
-<a name="IDX1937"></a>
-</dt>
-<dd><p><code>read_lisp_array</code> exige que o array
-seja declarado atrav&eacute;s de <code>make_array</code> antes de chamar
-a fun&ccedil;&atilde;o de leitura. (Isso obviamente &eacute; necess&aacute;rio para inferir a dimens&atilde;o 
-do array, que pode ser um problema para arrays com m&uacute;ltiplas dimens&otilde;es.)
-</p>
-<p><code>read_lisp_array</code> n&atilde;o verifica para ver se o 
-arquivo de entrada est&aacute; de acordo com as dimens&atilde;oes do array; a entrada
-&eacute; lida como uma lista mon&oacute;tona, ent&atilde;o o array &eacute; preenchido usando <code>fillarray</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_maxima_array</b><i> (<var>nomearquivo</var>, <var>A</var>)</i>
-<a name="IDX1938"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_maxima_array</b><i> (<var>nomearquivo</var>, <var>A</var>, <var>separator_flag</var>)</i>
-<a name="IDX1939"></a>
-</dt>
-<dd><p><code>read_maxima_array</code> requer que o array
-seja declarado atrav&eacute;s de <code>array</code> antes de chamar
-a fun&ccedil;&atilde;o de leitura. (Isso obviamente &eacute; necess&aacute;rio para inferir a dimens&atilde;o 
-do array, que pode ser uma hassle para arrays com m&uacute;ltiplas dimens&otilde;es.)
-</p>
-<p><code>read_maxima_array</code> n&atilde;o verifica para ver se o 
-arquivo de entrada est&aacute; de acordo com as dimens&atilde;oes do array; a entrada
-&eacute; lida como uma lista mon&oacute;tona, ent&atilde;o o array &eacute; preenchido usando <code>fillarray</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_hashed_array</b><i> (<var>nomearquivo</var>, <var>A</var>)</i>
-<a name="IDX1940"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_hashed_array</b><i> (<var>nomearquivo</var>, <var>A</var>, <var>separator_flag</var>)</i>
-<a name="IDX1941"></a>
-</dt>
-<dd><p><code>read_hashed_array</code> trata o primeiro item sobre uma linha como uma
-chave hash, e associa o restante da linha (como uma lista) com a chava.
-Por exemplo,
-a linha <code>567 12 17 32 55</code> &eacute; equivalente a <code>A[567]: [12, 17, 32, 55]$</code>.
-Linhas n&atilde;o precisam ter o mesmo n&uacute;mero de elementos.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_nested_list</b><i> (<var>nomearquivo</var>)</i>
-<a name="IDX1942"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_nested_list</b><i> (<var>nomearquivo</var>, <var>separator_flag</var>)</i>
-<a name="IDX1943"></a>
-</dt>
-<dd><p><code>read_nested_list</code> retorna uma lista que tem uma sublista para cada
-linha de entrada. Linhas n&atilde;o precisam ter o mesmo n&uacute;mero de elementos.
-Linhas vazias <i>n&atilde;o</i> s&atilde;o ignoradas: uma linha vazia retorna uma sublista vazia.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_list</b><i> (<var>nomearquivo</var>)</i>
-<a name="IDX1944"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>read_list</b><i> (<var>nomearquivo</var>, <var>separator_flag</var>)</i>
-<a name="IDX1945"></a>
-</dt>
-<dd><p><code>read_list</code> l&ecirc; todas as entradas em uma lista mon&oacute;tona.
-<code>read_list</code> ignora o caractere de fim de linha.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>write_data</b><i> (<var>X</var>, <var>nomearquivo</var>)</i>
-<a name="IDX1946"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>write_data</b><i> (<var>object</var>, <var>nomearquivo</var>, <var>separator_flag</var>)</i>
-<a name="IDX1947"></a>
-</dt>
-<dd><p><code>write_data</code> escreve o objeto <var>X</var> no arquivo <var>nomearquivo</var>.
-</p>
-<p><code>write_data</code> escreve matrizes da forma usual,
-com uma linha por fileira.
-</p>
-<p><code>write_data</code> escreve arrays declarados do Lisp e do Maxima da
-forma usual, com um caractere de nova linha no final de todo peda&ccedil;o.
-Peda&ccedil;os dimensionais muito grandes s&atilde;o separados por meio de novas linhas adicionais.
-</p>
-<p><code>write_data</code> escreve arrays desordenados com uma chave seguida por
-a lista associada sobre cada linha.
-</p>
-<p><code>write_data</code> escreve a lista seguinte com cada sublista em uma linha.
-</p>
-<p><code>write_data</code> escreve uma lista mon&oacute;tona toda em uma linha.
-</p>
-<p>Se <code>write_data</code> anexa ao final ou abandona os excessos em seus arquivos de sa&iacute;da
-&eacute; governado atrav&eacute;s da vari&aacute;vel global <code>file_output_append</code>.
-</p>
-</dd></dl>
-
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC236" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_64.html#SEC239" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Integra_00e7_00e3o"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Outubro, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
-
+Pr&oacute;ximo: <a href="maxima_64.html#Introdu_00e7_00e3o-a-QUADPACK" accesskey="n" rel="next">Introdução a QUADPACK</a>, Previous: <a href="maxima_62.html#Introdu_00e7_00e3o-a-Integra_00e7_00e3o" accesskey="p" rel="previous">Introdução a Integração</a>, Acima: <a href="maxima_61.html#Integra_00e7_00e3o" accesskey="u" rel="up">Integração</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funcoes-e-Variaveis-Definidas-para-Integracao"></a>
+<h3 class="section">20.2 Funções e Variáveis Definidas para Integração</h3>
+<a name="Item_003a-Integration_002fdeffn_002fchangevar"></a><dl>
+<dt><a name="index-changevar"></a>Função: <strong>changevar</strong> <em>(<var>expr</var>, <var>f(x,y)</var>, <var>y</var>, <var>x</var>)</em></dt>
+<dd><p>Faz a mudança de variável dada por
+<code><var>f(x,y)</var> = 0</code> em todas as integrais que ocorrem em <var>expr</var> com integração em
+relação a <var>x</var>.
+A nova variável é <var>y</var>.
 </p>
+<div class="example">
+<pre class="example">(%i1) assume(a &gt; 0)$
+(%i2) 'integrate (%e**sqrt(a*y), y, 0, 4);
+                      4
+                     /
+                     [    sqrt(a) sqrt(y)
+(%o2)                I  %e                dy
+                     ]
+                     /
+                      0
+(%i3) changevar (%, y-z^2/a, z, y);
+                      0
+                     /
+                     [                abs(z)
+                   2 I            z %e       dz
+                     ]
+                     /
+                      - 2 sqrt(a)
+(%o3)            - ----------------------------
+                                a
+</pre></div>
+
+<p>Uma expressão contendo uma forma substantiva, tais como as instâncias de <code>'integrate</code> acima,
+pode ser avaliada por <code>ev</code> com o sinalizador <code>nouns</code>.
+Por exemplo, a expressão retornada por <code>changevar</code> acima pode ser avaliada
+por <code>ev (%o3, nouns)</code>.
+</p>
+<p><code>changevar</code> pode também ser usada para alterações nos índices de uma soma ou de um
+produto.  Todavia, isso deve obrigatóriamente ser realizado de forma que quando uma alteração é feita em uma
+soma ou produto, essa mudança deve ser um artifício, i.e., <code>i = j+ ...</code>, não uma
+função de grau mais alto.  E.g.,
+</p>
+<div class="example">
+<pre class="example">(%i4) sum (a[i]*x^(i-2), i, 0, inf);
+                         inf
+                         ====
+                         \         i - 2
+(%o4)                     &gt;    a  x
+                         /      i
+                         ====
+                         i = 0
+(%i5) changevar (%, i-2-n, n, i);
+                        inf
+                        ====
+                        \               n
+(%o5)                    &gt;      a      x
+                        /        n + 2
+                        ====
+                        n = - 2
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdeffn_002fdblint"></a><dl>
+<dt><a name="index-dblint"></a>Função: <strong>dblint</strong> <em>(<var>f</var>, <var>r</var>, <var>s</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Uma rotina de integral dupla que foi escrita no 
+alto-nível do Maxima e então traduzida e compilada para linguagem de máquina.
+Use <code>load (&quot;dblint&quot;)</code> para acessar esse pacote.  Isso usa o método da regra de 
+Simpson em ambas as direções x e y para calcular
+</p>
+<div class="example">
+<pre class="example">/b /s(x)
+|  |
+|  |    f(x,y) dy dx
+|  |
+/a /r(x)
+</pre></div>
+
+<p>A função <var>f</var> deve ser uma função traduzida ou compilada de duas
+variáveis, e <var>r</var> e <var>s</var> devem cada uma ser uma função traduzida ou
+compilada de uma variável, enquanto <var>a</var> e <var>b</var> devem ser números em ponto
+flutuante.  A rotina tem duas variáveis globais que determinam o
+número de divisões dos intervalos x e y: <code>dblint_x</code> e <code>dblint_y</code>,
+ambas as quais são inicialmente 10, e podem ser alteradas independentemente para
+outros valores inteiros (existem <code>2*dblint_x+1</code> pontos calculados na
+direção x , e <code>2*dblint_y+1</code> na direção y).
+A rotina subdivide o eixo X e então para cada valor de X isso
+primeiro calcula <code><var>r</var>(x)</code> e <code><var>s</var>(x)</code>; então o eixo Y entre <code><var>r</var>(x)</code> e <code><var>s</var>(x)</code> é
+subdividido e a integral ao longo do eixo Y é executada usando
+a regra de Simpson; então a integral ao longo do eixo X é concluída usando
+a regra de Simpson com os valores da função sendo as integrais-Y.  Esse
+procedimento pode ser numericamente instável por uma grande variedade razões,
+mas razoávelmente rápido: evite usar isso sobre funções altamente oscilatórias
+e funções com singularidades (postes ou pontos de ramificação na
+região).  As integrais Y dependem de quanto fragmentados <code><var>r</var>(x)</code> e <code><var>s</var>(x)</code> são,
+então se a ditância <code><var>s</var>(x) - <var>r</var>(x)</code> varia rapidamente com X, nesse ponto pode ter
+erros substanciais provenientes de truncação com diferentes saltos-tamanhos
+nas várias integrais Y.  Um pode incrementar <code>dblint_x</code> e <code>dblint_y</code> em
+uma tentativa para melhorar a convergência da reião, com sacrifício do
+tempo de computação.  Os valores da função não são salvos, então se a
+função é muito desperdiçadora de tempo,você terá de esperar por
+re-computação se você mudar qualquer coisa (desculpe).
+Isso é requerido que as funções <var>f</var>, <var>r</var>, e <var>s</var> sejam ainda traduzidas
+ou compiladas previamente chamando <code>dblint</code>.  Isso resultará em ordens de
+magnitude de melhoramentos de velocidade sobre o código interpretado em muitos casos!
+</p>
+<p><code>demo (dblint)</code> executa uma demonstração de <code>dblint</code> aplicado a um problema exemplo.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdeffn_002fdefint"></a><dl>
+<dt><a name="index-defint"></a>Função: <strong>defint</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Tenta calcular uma integral definida.
+<code>defint</code> é chamada por <code>integrate</code> quando limites de integração são especificados,
+i.e., quando <code>integrate</code> é chamado como <code>integrate (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>.
+Dessa forma do ponto de vista do usuário, isso é suficiente para chamar <code>integrate</code>.
+</p>
+<p><code>defint</code> retorna uma expressão simbólica,
+e executa um dos dois: ou calcula a integral ou a forma substantiva da integral.
+Veja <code>quad_qag</code> e funções rellacionadas para aproximação numérica de integrais definidas.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdeffn_002ferf"></a><dl>
+<dt><a name="index-erf"></a>Função: <strong>erf</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Representa a função de erro, cuja derivada é:
+<code>2*exp(-x^2)/sqrt(%pi)</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdefvr_002ferfflag"></a><dl>
+<dt><a name="index-erfflag"></a>Variável de opção: <strong>erfflag</strong></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>erfflag</code> é <code>false</code>, previne <code>risch</code> da introdução da
+função <code>erf</code> na resposta se não houver nenhum no integrando para
+começar.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdeffn_002filt"></a><dl>
+<dt><a name="index-ilt"></a>Função: <strong>ilt</strong> <em>(<var>expr</var>, <var>t</var>, <var>s</var>)</em></dt>
+<dd><p>Calcula a transformação inversa de Laplace de <var>expr</var> em
+relação a <var>t</var> e parâmetro <var>s</var>.  <var>expr</var> deve ser uma razão de
+polinômios cujo denominador tem somente fatores lineares e quadráticos.
+Usando a funções <code>laplace</code> e <code>ilt</code> juntas com as funções <code>solve</code> ou
+<code>linsolve</code> o usuário pode resolver uma diferencial simples ou
+uma equação integral de convolução ou um conjunto delas.
+</p>
+<div class="example">
+<pre class="example">(%i1) 'integrate (sinh(a*x)*f(t-x), x, 0, t) + b*f(t) = t**2;
+              t
+             /
+             [                                    2
+(%o1)        I  f(t - x) sinh(a x) dx + b f(t) = t
+             ]
+             /
+              0
+(%i2) laplace (%, t, s);
+                               a laplace(f(t), t, s)   2
+(%o2)  b laplace(f(t), t, s) + --------------------- = --
+                                       2    2           3
+                                      s  - a           s
+(%i3) linsolve ([%], ['laplace(f(t), t, s)]);
+                                        2      2
+                                     2 s  - 2 a
+(%o3)     [laplace(f(t), t, s) = --------------------]
+                                    5         2     3
+                                 b s  + (a - a  b) s
+(%i4) ilt (rhs (first (%)), s, t);
+Is  a b (a b - 1)  positive, negative, or zero?
+
+pos;
+               sqrt(a b (a b - 1)) t
+        2 cosh(---------------------)       2
+                         b               a t
+(%o4) - ----------------------------- + -------
+              3  2      2               a b - 1
+             a  b  - 2 a  b + a
+
+                                                       2
+                                             + ------------------
+                                                3  2      2
+                                               a  b  - 2 a  b + a
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdeffn_002fintegrate"></a><dl>
+<dt><a name="index-integrate"></a>Função: <strong>integrate</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<dt><a name="index-integrate-1"></a>Função: <strong>integrate</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Tenta símbolicamente calcular a integral de <var>expr</var> em relação a <var>x</var>.
+<code>integrate (<var>expr</var>, <var>x</var>)</code> é uma integral indefinida,
+enquanto <code>integrate (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code> é uma integral definida,
+com limites de integração <var>a</var> e <var>b</var>.
+Os limites não poderam conter <var>x</var>, embora <code>integrate</code> não imponha essa restrição.
+<var>a</var> não precisa ser menor que <var>b</var>.
+Se <var>b</var> é igual a <var>a</var>, <code>integrate</code> retorna zero.
+</p>
+<p>Veja <code>quad_qag</code> e funções relacionadas para aproximação numérica de integrais definidas.
+Veja <code>residue</code> para computação de resíduos (integração complexa).
+Veja <code>antid</code> para uma forma alternativa de calcular integrais indefinidas.
+</p>
+<p>A integral (uma expressão livre de <code>integrate</code>) é retornada se <code>integrate</code> obtém sucesso.
+De outra forma o valor de retorno é
+a forma substantiva da integral (o operador com apóstrofo <code>'integrate</code>)
+ou uma expressão contendo uma ou mais formas substantivas.
+A forma substantiva de <code>integrate</code> é mostrada com um sinal de integral.
+</p>
+<p>Em algumas circunstâncias isso é útil para construir uma forma substantiva manualmente,
+colocando em <code>integrate</code> um apóstrofo, e.g., <code>'integrate (<var>expr</var>, <var>x</var>)</code>.
+Por exemplo, a integral pode depender de alguns parâmetos que não estão ainda calculados.
+A forma substantiva pode ser aplicada a seus argumentos por <code>ev (<var>i</var>, nouns)</code>
+onde <var>i</var> é a forma substantiva de interesse.
+</p>
+<p><code>integrate</code> manuseia integrais definidas separadamente das indefinidas,
+e utiliza uma gama de heurísticas para manusear cada caso.
+Casos especiais de integrais definidas incluem limites de integração iguais a
+zero ou infinito (<code>inf</code> ou <code>minf</code>),
+funções trigonométricas com limites de integração iguais a zero e <code>%pi</code> ou <code>2 %pi</code>,
+funções racionais,
+integrais relacionadas para as definições de funções <code>beta</code> e <code>psi</code>,
+e algumas integrais logarítmicas e trigonométricas.
+Processando funções racionais pode incluir computação de resíduo.
+Se um caso especial aplicável não é encontrado,
+tentativa será feita para calcular a integra indefinida e avaliar isso nos limites de integração.
+Isso pode incluir pegar um limite como um limite de integração tendendo ao infinito ou a menos infinito;
+veja também <code>ldefint</code>.
+</p>
+<p>Casos especiais de integrais indefinidas incluem funções trigonométricas,
+exponenciais e funções logarítmicas,
+e funções racionais.
+<code>integrate</code> pode também fazer uso de uma curta tabela de integais elementares.
+</p>
+<p><code>integrate</code> pode realizar uma mudança de variável
+se o integrando tem a forma <code>f(g(x)) * diff(g(x), x)</code>.
+<code>integrate</code> tenta achar uma subexpressão <code>g(x)</code> de forma que
+a derivada de <code>g(x)</code> divida o integrando.
+Essa busca pode fazer uso de derivadas definidas pela função <code>gradef</code>.
+Veja também <code>changevar</code> e <code>antid</code>.
+</p>
+<p>Se nenhum dos procedimentos heurísticos acha uma integral indefinida,
+o algorítmo de Risch é executado.
+O sinalizador <code>risch</code> pode ser escolhido como um <code>evflag</code>,
+na chamada para <code>ev</code> ou na linha de comando,
+e.g., <code>ev (integrate (<var>expr</var>, <var>x</var>), risch)</code> ou <code>integrate (<var>expr</var>, <var>x</var>), risch</code>.
+Se <code>risch</code> está presente, <code>integrate</code> chama a função <code>risch</code>
+sem tentar heurísticas primeiro.  Veja também <code>risch</code>.
+</p>
+<p><code>integrate</code> trabalha somente com relações funcionais representadas explicitamente com a notação <code>f(x)</code>.
+<code>integrate</code> não respeita dependências implicitas estabelecidas pela função <code>depends</code>.
+<code>integrate</code> pode necessitar conhecer alguma propriedade de um parâmetro no integrando.
+<code>integrate</code> irá primeiro consultar a base de dados do <code>assume</code>,
+e , se a variável de interesse não está lá,
+<code>integrate</code> perguntará ao usuário.
+Dependendo da pergunta,
+respostas adequadas são <code>yes;</code> ou <code>no;</code>,
+ou <code>pos;</code>, <code>zero;</code>, ou <code>neg;</code>.
+</p>
+<p><code>integrate</code> não é, por padrão, declarada ser linear.  Veja <code>declare</code> e <code>linear</code>.
+</p>
+<p><code>integrate</code> tenta integração por partes somente em uns poucos casos especiais.
+</p>
+<p>Exemplos:
+</p>
+<ul>
+<li> Integrais definidas e indefinidas elementares.
+
+<div class="example">
+<pre class="example">(%i1) integrate (sin(x)^3, x);
+                           3
+                        cos (x)
+(%o1)                   ------- - cos(x)
+                           3
+(%i2) integrate (x/ sqrt (b^2 - x^2), x);
+                                 2    2
+(%o2)                    - sqrt(b  - x )
+(%i3) integrate (cos(x)^2 * exp(x), x, 0, %pi);
+                               %pi
+                           3 %e      3
+(%o3)                      ------- - -
+                              5      5
+(%i4) integrate (x^2 * exp(-x^2), x, minf, inf);
+                            sqrt(%pi)
+(%o4)                       ---------
+                                2
+</pre></div>
+
+</li><li> Uso de <code>assume</code> e dúvida interativa.
+
+<div class="example">
+<pre class="example">(%i1) assume (a &gt; 1)$
+(%i2) integrate (x**a/(x+1)**(5/2), x, 0, inf);
+    2 a + 2
+Is  -------  an integer?
+       5
+
+no;
+Is  2 a - 3  positive, negative, or zero?
+
+neg;
+                                   3
+(%o2)                  beta(a + 1, - - a)
+                                   2
+</pre></div>
+
+</li><li> Mudança de variável.  Existem duas mudanças de variável nesse exemplo:
+uma usando a derivada estabelecida por <code>gradef</code>,
+e uma usando a derivação <code>diff(r(x))</code> de uma função não especificada <code>r(x)</code>.
+
+<div class="example">
+<pre class="example">(%i3) gradef (q(x), sin(x**2));
+(%o3)                         q(x)
+(%i4) diff (log (q (r (x))), x);
+                      d               2
+                     (-- (r(x))) sin(r (x))
+                      dx
+(%o4)                ----------------------
+                            q(r(x))
+(%i5) integrate (%, x);
+(%o5)                     log(q(r(x)))
+</pre></div>
+
+</li><li> O valor de retorno contém a forma substantiva <code>'integrate</code>.
+Nesse exemplo, Maxima pode extrair um fator do denominador
+de uma função racional, mas não pode fatorar o restante ou de outra forma achar sua integral.
+<code>grind</code> mostra a forma substantiva <code>'integrate</code> no resultado.
+Veja também <code>integrate_use_rootsof</code> para mais sobre integrais de funções racionais.
+
+<div class="example">
+<pre class="example">(%i1) expand ((x-4) * (x^3+2*x+1));
+                    4      3      2
+(%o1)              x  - 4 x  + 2 x  - 7 x - 4
+(%i2) integrate (1/%, x);
+                              /  2
+                              [ x  + 4 x + 18
+                              I ------------- dx
+                              ]  3
+                 log(x - 4)   / x  + 2 x + 1
+(%o2)            ---------- - ------------------
+                     73               73
+(%i3) grind (%);
+log(x-4)/73-('integrate((x^2+4*x+18)/(x^3+2*x+1),x))/73$
+</pre></div>
+
+</li><li> Definindo uma função em termos de uma integral.
+O corpo de uma função não é avaliado quando a função é definida.
+Dessa forma o corpo de <code>f_1</code> nesse exemplo contém a forma substantiva de <code>integrate</code>.
+O operador apóstrofo-apóstrofo <code>'<!-- /@w -->'</code> faz com que a integral seja avaliada,
+e o resultado transforme-se no corpo de <code>f_2</code>.
+
+<div class="example">
+<pre class="example">(%i1) f_1 (a) := integrate (x^3, x, 1, a);
+                                     3
+(%o1)           f_1(a) := integrate(x , x, 1, a)
+(%i2) ev (f_1 (7), nouns);
+(%o2)                          600
+(%i3) /* Note parentheses around integrate(...) here */
+      f_2 (a) := ''(integrate (x^3, x, 1, a));
+                                   4
+                                  a    1
+(%o3)                   f_2(a) := -- - -
+                                  4    4
+(%i4) f_2 (7);
+(%o4)                          600
+</pre></div>
+</li></ul>
+
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdefvr_002fintegration_005fconstant_005fcounter"></a><dl>
+<dt><a name="index-integration_005fconstant_005fcounter"></a>Variável de sistema: <strong>integration_constant_counter</strong></dt>
+<dd><p>Valor padrão: 0
+</p>
+<p><code>integração_constant_counter</code> é um contador que é atualizado a cada vez que uma
+constante de integração (nomeada pelo Maxima, e.g., <code>integrationconstant1</code>)
+é introduzida em uma expressão pela integração indefinida de uma equação.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdefvr_002fintegrate_005fuse_005frootsof"></a><dl>
+<dt><a name="index-integrate_005fuse_005frootsof"></a>Variável de opção: <strong>integrate_use_rootsof</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Quando <code>integrate_use_rootsof</code> é <code>true</code> e o denominador de
+uma função racional não pode ser fatorado, <code>integrate</code> retorna a integral
+em uma forma que é uma soma sobre as raízes (não conhecidas ainda) do denominador.
+</p>
+<p>Por exemplo, com <code>integrate_use_rootsof</code> escolhido para <code>false</code>,
+<code>integrate</code> retorna uma integral não resolvida de uma função racional na forma substantiva:
+</p>
+<div class="example">
+<pre class="example">(%i1) integrate_use_rootsof: false$
+(%i2) integrate (1/(1+x+x^5), x);
+        /  2
+        [ x  - 4 x + 5
+        I ------------ dx                            2 x + 1
+        ]  3    2                2            5 atan(-------)
+        / x  - x  + 1       log(x  + x + 1)          sqrt(3)
+(%o2)   ----------------- - --------------- + ---------------
+                7                 14             7 sqrt(3)
+</pre></div>
+
+<p>Agora vamos escolher o sinalizador para ser true e a parte não resolvida da
+integral será expressa como um somatório sobre as raízes do denominador da função racional:
+</p>
+<div class="example">
+<pre class="example">(%i3) integrate_use_rootsof: true$
+(%i4) integrate (1/(1+x+x^5), x);
+      ====        2
+      \       (%r4  - 4 %r4 + 5) log(x - %r4)
+       &gt;      -------------------------------
+      /                    2
+      ====            3 %r4  - 2 %r4
+                        3      2
+      %r4 in rootsof(%r4  - %r4  + 1, %r4)
+(%o4) ----------------------------------------------------------
+               7
+
+                                                             2 x + 1
+                                         2            5 atan(-------)
+                                    log(x  + x + 1)          sqrt(3)
+                                  - --------------- + ---------------
+                                          14             7 sqrt(3)
+</pre></div>
+
+<p>Alternativamente o usuário pode calcular as raízes do denominador separadamente,
+e então expressar o integrando em termos dessas raízes,
+e.g., <code>1/((x - a)*(x - b)*(x - c))</code> ou <code>1/((x^2 - (a+b)*x + a*b)*(x - c))</code>
+se o denominador for um polinômio cúbico.
+Algumas vezes isso ajudará Maxima a obter resultados mais úteis.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdeffn_002fldefint"></a><dl>
+<dt><a name="index-ldefint"></a>Função: <strong>ldefint</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Tenta calcular a integral definida de <var>expr</var> pelo uso de 
+<code>limit</code> para avaliar a integral indefinida <var>expr</var> em relação a <var>x</var>
+no limite superior <var>b</var> e no limite inferior <var>a</var>.
+Se isso falha para calcular a integral definida,
+<code>ldefint</code> retorna uma expressão contendo limites como formas substantivas.
+</p>
+<p><code>ldefint</code> não é chamada por <code>integrate</code>,
+então executando <code>ldefint (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code> pode retornar um resultado diferente de
+<code>integrate (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</code>.
+<code>ldefint</code> sempre usa o mesmo método para avaliar a integral definida,
+enquanto <code>integrate</code> pode utilizar várias heurísticas e pode reconhecer alguns casos especiais.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdeffn_002fpotential"></a><dl>
+<dt><a name="index-potential"></a>Função: <strong>potential</strong> <em>(<var>givengradient</var>)</em></dt>
+<dd><p>O cálculo faz uso da variável global <code>potentialzeroloc[0]</code>
+que deve ser <code>nonlist</code> ou da forma
+</p>
+<div class="example">
+<pre class="example">[indeterminatej=expressãoj, indeterminatek=expressãok, ...]
+</pre></div>
+
+<p>O
+formador sendo equivalente para a expressão nonlist para todos os lados
+direitos-manuseados mais tarde.  Os lados direitos indicados são usados como o
+limite inferior de integração.  O sucesso das integrações pode
+depender de seus valores e de sua ordem.  <code>potentialzeroloc</code> é inicialmente escolhido
+para 0.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdeffn_002fresidue"></a><dl>
+<dt><a name="index-residue"></a>Função: <strong>residue</strong> <em>(<var>expr</var>, <var>z</var>, <var>z_0</var>)</em></dt>
+<dd><p>Calcula o resíduo no plano complexo da
+expressão <var>expr</var> quando a variável <var>z</var> assumes o valor <var>z_0</var>.  O
+resíduo é o coeficiente de <code>(<var>z</var> - <var>z_0</var>)^(-1)</code> nas séries de Laurent
+para <var>expr</var>.
+</p>
+<div class="example">
+<pre class="example">(%i1) residue (s/(s**2+a**2), s, a*%i);
+                                1
+(%o1)                           -
+                                2
+(%i2) residue (sin(a*x)/x**4, x, 0);
+                                 3
+                                a
+(%o2)                         - --
+                                6
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdeffn_002frisch"></a><dl>
+<dt><a name="index-risch"></a>Função: <strong>risch</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<dd><p>Integra <var>expr</var> em relação a <var>x</var> usando um
+caso transcendental do algorítmo de Risch.  (O caso algébrico do
+algorítmo de Risch foi implementado.)  Isso atualmente
+manuseia os casos de exponenciais aninhadas e logarítmos que a parte
+principal de <code>integrate</code> não pode fazer.  <code>integrate</code> irá aplicar automaticamente <code>risch</code>
+se dados esses casos.
+</p>
+<p><code>erfflag</code>, se <code>false</code>, previne <code>risch</code> da introdução da função
+<code>erf</code> na resposta se não for achado nenhum no integrando para 
+começar.
+</p>
+<div class="example">
+<pre class="example">(%i1) risch (x^2*erf(x), x);
+                                                        2
+             3                      2                - x
+        %pi x  erf(x) + (sqrt(%pi) x  + sqrt(%pi)) %e
+(%o1)   -------------------------------------------------
+                              3 %pi
+(%i2) diff(%, x), ratsimp;
+                             2
+(%o2)                       x  erf(x)
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Integration_002fdeffn_002ftldefint"></a><dl>
+<dt><a name="index-tldefint"></a>Função: <strong>tldefint</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Equivalente a <code>ldefint</code> com <code>tlimswitch</code> escolhido para <code>true</code>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Integration_002fnode_002fIntrodu_00e7_00e3o-a-QUADPACK"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_64.html#Introdu_00e7_00e3o-a-QUADPACK" accesskey="n" rel="next">Introdução a QUADPACK</a>, Previous: <a href="maxima_62.html#Introdu_00e7_00e3o-a-Integra_00e7_00e3o" accesskey="p" rel="previous">Introdução a Integração</a>, Acima: <a href="maxima_61.html#Integra_00e7_00e3o" accesskey="u" rel="up">Integração</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
 </body>
 </html>

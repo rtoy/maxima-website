@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Introducción a drawdf</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Introducción a drawdf">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Introducción a drawdf">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_203.html#drawdf" rel="up" title="drawdf">
+<link href="maxima_205.html#Funciones-y-variables-para-drawdf" rel="next" title="Funciones y variables para drawdf">
+<link href="maxima_203.html#drawdf" rel="previous" title="drawdf">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introducci_00f3n-a-drawdf"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_205.html#Funciones-y-variables-para-drawdf" accesskey="n" rel="next">Funciones y variables para drawdf</a>, Previous: <a href="maxima_203.html#drawdf" accesskey="p" rel="previous">drawdf</a>, Subir: <a href="maxima_203.html#drawdf" accesskey="u" rel="up">drawdf</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introduccion-a-drawdf"></a>
+<h3 class="section">48.1 Introducción a drawdf</h3>
+
+<p>La función <code>drawdf</code> dibuja el campo de direcciones de una ecuación
+diferencial ordinaria de primer orden (EDO) o de un sistema de dos ecuaciones
+autónomas de primer orden.
+</p>
+<p>Puesto que <code>drawdf</code> es un paquete adicional, es necesario cargarlo en
+memoria ejecutando previamente la instrucción <code>load(&quot;drawdf&quot;)</code>.
+<code>drawdf</code> utiliza el paquete <code>draw</code>, que necesita como 
+mínimo la versión 4.2 de Gnuplot.
+</p>
+<p>Para dibujar el campo de direcciones de una EDO, ésta debe escribirse de la
+forma
+</p><div class="example">
+<pre class="example">       dy
+       -- = F(x,y)
+       dx
+</pre></div>
+
+<p>y ser la función <var>F</var> la que se pase a <code>drawdf</code> como argumento.
+Si las variables independiente y dependiente no son <var>x</var> e <var>y</var>,
+como en la ecuación anterior, entonces deben nombrarse de forma
+explícita en una lista que se pasará a <code>drawdf</code>
+(ver ejemplos más abajo).
+</p>
+<p>Para dibujar el campo de direcciones de un conjunto de dos EDOs autónomas,
+deben escribirse de la forma
+</p><div class="example">
+<pre class="example">       dx             dy
+       -- = G(x,y)    -- = F(x,y) 
+       dt             dt
+</pre></div>
+
+<p>y será una lista con las dos funciones <var>G</var> y <var>F</var> la que
+se pase a <code>drawdf</code> como argumento. El orden de las funciones es
+importante; la primera será la derivada de la abscisa respecto del tiempo
+y la segunda la derivada de la ordenada respecto del tiempo.
+Si las variables no son las <var>x</var> e <var>y</var> habituales, el segundo
+argumento que se pase a la función <code>drawdf</code> será una lista
+con los nombres de ambas variables, primero la correspondiente a las
+abscisas, seguida de la asociada a las ordenadas.
+</p>
+<p>Si sólo se trata de una EDO, <code>drawdf</code> admitirá por defecto
+que <code>x=t</code> y <code>G(x,y)=1</code>, transformanado la ecuación no
+autónoma en un sistema de dos ecuaciones autónomas.
+</p>
+
+
+
+<a name="Item_003a-drawdf_002fnode_002fFunciones-y-variables-para-drawdf"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_205.html#Funciones-y-variables-para-drawdf" accesskey="n" rel="next">Funciones y variables para drawdf</a>, Previous: <a href="maxima_203.html#drawdf" accesskey="p" rel="previous">drawdf</a>, Subir: <a href="maxima_203.html#drawdf" accesskey="u" rel="up">drawdf</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

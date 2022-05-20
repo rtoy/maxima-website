@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para sumas y productos</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para sumas y productos">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para sumas y productos">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_130.html#Sumas-productos-y-series" rel="up" title="Sumas productos y series">
+<link href="maxima_132.html#Introducci_00f3n-a-las-series" rel="next" title="Introducción a las series">
+<link href="maxima_130.html#Sumas-productos-y-series" rel="previous" title="Sumas productos y series">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-sumas-y-productos"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_132.html#Introducci_00f3n-a-las-series" accesskey="n" rel="next">Introducción a las series</a>, Previous: <a href="maxima_130.html#Sumas-productos-y-series" accesskey="p" rel="previous">Sumas productos y series</a>, Subir: <a href="maxima_130.html#Sumas-productos-y-series" accesskey="u" rel="up">Sumas productos y series</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-sumas-y-productos-1"></a>
+<h3 class="section">28.1 Funciones y variables para sumas y productos</h3>
+
+
+
+<a name="Item_003a-Series_002ees_002fdeffn_002fbashindices"></a><dl>
+<dt><a name="index-bashindices"></a>Función: <strong>bashindices</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Transforma la expresión <var>expr</var> dándole a cada sumatorio y producto un
+único índice. Esto le da a <code>changevar</code> mayor precisión 
+cuando opera con sumas y productos. La forma del único índice es 
+<code>j<var>number</var></code>. La cantidad <var>number</var> se determina en función de 
+<code>gensumnum</code>, valor que puede cambiar el usuario. Por ejemplo, haciendo <code>gensumnum:0$</code>.
+</p>
+</dd></dl>
+
+
+
+
+<a name="Item_003a-Series_002ees_002fdeffn_002flsum"></a><dl>
+<dt><a name="index-lsum"></a>Función: <strong>lsum</strong> <em>(<var>expr</var>, <var>x</var>, <var>L</var>)</em></dt>
+<dd><p>Representa la suma de <var>expr</var> para cada elemento <var>x</var> en <var>L</var>.
+</p>
+<p>Se retornará la forma nominal <code>'lsum</code> si el argumento <var>L</var> no es una lista.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) lsum (x^i, i, [1, 2, 7]);
+                            7    2
+(%o1)                      x  + x  + x
+(%i2) lsum (i^2, i, rootsof (x^3 - 1, x));
+                     ====
+                     \      2
+(%o2)                 &gt;    i
+                     /
+                     ====
+                                   3
+                     i in rootsof(x  - 1, x)
+</pre></div>
+</dd></dl>
+
+
+
+<a name="Item_003a-Series_002ees_002fdeffn_002fintosum"></a><dl>
+<dt><a name="index-intosum"></a>Función: <strong>intosum</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Mueve los factores multiplicativos que están fuera de un sumatorio hacia dentro
+de éste. Si el índice del sumatorio aparece en la expresión exterior,
+entonces <code>intosum</code> busca un índice razonable, lo mismo que hace con 
+<code>sumcontract</code>. Se trata de la operación contraria a extraer factores comunes de los sumatorios.
+</p>
+<p>En algunos caos puede ser necesario hacer <code>scanmap (multthru, <var>expr</var>)</code> antes que <code>intosum</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) sum(2*x^2*n^k, k , 0, inf);
+                               inf
+                               ====
+                             2 \      k
+(%o1)                     2 x   &gt;    n
+                               /
+                               ====
+                               k = 0
+</pre><pre class="example">(%i2) intosum(%);
+                          inf
+                          ====
+                          \        k  2
+(%o2)                      &gt;    2 n  x
+                          /
+                          ====
+                          k = 0
+</pre></div>
+</dd></dl>
+
+
+
+
+<a name="Item_003a-Series_002ees_002fdeffn_002fproduct"></a><dl>
+<dt><a name="index-product"></a>Función: <strong>product</strong> <em>(<var>expr</var>, <var>i</var>, <var>i_0</var>, <var>i_1</var>)</em></dt>
+<dd><p>Representa el producto de los valores de <code>expr</code> según el índice <var>i</var> varía de <var>i_0</var> hasta <var>i_1</var>.
+La forma nominal <code>'product</code> se presenta en forma de letra pi mayúscula.
+</p>
+<p>La función <code>product</code> evalúa <var>expr</var> y los límites inferior y superior, <var>i_0</var> y <var>i_1</var>, pero no evalúa el índice <var>i</var>.
+</p>
+<p>Si la diferencia entre los límites superior e inferior es un número entero, la expresión <var>expr</var> se evalúa para cada valor del índice <var>i</var>, siendo el resultado un producto en forma explícita.
+</p>
+<p>En caso contrario, el rango del índice no está definido, aplicándose entonces algunas reglas que permitan simplificar el producto.
+Cuando la variable global <code>simpproduct</code> valga <code>true</code>, se aplicarán reglas adicionales.
+En ciertos casos, la simplificación dará lugar a un resultado que ya no tenga el formato del producto; en caso contrario se devolverá una forma nominal <code>'product</code>.
+</p>
+<p>Véanse también <code>nouns</code> y <code>evflag</code>.
+</p>
+
+<p>Ejemplos:
+</p>
+
+<div class="example">
+<pre class="example">(%i1) product (x + i*(i+1)/2, i, 1, 4);
+(%o1)           (x + 1) (x + 3) (x + 6) (x + 10)
+(%i2) product (i^2, i, 1, 7);
+(%o2)                       25401600
+(%i3) product (a[i], i, 1, 7);
+(%o3)                 a  a  a  a  a  a  a
+                       1  2  3  4  5  6  7
+(%i4) product (a(i), i, 1, 7);
+(%o4)          a(1) a(2) a(3) a(4) a(5) a(6) a(7)
+(%i5) product (a(i), i, 1, n);
+                             n
+                           /===\
+                            ! !
+(%o5)                       ! !  a(i)
+                            ! !
+                           i = 1
+(%i6) product (k, k, 1, n);
+                               n
+                             /===\
+                              ! !
+(%o6)                         ! !  k
+                              ! !
+                             k = 1
+(%i7) product (k, k, 1, n), simpproduct;
+(%o7)                          n!
+(%i8) product (integrate (x^k, x, 0, 1), k, 1, n);
+                             n
+                           /===\
+                            ! !    1
+(%o8)                       ! !  -----
+                            ! !  k + 1
+                           k = 1
+(%i9) product (if k &lt;= 5 then a^k else b^k, k, 1, 10);
+                              15  40
+(%o9)                        a   b
+</pre></div>
+
+</dd></dl>
+
+
+
+<a name="Item_003a-Series_002ees_002fdefvr_002fsimpsum"></a><dl>
+<dt><a name="index-simpsum"></a>Variable opcional: <strong>simpsum</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>simpsum</code> vale <code>true</code>, se simplifica el resultado de un sumatorio <code>sum</code>.
+Esta simplificación podrá producir en ocasiones una expresión compacta. Si 
+<code>simpsum</code> vale <code>false</code> o si se utiliza la forma apostrofada <code>'sum</code>,
+el valor es una forma nominal que representa la notación sigma habitual en matemáticas.
+</p>
+</dd></dl>
+
+
+
+<a name="Item_003a-Series_002ees_002fdeffn_002fsum"></a><dl>
+<dt><a name="index-sum"></a>Función: <strong>sum</strong> <em>(<var>expr</var>, <var>i</var>, <var>i_0</var>, <var>i_1</var>)</em></dt>
+<dd>
+<p>Representa la suma de los valores de <code>expr</code> según el índice <var>i</var> varía de <var>i_0</var> hasta <var>i_1</var>.
+La forma nominal <code>'sum</code> se presenta en forma de letra sigma mayúscula.
+</p>
+<p>La función <code>sum</code> evalúa su sumando <var>expr</var> y los límites inferior y superior, <var>i_0</var> y <var>i_1</var>, pero no evalúa el índice <var>i</var>.
+</p>
+<p>Si la diferencia entre los límites superior e inferior es un número entero, el sumando <var>expr</var> se evalúa para cada valor del índice <var>i</var>, siendo el resultado una suma en forma explícita.
+</p>
+<p>En caso contrario, el rango del índice no está definido, aplicándose entonces algunas reglas que permitan simplificar la suma.
+Cuando la variable global <code>simpsum</code> valga <code>true</code>, se aplicarán reglas adicionales.
+En ciertos casos, la simplificación dará lugar a un resultado que ya no tenga el formato del sumatorio; en caso contrario se devolverá una forma nominal <code>'product</code>.
+</p>
+<p>Cuando <code>cauchysum</code> vale <code>true</code>, el producto de sumatorios se expresa como un producto de Cauchy, en cuyo caso el índice del sumatorio interior es función del índice del exterior, en lugar de variar independientemente.
+</p>
+<p>La variable global <code>genindex</code> guarda el prefijo alfabético a utilizar cuando sea necesario generar automáticamente el siguiente índice de sumatorio.
+</p>
+<p>La variable global <code>gensumnum</code> guarda el sufijo numérico a utilizar cuando sea necesario generar automáticamente el siguiente índice de sumatorio. Si <code>gensumnum</code> vale <code>false</code>, un índice generado automáticamente constará sólo de <code>genindex</code>, sin sufijo numérico.
+</p>
+<p>Véanse también <code>sumcontract</code>, <code>intosum</code>,
+<code>bashindices</code>, <code>niceindices</code>,
+<code>nouns</code> y <code>evflag</code>.
+</p>
+<p>Ejemplos:
+</p>
+
+<div class="example">
+<pre class="example">(%i1) sum (i^2, i, 1, 7);
+(%o1)                          140
+(%i2) sum (a[i], i, 1, 7);
+(%o2)           a  + a  + a  + a  + a  + a  + a
+                 7    6    5    4    3    2    1
+(%i3) sum (a(i), i, 1, 7);
+(%o3)    a(7) + a(6) + a(5) + a(4) + a(3) + a(2) + a(1)
+(%i4) sum (a(i), i, 1, n);
+                            n
+                           ====
+                           \
+(%o4)                       &gt;    a(i)
+                           /
+                           ====
+                           i = 1
+(%i5) sum (2^i + i^2, i, 0, n);
+                          n
+                         ====
+                         \       i    2
+(%o5)                     &gt;    (2  + i )
+                         /
+                         ====
+                         i = 0
+(%i6) sum (2^i + i^2, i, 0, n), simpsum;
+                              3      2
+                   n + 1   2 n  + 3 n  + n
+(%o6)             2      + --------------- - 1
+                                  6
+(%i7) sum (1/3^i, i, 1, inf);
+                            inf
+                            ====
+                            \     1
+(%o7)                        &gt;    --
+                            /      i
+                            ====  3
+                            i = 1
+(%i8) sum (1/3^i, i, 1, inf), simpsum;
+                                1
+(%o8)                           -
+                                2
+(%i9) sum (i^2, i, 1, 4) * sum (1/i^2, i, 1, inf);
+                              inf
+                              ====
+                              \     1
+(%o9)                      30  &gt;    --
+                              /      2
+                              ====  i
+                              i = 1
+(%i10) sum (i^2, i, 1, 4) * sum (1/i^2, i, 1, inf), simpsum;
+                                  2
+(%o10)                       5 %pi
+(%i11) sum (integrate (x^k, x, 0, 1), k, 1, n);
+                            n
+                           ====
+                           \       1
+(%o11)                      &gt;    -----
+                           /     k + 1
+                           ====
+                           k = 1
+(%i12) sum (if k &lt;= 5 then a^k else b^k, k, 1, 10));
+          10    9    8    7    6    5    4    3    2
+(%o12)   b   + b  + b  + b  + b  + a  + a  + a  + a  + a
+</pre></div>
+
+</dd></dl>
+
+
+
+<a name="Item_003a-Series_002ees_002fdeffn_002fsumcontract"></a><dl>
+<dt><a name="index-sumcontract"></a>Función: <strong>sumcontract</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Combina todos los sumatorios de una suma cuyos límites inferiores y 
+superiores difieren por constantes. El resultado es una expresión que contiene 
+un sumatorio por cada conjunto de tales sumatorios, más todos los demás
+términos adicionales que tuvieron que extraerse para formar la suma. La función 
+<code>sumcontract</code> combina todos los sumatorios compatibles y utiliza uno de los
+índices de uno de los sumatorios si puede, si no formará un 
+índice que sea razonable.
+</p>
+<p>Puede ser necesario hacer <code>intosum (<var>expr</var>)</code> antes que <code>sumcontract</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) 'sum(1/l,l,1,n)+'sum(k,k,1,n+2);
+</pre><pre class="example">                         n        n + 2
+                        ====      ====
+                        \     1   \
+(%o1)                    &gt;    - +  &gt;    k
+                        /     l   /
+                        ====      ====
+                        l = 1     k = 1
+</pre><pre class="example">(%i2) sumcontract(%);
+</pre><pre class="example">                            n
+                           ====
+                           \          1
+(%o2)                2 n +  &gt;    (l + -) + 3
+                           /          l
+                           ====
+                           l = 1
+</pre></div>
+</dd></dl>
+
+
+
+<a name="Item_003a-Series_002ees_002fdefvr_002fsumexpand"></a><dl>
+<dt><a name="index-sumexpand"></a>Variable opcional: <strong>sumexpand</strong></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>sumexpand</code> vale <code>true</code>, productos de sumatorios y de sumatorios con exponentes se 
+reducen a sumatorios anidados.
+</p>
+<p>Véase también <code>cauchysum</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) sumexpand: true$
+(%i2) sum (f (i), i, 0, m) * sum (g (j), j, 0, n);
+</pre><pre class="example">                     m      n
+                    ====   ====
+                    \      \
+(%o2)                &gt;      &gt;     f(i1) g(i2)
+                    /      /
+                    ====   ====
+                    i1 = 0 i2 = 0
+</pre><pre class="example">(%i3) sum (f (i), i, 0, m)^2;
+                     m      m
+                    ====   ====
+                    \      \
+(%o3)                &gt;      &gt;     f(i3) f(i4)
+                    /      /
+                    ====   ====
+                    i3 = 0 i4 = 0
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="Item_003a-Series_002ees_002fnode_002fIntroducci_00f3n-a-las-series"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_132.html#Introducci_00f3n-a-las-series" accesskey="n" rel="next">Introducción a las series</a>, Previous: <a href="maxima_130.html#Sumas-productos-y-series" accesskey="p" rel="previous">Sumas productos y series</a>, Subir: <a href="maxima_130.html#Sumas-productos-y-series" accesskey="u" rel="up">Sumas productos y series</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

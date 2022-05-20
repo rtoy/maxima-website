@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Definições específicas para estatística descritiva de várias variáveis</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Definições específicas para estatística descritiva de várias variáveis">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições específicas para estatística descritiva de várias variáveis">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_137.html#descriptive" rel="up" title="descriptive">
+<link href="maxima_142.html#Defini_00e7_00f5es-para-gr_00e1ficos-estat_00edsticos" rel="next" title="Definições para gráficos estatísticos">
+<link href="maxima_140.html#Defini_00e7_00f5es-para-estat_00edstica-descritiva" rel="previous" title="Definições para estatística descritiva">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-espec_00edficas-para-estat_00edstica-descritiva-de-v_00e1rias-vari_00e1veis"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_142.html#Defini_00e7_00f5es-para-gr_00e1ficos-estat_00edsticos" accesskey="n" rel="next">Definições para gráficos estatísticos</a>, Previous: <a href="maxima_140.html#Defini_00e7_00f5es-para-estat_00edstica-descritiva" accesskey="p" rel="previous">Definições para estatística descritiva</a>, Acima: <a href="maxima_137.html#descriptive" accesskey="u" rel="up">descriptive</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-especificas-para-estatistica-descritiva-de-varias-variaveis"></a>
+<h3 class="section">44.4 Definições específicas para estatística descritiva de várias variáveis</h3>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fcov"></a><dl>
+<dt><a name="index-cov"></a>Função: <strong>cov</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>A matriz de covariância da amostra de várias variáveis, definida como
+</p><div class="example">
+<pre class="example">              n
+             ====
+          1  \           _        _
+      S = -   &gt;    (X  - X) (X  - X)'
+          n  /       j        j
+             ====
+             j = 1
+</pre></div>
+<p>onde <em>X_j</em> é a <em>j</em>-ésima linha da matriz de amostra.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i4) fpprintprec : 7$  /* modifique a precisão para obter uma saída melhor */
+(%i5) cov (s2);
+      [ 17.22191  13.61811  14.37217  19.39624  15.42162 ]
+      [                                                  ]
+      [ 13.61811  14.98774  13.30448  15.15834  14.9711  ]
+      [                                                  ]
+(%o5) [ 14.37217  13.30448  15.47573  17.32544  16.18171 ]
+      [                                                  ]
+      [ 19.39624  15.15834  17.32544  32.17651  20.44685 ]
+      [                                                  ]
+      [ 15.42162  14.9711   16.18171  20.44685  24.42308 ]
+</pre></div>
+
+<p>Veja também a função <code>cov1</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fcov1"></a><dl>
+<dt><a name="index-cov1"></a>Função: <strong>cov1</strong> <em>(<var>matriz</var>)</em></dt>
+<dd><p>A matriz de covariância da amostra de várias variáveis, definida como
+</p><div class="example">
+<pre class="example">              n
+             ====
+         1   \           _        _
+   S  = ---   &gt;    (X  - X) (X  - X)'
+    1   n-1  /       j        j
+             ====
+             j = 1
+</pre></div>
+<p>where <em>X_j</em> is the <em>j</em>-th row of the sample matrix.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i4) fpprintprec : 7$ /* modifique a precisão para obter uma saída melhor */
+(%i5) cov1 (s2);
+      [ 17.39587  13.75567  14.51734  19.59216  15.5774  ]
+      [                                                  ]
+      [ 13.75567  15.13913  13.43887  15.31145  15.12232 ]
+      [                                                  ]
+(%o5) [ 14.51734  13.43887  15.63205  17.50044  16.34516 ]
+      [                                                  ]
+      [ 19.59216  15.31145  17.50044  32.50153  20.65338 ]
+      [                                                  ]
+      [ 15.5774   15.12232  16.34516  20.65338  24.66977 ]
+</pre></div>
+
+<p>Veja também a função <code>cov</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fglobal_005fvariances"></a><dl>
+<dt><a name="index-global_005fvariances"></a>Função: <strong>global_variances</strong> <em>(<var>matriz</var>)</em></dt>
+<dt><a name="index-global_005fvariances-1"></a>Função: <strong>global_variances</strong> <em>(<var>matriz</var>, <var>valor_lógico</var>)</em></dt>
+<dd><p>A função <code>global_variances</code> retorna uma lista de medidas de variância global:
+</p>
+<ul>
+<li> <var>variância total</var>: <code>trace(S_1)</code>,
+</li><li> <var>variância média</var>: <code>trace(S_1)/p</code>,
+</li><li> <var>variância generalizada</var>: <code>determinant(S_1)</code>,
+</li><li> <var>desvio padrão generalizado</var>: <code>sqrt(determinant(S_1))</code>,
+</li><li> <var>variância efectiva</var> <code>determinant(S_1)^(1/p)</code>, (defined in: Peña, D. (2002) <var>Análisis de datos multivariantes</var>; McGraw-Hill, Madrid.)
+</li><li> <var>desvio padrão efectivo</var>: <code>determinant(S_1)^(1/(2*p))</code>.
+</li></ul>
+<p>onde <var>p</var> é a dimensão das várias variáveis aleatórias e <em>S_1</em> a matriz de covariância retornada por <code>cov1</code>.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i4) global_variances (s2);
+(%o4) [105.338342060606, 21.06766841212119, 12874.34690469686, 
+         113.4651792608502, 6.636590811800794, 2.576158149609762]
+</pre></div>
+
+<p>A função <code>global_variances</code> tem um argumento lógico opcional: <code>global_variances(x,true)</code> diz ao Maxima que <code>x</code> é a matriz de dados, fazendo o mesmo que <code>global_variances(x)</code>. Por outro lado, <code>global_variances(x,false)</code> significa que <code>x</code> não é a matriz de dados, mas a matriz de covariância, evitando a repetição seu cálculo,
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i4) s : cov1 (s2)$
+(%i5) global_variances (s, false);
+(%o5) [105.338342060606, 21.06766841212119, 12874.34690469686, 
+         113.4651792608502, 6.636590811800794, 2.576158149609762]
+</pre></div>
+
+<p>Veja também <code>cov</code> e <code>cov1</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002fcor"></a><dl>
+<dt><a name="index-cor"></a>Função: <strong>cor</strong> <em>(<var>matriz</var>)</em></dt>
+<dt><a name="index-cor-1"></a>Função: <strong>cor</strong> <em>(<var>matriz</var>, <var>valor_lógico</var>)</em></dt>
+<dd><p>A matriz de correlação da maostra de várias variáveis.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) fpprintprec:7$
+(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i5) cor (s2);
+      [   1.0     .8476339  .8803515  .8239624  .7519506 ]
+      [                                                  ]
+      [ .8476339    1.0     .8735834  .6902622  0.782502 ]
+      [                                                  ]
+(%o5) [ .8803515  .8735834    1.0     .7764065  .8323358 ]
+      [                                                  ]
+      [ .8239624  .6902622  .7764065    1.0     .7293848 ]
+      [                                                  ]
+      [ .7519506  0.782502  .8323358  .7293848    1.0    ]
+</pre></div>
+
+<p>A função <code>cor</code> tem um argumento lógico opcional: <code>cor(x,true)</code> diz ao Maxima que <code>x</code> é a matriz de dados, fazendo o mesmo que <code>cor(x)</code>. Por outro lado, <code>cor(x,false)</code> significa que <code>x</code> não é a matriz de dados, mas a matriz de covariância, evitando a repetição de seu cálculo,
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) fpprintprec:7$
+(%i4) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i5) s : cov1 (s2)$
+(%i6) cor (s, false); /* this is faster */
+      [   1.0     .8476339  .8803515  .8239624  .7519506 ]
+      [                                                  ]
+      [ .8476339    1.0     .8735834  .6902622  0.782502 ]
+      [                                                  ]
+(%o6) [ .8803515  .8735834    1.0     .7764065  .8323358 ]
+      [                                                  ]
+      [ .8239624  .6902622  .7764065    1.0     .7293848 ]
+      [                                                  ]
+      [ .7519506  0.782502  .8323358  .7293848    1.0    ]
+</pre></div>
+
+<p>Veja também <code>cov</code> e <code>cov1</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fdeffn_002flist_005fcorrelations"></a><dl>
+<dt><a name="index-list_005fcorrelations"></a>Função: <strong>list_correlations</strong> <em>(<var>matriz</var>)</em></dt>
+<dt><a name="index-list_005fcorrelations-1"></a>Função: <strong>list_correlations</strong> <em>(<var>matriz</var>, <var>valor_lógico</var>)</em></dt>
+<dd><p>A função <code>list_correlations</code> retorna uma lista de medidas de correlação:
+</p>
+<ul>
+<li> <var>matriz de precisão</var>: o inverso da matriz de covariância <em>S_1</em>,
+<div class="example">
+<pre class="example">       -1     ij
+      S   = (s  )             
+       1         i,j = 1,2,...,p
+</pre></div>
+
+</li><li> <var>vector de correlação múltipla</var>:  <em>(R_1^2, R_2^2, ..., R_p^2)</em>, com 
+<div class="example">
+<pre class="example">       2          1
+      R  = 1 - -------
+       i        ii
+               s   s
+                    ii
+</pre></div>
+<p>sendo um indicador do melhor do ajuste do modelo de regressão linear de várias variáveis dobre <em>X_i</em> quando o resto das variáveis são usados como regressores.
+</p>
+</li><li> <var>matriz de correlação parcial</var>: como elemento <em>(i, j)</em> sendo
+<div class="example">
+<pre class="example">                         ij
+                        s
+      r        = - ------------
+       ij.rest     / ii  jj\ 1/2
+                   |s   s  |
+                   \       /
+</pre></div>
+
+</li></ul>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;descriptive&quot;)$
+(%i2) load (&quot;numericalio&quot;)$
+(%i3) s2 : read_matrix (file_search (&quot;wind.data&quot;))$
+(%i4) z : list_correlations (s2)$
+(%i5) fpprintprec : 5$ /* for pretty output */
+(%i6) z[1];  /* precision matrix */
+      [  .38486   - .13856   - .15626   - .10239    .031179  ]
+      [                                                      ]
+      [ - .13856   .34107    - .15233    .038447   - .052842 ]
+      [                                                      ]
+(%o6) [ - .15626  - .15233    .47296    - .024816  - .10054  ]
+      [                                                      ]
+      [ - .10239   .038447   - .024816   .10937    - .034033 ]
+      [                                                      ]
+      [ .031179   - .052842  - .10054   - .034033   .14834   ]
+(%i7) z[2];  /* multiple correlation vector */
+(%o7)       [.85063, .80634, .86474, .71867, .72675]
+(%i8) z[3];  /* partial correlation matrix */
+       [  - 1.0     .38244   .36627   .49908   - .13049 ]
+       [                                                ]
+       [  .38244    - 1.0    .37927  - .19907   .23492  ]
+       [                                                ]
+(%o8)  [  .36627    .37927   - 1.0    .10911    .37956  ]
+       [                                                ]
+       [  .49908   - .19907  .10911   - 1.0     .26719  ]
+       [                                                ]
+       [ - .13049   .23492   .37956   .26719    - 1.0   ]
+</pre></div>
+
+<p>A função <code>list_correlations</code> também tem um argumento lógico opcional: <code>list_correlations(x,true)</code> diz ao Maxima que <code>x</code> é a matriz de dados, fazendo o mesmo que <code>list_correlations(x)</code>. Por outro lado, <code>list_correlations(x,false)</code> significa que <code>x</code> não é a matriz de correlação, mas a matriz de covariancia, evitando a repetição de seu cálculo.
+</p>
+<p>Veja também <code>cov</code> e <code>cov1</code>.
+</p></dd></dl>
+
+
+
+<a name="Item_003a-descriptive_002fnode_002fDefini_00e7_00f5es-para-gr_00e1ficos-estat_00edsticos"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_142.html#Defini_00e7_00f5es-para-gr_00e1ficos-estat_00edsticos" accesskey="n" rel="next">Definições para gráficos estatísticos</a>, Previous: <a href="maxima_140.html#Defini_00e7_00f5es-para-estat_00edstica-descritiva" accesskey="p" rel="previous">Definições para estatística descritiva</a>, Acima: <a href="maxima_137.html#descriptive" accesskey="u" rel="up">descriptive</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

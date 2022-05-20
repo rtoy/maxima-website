@@ -1,0 +1,975 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Funktionen und Variablen der Programmierung</title>
+
+<meta name="description" content="Maxima Manual: Funktionen und Variablen der Programmierung">
+<meta name="keywords" content="Maxima Manual: Funktionen und Variablen der Programmierung">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_165.html#Programmierung" rel="up" title="Programmierung">
+<link href="maxima_169.html#g_t_00dcbersetzer" rel="next" title="&Uuml;bersetzer">
+<link href="maxima_167.html#Einf_00fchrung-in-die-Programmierung" rel="previous" title="Einf&uuml;hrung in die Programmierung">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funktionen-und-Variablen-der-Programmierung"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_167.html#Einf_00fchrung-in-die-Programmierung" accesskey="p" rel="previous">Einf&uuml;hrung in die Programmierung</a>, Nach oben: <a href="maxima_165.html#Programmierung" accesskey="u" rel="up">Programmierung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-und-Variablen-der-Programmierung-1"></a>
+<h3 class="section">27.3 Funktionen und Variablen der Programmierung</h3>
+
+<a name="backtrace"></a><a name="Item_003a-Program_002ede_002fdeffn_002fbacktrace"></a><dl>
+<dt><a name="index-backtrace"></a>Funktion: <strong>backtrace</strong> <em>()</em></dt>
+<dt><a name="index-backtrace-1"></a>Funktion: <strong>backtrace</strong> <em>(<var>n</var>)</em></dt>
+<dd>
+<p>Gibt den Aufruf-Stack der Funktion zur&uuml;ck, die ausgef&uuml;hrt wird.
+</p>
+<p>Das Kommando <code>backtrace()</code> zeigt den gesamten Stack.
+<code>backtrace(<var>n</var>)</code> zeigt die letzten <var>n</var> Funktionen
+einschlie&szlig;lich der Funktion, die ausgef&uuml;hrt wird.
+</p>
+<p><code>backtrace</code> kann in einer Batch-Datei, die zum Beispiel mit der Funktion
+<code><a href="maxima_76.html#batch">batch</a></code> geladen wird, in einer Funktion oder von einer Kommandozeile
+aufgerufen werden.
+</p>
+<p>Beispiele:
+</p>
+<p><code>backtrace()</code> gibt den gesamten Stack aus.
+</p>
+<div class="example">
+<pre class="example">(%i1) h(x) := g(x/7)$
+(%i2) g(x) := f(x-11)$
+(%i3) f(x) := e(x^2)$
+(%i4) e(x) := (backtrace(), 2*x + 13)$
+(%i5) h(10);
+#0: e(x=4489/49)
+#1: f(x=-67/7)
+#2: g(x=10/7)
+#3: h(x=10)
+                              9615
+(%o5)                         ----
+                               49
+</pre></div>
+
+<p><code>backtrace(<var>n</var>)</code> gibt die letzten <var>n</var> Funktionen aus.
+</p>
+<div class="example">
+<pre class="example">(%i1) h(x) := (backtrace(1), g(x/7))$
+(%i2) g(x) := (backtrace(1), f(x-11))$
+(%i3) f(x) := (backtrace(1), e(x^2))$
+(%i4) e(x) := (backtrace(1), 2*x + 13)$
+(%i5) h(10);
+#0: h(x=10)
+#0: g(x=10/7)
+#0: f(x=-67/7)
+#0: e(x=4489/49)
+</pre><pre class="example">                              9615
+(%o5)                         ----
+                               49
+</pre></div>
+</dd></dl>
+
+<a name="block"></a><a name="Item_003a-Program_002ede_002fdeffn_002fblock"></a><dl>
+<dt><a name="index-block"></a>Funktion: <strong>block</strong> <em>([<var>v_1</var>, &hellip;, <var>v_m</var>], <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dt><a name="index-block-1"></a>Funktion: <strong>block</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dd>
+<p>Mit der Anweisung <code>block</code> werden Ausdr&uuml;cke in einer lokalen Umgebung
+zusammengefasst.  <code>block</code> wertet die Argument <var>expr_1</var>, <var>expr_2</var>,
+&hellip;, <var>expr_n</var> nacheinander aus und gibt das Ergebnis des letzten
+ausgewerteten Ausdrucks zur&uuml;ck.  Die Liste <code>[v_1, ..., v_m]</code> am Anfang
+der <code>block</code>-Anweisung bezeichnet Variablen, die innerhalb der
+<code>block</code>-Anweisung lokal sind.  Alle anderen Variablen, die in einem Block
+verwendet werden, beziehen sich auf globale Variablen, die außerhalb des Block
+definiert sind.  Dies kann ein weiterer Block oder die globale Maxima-Umgebung
+sein.  <code>block</code> sichert die aktuellen Werte der Variablen <var>v_1</var>, 
+&hellip;, <var>v_m</var>.  Wird <code>block</code> verlassen, werden diese Werte
+wiederhergestellt.
+</p>
+<p>Die Deklaration <code>local(<var>v_1</var>, ..., <var>v_m</var>)</code> innerhalb der
+<code>block</code>-Anweisung sichert nicht nur die Werte, sondern auch die
+Eigenschaften der Variablen wie sie zum Beispiel mit den Funktionen
+<code><a href="maxima_63.html#declare">declare</a></code> oder <code><a href="maxima_90.html#depends">depends</a></code> definiert werden.  Erhalten die mit
+<code>local</code> deklarierten Variablen innerhalb der <code>block</code>-Anweisung
+Eigenschaften, wirken sich diese nur lokal aus.  Beim Verlassen der
+<code>block</code>-Anweisung werden die globalen Eigenschaften wiederhergestellt.
+Siehe auch <code><a href="#local">local</a></code>.
+</p>
+<p>Die <code>block</code>-Anweisung kann verschachtelt werden.  Jeder Block kann
+eigene lokale Variablen definieren.  Diese sind global zu jedem anderen Block
+der sich innerhalb des Blockes befindet.  Ein Variable die nicht als lokal
+definiert ist, hat den globalen Wert eines umgebenden Blocks oder den Wert der
+globalen Maxima-Umgebung.
+</p>
+<p>Der R&uuml;ckgabewert eines Blocks ist der Wert des letzten Ausdrucks oder der 
+Wert, der mit den <code>return</code>-Anweisung zur&uuml;ckgegeben wird.  Mit der 
+<code>go</code>-Anweisung kann innerhalb eines Blocks zu einer Marke gesprungen 
+werden.  Weiterhin kann mit der <code><a href="#throw">throw</a></code>-Anweisung ein nicht-lokaler
+R&uuml;cksprung zu einer entsprechenden <code><a href="#catch">catch</a></code>-Anweisung erfolgen.
+</p>
+<p>Bl&ouml;cke erscheinen typischerweise auf der rechten Seite einer 
+Funktionsdefinitionen.  Sie k&ouml;nnen aber auch an anderen Stellen verwendet
+werden.
+</p>
+<p>Beispiel:
+</p>
+<p>Das Beispiel zeigt eine einfache Implementation des Newton-Algorithmus.  Der
+Block definiert die lokalen Variablen <code>xn</code>, <code>s</code> und <var>numer</var>.
+<code><a href="maxima_14.html#numer">numer</a></code> ist eine Optionsvariable, die im Block einen lokalen Wert erh&auml;lt.
+Im Block ist das Tag <code>loop</code> definiert.  Zu diesem Tag wird mit der
+Anweisung <code>go(loop)</code> gesprungen.  Der Block und damit die Funktion wird
+mit der Anweisung <code>return(xn)</code> verlassen.  Der Wert der Variablen <code>xn</code>
+ist das Ergebnis der Funktion <code>newton</code>.
+</p>
+<div class="example">
+<pre class="example">newton(exp,var,x0,eps):=
+   block([xn,s,numer],
+      numer:true,
+      s:diff(exp,var),
+      xn:x0,
+   loop,
+      if abs(subst(xn,var,exp))&lt;eps then return(xn),
+      xn:xn-subst(xn,var,exp)/subst(xn,var,s),
+      go(loop) )$
+</pre></div>
+</dd></dl>
+
+<a name="break"></a><a name="Item_003a-Program_002ede_002fdeffn_002fbreak"></a><dl>
+<dt><a name="index-break"></a>Funktion: <strong>break</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dd>
+<p>Wertet die Ausdr&uuml;cke <var>expr_1</var>, &hellip;, <var>expr_n</var> aus, zeigt die 
+Ergebnisse an und f&uuml;hrt dann eine Unterbrechung aus.  Mit dem Kommando 
+<code>exit;</code> wird Maxima fortgesetzt.  Siehe das Kapitel
+</p>
+<p>Beispiel:
+</p>
+<p>Der Variablen <code>a</code> wird der Wert 2 zugewiesen.  Dann wird die Unterbrechung
+ausgef&uuml;hrt.  Mit dem Kommando <code>exit;</code> wird Maxima fortgesetzt.
+</p>
+<div class="example">
+<pre class="example">(%i1) break(a:2);
+2 
+
+Entering a Maxima break point. Type 'exit;' to resume.
+_a;
+2
+_exit;
+(%o1)                           2
+</pre></div>
+</dd></dl>
+
+<a name="catch"></a><a name="Item_003a-Program_002ede_002fdeffn_002fcatch"></a><dl>
+<dt><a name="index-catch"></a>Funktion: <strong>catch</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dd>
+
+<p>Wertet die Ausdr&uuml;cke <var>expr_1</var>, &hellip;, <var>expr_n</var> nacheinander aus.
+Wertet irgendeiner der Ausdr&uuml;cke zu <code>throw(arg)</code> aus, dann ist das 
+Ergebnis der Wert von <code>throw(arg)</code> und es werden keine weiteren Ausdr&uuml;cke
+ausgewertet.  Diese nicht-lokale R&uuml;ckgabe kehrt zu dem n&auml;chsten <code>catch</code>
+in einer beliebigen Verschachtelungstiefe zur&uuml;ck.  Wird kein <code>catch</code> 
+gefunden gibt Maxima eine Fehlermeldung aus.
+</p>
+
+<p>F&uuml;hrt die Auswertung der Argumente nicht zu einem <code>throw</code>, dann ist
+die R&uuml;ckgabe das Ergebnis des letzten Ausdrucks <code>expr_n</code>.
+</p>
+<p>Beispiel:
+</p>
+
+<p>Die Funktion <code>g</code> gibt eine Liste mit den Werten des Lambda-Ausdrucks 
+zur&uuml;ck.  Tritt ein negativer Wert auf, bricht die Funktion ab, in diesem 
+Beispiel mit <code>throw(-3)</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) lambda ([x], if x &lt; 0 then throw(x) else f(x))$
+(%i2) g(l) := catch (map (''%, l))$
+(%i3) g ([1, 2, 3, 7]);
+(%o3)               [f(1), f(2), f(3), f(7)]
+(%i4) g ([1, 2, -3, 7]);
+(%o4)                          - 3
+</pre></div>
+</dd></dl>
+
+<a name="do"></a><a name="Item_003a-Program_002ede_002fdeffn_002fdo"></a><dl>
+<dt><a name="index-do"></a>Spezieller Operator: <strong>do</strong></dt>
+<dd>
+
+<p>Die <code>do</code>-Anweisung erlaubt die Definition von Iterationen.  Aufgrund der
+gro&szlig;en Allgemeinheit der <code>do</code>-Anweisung folgt die Beschreibung in zwei
+Teilen.  Zun&auml;chst werden die bekannteren Formen beschrieben, wie sie auch in 
+anderen Programmiersprachen vorhanden sind.  Dann folgen die weiteren 
+M&ouml;glichkeiten.
+</p>
+
+<p>Es gibt drei Varianten der <code>do</code>-Anweisung, die sich nur durch die
+Abbruchbedingung voneinander unterscheiden.  Diese sind:
+</p>
+<div class="example">
+<pre class="example"><b>for</b> <var>variable</var>: <var>initial_value</var> <b>step</b> <var>increment</var>
+      <b>thru</b> <var>limit</var> <b>do</b> <var>body</var>
+
+</pre><pre class="example"><b>for</b> <var>variable</var>: <var>initial_value</var> <b>step</b> <var>increment</var>
+      <b>while</b> <var>condition</var> <b>do</b> <var>body</var>
+</pre><pre class="example">
+<b>for</b> <var>variable</var>: <var>initial_value</var> <b>step</b> <var>increment</var>
+      <b>unless</b> <var>condition</var> <b>do</b> <var>body</var>
+</pre></div>
+
+
+
+<p><var>initial_value</var>, <var>increment</var>, <var>limit</var> und <var>body</var> k&ouml;nnen 
+beliebige Ausdr&uuml;cke sein.  Ist das Inkrement 1, kann <code>step</code> entfallen.
+</p>
+
+<p>Die Ausf&uuml;hrung der <code>do</code>-Anweisung beginnt mit der Zuweisung von
+<code>initial_value</code> an die Kontrollvariable <var>variable</var>.  Dann folgen die 
+Schritte: (1) Hat die Kontrollvariable den Wert einer <code>thru</code>-Anweisung
+&uuml;berschritten oder hat die Bedingung einer <code>unless</code>-Anweisung den Wert
+<code>true</code> oder hat die Bedingung einer <code>while</code>-Anweisung den Wert
+<code>false</code>, dann endet die Ausf&uuml;hrung der <code>do</code>-Anweisung.  (2) Die
+Ausdr&uuml;cke in <var>body</var> werden ausgewertet.  (3) Das Inkrement wird zu der
+Kontrollvariablen hinzuaddiert.  Die Schritte (1) bis (3) werden solange 
+ausgef&uuml;hrt, bis eine der Bedingungen f&uuml;r die Beendigung der 
+<code>do</code>-Anweisung zutrifft.
+</p>
+
+<p>Im Allgemeinen ist der <code>thru</code>-Test erf&uuml;llt, wenn die Kontrollvariable 
+gr&ouml;&szlig;er als <var>limit</var> ist, falls <var>increment</var> nicht negativ ist.  Oder 
+wenn die Kontrollvariable kleiner als <code>limit</code> ist, f&uuml;r den Fall, dass das
+Inkrement negativ ist.  <var>increment</var> und <var>limit</var> k&ouml;nnen Ausdr&uuml;cke 
+sein, sofern die Bedingung zum Abbruch der <code>do</code>-Anweisung ausgewertet 
+werden kann.  Soll <code>increment</code> zu einem negativen Wert auswerten und kann 
+dies jedoch bei Eintritt in die Schleife von Maxima nicht festgestellt werden, 
+so wird das Inkrement als positiv angenommen.  Dies kann dazu f&uuml;hren, dass die
+Schleife nicht korrekt ausgef&uuml;hrt wird.
+</p>
+
+<p><var>limit</var>, <var>increment</var> und die Bedingung f&uuml;r den Abbruch der Schleife 
+werden f&uuml;r jeden Durchgang durch die Schleife ausgewertet.  &Auml;ndern diese 
+ihren Wert nicht, kann es daher effizienter sein, die Werte diese Ausdr&uuml;cke 
+vor Eintritt in die Schleife zu berechnen und in Variablen abzulegen, die 
+anstatt der Ausdr&uuml;cke in der Schleife verwendet werden.
+</p>
+
+<p>Die <code>do</code>-Anweisung hat den R&uuml;ckgabewert <code>done</code>.  Um einen anderen
+Wert zur&uuml;ckzugeben, kann die <code>return</code>-Anweisung innerhalb von 
+<code>body</code> genutzt werden.  Befindet sich die <code>do</code>-Anweisung innerhalb 
+eines Blockes, so wird dieser nicht mit einer <code>return</code>-Anweisung verlassen,
+die sich innerhalb der <code>do</code>-Anweisung befindet.  Auch kann nicht mit der
+<code>go</code>-Anweisung in einen umgebenen Block gesprungen werden.
+</p>
+
+<p>Die Kontrollvariable ist immer lokal zur <code>do</code>-Anweisung.  Nach dem
+Verlassen der <code>do</code>-Anweisung kann auf die Kontrollvariable nicht mehr 
+zugegriffen werden.
+</p>
+<div class="example">
+<pre class="example">(%i1) for a:-3 thru 26 step 7 do display(a)$
+                             a = - 3
+
+                              a = 4
+
+                             a = 11
+
+                             a = 18
+
+                             a = 25
+</pre></div>
+
+
+<p>Die Bedingung <code>while i &lt;= 10</code> ist &auml;quivalent zu den Bedingungen
+<code>unless i &gt; 10</code> und <code>thru 10</code> ist.
+</p>
+<div class="example">
+<pre class="example">(%i1) s: 0$
+(%i2) for i: 1 while i &lt;= 10 do s: s+i;
+(%o2)                         done
+(%i3) s;
+(%o3)                          55
+</pre></div>
+
+
+<p>Berechne die ersten acht Terme einer Taylorreihe in einer <code>do</code>-Schleife.
+</p>
+<div class="example">
+<pre class="example">(%i1) series: 1$
+(%i2) term: exp (sin (x))$
+(%i3) for p: 1 unless p &gt; 7 do
+          (term: diff (term, x)/p, 
+           series: series + subst (x=0, term)*x^p)$
+(%i4) series;
+                  7    6     5    4    2
+                 x    x     x    x    x
+(%o4)            -- - --- - -- - -- + -- + x + 1
+                 90   240   15   8    2
+</pre></div>
+
+
+<p>In diesem Beispiel wird die negative Wurzel von 10 mit einem 
+Newton-Raphson-Algorithmus berechnet. 
+</p>
+<div class="example">
+<pre class="example">(%i1) poly: 0$
+(%i2) for i: 1 thru 5 do
+          for j: i step -1 thru 1 do
+              poly: poly + i*x^j$
+(%i3) poly;
+                  5      4       3       2
+(%o3)          5 x  + 9 x  + 12 x  + 14 x  + 15 x
+(%i4) guess: -3.0$
+(%i5) for i: 1 thru 10 do
+          (guess: subst (guess, x, 0.5*(x + 10/x)),
+           if abs (guess^2 - 10) &lt; 0.00005 then return (guess));
+(%o5)                  - 3.162280701754386
+</pre></div>
+
+
+<p>Anstatt eines festes Inkrements mit <code>step</code> kann die Kontrollvariable auch 
+mit <code>next</code> f&uuml;r jeden Schleifendurchgang berechnet werden.
+</p>
+<div class="example">
+<pre class="example">(%i6) for count: 2 next 3*count thru 20 do display (count)$
+                            count = 2
+
+                            count = 6
+
+                           count = 18
+</pre></div>
+
+
+<p>Anstatt mit der Syntax <code>for <var>variable</var>: <var>value</var> ...</code> kann die
+Kontrollvariable auch mit <code>for <var>variable</var> from <var>value</var> ...do...</code>
+initialisiert werden.  Wird auch <code>from <var>value</var></code> fortgelassen, wird
+die Kontrollvariable mit dem Wert 1 initialisiert.
+</p>
+
+<p>Manchmal kann es von Interesse sein, in einer Schleife keine Kontrollvariable
+zu nutzen.  In diesem Fall gen&uuml;gt es allein die Bedingung f&uuml;r den Abbruch 
+der Schleife anzugeben.  Im folgenden wird die Wurzel aus 5 mit dem 
+Heron-Verfahren bestimmt.
+</p>
+<div class="example">
+<pre class="example">(%i1) x: 1000$
+(%i2) thru 20 do x: 0.5*(x + 5.0/x)$
+(%i3) x;
+(%o3)                   2.23606797749979
+(%i4) sqrt(5), numer;
+(%o4)                   2.23606797749979
+</pre></div>
+
+
+<p>Auch die Abbruchbedingung kann fortgelassen werden.  Wird allein
+<code>do <var>body</var></code> angegeben, wird die Schleife unendlich oft ausgef&uuml;hrt. 
+Die Schleife kann mit der <code>return</code>-Anweisung verlassen werden.   Das 
+folgende Beispiel zeigt eine Implementierung des Newton-Algorithmus.
+</p>
+<div class="example">
+<pre class="example">(%i1) newton (f, x):= ([y, df, dfx], df: diff (f ('x), 'x),
+          do (y: ev(df), x: x - f(x)/y, 
+              if abs (f (x)) &lt; 5e-6 then return (x)))$
+</pre><pre class="example">(%i2) sqr (x) := x^2 - 5.0$
+(%i3) newton (sqr, 1000);
+(%o3)                   2.236068027062195
+</pre></div>
+
+
+
+<p>Eine weitere Syntax ist die folgende:
+</p>
+<div class="example">
+<pre class="example">for <var>variable</var> in <var>list</var> <var>end_tests</var> do <var>body</var>
+</pre></div>
+
+
+<p>Die Elemente der Liste <var>list</var> k&ouml;nnen beliebige Ausdr&uuml;cke sein, die
+nacheinander der Kontrollvariablen zugewiesen werden.  Die Schleife bricht ab, 
+wenn die optionale Abbruchbedingung <code>end_test</code> zutrifft, wenn die Liste
+<var>list</var> keine weiteren Elemente enth&auml;lt oder wenn die Schleife zum Beispiel
+mit der Funktion <code>return</code> verlassen wird.
+</p>
+<div class="example">
+<pre class="example">(%i1)  for f in [log, rho, atan] do ldisp(f(1))$
+(%t1)                                  0
+(%t2)                                rho(1)
+                                     %pi
+(%t3)                                 ---
+                                      4
+(%i4) ev(%t3,numer);
+(%o4)                             0.78539816
+</pre></div>
+</dd></dl>
+
+<a name="eval_005fwhen"></a><a name="Item_003a-Program_002ede_002fdeffn_002feval_005fwhen"></a><dl>
+<dt><a name="index-eval_005fwhen"></a>Funktion: <strong>eval_when</strong> <em>(<var>keyword</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dt><a name="index-eval_005fwhen-1"></a>Funktion: <strong>eval_when</strong> <em>([<var>keyword_1</var>, <var>keyword_2</var>, &hellip;], <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dd>
+<p>Ein Ausdruck mit der Funktion <code>eval_when</code> wird an oberster Stelle in einer
+Datei definiert und erlaubt die bedingte Auswertung von Ausdr&uuml;cken beim Laden,
+&Uuml;bersetzen oder Kompilieren einer Datei.  Das Argument <var>keyword</var> ist eines
+der Schl&uuml;sselworte <code>batch</code>, <code>translate</code>, <code>compile</code> oder
+<code>loadfile</code>.  Das erste Argument kann ein einzelnes Schl&uuml;sselwort oder
+ein Liste mit mehreren Schl&uuml;sselworten sein.  Trifft die mit dem
+Schl&uuml;sselwort angegebene Bedingung zu, wird eine oder mehrere der folgenden
+Aktionen ausgef&uuml;hrt:
+</p>
+<dl compact="compact">
+<dt><code>batch</code></dt>
+<dd><p>Wird die Datei mit einer der Funktionen <code><a href="maxima_76.html#load">load</a></code>, <code><a href="maxima_76.html#batch">batch</a></code>,<!-- /@w -->
+<code><a href="maxima_76.html#batchload">batchload</a></code> oder <code><a href="maxima_6.html#demo">demo</a></code> geladen und ist <code>batch</code> in der Liste der
+Schl&uuml;sselworte enthalten, dann werden die Ausdr&uuml;cke <var>expr1</var>, &hellip;,
+<var>expr_n</var> genau einmal beim Laden der Datei ausgewertet.  Die R&uuml;ckgabe der
+Funktion <code>eval_when</code> ist ein Ausdruck <code>evaluated_when(<var>result)</var></code>,
+wobei <var>result</var> das Ergebnis der Auswertung ist.  Ist das Schl&uuml;sselwort
+<code>batch</code> nicht vorhanden, ist die R&uuml;ckgabe das Symbol
+<code>not_evaluated_when</code>.
+</p>
+</dd>
+<dt><code>translate</code></dt>
+<dd><p>Wird die Datei mit dem Kommando <code><a href="maxima_171.html#translate_005ffile">translate_file</a></code> oder
+<code><a href="maxima_171.html#compile_005ffile">compile_file</a></code> geladen und ist <code>translate</code> unter den
+Schl&uuml;sselworten, dann werden die Ausdr&uuml;cke <var>expr_1</var>, &hellip;,
+<var>expr_n</var> sofort ausgewertet.  Seiteneffekte wie Zuweisungen von Werten
+an Optionsvariablen oder Deklarationen sind f&uuml;r die folgende &Uuml;bersetzung
+der Datei nach Lisp wirksam.  Die Ausdr&uuml;cke sind jedoch nicht Teil des
+&uuml;bersetzten Programms.
+</p>
+</dd>
+<dt><code>loadfile</code></dt>
+<dd><p>Wird die Datei mit dem Kommando <code><a href="maxima_171.html#translate_005ffile">translate_file</a></code> oder dem Kommando
+<code><a href="maxima_171.html#compile_005ffile">compile_file</a></code> geladen und ist <code>loadfile</code> unter den
+Schl&uuml;sselworten, dann werden die Ausdr&uuml;cke <var>expr_1</var>, &hellip;,
+<var>expr_n</var> nach Lisp &uuml;bersetzt und als Block der Form
+<code>(PROGN EXPR_1 ... EXPR_N)</code> in das Lisp Programm eingesetzt.  Hier sind
+die Anweisungen <var>EXPR_I</var> die nach Lisp &uuml;bersetzten Maxima-Ausdr&uuml;cke
+<var>expr_i</var>.
+</p>
+</dd>
+<dt><code>compile</code></dt>
+<dd><p>Wird die Datei mit dem Kommando <code><a href="maxima_171.html#translate_005ffile">translate_file</a></code> oder
+<code><a href="maxima_171.html#compile_005ffile">compile_file</a></code> geladen und ist <code>compile</code> unter den
+Schl&uuml;sselworten, dann werden die Ausdr&uuml;cke <var>expr_1</var>, &hellip;,
+<var>expr_n</var> nach Lisp &uuml;bersetzt und als eine Lisp-Anweisung in das
+Lisp-Programm eingesetzt, die die Form <code>(EVAL-WHEN (:COMPILE-TOPLEVEL)
+(EXPR_1 ... EXPR_N))</code> hat.  Das Schl&uuml;sselwort <code>compile</code> kann nicht mit
+dem Schl&uuml;sselwort <code>loadfile</code> in einem <code>eval_when</code>-Ausdruck
+kombiniert werden.  In diesem Fall wird das Schl&uuml;sselwort <code>compile</code>
+ignoriert.
+</p></dd>
+</dl>
+
+<p>Beispiele:
+</p>
+<p>F&uuml;r die folgende Beispiele ist eine Datei mit den Namen
+<code>eval_when.mac</code> definiert, die verschiedene <code>eval_when</code>-Anweisungen
+enth&auml;lt.
+</p>
+<div class="example">
+<pre class="example">(%i1) file: file_search(&quot;eval_when.mac&quot;);
+(%o1)        /home/dieter/.maxima/eval_when.mac
+(%i2) printfile(file);
+
+eval_when(batch,     print(&quot;called in mode BATCH&quot;));
+eval_when(loadfile,  print(&quot;called in mode LOADFILE&quot;));
+eval_when(compile,   print(&quot;called in mode COMPILE&quot;));
+eval_when(translate, print(&quot;called in mode TRANSLATE&quot;));
+
+(%o2)        /home/dieter/.maxima/eval_when.mac
+</pre></div>
+
+<p>Die Datei wird mit dem Kommando <code>load</code> geladen.  Die Anweisung mit
+dem Schl&uuml;sselwort <code>batch</code> wird beim Laden einmal ausgef&uuml;hrt.
+</p>
+<div class="example">
+<pre class="example">(%i1) file: file_search(&quot;eval_when.mac&quot;);
+(%o1)        /home/dieter/.maxima/eval_when.mac
+(%i2) load(&quot;file&quot;);
+called in mode BATCH
+(%o2)        /home/dieter/.maxima/eval_when.mac
+</pre></div>
+
+<p>In diesem Fall wird die Datei mit dem Befehl <code>batch</code> geladen.  Die
+Anweisung mit dem Schl&uuml;sselwort <code>batch</code> wird einmal ausgef&uuml;hrt.
+Die anderen <code>eval_when</code>-Anweisungen werten jeweils zum Ergebnis
+<code>not_evaluated_when</code> aus.
+</p>
+<div class="example">
+<pre class="example">(%i3) batch(file);
+
+read and interpret file: /home/dieter/.maxima/eval_when.mac
+(%i4)     eval_when(batch, print(called in mode BATCH))
+called in mode BATCH 
+(%o4)         evaluated_when(called in mode BATCH)
+(%i5)  eval_when(loadfile, print(called in mode LOADFILE))
+(%o5)                  not_evaluated_when
+(%i6)   eval_when(compile, print(called in mode COMPILE))
+(%o6)                  not_evaluated_when
+(%i7) eval_when(translate, print(called in mode TRANSLATE))
+(%o7)                  not_evaluated_when
+(%o7)        /home/dieter/.maxima/eval_when.mac
+</pre></div>
+
+<p>Jetzt wird die Datei mit dem Kommando <code>translate_file</code> geladen und nach
+Lisp &uuml;bersetzt.  Der Ausdruck mit dem Schl&uuml;sselwort <code>translate</code> wird
+sofort ausgewertet.  Das &uuml;bersetzte Programm wird in die Ausgabedatei
+<code>eval_when.LISP</code> geschrieben.  Die <code>eval_when</code>-Anweisung zum
+Schl&uuml;sselwort wird nicht ausgewertet.
+</p>
+<div class="example">
+<pre class="example">(%i1) file: file_search(&quot;eval_when.mac&quot;);
+(%o1)        /home/dieter/.maxima/eval_when.mac
+(%i2) translate_file(file);
+translator: begin translating /home/dieter/.maxima/eval_when.mac.
+called in mode TRANSLATE 
+(%o2) [/home/dieter/.maxima/eval_when.mac, 
+/home/dieter/.maxima/eval_when.LISP, 
+/home/dieter/.maxima/eval_when.UNLISP]
+</pre></div>
+
+<p>Dies ist der Inhalt der Ausgabedatei <code>eval_when.LISP</code>.  Die Ausgabedatei
+enth&auml;lt eine <code>PROGN</code>-Anweisung mit dem Ausdruck
+<code>($print '&quot;called in mode LOADFILE&quot;)</code> f&uuml;r den <code>eval_when</code>-Ausdruck
+zum Schl&uuml;sselwort <code>loadfile</code> sowie eine <code>EVAL-WHEN</code>-Anweisung mit
+dem Ausdruck <code>($print '&quot;called in mode COMPILE&quot;)</code> f&uuml;r den
+<code>eval_when</code>-Ausdruck mit dem Schl&uuml;sselwort <code>compile</code>.
+</p>
+<pre class="verbatim">;;; -*- Mode: Lisp; package:maxima; syntax:common-lisp ;Base: 10 -*- ;;;
+;;; Translated on: 2011-10-02 13:35:37+02:00
+;;; Maxima version: 5.25post
+;;; Lisp implementation: SBCL
+;;; Lisp version: 1.0.45
+(in-package :maxima)
+
+[...]
+
+nil
+(progn ($print '&quot;called in mode LOADFILE&quot;))
+(eval-when (:compile-toplevel) ($print '&quot;called in mode COMPILE&quot;))
+nil
+</pre></dd></dl>
+
+<a name="errcatch"></a><a name="Item_003a-Program_002ede_002fdeffn_002ferrcatch"></a><dl>
+<dt><a name="index-errcatch"></a>Funktion: <strong>errcatch</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dd>
+
+<p>Wertet die Ausdr&uuml;cke <var>expr_1</var>, &hellip;, <var>expr_n</var> nacheinander aus und
+gibt das Ergebnis des letzten Ausdrucks als eine Liste <code>[<var>expr_n</var>]</code>
+zur&uuml;ck, wenn kein Fehler bei der Auswertung auftritt.  Tritt ein Fehler
+bei der Auswertung eines der Ausdr&uuml;cke auf, ist die R&uuml;ckgabe eine leere 
+Liste <code>[]</code>.
+</p>
+
+<p><code>errcatch</code> ist n&uuml;tzlich in Batch-Dateien.  Mit <code>errcatch</code> kann ein
+m&ouml;glicher Fehler abgefangen werden, ohne das die Verarbeitung der Batch-Datei
+abbricht.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) errcatch(x:2,1/x);
+                                1
+(%o1)                          [-]
+                                2
+(%i2) errcatch(x:0,1/x);
+
+Division by 0
+(%o2)                          []
+</pre></div>
+</dd></dl>
+
+<a name="error"></a><a name="Item_003a-Program_002ede_002fdeffn_002ferror"></a><dl>
+<dt><a name="index-error"></a>Funktion: <strong>error</strong> <em>(<var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dt><a name="index-error-1"></a>Systemvariable: <strong>error</strong></dt>
+<dd>
+
+<p>Wertet die Ausdr&uuml;cke <var>expr_1</var>, &hellip;, <var>expr_n</var> aus, gibt diese auf 
+der Konsole aus und generiert einen Fehler, der zur obersten Ebene von Maxima 
+f&uuml;hrt oder zu dem n&auml;chsten <code>errcatch</code>.
+</p>
+
+<p>Der Systemvariablen <code>error</code> wird eine Liste zugewiesen, die eine 
+Beschreibung des Fehlers enth&auml;lt.  Das erste Element der Liste ist eine
+Zeichenkette und die weiteren Elemente enthalten die Argumente die keine 
+Zeichenkette sind.
+</p>
+
+<p><code>errormsg()</code> formatiert und gibt die Fehlermeldung in <code>error</code> aus.
+Damit wird die letzte Fehlermeldung erneut ausgegeben.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) f(x):= if x=0 then 
+                error(&quot;Division durch&quot;, x, &quot;ist nicht gestattet.&quot;) 
+             else 1/x$
+(%i2) f(0);
+
+Division durch 0 ist nicht gestattet.
+#0: f(x=0)
+ -- an error. To debug this try: debugmode(true);
+(%i3) errormsg();
+
+Division durch 0 ist nicht gestattet.
+(%o3)                         done
+(%i4) error;
+(%o4)      [Division durch ~M ist nicht gestattet., 0]
+</pre></div>
+</dd></dl>
+
+<a name="error_005fsize"></a><a name="Item_003a-Program_002ede_002fdefvr_002ferror_005fsize"></a><dl>
+<dt><a name="index-error_005fsize"></a>Optionsvariable: <strong>error_size</strong></dt>
+<dd><p>Standardwert: 10
+</p>
+
+<p><code>error_size</code> kontrolliert die Ausgabe eines Ausdrucks der zu einem Fehler
+gef&uuml;hrt hat.  Ist der Ausdruck gr&ouml;&szlig;er als <code>error_size</code> wird der 
+Ausdruck bei der Ausgabe einer Fehlermeldung durch ein Symbol ersetzt und dem 
+Symbol wird der Ausdruck zugewiesen.  Die Symbole werden aus der Liste 
+<code>error_syms</code> ausgew&auml;hlt.
+</p>
+
+<p>Ist der Ausdruck kleiner als <code>error_size</code> wird dieser mit der Fehlermeldung
+ausgegeben.
+</p>
+
+<p>Siehe auch <code><a href="#error">error</a></code> und <code><a href="#error_005fsyms">error_syms</a></code>.
+</p>
+<p>Beispiel:
+</p>
+
+<p>Die Gr&ouml;&szlig;e des Ausdrucks <code>U</code> ist 24.
+</p>
+<div class="example">
+<pre class="example">(%i1) U: (C^D^E + B + A)/(cos(X-1) + 1)$
+
+(%i2) error_size: 20$
+
+(%i3) error (&quot;Example expression is&quot;, U);
+
+Example expression is errexp1
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i4) errexp1;
+                            E
+                           D
+                          C   + B + A
+(%o4)                    --------------
+                         cos(X - 1) + 1
+(%i5) error_size: 30$
+
+(%i6) error (&quot;Example expression is&quot;, U);
+
+                         E
+                        D
+                       C   + B + A
+Example expression is --------------
+                      cos(X - 1) + 1
+ -- an error.  Quitting.  To debug this try debugmode(true);
+</pre></div>
+</dd></dl>
+
+<a name="error_005fsyms"></a><a name="Item_003a-Program_002ede_002fdefvr_002ferror_005fsyms"></a><dl>
+<dt><a name="index-error_005fsyms"></a>Optionsvariable: <strong>error_syms</strong></dt>
+<dd><p>Standardwert: <code>[errexp1, errexp2, errexp3]</code>
+</p>
+
+<p>In Fehlermeldungen werden Ausdr&uuml;cke, die gr&ouml;&szlig;er als <code>error_size</code> 
+sind, durch Symbole ersetzt, denen der Ausdruck zugewiesen wird.  Die Symbole 
+werden nacheinander der Liste <code>error_syms</code> entnommen.
+</p>
+
+<p>Sind keine Symbole mehr vorhanden, werden automatisch neue Symbole mit
+<code>concat('errexp, <var>n</var>)</code> gebildet.
+</p>
+
+<p>Siehe auch <code><a href="#error">error</a></code> und <code><a href="#error_005fsize">error_size</a></code>.
+</p></dd></dl>
+
+<a name="errormsg"></a><a name="Item_003a-Program_002ede_002fdeffn_002ferrormsg"></a><dl>
+<dt><a name="index-errormsg"></a>Funktion: <strong>errormsg</strong> <em>()</em></dt>
+<dd>
+
+<p>Gibt die letzte Fehlermeldung erneut aus.  Die Fehlermeldung ist in der
+Systemvariablen <code>errormsg</code> enthalten.  Die Funktion <code>errormsg</code>
+formatiert diese und gibt sie aus.
+</p></dd></dl>
+
+<a name="variable_005ferrormsg"></a><a name="Item_003a-Program_002ede_002fdefvr_002ferrormsg"></a><dl>
+<dt><a name="index-errormsg-1"></a>Optionsvariable: <strong>errormsg</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+
+<p>Hat die Optionsvariable <code>errormsg</code> den <code>false</code> wird die Ausgabe
+von Fehlermeldungen unterdr&uuml;ckt.
+</p>
+
+<p>Der Optionsvariablen <code>errormsg</code> kann in einem Block kein lokaler Wert
+zugewiesen werden.  Der globale Wert von <code>errormsg</code> ist stets pr&auml;sent.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) errormsg;
+(%o1)                                true
+(%i2) sin(a,b);
+Wrong number of arguments to sin
+ -- an error. To debug this try: debugmode(true);
+(%i3) errormsg:false;
+(%o3)                                false
+(%i4) sin(a,b);
+
+ -- an error. To debug this try: debugmode(true);
+</pre></div>
+
+
+<p>Der Optionsvariablen <code>errormsg</code> kann in einem Block kein lokaler Wert
+zugewiesen werden.
+</p>
+<div class="example">
+<pre class="example">(%i1) f(bool):=block([errormsg:bool], 
+                     print (&quot;value of errormsg is&quot;,errormsg))$
+(%i2) errormsg:true;
+(%o2)                                true
+</pre><pre class="example">(%i3) f(false);
+value of errormsg is true 
+</pre><pre class="example">(%o3)                                true
+(%i4) errormsg:false;
+(%o4)                                false
+(%i5) f(true);
+value of errormsg is false 
+(%o5)                                false
+</pre></div>
+</dd></dl>
+
+
+<a name="for"></a><a name="Item_003a-Program_002ede_002fdeffn_002ffor"></a><dl>
+<dt><a name="index-for"></a>Spezieller Operator: <strong>for</strong></dt>
+<dd>
+
+<p>Anweisung f&uuml;r Interationen.  Siehe die <code><a href="#do">do</a></code>-Anweisung f&uuml;r eine 
+Beschreibung der Iterationsm&ouml;glichkeiten von Maxima.
+</p></dd></dl>
+
+<a name="go"></a><a name="Item_003a-Program_002ede_002fdeffn_002fgo"></a><dl>
+<dt><a name="index-go"></a>Funktion: <strong>go</strong> <em>(<var>tag</var>)</em></dt>
+<dd>
+
+<p>Erlaubt einen Sprung innerhalb eines Blocks zu einer Marke mit dem Namen 
+<code>tag</code>.  Um eine Anweisung mit einer Sprungmarke zu versehen, wird der
+Anweisung die Marke vorangestellt.  Ein Beispiel ist:
+</p>
+<div class="example">
+<pre class="example">block ([x], x:1, loop, x+1, ..., go(loop), ...)
+</pre></div>
+
+
+<p>Das Argument der Funktion <code>go</code> muss der Name einer Marke sein, die in
+demselben Block erscheint.  Es ist nicht m&ouml;glich in einen anderen Block zu
+springen.
+</p></dd></dl>
+
+
+<a name="if"></a><a name="Item_003a-Program_002ede_002fdeffn_002fif"></a><dl>
+<dt><a name="index-if"></a>Spezieller Operator: <strong>if</strong></dt>
+<dd>
+
+<p>Ist die bedingte Anweisung.  Verschiedene Formen einer bedingten Anweisung sind
+m&ouml;glich.
+</p>
+
+<p><code>if <var>cond_1</var> then <var>expr_1</var> else <var>expr_0</var></code> wertet zu 
+<var>expr_1</var> aus, wenn die Bedingung <var>cond_1</var> den Wert <code>true</code> hat.
+Ansonsten wertet der Ausdruck zu <var>expr_0</var> aus.
+</p>
+
+<p>Die zusammengesetzte bedingte Anweisung <code>if <var>cond_1</var> then <var>expr_1</var>
+elseif <var>cond_2</var> then <var>expr_2</var> elseif ... else <var>expr_0</var></code> wertet 
+zu <var>expr_k</var> aus, wenn die Bedingung <var>cond_k</var> den Wert <code>true</code> hat 
+und alle vorhergehenden Bedingungen den Wert <code>false</code> haben.  Trifft keine 
+der Bedingungen zu, wertet der Ausdruck zu <var>expr_0</var> aus.
+</p>
+
+<p>Fehlt die Anweisung <code>else</code>, wird diese zu <code>else false</code> angenommen.
+<code>if <var>cond_1</var> then <var>expr_1</var></code> ist daher &auml;quivalent zu 
+<code>if <var>cond_1</var> then <var>expr_1</var> else false</code> und <code>if <var>cond_1</var> 
+then <var>expr_1</var> elseif ... elseif <var>cond_n</var> then <var>expr_n</var></code> ist 
+&auml;quivalent zu <code>if <var>cond_1</var> then <var>expr_1</var> elseif ... elseif 
+<var>cond_n</var> then <var>expr_n</var> else false</code>.
+</p>
+
+<p>Die Anweisungen <var>expr_0</var>, &hellip;, <var>expr_n</var> k&ouml;nnen beliebige 
+Maxima-Ausdr&uuml;cke einschlie&szlig;lich weiterer <code>if</code>-Anweisungen sein.  
+Die Anweisungen werden nicht vereinfacht oder ausgewertet, solange die 
+dazugeh&ouml;rende Bedingung nicht das Ergebnis <code>true</code> hat.
+</p>
+
+<p>Die Bedingungen <var>cond_1</var>, &hellip;, <var>cond_n</var> sind Ausdr&uuml;cke, die zu 
+<code>true</code> oder <code>false</code> ausgewertet werden k&ouml;nnen.  Kann eine Bedingung
+nicht zu <code>true</code> oder <code>false</code> ausgewertet werden, h&auml;ngt die Reaktion
+von der Optionsvariablen <code>prederror</code> ab.  Hat <code>prederror</code> den Wert
+<code>true</code>, dann meldet Maxima einen Fehler, wenn eine Bedingung nicht zu
+<code>true</code> oder <code>false</code> ausgewertet werden kann.  Ansonsten werden
+Bedingungen akzeptiert, die nicht zu <code>true</code> oder <code>false</code> ausgewertet
+werden k&ouml;nnen und das Ergebnis ist ein bedingter Ausdruck.
+</p>
+
+<p>Die Bedingungen k&ouml;nnen die folgenden Operatoren enthalten:
+</p>
+
+<div class="example">
+<pre class="example">Operation              Symbol      Typ
+ 
+less than              &lt;           relational infix
+less than              &lt;=
+  or equal to                      relational infix
+equality (syntactic)   =           relational infix
+negation of =          #           relational infix
+equality (value)       equal       relational function
+negation of equal      notequal    relational function
+greater than           &gt;=
+  or equal to                      relational infix
+greater than           &gt;           relational infix
+and                    and         logical infix
+or                     or          logical infix
+not                    not         logical prefix
+</pre></div>
+</dd></dl>
+
+<a name="local"></a><a name="Item_003a-Program_002ede_002fdeffn_002flocal"></a><dl>
+<dt><a name="index-local"></a>Funktion: <strong>local</strong> <em>(<var>v_1</var>, &hellip;, <var>v_n</var>)</em></dt>
+<dd>
+
+<p>Speichert alle Eigenschaften der Symbole <var>v_1</var>, &hellip;, <var>v_n</var>, entfernt
+die Eigenschaften und stellt die abgespeicherten Eigenschaften nach dem Austritt
+aus einem Block oder einem zusammengesetzten Ausdruck in dem <code>local</code>
+auftritt wieder her.
+</p>
+
+<p>Einige Deklarationen sind als Eigenschaft eines Symbols implementiert.  Dazu
+geh&ouml;ren Deklarationen mit <code>:=</code>, <code>array</code>, <code>dependencies</code>, 
+<code>atvalue</code>, <code>matchdeclare</code>, <code>atomgrad</code>, <code>constant</code>, 
+<code>nonscalar</code> oder <code>assume</code>.  Der Effekt von <code>local</code> ist, dass
+solche Deklarationen nur lokal in dem Block wirksam sind.
+</p>
+
+<p><code>local</code> kann nur in <code>block</code>-Anweisungen oder in einer 
+Funktionsdefinition oder in einem Lambda-Ausdruck verwendet werden. Weiterhin
+darf <code>local</code> jeweils nur einmal auftreten.
+</p>
+
+<p><code>local</code> wertet die Argumente aus.  <code>local</code> hat die R&uuml;ckgabe 
+<code>done</code>.
+</p>
+<p>Beispiel:
+</p>
+<p>Eine lokale Funktionsdefinition.
+</p>
+<div class="example">
+<pre class="example">(%i1) foo (x) := 1 - x;
+(%o1)                    foo(x) := 1 - x
+(%i2) foo (100);
+(%o2)                         - 99
+(%i3) block (local (foo), foo (x) := 2 * x, foo (100));
+(%o3)                          200
+(%i4) foo (100);
+(%o4)                         - 99
+</pre></div>
+</dd></dl>
+
+<a name="return"></a><a name="Item_003a-Program_002ede_002fdeffn_002freturn"></a><dl>
+<dt><a name="index-return"></a>Funktion: <strong>return</strong> <em>(<var>value</var>)</em></dt>
+<dd>
+
+<p>Die <code>return</code>-Anweisung wird in einem Block verwendet, um den Block mit dem
+Ergebnis <var>value</var> zu verlassen.  Siehe <code><a href="#block">block</a></code> f&uuml;r mehr Informationen.
+</p></dd></dl>
+
+<a name="throw"></a><a name="Item_003a-Program_002ede_002fdeffn_002fthrow"></a><dl>
+<dt><a name="index-throw"></a>Funktion: <strong>throw</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+<p>Wertet den Ausdruck <var>expr</var> aus und generiert eine Ausnahme mit dem Ergebnis
+der Auswertung, die von der letzten <code>catch</code>-Anweisung behandelt wird.
+</p></dd></dl>
+
+<a name="while"></a><a name="unless"></a><a name="Item_003a-Program_002ede_002fdeffn_002fwhile"></a><dl>
+<dt><a name="index-while"></a>Spezieller Operator: <strong>while</strong></dt>
+<dd><a name="Item_003a-Program_002ede_002fdeffn_002funless"></a></dd><dt><a name="index-unless"></a>Spezieller Operator: <strong>unless</strong></dt>
+<dd>
+
+<p>Siehe den Operator <code><a href="#do">do</a></code>.
+</p></dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_167.html#Einf_00fchrung-in-die-Programmierung" accesskey="p" rel="previous">Einf&uuml;hrung in die Programmierung</a>, Nach oben: <a href="maxima_165.html#Programmierung" accesskey="u" rel="up">Programmierung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

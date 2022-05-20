@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Introducción a numericalio</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Introducción a numericalio">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Introducción a numericalio">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_258.html#numericalio" rel="up" title="numericalio">
+<link href="maxima_260.html#Funciones-y-variables-para-entrada-y-salida-en-formato-texto" rel="next" title="Funciones y variables para entrada y salida en formato texto">
+<link href="maxima_258.html#numericalio" rel="previous" title="numericalio">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introducci_00f3n-a-numericalio"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_260.html#Funciones-y-variables-para-entrada-y-salida-en-formato-texto" accesskey="n" rel="next">Funciones y variables para entrada y salida en formato texto</a>, Previous: <a href="maxima_258.html#numericalio" accesskey="p" rel="previous">numericalio</a>, Subir: <a href="maxima_258.html#numericalio" accesskey="u" rel="up">numericalio</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introduccion-a-numericalio"></a>
+<h3 class="section">67.1 Introducción a numericalio</h3>
+
+<p>El paquete <code>numericalio</code> define funciones para leer y escribir ficheros de datos
+y flujos. Las funciones de entrada y salida en formato texto pueden leer y escribir
+números (enteros, decimales o decimales grandes), símbolos y cadenas.
+Las funciones de entrada y salida en formato binario sólo pueden leer y escribir
+números decimales.
+</p>
+<p>Si ya existe una lista, matriz o array para almacenar los datos de entrada,
+las funciones de entrada de <code>numericalio</code> pueden escribir los datos
+directamente en estos objetos. En caso contrario, <code>numericalio</code> tratará
+de generar el objeto apropiado para almacenar estos datos.
+</p>
+<a name="Entrada-y-salida-en-formato-texto"></a>
+<h4 class="subsection">67.1.1 Entrada y salida en formato texto</h4>
+
+<p>In plain-text input and output,
+it is assumed that each item to read or write is an atom:
+</p>
+<p>En la entrada y salida de datos en formato texto se supone que cada dato es un átomo:
+un número entero, decimal, decimal grande, una cadena o un símbolo;
+no se admiten fracciones, números complejos o cualquier otra expresión no
+atómica. Estas funciones pueden llegar a realizar operaciones válidas con
+expresiones no atómicas, pero estos resultados no se documentan y están sujetos
+a cambios ulteriores.
+</p>
+<p>Los átomos, tanto en los ficheros de entrada como en los de salida, tienen el 
+mismo formato que en los ficheros por lotes de Maxima o en la consola
+interactiva. En particular, las cadenas deben encerrarse entre comillas
+dobles, la barra invertida <code>\</code> evita cualquier interpretación
+especial del carácter siguiente, y el símbolo de
+interrogación <code>?</code> se reconoce como el comienzo de un 
+símbolo de Lisp. No se reconoce ningún carácter de
+continuación de línea interrumpida.
+</p>
+<a name="Separadores-validos-para-lectura"></a>
+<h4 class="subsection">67.1.2 Separadores válidos para lectura</h4>
+
+
+<p>Las funciones para la entrada y salida de datos en formato texto tiene un 
+argumento opcional, <var>separator_flag</var>, para indicar qué carácter
+se utiliza como separador.
+</p>
+<p>Para la entrada de texto se reconocen los siguientes valores de la
+variable <var>separator_flag</var>: <code>comma</code> para los valores separados por
+comas, <code>pipe</code> para los valores separados por el carácter de la barra
+vertical <code>|</code>, <code>semicolon</code> para los valores separados por punto y
+coma <code>;</code>, y <code>space</code> para cuando los valores se separan por espacios
+o tabulaciones. Si el nombre del fichero tiene extensión <code>.csv</code> y no se
+especifica el argumento <var>separator_flag</var>, se tomará por defecto <code>comma</code>.
+Si el fichero tiene cualquier otra extensión diferente de <code>.csv</code> y no se
+especifica <code>separator_flag</code>, se usará por defecto <code>space</code>.
+</p>
+<p>En la entrada de texto, varios espacios y tabulaciones sucesivos cuentan como un
+único separador. Sin embargo, varias comas, barras verticales o punto y comas 
+sucesivos se interpretan que tienen el símbolo <code>false</code> entre
+ellos; por ejemplo, <code>1234,,Foo</code> se interpreta lo mismo que si fuese
+<code>1234,false,Foo</code>. En la salida, los átomos <code>false</code> deben
+escribirse explícitamente, por lo que la lista 
+<code>[1234, false, Foo]</code> debe escribirse <code>1234,false,Foo</code>.
+</p>
+<a name="Separadores-validos-para-escritura"></a>
+<h4 class="subsection">67.1.3 Separadores válidos para escritura</h4>
+
+<p>Para la entrada de texto se acepta <code>tab</code> como valor de <var>separator_flag</var>
+ para datos separados por tabuladores, así como
+<code>comma</code>, <code>pipe</code>, <code>semicolon</code> y <code>space</code>.
+</p>
+<p>En la escritura de texto, el átomo<code>false</code> se escribe tal cual y
+una lista <code>[1234, false, Foo]</code> se escribe <code>1234,false,Foo</code>.
+</p>
+
+
+
+
+
+<a name="Entrada-y-salida-de-decimales-en-formato-binario"></a>
+<h4 class="subsection">67.1.4 Entrada y salida de decimales en formato binario</h4>
+
+<p>Las funciones de <code>numericalio</code> pueden leer y escribir números decimales en
+coma flotante de 8 bytes del estándar IEEE 754. Estos números se pueden escribir
+empezando por el byte menos significativo o por el más significativo, según lo
+indique la variable global <code>assume_external_byte_order</code>. Por defecto, <code>numericalio</code>
+los almacena con el byte más significativo primero.
+</p>
+<p>Cualesquiera otros tipos de decimales son transformados a 8 bytes. El paquete
+<code>numericalio</code> no puede leer ni escribir datos binarios no numéricos.
+</p>
+<p>Ciertos entornos Lisp no reconocen valores especiales del estándar IEEE 754
+(más o menos infinito, valores no numéricos, valores no normales). El efecto
+que pueda producir la lectura de tales valores por parte de <code>numericalio</code>
+es imprevisible.
+</p>
+<p><code>numericalio</code> incluye funciones para abrir un flujo de lectura o escritura 
+de flujos de bytes.
+</p>
+
+<a name="Item_003a-numericalio_002fnode_002fFunciones-y-variables-para-entrada-y-salida-en-formato-texto"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_260.html#Funciones-y-variables-para-entrada-y-salida-en-formato-texto" accesskey="n" rel="next">Funciones y variables para entrada y salida en formato texto</a>, Previous: <a href="maxima_258.html#numericalio" accesskey="p" rel="previous">numericalio</a>, Subir: <a href="maxima_258.html#numericalio" accesskey="u" rel="up">numericalio</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

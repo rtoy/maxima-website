@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Depuração do Código Fonte</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Depuração do Código Fonte">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Depuração do Código Fonte">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_129.html#Depura_00e7_00e3o" rel="up" title="Depuração">
+<link href="maxima_131.html#Comandos-Palavra-Chave" rel="next" title="Comandos Palavra Chave">
+<link href="maxima_129.html#Depura_00e7_00e3o" rel="previous" title="Depuração">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Depura_00e7_00e3o-do-C_00f3digo-Fonte"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_131.html#Comandos-Palavra-Chave" accesskey="n" rel="next">Comandos Palavra Chave</a>, Acima: <a href="maxima_129.html#Depura_00e7_00e3o" accesskey="u" rel="up">Depuração</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Depuracao-do-Codigo-Fonte"></a>
+<h3 class="section">41.1 Depuração do Código Fonte</h3>
+
+<p>Maxima tem um depurador interno de código fonte.  O utilizador pode
+escolher um ponto de parada numa função, e executar o programa
+linha por linha a partir daí. A pilha de chamadas pode ser
+examinada, juntamente com as variáveis existentes nesse nível.
+</p>
+<p>O comando <code>:help</code> ou <code>:h</code> mostra a lista de comandos de
+depuração.  (Em geral, os comandos podem ser abreviados se a
+abreviação for única. Se não for única, as alternativas
+podem ser listadas.)  Dentro do depurador, o utilizador pode também
+usar quaisquer funções comuns do Maxima para examinar, definir,
+e manipular variáveis e expressões.
+</p>
+<p>Um ponto de parada é escolhido através do comando <code>:br</code> na
+linha de comando do Maxima. Dentro do depurador, o utilizador pode
+avançar uma linha de cada vez usando o comando <code>:n</code>
+(&ldquo;next&rdquo;).  o comando <code>:bt</code> (&ldquo;backtrace&rdquo;) mostra uma lista da
+pilha de frames.  O comando <code>:r</code> (&ldquo;resume&rdquo;) sai do depurador e
+continua com a execução.  Esses comandos são demostrados no
+exemplo a seguir.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;/tmp/foobar.mac&quot;);
+
+(%o1)                           /tmp/foobar.mac
+
+(%i2) :br foo
+Turning on debugging debugmode(true)
+Bkpt 0 for foo (in /tmp/foobar.mac line 1) 
+
+(%i2) bar (2,3);
+Bkpt 0:(foobar.mac 1)
+/tmp/foobar.mac:1::
+
+(dbm:1) :bt                        &lt;-- :bt digitado aqui lista os frames
+#0: foo(y=5)(foobar.mac line 1)
+#1: bar(x=2,y=3)(foobar.mac line 9)
+
+(dbm:1) :n                         &lt;-- Aqui digite :n para avançar linha
+(foobar.mac 2)
+/tmp/foobar.mac:2::
+
+(dbm:1) :n                         &lt;-- Aqui digite :n para avançar linha
+(foobar.mac 3)
+/tmp/foobar.mac:3::
+
+(dbm:1) u;                         &lt;-- Investiga o valor de u
+28
+
+(dbm:1) u: 33;                     &lt;-- Altera u para ser 33
+33
+
+(dbm:1) :r                         &lt;-- Digite :r para retomar a computação
+
+(%o2)                                1094
+</pre></div>
+
+<p>O ficheiro <code>/tmp/foobar.mac</code> é o seguinte:
+</p>
+<div class="example">
+<pre class="example">foo(y) := block ([u:y^2],
+  u: u+3,
+  u: u^2,
+  u);
+ 
+bar(x,y) := (
+  x: x+2,
+  y: y+2,
+  x: foo(y),
+  x+y);
+</pre></div>
+
+<p>USO DO DEPURADOR ATRAVÉS DO EMACS E DE XMAXIMA
+</p>
+<p>Se o utilizador estiver a executar o código sob o GNU Emacs numa janela
+shell (shel dbl), ou estiver usando a interface gráfica,
+<code>xmaxima</code>, então quando parar num ponto de parada, verá a sua
+posição actual no ficheiro fonte apresentada na
+outra metade da janela, ou em vermelho brilhante, ou com uma pequena
+seta apontando na direita da linha. Poderá avançar uma linha por
+vez digitando M-n (Alt-n).
+</p>
+<p>No Emacs pode executar o Maxima numa shell <code>dbl</code>, o qual requer o
+ficheiro <code>dbl.el</code> no directório elisp.
+Verifique que tenha instalado os ficheiros elisp ou adicionado o directório elisp do Maxima ao seu caminho:
+e.g., adicione o seguinte ao seu ficheiro <samp>.emacs</samp> ou ao seu ficheiro
+<code>site-init.el</code>
+</p>
+<div class="example">
+<pre class="example">(setq load-path (cons &quot;/usr/share/maxima/5.9.1/emacs&quot; load-path))
+(autoload 'dbl &quot;dbl&quot;)
+</pre></div>
+
+<p>então no Emacs 
+</p>
+<div class="example">
+<pre class="example">M-x dbl
+</pre></div>
+
+<p>pode iniciar uma janela shell na qual pode executar programas, por exemplo
+Maxima, gcl, gdb etc. Essa janela de shell também reconhece informações sobre
+depuração de código fonte, e mostra o código fonte em outra janela.  
+</p>
+<p>O utilizador pode escolher um ponto de parada em certa linha do
+ficheiro digitando <code>C-x space</code>. Isso encontra qual a função
+onde o cursor está posicionado, e mostra qual a linha daquela função
+onde o cursor está habilitado. Se o cursor estiver habilitado, digamos, na linha
+2 de <code>foo</code>, então isso irá inserir na outra janela o comando,
+&ldquo;<code>:br foo 2</code>&rdquo;, para parar <code>foo</code> nessa segunda linha.
+Para ter isso habilitado, o utilizador deve ter
+maxima-mode.el habilitado na janela na qual o ficheiro <code>foobar.mac</code> estiver interagindo.
+Existe comandos adicional disponíveis naquela janela de ficheiro, tais como
+avaliando a função dentro do Maxima, através da digitação de <code>Alt-Control-x</code>.
+</p>
+<a name="Item_003a-Debugging_002fnode_002fComandos-Palavra-Chave"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_131.html#Comandos-Palavra-Chave" accesskey="n" rel="next">Comandos Palavra Chave</a>, Acima: <a href="maxima_129.html#Depura_00e7_00e3o" accesskey="u" rel="up">Depuração</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

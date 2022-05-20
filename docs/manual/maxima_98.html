@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Functions and Variables for Integration (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Functions and Variables for Integration</title>
 
-<meta name="description" content="Functions and Variables for Integration (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Functions and Variables for Integration (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Functions and Variables for Integration">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Functions and Variables for Integration">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_96.html" rel="up" title="Integration">
-<link href="maxima_99.html" rel="next" title="Introduction to QUADPACK">
-<link href="maxima_97.html" rel="prev" title="Introduction to Integration">
+<link href="maxima_96.html#Integration" rel="up" title="Integration">
+<link href="maxima_99.html#Introduction-to-QUADPACK" rel="next" title="Introduction to QUADPACK">
+<link href="maxima_97.html#Introduction-to-Integration" rel="previous" title="Introduction to Integration">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,16 +73,18 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Functions-and-Variables-for-Integration"></span><div class="header">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Functions-and-Variables-for-Integration"></a>
+<div class="header">
 <p>
-Next: <a href="maxima_99.html" accesskey="n" rel="next">Introduction to QUADPACK</a>, Previous: <a href="maxima_97.html" accesskey="p" rel="prev">Introduction to Integration</a>, Up: <a href="maxima_96.html" accesskey="u" rel="up">Integration</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_99.html#Introduction-to-QUADPACK" accesskey="n" rel="next">Introduction to QUADPACK</a>, Previous: <a href="maxima_97.html#Introduction-to-Integration" accesskey="p" rel="previous">Introduction to Integration</a>, Up: <a href="maxima_96.html#Integration" accesskey="u" rel="up">Integration</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Functions-and-Variables-for-Integration-1"></span><h3 class="section">19.2 Functions and Variables for Integration</h3>
+<a name="Functions-and-Variables-for-Integration-1"></a>
+<h3 class="section">19.2 Functions and Variables for Integration</h3>
 
 
-<span id="changevar"></span><span id="Item_003a-Integration_002fdeffn_002fchangevar"></span><dl>
-<dt id="index-changevar">Function: <strong>changevar</strong> <em>(<var>expr</var>, <var>f(x,y)</var>, <var>y</var>, <var>x</var>)</em></dt>
+<a name="changevar"></a><a name="Item_003a-Integration_002fdeffn_002fchangevar"></a><dl>
+<dt><a name="index-changevar"></a>Function: <strong>changevar</strong> <em>(<var>expr</var>, <var>f(x,y)</var>, <var>y</var>, <var>x</var>)</em></dt>
 <dd>
 <p>Makes the change of variable given by <code><var>f(x,y)</var> = 0</code> in all integrals
 occurring in <var>expr</var> with integration with respect to <var>x</var>.
@@ -132,14 +144,12 @@ higher degree function.  E.g.,
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
 
-<span id="dblint"></span><span id="Item_003a-Integration_002fdeffn_002fdblint"></span><dl>
-<dt id="index-dblint">Function: <strong>dblint</strong> <em>(<var>f</var>, <var>r</var>, <var>s</var>, <var>a</var>, <var>b</var>)</em></dt>
+<a name="dblint"></a><a name="Item_003a-Integration_002fdeffn_002fdblint"></a><dl>
+<dt><a name="index-dblint"></a>Function: <strong>dblint</strong> <em>(<var>f</var>, <var>r</var>, <var>s</var>, <var>a</var>, <var>b</var>)</em></dt>
 <dd>
 <p>A double-integral routine which was written in
 top-level Maxima and then translated and compiled to machine code.
@@ -184,13 +194,11 @@ in orders of magnitude speed improvement over interpreted code in many cases!
 example problem.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
-
-<span id="defint"></span><span id="Item_003a-Integration_002fdeffn_002fdefint"></span><dl>
-<dt id="index-defint">Function: <strong>defint</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<a name="defint"></a><a name="Item_003a-Integration_002fdeffn_002fdefint"></a><dl>
+<dt><a name="index-defint"></a>Function: <strong>defint</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
 <dd>
 <p>Attempts to compute a definite integral.  <code>defint</code> is called by
 <code>integrate</code> when limits of integration are specified, i.e., when
@@ -203,13 +211,11 @@ noun form of the integral.  See <code><a href="maxima_100.html#quad_005fqag">qua
 numerical approximation of definite integrals.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
-
-<span id="erfflag"></span><span id="Item_003a-Integration_002fdefvr_002ferfflag"></span><dl>
-<dt id="index-erfflag">Option variable: <strong>erfflag</strong></dt>
+<a name="erfflag"></a><a name="Item_003a-Integration_002fdefvr_002ferfflag"></a><dl>
+<dt><a name="index-erfflag"></a>Option variable: <strong>erfflag</strong></dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>erfflag</code> is <code>false</code>, prevents <code>risch</code> from introducing the
@@ -217,14 +223,12 @@ numerical approximation of definite integrals.
 begin with.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
 
-<span id="ilt"></span><span id="Item_003a-Integration_002fdeffn_002filt"></span><dl>
-<dt id="index-ilt">Function: <strong>ilt</strong> <em>(<var>expr</var>, <var>s</var>, <var>t</var>)</em></dt>
+<a name="ilt"></a><a name="Item_003a-Integration_002fdeffn_002filt"></a><dl>
+<dt><a name="index-ilt"></a>Function: <strong>ilt</strong> <em>(<var>expr</var>, <var>s</var>, <var>t</var>)</em></dt>
 <dd>
 <p>Computes the inverse Laplace transform of <var>expr</var> with
 respect to <var>s</var> and parameter <var>t</var>. <var>expr</var> must be a ratio of
@@ -275,13 +279,11 @@ pos;
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Laplace-transform">Laplace transform</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Laplace-transform">Laplace transform</a>
-</div>
-</p></dd></dl>
-
-<span id="intanalysis"></span><span id="Item_003a-Integration_002fdefvr_002fintanalysis"></span><dl>
-<dt id="index-intanalysis">Option variable: <strong>intanalysis</strong></dt>
+<a name="intanalysis"></a><a name="Item_003a-Integration_002fdefvr_002fintanalysis"></a><dl>
+<dt><a name="index-intanalysis"></a>Option variable: <strong>intanalysis</strong></dt>
 <dd><p>Default value: <code>true</code>
 </p>
 <p>When <code>true</code>, definite integration tries to find poles in the integrand in 
@@ -321,13 +323,11 @@ The number 1 isn't in the domain of atanh
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
-
-<span id="integrate"></span><span id="Item_003a-Integration_002fdeffn_002fintegrate"></span><dl>
-<dt id="index-integrate">Function: <strong>integrate</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>integrate</tt> (<var>expr</var>, <var>x</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>integrate</tt> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<a name="integrate"></a><a name="Item_003a-Integration_002fdeffn_002fintegrate"></a><dl>
+<dt><a name="index-integrate"></a>Function: <strong>integrate</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>integrate</tt> (<var>expr</var>, <var>x</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>integrate</tt> (<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
 <dd>
 <p>Attempts to symbolically compute the integral of <var>expr</var> with respect to
 <var>x</var>.  <code>integrate (<var>expr</var>, <var>x</var>)</code> is an indefinite integral,
@@ -510,13 +510,11 @@ body of <code>f_2</code>.
 </li></ul>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
-
-<span id="integration_005fconstant"></span><span id="Item_003a-Integration_002fdefvr_002fintegration_005fconstant"></span><dl>
-<dt id="index-integration_005fconstant">System variable: <strong>integration_constant</strong></dt>
+<a name="integration_005fconstant"></a><a name="Item_003a-Integration_002fdefvr_002fintegration_005fconstant"></a><dl>
+<dt><a name="index-integration_005fconstant"></a>System variable: <strong>integration_constant</strong></dt>
 <dd><p>Default value: <code>%c</code>
 </p>
 <p>When a constant of integration is introduced by indefinite integration of an
@@ -543,13 +541,11 @@ equation, the name of the constant is constructed by concatenating
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
-
-<span id="integration_005fconstant_005fcounter"></span><span id="Item_003a-Integration_002fdefvr_002fintegration_005fconstant_005fcounter"></span><dl>
-<dt id="index-integration_005fconstant_005fcounter">System variable: <strong>integration_constant_counter</strong></dt>
+<a name="integration_005fconstant_005fcounter"></a><a name="Item_003a-Integration_002fdefvr_002fintegration_005fconstant_005fcounter"></a><dl>
+<dt><a name="index-integration_005fconstant_005fcounter"></a>System variable: <strong>integration_constant_counter</strong></dt>
 <dd><p>Default value: 0
 </p>
 <p>When a constant of integration is introduced by indefinite integration of an
@@ -587,13 +583,11 @@ integration constant.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
-
-<span id="integrate_005fuse_005frootsof"></span><span id="Item_003a-Integration_002fdefvr_002fintegrate_005fuse_005frootsof"></span><dl>
-<dt id="index-integrate_005fuse_005frootsof">Option variable: <strong>integrate_use_rootsof</strong></dt>
+<a name="integrate_005fuse_005frootsof"></a><a name="Item_003a-Integration_002fdefvr_002fintegrate_005fuse_005frootsof"></a><dl>
+<dt><a name="index-integrate_005fuse_005frootsof"></a>Option variable: <strong>integrate_use_rootsof</strong></dt>
 <dd><p>Default value: <code>false</code>
 </p>
 <p>When <code>integrate_use_rootsof</code> is <code>true</code> and the denominator of
@@ -647,14 +641,12 @@ if the denominator is a cubic polynomial.
 Sometimes this will help Maxima obtain a more useful result.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
 
-<span id="ldefint"></span><span id="Item_003a-Integration_002fdeffn_002fldefint"></span><dl>
-<dt id="index-ldefint">Function: <strong>ldefint</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<a name="ldefint"></a><a name="Item_003a-Integration_002fdeffn_002fldefint"></a><dl>
+<dt><a name="index-ldefint"></a>Function: <strong>ldefint</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
 <dd>
 <p>Attempts to compute the definite integral of <var>expr</var> by using <code><a href="maxima_93.html#limit">limit</a></code>
 to evaluate the indefinite integral of <var>expr</var> with respect to <var>x</var>
@@ -670,14 +662,12 @@ while <code>integrate</code> may employ various heuristics and may recognize som
 special cases.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
 
-<span id="pwilt"></span><span id="Item_003a-Integration_002fdeffn_002fpwilt"></span><dl>
-<dt id="index-pwilt">Function: <strong>pwilt</strong> <em>(<var>expr</var>, <var>s</var>, <var>t</var>)</em></dt>
+<a name="pwilt"></a><a name="Item_003a-Integration_002fdeffn_002fpwilt"></a><dl>
+<dt><a name="index-pwilt"></a>Function: <strong>pwilt</strong> <em>(<var>expr</var>, <var>s</var>, <var>t</var>)</em></dt>
 <dd>
 <p>Computes the inverse Laplace transform of <var>expr</var> with
 respect to <var>s</var> and parameter <var>t</var>. Unlike <code><a href="#ilt">ilt</a></code>,
@@ -701,13 +691,11 @@ in the denominator.
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Laplace-transform">Laplace transform</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Laplace-transform">Laplace transform</a>
-</div>
-</p></dd></dl>
-
-<span id="potential"></span><span id="Item_003a-Integration_002fdeffn_002fpotential"></span><dl>
-<dt id="index-potential">Function: <strong>potential</strong> <em>(<var>givengradient</var>)</em></dt>
+<a name="potential"></a><a name="Item_003a-Integration_002fdeffn_002fpotential"></a><dl>
+<dt><a name="index-potential"></a>Function: <strong>potential</strong> <em>(<var>givengradient</var>)</em></dt>
 <dd>
 <p>The calculation makes use of the global variable <code>potentialzeroloc[0]</code>
 which must be <code>nonlist</code> or of the form
@@ -723,8 +711,8 @@ depend upon their values and order.  <code>potentialzeroloc</code> is initially 
 to 0.
 </p></dd></dl>
 
-<span id="residue"></span><span id="Item_003a-Integration_002fdeffn_002fresidue"></span><dl>
-<dt id="index-residue">Function: <strong>residue</strong> <em>(<var>expr</var>, <var>z</var>, <var>z_0</var>)</em></dt>
+<a name="residue"></a><a name="Item_003a-Integration_002fdeffn_002fresidue"></a><dl>
+<dt><a name="index-residue"></a>Function: <strong>residue</strong> <em>(<var>expr</var>, <var>z</var>, <var>z_0</var>)</em></dt>
 <dd>
 <p>Computes the residue in the complex plane of the expression <var>expr</var> when the
 variable <var>z</var> assumes the value <var>z_0</var>.  The residue is the coefficient of
@@ -743,15 +731,12 @@ variable <var>z</var> assumes the value <var>z_0</var>.  The residue is the coef
 </pre></div>
 
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;<a href="maxima_378.html#Category_003a-Complex-variables">Complex variables</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-
-<a href="maxima_370.html#Category_003a-Complex-variables">Complex variables</a>
-</div>
-</p></dd></dl>
-
-<span id="risch"></span><span id="Item_003a-Integration_002fdeffn_002frisch"></span><dl>
-<dt id="index-risch">Function: <strong>risch</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<a name="risch"></a><a name="Item_003a-Integration_002fdeffn_002frisch"></a><dl>
+<dt><a name="index-risch"></a>Function: <strong>risch</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
 <dd>
 <p>Integrates <var>expr</var> with respect to <var>x</var> using the
 transcendental case of the Risch algorithm.  (The algebraic case of
@@ -777,28 +762,24 @@ with.
 </pre></div>
 
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
 
-<span id="tldefint"></span><span id="Item_003a-Integration_002fdeffn_002ftldefint"></span><dl>
-<dt id="index-tldefint">Function: <strong>tldefint</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<a name="tldefint"></a><a name="Item_003a-Integration_002fdeffn_002ftldefint"></a><dl>
+<dt><a name="index-tldefint"></a>Function: <strong>tldefint</strong> <em>(<var>expr</var>, <var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
 <dd>
 <p>Equivalent to <code>ldefint</code> with <code>tlimswitch</code> set to <code>true</code>.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Integral-calculus">Integral calculus</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Integral-calculus">Integral calculus</a>
+&middot;</div></dd></dl>
 
 
-<span id="Item_003a-Integration_002fnode_002fIntroduction-to-QUADPACK"></span><hr>
+<a name="Item_003a-Integration_002fnode_002fIntroduction-to-QUADPACK"></a><hr>
 <div class="header">
 <p>
-Next: <a href="maxima_99.html" accesskey="n" rel="next">Introduction to QUADPACK</a>, Previous: <a href="maxima_97.html" accesskey="p" rel="prev">Introduction to Integration</a>, Up: <a href="maxima_96.html" accesskey="u" rel="up">Integration</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="maxima_99.html#Introduction-to-QUADPACK" accesskey="n" rel="next">Introduction to QUADPACK</a>, Previous: <a href="maxima_97.html#Introduction-to-Integration" accesskey="p" rel="previous">Introduction to Integration</a>, Up: <a href="maxima_96.html#Integration" accesskey="u" rel="up">Integration</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

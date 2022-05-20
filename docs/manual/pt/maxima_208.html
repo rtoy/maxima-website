@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Introdução a manipulação de sequências de caracteres</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Introdução a manipulação de sequências de caracteres">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Introdução a manipulação de sequências de caracteres">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_207.html#stringproc" rel="up" title="stringproc">
+<link href="maxima_209.html#Defini_00e7_00f5es-para-entrada-e-sa_00edda" rel="next" title="Definições para entrada e saída">
+<link href="maxima_207.html#stringproc" rel="previous" title="stringproc">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introdu_00e7_00e3o-a-manipula_00e7_00e3o-de-sequ_00eancias-de-caracteres"></a>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_209.html#Defini_00e7_00f5es-para-entrada-e-sa_00edda" accesskey="n" rel="next">Definições para entrada e saída</a>, Previous: <a href="maxima_207.html#stringproc" accesskey="p" rel="previous">stringproc</a>, Acima: <a href="maxima_207.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introducao-a-manipulacao-de-sequencias-de-caracteres"></a>
+<h3 class="section">69.1 Introdução a manipulação de sequências de caracteres</h3>
+
+<p>O ficheiro <code>stringproc.lisp</code> amplia a compatibilidade do Maxima de trabalhar com sequências de caracteres 
+e adiciona algumas funções úteis a entrada e saída de dados.
+</p>
+<p>Para esclarecimentos e erros por favor mande um e-mail para van.nek at arcor.de .
+</p>
+<p>Para disponibilizar <code>stringproc.lisp</code> para uso digite <code>load(&quot;stringproc&quot;);</code>.
+</p>
+<p>No Maxima uma sequência de caracteres é facilmente contruída digitando &quot;texto&quot; (qualquer texto desejado entre aspas duplas).
+Note que sequências de caracteres do Maxima não são sequências de caracteres do Lisp e vice-versa.
+Testes podem ser concluídos com <code>stringp</code> e <code>lstringp</code>.
+Se por alguma razão tiver um valor,
+que é uma sequência de caracteres do Lisp, talvez quando estiver usando a função <code>sconcat</code> do Maxima, poderá converter via <code>sunlisp</code>. 
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stringproc&quot;)$
+(%i2) m: &quot;text&quot;;
+(%o2)                         text
+(%i3) [stringp(m),lstringp(m)];
+(%o3)                     [true, false]
+(%i4) l: sconcat(&quot;text&quot;);
+(%o4)                         text
+(%i5) [stringp(l),lstringp(l)];
+(%o5)                     [false, true]
+(%i6) stringp( sunlisp(l) );
+(%o6)                         true
+</pre></div>
+
+<p>Todas as funções em <code>stringproc.lisp</code>, que retornarem sequências de caracteres, retornam sequências de caracteres do Maxima.
+</p>
+<p>Caracteres são introduzidos como sequências de caracteres do Maxima de comprimento 1.
+Com certeza, esses caracteres não são caracteres do Lisp.
+Testes podem ser realizados com <code>charp</code> ( <code>lcharp</code> e conversões do Lisp para o Maxima com <code>cunlisp</code>).
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;stringproc&quot;)$
+(%i2) c: &quot;e&quot;;
+(%o2)                           e
+(%i3) [charp(c),lcharp(c)];
+(%o3)                     [true, false]
+(%i4) supcase(c);
+(%o4)                           E
+(%i5) charp(%);
+(%o5)                         true
+</pre></div>
+
+<p>Novamente, todas as funções em <code>stringproc.lisp</code>, que
+retornam caracteres, retornam caracteres do Maxima.  devido a esse
+facto, que os caracteres introduzidos são sequências de caracteres
+de comprimento 1, pode usar muitas das funções de sequência de
+caracteres também para caracteres. Como visto, <code>supcase</code> é um
+exemplo.
+</p>
+<p>É importante saber,
+que o primeiro caractere em uma sequência de caracteres do Maxima éstá na posição 1.
+Isso é designado devido ao facto de o primeiro elemento em uma lista do Maxima está na posição 1 também.
+Veja definições de <code>charat</code> e de <code>charlist</code> para obter exemplos.
+</p>
+<p>Em aplicações fnções de sequência de caractere são
+muitas vezes usadas quando estamos trabalhando com ficheiros.  Poderá
+encontrará algumas funções úteis de fluxo e de impressão em
+<code>stringproc.lisp</code>.  O seguinte exemplo mostra algumas das
+funções aqui introduzidas no trabalho.
+</p>
+<p>Exemplo: 
+</p>
+<p><code>openw</code> retorna um fluxo de saída para um ficheiro,
+<code>printf</code> então permite escrita formatada para esse ficheiro. Veja
+<code>printf</code> para detalhes.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;stringproc&quot;)$
+(%i2) s: openw(&quot;E:/file.txt&quot;);
+(%o2)                    #&lt;output stream E:/file.txt&gt;
+(%i3) for n:0 thru 10 do printf( s, &quot;~d &quot;, fib(n) );
+(%o3)                                done
+(%i4) printf( s, &quot;~%~d ~f ~a ~a ~f ~e ~a~%&quot;, 
+              42,1.234,sqrt(2),%pi,1.0e-2,1.0e-2,1.0b-2 );
+(%o4)                                false
+(%i5) close(s);
+(%o5)                                true
+</pre></div>
+
+<p>Após fechar o fluxo pode abrí-lo novamente, dessa vez
+com direção de entrada.  <code>readline</code> retorna a linha completa
+como uma sequência de caracteres. O pacote <code>stringproc</code> agora
+oferece muitas funções para manipulação de sequências de
+caracteres. A troca de indicações/fichas pode ser realizada por
+<code>split</code> ou por <code>tokens</code>.
+</p>
+<div class="example">
+<pre class="example">(%i6) s: openr(&quot;E:/file.txt&quot;);
+(%o6)                     #&lt;input stream E:/file.txt&gt;
+(%i7) readline(s);
+(%o7)                     0 1 1 2 3 5 8 13 21 34 55 
+(%i8) line: readline(s);
+(%o8)               42 1.234 sqrt(2) %pi 0.01 1.0E-2 1.0b-2
+(%i9) list: tokens(line);
+(%o9)           [42, 1.234, sqrt(2), %pi, 0.01, 1.0E-2, 1.0b-2]
+(%i10) map( parsetoken, list );
+(%o10)           [42, 1.234, false, false, 0.01, 0.01, false]
+</pre></div>
+
+<p><code>parsetoken</code> somente analiza números inteiros e em ponto flutuante. A análise de símbolos ou grandes números em ponto flutuante 
+precisa de <code>parse_string</code>, que pode ser disponibilizada para uso através de <code>eval_string.lisp</code>.
+</p>
+<div class="example">
+<pre class="example">(%i11) load(&quot;eval_string&quot;)$
+(%i12) map( parse_string, list );
+(%o12)           [42, 1.234, sqrt(2), %pi, 0.01, 0.01, 1.0b-2]
+(%i13) float(%);
+(%o13) [42.0, 1.234, 1.414213562373095, 3.141592653589793, 0.01, 0.01, 0.01]
+(%i14) readline(s);
+(%o14)                               false
+(%i15) close(s)$
+</pre></div>
+
+<p><code>readline</code> retorna <code>false</code> quado o fim de ficheiro acontecer.
+</p>
+<a name="Item_003a-stringproc_002fnode_002fDefini_00e7_00f5es-para-entrada-e-sa_00edda"></a><hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_209.html#Defini_00e7_00f5es-para-entrada-e-sa_00edda" accesskey="n" rel="next">Definições para entrada e saída</a>, Previous: <a href="maxima_207.html#stringproc" accesskey="p" rel="previous">stringproc</a>, Acima: <a href="maxima_207.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Functions and Variables for abs_integrate</title>
+
+<meta name="description" content="Maxima Manual: Functions and Variables for abs_integrate">
+<meta name="keywords" content="Maxima Manual: Functions and Variables for abs_integrate">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_180.html#abs_005fintegrate" rel="up" title="abs_integrate">
+<link href="maxima_183.html#affine" rel="next" title="affine">
+<link href="maxima_181.html#Introduction-to-abs_005fintegrate" rel="previous" title="Introduction to abs_integrate">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Functions-and-Variables-for-abs_005fintegrate"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_181.html#Introduction-to-abs_005fintegrate" accesskey="p" rel="previous">Introduction to abs_integrate</a>, Nach oben: <a href="maxima_180.html#abs_005fintegrate" accesskey="u" rel="up">abs_integrate</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Functions-and-Variables-for-abs_005fintegrate-1"></a>
+<h3 class="section">31.2 Functions and Variables for abs_integrate</h3>
+
+<a name="extra_005fintegration_005fmethods"></a><a name="Item_003a-abs_005fintegrate_002ede_002fdefvr_002fextra_005fintegration_005fmethods"></a><dl>
+<dt><a name="index-extra_005fintegration_005fmethods"></a>Option variable: <strong>extra_integration_methods</strong></dt>
+<dd><p>Default value: <code>['signum_int, 'abs_integrate_use_if]</code>
+</p>
+<p>The list <code>extra_integration_methods</code> is a list of functions for
+integration.  When <code><a href="maxima_93.html#integrate">integrate</a></code> is unable to find an
+antiderivative, Maxima uses the methods in
+<code>extra_integration_methods</code> to attempt to determine an
+antiderivative.
+</p>
+<p>Each function <code>f</code> in <code>extra_integration_methods</code> should have
+the form <code>f(integrand, variable)</code>.  The function <code>f</code> may
+either return <code>false</code> to indicate failure, or it may return an
+expression involving an integration noun form.  The integration methods
+are tried from the first to the last member of
+<code>extra_integration_methods</code>; when no method returns an expression
+that does not involve an integration noun form, the value of the
+integral is the last value that does not fail (or a pure noun form if
+all methods fail).
+</p>
+<p>When the function <code>abs_integrate_use_if</code> is successful, it returns
+a conditional expression; for example
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;abs_integrate&quot;)$
+(%i2) integrate(1/(1 + abs(x+1) + abs(x-1)),x);
+                           log(1 - 2 x)            2
+(%o2) %if(- (x + 1) &gt; 0, - ------------ + log(3) - -, 
+                                2                  3
+                                   x   log(3)   1  log(2 x + 1)
+                %if(- (x - 1) &gt; 0, - + ------ - -, ------------))
+                                   3     2      3       2
+(%i3) integrate(exp(-abs(x-1) - abs(x)),x);
+                     2 x - 1
+                   %e              - 1
+(%o3) %if(- x &gt; 0, --------- - 2 %e   , 
+                       2
+                                               - 1      1 - 2 x
+                                   - 1     3 %e       %e
+              %if(- (x - 1) &gt; 0, %e    x - -------, - ---------))
+                                              2           2
+</pre></div>
+
+<p>For definite integration, these conditional expressions can cause trouble:
+</p>
+<div class="example">
+<pre class="example">(%i4) integrate(exp(-abs(x-1) - abs(x)),x, minf,inf);
+                               - 1    2 x
+                             %e    (%e    - 4)
+(%o4) limit     %if(- x &gt; 0, -----------------, 
+      x -&gt; inf-                      2
+                     - 1                1 - 2 x
+                   %e    (2 x - 3)    %e
+%if(- (x - 1) &gt; 0, ---------------, - ---------))
+                          2               2
+                             - 1    2 x
+                           %e    (%e    - 4)
+ - limit      %if(- x &gt; 0, -----------------, 
+   x -&gt; minf+                      2
+                     - 1                1 - 2 x
+                   %e    (2 x - 3)    %e
+%if(- (x - 1) &gt; 0, ---------------, - ---------))
+                          2               2
+</pre></div>
+
+<p>For such definite integrals, try disallowing the method
+<code>abs_integrate_use_if</code>:
+</p>
+<div class="example">
+<pre class="example">(%i5) integrate(exp(-abs(x-1) - abs(x)),x, minf,inf),
+          extra_integration_methods : ['signum_int];
+                                 - 1
+(%o5)                        2 %e
+</pre></div>
+
+<p>Related options <code><a href="#extra_005fdefinite_005fintegration_005fmethods">extra_definite_integration_methods</a></code>.
+</p>
+<p>To use <code>load(&quot;abs_integrate&quot;)</code>
+</p></dd></dl>
+
+<a name="extra_005fdefinite_005fintegration_005fmethods"></a><a name="Item_003a-abs_005fintegrate_002ede_002fdefvr_002fextra_005fdefinite_005fintegration_005fmethods"></a><dl>
+<dt><a name="index-extra_005fdefinite_005fintegration_005fmethods"></a>Option variable: <strong>extra_definite_integration_methods</strong></dt>
+<dd><p>Default value: <code>['abs_defint]</code>
+</p>
+<p>The list <code>extra_definite_integration_methods</code> is a list of extra
+functions for <i>definite</i> integration.  When <code><a href="maxima_93.html#integrate">integrate</a></code> is
+unable to find a definite integral, Maxima uses the methods in
+<code>extra_definite_integration_methods</code> to attempt to determine an
+antiderivative.
+</p>
+<p>Each function <code>f</code> in <code>extra_definite_integration_methods</code>
+should have the form <code>f(integrand, variable, lo, hi)</code>, where
+<code>lo</code> and <code>hi</code> are the lower and upper limits of integration,
+respectively.  The function <code>f</code> may either return <code>false</code> to
+indicate failure, or it may return an expression involving an
+integration noun form.  The integration methods are tried from the
+first to the last member of <code>extra_definite_integration_methods</code>;
+when no method returns an expression that does not involve an
+integration noun form, the value of the integral is the last value
+that does not fail (or a pure noun form if all methods fail).
+</p>
+<p>Related options <code><a href="#extra_005fintegration_005fmethods">extra_integration_methods</a></code>.
+</p>
+<p>To use <code>load(&quot;abs_integrate&quot;)</code>.
+</p></dd></dl>
+
+<a name="intfudu"></a><a name="Item_003a-abs_005fintegrate_002ede_002fdeffn_002fintfudu"></a><dl>
+<dt><a name="index-intfudu"></a>Function: <strong>intfudu</strong> <em>(<var>e</var>, <var>x</var>)</em></dt>
+<dd>
+<p>This function uses the derivative divides rule for integrands of the
+form <em>f(w(x)) * diff(w(x),x)</em>.  When <code>infudu</code> is unable to find
+an antiderivative, it returns false.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;abs_integrate&quot;)$
+(%i2) intfudu(cos(x^2) * x,x);
+                                  2
+                             sin(x )
+(%o2)                        -------
+                                2
+(%i3) intfudu(x * sqrt(1+x^2),x);
+                             2     3/2
+                           (x  + 1)
+(%o3)                      -----------
+                                3
+(%i4) intfudu(x * sqrt(1 + x^4),x);
+(%o4)                         false
+</pre></div>
+
+<p>For the last example, the derivative divides rule fails, so
+<code>intfudu</code> returns false.
+</p>
+<p>A hashed array <code>intable</code> contains the antiderivative data.  To append a
+fact to the hash table, say <em>integrate(f) = g</em>, do this:
+</p>
+<div class="example">
+<pre class="example">(%i5) intable[f] : lambda([u],  [g(u),diff(u,%voi)]);
+(%o5)          lambda([u], [g(u), diff(u, %voi)])
+(%i6) intfudu(f(z),z);
+(%o6)                         g(z)
+(%i7) intfudu(f(w(x)) * diff(w(x),x),x);
+(%o7)                        g(w(x))
+</pre></div>
+
+<p>An alternative to calling <code>intfudu</code> directly is to use the 
+<code><a href="#extra_005fintegration_005fmethods">extra_integration_methods</a></code> mechanism; an example:
+</p>
+
+<div class="example">
+<pre class="example">(%i1) load(&quot;abs_integrate&quot;)$
+(%i2) load(&quot;basic&quot;)$
+(%i3) load(&quot;partition.mac&quot;)$
+
+(%i4) integrate(bessel_j(1,x^2) * x,x);
+                                       2
+                          bessel_j(0, x )
+(%o4)                   - ---------------
+                                 2
+(%i5) push('intfudu, extra_integration_methods)$
+
+(%i6) integrate(bessel_j(1,x^2) * x,x);
+                                       2
+                          bessel_j(0, x )
+(%o6)                   - ---------------
+                                 2
+</pre></div>
+
+<p>To use <code>load(&quot;partition&quot;)</code>.
+</p>
+<p>Additional documentation<br>
+<a href="http://www.cs.berkeley.edu/~fateman/papers/partition.pdf">http://www.cs.berkeley.edu/~fateman/papers/partition.pdf</a>.
+</p>
+<p>Related functions <code><a href="#intfugudu">intfugudu</a></code>.
+</p></dd></dl>
+
+<a name="intfugudu"></a><a name="Item_003a-abs_005fintegrate_002ede_002fdeffn_002fintfugudu"></a><dl>
+<dt><a name="index-intfugudu"></a>Function: <strong>intfugudu</strong> <em>(<var>e</var>, <var>x</var>)</em></dt>
+<dd>
+<p>This function uses the derivative divides rule for integrands of the
+form <em>f(w(x)) * g(w(x)) * diff(w(x),x)</em>.  When <code>infugudu</code> is
+unable to find an antiderivative, it returns false.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;abs_integrate&quot;)$
+(%i2) diff(jacobi_sn(x,2/3),x);
+                              2               2
+(%o2)            jacobi_cn(x, -) jacobi_dn(x, -)
+                              3               3
+(%i3) intfugudu(%,x);
+                                      2
+(%o3)                    jacobi_sn(x, -)
+                                      3
+(%i4) diff(jacobi_dn(x^2,a),x);
+                               2                2
+(%o4)       - 2 a x jacobi_cn(x , a) jacobi_sn(x , a)
+(%i5) intfugudu(%,x);
+                                   2
+(%o5)                   jacobi_dn(x , a)
+</pre></div>
+
+<p>For a method for automatically calling <code>infugudu</code> from <code>integrate</code>,
+see the documentation for <code>intfudu</code>.
+</p>
+<p>To use <code>load(&quot;partition&quot;)</code>.
+</p>
+<p>Additional documentation<br>
+<a href="http://www.cs.berkeley.edu/~fateman/papers/partition.pdf">http://www.cs.berkeley.edu/~fateman/papers/partition.pdf</a>
+</p>
+<p>Related functions <code><a href="#intfudu">intfudu</a></code>.
+</p></dd></dl>
+
+<a name="signum_005fto_005fabs"></a><a name="Item_003a-abs_005fintegrate_002ede_002fdeffn_002fsignum_005fto_005fabs"></a><dl>
+<dt><a name="index-signum_005fto_005fabs"></a>Function: <strong>signum_to_abs</strong> <em>(<var>e</var>)</em></dt>
+<dd> 
+<p>This function replaces subexpressions of the form <em>q signum(q)</em> by
+<em>abs(q)</em>.  Before it does these substitutions, it replaces
+subexpressions of the form <em>signum(p) * signum(q)</em> by
+<em>signum(p * q)</em>; examples:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;abs_integrate&quot;)$
+(%i2) map('signum_to_abs, [x * signum(x), 
+                           x * y * signum(x)* signum(y)/2]);
+                              abs(x) abs(y)
+(%o2)                [abs(x), -------------]
+                                    2
+</pre></div>
+
+<p>To use <code>load(&quot;abs_integrate&quot;)</code>.
+</p></dd></dl>
+
+<a name="simp_005fassuming"></a><a name="Item_003a-abs_005fintegrate_002ede_002fdeffn_002fsimp_005fassuming"></a><dl>
+<dt><a name="index-simp_005fassuming"></a>Macro: <strong>simp_assuming</strong> <em>(<var>e</var>, <var>f_1</var>, <var>f_2</var>, &hellip;, <var>f_n</var>)</em></dt>
+<dd>
+<p>Appended the facts <em>f_1, f_2, &hellip;, f_n</em> to the current context and
+simplify <em>e</em>.  The facts are removed before returning the simplified
+expression <em>e</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;abs_integrate&quot;)$
+(%i2) simp_assuming(x + abs(x), x &lt; 0);
+(%o2)                           0
+</pre></div>
+
+<p>The facts in the current context aren&rsquo;t ignored:
+</p>
+<div class="example">
+<pre class="example">(%i3) assume(x &gt; 0)$
+(%i4) simp_assuming(x + abs(x),x &lt; 0);
+(%o4)                          2 x
+</pre></div>
+
+<p>Since <code>simp_assuming</code> is a macro, effectively <code>simp_assuming</code> quotes
+is arguments; this allows
+</p>
+<div class="example">
+<pre class="example">(%i5) simp_assuming(asksign(p), p &lt; 0);
+(%o5)                          neg
+</pre></div>
+
+<p>To use <code>load(&quot;abs_integrate&quot;)</code>.
+</p></dd></dl>
+
+<a name="conditional_005fintegrate"></a><a name="Item_003a-abs_005fintegrate_002ede_002fdeffn_002fconditional_005fintegrate"></a><dl>
+<dt><a name="index-conditional_005fintegrate"></a>Function: <strong>conditional_integrate</strong> <em>(<var>e</var>, <var>x</var>)</em></dt>
+<dd>
+<p>For an integrand with one or more parameters, this function tries to determine
+an antiderivative that is valid for all parameter values.  When successful, this
+function returns a conditional expression for the antiderivative.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;abs_integrate&quot;)$
+(%i2) conditional_integrate(cos(m*x),x);
+                                sin(m x)
+(%o2)                %if(m # 0, --------, x)
+                                   m
+(%i3) conditional_integrate(cos(m*x)*cos(x),x);
+
+(%o3) %if((m - 1 # 0) %and (m + 1 # 0), 
+(m - 1) sin((m + 1) x) + (- m - 1) sin((1 - m) x)
+-------------------------------------------------, 
+                       2
+                    2 m  - 2
+sin(2 x) + 2 x
+--------------)
+      4
+(%i4) sublis([m=6],%);
+                     5 sin(7 x) + 7 sin(5 x)
+(%o4)                -----------------------
+                               70
+(%i5) conditional_integrate(exp(a*x^2+b*x),x);
+</pre><pre class="example">                                  2
+                                 b
+                               - ---
+                                 4 a      2 a x + b
+                   sqrt(%pi) %e      erf(-----------)
+                                         2 sqrt(- a)
+(%o5) %if(a # 0, - ----------------------------------, 
+                              2 sqrt(- a)
+                                                         b x
+                                                       %e
+                                            %if(b # 0, -----, x))
+                                                         b
+</pre></div>
+</dd></dl>
+
+<a name="convert_005fto_005fsignum"></a><a name="Item_003a-abs_005fintegrate_002ede_002fdeffn_002fconvert_005fto_005fsignum"></a><dl>
+<dt><a name="index-convert_005fto_005fsignum"></a>Function: <strong>convert_to_signum</strong> <em>(<var>e</var>)</em></dt>
+<dd>
+<p>This function replaces subexpressions of the form <code>abs(q), unit_step(q),
+min(q1, q2, ..., qn)</code> and <code>max(q1, q2, ..., qn)</code> by equivalent
+<em>signum</em> terms.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;abs_integrate&quot;)$
+(%i2) map('convert_to_signum, [abs(x), unit_step(x), 
+                               max(a,2), min(a,2)]);
+
+                    signum(x) (signum(x) + 1)
+(%o2) [x signum(x), -------------------------, 
+                                2
+  (a - 2) signum(a - 2) + a + 2  - (a - 2) signum(a - 2) + a + 2
+  -----------------------------, -------------------------------]
+                2                               2
+</pre></div>
+
+<p>To convert <code><a href="maxima_288.html#unit_005fstep">unit_step</a></code> to signum form, the function
+<code>convert_to_signum</code> uses <em>unit_step(x) = (1 + signum(x))/2</em>.
+</p>
+<p>To use <code>load(&quot;abs_integrate&quot;)</code>.
+</p>
+<p>Related functions <code><a href="#signum_005fto_005fabs">signum_to_abs</a></code>.
+</p></dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_181.html#Introduction-to-abs_005fintegrate" accesskey="p" rel="previous">Introduction to abs_integrate</a>, Nach oben: <a href="maxima_180.html#abs_005fintegrate" accesskey="u" rel="up">abs_integrate</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Einf&uuml;hrung in itensor</title>
+
+<meta name="description" content="Maxima Manual: Einf&uuml;hrung in itensor">
+<meta name="keywords" content="Maxima Manual: Einf&uuml;hrung in itensor">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_112.html#Paket-itensor" rel="up" title="Paket itensor">
+<link href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" rel="next" title="Funktionen und Variablen f&uuml;r itensor">
+<link href="maxima_112.html#Paket-itensor" rel="previous" title="Paket itensor">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Einf_00fchrung-in-itensor"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r itensor</a>, Previous: <a href="maxima_112.html#Paket-itensor" accesskey="p" rel="previous">Paket itensor</a>, Nach oben: <a href="maxima_112.html#Paket-itensor" accesskey="u" rel="up">Paket itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Einfuhrung-in-ITENSOR"></a>
+<h4 class="subsection">20.2.1 Einf&uuml;hrung in <small>ITENSOR</small></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Das Paket <code>itensor</code> f&uuml;r das Rechnen mit Tensoren in der Indexnotation
+wird mit dem Kommando <code>load(&quot;itensor&quot;)</code> geladen.  Mit dem Kommando
+<code>demo(tensor)</code> wird eine Liste mit verschiedenen Beispielen angezeigt.
+</p>
+
+<p>Im Paket <code>itensor</code> werden Tensoren als indiziertes Objekte dargestellt.
+Ein indiziertes Objekt ist eine Funktion mit drei Gruppen an Indizes, die die
+kovarianten, kontravarianten und Ableitungsindizes eines Tensors darstellen.
+Das erste Argument der Funktion ist eine Liste der kovarianten Indizes und das
+zweite Argument die Liste der kontravarianten Indizes.  Hat der Tensor keine
+entsprechenden Komponenten, dann wird eine leere Liste als Argument angegeben.
+Zum Beispiel repr&auml;sentiert <code>g([a,b], [c]</code> einen Tensor <code>g</code>, der zwei
+kovariante Indizes <code>[a,b]</code>, einen kontravarianten Index <code>[c]</code> und
+keinen Ableitungsindex hat.  Mit der Funktion <code><a href="maxima_115.html#ishow">ishow</a></code> werden Tensoren
+in einer besonderen Schreibweise ausgegeben.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) g([a,b], [c]);
+(%o2)                    g([a, b], [c])
+
+(%i3) ishow(g([a,b], [c]))$
+                               c
+(%t3)                         g
+                               a b
+</pre></div>
+
+
+<p>Ableitungsindizes werden als weitere Argumente der Funktion hinzugef&uuml;gt, die
+den Tensor repr&auml;sentiert.  Ableitungsindizes k&ouml;nnen vom Nutzer angegeben
+oder bei der Ableitung von Tensoren von Maxima hinzugef&uuml;gt werden.  Im
+Allgemeinen ist die Differentiation kommutativ, so dass die Reihenfolge der
+Ableitungsindizes keine Rolle spielt.  Daher werden die Indizes von Maxima
+bei der Vereinfachung mit Funktionen wie <code><a href="maxima_115.html#rename">rename</a></code> alphabetisch sortiert.
+Dies ist jedoch nicht der Fall, wenn bewegte Bezugssysteme genutzt werden, was
+mit der Optionsvariablen <code><a href="maxima_119.html#iframe_005fflag">iframe_flag</a></code> angezeigt wird, die in diesem Fall
+den Wert <code>true</code> erh&auml;lt.  Es ist zu beachten, dass mit dem Paket
+<code>itensor</code> Ableitungsindizes nicht angehoben werden k&ouml;nnen und
+nur als kovariante Indizes auftreten.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) ishow(t([a,b],[c],j,i))$
+                             c
+(%t2)                       t
+                             a b,j i
+(%i3) ishow(rename(%))$
+                             c
+(%t3)                       t
+                             a b,i j
+(%i4) ishow(t([a,b],[c],j,i) - t([a,b],[c],i,j))$
+                        c          c
+(%t4)                  t        - t
+                        a b,j i    a b,i j
+(%i5) ishow(rename(%))$
+(%t5)                           0
+(%i6) iframe_flag:true;
+(%o6)                         true
+(%i7) ishow(t([a,b],[c],j,i) - t([a,b],[c],i,j))$
+                        c          c
+(%t7)                  t        - t
+                        a b,j i    a b,i j
+(%i8) ishow(rename(%))$
+                        c          c
+(%t8)                  t        - t
+                        a b,j i    a b,i j
+</pre></div>
+
+<p>Das folgende Beispiel zeigt einen Ausdruck mit verschiedenen Ableitungen eines
+Tensors <code>g</code>.  Ist <code>g</code> der metrische Tensor, dann entspricht das
+Ergebnis der Definition des Christoffel-Symbols der ersten Art.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) ishow(1/2*(idiff(g([i,k],[]),j) + idiff(g([j,k],[]),i) 
+                                      - idiff(g([i,j],[]),k)))$
+                    g      + g      - g
+                     j k,i    i k,j    i j,k
+(%t2)               ------------------------
+                               2
+</pre></div>
+
+
+<p>Tensoren werden standardm&auml;&szlig;ig nicht als symmetrisch angenommen.  Erh&auml;lt
+die Optionsvariable <code><a href="maxima_116.html#allsym">allsym</a></code> den Wert <code>true</code>, dann werden alle
+Tensoren als symmetrisch in den kovarianten und kontravarianten Indizes
+angenommen.
+</p>
+
+<p>Das Paket <code>itensor</code> behandelt Tensoren im Allgemeinen als opake Objekte.
+Auf Tensorgleichungen werden algebraischen Regeln insbesondere Symmetrieregeln
+und Regeln f&uuml;r die Tensorverj&uuml;ngung angewendet.  Weiterhin kennt
+<code>itensor</code> die kovariante Ableitung, Kr&uuml;mmung und die Torsion.  Rechnungen
+k&ouml;nnen in bewegten Bezugssystemen ausgef&uuml;hrt werden.
+</p>
+
+<p>Beispiele:
+</p>
+<p>Die folgenden Beispiele zeigen einige Anwendungen des Paketes <code>itensor</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) imetric(g);
+(%o2)                                done
+(%i3) components(g([i,j],[]),p([i,j],[])*e([],[]))$
+(%i4) ishow(g([k,l],[]))$
+(%t4)                               e p
+                                       k l
+(%i5) ishow(diff(v([i],[]),t))$
+(%t5)                                  0
+(%i6) depends(v,t);
+(%o6)                               [v(t)]
+(%i7) ishow(diff(v([i],[]),t))$
+                                    d
+(%t7)                               -- (v )
+                                    dt   i
+(%i8) ishow(idiff(v([i],[]),j))$
+(%t8)                                v
+                                      i,j
+(%i9) ishow(extdiff(v([i],[]),j))$
+(%t9)                             v    - v
+                                   j,i    i,j
+                                  -----------
+                                       2
+(%i10) ishow(liediff(v,w([i],[])))$
+                               %3          %3
+(%t10)                        v   w     + v   w
+                                   i,%3    ,i  %3
+(%i11) ishow(covdiff(v([i],[]),j))$
+                                              %4
+(%t11)                        v    - v   ichr2
+                               i,j    %4      i j
+(%i12) ishow(ev(%,ichr2))$
+                %4 %5
+(%t12) v    - (g      v   (e p       + e   p     - e p       - e    p
+        i,j            %4     j %5,i    ,i  j %5      i j,%5    ,%5  i j
+
+                                         + e p       + e   p    ))/2
+                                              i %5,j    ,j  i %5
+(%i13) iframe_flag:true;
+(%o13)                               true
+(%i14) ishow(covdiff(v([i],[]),j))$
+                                             %6
+(%t14)                        v    - v   icc2
+                               i,j    %6     i j
+(%i15) ishow(ev(%,icc2))$
+                                             %6
+(%t15)                        v    - v   ifc2
+                               i,j    %6     i j
+(%i16) ishow(radcan(ev(%,ifc2,ifc1)))$
+</pre><pre class="example">             %6 %7                    %6 %7
+(%t16) - (ifg      v   ifb       + ifg      v   ifb       - 2 v
+                    %6    j %7 i             %6    i j %7      i,j
+
+                                             %6 %7
+                                        - ifg      v   ifb      )/2
+                                                    %6    %7 i j
+</pre><pre class="example">(%i17) ishow(canform(s([i,j],[])-s([j,i])))$
+(%t17)                            s    - s
+                                   i j    j i
+(%i18) decsym(s,2,0,[sym(all)],[]);
+(%o18)                               done
+(%i19) ishow(canform(s([i,j],[])-s([j,i])))$
+(%t19)                                 0
+(%i20) ishow(canform(a([i,j],[])+a([j,i])))$
+(%t20)                            a    + a
+                                   j i    i j
+(%i21) decsym(a,2,0,[anti(all)],[]);
+(%o21)                               done
+(%i22) ishow(canform(a([i,j],[])+a([j,i])))$
+(%t22)                                 0
+</pre></div>
+
+<a name="Item_003a-Itensor_002ede_002fnode_002fFunktionen-und-Variablen-f_00fcr-itensor"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r itensor</a>, Previous: <a href="maxima_112.html#Paket-itensor" accesskey="p" rel="previous">Paket itensor</a>, Nach oben: <a href="maxima_112.html#Paket-itensor" accesskey="u" rel="up">Paket itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Funktionen und Variablen der Laufzeitumgebung</title>
+
+<meta name="description" content="Maxima Manual: Funktionen und Variablen der Laufzeitumgebung">
+<meta name="keywords" content="Maxima Manual: Funktionen und Variablen der Laufzeitumgebung">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_161.html#Laufzeitumgebung" rel="up" title="Laufzeitumgebung">
+<link href="maxima_165.html#Programmierung" rel="next" title="Programmierung">
+<link href="maxima_163.html#Interrupts" rel="previous" title="Interrupts">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funktionen-und-Variablen-der-Laufzeitumgebung"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_163.html#Interrupts" accesskey="p" rel="previous">Interrupts</a>, Nach oben: <a href="maxima_161.html#Laufzeitumgebung" accesskey="u" rel="up">Laufzeitumgebung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-und-Variablen-der-Laufzeitumgebung-1"></a>
+<h3 class="section">26.3 Funktionen und Variablen der Laufzeitumgebung</h3>
+
+<a name="maxima_005ftempdir"></a><a name="Item_003a-Runtime_002ede_002fdefvr_002fmaxima_005ftempdir"></a><dl>
+<dt><a name="index-maxima_005ftempdir"></a>Systemvariable: <strong>maxima_tempdir</strong></dt>
+<dd>
+<p>Die Systemvariable <code>maxima_tempdir</code> enth&auml;lt das Verzeichnis, in dem
+Maxima tempor&auml;re Dateien ablegt.  Insbesondere werden tempor&auml;re
+Grafikausgaben von Funktionen wie <code><a href="maxima_69.html#plot2d">plot2d</a></code> und <code><a href="maxima_69.html#plot3d">plot3d</a></code> in diesem
+Verzeichnis abgelegt.  Der Standardwert von <code>maxima_tempdir</code> ist das
+Home-Verzeichnis des Nutzers, sofern Maxima dieses feststellen kann.
+Andernfalls initialisiert Maxima die Systemvariable <code>maxima_tempdir</code> mit
+einer geeigneten Annahme.
+</p>
+<p>Der Systemvariablen <code>maxima_tempdir</code> kann eine Zeichenkette zugewiesen 
+werden, die ein Verzeichnis bezeichnet.
+</p></dd></dl>
+
+<a name="maxima_005fuserdir"></a><a name="Item_003a-Runtime_002ede_002fdefvr_002fmaxima_005fuserdir"></a><dl>
+<dt><a name="index-maxima_005fuserdir"></a>Systemvariable: <strong>maxima_userdir</strong></dt>
+<dd>
+<p>Die Systemvariable <code>maxima_userdir</code> enth&auml;lt ein Verzeichnis, das Maxima
+durchsucht, um Maxima- oder Lisp-Dateien zu finden.  Der Standardwert der
+Systemvariablen <code>maxima_userdir</code> ist ein Unterverzeichnis des
+Home-Verzeichnis des Nutzers, sofern Maxima dieses bestimmen kann.  Ansonsten
+initialisiert Maxima die Systemvariable <code>maxima_userdir</code> mit einer
+geeigneten Annahme.  Dieses Verzeichnis ist zum Beispiel geeignet, um die
+Initialisisierungsdateien <code>maxima-init.mac</code> und <code>maxima-init.lisp</code>
+abzulegen.
+</p>
+<p>Maxima sucht in weiteren Verzeichnissen nach Dateien.  Die vollst&auml;ndige Liste
+der Suchverzeichnisse ist den Variablen <code><a href="maxima_76.html#file_005fsearch_005fmaxima">file_search_maxima</a></code> und
+<code><a href="maxima_76.html#file_005fsearch_005flisp">file_search_lisp</a></code> enthalten.
+</p>
+<p>Der Systemvariablen <code>maxima_userdir</code> kann eine Zeichenkette zugewiesen 
+werden, die ein Verzeichnis bezeichnet.  Wenn der Wert von <code>maxima_userdir</code>
+ge&auml;ndert wird, werden die Variablen <code>file_search_maxima</code> und
+<code>file_search_lisp</code> nicht automatisch angepasst.
+</p></dd></dl>
+
+<a name="room"></a><a name="Item_003a-Runtime_002ede_002fdeffn_002froom"></a><dl>
+<dt><a name="index-room"></a>Funktion: <strong>room</strong> <em>()</em></dt>
+<dt><a name="index-room-1"></a>Funktion: <strong>room</strong> <em>(true)</em></dt>
+<dt><a name="index-room-2"></a>Funktion: <strong>room</strong> <em>(false)</em></dt>
+<dd>
+<p>Gibt eine Beschreibung der Speicherplatznutzung aus.  Die Darstellung und der
+Inhalt der Beschreibung h&auml;ngt von dem Maxima zugrunde liegendem Lisp ab.  Mit
+den Argumenten <code>true</code> und <code>false</code> kann der Umfang der auszugebenden
+Information kontrolliert werden, sofern die Option vom verwendeten Lisp
+unterst&uuml;tzt wird.  Mit dem Argument <code>true</code> wird die umfangreichste
+Darstellung ausgegeben und mit dem Argument <code>false</code> die k&uuml;rzeste.
+</p>
+<p>Beispiel:
+</p>
+<p>Das folgende Beispiel zeigt die Ausgabe auf einem Linux-System mit der 
+Lisp-Implementierung SBCL 1.0.45.
+</p>
+<div class="example">
+<pre class="example">(%i1) room(false);
+Dynamic space usage is:   63,719,856 bytes.
+Read-only space usage is:      3,512 bytes.
+Static space usage is:         2,256 bytes.
+Control stack usage is:        1,440 bytes.
+Binding stack usage is:          184 bytes.
+Control and binding stack usage is for the current thread only.
+Garbage collection is currently enabled.
+(%o2)                         false
+</pre></div>
+</dd></dl>
+
+<a name="sstatus"></a><a name="Item_003a-Runtime_002ede_002fdeffn_002fsstatus"></a><dl>
+<dt><a name="index-sstatus"></a>Funktion: <strong>sstatus</strong> <em>(<var>keyword</var>, <var>item</var>)</em></dt>
+<dd>
+<p>Hat das Argument <var>keyword</var> den Wert <code>feature</code>, wird das Argument
+<var>item</var> der internen Lisp-Eigenschaftsliste <code>*features*</code> hinzugef&uuml;gt.
+Das Kommando <code>status(feature, item)</code> hat dann das Ergebnis <code>true</code>.
+Hat das Argument <var>keyword</var> den Wert <code>nofeature</code>, wird das Argument
+<var>item</var> von der internen Lisp-Eigenschaftsliste <code>*features*</code> entfernt.
+</p>
+<p>Siehe auch die Funktion <code><a href="#status">status</a></code>.
+</p></dd></dl>
+
+<a name="status"></a><a name="Item_003a-Runtime_002ede_002fdeffn_002fstatus"></a><dl>
+<dt><a name="index-status"></a>Funktion: <strong>status</strong> <em>(<code>feature</code>)</em></dt>
+<dt><a name="index-status-1"></a>Funktion: <strong>status</strong> <em>(<code>feature</code>, <var>item</var>)</em></dt>
+<dd>
+<p>Das Kommando <code>status(feature)</code> gibt die interne Lisp-Eigenschaftsliste
+<code>*features*</code> zur&uuml;ck.  <code>status(feature,item)</code> gibt <code>true</code>
+zur&uuml;ck, wenn das Argument <var>item</var> in der internen Lisp-Eigenschaftsliste
+<code>*features*</code> enthalten ist.  Ansonsten ist die R&uuml;ckgabe <code>false</code>.
+<code>status</code> wertet die Argumente nicht aus.  Eine Systemeigenschaft
+<var>item</var>, die Sonderzeichen wie <code>-</code> oder <code>*</code> enth&auml;lt, muss als
+Zeichenkette angegeben werden.
+</p>
+<p>Siehe auch die Funktion <code><a href="#sstatus">sstatus</a></code>.
+</p>
+<p>Die Lisp-Variable <code>*features*</code> steht in keinem Zusammenhang mit der
+Maxima-Systemvariablen <code><a href="maxima_63.html#features">features</a></code>, die eine Liste mit mathematischen
+Eigenschaften enth&auml;lt, die Funktionen und Variablen erhalten k&ouml;nnen.
+</p>
+<p>Beispiel:
+</p>
+<p>Das folgende Beispiel zeigt die Ausgabe f&uuml;r ein Linux-System mit SBCL als
+Lisp.  Die Ausgabe ist abgek&uuml;rzt.
+</p>
+<div class="example">
+<pre class="example">(%i1) status(feature);
+(%o1) [sb-bsd-sockets-addrinfo, asdf2, asdf, cl, mk-defsystem, 
+cltl2, ansi-cl, common-lisp, sbcl, ...]
+
+(%i2) status(feature,&quot;ansi-cl&quot;);
+(%o2)                         true
+</pre></div>
+</dd></dl>
+
+<a name="system"></a><a name="Item_003a-Runtime_002ede_002fdeffn_002fsystem"></a><dl>
+<dt><a name="index-system"></a>Funktion: <strong>system</strong> <em>(<var>command</var>)</em></dt>
+<dd> 
+<p><code>system(command)</code> f&uuml;hrt das Kommando <var>command</var> in einem eigenen 
+Prozess aus.  Das Kommando wird an die Standard-Shell &uuml;bergeben.
+<code>system</code> wird nicht von allen Betriebssystemen unterst&uuml;tzt, steht aber im
+Allgemeinen unter Unix oder Unix &auml;hnlichen Betriebssystemen zur Verf&uuml;gung.
+</p></dd></dl>
+
+<a name="time"></a><a name="Item_003a-Runtime_002ede_002fdeffn_002ftime"></a><dl>
+<dt><a name="index-time"></a>Funktion: <strong>time</strong> <em>(%o1, %o2, %o3, &hellip;)</em></dt>
+<dd>
+<p>Gibt eine Liste mit den Ausf&uuml;hrungszeiten zur&uuml;ck, die ben&ouml;tigt wurden, um
+die Ergebnisse <code>%o1</code>, <code>%o2</code>, <code>%o3</code>, &hellip; zu berechnen.
+Die Argumente der Funktion <code>time</code> k&ouml;nnen nur Ausgabemarken sein.  F&uuml;r 
+andere Argumente ist das Ergebnis <code>unknown</code>.
+</p>
+<p>Siehe die Optionsvariable <code><a href="maxima_9.html#showtime">showtime</a></code>, um die Ausf&uuml;hrungszeiten f&uuml;r 
+jede einzelne Berechnung anzuzeigen.
+</p>
+<p>Beispiel:
+</p>
+<p>Die Zeit f&uuml;r die Berechnung der Fakult&auml;t einer gro&szlig;en ganzen Zahl wird 
+mit <code>time</code> ausgegeben.
+</p>
+<div class="example">
+<pre class="example">(%i1) factorial(100000)$
+
+(%i2) time(%o1);
+(%o2)                        [7.589]
+</pre></div>
+</dd></dl>
+
+<a name="timedate"></a><a name="Item_003a-Runtime_002ede_002fdeffn_002ftimedate"></a><dl>
+<dt><a name="index-timedate"></a>Funktion: <strong>timedate</strong> <em>()</em></dt>
+<dd>
+<p>Gibt eine Zeichenkette zur&uuml;ck, die das aktuelle Datum und die aktuelle Zeit 
+enth&auml;lt.  Die Zeichenkette hat das Format <code>yyyy-mm-dd HH:MM:SS (GMT-n)</code>.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) timedate();
+(%o1)               2010-12-28 21:56:32+01:00
+</pre></div>
+</dd></dl>
+
+<a name="absolute_005freal_005ftime"></a><a name="Item_003a-Runtime_002ede_002fdeffn_002fabsolute_005freal_005ftime"></a><dl>
+<dt><a name="index-absolute_005freal_005ftime"></a>Funktion: <strong>absolute_real_time</strong> <em>()</em></dt>
+<dd>
+<p>Gibt die Sekunden zur&uuml;ck, die seit dem 1.&nbsp;<!-- /@w -->Januar 1990 UTC verstrichen 
+sind.  Die R&uuml;ckgabe ist eine ganze Zahl.
+</p>
+<p>Siehe auch <code><a href="#elapsed_005freal_005ftime">elapsed_real_time</a></code> und <code><a href="#elapsed_005frun_005ftime">elapsed_run_time</a></code>.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) absolute_real_time ();
+(%o1)                      3502559124
+(%i2) truncate(1900+absolute_real_time()/(365.25*24*3600));
+(%o2)                         2010
+</pre></div>
+</dd></dl>
+
+<a name="elapsed_005freal_005ftime"></a><a name="Item_003a-Runtime_002ede_002fdeffn_002felapsed_005freal_005ftime"></a><dl>
+<dt><a name="index-elapsed_005freal_005ftime"></a>Funktion: <strong>elapsed_real_time</strong> <em>()</em></dt>
+<dd>
+<p>Gibt die Sekunden zur&uuml;ck, die seit dem letzten Start von Maxima verstrichen 
+sind.  Die R&uuml;ckgabe ist eine Gleitkommazahl.
+</p>
+<p>Siehe auch <code><a href="#absolute_005freal_005ftime">absolute_real_time</a></code> und <code><a href="#elapsed_005frun_005ftime">elapsed_run_time</a></code>.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) elapsed_real_time ();
+(%o1)                       2.559324
+(%i2) expand ((a + b)^500)$
+(%i3) elapsed_real_time ();
+(%o3)                       7.552087
+</pre></div>
+</dd></dl>
+
+<a name="elapsed_005frun_005ftime"></a><a name="Item_003a-Runtime_002ede_002fdeffn_002felapsed_005frun_005ftime"></a><dl>
+<dt><a name="index-elapsed_005frun_005ftime"></a>Funktion: <strong>elapsed_run_time</strong> <em>()</em></dt>
+<dd>
+<p>Gibt eine Sch&auml;tzung der Zeit in Sekunden zur&uuml;ck, die Maxima f&uuml;r 
+Berechnungen seit dem letzten Start ben&ouml;tigt hat.  Der R&uuml;ckgabewert ist
+eine Gleitkommazahl.
+</p>
+<p>Siehe auch <code><a href="#absolute_005freal_005ftime">absolute_real_time</a></code> und <code><a href="#elapsed_005freal_005ftime">elapsed_real_time</a></code>.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) elapsed_run_time ();
+(%o1)                         0.04
+(%i2) expand ((a + b)^500)$
+(%i3) elapsed_run_time ();
+(%o3)                         1.26
+</pre></div>
+</dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_163.html#Interrupts" accesskey="p" rel="previous">Interrupts</a>, Nach oben: <a href="maxima_161.html#Laufzeitumgebung" accesskey="u" rel="up">Laufzeitumgebung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

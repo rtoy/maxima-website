@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima: Funções e Variáveis Definidas para ggf</title>
+
+<meta name="description" content="Manual do Maxima: Funções e Variáveis Definidas para ggf">
+<meta name="keywords" content="Manual do Maxima: Funções e Variáveis Definidas para ggf">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_165.html#ggf" rel="up" title="ggf">
+<link href="maxima_167.html#grobner" rel="next" title="grobner">
+<link href="maxima_165.html#ggf" rel="previous" title="ggf">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-ggf"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_165.html#ggf" accesskey="p" rel="previous">ggf</a>, Acima: <a href="maxima_165.html#ggf" accesskey="u" rel="up">ggf</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funcoes-e-Variaveis-Definidas-para-ggf"></a>
+<h3 class="section">52.1 Funções e Variáveis Definidas para ggf</h3>
+
+<a name="Item_003a-ggf_002fdefvr_002fGGFINFINITY"></a><dl>
+<dt><a name="index-GGFINFINITY"></a>Variável de Opção: <strong>GGFINFINITY</strong></dt>
+<dd><p>Valor padrão: 3
+</p>
+<p>Essa é uma variável de opção para a função <code>ggf</code>.
+</p>
+<p>Quando calculando a fração contínua da
+função geradora, um quociente parcial tendo um grau
+(estritamente) maior que <var>GGFINFINITY</var> será descartado e
+o convergente atual será considerado como o valor exato
+da função geradora; na grande mioria dos casos o grau de todos
+os quocientes parciais será ou 0 ou 1; se você usar um valor muito grande,
+então você poderá fornecer termos suficientes com o objetivo de fazer o
+cálculo preciso o bastante.
+</p>
+
+<p>Veja também <code>ggf</code>.
+</p></dd></dl>
+
+
+<a name="Item_003a-ggf_002fdefvr_002fGGFCFMAX"></a><dl>
+<dt><a name="index-GGFCFMAX"></a>Variável de opção: <strong>GGFCFMAX</strong></dt>
+<dd><p>Valor padrão: 3
+</p>
+<p>Essa é uma variável de opção para a função <code>ggf</code>.
+</p>
+<p>Quando calculando a fração contínua da
+função geradora, se nenhum bom resultado for encontrado (veja
+o sinalizador <var>GGFINFINITY</var>) após se ter calculado uma quantidade de <var>GGFCFMAX</var> quocientes
+parciais, a função geradora será considerada como
+não sendo uma fração de dois polinômios e a função irá
+terminar. Coloque livemente um valor muito grande para funções geradoras
+mais complicadas.
+</p>
+<p>Veja também <code>ggf</code>.
+</p></dd></dl>
+
+<a name="Item_003a-ggf_002fdeffn_002fggf"></a><dl>
+<dt><a name="index-ggf"></a>Função: <strong>ggf</strong> <em>(<var>l</var>)</em></dt>
+<dd><p>Calcula a função geradora (se for uma fração de dois
+polinômios) de uma seq&uuml;ência, sendo dados seus primeiros termos. <var>l</var>
+é uma lista de números.
+</p>
+<p>A solução é retornada como uma fração de dois polinômios.
+Se nenhuma solução tiver sido encontrada, é retornado <code>done</code>.
+</p>
+<p>Essa função é controlada attravés das variáveis globais <var>GGFINFINITY</var> e <var>GGFCFMAX</var>. Veja também <var>GGFINFINITY</var> e <var>GGFCFMAX</var>.
+</p>
+<p>Para usar essa função primeiro escreva <code>load(&quot;ggf&quot;)</code>.
+</p></dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_165.html#ggf" accesskey="p" rel="previous">ggf</a>, Acima: <a href="maxima_165.html#ggf" accesskey="u" rel="up">ggf</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

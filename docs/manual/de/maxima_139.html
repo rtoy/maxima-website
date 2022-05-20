@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Struve-Funktionen</title>
+
+<meta name="description" content="Maxima Manual: Struve-Funktionen">
+<meta name="keywords" content="Maxima Manual: Struve-Funktionen">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_135.html#Bessel_002dFunktionen-und-verwandte-Funktionen" rel="up" title="Bessel-Funktionen und verwandte Funktionen">
+<link href="maxima_140.html#Gammafunktionen-und-verwandte-Funktionen" rel="next" title="Gammafunktionen und verwandte Funktionen">
+<link href="maxima_138.html#Airy_002dFunktionen" rel="previous" title="Airy-Funktionen">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Struve_002dFunktionen"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_138.html#Airy_002dFunktionen" accesskey="p" rel="previous">Airy-Funktionen</a>, Nach oben: <a href="maxima_135.html#Bessel_002dFunktionen-und-verwandte-Funktionen" accesskey="u" rel="up">Bessel-Funktionen und verwandte Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Struve_002dFunktionen-1"></a>
+<h4 class="subsection">22.2.4 Struve-Funktionen</h4>
+
+<a name="struve_005fh"></a><a name="Item_003a-Special_002ede_002fdeffn_002fstruve_005fh"></a><dl>
+<dt><a name="index-struve_005fh"></a>Funktion: <strong>struve_h</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>Die Struve-Funktion <em>H</em> der Ordnung <em>v</em> mit dem Argument
+<em>z</em>.  Siehe Abramowitz und Stegun, Handbook of Mathematical Functions,
+Kapitel 12.  Die Definition ist
+</p>
+<div class="example">
+<pre class="example">                       inf
+                       ====                  k  2 k
+               z v + 1 \                (- 1)  z
+      H (z) = (-)       &gt;    ----------------------------------
+       v       2       /      2 k           3                3
+                       ====  2    gamma(k + -) gamma(v + k + -)
+                       k = 0                2                2
+</pre></div>
+
+<p>Die Struve-Funktion <code>struve_h</code> ist f&uuml;r das numerische und symbolische
+Rechnen geeignet.  Im Unterschied zu den <a href="maxima_136.html#Bessel_002dFunktionen">Bessel-Funktionen</a> ist jedoch
+die Implementation der Funktion <code>struve_h</code> weniger vollst&auml;ndig.
+</p>
+<p>Maxima berechnet <code>struve_h</code> numerisch f&uuml;r reelle und komplexe
+Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
+<code><a href="maxima_14.html#float">float</a></code> oder der Optionsvariablen <code><a href="maxima_14.html#numer">numer</a></code> kann die numerische
+Auswertung erzwungen werden, wenn die Argumente Zahlen sind.  Die numerische
+Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht implementiert.  In diesem
+Fall gibt Maxima eine Substantivform zur&uuml;ck.
+</p>
+<p>Hat die Optionsvariable <code><a href="maxima_136.html#besselexpand">besselexpand</a></code> den Wert <code>true</code>, wird die
+Struve-Funktion <code>struve_h</code> mit einer halbzahligen Ordnung <em>v</em> als
+Sinus- und Kosinusfunktionen entwickelt.
+</p>
+<p>Maxima kennt die Ableitung der Struve-Funktion <code>struve_h</code> nach dem
+Argument <em>z</em>.
+</p>
+<p>Siehe auch die Struve-Funktion <code><a href="#struve_005fl">struve_l</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) struve_h(1, 0.5);
+(%o1)                  .05217374424234107
+(%i2) struve_h(1, 0.5+%i);
+(%o2)       0.233696520211436 %i - .1522134290663428
+(%i3) struve_h(3/2,x), besselexpand: true;
+                                           2
+                  2 x sin(x) + 2 cos(x) - x  - 2
+(%o3)           - ------------------------------
+                                         3/2
+                      sqrt(2) sqrt(%pi) x
+(%i4) diff(struve_h(v, x), x);
+                   v
+                  x
+(%o4) (------------------------- - struve_h(v + 1, x)
+                  v           3
+       sqrt(%pi) 2  gamma(v + -)
+                              2
+                                          + struve_h(v - 1, x))/2
+</pre></div>
+</dd></dl>
+
+<a name="struve_005fl"></a><a name="Item_003a-Special_002ede_002fdeffn_002fstruve_005fl"></a><dl>
+<dt><a name="index-struve_005fl"></a>Funktion: <strong>struve_l</strong> <em>(<var>v</var>, <var>z</var>)</em></dt>
+<dd>
+<p>Die modifizierte Struve-Funktion <em>L</em> der Ordnung <em>v</em> mit dem Argument
+<em>z</em>.  Siehe Abramowitz und Stegun, Handbook of Mathematical Functions, 
+Kapitel 12.  Die Definition ist
+</p>
+<div class="example">
+<pre class="example">                       inf
+                       ====                  2 k
+               z v + 1 \                    z
+      L (z) = (-)       &gt;    ----------------------------------
+       v       2       /      2 k           3                3
+                       ====  2    gamma(k + -) gamma(v + k + -)
+                       k = 0                2                2
+</pre></div>
+
+<p>Die Struve-Funktion <code>struve_l</code> ist f&uuml;r das numerische und symbolische
+Rechnen geeignet.  Im Unterschied zu den <a href="maxima_136.html#Bessel_002dFunktionen">Bessel-Funktionen</a> ist jedoch
+die Implementation der Funktion <code>struve_l</code> weniger vollst&auml;ndig.
+</p>
+<p>Maxima berechnet <code>struve_l</code> numerisch f&uuml;r reelle und komplexe
+Gleitkommazahlen als Argumente f&uuml;r <em>v</em> und <em>z</em>.  Mit der Funktion
+<code><a href="maxima_14.html#float">float</a></code> oder der Optionsvariablen <code><a href="maxima_14.html#numer">numer</a></code> kann die numerische
+Auswertung erzwungen werden, wenn die Argumente Zahlen sind.  Die numerische
+Berechnung f&uuml;r gro&szlig;e Gleitkommazahlen ist nicht implementiert.  In diesem
+Fall gibt Maxima eine Substantivform zur&uuml;ck.
+</p>
+<p>Hat die Optionsvariable <code><a href="maxima_136.html#besselexpand">besselexpand</a></code> den Wert <code>true</code>, wird die
+Struve-Funktion <code>struve_l</code> mit einer halbzahligen Ordnung <em>v</em> als
+Sinus- und Kosinusfunktionen entwickelt.
+</p>
+<p>Maxima kennt die Ableitung der Struve-Funktion <code>struve_l</code> nach dem
+Argument <em>z</em>.
+</p>
+<p>Siehe auch die Struve-Funktion <code><a href="#struve_005fh">struve_h</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) struve_l(1, 0.5);
+(%o1)                  .05394218262352267
+(%i2) struve_l(1, 0.5+%i);
+(%o2)       .1912720461247995 %i - .1646185598117401
+(%i3) struve_l(3/2,x), besselexpand: true;
+                                           2
+                2 x sinh(x) - 2 cosh(x) - x  + 2
+(%o3)           --------------------------------
+                                        3/2
+                     sqrt(2) sqrt(%pi) x
+(%i4) diff(struve_l(v, x), x);
+                   v
+                  x
+(%o4) (------------------------- + struve_l(v + 1, x)
+                  v           3
+       sqrt(%pi) 2  gamma(v + -)
+                              2
+                                          + struve_l(v - 1, x))/2
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-Special_002ede_002fnode_002fGammafunktionen-und-verwandte-Funktionen"></a><hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_138.html#Airy_002dFunktionen" accesskey="p" rel="previous">Airy-Funktionen</a>, Nach oben: <a href="maxima_135.html#Bessel_002dFunktionen-und-verwandte-Funktionen" accesskey="u" rel="up">Bessel-Funktionen und verwandte Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

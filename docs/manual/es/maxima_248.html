@@ -1,0 +1,900 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Funciones y variables para linearalgebra</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Funciones y variables para linearalgebra">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Funciones y variables para linearalgebra">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_246.html#linearalgebra" rel="up" title="linearalgebra">
+<link href="maxima_249.html#lsquares" rel="next" title="lsquares">
+<link href="maxima_247.html#Introducci_00f3n-a-linearalgebra" rel="previous" title="Introducción a linearalgebra">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funciones-y-variables-para-linearalgebra"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_247.html#Introducci_00f3n-a-linearalgebra" accesskey="p" rel="previous">Introducción a linearalgebra</a>, Subir: <a href="maxima_246.html#linearalgebra" accesskey="u" rel="up">linearalgebra</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funciones-y-variables-para-linearalgebra-1"></a>
+<h3 class="section">62.2 Funciones y variables para linearalgebra</h3>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002faddmatrices"></a><dl>
+<dt><a name="index-addmatrices"></a>Función: <strong>addmatrices</strong> <em>(<var>f</var>, <var>M_1</var>, &hellip;, <var>M_n</var>)</em></dt>
+<dd>
+<p>Utiliza la función <var>f</var> como una función aditiva, devolviendo la
+suma de las matrices <var>M_1</var>, &hellip;, <var>M_n</var>. La función <var>f</var> debe
+ser tal que acepte un número arbitrario de argumentos; en otras palabras,
+será una función n-aria de Maxima.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) m1 : matrix([1,2],[3,4])$
+(%i2) m2 : matrix([7,8],[9,10])$
+(%i3) addmatrices('max,m1,m2);
+(%o3) matrix([7,8],[9,10])
+(%i4) addmatrices('max,m1,m2,5*m1);
+(%o4) matrix([7,10],[15,20])
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fblockmatrixp"></a><dl>
+<dt><a name="index-blockmatrixp"></a>Función: <strong>blockmatrixp</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p>Devuelve el valor <code>true</code> si y solo si <var>M</var> es una matriz
+cuyos elementos son a su vez matrices.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fcolumnop"></a><dl>
+<dt><a name="index-columnop"></a>Función: <strong>columnop</strong> <em>(<var>M</var>, <var>i</var>, <var>j</var>, <var>theta</var>)</em></dt>
+<dd>
+<p>Si <var>M</var> es una matriz, devuelve la matriz que resulta de hacer la
+operación columna <code>C_i &lt;- C_i - <var>theta</var> * C_j</code>. Si <var>M</var>
+carece de cualquiera de las filas <var>i</var> o <var>j</var>, devuelve un mensaje
+de error.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fcolumnswap"></a><dl>
+<dt><a name="index-columnswap"></a>Función: <strong>columnswap</strong> <em>(<var>M</var>, <var>i</var>, <var>j</var>)</em></dt>
+<dd>
+<p>Si <var>M</var> es una matriz, intercambia las columnas <var>i</var> y <var>j</var>.
+Si <var>M</var> carece de cualquiera de las filas <var>i</var> o <var>j</var>, devuelve 
+un mensaje de error.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fcolumnspace"></a><dl>
+<dt><a name="index-columnspace"></a>Función: <strong>columnspace</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p>Si <var>M</var> es una matriz, devuelve <code>span (v_1, ..., v_n)</code>, donde
+el conjunto <code>{v_1, ..., v_n}</code> es la base del espacio generado por
+las columnas de <var>M</var>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fcopy"></a><dl>
+<dt><a name="index-copy"></a>Función: <strong>copy</strong> <em>(<var>e</var>)</em></dt>
+<dd>
+<p>Devuelve una copia de la expresión <var>e</var> de Maxima. Aunque <var>e</var>
+puede ser cualquier expresión de Maxima, la función <code>copy</code> es
+especialmente útil cuando <var>e</var> es una lista o una matriz. 
+Considérese el siguiente ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) m : [1,[2,3]]$
+(%i2) mm : m$
+(%i3) mm[2][1] : x$
+(%i4) m;
+(%o4)                      [1,[x,3]]
+(%i5) mm;
+(%o5)                      [1,[x,3]]
+</pre></div>
+<p>Veamos el mismo ejemplo siendo ahora <var>mm</var> una copia de <var>m</var>
+</p><div class="example">
+<pre class="example">(%i6) m : [1,[2,3]]$
+(%i7) mm : copy(m)$
+(%i8) mm[2][1] : x$
+(%i9) m;
+(%o9)                     [1,[2,3]]
+(%i10) mm;
+(%o10)                    [1,[x,3]]
+</pre></div>
+<p>En esta ocasión, la asignación a <var>mm</var> no cambia el valor de <var>m</var>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fcholesky"></a><dl>
+<dt><a name="index-cholesky"></a>Función: <strong>cholesky</strong> <em>(<var>M</var>)</em></dt>
+<dt><a name="index-cholesky-1"></a>Función: <strong>cholesky</strong> <em>(<var>M</var>, <var>field</var>)</em></dt>
+<dd>
+<p>Devuelve la factorización de Cholesky de la matriz autoadjunta 
+(o hermítica) <var>M</var>. El valor por defecto del segundo argumento
+es <code>generalring</code>. Para una descripción de los posibles valores para
+<var>field</var>, véase <code>lu_factor</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fctranspose"></a><dl>
+<dt><a name="index-ctranspose"></a>Función: <strong>ctranspose</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p>Devuelve la transpuesta compleja conjugada de la matriz <var>M</var>. La función
+<code>ctranspose</code> utiliza <code>matrix_element_transpose</code> para transponer
+cada elemento de la matriz.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fdiag_005fmatrix"></a><dl>
+<dt><a name="index-diag_005fmatrix"></a>Función: <strong>diag_matrix</strong> <em>(<var>d_1</var>, <var>d_2</var>, &hellip;, <var>d_n</var>)</em></dt>
+<dd>
+<p>Devuelve una matriz diagonal con los elementos de la diagonal iguales a
+<var>d_1</var>, <var>d_2</var>, &hellip;, <var>d_n</var>; cuando éstos son matrices, los
+elementos nulos de la matriz devuelta son matrices nulas de tamaño 
+apropiado. Por ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) diag_matrix(diag_matrix(1,2),diag_matrix(3,4));
+
+                            [ [ 1  0 ]  [ 0  0 ] ]
+                            [ [      ]  [      ] ]
+                            [ [ 0  2 ]  [ 0  0 ] ]
+(%o1)                       [                    ]
+                            [ [ 0  0 ]  [ 3  0 ] ]
+                            [ [      ]  [      ] ]
+                            [ [ 0  0 ]  [ 0  4 ] ]
+(%i2) diag_matrix(p,q);
+
+                                   [ p  0 ]
+(%o2)                              [      ]
+                                   [ 0  q ]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fdotproduct"></a><dl>
+<dt><a name="index-dotproduct"></a>Función: <strong>dotproduct</strong> <em>(<var>u</var>, <var>v</var>)</em></dt>
+<dd>
+<p>Devuelve el producto escalar de los vectores <var>u</var> y <var>v</var>. Equivale
+a <code>conjugate (transpose (<var>u</var>)) . <var>v</var></code>. Los argumentos <var>u</var> y <var>v</var>
+deben ser vectores columna.
+</p>
+</dd></dl>
+
+
+
+<a name="Item_003a-linearalgebra_002fdeffn_002feigens_005fby_005fjacobi"></a><dl>
+<dt><a name="index-eigens_005fby_005fjacobi"></a>Función: <strong>eigens_by_jacobi</strong> <em>(<var>A</var>)</em></dt>
+<dt><a name="index-eigens_005fby_005fjacobi-1"></a>Función: <strong>eigens_by_jacobi</strong> <em>(<var>A</var>, <var>field_type</var>)</em></dt>
+<dd>
+<p>Calcula los valores y vectores propios de <var>A</var> por el método de
+las rotaciones de Jacobi. <var>A</var> debe ser una matriz simétrica
+(aunque no necesariamente definida o semidefinida positiva).
+El argumento <var>field_type</var> indica el tipo numérico sobre el
+que se realizan los cálculos, que puede ser tanto <code>floatfield</code>
+como <code>bigfloatfield</code>. En caso de que no se especifique <var>field_type</var>,
+su valor por defecto será <code>floatfield</code>.
+</p>
+<p>Los elementos de <var>A</var> deben ser números o expresiones reducibles
+a números mediante la ejecución de <code>float</code> o <code>bfloat</code>,
+según sea el valor de <var>field_type</var>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) S : matrix ([1/sqrt(2), 1/sqrt(2)], [- 1/sqrt(2), 1/sqrt(2)]);
+                     [     1         1    ]
+                     [  -------   ------- ]
+                     [  sqrt(2)   sqrt(2) ]
+(%o1)                [                    ]
+                     [      1        1    ]
+                     [ - -------  ------- ]
+                     [   sqrt(2)  sqrt(2) ]
+(%i2) L : matrix ([sqrt(3), 0], [0, sqrt(5)]);
+                      [ sqrt(3)     0    ]
+(%o2)                 [                  ]
+                      [    0     sqrt(5) ]
+(%i3) M : S . L . transpose (S);
+            [ sqrt(5)   sqrt(3)  sqrt(5)   sqrt(3) ]
+            [ ------- + -------  ------- - ------- ]
+            [    2         2        2         2    ]
+(%o3)       [                                      ]
+            [ sqrt(5)   sqrt(3)  sqrt(5)   sqrt(3) ]
+            [ ------- - -------  ------- + ------- ]
+            [    2         2        2         2    ]
+(%i4) eigens_by_jacobi (M);
+The largest percent change was 0.1454972243679
+The largest percent change was 0.0
+number of sweeps: 2
+number of rotations: 1
+(%o4) [[1.732050807568877, 2.23606797749979], 
+                        [  0.70710678118655   0.70710678118655 ]
+                        [                                      ]]
+                        [ - 0.70710678118655  0.70710678118655 ]
+(%i5) float ([[sqrt(3), sqrt(5)], S]);
+(%o5) [[1.732050807568877, 2.23606797749979], 
+                        [  0.70710678118655   0.70710678118655 ]
+                        [                                      ]]
+                        [ - 0.70710678118655  0.70710678118655 ]
+(%i6) eigens_by_jacobi (M, bigfloatfield);
+The largest percent change was 1.454972243679028b-1
+The largest percent change was 0.0b0
+number of sweeps: 2
+number of rotations: 1
+(%o6) [[1.732050807568877b0, 2.23606797749979b0], 
+                [  7.071067811865475b-1   7.071067811865475b-1 ]
+                [                                              ]]
+                [ - 7.071067811865475b-1  7.071067811865475b-1 ]
+</pre></div>
+
+</dd></dl>
+
+
+
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fget_005flu_005ffactors"></a><dl>
+<dt><a name="index-get_005flu_005ffactors"></a>Función: <strong>get_lu_factors</strong> <em>(<var>x</var>) </em></dt>
+<dd>
+<p>Cuando <code><var>x</var> = lu_factor (<var>A</var>)</code>, entonces <code>get_lu_factors</code>
+devuelve una lista de la forma <code>[P, L, U]</code>, donde <var>P</var> es una matriz
+permutación, <var>L</var> es triangular inferior con unos en la diagonal y <var>U</var>
+es triangular superior, verificándose que <code><var>A</var> = <var>P</var> <var>L</var> <var>U</var></code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fhankel"></a><dl>
+<dt><a name="index-hankel"></a>Función: <strong>hankel</strong> <em>(<var>col</var>)</em></dt>
+<dt><a name="index-hankel-1"></a>Función: <strong>hankel</strong> <em>(<var>col</var>, <var>row</var>)</em></dt>
+<dd>
+<p>Devuelve la matriz de Hankel <var>H</var>. La primera columna de <var>H</var> coincide
+con <var>col</var>, excepto en el primer elemento, la última fila de <var>H</var> es
+<var>row</var>. El valor por defecto para <var>row</var> es el vector nulo con igual
+número de elementos que <var>col</var>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fhessian"></a><dl>
+<dt><a name="index-hessian"></a>Función: <strong>hessian</strong> <em>(<var>f</var>, <var>x</var>)</em></dt>
+<dd>
+<p>Devuelve la matriz hessiana de <var>f</var> con respecto de la lista de variables
+<var>x</var>. El elemento <code>(i, j)</code>-ésimo de la matriz
+hessiana es <code>diff(<var>f</var>, <var>x</var>[i], 1, <var>x</var>[j], 1)</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) hessian (x * sin (y), [x, y]);
+                     [   0       cos(y)   ]
+(%o1)                [                    ]
+                     [ cos(y)  - x sin(y) ]
+(%i2) depends (F, [a, b]);
+(%o2)                       [F(a, b)]
+(%i3) hessian (F, [a, b]);
+                        [   2      2   ]
+                        [  d F    d F  ]
+                        [  ---   ----- ]
+                        [    2   da db ]
+                        [  da          ]
+(%o3)                   [              ]
+                        [   2      2   ]
+                        [  d F    d F  ]
+                        [ -----   ---  ]
+                        [ da db     2  ]
+                        [         db   ]
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fhilbert_005fmatrix"></a><dl>
+<dt><a name="index-hilbert_005fmatrix"></a>Función: <strong>hilbert_matrix</strong> <em>(<var>n</var>)</em></dt>
+<dd>
+<p>Devuelve la matriz de Hilbert <var>n</var> por <var>n</var>. Si <var>n</var> no es
+un entero positivo, emite un mensaje de error.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fidentfor"></a><dl>
+<dt><a name="index-identfor"></a>Función: <strong>identfor</strong> <em>(<var>M</var>)</em></dt>
+<dt><a name="index-identfor-1"></a>Función: <strong>identfor</strong> <em>(<var>M</var>, <var>fld</var>)</em></dt>
+<dd>
+<p>Devuelve una matriz identidad con la misma forma que la matriz
+<var>M</var>. Los elementos de la diagonal de la matriz identidad son
+la identidad multiplicativa del campo <var>fld</var>; el valor por
+defecto para <var>fld</var> es <var>generalring</var>.
+</p>
+<p>El primer argumento <var>M</var> debe ser una matriz cuadrada o no ser
+matriz en absoluto. Si <var>M</var> es una matriz, sus elementos pueden
+ser matrices cuadradas. La matriz puede tener bloques a cualquier nivel
+finito de profundidad.
+</p>
+<p>Véase también <code>zerofor</code>
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002finvert_005fby_005flu"></a><dl>
+<dt><a name="index-invert_005fby_005flu"></a>Función: <strong>invert_by_lu</strong> <em>(<var>M</var>, <var>(rng generalring)</var>)</em></dt>
+<dd>
+<p>Invierte la matriz <var>M</var> mediante la factorización LU, la cual
+se hace utilizando el anillo <var>rng</var>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fjacobian"></a><dl>
+<dt><a name="index-jacobian"></a>Función: <strong>jacobian</strong> <em>(<var>f</var>, <var>x</var>)</em></dt>
+<dd>
+<p>Devuelve la matriz jacobiana de la lista de funciones <var>f</var> respecto
+de la lista de variables <var>x</var>. El elemento <code>(i, j)</code>-ésimo de
+la matriz jacobiana es <code>diff(<var>f</var>[i], <var>x</var>[j])</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) jacobian ([sin (u - v), sin (u * v)], [u, v]);
+                  [ cos(v - u)  - cos(v - u) ]
+(%o1)             [                          ]
+                  [ v cos(u v)   u cos(u v)  ]
+(%i2) depends ([F, G], [y, z]);
+(%o2)                  [F(y, z), G(y, z)]
+(%i3) jacobian ([F, G], [y, z]);
+                           [ dF  dF ]
+                           [ --  -- ]
+                           [ dy  dz ]
+(%o3)                      [        ]
+                           [ dG  dG ]
+                           [ --  -- ]
+                           [ dy  dz ]
+</pre></div>
+</dd></dl>
+
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fkronecker_005fproduct"></a><dl>
+<dt><a name="index-kronecker_005fproduct"></a>Función: <strong>kronecker_product</strong> <em>(<var>A</var>, <var>B</var>)</em></dt>
+<dd>
+<p>Devuelve el producto de Kroneckerde las matrices <var>A</var> y <var>B</var>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002flistp"></a><dl>
+<dt><a name="index-listp-1"></a>Función: <strong>listp</strong> <em>(<var>e</var>, <var>p</var>)</em></dt>
+<dt><a name="index-listp-2"></a>Función: <strong>listp</strong> <em>(<var>e</var>)</em></dt>
+<dd>
+<p>Dado el argumento opcional <var>p</var>, devuelve <code>true</code> si <var>e</var> es
+una lista de Maxima y <var>p</var> toma el valor <code>true</code> al aplicarlo
+a cada elemento de la lista. Si a <code>listp</code> no se le suministra el
+argumento opcional, devuelve <code>true</code> si <var>e</var> es una lista de Maxima.
+En cualquier otro caso, el resultado es <code>false</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002flocate_005fmatrix_005fentry"></a><dl>
+<dt><a name="index-locate_005fmatrix_005fentry"></a>Función: <strong>locate_matrix_entry</strong> <em>(<var>M</var>, <var>r_1</var>, <var>c_1</var>, <var>r_2</var>, <var>c_2</var>, <var>f</var>, <var>rel</var>)</em></dt>
+<dd>
+<p>El primer argumento debe ser una matriz, mientras que los argumentos
+desde <var>r_1</var> hasta <var>c_2</var> determinan la submatriz de <var>M</var> tomando
+las filas desde <var>r_1</var> hasta <var>r_2</var> y las columnas desde <var>c_1</var>
+hasta <var>c_2</var>.
+</p>
+<p>La función <code>locate_matrix_entry</code> busca en la submatriz de <var>M</var>
+un elemento que satisfaga cierta propiedad. hay tres posibilidades:
+</p>
+<p>(1) <code><var>rel</var> = 'bool</code> y <var>f</var> es un predicado: 
+</p>
+<p>Rastrea la submatriz de izquierda a derecha y de arriba hacia abajo,
+devolviendo el índice del primer elemento que 
+satisface el predicado <var>f</var>; si ningún elemento lo satisface,
+el resultado es <code>false</code>.
+</p>
+<p>(2) <code><var>rel</var> = 'max</code> y <var>f</var> una función real:
+</p>
+<p>Rastrea la submatriz buscando el elemento que maximice <var>f</var>,
+devolviendo el índice correspondiente.
+</p>
+<p>(3) <code><var>rel</var> = 'min</code> y <var>f</var> una función real:
+</p>
+<p>Rastrea la submatriz buscando el elemento que minimice <var>f</var>,
+devolviendo el índice correspondiente.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002flu_005fbacksub"></a><dl>
+<dt><a name="index-lu_005fbacksub"></a>Función: <strong>lu_backsub</strong> <em>(<var>M</var>, <var>b</var>)</em></dt>
+<dd>
+<p>Si <code><var>M</var> = lu_factor (<var>A</var>, <var>field</var>)</code>, entonces
+<code>lu_backsub (<var>M</var>, <var>b</var>)</code> resuelve el sistema de ecuaciones
+lineales <code><var>A</var> <var>x</var> = <var>b</var></code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002flu_005ffactor"></a><dl>
+<dt><a name="index-lu_005ffactor"></a>Función: <strong>lu_factor</strong> <em>(<var>M</var>, <var>field</var>)</em></dt>
+<dd>
+<p>Devuelve una lista de la forma <code>[<var>LU</var>, <var>perm</var>, <var>fld</var>]</code>,
+o <code>[<var>LU</var>, <var>perm</var>, <var>fld</var>, <var>lower-cnd</var> <var>upper-cnd</var>]</code>, donde
+</p>
+
+<ul>
+<li> La matriz <var>LU</var> contiene la factorización de <var>M</var> de forma empaquetada, lo
+que significa tres cosas. En primer lugar, que las filas de <var>LU</var> están permutadas de
+acuerdo con la lista <var>perm</var>; por ejemplo, si <var>perm</var> es la lista <code>[3,2,1]</code>,
+la primera fila de la factorización <var>LU</var> es la tercera fila de la matriz <var>LU</var>.
+En segundo lugar, el factor triangular inferior de <var>M</var> es la parte triangular inferior
+de <var>LU</var> con los elementos de la diagonal sustituidos por unos. Por último, el factor
+triangular superior de <var>M</var> es la parte triangular superior de <var>LU</var>.
+
+</li><li> Si el campo es <code>floatfield</code> o <code>complexfield</code>, los números <var>lower-cnd</var> y
+<var>upper-cnd</var> son las cotas inferior y superior del número de condición de la norma
+infinita de <var>M</var>. El número de condición no se puede estimar para todos los campos,
+en cuyo caso <code>lu_factor</code> devuelve una lista de dos elementos. Tanto la cota inferior
+como la superior pueden diferir de sus valores verdaderos. Véase también <code>mat_cond</code>.
+
+</li></ul>
+
+<p>El argumento <var>M</var> debe ser una matriz cuadrada.
+</p>
+<p>El argumento opcional <var>fld</var> debe ser un símbolo que determine un anillo o
+un campo. Los anillos y campos predefinidos son:
+</p>
+<ol>
+<li> <code>generalring</code> &ndash; el anillo de las expresiones de Maxima
+
+</li><li> <code>floatfield</code> &ndash; el campo de los números decimales en coma flotante de doble precisión
+
+</li><li> <code>complexfield</code> &ndash; el campo de los números complejos decimales en coma flotante de doble precisión
+
+</li><li> <code>crering</code>  &ndash; el anillo de las expresiones canónicas racionales (<i>Canonical Rational Expression</i> o CRE) de Maxima
+
+</li><li> <code>rationalfield</code> &ndash; el campo de los números racionales
+
+</li><li> <code>runningerror</code> &ndash; controla los errores de redondeo de las operaciones en coma flotante
+
+</li><li> <code>noncommutingring</code> &ndash; el anillo de las expresiones de Maxima en las que el producto es el operador no conmutativo &quot;.&quot;
+
+</li></ol>
+
+<p>Si el campo es <code>floatfield</code>, <code>complexfield</code> o <code>runningerror</code>,
+el algoritmo utiliza pivoteo parcial; para los demás campos, las filas se cambian 
+cuando se necesita evitar pivotes nulos.
+</p>
+<p>La suma aritmética en coma flotante no es asociativa, por lo que el
+significado de &rsquo;campo&rsquo; no coincide exactamente con su definición matemática.
+</p>
+<p>Un elemento del campo <code>runningerror</code> consiste en una lista de Maxima
+de la forma <code>[x,n]</code>, donde <var>x</var> es un número decimal en coma flotante 
+y <code>n</code> un enetro. La diferencia relativa entre el valor real de <code>x</code> y 
+<code>x</code> está aproximadamente acotado por el valor epsilon de la máquina 
+multiplicado por <code>n</code>. 
+</p>
+<p>No es posible la definición de un nuevo campo por parte del usuario, a menos
+que éste tenga conocimientos de Common Lisp. Para hacerlo, el usuario debe
+definir funciones para las operaciones aritméticas y para convertir de la
+representación del campo a Maxima y al revés. Además, en los campos ordenados,
+donde se hace uso del pivoteo parcial, el usuario debe definir funciones para el 
+módulo y para comparar números del campo. Después de lo anterior, tan solo queda
+definir una estructura Common Lisp <code>mring</code>. El fichero <code>mring</code> tiene
+muchos ejemplos.
+</p>
+<p>Para calcular la factorización, la primera tarea consiste en convertir cada elemento
+de la matriz a un elemento del campo especificado. Si la conversión no es posible,
+la factorización se detiene con un mensaje de error. Los elementos del campo
+no necesitan ser expresiones de Maxima; por ejemplo, los elementos de <code>complexfield</code>
+son números complejos de Common Lisp. Tras la factorización, los elementos de la
+matriz deben convertirse nuevamente a expresiones de Maxima.
+</p>
+<p>Véase también  <code>get_lu_factors</code>.
+</p>
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) w[i,j] := random (1.0) + %i * random (1.0);
+(%o1)          w     := random(1.) + %i random(1.)
+                i, j
+(%i2) showtime : true$
+Evaluation took 0.00 seconds (0.00 elapsed)
+(%i3) M : genmatrix (w, 100, 100)$
+Evaluation took 7.40 seconds (8.23 elapsed)
+(%i4) lu_factor (M, complexfield)$
+Evaluation took 28.71 seconds (35.00 elapsed)
+(%i5) lu_factor (M, generalring)$
+Evaluation took 109.24 seconds (152.10 elapsed)
+(%i6) showtime : false$
+
+(%i7) M : matrix ([1 - z, 3], [3, 8 - z]); 
+                        [ 1 - z    3   ]
+(%o7)                   [              ]
+                        [   3    8 - z ]
+(%i8) lu_factor (M, generalring);
+          [ 1 - z         3        ]
+          [                        ]
+(%o8)    [[   3            9       ], [1, 2], generalring]
+          [ -----  - z - ----- + 8 ]
+          [ 1 - z        1 - z     ]
+(%i9) get_lu_factors (%);
+                  [   1    0 ]  [ 1 - z         3        ]
+        [ 1  0 ]  [          ]  [                        ]
+(%o9)  [[      ], [   3      ], [                9       ]]
+        [ 0  1 ]  [ -----  1 ]  [   0    - z - ----- + 8 ]
+                  [ 1 - z    ]  [              1 - z     ]
+(%i10) %[1] . %[2] . %[3];
+                        [ 1 - z    3   ]
+(%o10)                  [              ]
+                        [   3    8 - z ]
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fmat_005fcond"></a><dl>
+<dt><a name="index-mat_005fcond"></a>Función: <strong>mat_cond</strong> <em>(<var>M</var>, 1)</em></dt>
+<dt><a name="index-mat_005fcond-1"></a>Función: <strong>mat_cond</strong> <em>(<var>M</var>, inf)</em></dt>
+<dd>
+<p>Devuelve el número de condición de la <var>p</var>-norma de la matriz
+<var>M</var>. Los valores admisibles para  <var>p</var> son 1 y <var>inf</var>. Esta
+función utiliza la factorización LU para invertir la matriz <var>M</var>,
+por lo que el tiempo de ejecución de <code>mat_cond</code> es proporcional al
+cubo del tamaño de la matriz; <code>lu_factor</code> determina las cotas inferior
+y superior para el número de condición de la norma infinita en un tiempo
+proporcional al cuadrado del tamaño de la matriz.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fmat_005fnorm"></a><dl>
+<dt><a name="index-mat_005fnorm"></a>Función: <strong>mat_norm</strong> <em>(<var>M</var>, 1)</em></dt>
+<dt><a name="index-mat_005fnorm-1"></a>Función: <strong>mat_norm</strong> <em>(<var>M</var>, inf)</em></dt>
+<dt><a name="index-mat_005fnorm-2"></a>Función: <strong>mat_norm</strong> <em>(<var>M</var>, frobenius)</em></dt>
+<dd>
+<p>Devuelve la <var>p</var>-norma de la matriz <var>M</var>. Los valores admisibles
+para <var>p</var> son 1, <code>inf</code> y <code>frobenius</code> (la norma matricial de Frobenius).
+La matriz <var>M</var> no debe contener bloques.
+</p></dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fmatrixp"></a><dl>
+<dt><a name="index-matrixp-1"></a>Función: <strong>matrixp</strong> <em>(<var>e</var>, <var>p</var>)</em></dt>
+<dt><a name="index-matrixp-2"></a>Función: <strong>matrixp</strong> <em>(<var>e</var>)</em></dt>
+<dd>
+<p>Dado el argumento opcional <var>p</var>, devuelve <code>true</code> si <var>e</var> es
+una matriz y <var>p</var> toma el valor <code>true</code> al aplicarlo
+a cada elemento de la matriz. Si a <code>matrixp</code> no se le suministra el
+argumento opcional, devuelve <code>true</code> si <var>e</var> es una matriz.
+En cualquier otro caso, el resultado es <code>false</code>.
+</p>
+<p>Véase también <code>blockmatrixp</code>
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fmatrix_005fsize"></a><dl>
+<dt><a name="index-matrix_005fsize"></a>Función: <strong>matrix_size</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p>Devuelve una lista con el número de filas y columnas de la matriz <var>M</var>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fmat_005ffullunblocker"></a><dl>
+<dt><a name="index-mat_005ffullunblocker"></a>Función: <strong>mat_fullunblocker</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p>Si <var>M</var> es una matriz de bloques, transforma la matriz llevando todos
+los elementos de los bloques al primer nivel. Si <var>M</var> es una matriz,
+devuelve <var>M</var>; en cualquier otro caso, envía un mensaje de error.  
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fmat_005ftrace"></a><dl>
+<dt><a name="index-mat_005ftrace"></a>Función: <strong>mat_trace</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p>Calcula la traza de la matriz <var>M</var>. Si <var>M</var> no es una matriz, devuelve
+una forma nominal. Si <var>M</var> es una matriz de bloques, <code>mat_trace(M)</code>
+calcula el mismo valor que <code>mat_trace(mat_unblocker(m))</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fmat_005funblocker"></a><dl>
+<dt><a name="index-mat_005funblocker"></a>Función: <strong>mat_unblocker</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p>Si <var>M</var> es una matriz de bloques, deshace los bloques de un nivel. Si <var>M</var>
+es una matriz, <code>mat_unblocker (M)</code> devuelve <var>M</var>; en cualquier otro caso, 
+envía un mensaje de error.
+</p>
+<p>Si todos los elementos de <var>M</var> son matrices, <code>mat_unblocker (M)</code> devuelve
+una matriz sin bloques, pero si los elementos de <var>M</var> son a su vez matrices de
+bloques, <code>mat_unblocker (M)</code> devuelve una matriz con el nivel de bloques
+disminuido en uno.
+</p>
+<p>En caso de trabajar con matrices de bloques, quizás sea conveniente darle a
+<code>matrix_element_mult</code> el valor <code>&quot;.&quot;</code> y a <code>matrix_element_transpose</code>
+el valor <code>'transpose</code>. Véase también <code>mat_fullunblocker</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) A : matrix ([1, 2], [3, 4]);
+                            [ 1  2 ]
+(%o1)                       [      ]
+                            [ 3  4 ]
+(%i2) B : matrix ([7, 8], [9, 10]);
+                            [ 7  8  ]
+(%o2)                       [       ]
+                            [ 9  10 ]
+(%i3) matrix ([A, B]);
+</pre><pre class="example">                     [ [ 1  2 ]  [ 7  8  ] ]
+(%o3)                [ [      ]  [       ] ]
+                     [ [ 3  4 ]  [ 9  10 ] ]
+</pre><pre class="example">(%i4) mat_unblocker (%);
+                         [ 1  2  7  8  ]
+(%o4)                    [             ]
+                         [ 3  4  9  10 ]
+</pre></div>
+
+</dd></dl>
+
+
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fnullspace"></a><dl>
+<dt><a name="index-nullspace"></a>Función: <strong>nullspace</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p>Si <var>M</var> es una matriz, devuelve <code>span (v_1, ..., v_n)</code>, siendo 
+<code>{v_1, ..., v_n}</code> la base del espacio nulo de <var>M</var>. Si el 
+espacio nulo contiene un único elemento, devuelve <code>span ()</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fnullity"></a><dl>
+<dt><a name="index-nullity"></a>Función: <strong>nullity</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p>Si <var>M</var> es una matriz, devuelve la dimensión del espacio nulo de <var>M</var>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002forthogonal_005fcomplement"></a><dl>
+<dt><a name="index-orthogonal_005fcomplement"></a>Función: <strong>orthogonal_complement</strong> <em>(<var>v_1</var>, &hellip;, <var>v_n</var>)</em></dt>
+<dd>
+<p>Devuelve <code>span (u_1, ..., u_m)</code>, siendo <code>{u_1, ..., u_m}</code> la base
+del complemento ortogonal del conjunto <code>(v_1, ..., v_n)</code>, cuyos elementos
+deben ser vectores columna.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fpolynomialp"></a><dl>
+<dt><a name="index-polynomialp"></a>Función: <strong>polynomialp</strong> <em>(<var>p</var>, <var>L</var>, <var>coeffp</var>, <var>exponp</var>)</em></dt>
+<dt><a name="index-polynomialp-1"></a>Función: <strong>polynomialp</strong> <em>(<var>p</var>, <var>L</var>, <var>coeffp</var>)</em></dt>
+<dt><a name="index-polynomialp-2"></a>Función: <strong>polynomialp</strong> <em>(<var>p</var>, <var>L</var>)</em></dt>
+<dd>
+<p>Devuelve <code>true</code> si <var>p</var> es un polinomio cuyas variables son las
+de la lista <var>L</var>, el predicado <var>coeffp</var> toma el valor <code>true</code> al
+aplicarlo a cada coeficiente y el predicado <var>exponp</var> también alcanza el
+valor <code>true</code> al ser aplicado a los exponentes de las variables listadas en
+<var>L</var>. En caso de necesitar que <var>exponp</var> no sea un predicado por defecto,
+se deberá especificar también el predicado <var>coeffp</var>, aunque aquí
+se desee su comportamiento por defecto.
+</p>
+<p>La instrucción <code>polynomialp (<var>p</var>, <var>L</var>, <var>coeffp</var>)</code> equivale a
+<code>polynomialp (<var>p</var>, <var>L</var>, <var>coeffp</var>, 'nonnegintegerp)</code>, al tiempo que
+<code>polynomialp (<var>p</var>, <var>L</var>)</code> equivale a
+<code>polynomialp (<var>p</var>, L<var>,</var> 'constantp, 'nonnegintegerp)</code>.
+</p>
+<p>No es necesario expandir el polinomio:
+</p>
+<div class="example">
+<pre class="example">(%i1) polynomialp ((x + 1)*(x + 2), [x]);
+(%o1)                         true
+(%i2) polynomialp ((x + 1)*(x + 2)^a, [x]);
+(%o2)                         false
+</pre></div>
+
+<p>Un ejemplo utilizando valores distintos a los utilizados por defecto en 
+<var>coeffp</var> y en <var>exponp</var>:
+</p>
+<div class="example">
+<pre class="example">(%i1) polynomialp ((x + 1)*(x + 2)^(3/2), [x],
+                   numberp, numberp);
+(%o1)                         true
+(%i2) polynomialp ((x^(1/2) + 1)*(x + 2)^(3/2), [x],
+                   numberp, numberp);
+(%o2)                         true
+</pre></div>
+
+<p>Polinomios con dos variables:
+</p>
+<div class="example">
+<pre class="example">(%i1) polynomialp (x^2 + 5*x*y + y^2, [x]);
+(%o1)                         false
+(%i2) polynomialp (x^2 + 5*x*y + y^2, [x, y]);
+(%o2)                         true
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fpolytocompanion"></a><dl>
+<dt><a name="index-polytocompanion"></a>Función: <strong>polytocompanion</strong> <em>(<var>p</var>, <var>x</var>)</em></dt>
+<dd>
+<p>Si <var>p</var> es un polinomio en <var>x</var>, devuelve la matriz compañera de <var>p</var>. Para
+un polinomio mónico <var>p</var> de grado <var>n</var> se tiene
+<code><var>p</var> = (-1)^<var>n</var> charpoly (polytocompanion (<var>p</var>, <var>x</var>))</code>.
+</p>
+<p>Si <var>p</var> no es un polinomio en  <var>x</var>, se devuelve un mensaje de error.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fptriangularize"></a><dl>
+<dt><a name="index-ptriangularize"></a>Función: <strong>ptriangularize</strong> <em>(<var>M</var>, <var>v</var>)</em></dt>
+<dd>
+<p>Si <var>M</var> es una matriz en la que sus elementos son polinomios en <var>v</var>,
+devuelve una matriz <var>M2</var> tal que
+</p>
+<ol>
+<li> <var>M2</var> es triangular superior,
+
+</li><li> <code><var>M2</var> = <var>E_n</var> ... <var>E_1</var> <var>M</var></code>, donde <var>E_1</var>, ...,
+<var>E_n</var> son matrices elementales cuyos elementos son polinomios en <var>v</var>,
+
+</li><li> <code>|det (<var>M</var>)| = |det (<var>M2</var>)|</code>,
+</li></ol>
+
+<p>Nota: esta función no comprueba si los elementos de la matriz son
+polinomios en <var>v</var>.
+</p></dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002frowop"></a><dl>
+<dt><a name="index-rowop"></a>Función: <strong>rowop</strong> <em>(<var>M</var>, <var>i</var>, <var>j</var>, <var>theta</var>)</em></dt>
+<dd>
+<p>Si <var>M</var> es una matriz, devuelve la matriz que resulta de relizar la
+transformación <code>R_i &lt;- R_i - theta * R_j</code> con las filas <code>R_i</code> y 
+<code>R_j</code>. Si <var>M</var> no tiene estas filas, devuelve un mensaje de error.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002frank"></a><dl>
+<dt><a name="index-rank-1"></a>Función: <strong>rank</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p>Calcula el rango de la matriz <var>M</var>. El rango es la dimensión del 
+espacio columna. Ejemplo:
+</p><div class="example">
+<pre class="example">(%i1) rank(matrix([1,2],[2,4]));
+(%o1)                                  1
+(%i2) rank(matrix([1,b],[c,d]));
+Proviso:  {d - b c # 0}
+(%o2)                                  2
+</pre></div>
+
+</dd></dl>
+
+
+<a name="Item_003a-linearalgebra_002fdeffn_002frowswap"></a><dl>
+<dt><a name="index-rowswap"></a>Función: <strong>rowswap</strong> <em>(<var>M</var>, <var>i</var>, <var>j</var>)</em></dt>
+<dd>
+<p>Si <var>M</var> es una matriz, intercambia las filas  <var>i</var> y <var>j</var>. Si <var>M</var>
+carece de estas filas, devuelve un mensaje de error.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002ftoeplitz"></a><dl>
+<dt><a name="index-toeplitz"></a>Función: <strong>toeplitz</strong> <em>(<var>col</var>)</em></dt>
+<dt><a name="index-toeplitz-1"></a>Función: <strong>toeplitz</strong> <em>(<var>col</var>, <var>row</var>)</em></dt>
+<dd>
+<p>Devuelve una  matriz de Toeplitz <var>T</var>. La primera columna de <var>T</var> es <var>col</var>,
+excepto su primer elemento. La primera fila de <var>T</var> es <var>row</var>. El valor por
+defecto para <var>row</var> es el complejo conjugado de <var>col</var>. Ejemplo:
+</p><div class="example">
+<pre class="example">(%i1)  toeplitz([1,2,3],[x,y,z]);
+</pre><pre class="example">                                  [ 1  y  z ]
+                                  [         ]
+(%o1)                             [ 2  1  y ]
+                                  [         ]
+                                  [ 3  2  1 ]
+</pre><pre class="example">(%i2)  toeplitz([1,1+%i]);
+</pre><pre class="example">
+                              [   1     1 - %I ]
+(%o2)                         [                ]
+                              [ %I + 1    1    ]
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fvandermonde_005fmatrix"></a><dl>
+<dt><a name="index-vandermonde_005fmatrix"></a>Función: <strong>vandermonde_matrix</strong> <em>([<var>x_1</var>, ..., <var>x_n</var>])</em></dt>
+<dd>
+<p>Devuelve una matriz <var>n</var> por <var>n</var>, cuya <var>i</var>-ésima fila es
+<code>[1, <var>x_i</var>, <var>x_i</var>^2, ... <var>x_i</var>^(<var>n</var>-1)]</code>. 
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fzerofor"></a><dl>
+<dt><a name="index-zerofor"></a>Función: <strong>zerofor</strong> <em>(<var>M</var>)</em></dt>
+<dt><a name="index-zerofor-1"></a>Función: <strong>zerofor</strong> <em>(<var>M</var>, <var>fld</var>)</em></dt>
+<dd>
+<p>Devuelve la matriz nula con la misma estructura que la matriz <var>M</var>.
+Cada elemento de la matriz nula es la identidad aditiva del campo <var>fld</var>;
+el valor por defecto de <var>fld</var> es <var>generalring</var>.
+</p>
+<p>El primer argumento de <var>M</var> debe ser una matriz cuadrada o no ser matriz en
+absoluto. Si <var>M</var> es una matriz, cada uno de sus elementos puede ser una 
+matriz cuadrada, por lo que <var>M</var> puede ser una matriz de Maxima definida por
+bloques.
+</p>
+<p>Véase también <code>identfor</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-linearalgebra_002fdeffn_002fzeromatrixp"></a><dl>
+<dt><a name="index-zeromatrixp"></a>Función: <strong>zeromatrixp</strong> <em>(<var>M</var>)</em></dt>
+<dd>
+<p>Si <var>M</var> no es una matriz definida por bloques, devuelve <code>true</code> si
+ <code>is (equal (<var>e</var>, 0))</code> es verdadero para todo elemento <var>e</var> de
+<var>M</var>. Si <var>M</var> es una matriz por bloques, devuelve <code>true</code> si
+<code>zeromatrixp</code> devuelve a su vez <code>true</code> para cada elemento de <var>e</var>.
+</p>
+</dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_247.html#Introducci_00f3n-a-linearalgebra" accesskey="p" rel="previous">Introducción a linearalgebra</a>, Subir: <a href="maxima_246.html#linearalgebra" accesskey="u" rel="up">linearalgebra</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

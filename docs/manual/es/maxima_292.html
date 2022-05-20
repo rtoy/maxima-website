@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Introducción al procesamiento de cadenas</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Introducción al procesamiento de cadenas">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Introducción al procesamiento de cadenas">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_291.html#stringproc" rel="up" title="stringproc">
+<link href="maxima_293.html#Funciones-y-variables-para-entrada-y-salida" rel="next" title="Funciones y variables para entrada y salida">
+<link href="maxima_291.html#stringproc" rel="previous" title="stringproc">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Introducci_00f3n-al-procesamiento-de-cadenas"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_293.html#Funciones-y-variables-para-entrada-y-salida" accesskey="n" rel="next">Funciones y variables para entrada y salida</a>, Previous: <a href="maxima_291.html#stringproc" accesskey="p" rel="previous">stringproc</a>, Subir: <a href="maxima_291.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Introduccion-al-procesamiento-de-cadenas"></a>
+<h3 class="section">76.1 Introducción al procesamiento de cadenas</h3>
+
+<p>El paquete <code>stringproc</code> amplía las capacidades de 
+Maxima para manipular cadenas de caracteres, al tiempo que añade algunas
+funciones útiles para la lectura y escritura de ficheros.
+</p>
+<p>Para dudas y fallos, por favor contáctese con <code>volkervannek at gmail dot com</code>.
+</p>
+<p>En Maxima, una cadena de caracteres se construye fácilmente 
+escribiéndola entre comillas dobles, como en <code>&quot;texto&quot;</code>.
+La función <code>stringp</code> comprueba si el argumento es una cadena.
+</p>
+<div class="example">
+<pre class="example">(%i1) m: &quot;text&quot;;
+(%o1)                         text
+(%i2) stringp(m);
+(%o2)                         true
+</pre></div>
+
+<p>Los caracteres se representan como cadenas de longitud unidad.
+No se tratan como caracteres Lisp. Se pueden chequear con la
+función <code>charp</code> (o con <code>lcharp</code> para los caracteres Lisp).
+La conversión de caracteres Lisp a caracteres Maxima se realiza con
+la función <code>cunlisp</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) c: &quot;e&quot;;
+(%o1)                           e
+(%i2) [charp(c),lcharp(c)];
+(%o2)                     [true, false]
+(%i3) supcase(c);
+(%o3)                           E
+(%i4) charp(%);
+(%o4)                         true
+</pre></div>
+
+<p>Todos los caracteres devueltos por las funciones de <code>stringproc</code> son caracteres
+de Maxima. Puesto que los caracteres introducidos son cadenas de longitud igual a
+la unidad, se pueden utilizar las funciones de cadenas también para los 
+caracteres, como se ha hecho con <code>supcase</code> en el anterior ejemplo.
+</p>
+<p>Es importante tener en cuenta que el primer carácter en una cadena de Maxima
+ocupa la posición 1. Esto se ha diseñado así para mantener
+la compatibilidad con las listas de Maxima. Véanse las definiciones de 
+<code>charat</code> y <code>charlist</code> para ver ejemplos.
+</p>
+<p>Las funciones de cadena se utilizan frecuentemente cuando se trabaja con
+ficheros. El siguiente ejemplo muestra algunas de estas funciones en acción.
+</p>
+<p>Ejemplo: 
+</p>
+<p>La función <code>openw</code> envía un flujo de salida hacia
+un fichero, entonces <code>printf</code> permitirá formatera la escritura en
+este fichero. Véase <code>printf</code> para más detalles.
+</p>
+<div class="example">
+<pre class="example">(%i1) s: openw(&quot;E:/file.txt&quot;);
+(%o1)                    #&lt;output stream E:/file.txt&gt;
+(%i2) for n:0 thru 10 do printf( s, &quot;~d &quot;, fib(n) );
+(%o2)                                done
+(%i3) printf( s, &quot;~%~d ~f ~a ~a ~f ~e ~a~%&quot;, 
+              42,1.234,sqrt(2),%pi,1.0e-2,1.0e-2,1.0b-2 );
+(%o3)                                false
+(%i4) close(s);
+(%o4)                                true
+</pre></div>
+
+<p>Una vez cerrado el flujo, se podrá abrir nuevamente. La función <code>readline</code>
+devuelve el renglón entero como una única cadena. El paquete <code>stringproc</code>
+dispone de muchas funciones para manipular cadenas. La separación de palabras se
+puede hacer con <code>split</code> o <code>tokens</code>.
+</p>
+<div class="example">
+<pre class="example">(%i5) s: openr(&quot;E:/file.txt&quot;);
+(%o5)                     #&lt;input stream E:/file.txt&gt;
+(%i6) readline(s);
+(%o6)                     0 1 1 2 3 5 8 13 21 34 55 
+(%i7) line: readline(s);
+(%o7)               42 1.234 sqrt(2) %pi 0.01 1.0E-2 1.0b-2
+(%i8) list: tokens(line);
+(%o8)           [42, 1.234, sqrt(2), %pi, 0.01, 1.0E-2, 1.0b-2]
+(%i9) map( parsetoken, list );
+(%o9)           [42, 1.234, false, false, 0.01, 0.01, false]
+</pre></div>
+
+<p>La función <code>parsetoken</code> sólo analiza sintácticamente números
+enteros y decimales. El análisis de símbolos y números
+decimales grandes (<i>big floats</i>) necesita <code>parse_string</code>, que se
+cargar automáticamente desde <code>eval_string.lisp</code>.
+</p>
+<div class="example">
+<pre class="example">(%i5) s: openr(&quot;E:/file.txt&quot;);
+(%o5)                     #&lt;input stream E:/file.txt&gt;
+(%i6) readline(s);
+(%o6)                     0 1 1 2 3 5 8 13 21 34 55 
+(%i7) line: readline(s);
+(%o7)               42 1.234 sqrt(2) %pi 0.01 1.0E-2 1.0b-2
+(%i8) list: tokens(line);
+(%o8)           [42, 1.234, sqrt(2), %pi, 0.01, 1.0E-2, 1.0b-2]
+(%i9) map( parse_string, list );
+(%o9)            [42, 1.234, sqrt(2), %pi, 0.01, 0.01, 1.0b-2]
+(%i10) float(%);
+(%o10) [42.0, 1.234, 1.414213562373095, 3.141592653589793, 0.01,
+                                                     0.01, 0.01]
+(%i11) readline(s);
+(%o11)                               false
+(%i12) close(s)$
+</pre></div>
+
+<p>La función <code>readline</code> devuelve <code>false</code> cuando se alcanza el
+final del fichero.
+</p>
+
+<a name="Item_003a-stringproc_002fnode_002fFunciones-y-variables-para-entrada-y-salida"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_293.html#Funciones-y-variables-para-entrada-y-salida" accesskey="n" rel="next">Funciones y variables para entrada y salida</a>, Previous: <a href="maxima_291.html#stringproc" accesskey="p" rel="previous">stringproc</a>, Subir: <a href="maxima_291.html#stringproc" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

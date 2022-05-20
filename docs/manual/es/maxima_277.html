@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual de Maxima 5.46.0: Paquete ineq</title>
+
+<meta name="description" content="Manual de Maxima 5.46.0: Paquete ineq">
+<meta name="keywords" content="Manual de Maxima 5.46.0: Paquete ineq">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="&Iacute;ndice General">
+<link href="maxima_272.html#simplification" rel="up" title="simplification">
+<link href="maxima_278.html#Paquete-rducon" rel="next" title="Paquete rducon">
+<link href="maxima_276.html#Paquete-functs" rel="previous" title="Paquete functs">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="es" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Paquete-ineq"></a>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_278.html#Paquete-rducon" accesskey="n" rel="next">Paquete rducon</a>, Previous: <a href="maxima_276.html#Paquete-functs" accesskey="p" rel="previous">Paquete functs</a>, Subir: <a href="maxima_272.html#simplification" accesskey="u" rel="up">simplification</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Paquete-ineq-1"></a>
+<h3 class="section">72.5 Paquete ineq</h3>
+
+<p>El paquete <code>ineq</code> contiene reglas de simplificación para desigualdades
+</p>
+<p>Una sesión de ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;ineq&quot;)$
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+Warning: Putting rules on '+' or '*' is inefficient, and may not work.
+(%i2) a&gt;=4;  /* a sample inequality */
+(%o2)                               a &gt;= 4
+(%i3) (b&gt;c)+%; /* add a second, strict inequality */
+(%o3)                            b + a &gt; c + 4
+(%i4) 7*(x&lt;y); /* multiply by a positive number */
+(%o4)                              7 x &lt; 7 y
+(%i5) -2*(x&gt;=3*z); /* multiply by a negative number */
+(%o5)                           - 2 x &lt;= - 6 z
+(%i6) (1+a^2)*(1/(1+a^2)&lt;=1); /* Maxima knows that 1+a^2 &gt; 0 */
+                                        2
+(%o6)                             1 &lt;= a  + 1
+(%i7) assume(x&gt;0)$ x*(2&lt;3); /* assuming x&gt;0 */
+(%o7)                              2 x &lt; 3 x
+(%i8) a&gt;=b; /* another inequality */
+(%o8)                               a &gt;= b
+(%i9) 3+%; /* add something */
+(%o9)                           a + 3 &gt;= b + 3
+(%i10) %-3; /* subtract it out */
+(%o10)                              a &gt;= b
+(%i11) a&gt;=c-b; /* yet another inequality */
+(%o11)                            a &gt;= c - b
+(%i12) b+%; /* add b to both sides */
+(%o12)                            b + a &gt;= c
+(%i13) %-c; /* subtract c from both sides */
+(%o13)                         - c + b + a &gt;= 0
+(%i14) -%;  /* multiply by -1 */
+(%o14)                          c - b - a &lt;= 0
+(%i15) (z-1)^2&gt;-2*z; /* determining truth of assertion */
+                                      2
+(%o15)                         (z - 1)  &gt; - 2 z
+(%i16) expand(%)+2*z; /* expand this and add 2*z to both sides */
+                                   2
+(%o16)                            z  + 1 &gt; 0
+(%i17) %,pred;
+(%o17)                               true
+</pre></div>
+
+<p>Debe tenerse cuidado con el uso de paréntesis que incluyan desigualdades;
+si se escribe <code>(A &gt; B) + (C = 5)</code> el resultado es <code>A + C &gt; B + 5</code>,
+pero <code>A &gt; B + C = 5</code> es un error sintáctico y <code>(A &gt; B + C) = 5</code>
+es una cosa completamente diferente.
+</p>
+<p>Ejecútese <code>disprule (all)</code> para ver la lista completa de las
+reglas definidas.
+</p>
+<p>Maxima preguntará al usuario cuando desconozca el signo de una cantidad que
+multiplica a una desigualdad.
+</p>
+<p>Los fallos más comunes son:
+</p>
+<div class="example">
+<pre class="example">eq: a &gt; b;
+2*eq;
+% - eq;
+</pre></div>
+
+<p>Otro problema es el producto de una desigualdad por cero.
+Si se escribe <code>x*<var>some_inequality</var></code> y Maxima pregunta por
+el signo de <code>x</code> y se responde que vale <code>zero</code> (o <code>z</code>),
+el programa devuelve <code>x*<var>some_inequality</var></code> sin hacer uso de la
+información de que <code>x</code> es 0. En tal caso se debería
+escribir <code>ev (%, x: 0)</code>, ya que la base de datos sólo será utilizada 
+para fines comparativos y no para evaluar <code>x</code>.
+</p>
+<p>El usuario puede apreciar que las respuestas son más lentas al cargarse este paquete,
+ya que el simplificador deberá examinar más reglas que cuando no se hace uso del 
+paquete, por lo que puede ser conveniente borrar estas reglas cuando ya no se haga
+uso de ellas. Ejecútese <code>kill (rules)</code> para eliminar todas las reglas 
+(incluidas las definidas por el usuario); también es posible eliminar
+parte de ellas o utilizar <code>remrule</code> sobre una reglas específica.
+</p>
+<p>Nótese que si se carga este paquete después de haber definido otras reglas
+de igual nombre,se borrarán las antiguas. Las reglas de este paquete son:
+<code>*rule1</code>, ..., <code>*rule8</code>,
+<code>+rule1</code>, ..., <code>+rule18</code>,
+debiéndose encerrar entre comillas el nombre de la reglas para referenciarse a ellas,
+como en <code>remrule (&quot;+&quot;, &quot;+rule1&quot;)</code> para eliminar la primera regla sobre <code>&quot;+&quot;</code>,
+o <code>disprule (&quot;*rule2&quot;)</code> para mostrar la definición de la segunda regla
+multiplicativa.
+</p>
+
+
+
+
+
+
+
+
+<a name="Item_003a-simplifications_002fnode_002fPaquete-rducon"></a><hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_278.html#Paquete-rducon" accesskey="n" rel="next">Paquete rducon</a>, Previous: <a href="maxima_276.html#Paquete-functs" accesskey="p" rel="previous">Paquete functs</a>, Subir: <a href="maxima_272.html#simplification" accesskey="u" rel="up">simplification</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="&Iacute;ndice general" rel="contents">&Iacute;ndice general</a>][<a href="maxima_304.html#g_t_00cdndice-de-Funciones-y-Variables" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

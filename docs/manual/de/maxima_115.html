@@ -1,0 +1,829 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Behandlung indizierter Gr&ouml;&szlig;en</title>
+
+<meta name="description" content="Maxima Manual: Behandlung indizierter Gr&ouml;&szlig;en">
+<meta name="keywords" content="Maxima Manual: Behandlung indizierter Gr&ouml;&szlig;en">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" rel="up" title="Funktionen und Variablen f&uuml;r itensor">
+<link href="maxima_116.html#Tensorsymmetrien" rel="next" title="Tensorsymmetrien">
+<link href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" rel="previous" title="Funktionen und Variablen f&uuml;r itensor">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Behandlung-indizierter-Gr_00f6_00dfen"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_116.html#Tensorsymmetrien" accesskey="n" rel="next">Tensorsymmetrien</a>, Previous: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="p" rel="previous">Funktionen und Variablen f&uuml;r itensor</a>, Nach oben: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Behandlung-indizierter-Grossen"></a>
+<h4 class="subsubsection">20.2.2.1 Behandlung indizierter Gr&ouml;&szlig;en</h4>
+
+<a name="canten"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fcanten"></a><dl>
+<dt><a name="index-canten"></a>Funktion: <strong>canten</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+<p>Ist vergleichbar mit der Funktion <code><a href="#rename">rename</a></code> und vereinfacht den Ausdruck
+<var>expr</var> indem gebundene Indizes umbenannt und permutiert werden.  Wie die
+Funktion <code>rename</code> kann <code>canten</code> nur Ausdr&uuml;cke mit Summen von
+Tensorprodukten vereinfachen, in denen keine Ableitungen nach Tensorkomponenten
+auftreten.  Daher sollte <code>canten</code> nur verwendet werden, wenn sich mit
+der Funktion <code><a href="maxima_116.html#canform">canform</a></code> nicht die gew&uuml;nschte Vereinfachung eines
+Ausdrucks erzielen l&auml;sst.
+</p>
+
+<p>Das Ergebnis der Funktion <code>canten</code> ist mathematisch nur korrekt, wenn
+die Tensoren symmetrisch in ihren Indizes sind.  Hat die Optionsvariable 
+<code><a href="maxima_116.html#allsym">allsym</a></code> <em>nicht</em> den Wert <code>true</code>, bricht <code>canten</code> mit einer
+Fehlermeldung ab.
+</p>
+<p>Siehe auch die Funktion <code><a href="#concan">concan</a></code>, mit der Ausdr&uuml;cke mit Tensoren
+ebenfalls vereinfacht werden k&ouml;nnen, wobei <code>concan</code> zus&auml;tzlich
+Tensorverj&uuml;ngungen ausf&uuml;hrt.
+</p></dd></dl>
+
+<a name="changename"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fchangename"></a><dl>
+<dt><a name="index-changename"></a>Funktion: <strong>changename</strong> <em>(<var>old</var>, <var>new</var>, <var>expr</var>)</em></dt>
+<dd>
+
+<p>&Auml;ndert den Namen aller Tensoren im Ausdruck <var>expr</var> von
+<var>old</var> nach <var>new</var>.  Das Argument <var>old</var> kann ein Symbol oder eine
+Liste der Form <code>[<var>name</var>, <var>m</var>, <var>n</var>]</code> sein.  Im letzteren Fall
+werden nur die Tensoren zu <var>new</var> umbenannt, die den Namen <var>name</var>
+sowie <var>m</var> kovariante und <var>n</var> kontravariante Indizes haben.
+</p>
+<p>Beispiel:
+</p>
+<p>In diesem Beispiel wird der Name <var>c</var> zu <var>w</var> ge&auml;ndert.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) expr:a([i,j],[k])*b([u],[],v)+c([x,y],[])*d([],[])*e$
+
+(%i3) ishow(changename(c, w, expr))$
+                                  k
+(%t3)                 d e w    + a    b
+                           x y    i j  u,v
+</pre></div>
+</dd></dl>
+
+<a name="components"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fcomponents"></a><dl>
+<dt><a name="index-components"></a>Funktion: <strong>components</strong> <em>(<var>tensor</var>, <var>expr</var>)</em></dt>
+<dd>
+
+<p>Erlaubt die Zuweisung von Werten an die Komponenten eines Tensors <var>tensor</var>,
+die mit dem Argument <var>expr</var> angegeben werden.  Immer wenn der Tensor
+<var>tensor</var> mit all seinen Indizes in einem Ausdruck auftritt, werden die
+Komponenten mit den angegebenen Werten substituiert.  Der Tensor muss die Form
+<code>t([...],[...])</code> haben, wobei die Listen auch leer sein k&ouml;nnen.  Das
+Argument <var>expr</var> ist irgendein Ausdruck, der dieselben freien Indizes wie
+der Tensor <var>tensor</var> hat.  Sollen Werte an einen Metriktensor zugewiesen
+werden, der Dummy-Indizes hat, so muss auf die Benennung der Indizes
+sorgf&auml;ltig geachtet werden, um das Auftreten von Mehrfachen Dummy-Indizes zu
+vermeiden.  Mit der Funktion <code><a href="#remcomps">remcomps</a></code> werden Zuweisungen der Funktion
+<code>components</code> an die Komponenten eines Tensors entfernt.
+</p>
+
+<p>Es muss beachtet werden, dass die Funktion <code>components</code> nur den Typ eines
+Tensors, aber nicht die Ordnung der Indizes beachtet.  Werden daher Werte
+an die Komponenten der Tensoren <code>x([i,-j],[])</code>, <code>x([-j,i],[])</code> oder
+<code>x([i],[j])</code> zugewiesen, ergibt sich jeweils dasselbe Ergebnis.
+</p>
+
+<p>Komponenten k&ouml;nnen einem indizierten Ausdruck auf vier verschiedene Methoden
+zugeordnet werden.  Zwei Methoden nutzen die Funktion <code>components</code>.
+</p>
+
+<p>1) Als ein indizierte Ausdruck:
+</p>
+<div class="example">
+<pre class="example">(%i2) components(g([],[i,j]), e([],[i])*p([],[j]))$
+(%i3) ishow(g([],[i,j]))$
+                                      i  j
+(%t3)                                e  p
+</pre></div>
+
+
+<p>2) Als eine Matrix:
+</p>
+<div class="example">
+<pre class="example">(%i5) lg:-ident(4)$ lg[1,1]:1$ lg;
+                            [ 1   0    0    0  ]
+                            [                  ]
+                            [ 0  - 1   0    0  ]
+(%o5)                       [                  ]
+                            [ 0   0   - 1   0  ]
+                            [                  ]
+                            [ 0   0    0   - 1 ]
+
+(%i6) components(g([i,j],[]), lg);
+(%o6)                                done
+(%i7) ishow(g([i,j],[]))$
+(%t7)                                g
+                                      i j
+(%i8) g([1,1],[]);
+(%o8)                                  1
+(%i9) g([4,4],[]);
+(%o9)                                 - 1
+</pre></div>
+
+
+<p>3) Als eine Funktion: Die Werte der Komponenten eines Tensors werden durch eine
+Funktion gegeben.
+</p>
+<div class="example">
+<pre class="example">(%i4) h(l1,l2,[l3]):=if length(l1)=length(l2) and length(l3)=0
+  then kdelta(l1,l2) else apply(g,append([l1,l2], l3))$
+(%i5) ishow(h([i],[j]))$
+                                          j
+(%t5)                               kdelta
+                                          i
+(%i6) ishow(h([i,j],[k],l))$
+                                     k
+(%t6)                               g
+                                     i j,l
+</pre></div>
+
+
+<p>4) Mit Mustern und Regeln: Im Folgenden wird ein Beispiel mit den Funktionen
+<code><a href="maxima_156.html#defrule">defrule</a></code> und <code><a href="maxima_156.html#applyb1">applyb1</a></code> gezeigt.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) matchdeclare(l1,listp);
+(%o2)                                done
+(%i3) defrule(r1,m(l1,[]),(i1:idummy(),
+      g([l1[1],l1[2]],[])*q([i1],[])*e([],[i1])))$
+
+(%i4) defrule(r2,m([],l1),(i1:idummy(),
+      w([],[l1[1],l1[2]])*e([i1],[])*q([],[i1])))$
+
+(%i5) ishow(m([i,n],[])*m([],[i,m]))$
+                                    i m
+(%t5)                              m    m
+                                         i n
+(%i6) ishow(rename(applyb1(%,r1,r2)))$
+                           %1  %2  %3 m
+(%t6)                     e   q   w     q   e   g
+                                         %1  %2  %3 n
+</pre></div>
+</dd></dl>
+
+<a name="concan"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fconcan"></a><dl>
+<dt><a name="index-concan"></a>Funktion: <strong>concan</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+<p>Ist vergleichbar mit der Funktion <code><a href="#canten">canten</a></code>.  Im Unterschied zu
+<code>canten</code> werden zus&auml;tzlich Tensorverj&uuml;ngungen ausgef&uuml;hrt.
+</p></dd></dl>
+
+<a name="contract"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fcontract"></a><dl>
+<dt><a name="index-contract"></a>Funktion: <strong>contract</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+<p>F&uuml;hrt die Tensorverj&uuml;ngungen im Ausdruck <var>expr</var> aus, die beliebige
+Summen und Produkte sein k&ouml;nnen.  <code>contract</code> nutzt die Informationen,
+die f&uuml;r die Tensoren mit der Funktion <code><a href="#defcon">defcon</a></code> definiert sind.  Die
+besten Ergebnisse werden erzielt, wenn der Ausdruck <var>expr</var> vollst&auml;ndig
+expandiert wird.  Die Funktion <code><a href="maxima_48.html#radexpand">radexpand</a></code> expandiert Produkte und
+Potenzen von Summen am schnellsten, sofern keine Variablen im Nenner der Terme
+auftreten.  Die Optionsvariable <code><a href="maxima_101.html#gcd">gcd</a></code> sollte den Wert <code>false</code> haben,
+wenn das K&uuml;rzen durch einen gr&ouml;&szlig;ten gemeinsamen Teiler nicht notwendig
+ist.
+</p></dd></dl>
+
+<a name="contractions"></a><a name="Item_003a-Itensor_002ede_002fdefvr_002fcontractions"></a><dl>
+<dt><a name="index-contractions"></a>Systemvariable: <strong>contractions</strong></dt>
+<dd>
+<p>Die Liste <code><a href="#contractions">contractions</a></code> enth&auml;lt die Tensoren, die mit der Funktion
+<code>defcon</code> die Eigenschaft einer Tensorverj&uuml;ngung erhalten haben.
+</p></dd></dl>
+
+<a name="defcon"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fdefcon"></a><dl>
+<dt><a name="index-defcon"></a>Funktion: <strong>defcon</strong> <em>(<var>tensor_1</var>)</em></dt>
+<dt><a name="index-defcon-1"></a>Funktion: <strong>defcon</strong> <em>(<var>tensor_1</var>, <var>tensor_2</var>, <var>tensor_3</var>)</em></dt>
+<dd>
+
+<p>Gibt einem Tensor <var>tensor_1</var> die Eigenschaft, dass die Tensorverj&uuml;ngung
+des Produktes <var>tensor_1</var> mit <var>tensor_2</var> das Ergebnis <var>tensor_3</var>
+hat.  Wird nur ein Argument <var>tensor_1</var> angegeben, dann hat die
+Tensorverj&uuml;ngung f&uuml;r jeden Tensor <code>tensor</code>, der die korrekten
+Indizes hat, das Ergebnis <code>tensor</code> mit neuen Indizes, die die
+Tensorverj&uuml;ngung widerspiegeln.
+</p>
+
+<p>Wird zum Beispiel die Metrik als <code>imetric: g</code> gesetzt, dann wird
+mit <code>defcon(g)</code> das Hochstellen und Herunterstellen der Indizes mit dem
+Metriktensor definiert.
+</p>
+
+<p>Wird <code>defcon</code> wiederholt f&uuml;r einen Tensor aufgerufen, ist jeweils die
+letzte Definition wirksam.
+</p>
+
+<p>Die Liste <code><a href="#contractions">contractions</a></code> enth&auml;lt die Tensoren, die mit der Funktion
+<code>defcon</code> die Eigenschaft einer Tensorverj&uuml;ngung erhalten haben.
+</p></dd></dl>
+
+<a name="dispcon"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fdispcon"></a><dl>
+<dt><a name="index-dispcon"></a>Funktion: <strong>dispcon</strong> <em>(<var>tensor_1</var>, <var>tensor_2</var>, &hellip;)</em></dt>
+<dt><a name="index-dispcon-1"></a>Funktion: <strong>dispcon</strong> <em>(all)</em></dt>
+<dd>
+
+<p>Zeigt die Kontraktionseigenschaften der Tensoren <var>tensor_1</var>, <var>tensor_2</var>,
+&hellip; wie sie mit der Funktion <code><a href="#defcon">defcon</a></code> definiert wurden.  Das Kommando
+<code>dispcon(all)</code> zeigt alle vom Nutzer definierten Kontraktionseigenschaften.
+</p>
+<p>Beispiel:
+</p>
+<p>Wird das Paket <code>itensor</code> geladen, gibt <code>dispcon</code> das folgende
+Ergebnis.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) dispcon(all);
+(%o2)      [[[ifr, ifri, ifg]], [[ifg, ifg, kdelta]]]
+</pre></div>
+</dd></dl>
+
+<a name="entertensor"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fentertensor"></a><dl>
+<dt><a name="index-entertensor"></a>Funktion: <strong>entertensor</strong> <em>(<var>name</var>)</em></dt>
+<dd>
+
+<p>Die Funktion <code>entertensor</code> erm&ouml;glicht die Eingabe eines indizierten
+Tensors mit einer beliebigen Anzahl an Tensorindizes und Ableitungen.  Es kann
+ein einzelner Index oder eine Liste mit Indizes angegeben werden.  Die Liste
+kann eine leere Liste sein.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) entertensor()$
+Enter tensor name: a;
+Enter a list of the covariant indices: [i,j];
+Enter a list of the contravariant indices: [k];
+Enter a list of the derivative indices: [];
+                               k
+(%t2)                         a
+                               i j
+</pre></div>
+</dd></dl>
+
+<a name="flipflag"></a><a name="Item_003a-Itensor_002ede_002fdefvr_002fflipflag"></a><dl>
+<dt><a name="index-flipflag"></a>Optionsvariable: <strong>flipflag</strong></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+
+<p>Hat die Optionsvariable <code>flipflag</code> den Wert <code>false</code>, werden die
+Indizes von der Funktion <code><a href="#rename">rename</a></code> bei der Umbenennung in der Reihenfolge
+der kontravarianten Indizes sortiert, ansonsten in der Reihenfolge der
+kovarianten Indizes.
+</p>
+<p>Siehe auch das Beispiel f&uuml;r die Funktion <code>rename</code>.
+</p>
+
+</dd></dl>
+
+<a name="icounter"></a><a name="Item_003a-Itensor_002ede_002fdefvr_002ficounter"></a><dl>
+<dt><a name="index-icounter"></a>Optionsvariable: <strong>icounter</strong></dt>
+<dd><p>Standardwert: <code>0</code>
+</p>
+
+<p>Enth&auml;lt die laufende Nummer, um den n&auml;chsten Dummy-Index zu bilden.
+<code>icounter</code> wird automatisch erh&ouml;ht, bevor der neue Index gebildet wird.
+Dem Wert <code>icounter</code> wird er Pr&auml;fix <code><a href="#idummyx">idummyx</a></code> vorangestellt.  Der
+Standardwert von <code>idummyx</code> ist <code>%</code>.
+</p></dd></dl>
+
+<a name="idummy"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fidummy"></a><dl>
+<dt><a name="index-idummy"></a>Funktion: <strong>idummy</strong> <em>()</em></dt>
+<dd>
+
+<p>Erh&ouml;ht den Wert der laufenden Nummer <code><a href="#icounter">icounter</a></code> und gibt einen neuen
+Index zur&uuml;ck, indem der Pr&auml;fix <code><a href="#idummyx">idummyx</a></code> der Nummer <code>icounter</code>
+vorangestellt wird.  Siehe auch die Funktion <code><a href="#indices">indices</a></code>.
+</p></dd></dl>
+
+<a name="idummyx"></a><a name="Item_003a-Itensor_002ede_002fdefvr_002fidummyx"></a><dl>
+<dt><a name="index-idummyx"></a>Optionsvariable: <strong>idummyx</strong></dt>
+<dd><p>Standardwert: <code>%</code>
+</p>
+
+<p>Enth&auml;lt den Pr&auml;fix, der einem neuen Index vorangestellt wird, der mit der
+Funktion <code><a href="#idummy">idummy</a></code> gebildet wird.
+</p></dd></dl>
+
+<a name="indexed_005ftensor"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002findexed_005ftensor"></a><dl>
+<dt><a name="index-indexed_005ftensor"></a>Funktion: <strong>indexed_tensor</strong> <em>(<var>tensor</var>)</em></dt>
+<dd>
+
+<p>Muss ausgef&uuml;hrt werden, bevor einem Tensors <var>tensor</var> Komponenten
+zugewiesen werden, f&uuml;r die bereits interne Werte vorliegen wie f&uuml;r
+<code><a href="maxima_118.html#ichr1">ichr1</a></code>, <code><a href="maxima_118.html#ichr2">ichr2</a></code> oder <code><a href="maxima_118.html#icurvature">icurvature</a></code>.  Siehe das Beispiel
+zur Funktion <code>icurvature</code>.
+</p></dd></dl>
+
+<a name="indices"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002findices"></a><dl>
+<dt><a name="index-indices"></a>Funktion: <strong>indices</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+<p>Gibt eine Liste mit zwei Elementen zur&uuml;ck.  Das erste Element ist eine Liste
+mit den Indizes im Ausdruck <var>expr</var> die frei sind, also nur einmal auftreten.
+Das zweite Elemente ist eine Liste mit den Indizes, &uuml;ber die summiert wird,
+die also im Ausdruck genau zweimal auftreten.
+</p>
+
+<p>Ein Tensorprodukt mit einem Index der mehr als zweimal auftritt, ist nicht
+korrekt formuliert.  Die Funktion <code>indices</code> gibt in einem solchen Fall
+jedoch keinen Fehler aus.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) ishow(a([i,j],[k,l],m,n)*b([k,o],[j,m,p],q,r))$
+                         k l      j m p
+(%t2)                   a        b
+                         i j,m n  k o,q r
+(%i3) indices(%);
+(%o3)          [[l, p, i, n, o, q, r], [k, j, m]]
+</pre></div>
+</dd></dl>
+
+<a name="ishow"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fishow"></a><dl>
+<dt><a name="index-ishow"></a>Funktion: <strong>ishow</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+<p>Zeigt den Ausdruck <var>expr</var> an, wobei Tensoren im Ausdruck mit tiefgestellten
+kovarianten Indizes und hochgestellten kontravarianten Indizes sowie die
+Ableitungen mit durch ein Komma getrennten tiefgestellte Indizes angezeigt
+werden.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) ishow(a([i,j], [k], v,w))$
+                             k
+(%t2)                       a
+                             i j,v w
+</pre></div>
+</dd></dl>
+
+<a name="kdels"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fkdels"></a><dl>
+<dt><a name="index-kdels"></a>Funktion: <strong>kdels</strong> <em>(<var>L1</var>, <var>L2</var>)</em></dt>
+<dd>
+
+<p><code>kdels</code> gibt wie die Funktion <code><a href="#kdelta">kdelta</a></code> ein Kronecker-Delta zur&uuml;ck.
+Im Unterschied zu <code>kdelta</code> ist das Kronecker-Delta der Funktion
+<code>kdels</code> symmetrisch.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) kdelta([1,2],[2,1]);
+(%o2)                                 - 1
+(%i3) kdels([1,2],[2,1]);
+(%o3)                                  1
+(%i4) ishow(kdelta([a,b],[c,d]))$
+                             c       d         d       c
+(%t4)                  kdelta  kdelta  - kdelta  kdelta
+                             a       b         a       b
+(%i4) ishow(kdels([a,b],[c,d]))$
+                             c       d         d       c
+(%t4)                  kdelta  kdelta  + kdelta  kdelta
+                             a       b         a       b
+</pre></div>
+</dd></dl>
+
+<a name="kdelta"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fkdelta"></a><dl>
+<dt><a name="index-kdelta"></a>Funktion: <strong>kdelta</strong> <em>(<var>L1</var>, <var>L2</var>)</em></dt>
+<dd>
+
+<p>Ist das verallgemeinerte Kronecker-Delta im <code>itensor</code>-Paket.  Das Argument
+<var>L1</var> ist die Liste der kovarianten und <var>L2</var> der kontravarianten 
+Indizes.  <code>kdelta([i],[j])</code> gibt das einfache Kronecker-Delta zur&uuml;ck.
+</p>
+
+
+
+<p>Das <code>itensor</code>-Paket erlaubt die Definition des Kronecker-Delta nur mit
+kovarianten oder kontravarianten Indizes, wie zum Beispiel
+<code>kdelta([i,j],[])</code>.  Mit diesen Gr&ouml;&szlig;en kann gerechnet werden, sie
+sind jedoch keine Tensoren.
+</p></dd></dl>
+
+<a name="lc_005fl"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002flc_005fl"></a><dl>
+<dt><a name="index-lc_005fl"></a>Regel: <strong>lc_l</strong></dt>
+<dd>
+
+<p><code>lc_l</code> ist eine Regel, um Ausdr&uuml;cke zu vereinfachen, die
+Levi-Civita-Symbole enthalten.  Zusammen mit der Regel <code><a href="#lc_005fu">lc_u</a></code> kann die
+Regel zum Beispiel mit der Funktion <code><a href="maxima_156.html#applyb1">applyb1</a></code> angewendet werden, um
+Ausdr&uuml;cke effizienter zu vereinfachen, als durch eine Auswertung des Symbols
+<code>levi_civita</code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) el1:ishow('levi_civita([i,j,k],[])*a([],[i])*a([],[j]))$
+                             i  j
+(%t2)                       a  a  levi_civita
+                                             i j k
+(%i3) el2:ishow('levi_civita([],[i,j,k])*a([i])*a([j]))$
+                                       i j k
+(%t3)                       levi_civita      a  a
+                                              i  j
+(%i4) canform(contract(expand(applyb1(el1,lc_l,lc_u))));
+(%t4)                                  0
+(%i5) canform(contract(expand(applyb1(el2,lc_l,lc_u))));
+(%t5)                                  0
+</pre></div>
+</dd></dl>
+
+<a name="lc_005fu"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002flc_005fu"></a><dl>
+<dt><a name="index-lc_005fu"></a>Regel: <strong>lc_u</strong></dt>
+<dd>
+
+<p><code>lc_u</code> ist eine Regel, um Ausdr&uuml;cke zu vereinfachen, die
+Levi-Civita-Symbole enthalten.  Zusammen mit der Regel <code>lc_c</code> kann die
+Regel zum Beispiel mit der Funktion <code><a href="maxima_156.html#applyb1">applyb1</a></code> angewendet werden, um
+Ausdr&uuml;cke effizienter zu vereinfachen, als durch eine Auswertung des Symbols
+<code>levi_civita</code>.  Siehe <code><a href="#lc_005fl">lc_l</a></code> f&uuml;r Beispiele.
+</p></dd></dl>
+
+<a name="lc2kdt"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002flc2kdt"></a><dl>
+<dt><a name="index-lc2kdt"></a>Funktion: <strong>lc2kdt</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+<p>Vereinfacht den Ausdruck <var>expr</var> mit Levi-Civita-Symbolen.  Wenn m&ouml;glich
+werden diese zu Kronecker-Delta-Symbolen vereinfacht.  Im Unterschied zu der
+Auswertung eines Ausdrucks mit Levi-Civita-Symbolen, vermeidet die Funktion
+<code>lc2kdt</code> das Einf&uuml;hren von numerischen Indizes, die f&uuml;r eine weitere
+symbolische Vereinfachung zum Beispiel mit den Funktionen <code><a href="#rename">rename</a></code> oder
+<code><a href="#contract">contract</a></code> nicht geeignet sind.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) expr:ishow('levi_civita([],[i,j])
+                 *'levi_civita([k,l],[])*a([j],[k]))$
+                                  i j  k
+(%t2)                  levi_civita    a  levi_civita
+                                       j            k l
+(%i3) ishow(ev(expr,levi_civita))$
+                                  i j  k       1 2
+(%t3)                       kdelta    a  kdelta
+                                  1 2  j       k l
+(%i4) ishow(ev(%,kdelta))$
+             i       j         j       i   k
+(%t4) (kdelta  kdelta  - kdelta  kdelta ) a
+             1       2         1       2   j
+
+                               1       2         2       1
+                        (kdelta  kdelta  - kdelta  kdelta )
+                               k       l         k       l
+(%i5) ishow(lc2kdt(expr))$
+                     k       i       j    k       j       i
+(%t5)               a  kdelta  kdelta  - a  kdelta  kdelta
+                     j       k       l    j       k       l
+(%i6) ishow(contract(expand(%)))$
+                                 i           i
+(%t6)                           a  - a kdelta
+                                 l           l
+</pre></div>
+
+
+<p>Die Funktion <code>lc2kdt</code> ben&ouml;tigt in einigen F&auml;llen den Metriktensor.
+Ist der Metriktensor zuvor nicht mit der Funktion <code><a href="maxima_118.html#imetric">imetric</a></code> definiert,
+dann meldet Maxima einen Fehler.
+</p>
+<div class="example">
+<pre class="example">(%i7) expr:ishow('levi_civita([],[i,j])
+                 *'levi_civita([],[k,l])*a([j,k],[]))$
+                                 i j            k l
+(%t7)                 levi_civita    levi_civita    a
+                                                     j k
+(%i8) ishow(lc2kdt(expr))$
+Maxima encountered a Lisp error:
+
+ Error in $IMETRIC [or a callee]:
+ $IMETRIC [or a callee] requires less than two arguments.
+
+Automatically continuing.
+To reenable the Lisp debugger set *debugger-hook* to nil.
+(%i9) imetric(g);
+(%o9)                                done
+(%i10) ishow(lc2kdt(expr))$
+</pre><pre class="example">         %3 i       k   %4 j       l     %3 i       l   %4 j
+(%t10) (g     kdelta   g     kdelta   - g     kdelta   g    
+                    %3             %4               %3
+              k
+        kdelta  ) a
+              %4   j k
+</pre><pre class="example">(%i11) ishow(contract(expand(%)))$
+                                  l i    l i  j
+(%t11)                           a    - g    a
+                                              j
+</pre></div>
+</dd></dl>
+
+<a name="levi_005fcivita"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002flevi_005fcivita"></a><dl>
+<dt><a name="index-levi_005fcivita"></a>Funktion: <strong>levi_civita</strong> <em>(<var>L</var>)</em></dt>
+<dd>
+<p>Ist der Levi-Civita-Tensor, der auch Permutationstensor genannt wird.  Der
+Tensor hat den Wert <code>1</code>, wenn die Liste <var>L</var> eine gerade Permutation
+ganzer Zahlen ist, den Wert <code>-1</code> f&uuml;r eine ungerade Permutation und
+ansonsten den Wert <code>0</code>.
+</p>
+<p>Beispiel:
+</p>
+<p>F&uuml;r eine Kreisbewegung ist die Bahngeschwindigkeit <code>v</code> das Kreuzprodukt
+aus Winkelgeschwindigkeit <code>w</code> und Ortsvektor <code>r</code>.  Wir haben also
+<code>v = w x r</code>.  Hier wird eine tensorielle Schreibweise des Kreuzproduktes
+mit dem Levi-Civita-Tensor eingef&uuml;hrt.  Der Ausdruck wird sodann f&uuml;r die
+erste Komponente zu der bekannten Definition des Kreuzproduktes vereinfacht.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) ishow(v([],[a])=
+           'levi_civita([],[a,b,c])*w([b],[])*r([c],[]))$
+</pre><pre class="example">                    a              a b c
+(%t2)              v  = levi_civita      w  r
+                                          b  c
+</pre><pre class="example">(%i3) ishow(subst([a=1],%))$
+                    1              1 b c
+(%t3)              v  = levi_civita      w  r
+                                          b  c
+(%i4) ishow(ev(%, levi_civita))$
+                      1         1 b c
+(%t4)                v  = kdelta      w  r
+                                1 2 3  b  c
+(%i5) ishow(expand(ev(%, kdelta)))$
+        1         b       c               c       b
+(%t5)  v  = kdelta  kdelta  w  r  - kdelta  kdelta  w  r
+                  2       3  b  c         2       3  b  c
+(%i6) ishow(contract(%))$
+                        1
+(%t6)                  v  = w  r  - r  w
+                             2  3    2  3
+</pre></div>
+
+<p>In diesem Beispiel wird das Spatprodukt von drei Vektoren <code>a</code>, <code>b</code> und
+<code>b</code> mit dem Levi-Civita-Tensor definiert und dann vereinfacht.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) ishow(levi_civita([],[i,j,k])*a([i],[])*b([j],[])*c([k],[]))$
+                            i j k
+(%t2)                 kdelta      a  b  c
+                            1 2 3  i  j  k
+(%i3) ishow(contract(expand(ev(%,kdelta))))$
+(%t3) a  b  c  - b  a  c  - a  c  b  + c  a  b  + b  c  a
+       1  2  3    1  2  3    1  2  3    1  2  3    1  2  3
+                                                       - c  b  a
+                                                          1  2  3
+</pre></div>
+</dd></dl>
+
+<a name="listoftens"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002flistoftens"></a><dl>
+<dt><a name="index-listoftens"></a>Funktion: <strong>listoftens</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+
+<p>Gibt eine Liste mit allen Tensoren zur&uuml;ck, die im Argument <var>expr</var>
+enthalten sind.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) ishow(a([i,j],[k])*b([u],[],v)+c([x,y],[])*d([],[])*e)$
+                                  k
+(%t2)                 d e c    + a    b
+                           x y    i j  u,v
+(%i3) ishow(listoftens(%))$
+                        k
+(%t3)                 [a   , b   , c   , d]
+                        i j   u,v   x y
+</pre></div>
+</dd></dl>
+
+<a name="remcomps"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fremcomps"></a><dl>
+<dt><a name="index-remcomps"></a>Funktion: <strong>remcomps</strong> <em>(<var>tensor</var>)</em></dt>
+<dd>
+
+<p>Entfernt alle Werte von den Komponenten des Tensors <var>tensor</var>, die einen
+Wert mit der Funktion <code><a href="#components">components</a></code> erhalten haben.
+</p></dd></dl>
+
+<a name="remcon"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fremcon"></a><dl>
+<dt><a name="index-remcon"></a>Funktion: <strong>remcon</strong> <em>(<var>tensor_1</var>, &hellip;, <var>tensor_n</var>)</em></dt>
+<dt><a name="index-remcon-1"></a>Funktion: <strong>remcon</strong> <em>(all)</em></dt>
+<dd>
+
+<p>Entfernt die Eigenschaften der Tensorverj&uuml;ngung von den Tensoren
+<var>tensor_1</var>, &hellip;, <var>tensor_n</var>.  <code>remcon(all)</code> entfernt die
+Eigenschaften von der Tensorverj&uuml;ngung f&uuml;r alle Tensoren.  Das sind die
+Tensoren, die in der Liste <code><a href="#contractions">contractions</a></code> enthalten sind.
+</p></dd></dl>
+
+<a name="rename"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002frename"></a><dl>
+<dt><a name="index-rename"></a>Funktion: <strong>rename</strong> <em>(<var>expr</var>)</em></dt>
+<dt><a name="index-rename-1"></a>Funktion: <strong>rename</strong> <em>(<var>expr</var>, <var>count</var>)</em></dt>
+<dd>
+
+<p>Gibt einen zum Argument <var>expr</var> &auml;quivalenten Ausdruck zur&uuml;ck, wobei die
+Summationsindizes mit den Werten aus der liste <code>[%1, %2, ...]</code> umbenannt
+sind.  Wird das zus&auml;tzlich das Argument <var>count</var> angegeben, wird die
+Nummerierung mit dem Wert <var>count</var> begonnen.  Jeder Summationsindex in einem
+Produkt erh&auml;lt einen verschiedenen Namen.  F&uuml;r eine Summe wird der Z&auml;hler
+f&uuml;r jeden Term zur&uuml;ckgesetzt.  Auf diese Weise wirkt die Funktion
+<code>rename</code> wie eine Vereinfachung eines tensoriellen Ausdrucks.  Hat die
+Optionsvariable <code><a href="maxima_116.html#allsym">allsym</a></code> den Wert <code>true</code>, werden die Indizes
+alphabetisch nach den kovarianten oder kontravarianten Indizes geordnet,
+entsprechend dem Wert der Optionsvariablen <code><a href="#flipflag">flipflag</a></code>.  Hat die
+Optionsvariable <code>flipflag</code> den Wert <code>true</code>, werden die Indizes
+entsprechend der Ordnung der kovarianten Indizes geordnet.  Es ist h&auml;ufig der
+Fall, dass das Ordnen sowohl nach den kovarianten als auch den kontravarianten
+Indizes einen Ausdruck besser vereinfacht, als allein die Ordnung nach einer
+der Indizes.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) allsym: true;
+(%o2)                         true
+(%i3) g([],[%4,%5])*g([],[%6,%7])*ichr2([%1,%4],[%3])
+             *ichr2([%2,%3],[u])*ichr2([%5,%6],[%1])
+             *ichr2([%7,r],[%2])
+ -g([],[%4,%5])*g([],[%6,%7])*ichr2([%1,%2],[u])
+               *ichr2([%3,%5],[%1])*ichr2([%4,%6],[%3])
+               *ichr2([%7,r],[%2])$
+
+(%i4) expr: ishow(%)$
+</pre><pre class="example">       %4 %5  %6 %7      %3         u          %1         %2
+(%t4) g      g      ichr2      ichr2      ichr2      ichr2
+                         %1 %4      %2 %3      %5 %6      %7 r
+          %4 %5  %6 %7      u          %1         %3         %2
+       - g      g      ichr2      ichr2      ichr2      ichr2
+                            %1 %2      %3 %5      %4 %6      %7 r
+</pre><pre class="example">(%i5) flipflag: true;
+(%o5)                         true
+(%i6) ishow(rename(expr))$
+       %2 %5  %6 %7      %4         u          %1         %3
+(%t6) g      g      ichr2      ichr2      ichr2      ichr2
+                         %1 %2      %3 %4      %5 %6      %7 r
+          %4 %5  %6 %7      u          %1         %3         %2
+       - g      g      ichr2      ichr2      ichr2      ichr2
+                            %1 %2      %3 %4      %5 %6      %7 r
+(%i7) flipflag: false;
+(%o7)                         false
+(%i8) rename(%th(2));
+(%o8)                           0
+(%i9) ishow(rename(expr))$
+       %1 %2  %3 %4      %5         %6         %7        u
+(%t9) g      g      ichr2      ichr2      ichr2     ichr2
+                         %1 %6      %2 %3      %4 r      %5 %7
+          %1 %2  %3 %4      %6         %5         %7        u
+       - g      g      ichr2      ichr2      ichr2     ichr2
+                            %1 %3      %2 %6      %4 r      %5 %7
+</pre></div>
+</dd></dl>
+
+
+<a name="showcomps"></a><a name="Item_003a-Itensor_002ede_002fdeffn_002fshowcomps"></a><dl>
+<dt><a name="index-showcomps"></a>Funktion: <strong>showcomps</strong> <em>(<var>tensor</var>)</em></dt>
+<dd>
+
+
+<p>Zeigt die Zuweisungen mit der Funktion <code><a href="#components">components</a></code> an die Komponenten des
+Tensors <var>tensor</var>.  Die Funktion <code>showcomps</code> kann auch die Komponenten
+eines Tensors mit einer h&ouml;heren Stufe als 2 zeigen.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;ctensor&quot;)$
+(%i2) load(&quot;itensor&quot;)$
+(%i3) lg:matrix([sqrt(r/(r-2*m)),0,0,0],[0,r,0,0],
+                [0,0,sin(theta)*r,0],[0,0,0,sqrt((r-2*m)/r)]);
+</pre><pre class="example">               [         r                                     ]
+               [ sqrt(-------)  0       0              0       ]
+               [      r - 2 m                                  ]
+               [                                               ]
+               [       0        r       0              0       ]
+(%o3)          [                                               ]
+               [       0        0  r sin(theta)        0       ]
+               [                                               ]
+               [                                      r - 2 m  ]
+               [       0        0       0        sqrt(-------) ]
+               [                                         r     ]
+</pre><pre class="example">(%i4) components(g([i,j],[]),lg);
+(%o4)                                done
+(%i5) showcomps(g([i,j],[]));
+</pre><pre class="example">                  [         r                                     ]
+                  [ sqrt(-------)  0       0              0       ]
+                  [      r - 2 m                                  ]
+                  [                                               ]
+                  [       0        r       0              0       ]
+(%t5)      g    = [                                               ]
+            i j   [       0        0  r sin(theta)        0       ]
+                  [                                               ]
+                  [                                      r - 2 m  ]
+                  [       0        0       0        sqrt(-------) ]
+                  [                                         r     ]
+</pre><pre class="example">(%o5)                                false
+</pre></div>
+</dd></dl>
+
+<a name="Item_003a-Itensor_002ede_002fnode_002fTensorsymmetrien"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_116.html#Tensorsymmetrien" accesskey="n" rel="next">Tensorsymmetrien</a>, Previous: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="p" rel="previous">Funktionen und Variablen f&uuml;r itensor</a>, Nach oben: <a href="maxima_114.html#Funktionen-und-Variablen-f_00fcr-itensor" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r itensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

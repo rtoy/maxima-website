@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Manual do Maxima 5.46.0: Definições para Ambiente em Tempo de Execução</title>
+
+<meta name="description" content="Manual do Maxima 5.46.0: Definições para Ambiente em Tempo de Execução">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições para Ambiente em Tempo de Execução">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_104.html#Ambiente-em-Tempo-de-Execu_00e7_00e3o" rel="up" title="Ambiente em Tempo de Execução">
+<link href="maxima_108.html#Op_00e7_00f5es-Diversas" rel="next" title="Opções Diversas">
+<link href="maxima_106.html#Interrup_00e7_00f5es" rel="previous" title="Interrupções">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-para-Ambiente-em-Tempo-de-Execu_00e7_00e3o"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_106.html#Interrup_00e7_00f5es" accesskey="p" rel="previous">Interrupções</a>, Acima: <a href="maxima_104.html#Ambiente-em-Tempo-de-Execu_00e7_00e3o" accesskey="u" rel="up">Ambiente em Tempo de Execução</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-para-Ambiente-em-Tempo-de-Execucao"></a>
+<h3 class="section">34.3 Definições para Ambiente em Tempo de Execução</h3>
+
+<a name="Item_003a-Runtime_002fdefvr_002ffeature"></a><dl>
+<dt><a name="index-feature"></a>Declaração: <strong>feature</strong></dt>
+<dd><p>Maxima compreende dois tipos distintos de recurso,
+recursos do sistema e recursos aplicados a expressões matemáticas.
+Veja Também <code>status</code> para informações sobre recursos do sistema.
+Veja Também <code>features</code> e <code>featurep</code> para informações sobre recursos matemáticos.
+</p>
+<p><code>feature</code> por si mesmo não é o nome de uma função ou variável.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Runtime_002fdeffn_002ffeaturep"></a><dl>
+<dt><a name="index-featurep"></a>Função: <strong>featurep</strong> <em>(<var>a</var>, <var>f</var>)</em></dt>
+<dd><p>Tenta determinar se o objecto <var>a</var> tem o
+recurso <var>f</var> na base dos factos dentro base de dados corrente.  Se possue,
+é retornado <code>true</code>, de outra forma é retornado <code>false</code>.
+</p>
+<p>Note que <code>featurep</code> retorna <code>false</code> quando nem <var>f</var>
+nem a negação de <var>f</var> puderem ser estabelecidas.
+</p>
+<p><code>featurep</code> avalia seus argumentos.
+</p>
+<p>Veja também <code>declare</code> e <code>features</code>.
+</p>       
+<div class="example">
+<pre class="example">(%i1) declare (j, even)$
+(%i2) featurep (j, integer);
+(%o2)                           true
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Runtime_002fdefvr_002fmaxima_005ftempdir"></a><dl>
+<dt><a name="index-maxima_005ftempdir"></a>Variável de sistema: <strong>maxima_tempdir</strong></dt>
+<dd>
+<p><code>maxima_tempdir</code> nomeia o directório no qual Maxima cria alguns ficheiros temporários.
+Em particular, ficheiros temporários para impressão são criados no <code>maxima_tempdir</code>.
+</p>
+<p>O valor inicial de <code>maxima_tempdir</code> é o directório do utilizador,
+se o maxima puder localizá-lo; de outra forma Maxima supõe um directório adequado.
+</p>
+<p>A <code>maxima_tempdir</code> pode ser atribuído uma sequência de caracteres que corresponde a um directório.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Runtime_002fdefvr_002fmaxima_005fuserdir"></a><dl>
+<dt><a name="index-maxima_005fuserdir"></a>Variável de sistema: <strong>maxima_userdir</strong></dt>
+<dd>
+<p><code>maxima_userdir</code> nomeia um directório no qual Maxima espera encontrar seus próprios ficheiros e os do ficheiros do Lisp.
+(Maxima procura em alguns outros directórios também;
+<code>file_search_maxima</code> e <code>file_search_lisp</code> possuem a lista completa.)
+</p>
+<p>O valor inicial de <code>maxima_userdir</code> é um subdirectório do directório do utilizador,
+se Maxima puder localizá-lo; de outra forma Maxima supõe um directório adequado.
+</p>
+<p>A <code>maxima_userdir</code> pode ser atribuído uma sequência de caracteres que corresponde a um directório.
+Todavia, fazendo uma atribuição a <code>maxima_userdir</code> não muda automaticamente o valor de
+<code>file_search_maxima</code> e de <code>file_search_lisp</code>;
+Essas variáveis devem ser modificadas separadamente.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Runtime_002fdeffn_002froom"></a><dl>
+<dt><a name="index-room"></a>Função: <strong>room</strong> <em>()</em></dt>
+<dt><a name="index-room-1"></a>Função: <strong>room</strong> <em>(true)</em></dt>
+<dt><a name="index-room-2"></a>Função: <strong>room</strong> <em>(false)</em></dt>
+<dd><p>Mostra uma descrição do estado de armazenamento e
+gerenciamento de pilha no Maxima. <code>room</code> chama a função Lisp de
+mesmo nome.
+</p>
+<ul>
+<li> <code>room ()</code> mostra uma descrição moderada.
+</li><li> <code>room (true)</code> mostra uma descrição detalhada.
+</li><li> <code>room (false)</code> mostra uma descrição resumida.
+</li></ul>
+
+</dd></dl>
+
+<a name="Item_003a-Runtime_002fdeffn_002fstatus"></a><dl>
+<dt><a name="index-status"></a>Função: <strong>status</strong> <em>(feature)</em></dt>
+<dt><a name="index-status-1"></a>Função: <strong>status</strong> <em>(feature, <var>recurso_ativo</var>)</em></dt>
+<dt><a name="index-status-2"></a>Função: <strong>status</strong> <em>(status)</em></dt>
+<dd><p>Retorna informações sobre a presença ou ausência de certos
+recursos dependentes do sistema operacional.
+</p>
+<ul>
+<li> <code>status (feature)</code> retorna uma lista dos recursos do sistema.
+Inclui a versão do Lisp, tipo de sistema operacional, etc.
+A lista pode variar de um tipo de Lisp para outro.
+</li><li> <code>status (feature, <var>recurso_ativo</var>)</code> retorna <code>true</code> se <var>recurso_ativo</var>
+está na lista de ítens retornada através de <code>status (feature)</code> e <code>false</code> de outra forma.
+<code>status</code> não avalia o argumento <var>recurso_ativo</var>.
+O operador apóstrofo-apóstrofo, <code>'<!-- /@w -->'</code>, evita a avaliação.
+Um recurso cujo nome contém um caractere especial, tal como um hífem,
+deve ser fornecido como um argumento em forma de sequência de caracteres. Por Exemplo,
+<code>status (feature, &quot;ansi-cl&quot;)</code>.
+</li><li> <code>status (status)</code> retorna uma lista de dois elementos <code>[feature, status]</code>.
+<code>feature</code> e <code>status</code> são dois argumentos aceitos pela função <code>status</code>;
+Não está claro se essa lista tem significância adicional.
+</li></ul>
+
+<p>A variável <code>features</code> contém uma lista de recursos que se aplicam a
+expressões matemáticas. Veja <code>features</code> e <code>featurep</code> para maiores informações.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Runtime_002fdeffn_002ftime"></a><dl>
+<dt><a name="index-time"></a>Função: <strong>time</strong> <em>(%o1, %o2, %o3, ...)</em></dt>
+<dd><p>Retorna uma lista de tempos, em segundos, usados para calcular as linhas
+de saída <code>%o1</code>, <code>%o2</code>, <code>%o3</code>, .... O tempo retornado é uma estimativa do Maxima do
+tempo interno de computação, não do tempo decorrido. <code>time</code> pode somente
+ser aplicado a variáveis(rótulos) de saída de linha; para quaisquer outras variáveis, <code>time</code>
+retorna <code>unknown</code> (tempo desconhecido).
+</p>
+<p>Escolha <code>showtime: true</code> para fazer com que Maxima moste o tempo de computação
+e o tempo decorrido a cada linha de saída.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Runtime_002fdeffn_002ftimedate"></a><dl>
+<dt><a name="index-timedate"></a>Função: <strong>timedate</strong> <em>()</em></dt>
+<dd><p>Retorna uma sequência de caracteres representando a data e hora atuais.
+A sequência de caracteres tem o formato <code>HH:MM:SS Dia, mm/dd/aaaa (GMT-n)</code>,
+Onde os campos são
+horas, minutos, segundos, dia da semana, mês, dia do mês, ano, e horas que diferem da hora GMT.
+</p>
+<p>O valor de retorno é uma sequência de caracteres Lisp.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) d: timedate ();
+(%o1) 08:05:09 Wed, 11/02/2005 (GMT-7)
+(%i2) print (&quot;timedate mostra o tempo actual&quot;, d)$
+timedate reports current time 08:05:09 Wed, 11/02/2005 (GMT-7)
+</pre></div>
+
+</dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_106.html#Interrup_00e7_00f5es" accesskey="p" rel="previous">Interrupções</a>, Acima: <a href="maxima_104.html#Ambiente-em-Tempo-de-Execu_00e7_00e3o" accesskey="u" rel="up">Ambiente em Tempo de Execução</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

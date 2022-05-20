@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Tensorpakete in Maxima</title>
+
+<meta name="description" content="Maxima Manual: Tensorpakete in Maxima">
+<meta name="keywords" content="Maxima Manual: Tensorpakete in Maxima">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_110.html#Tensoren" rel="up" title="Tensoren">
+<link href="maxima_112.html#Paket-itensor" rel="next" title="Paket itensor">
+<link href="maxima_110.html#Tensoren" rel="previous" title="Tensoren">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Tensorpakete-in-Maxima"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_112.html#Paket-itensor" accesskey="n" rel="next">Paket itensor</a>, Previous: <a href="maxima_110.html#Tensoren" accesskey="p" rel="previous">Tensoren</a>, Nach oben: <a href="maxima_110.html#Tensoren" accesskey="u" rel="up">Tensoren</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Tensorpakete-in-Maxima-1"></a>
+<h3 class="section">20.1 Tensorpakete in Maxima</h3>
+
+<p>Maxima hat drei verschiedene Pakete, um mit Tensoren zu rechnen.  Das Paket
+<code>ctensor</code> implementiert das Rechnen mit Tensoren in der
+Koordinatendarstellung und das Paket <code>itensor</code> das Rechnen in einer
+Indexnotation.  Das Paket <code>atensor</code> erlaubt die algebraische Manipulation
+von Tensoren in verschiedenen Algebren.
+</p>
+<p>Beim Rechnen in einer Koordinatendarstellung mit dem Paket <code>ctensor</code> werden
+Tensoren als Arrays oder Matrizen dargestellt.  Operationen mit Tensoren wie die
+Tensorverj&uuml;ngung oder die kovariante Ableitung werden ausgef&uuml;hrt als
+Operationen mit den Komponenten des Tensors, die in einem Array oder einer
+Matrix gespeichert sind.
+</p>
+<p>Beim Rechnen in der Indexnotation mit dem Paket <code>itensor</code> werden Tensoren
+als Funktionen ihrer kovarianten und kontravarianten Indizes sowie den
+Ableitungen nach den Komponenten dargestellt.  Operationen wie die
+Tensorverj&uuml;ngung oder die kovariante Ableitung werden ausgef&uuml;hrt, in dem die
+Indizes manipuliert werden.
+</p>
+<p>Die beiden genannten Pakete <code>itensor</code> und <code>ctensor</code> f&uuml;r die
+Behandlung von mathematischen Problemen im Zusammenhang mit der Riemannschen
+Geometrie haben verschiedene Vor- und Nachteile, die sich erst anhand des zu
+behandelnden Problems und dessen Schwierigkeitsgrad zeigen.  Folgenden
+Eigenschaften der beiden Implementierungen sollten beachtet werden:
+</p>
+<p>Die Darstellung von Tensoren und Tensoroperationen in einer expliziten
+Koordinatendarstellung vereinfacht die Nutzung des Paketes <code>ctensor</code>.  Die
+Spezifikation der Metrik und die Ableitung von Tensoren sowie von Invarianten
+ist unkompliziert.  Trotz Maximas Methoden f&uuml;r die Vereinfachung von
+Ausdr&uuml;cken kann jedoch eine komplexe Metrik mit komplizierten funktionalen
+Abh&auml;ngigkeiten der Koordinaten leicht zu sehr gro&szlig;en Ausdr&uuml;cken
+f&uuml;hren, die die Struktur eines Ergebnisses verbergen.  Weiterhin k&ouml;nnen
+Rechnungen zu sehr gro&szlig;en Zwischenergebnisse f&uuml;hren, die zu einem
+Programmabbruch f&uuml;hren, bevor die Rechnung beendet werden kann.  Jedoch kann
+der Nutzer mit einiger Erfahrung viele dieser Probleme vermeiden.
+</p>
+<p>Aufgrund der besonderen Weise, wie Tensoren und Tensoroperationen als
+symbolische Operationen ihrer Indizes dargestellt werden, k&ouml;nnen Ausdr&uuml;cke,
+die in einer Koordinatendarstellung sehr unhandlich sind, mit Hilfe spezieller
+Routinen f&uuml;r symmetrische Objekte in <code>itensor</code> manchmal erheblich
+vereinfacht werden.  Auf diese Weise kann die Struktur gro&szlig;er Ausdr&uuml;cke
+transparenter sein.  Auf der anderen Seite kann die Spezifikation einer Metrik,
+die Definition von Funktionen und die Auswertung von abgeleiteten indizierten
+Objekten f&uuml;r den Nutzer schwierig sein.
+</p>
+
+<p>Mit dem Paket <code>itensor</code> k&ouml;nnen Ableitungen nach einer indizierten
+Variablen ausgef&uuml;hrt werden, wodurch es m&ouml;glich ist, <code>itensor</code> auch
+f&uuml;r Probleme im Zusammenhang mit dem Lagrange- oder Hamiltonian-Formalismus
+einzusetzen.  Da es m&ouml;glich ist, die Lagrangeschen Feldgleichungen nach einer
+indizierten Variablen abzuleiten, k&ouml;nnen zum Beispiel die
+Euler-Lagrange-Gleichungen in einer Indexnotation aufgestellt werden.  Werden
+die Gleichungen mit der Funktion <code><a href="maxima_123.html#ic_005fconvert">ic_convert</a></code> in eine
+Komponentendarstellung f&uuml;r das Paket <code>ctensor</code> transformiert, k&ouml;nnen
+die Feldgleichungen in einer bestimmten Koordinatendarstellung gel&ouml;st werden.
+Siehe dazu die ausf&uuml;hrlichen Beispiele in <code>einhil.dem</code> und
+<code>bradic.dem</code>.
+</p>
+<a name="Item_003a-Itensor_002ede_002fnode_002fPaket-itensor"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_112.html#Paket-itensor" accesskey="n" rel="next">Paket itensor</a>, Previous: <a href="maxima_110.html#Tensoren" accesskey="p" rel="previous">Tensoren</a>, Nach oben: <a href="maxima_110.html#Tensoren" accesskey="u" rel="up">Tensoren</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Lisp und Maxima</title>
+
+<meta name="description" content="Maxima Manual: Lisp und Maxima">
+<meta name="keywords" content="Maxima Manual: Lisp und Maxima">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_165.html#Programmierung" rel="up" title="Programmierung">
+<link href="maxima_167.html#Einf_00fchrung-in-die-Programmierung" rel="next" title="Einf&uuml;hrung in die Programmierung">
+<link href="maxima_165.html#Programmierung" rel="previous" title="Programmierung">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Lisp-und-Maxima"></a>
+<div class="header">
+<p>
+Next: <a href="maxima_167.html#Einf_00fchrung-in-die-Programmierung" accesskey="n" rel="next">Einf&uuml;hrung in die Programmierung</a>, Previous: <a href="maxima_165.html#Programmierung" accesskey="p" rel="previous">Programmierung</a>, Nach oben: <a href="maxima_165.html#Programmierung" accesskey="u" rel="up">Programmierung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Lisp-und-Maxima-1"></a>
+<h3 class="section">27.1 Lisp und Maxima</h3>
+
+<a name="Lisp_002d-und-Maxima_002dBezeichner"></a>
+<h4 class="subheading">Lisp- und Maxima-Bezeichner</h4>
+
+<p>Maxima ist in Lisp programmiert.  Es ist einfach, Lisp-Funktionen und
+Lisp-Variable in Maxima zu verwenden.  Umgekehrt k&ouml;nnen Maxima-Funktionen und
+Maxima-Variablen in Lisp verwendet werden.  Ein Lisp-Symbol, das mit einem 
+Dollarzeichen <code>$</code> beginnt, entspricht einem Maxima-Symbol ohne einem 
+Dollarzeichen.  Umgekehrt entspricht einem Maxima-Symbol, das mit einem 
+Fragezeichen <code>?</code> beginnt, ein Lisp-Symbol ohne das Fragezeichen.
+Zum Beispiel entspricht dem Maxima-Symbol <code>foo</code> das Lisp-Symbol 
+<code>$foo</code> und dem Maxima-Symbol <code>?foo</code> entspricht das Lisp-Symbol
+<code>foo</code>.
+</p>
+<p>Speziellen Zeichen wie einem Trennstrich <code>-</code> oder einem Stern <code>*</code> in
+Lisp-Symbolen muss ein Backslash <code>\</code> vorangestellt werden, um diese
+in Maxima zu verwenden.  Zum Beispiel entspricht dem Lisp-Symbol 
+<code>*foo-bar*</code> das Maxima-Symbol <code>?\*foo\-bar\*</code>.
+</p>
+<p>Im Gegensatz zu Lisp unterscheidet Maxima Gro&szlig;- und Kleinschreibung.  Es 
+gibt einige Regeln, die eine &Uuml;bersetzung von Namen zwischen Lisp und Maxima 
+betreffen:
+</p>
+<ol>
+<li> Ein Lisp-Bezeichner, der nicht von senkrechten Strichen eingeschlossen ist,
+entspricht einem klein geschriebenen Maxima-Bezeichner.  Die Schreibweise des
+Lisp-Bezeichners wird dabei ignoriert.  Zum Beispiel entspricht den folgenden
+Lisp-Bezeichnern <code>$foo</code>, <code>$FOO</code> und <code>$Foo</code> jeweils der
+Maxima-Bezeichner <code>foo</code>.
+
+</li><li> Ein Lisp-Bezeichner, der vollst&auml;ndig gro&szlig; oder klein geschrieben ist und 
+von senkrechten Strichen eingeschlossen wird, entspricht einem Maxima-Bezeichner
+in der umgekehrten Schreibweise.  Ein klein geschriebener Lisp-Bezeichner wird 
+also zu einem gro&szlig;geschriebenen Maxima-Bezeichner und umgekehrt.  Zum 
+Beispiel entsprechen den Lisp-Bezeichnern <code>|$FOO|</code> und <code>|$foo|</code> die
+Maxima-Bezeichner <code>foo</code> und <code>FOO</code>.
+
+</li><li> Ein Lisp-Bezeichner in gemischter Schreibweise, der von senkrechten Strichen
+eingeschlossen ist, entspricht einem Maxima-Bezeichner in der gleichen
+Schreibweise.  Zum Beispiel entspricht dem Lisp-Bezeichner <code>|$Foo|</code> der
+Maxima-Bezeichner <code>Foo</code>.
+</li></ol>
+
+<p>F&uuml;r die Syntax von Maxima-Bezeichnern siehe auch <a href="maxima_31.html#Bezeichner">Bezeichner</a>.
+</p>
+<a name="Ausfuhrung-von-Lisp_002dCode-in-Maxima"></a>
+<h4 class="subheading">Ausf&uuml;hrung von Lisp-Code in Maxima</h4>
+
+<p>Lisp-Code kann mit dem Unterbrechungskommando <code>:lisp</code> von einer
+Maxima-Kommandozeile ausgef&uuml;hrt werden.  Siehe
+<a href="maxima_174.html#Debugger_002dKommandos">Debugger-Kommandos</a> f&uuml;r weitere Unterbrechungskommandos und deren
+Beschreibung.
+</p>
+<p>Beispiele:
+</p>
+<p>Addiere die Werte der Maxima-Variablen <code>x</code> und <code>y</code> mit dem 
+Lisp-Operator <code>+</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) x:10$ y:5$
+(%i3) :lisp (+ $x $y)
+15
+</pre></div>
+
+<p>Addiere die Symbole <code>a</code> und <code>b</code> mit der Lisp-Funktion <code>ADD</code>.  Das
+Ergebnis wird der Variablen <code>$RES</code> zugewiesen.  Die Variable hat in Maxima
+den Namen <code>res</code>.
+</p>
+<div class="example">
+<pre class="example">(%i3) :lisp (setq $res (add '$a '$b))
+((MPLUS SIMP) $A $B)
+(%i3) res;
+(%o3)                         b + a
+</pre></div>
+
+<p>Das <code>:lisp</code>-Kommando ist n&uuml;tzlich, um zum Beispiel Lisp-Eigenschaften
+von Maxima-Symbolen anzuzeigen, globale Lisp-Variablen wie
+<code>*PRINT-CIRCLE*</code> zu setzen oder wie im letzten Beispiel die interne
+Form von Maxima-Ausdr&uuml;cken anzuzeigen.
+</p>
+<div class="example">
+<pre class="example">(%i4) :lisp (symbol-plist 'mabs)
+(TEXSYM ((\left| ) \right| ) TEX TEX-MATCHFIX REAL-VALUED T
+        MAPS-INTEGERS-TO-INTEGERS T DIMENSION DIM-MABS TRANSLATE
+        #&lt;FUNCTION (LAMBDA #) {972D045}&gt; FLOATPROG MABSBIGFLOAT INTEGRAL
+        ((X) #&lt;FUNCTION ABS-INTEGRAL&gt;) OPERATORS SIMPABS DISTRIBUTE_OVER
+        (MLIST $MATRIX MEQUAL) NOUN $ABS REVERSEALIAS $ABS GRAD
+        ((X) ((MTIMES) X ((MEXPT) ((MABS) X) -1))))
+
+(%i4) :lisp (setq *print-circle* nil)
+NIL
+
+(%i4) 'integrate(t*sin(t), t);
+</pre><pre class="example">                          /
+                          [
+(%o4)                     I t sin(t) dt
+                          ]
+                          /
+</pre><pre class="example">(%i5) :lisp $%
+((%INTEGRATE SIMP) ((MTIMES SIMP) $T ((%SIN SIMP) $T)) $T)
+</pre></div>
+
+<p>Das Kommando <code>:lisp</code> kann in einer Kommandozeile und in Dateien verwendet
+werden, die mit den Funktionen <code><a href="maxima_76.html#batch">batch</a></code> oder <code><a href="maxima_6.html#demo">demo</a></code> geladen werden.
+Dagegen kann das Kommando <code>:lisp</code> nicht in Dateien verwendet werden, die 
+mit den Funktionen <code><a href="maxima_76.html#load">load</a></code>, <code><a href="maxima_76.html#batchload">batchload</a></code>,<!-- /@w -->
+<code><a href="maxima_171.html#translate_005ffile">translate_file</a></code> oder <code><a href="maxima_171.html#compile_005ffile">compile_file</a></code> geladen werden.
+</p>
+<a name="Ausfuhrung-von-Maxima_002dCode-in-Lisp"></a>
+<h4 class="subheading">Ausf&uuml;hrung von Maxima-Code in Lisp</h4>
+
+<p>Das Lisp-Makro <code>#$</code> erlaubt die Nutzung von Maxima-Ausdr&uuml;cken in 
+Lisp-Code.  <code>#$<var>expr</var>$</code> wird zu einem Lisp-Ausdruck expandiert, der
+dem Maxima-Ausdruck <var>expr</var> entspricht.
+</p>
+<p>Beispiele:
+</p>
+<p>Die beiden folgenden Beispiele zeigen die Zuweisung an eine Variable <code>var</code>.
+Im ersten Beispiel werden Lisp- und Maxima-Code gemischt.  F&uuml;r die Zuweisung
+an die Variable wird die Lisp-Funktion <code>MSETQ</code> aufgerufen.  Das Makro
+<code>#$</code> transformiert den Maxima Ausdruck <code>sin(x) + a^2</code> in die Lisp-Form
+<code>((MPLUS SIMP) ((MEXPT SIMP) $A 2) ((%SIN SIMP) $X))</code>.  Dies entspricht
+dem im zweiten Beispiel gezeigten Maxima-Kommando.
+</p>
+<div class="example">
+<pre class="example">(%i1) :lisp (msetq $var #$sin(x)+a^2$)
+((MPLUS SIMP) ((MEXPT SIMP) $A 2) ((%SIN SIMP) $X))
+
+(%i1) var: sin(x)+a^2;
+</pre><pre class="example">                                     2
+(%o1)                      sin(x) + a
+</pre></div>
+
+<p>In diesem Beispiel wird zun&auml;chst ein Maxima-Ausdruck der Variablen <code>$VAR</code>
+zugewiesen und dann mit der Lisp-Funktion <code>DISPLA</code> ausgegeben.
+</p>
+<div class="example">
+<pre class="example">(%i1) :lisp (setq $var #$'integrate(f(x), x)$)
+((%INTEGRATE SIMP) (($F SIMP) $X) $X)
+(%i1) :lisp (displa $var)
+/
+[
+I f(x) dx
+]
+/
+NIL
+</pre></div>
+
+<p>Maxima-Funktionen sind keine Lisp-Funktionen.  Um eine Maxima-Funktion in 
+Lisp-Code aufzurufen, kann die Lisp-Funktion <code>MFUNCALL</code> aufgerufen werden.
+</p>
+<div class="example">
+<pre class="example">(%i1) f(x,y) := x^2 + sin(y)$
+(%i2) :lisp (mfuncall '$f '$a 10)
+((MPLUS SIMP) ((%SIN SIMP) 10) ((MEXPT SIMP) $A 2))
+</pre></div>
+
+<a name="Offnen-einer-Lisp_002dSitzung"></a>
+<h4 class="subheading">&Ouml;ffnen einer Lisp-Sitzung</h4>
+
+<p>Mit dem Kommando <code>to_lisp()</code> kann von einer Maxima-Kommandozeile eine
+Lisp-Sitzung ge&ouml;ffnet werden.  Mit dem Kommando <code>(TO-MAXIMA)</code> wird
+die Lisp-Sitzung beendet und nach Maxima zur&uuml;ckgekehrt.  Siehe auch
+<code><a href="maxima_9.html#to_005flisp">to_lisp</a></code> f&uuml;r ein Beispiel.
+</p>
+<p>Die folgenden Lisp-Funktionen k&ouml;nnen in Maxima nicht verwendet werden:
+</p>
+<p><code>complement</code>,
+<code>continue</code>,
+<code>/</code>,
+<code>float</code>,
+<code>functionp</code>,
+<code>array</code>,
+<code>exp</code>,
+<code>listen</code>,
+<code>signum</code>,
+<code>atan</code>,
+<code>asin</code>,
+<code>acos</code>,
+<code>asinh</code>,
+<code>acosh</code>,
+<code>atanh</code>,
+<code>tanh</code>,
+<code>cosh</code>,
+<code>sinh</code>,
+<code>tan</code>,
+<code>break</code>,
+und <code>gcd</code>.
+</p>
+<a name="Item_003a-Program_002ede_002fnode_002fEinf_00fchrung-in-die-Programmierung"></a><hr>
+<div class="header">
+<p>
+Next: <a href="maxima_167.html#Einf_00fchrung-in-die-Programmierung" accesskey="n" rel="next">Einf&uuml;hrung in die Programmierung</a>, Previous: <a href="maxima_165.html#Programmierung" accesskey="p" rel="previous">Programmierung</a>, Nach oben: <a href="maxima_165.html#Programmierung" accesskey="u" rel="up">Programmierung</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

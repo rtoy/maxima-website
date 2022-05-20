@@ -1,37 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Dezembro, 9 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual do Maxima 5.35.0: 27. itensor</title>
+<title>Manual do Maxima 5.46.0: Definições para Expressões</title>
 
-<meta name="description" content="Manual do Maxima 5.35.0: 27. itensor">
-<meta name="keywords" content="Manual do Maxima 5.35.0: 27. itensor">
+<meta name="description" content="Manual do Maxima 5.46.0: Definições para Expressões">
+<meta name="keywords" content="Manual do Maxima 5.46.0: Definições para Expressões">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_19.html#Express_00f5es" rel="up" title="Expressões">
+<link href="maxima_28.html#Simplifica_00e7_00e3o" rel="next" title="Simplificação">
+<link href="maxima_26.html#Sintaxe" rel="previous" title="Sintaxe">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
 h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
@@ -52,2466 +62,1789 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="../figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Defini_00e7_00f5es-para-Express_00f5es"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_26.html#Sintaxe" accesskey="p" rel="previous">Sintaxe</a>, Acima: <a href="maxima_19.html#Express_00f5es" accesskey="u" rel="up">Expressões</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Definicoes-para-Expressoes"></a>
+<h3 class="section">6.8 Definições para Expressões</h3>
 
-<a name="itensor"></a>
-<a name="SEC88"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_26.html#SEC87" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC89" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_26.html#SEC86" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 27. itensor </h1>
+<a name="Item_003a-Expressions_002fdeffn_002fat"></a><dl>
+<dt><a name="index-at"></a>Função: <strong>at</strong> <em>(<var>expr</var>, [<var>eqn_1</var>, ..., <var>eqn_n</var>])</em></dt>
+<dt><a name="index-at-1"></a>Função: <strong>at</strong> <em>(<var>expr</var>, <var>eqn</var>)</em></dt>
+<dd><p>Avalia a expressão <var>expr</var> com
+as variáveis assumindo os valores como especificado para elas na lista de
+equações <code>[<var>eqn_1</var>, ..., <var>eqn_n</var>]</code> ou a equação simples <var>eqn</var>.
+</p>
+<p>Se uma subexpressão depender de qualquer das variáveis para a qual um valor foi especificado
+mas não existe <code>atvalue</code> especificado e essa subexpressão não pode ser avaliada de outra forma,
+então uma forma substantiva de <code>at</code> é retornada que mostra em uma forma bidimensional.
+</p>
+<p><code>at</code> realiza múltiplas substituições em série, não em paralelo.
+</p>
+<p>Veja também <code>atvalue</code>.
+Para outras funções que realizam substituições,
+veja também <code>subst</code> e <code>ev</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) atvalue (f(x,y), [x = 0, y = 1], a^2);
+                                2
+(%o1)                          a
+(%i2) atvalue ('diff (f(x,y), x), x = 0, 1 + y);
+(%o2)                        @2 + 1
+(%i3) printprops (all, atvalue);
+                                !
+                  d             !
+                 --- (f(@1, @2))!       = @2 + 1
+                 d@1            !
+                                !@1 = 0
 
+                                     2
+                          f(0, 1) = a
 
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC89">27.1 Introdução a itensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC92">27.2 Definições para itensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Introdu_00e7_00e3o-a-itensor"></a>
-<a name="SEC89"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC88" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC90" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 27.1 Introdução a itensor </h2>
-
-<p>Maxima implementa a manipulação de tensores simbólicos d dois tipos distintos:
-manipulação de componentes de tensores (pacote <code>ctensor</code>) e manipulação de tensores indiciais (pacote <code>itensor</code>).
-</p>
-<p>Note bem: Por favor veja a nota sobre 'nova notação de tensor' abaixo.
-</p>
-<p>Manipulação de componentes de tensores significa que objectos do tipo
-tensor geométrico são representados como arrays ou matrizes. Operações com tensores tais com
-contração ou diferenciação covariante são realizadas
-sobre índices (que ocorrem exactamente duas vezes) repetidos com declarações <code>do</code>.
-Isto é, se executa explicitamente operações sobre as componentes apropriadas do
-tensor armazenadas em um array ou uma matriz.
-</p>
-<p>Manipulação tensorial de índice é implementada através da representação
-de tensores como funções e suas covariantes, contravariantes e índices de
-derivação. Operações com tensores como contração ou diferenciação
-covariante são executadas através de manipulação dos índices em si mesmos
-em lugar das componentes para as quais eles correspondem.
-</p>
-<p>Esses dois métodos aproximam-se do tratamento de processos diferenciais, algébricos e
-analíticos no contexto da geometria de Riemannian possuem várias
-vantagens e desvantagens as quais se revelam por si mesmas somente apesar da
-natureza particular e dificuldade dos problemas de utilizador.  Todavia, se
-pode ter em mente as seguintes características das duas
-implementações:
-</p>
-<p>As representações de tensores e de operações com tensores explicitamente em
-termos de seus componntes tornam o pacote <code>ctensor</code> fácil de usar. Especificação da
-métrica e o cálculo de tensores induzidos e invariantes
-é directo. Embora todas a capacidade de simplificação poderosa do
-Maxima está em manusear, uma métrica complexa com intrincada dependência funcional
-e de coordenadas pode facilmente conduzir a expressões cujo tamanho é
-excessivo e cuja estrutura está escondida. Adicionalmente, muitos cálculos
-envolvem expressões intermédias cujo crescimento fazem com que os programas
-terminem antes de serem completados. Através da experiência, um utilizador pode evitar
-muitas dessas dificuldade.
-</p>
-<p>O motivo de caminhos especiais através dos quais tensores e operações de tensores
-são representados em termos de operações simbólicas sobre seus índices,
-expressões cujas representação de componentes podem ser
-não gerenciaveis da forma comum podem algumas vezes serem grandemente simplificadas através do uso das rotinas
-especiais para objectos simétricos em <code>itensor</code>. Nesse caminho a estrutura
-de uma expressão grande pode ser mais transparente. Por outro lado, o motivo
-da representação indicial especial em <code>itensor</code>, faz com que em alguns casos o
-utilizador possa encontrar dificuldade com a especificação da métrica, definição
-de função, e a avaliação de objectos &quot;indexados&quot; diferenciados.
-</p>
-<hr size="6">
-<a name="SEC90"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC89" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC91" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC89" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.1.1 Nova notação d tensores </h3>
-
-<p>Até agora, o pacote <code>itensor</code> no Maxima tinha usado uma notação que algumas vezes
-conduzia a ordenação incorrecta de índices. Considere o seguinte, por exemplo:
-</p>
-<pre class="example">(%i2) imetric(g);
-(%o2)                                done
-(%i3) ishow(g([],[j,k])*g([],[i,l])*a([i,j],[]))$
-                                 i l  j k
-(%t3)                           g    g    a
-                                           i j
-(%i4) ishow(contract(%))$
-                                      k l
-(%t4)                                a
-</pre>
-<p>O resultado está incorrecto a menos que ocorra ser <code>a</code> um tensor simétrico.
-A razão para isso é que embora <code>itensor</code> mantenha correctamente
-a ordem dentro do conjunto de índices covariantes e contravariantes, assim que um
-índice é incrementado ou decrementado, sua posição relativa para o outro conjunto de
-índices é perdida.
-</p>
-<p>Para evitar esse problema, uma nova notação tem sido desenvolvida que mantém total
-compatibilidade com a notação existente e pode ser usada intercambiavelmente. Nessa
-notação, índices contravariantes são inseridos na posição
-apropriada na lista de índices covariantes, mas com um sinal de menos colocado antes.
-Funções como <code>contract</code> e <code>ishow</code> estão agora consciente dessa
-nova notação de índice e podem processar tensores apropriadamente.
-</p>
-<p>Nessa nova notação, o exemplo anterior retorna um resultado correcto:
-</p>
-<pre class="example">(%i5) ishow(g([-j,-k],[])*g([-i,-l],[])*a([i,j],[]))$
-                                 i l       j k
-(%t5)                           g    a    g
-                                      i j
-(%i6) ishow(contract(%))$
-                                      l k
-(%t6)                                a
-</pre>
-<p>Presentemente, o único código que faz uso dessa notação é a função
-<code>lc2kdt</code>. Através dessa notação, a função <code>lc2kdt</code> encontra com êxito resultados consistentes como
-a aplicação do tensor métrico para resolver os símbolos de Levi-Civita sem reordenar
-para índices numéricos.
-</p>
-<p>Uma vez que esse código é um tipo novo, provavelmente contém erros. Enquanto esse tipo novo não tiver sido
-testado para garantir que ele não interrompe nada usando a &quot;antiga&quot; notação de
-tensor, existe uma considerável chance que &quot;novos&quot; tensores irão falhar em
-interoperar com certas funções ou recursos. Essas falhas serão corrigidas
-à medida que forem encontradas... até então, seja cuidadoso!
-</p>
-
-<hr size="6">
-<a name="SEC91"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC90" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC92" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC89" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.1.2 Manipulação de tensores indiciais </h3>
-
-<p>o pacote de manipulação de tensores indiciais pode ser chamado através de
-<code>load(itensor)</code>. Demonstações estão também disponíveis: tente <code>demo(tensor)</code>.
-Em <code>itensor</code> um tensor é representado como um &quot;objecto indexado&quot; .  Um &quot;objecto indexado&quot; é uma
-função de 3 grupos de índices os quais representam o covariante,
-o contravariante e o índice de derivação.  Os índices covariantes são
-especificados através de uma lista com o primeiro argumento para o objecto indexado, e
-os índices contravariantes através de uma lista como segundo argumento. Se o
-objecto indexado carece de algum desses grupos de índices então a lista
-vazia <code>[]</code> é fornecida como o argumento correspondente.  Dessa forma, <code>g([a,b],[c])</code>
-representa um objecto indexado chamado <code>g</code> o qual tem dois índices covariantes
-<code>(a,b)</code>, um índice contravariante (<code>c</code>) e não possui índices de derivação.
-</p>
-<p>Os índices de derivação, se estiverem presente, são anexados ao final como
-argumentos adicionais para a função numérica representando o tensor.
-Eles podem ser explicitamente especificado pelo utilizador ou serem criados no
-processo de diferenciação com relação a alguma variável coordenada.
-Uma vez que diferenciação ordinária é comutativa, os índices de derivação
-são ordenados alfanumericamente, a menos que <code>iframe_flag</code> seja escolhida para <code>true</code>,
-indicando que um referencial métrico está a ser usado. Essa ordenação canónica torna
-possível para Maxima reconhecer que, por exemplo, <code>t([a],[b],i,j)</code> é
-o mesmo que <code>t([a],[b],j,i)</code>.  Diferenciação de um objecto indexado com
-relação a alguma coordenada cujos índices não aparecem como um argumento
-para o objecto indexado podem normalmente retornar zero. Isso é porque
-Maxima pode não saber que o tensor representado através do objecto
-indexado possívelmente depende implicitamente da respectiva coordenada.  Pela
-modificação da função existente no Maxima, <code>diff</code>,  em <code>itensor</code>, Maxima sabe
-assumir que todos os objectos indexados dependem de qualquer variável de
-diferenciação a menos que seja declarado de outra forma.  Isso torna possível para
-a convençào de somatório ser extendida para índices derivativos. Pode
-ser verificado que <code>itensor</code> não possui a compatibilidade de
-incrementar índices derivativos, e então eles são sempre tratados como
-covariantes.
-</p>
-<p>As seguintes funções estão disponíveis no pacote tensor para
-manipulação de objectos.  Actualmente, com relação às
-rotinas de simplificação, é assumido que objectos indexados não
-possuem por padrão propriedades simétricas. Isso pode ser modificado através
-da escolha da variável <code>allsym[false]</code> para <code>true</code>, o que irá
-resultar no tratamento de todos os objectos indexados completamente simétricos em suas
-listas de índices covariantes e simétricos em suas listas de
-índices contravariantes.
-</p>
-<p>O pacote <code>itensor</code> geralmente trata tensores como objectos opacos. Equações
-tensoriais são manipuladas baseadas em regras algébricas, especificamente simetria
-e regras de contração. Adicionalmente, o pacote <code>itensor</code> não entende
-diferenciação covariante, curvatura, e torsão. Cálculos podem ser
-executados relativamente a um métrica de referenciais de movimento, dependendo da escolha para
-a variável <code>iframe_flag</code>.
-</p>
-<p>Uma sessão demonstrativa abaixo mostra como chamar o pacote <code>itensor</code>,
-especificando o nome da métrica, e executando alguns cálculos simples.
-</p>
-<pre class="example">(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) imetric(g);
-(%o2)                                done
-(%i3) components(g([i,j],[]),p([i,j],[])*e([],[]))$
-(%i4) ishow(g([k,l],[]))$
-(%t4)                               e p
-                                       k l
-(%i5) ishow(diff(v([i],[]),t))$
-(%t5)                                  0
-(%i6) depends(v,t);
-(%o6)                               [v(t)]
-(%i7) ishow(diff(v([i],[]),t))$
-                                    d
-(%t7)                               -- (v )
-                                    dt   i
-(%i8) ishow(idiff(v([i],[]),j))$
-(%t8)                                v
-                                      i,j
-(%i9) ishow(extdiff(v([i],[]),j))$
-(%t9)                             v    - v
-                                   j,i    i,j
-                                  -----------
-                                       2
-(%i10) ishow(liediff(v,w([i],[])))$
-                               %3          %3
-(%t10)                        v   w     + v   w
-                                   i,%3    ,i  %3
-(%i11) ishow(covdiff(v([i],[]),j))$
-                                              %4
-(%t11)                        v    - v   ichr2
-                               i,j    %4      i j
-(%i12) ishow(ev(%,ichr2))$
-               %4 %5
-(%t12) v    - g      v   (e p       + e   p     - e p       - e    p
-        i,j           %4     j %5,i    ,i  j %5      i j,%5    ,%5  i j
-
-                                                + e p       + e   p    )/2
-                                                     i %5,j    ,j  i %5
-(%i13) iframe_flag:true;
-(%o13)                               true
-(%i14) ishow(covdiff(v([i],[]),j))$
-                                             %6
-(%t14)                        v    - v   icc2
-                               i,j    %6     i j
-(%i15) ishow(ev(%,icc2))$
-                                             %6
-(%t15)                        v    - v   ifc2
-                               i,j    %6     i j
-(%i16) ishow(radcan(ev(%,ifc2,ifc1)))$
-             %6 %8                    %6 %8
-(%t16) - (ifg      v   ifb       + ifg      v   ifb       - 2 v
-                    %6    j %8 i             %6    i j %8      i,j
-
-                                                    %6 %8
-                                               - ifg      v   ifb      )/2
-                                                           %6    %8 i j
-(%i17) ishow(canform(s([i,j],[])-s([j,i])))$
-(%t17)                            s    - s
-                                   i j    j i
-(%i18) decsym(s,2,0,[sym(all)],[]);
-(%o18)                               done
-(%i19) ishow(canform(s([i,j],[])-s([j,i])))$
-(%t19)                                 0
-(%i20) ishow(canform(a([i,j],[])+a([j,i])))$
-(%t20)                            a    + a
-                                   j i    i j
-(%i21) decsym(a,2,0,[anti(all)],[]);
-(%o21)                               done
-(%i22) ishow(canform(a([i,j],[])+a([j,i])))$
-(%t22)                                 0
-</pre>
-
-
-
-<hr size="6">
-<a name="Defini_00e7_00f5es-para-itensor"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC91" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC93" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-
-<a name="SEC92"></a>
-<h2 class="section"> 27.2 Definições para itensor </h2>
-<hr size="6">
-<a name="SEC93"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC92" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC94" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC92" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.2.1 Gerenciando objectos indexados </h3>
-
-<dl>
-<dt><u>Função:</u> <b>entertensor</b><i> (<var>nome</var>)</i>
-<a name="IDX846"></a>
-</dt>
-<dd><p>É uma função que, através da linha de comando, permite criar um objecto
-indexado chamado <var>nome</var> com qualquer número de índices de tensores e
-derivativos. Ou um índice simples ou uma lista de índices (às quais podem ser
-nulas) são entradas aceitáveis (veja o exemplo sob <code>covdiff</code>).
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>changename</b><i> (<var>antigo</var>, <var>novo</var>, <var>expr</var>)</i>
-<a name="IDX847"></a>
-</dt>
-<dd><p>Irá mudar o nome de todos os objectos indexados chamados <var>antigo</var> para <var>novo</var>
-em <var>expr</var>. <var>antigo</var> pode ser ou um símbolo ou uma lista da forma
-<code>[<var>nome</var>, <var>m</var>, <var>n</var>]</code> nesse caso somente esses objectos indexados chamados
-<var>nome</var> com índice covariante <var>m</var> e índice contravariante <var>n</var> serão
-renomeados para <var>novo</var>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>listoftens</b>
-<a name="IDX848"></a>
-</dt>
-<dd><p>Lista todos os tensores em uma expressão tensorial, incluindo seus índices. E.g.,
-</p>
-<pre class="example">
-(%i6) ishow(a([i,j],[k])*b([u],[],v)+c([x,y],[])*d([],[])*e)$
-                                         k
-(%t6)                        d e c    + a    b
-                                  x y    i j  u,v
-(%i7) ishow(listoftens(%))$
-                               k
-(%t7)                        [a   , b   , c   , d]
-                               i j   u,v   x y
-
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>ishow</b><i> (<var>expr</var>)</i>
-<a name="IDX849"></a>
-</dt>
-<dd><p>Mostra <var>expr</var> com os objectos indexados tendo seus
-índices covariantes como subscritos e índices contravariantes como
-sobrescritos.  Os índices derivativos são mostrados como subscritos,
-separados dos índices covariantes por uma vírgula (veja os exemplos
-através desse documento).
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>indices</b><i> (<var>expr</var>)</i>
-<a name="IDX850"></a>
-</dt>
-<dd><p>Retorna uma lista de dois elementos.  O primeiro é uma lista de índices
-livres em <var>expr</var> (aqueles que ocorrem somente uma vez). O segundo é uma
-lista de indices que ocorrem exactamente duas vezes em <var>expr</var> (dummy)
-como demonstra o seguinte exemplo.
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) ishow(a([i,j],[k,l],m,n)*b([k,o],[j,m,p],q,r))$
-                                k l      j m p
-(%t2)                          a        b
-                                i j,m n  k o,q r
-(%i3) indices(%);
-(%o3)                 [[l, p, i, n, o, q, r], [k, j, m]]
-
-</pre>
-<p>Um produto de tensores contendo o mesmo índice mais que duas vezes é sintaticamente
-ilegal. <code>indices</code> tenta lidar com essas expressões de uma
-forma razoável; todavia, quando <code>indices</code> é chamada para operar sobre tal uma
-expressão ilegal, seu comportamento pode ser considerado indefinido.
-</p>
+(%o3)                         done
+(%i4) diff (4*f(x, y)^2 - u(x, y)^2, x);
+                  d                          d
+(%o4)  8 f(x, y) (-- (f(x, y))) - 2 u(x, y) (-- (u(x, y)))
+                  dx                         dx
+(%i5) at (%, [x = 0, y = 1]);
+                                         !
+              2              d           !
+(%o5)     16 a  - 2 u(0, 1) (-- (u(x, y))!            )
+                             dx          !
+                                         !x = 0, y = 1
+</pre></div>
 
 </dd></dl>
 
-<dl>
-<dt><u>Função:</u> <b>rename</b><i> (<var>expr</var>)</i>
-<a name="IDX851"></a>
-</dt>
-<dt><u>Função:</u> <b>rename</b><i> (<var>expr</var>, <var>contador</var>)</i>
-<a name="IDX852"></a>
-</dt>
-<dd><p>Retorna uma expressão equivalente para <var>expr</var> mas com índices que ocorrem exactamente duas vezes
-em cada termo alterado do conjunto <code>[%1, %2,...]</code>, se o segundo argumento
-opcional for omitido. De outra forma, os índices que ocorrem exactamente duas vezes são indexados
-começando no valor de <var>contador</var>.  Cada índice que ocorre exactamente duas vezes em um produto
-será diferente. Para uma adição, <code>rename</code> irá operar sobre cada termo na
-a adição zerando o contador com cada termo. Nesse caminho <code>rename</code> pode
-servir como um simplificador tensorial. Adicionalmente, os índices serão
-ordenados alfanumericamente (se <code>allsym</code> for <code>true</code>) com relação a
-índices covariantes ou contravariantes dependendo do valor de <code>flipflag</code>.
-Se <code>flipflag</code> for <code>false</code> então os índices serão renomeados conforme
-a ordem dos índices contravariantes. Se <code>flipflag</code> for <code>true</code>
-a renomeação ocorrerá conforme a ordem dos índices
-covariantes. Isso muitas vezes ajuda que o efeito combinado dos dois restantes sejam
-reduzidos a uma expressão de valor um ou mais que um por si mesma.
+<a name="Item_003a-Expressions_002fdeffn_002fbox"></a><dl>
+<dt><a name="index-box"></a>Função: <strong>box</strong> <em>(<var>expr</var>)</em></dt>
+<dt><a name="index-box-1"></a>Função: <strong>box</strong> <em>(<var>expr</var>, <var>a</var>)</em></dt>
+<dd><p>Retorna <var>expr</var> dentro de uma caixa.
+O valor de retorno é uma expressão com <code>box</code> como o operador e <var>expr</var> como o argumento.
+Uma caixa é desenhada sobre a tela quando <code>display2d</code> for <code>true</code>.
 </p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) allsym:true;
+<p><code>box (<var>expr</var>, <var>a</var>)</code>
+Empacota <var>expr</var> em uma caixa rotulada pelo símbolo <var>a</var>.
+O rótulo é truncado se for maior que a largura da caixa.
+</p>
+<p><code>box</code> avalia seu argumento.
+Todavia, uma expressão dentro de uma caixa não avalia para seu conteúdo,
+então expressões dentro de caixas são efectivamente excluídas de cálculos.
+</p>
+<p><code>boxchar</code> é o caractere usado para desenhar a caixa em <code>box</code>
+e nas funções <code>dpart</code> e <code>lpart</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) box (a^2 + b^2);
+                            &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+                            &quot; 2    2&quot;
+(%o1)                       &quot;b  + a &quot;
+                            &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+(%i2) a : 1234;
+(%o2)                         1234
+(%i3) b : c - d;
+(%o3)                         c - d
+(%i4) box (a^2 + b^2);
+                      &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+                      &quot;       2          &quot;
+(%o4)                 &quot;(c - d)  + 1522756&quot;
+                      &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+(%i5) box (a^2 + b^2, term_1);
+                      term_1&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+                      &quot;       2          &quot;
+(%o5)                 &quot;(c - d)  + 1522756&quot;
+                      &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+(%i6) 1729 - box (1729);
+                                 &quot;&quot;&quot;&quot;&quot;&quot;
+(%o6)                     1729 - &quot;1729&quot;
+                                 &quot;&quot;&quot;&quot;&quot;&quot;
+(%i7) boxchar: &quot;-&quot;;
+(%o7)                           -
+(%i8) box (sin(x) + cos(y));
+                        -----------------
+(%o8)                   -cos(y) + sin(x)-
+                        -----------------
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdefvr_002fboxchar"></a><dl>
+<dt><a name="index-boxchar"></a>Variável de opção: <strong>boxchar</strong></dt>
+<dd><p>Valor por omissão: <code>&quot;</code>
+</p>
+<p><code>boxchar</code> é o caractere usado para desenhar a caixa por <code>box</code>
+e nas funções <code>dpart</code> e <code>lpart</code>.
+</p>
+<p>Todas as caixas em uma expressão são desenhadas com o valor actual
+de <code>boxchar</code>; o caractere de desenho não é armazenado com a
+expressão de caixa. Isso quer dizer que se desenhar uma caixa e em
+seguida mudar o caracter de desenho a caixa anteriormente desenhada
+será redesenhada com o caracter mudado caso isso seja solicitado.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fcarg"></a><dl>
+<dt><a name="index-carg"></a>Função: <strong>carg</strong> <em>(<var>z</var>)</em></dt>
+<dd><p>Retorna o argumento complexo de <var>z</var>.
+O argumento complexo é um ângulo <code>theta</code> no intervalo de <code>(-%pi, %pi]</code>
+tal que <code>r exp (theta %i) = <var>z</var></code> onde <code>r</code> é o módulo de <var>z</var>.
+</p>
+<p><code>carg</code> é uma função computacional,
+não uma função de simplificação.
+</p>
+<p><code>carg</code> ignora a declaração <code>declare (<var>x</var>, complex)</code>,
+e trata <var>x</var> como uma variável real.
+Isso é um erro. </p>
+<p>Veja também <code>abs</code> (módulo de número complexo), <code>polarform</code>, <code>rectform</code>,
+<code>realpart</code>, e <code>imagpart</code>.
+</p>
+<p>Exemplos:
+</p>
+
+<div class="example">
+<pre class="example">(%i1) carg (1);
+(%o1)                           0
+(%i2) carg (1 + %i);
+                               %pi
+(%o2)                          ---
+                                4
+(%i3) carg (exp (%i));
+(%o3)                           1
+(%i4) carg (exp (%pi * %i));
+(%o4)                          %pi
+(%i5) carg (exp (3/2 * %pi * %i));
+                                %pi
+(%o5)                         - ---
+                                 2
+(%i6) carg (17 * exp (2 * %i));
+(%o6)                           2
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fconstant"></a><dl>
+<dt><a name="index-constant"></a>Opereador especial: <strong>constant</strong></dt>
+<dd><p><code>declare (<var>a</var>, constant)</code> declara <var>a</var> para ser uma constante.
+Veja <code>declare</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fconstantp"></a><dl>
+<dt><a name="index-constantp"></a>Função: <strong>constantp</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna <code>true</code> se <var>expr</var> for uma expressão constante,
+de outra forma retorna <code>false</code>.
+</p>
+<p>Uma expressão é considerada uma expressão constante se seus argumentos forem
+números (incluindo números racionais, como mostrado com <code>/R/</code>),
+constantes simbólicas como <code>%pi</code>, <code>%e</code>, e <code>%i</code>,
+variáveis associadas a uma constante ou constante declarada através de <code>declare</code>,
+ou funções cujos argumentos forem constantes.
+</p>
+<p><code>constantp</code> avalia seus argumentos.
+</p>
+<p>Exemplos:
+</p>
+
+<div class="example">
+<pre class="example">(%i1) constantp (7 * sin(2));
+(%o1)                                true
+(%i2) constantp (rat (17/29));
 (%o2)                                true
-(%i3) g([],[%4,%5])*g([],[%6,%7])*ichr2([%1,%4],[%3])*
-ichr2([%2,%3],[u])*ichr2([%5,%6],[%1])*ichr2([%7,r],[%2])-
-g([],[%4,%5])*g([],[%6,%7])*ichr2([%1,%2],[u])*
-ichr2([%3,%5],[%1])*ichr2([%4,%6],[%3])*ichr2([%7,r],[%2]),noeval$
-(%i4) expr:ishow(%)$
-
-       %4 %5  %6 %7      %3         u          %1         %2
-(%t4) g      g      ichr2      ichr2      ichr2      ichr2
-                         %1 %4      %2 %3      %5 %6      %7 r
-
-              %4 %5  %6 %7      u          %1         %3         %2
-           - g      g      ichr2      ichr2      ichr2      ichr2
-                                %1 %2      %3 %5      %4 %6      %7 r
-(%i5) flipflag:true;
-(%o5)                                true
-(%i6) ishow(rename(expr))$
-       %2 %5  %6 %7      %4         u          %1         %3
-(%t6) g      g      ichr2      ichr2      ichr2      ichr2
-                         %1 %2      %3 %4      %5 %6      %7 r
-
-              %4 %5  %6 %7      u          %1         %3         %2
-           - g      g      ichr2      ichr2      ichr2      ichr2
-                                %1 %2      %3 %4      %5 %6      %7 r
-(%i7) flipflag:false;
-(%o7)                                false
-(%i8) rename(%th(2));
-(%o8)                                  0
-(%i9) ishow(rename(expr))$
-       %1 %2  %3 %4      %5         %6         %7        u
-(%t9) g      g      ichr2      ichr2      ichr2     ichr2
-                         %1 %6      %2 %3      %4 r      %5 %7
-
-              %1 %2  %3 %4      %6         %5         %7        u
-           - g      g      ichr2      ichr2      ichr2     ichr2
-                                %1 %3      %2 %6      %4 r      %5 %7
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Variável de Opção:</u> <b>flipflag</b>
-<a name="IDX853"></a>
-</dt>
-<dd><p>Valor por omissão: <code>false</code>. Se <code>false</code> então os índices irão ser
-renomeados conforme a ordem dos índices contravariantes,
-de outra forma serão ordenados conforme a ordem dos índices covariantes.
-</p>
-<p>Se <code>flipflag</code> for <code>false</code> então <code>rename</code> forma uma lista
-de índices contravariantes na ordem em que forem encontrados da esquerda para a direita
-(se <code>true</code> então de índices contravariantes). O primeiro índice
-que ocorre exactamente duas vezes na lista é renomeado para <code>%1</code>, o seguinte para <code>%2</code>, etc.
-Então a ordenação ocorre após a ocorrência do <code>rename</code> (veja o exemplo
-sob <code>rename</code>).
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>defcon</b><i> (<var>tensor_1</var>)</i>
-<a name="IDX854"></a>
-</dt>
-<dt><u>Função:</u> <b>defcon</b><i> (<var>tensor_1</var>, <var>tensor_2</var>, <var>tensor_3</var>)</i>
-<a name="IDX855"></a>
-</dt>
-<dd><p>Dado <var>tensor_1</var> a propriedade que a
-contração de um produto do <var>tensor_1</var> e do <var>tensor_2</var> resulta em <var>tensor_3</var>
-com os índices apropriados.  Se somente um argumento, <var>tensor_1</var>, for
-dado, então a contração do produto de <var>tensor_1</var> com qualquer objecto
-indexado tendo os índices apropriados (digamos <code>my_tensor</code>) irá retornar como resultado um
-objecto indexado com aquele nome, i.e. <code>my_tensor</code>, e com uma nova escolha de
-índices refletindo as contrações executadas.
-Por exemplo, se <code>imetric:g</code>, então <code>defcon(g)</code> irá implementar o
-incremento e decremento de índices através da contração com o tensor
-métrico.
-Mais de uma <code>defcon</code> pode ser dada para o mesmo objecto indexado; o
-último  fornecido que for aplicado a uma contração particular será
-usado.
-<code>contractions</code> é uma lista de objectos indexados que tenham fornecido
-propriedades de contrações com <code>defcon</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>remcon</b><i> (<var>tensor_1</var>, ..., <var>tensor_n</var>)</i>
-<a name="IDX856"></a>
-</dt>
-<dt><u>Função:</u> <b>remcon</b><i> (all)</i>
-<a name="IDX857"></a>
-</dt>
-<dd><p>Remove todas as propriedades de contração
-de <var>tensor_1</var>, ..., <var>tensor_n</var>). <code>remcon(all)</code> remove todas as propriedades de
-contração de todos os objectos indexados.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>contract</b><i> (<var>expr</var>)</i>
-<a name="IDX858"></a>
-</dt>
-<dd><p>Realiza contrações tensoriais em <var>expr</var> a qual pode ser qualquer
-combinação de adições e produtos. Essa função usa a informação
-dada para a função <code>defcon</code>. Para melhores resultados, <code>expr</code>
-pode ser completamente expandida. <code>ratexpand</code> é o meio mais rápido para expandir
-produtos e expoentes de adições se não existirem variáveis nos denominadores
-dos termos. O comutador <code>gcd</code> pode ser <code>false</code> se cancelamentos de
-máximo divisor comum forem desnecessários.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>indexed_tensor</b><i> (<var>tensor</var>)</i>
-<a name="IDX859"></a>
-</dt>
-<dd><p>Deve ser executada antes de atribuir componentes para um <var>tensor</var> para o qual
-um valor interno já existe como com <code>ichr1</code>, <code>ichr2</code>,
-<code>icurvature</code>. Veja o exemplo sob <code>icurvature</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>components</b><i> (<var>tensor</var>, <var>expr</var>)</i>
-<a name="IDX860"></a>
-</dt>
-<dd><p>Permite que se atribua um valor indicial a uma expressão
-<var>expr</var> dando os valores das componentes do <var>tensor</var>. Esses
-são automaticamente substituídos para o tensor mesmo que isso ocorra com
-todos os seus índices. O tensor deve ser da forma <code>t([...],[...])</code>
-onde qualquer lista pode ser vazia. <var>expr</var> pode ser qualquer expressão indexada
-envolvendo outros objectos com os mesmos índices livres que <var>tensor</var>. Quando
-usada para atribuir valores a um tensor métrico no qual as componentes
-possuem índices que ocorrem exactamente duas vezes se deve ser cuidadoso para definir esses índices de forma a
-evitar a geração de índices que ocorrem exactamente duas vezes e que são múltiplos. a remoção dessas
-atribuições é dada para a função <code>remcomps</code>.
-</p>
-<p>É importante ter em mente que <code>components</code> cuida somente da
-valência de um tensor, e que ignora completamente qualquer ordenação particular de índices. Dessa forma
-atribuindo componentes a, digamos, <code>x([i,-j],[])</code>, <code>x([-j,i],[])</code>, ou
-<code>x([i],[j])</code> todas essas atribuições produzem o mesmo resultado, a saber componentes sendo
-atribuidas a um tensor chamado <code>x</code> com valência <code>(1,1)</code>.
-</p>
-<p>Componentes podem ser atribuidas a uma expressão indexada por quatro caminhos, dois
-dos quais envolvem o uso do comando <code>components</code>:
-</p>
-<p>1) Como uma expressão indexada. Por exemplo:
-</p>
-<pre class="example">
-(%i2) components(g([],[i,j]),e([],[i])*p([],[j]))$
-(%i3) ishow(g([],[i,j]))$
-                                      i  j
-(%t3)                                e  p
-
-</pre>
-<p>2) Como uma matriz:
-</p>
-<pre class="example">
-(%i6) components(g([i,j],[]),lg);
-(%o6)                                done
-(%i7) ishow(g([i,j],[]))$
-(%t7)                                g
-                                      i j
-(%i8) g([3,3],[]);
-(%o8)                                  1
-(%i9) g([4,4],[]);
-(%o9)                                 - 1
-
-</pre>
-<p>3) Como uma função. Pode usar uma função Maxima para especificar as
-componentes de um tensor baseado nesses índices. Por exemplo, os seguintes
-códigos atribuem <code>kdelta</code> a <code>h</code> se <code>h</code> tiver o mesmo número de
-índices covariantes e índices contravariantes e nenhum índice derivativo, e
-atribui <code>kdelta</code> a <code>g</code> caso as condições anteriores não sejam atendidas:
-</p>
-<pre class="example">
-(%i4) h(l1,l2,[l3]):=if length(l1)=length(l2) and length(l3)=0
-  then kdelta(l1,l2) else apply(g,append([l1,l2], l3))$
-(%i5) ishow(h([i],[j]))$
-                                          j
-(%t5)                               kdelta
-                                          i
-(%i6) ishow(h([i,j],[k],l))$
-                                     k
-(%t6)                               g
-                                     i j,l
-
-</pre>
-<p>4) Usando a compatibilidade dos modelos de coincidência do Maxima, especificamente os
-comandos <code>defrule</code> e <code>applyb1</code>:
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) matchdeclare(l1,listp);
-(%o2)                                done
-(%i3) defrule(r1,m(l1,[]),(i1:idummy(),
-      g([l1[1],l1[2]],[])*q([i1],[])*e([],[i1])))$
-
-(%i4) defrule(r2,m([],l1),(i1:idummy(),
-      w([],[l1[1],l1[2]])*e([i1],[])*q([],[i1])))$
-
-(%i5) ishow(m([i,n],[])*m([],[i,m]))$
-                                    i m
-(%t5)                              m    m
-                                         i n
-(%i6) ishow(rename(applyb1(%,r1,r2)))$
-                           %1  %2  %3 m
-(%t6)                     e   q   w     q   e   g
-                                         %1  %2  %3 n
-
-
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>remcomps</b><i> (<var>tensor</var>)</i>
-<a name="IDX861"></a>
-</dt>
-<dd><p>Desassocia todos os valores de <var>tensor</var> que foram atribuídos com a
-função <code>components</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>showcomps</b><i> (<var>tensor</var>)</i>
-<a name="IDX862"></a>
-</dt>
-<dd><p>Mostra atribuições de componentes de um tensor, feitas usando o comando
-<code>components</code>. Essa função pode ser particularmente útil quando uma matriz é atribuída
-a um tensor indicial usando <code>components</code>, como demonstrado através do
-seguinte exemplo:
-</p>
-<pre class="example">
-(%i1) load(ctensor);
-(%o1)       /share/tensor/ctensor.mac
-(%i2) load(itensor);
-(%o2)      /share/tensor/itensor.lisp
-(%i3) lg:matrix([sqrt(r/(r-2*m)),0,0,0],[0,r,0,0],
-                [0,0,sin(theta)*r,0],[0,0,0,sqrt((r-2*m)/r)]);
-               [         r                                     ]
-               [ sqrt(-------)  0       0              0       ]
-               [      r - 2 m                                  ]
-               [                                               ]
-               [       0        r       0              0       ]
-(%o3)          [                                               ]
-               [       0        0  r sin(theta)        0       ]
-               [                                               ]
-               [                                      r - 2 m  ]
-               [       0        0       0        sqrt(-------) ]
-               [                                         r     ]
-(%i4) components(g([i,j],[]),lg);
-(%o4)                                done
-(%i5) showcomps(g([i,j],[]));
-                  [         r                                     ]
-                  [ sqrt(-------)  0       0              0       ]
-                  [      r - 2 m                                  ]
-                  [                                               ]
-                  [       0        r       0              0       ]
-(%t5)      g    = [                                               ]
-            i j   [       0        0  r sin(theta)        0       ]
-                  [                                               ]
-                  [                                      r - 2 m  ]
-                  [       0        0       0        sqrt(-------) ]
-                  [                                         r     ]
-(%o5)                                false
-
-</pre>
-<p>O comando <code>showcomps</code> pode também mostrar componentes de um tensor de
-categoria maior que 2.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>idummy</b><i> ()</i>
-<a name="IDX863"></a>
-</dt>
-<dd><p>Incrementos <code>icounter</code> e retorno como seu valor um índice da forma
-<code>%n</code> onde n é um inteiro positivo.  Isso garante que índices que ocorrem exactamente duas vezes
-e que são necessários na formação de expressões não irão conflitar com índices
-que já estiverem sendo usados (veja o exemplo sob <code>indices</code>).
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variável de opção:</u> <b>idummyx</b>
-<a name="IDX864"></a>
-</dt>
-<dd><p>Valor por omissão: <code>%</code>
-</p>
-<p>É o prefixo para índices que ocorrem exactamente duas vezes (veja o exemplo sob índices <code>indices</code>).
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variável de Opção:</u> <b>icounter</b>
-<a name="IDX865"></a>
-</dt>
-<dd><p>Valor por omissão: <code>1</code>
-</p>
-<p>Determina o sufixo numérico a ser usado na
-geração do próximo índice que ocorre exactamente duas vezes no pacote tensor.  O prefixo é
-determinado através da opção <code>idummy</code> (padrão: <code>%</code>).
-</p></dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>kdelta</b><i> (<var>L1</var>, <var>L2</var>)</i>
-<a name="IDX866"></a>
-</dt>
-<dd><p>é a função delta generalizada de Kronecker definida no
-pacote <code>itensor</code> com <var>L1</var> a lista de índices covariantes e <var>L2</var>
-a lista de índices contravariantes.  <code>kdelta([i],[j])</code> retorna o delta de
-Kronecker comum.  O comando <code>ev(<var>expr</var>,kdelta)</code> faz com que a avaliação de
-uma expressão contendo <code>kdelta([],[])</code> se dê para a dimensão de
-multiplicação.
-</p>
-<p>No que conduzir a um abuso dessa notação, <code>itensor</code> também permite
-<code>kdelta</code> ter 2 covariantes e nenhum contravariante, ou 2 contravariantes
-e nenhum índice covariante, com efeito fornecendo uma compatibilidade para &quot;matriz unitária&quot; covariante ou
-contravariante. Isso é estritamente considerado um recurso de programação e não significa
-implicar que <code>kdelta([i,j],[])</code> seja um objecto tensorial válido.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>kdels</b><i> (<var>L1</var>, <var>L2</var>)</i>
-<a name="IDX867"></a>
-</dt>
-<dd><p>Delta de Kronecker simetrizado, usado em alguns cálculos. Por exemplo:
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) kdelta([1,2],[2,1]);
-(%o2)                                 - 1
-(%i3) kdels([1,2],[2,1]);
-(%o3)                                  1
-(%i4) ishow(kdelta([a,b],[c,d]))$
-                             c       d         d       c
-(%t4)                  kdelta  kdelta  - kdelta  kdelta
-                             a       b         a       b
-(%i4) ishow(kdels([a,b],[c,d]))$
-                             c       d         d       c
-(%t4)                  kdelta  kdelta  + kdelta  kdelta
-                             a       b         a       b
-
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>levi_civita</b><i> (<var>L</var>)</i>
-<a name="IDX868"></a>
-</dt>
-<dd><p>é o tensor de permutação (ou de Levi-Civita) que retorna 1 se
-a lista <var>L</var> consistir de uma permutação par de inteiros, -1 se isso
-consistir de uma permutação ímpar, e 0 se alguns índices em <var>L</var> forem
-repetidos.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>lc2kdt</b><i> (<var>expr</var>)</i>
-<a name="IDX869"></a>
-</dt>
-<dd><p>Simplifica expressões contendo os símbolos de Levi-Civita, convertendo esses
-para expressões delta de Kronecker quando possível. A principal diferença entre
-essa função e simplesmente avaliar os simbolos de Levi-Civita é que a avaliação
-directa muitas vezes resulta em expressões Kronecker contendo índices
-numéricos. Isso é muitas vezes indesejável como na prevenção de simplificação adicional.
-A função <code>lc2kdt</code> evita esse problema, retornando expressões que
-são mais facilmente simplificadas com <code>rename</code> ou <code>contract</code>.
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) expr:ishow('levi_civita([],[i,j])*'levi_civita([k,l],[])*a([j],[k]))$
-                                  i j  k
-(%t2)                  levi_civita    a  levi_civita
-                                       j            k l
-(%i3) ishow(ev(expr,levi_civita))$
-                                  i j  k       1 2
-(%t3)                       kdelta    a  kdelta
-                                  1 2  j       k l
-(%i4) ishow(ev(%,kdelta))$
-             i       j         j       i   k
-(%t4) (kdelta  kdelta  - kdelta  kdelta ) a
-             1       2         1       2   j
-
-                               1       2         2       1
-                        (kdelta  kdelta  - kdelta  kdelta )
-                               k       l         k       l
-(%i5) ishow(lc2kdt(expr))$
-                     k       i       j    k       j       i
-(%t5)               a  kdelta  kdelta  - a  kdelta  kdelta
-                     j       k       l    j       k       l
-(%i6) ishow(contract(expand(%)))$
-                                 i           i
-(%t6)                           a  - a kdelta
-                                 l           l
-
-</pre>
-<p>A função <code>lc2kdt</code> algumas vezes faz uso de tensores métricos.
-Se o tensor métrico não tiver sido definido previamente com <code>imetric</code>,
-isso resulta em um erro.
-</p>
-<pre class="example">
-(%i7) expr:ishow('levi_civita([],[i,j])*'levi_civita([],[k,l])*a([j,k],[]))$
-                                 i j            k l
-(%t7)                 levi_civita    levi_civita    a
-                                                     j k
-(%i8) ishow(lc2kdt(expr))$
-Maxima encountered a Lisp error:
-
- Error in $IMETRIC [or a callee]:
- $IMETRIC [or a callee] requires less than two arguments.
-
-Automatically continuing.
-To reenable the Lisp debugger set *debugger-hook* to nil.
-(%i9) imetric(g);
-(%o9)                                done
-(%i10) ishow(lc2kdt(expr))$
-         %3 i       k   %4 j       l     %3 i       l   %4 j       k
-(%t10) (g     kdelta   g     kdelta   - g     kdelta   g     kdelta  ) a
-                    %3             %4               %3             %4   j k
-(%i11) ishow(contract(expand(%)))$
-                                  l i      l i
-(%t11)                           a    - a g
-
-</pre>
-
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>lc_l</b>
-<a name="IDX870"></a>
-</dt>
-<dd><p>Regra de simplificação usada para expressões contendo símbolos não avaliados de
-Levi-Civita (<code>levi_civita</code>). Juntamente com <code>lc_u</code>, pode ser usada para simplificar
-muitas expressões mais eficientemente que a avaliação de <code>levi_civita</code>.
-Por exemplo:
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2)  el1:ishow('levi_civita([i,j,k],[])*a([],[i])*a([],[j]))$
-                             i  j
-(%t2)                       a  a  levi_civita
-                                             i j k
-(%i3) el2:ishow('levi_civita([],[i,j,k])*a([i])*a([j]))$
-                                       i j k
-(%t3)                       levi_civita      a  a
-                                              i  j
-(%i4) ishow(canform(contract(expand(applyb1(el1,lc_l,lc_u)))))$
-(%t4)                                  0
-(%i5) ishow(canform(contract(expand(applyb1(el2,lc_l,lc_u)))))$
-(%t5)                                  0
-
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>lc_u</b>
-<a name="IDX871"></a>
-</dt>
-<dd><p>Regra de simplificação usada para expressões contendo símbolos não avaliados de
-Levi-Civita (<code>levi_civita</code>). Juntamente com <code>lc_u</code>, pode ser usada para simplificar
-muitas expressões mais eficientemente que a avaliação de <code>levi_civita</code>.
-Para detalhes, veja <code>lc_l</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>canten</b><i> (<var>expr</var>)</i>
-<a name="IDX872"></a>
-</dt>
-<dd><p>Simplifica <var>expr</var> por renomeação (veja <code>rename</code>)
-e permutando índices que ocorrem exactamente duas vezes. <code>rename</code> é restrito a adições de produto
-de tensores nos quais nenhum índice derivativo estiver presente. Como tal isso é limitado
-e pode somente ser usado se <code>canform</code> não for capaz de realizar a
-simplificação requerida.
-</p>
-<p>A função <code>canten</code> retorna um resultado matematicamente correcto somente
-se seu argumento for uma expressão que é completamente simétrica em seus índices.
-Por essa razão, <code>canten</code> retorna um erro se <code>allsym</code> não for
-posicionada em <code>true</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>concan</b><i> (<var>expr</var>)</i>
-<a name="IDX873"></a>
-</dt>
-<dd><p>Similar a <code>canten</code> mas também executa contração de índices.
-</p>
-</dd></dl>
-
-<hr size="6">
-<a name="SEC94"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC93" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC95" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC92" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.2.2 Simetrias de tensores </h3>
-
-<dl>
-<dt><u>Variável de Opção:</u> <b>allsym</b>
-<a name="IDX874"></a>
-</dt>
-<dd><p>Valor por omissão: <code>false</code>. Se <code>true</code> então todos os objectos indexados
-são assumidos simétricos em todos os seus índices covariantes e
-contravariantes. Se <code>false</code> então nenhum simétrico de qualquer tipo é assumidos
-nesses índices. Índices derivativos são sempre tomados para serem simétricos
-a menos que <code>iframe_flag</code> seja escolhida para <code>true</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>decsym</b><i> (<var>tensor</var>, <var>m</var>, <var>n</var>, [<var>cov_1</var>, <var>cov_2</var>, ...], [<var>contr_1</var>, <var>contr_2</var>, ...])</i>
-<a name="IDX875"></a>
-</dt>
-<dd><p>Declara propriedades de simetria para <var>tensor</var> de covariante <var>m</var> e
-<var>n</var> índices contravariantes. As <var>cov_i</var> e <var>contr_i</var> são
-pseudofunções expressando relações de simetrias em meio a índices covariante e
-índices contravariantes respectivamente.  Esses são da forma
-<code>symoper(<var>index_1</var>, <var>index_2</var>,...)</code> onde <code>symoper</code> é um entre
-<code>sym</code>, <code>anti</code> ou <code>cyc</code> e os <var>index_i</var> são inteiros
-indicando a posição do índice no <var>tensor</var>.  Isso irá
-declarar <var>tensor</var> para ser simétrico, antisimétrico ou cíclico respectivamente
-nos <var>index_i</var>. <code>symoper(all)</code> é também forma permitida que
-indica todos os índices obedecem à condição de simetria. Por exemplo, dado um
-objecto <code>b</code> com 5 índices covariantes,
-<code>decsym(b,5,3,[sym(1,2),anti(3,4)],[cyc(all)])</code> declara <code>b</code>
-simétrico no seu primeiro e no seu segundo índices e antisimétrico no seu terceiro e
-quarto índices covariantes, e cíclico em todos de seus índices contravariantes.
-Qualquer lista de declarações de simetria pode ser nula.  A função que
-executa as simplificações é <code>canform</code> como o exemplo abaixo
-ilustra.
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) expr:contract(expand(a([i1,j1,k1],[])*kdels([i,j,k],[i1,j1,k1])))$
-(%i3) ishow(expr)$
-(%t3)         a      + a      + a      + a      + a      + a
-               k j i    k i j    j k i    j i k    i k j    i j k
-(%i4) decsym(a,3,0,[sym(all)],[]);
-(%o4)                                done
-(%i5) ishow(canform(expr))$
-(%t5)                              6 a
-                                      i j k
-(%i6) remsym(a,3,0);
-(%o6)                                done
-(%i7) decsym(a,3,0,[anti(all)],[]);
-(%o7)                                done
-(%i8) ishow(canform(expr))$
-(%t8)                                  0
-(%i9) remsym(a,3,0);
-(%o9)                                done
-(%i10) decsym(a,3,0,[cyc(all)],[]);
-(%o10)                               done
-(%i11) ishow(canform(expr))$
-(%t11)                        3 a      + 3 a
-                                 i k j      i j k
-(%i12) dispsym(a,3,0);
-(%o12)                     [[cyc, [[1, 2, 3]], []]]
-
-</pre>
-
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>remsym</b><i> (<var>tensor</var>, <var>m</var>, <var>n</var>)</i>
-<a name="IDX876"></a>
-</dt>
-<dd><p>Remove todas as propriedades de simetria de <var>tensor</var> que tem <var>m</var>
-índices covariantes e <var>n</var> índices contravariantes.
-</p></dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>canform</b><i> (<var>expr</var>)</i>
-<a name="IDX877"></a>
-</dt>
-<dd><p>Simplifica <var>expr</var> através de mudança de nome de índices
-que ocorrem exactamente duas vezes e reordenação de todos os índices como ditados pelas condições de simetria
-impostas sobre eles. Se <code>allsym</code> for <code>true</code> então todos os índices são assumidos
-simétricos, de outra forma a informação de simetria fornecida pelas declarações
-<code>decsym</code> irão ser usadas. Os índices que ocorrem exactamente duas vezes são renomeados da mesma
-maneira que na função <code>rename</code>. Quando <code>canform</code> é aplicada a uma expressão
-larga o cálculo pode tomar um considerável montante de tempo.
-Esse tempo pode ser diminuído através do uso de <code>rename</code> sobre a expressão em primeiro lugar.
-Também veja o exemplo sob <code>decsym</code>. Nota: <code>canform</code> pode não estar apta a
-reduzir um expressão completamente para sua forma mais simples embora
-retorne sempre um resultado matemáticamente correcto.
-</p></dd></dl>
-
-<hr size="6">
-<a name="SEC95"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC94" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC96" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC92" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.2.3 Cálculo de tensores indiciais </h3>
-
-<dl>
-<dt><u>Função:</u> <b>diff</b><i> (<var>expr</var>, <var>v_1</var>, [<var>n_1</var>, [<var>v_2</var>, <var>n_2</var>] ...])</i>
-<a name="IDX878"></a>
-</dt>
-<dd><p>É a função usual de diferenciação do Maxima que tem sido expandida
-nessas habilidades para <code>itensor</code>. <code>diff</code> toma a derivada de <var>expr</var>
- <var>n_1</var> vezes com relação a <var>v_1</var>, <var>n_2</var> vezes com relação a <var>v_2</var>
-, etc. Para o pacote <code>tensor</code>, a função tem sido modificada de
-forma que os <var>v_i</var> possam ser inteiros de 1 até o valor da variável
-<code>dim</code>.  Isso causará a conclusão da diferenciação com
-relação ao <var>v_i</var>ésimo membro da lista <code>vect_coords</code>.  Se
-<code>vect_coords</code> for associado a uma variável at&ocirc;mica, então aquela variável
-subscrita através de <var>v_i</var> será usada para a variável de
-diferenciação.  Isso permite que um array de nomes de coordenadas ou
-nomes subscritos como <code>x[1]</code>, <code>x[2]</code>, ...  sejam usados.
-</p></dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>idiff</b><i> (<var>expr</var>, <var>v_1</var>, [<var>n_1</var>, [<var>v_2</var>, <var>n_2</var>] ...])</i>
-<a name="IDX879"></a>
-</dt>
-<dd><p>Diferenciação indicial. A menos que <code>diff</code>, que diferencia
-com relação a uma variável independente, <code>idiff</code> possa ser usada
-para diferenciar com relação a uma coordenada. Para um objecto indexado,
-isso equivale a anexar ao final os <var>v_i</var> como índices derivativos.
-Subsequêntemente, índices derivativos irão ser ordenados, a menos que <code>iframe_flag</code>
-seja escolhida para <code>true</code>.
-</p>
-<p><code>idiff</code> pode também ser o determinante de um tensor
-métrico. Dessa forma, se <code>imetric</code> tiver sido associada a <code>G</code> então
-<code>idiff(determinant(g),k)</code> irá retornar
-<code>2*determinant(g)*ichr2([%i,k],[%i])</code> onde o índice que ocorre exactamente duas vezes <code>%i</code>
-é escolhido apropriadamente.
-</p>
-
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>liediff</b><i> (<var>v</var>, <var>ten</var>)</i>
-<a name="IDX880"></a>
-</dt>
-<dd><p>Calcula a derivada de Lie da expressão tensorial <var>ten</var> com
-relação ao campo vectorial <var>v</var>. <var>ten</var> pode ser qualquer expressão tensorial
-indexada; <var>v</var> pode ser o nome (sem índices) de um campo
-vectorial. Por exemplo:
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) ishow(liediff(v,a([i,j],[])*b([],[k],l)))$
-       k    %2            %2          %2
-(%t2) b   (v   a       + v   a     + v   a    )
-       ,l       i j,%2    ,j  i %2    ,i  %2 j
-
-                                %1  k        %1  k      %1  k
-                            + (v   b      - b   v    + v   b   ) a
-                                    ,%1 l    ,l  ,%1    ,l  ,%1   i j
-
-</pre>
-
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>rediff</b><i> (<var>ten</var>)</i>
-<a name="IDX881"></a>
-</dt>
-<dd><p>Avalia todas as ocorrências do comando <code>idiff</code> na expressão
-tensorial <var>ten</var>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>undiff</b><i> (<var>expr</var>)</i>
-<a name="IDX882"></a>
-</dt>
-<dd><p>Retorna uma expressão equivalente a <var>expr</var> mas com todas as derivadas
-de objectos indexados substituídas pela forma substantiva da função <code>idiff</code>. Seu
-argumento pode retornar aquele objecto indexado se a diferenciação for
-concluída.  Isso é útil quando for desejado substituir um
-objecto indexado que sofreu diferenciação com alguma definição de função resultando
-em <var>expr</var> e então concluir a diferenciação através de digamos
-<code>ev(<var>expr</var>, idiff)</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>evundiff</b><i> (<var>expr</var>)</i>
-<a name="IDX883"></a>
-</dt>
-<dd><p>Equivalente à execução de <code>undiff</code>, seguida por <code>ev</code> e
-<code>rediff</code>.
-</p>
-<p>O ponto dessa operação é facilmente avaliar expressões que não possam
-ser directamente avaliadas na forma derivada. Por exemplo, o seguinte
-causa um erro:
-</p>
-<pre class="example">(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) icurvature([i,j,k],[l],m);
-Maxima encountered a Lisp error:
-
- Error in $ICURVATURE [or a callee]:
- $ICURVATURE [or a callee] requires less than three arguments.
-
-Automatically continuing.
-To reenable the Lisp debugger set *debugger-hook* to nil.
-</pre>
-<p>Todavia, se <code>icurvature</code> é informado em sua forma substantiva, pode ser avaliado
-usando <code>evundiff</code>:
-</p>
-<pre class="example">(%i3) ishow('icurvature([i,j,k],[l],m))$
-                                         l
-(%t3)                          icurvature
-                                         i j k,m
-(%i4) ishow(evundiff(%))$
-             l              l         %1           l           %1
-(%t4) - ichr2        - ichr2     ichr2      - ichr2       ichr2
-             i k,j m        %1 j      i k,m        %1 j,m      i k
-
-                l              l         %1           l           %1
-         + ichr2        + ichr2     ichr2      + ichr2       ichr2
-                i j,k m        %1 k      i j,m        %1 k,m      i j
-</pre>
-<p>Nota: Em versões anteriores do Maxima, formas derivadas dos
-símbolos de Christoffel também não podiam ser avaliadas. Isso foi corrigido actualmente,
-de forma que <code>evundiff</code> não mais é necessária para expressões como essa:
-</p>
-<pre class="example">(%i5) imetric(g);
+(%i3) constantp (%pi * sin(%e));
+(%o3)                                true
+(%i4) constantp (exp (x));
+(%o4)                                false
+(%i5) declare (x, constant);
 (%o5)                                done
-(%i6) ishow(ichr2([i,j],[k],l))$
-       k %3
-      g     (g         - g         + g        )
-              j %3,i l    i j,%3 l    i %3,j l
-(%t6) -----------------------------------------
-                          2
-
-                         k %3
-                        g     (g       - g       + g      )
-                         ,l     j %3,i    i j,%3    i %3,j
-                      + -----------------------------------
-                                         2
-</pre>
-
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>flush</b><i> (<var>expr</var>, <var>tensor_1</var>, <var>tensor_2</var>, ...)</i>
-<a name="IDX884"></a>
-</dt>
-<dd><p>Escolhe para zero, em
-<var>expr</var>, todas as ocorrências de <var>tensor_i</var> que não tiverem índices derivativos.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>flushd</b><i> (<var>expr</var>, <var>tensor_1</var>, <var>tensor_2</var>, ...)</i>
-<a name="IDX885"></a>
-</dt>
-<dd><p>Escolhe para zero, em
-<var>expr</var>, todas as ocorrências de <var>tensor_i</var> que tiverem índices derivativos.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>flushnd</b><i> (<var>expr</var>, <var>tensor</var>, <var>n</var>)</i>
-<a name="IDX886"></a>
-</dt>
-<dd><p>Escolhe para zero, em <var>expr</var>, todas as
-ocorrências do objecto diferenciado <var>tensor</var> que tem <var>n</var> ou mais
-índices derivativos como demonstra o seguinte exemplo.
-</p><pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) ishow(a([i],[J,r],k,r)+a([i],[j,r,s],k,r,s))$
-                                J r      j r s
-(%t2)                          a      + a
-                                i,k r    i,k r s
-(%i3) ishow(flushnd(%,a,3))$
-                                     J r
-(%t3)                               a
-                                     i,k r
-</pre></dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>coord</b><i> (<var>tensor_1</var>, <var>tensor_2</var>, ...)</i>
-<a name="IDX887"></a>
-</dt>
-<dd><p>Dados os <var>tensor_i</var> a propriedade de diferenciação da coordenada que a
-derivada do vector contravariante cujo nome é um dos
-<var>tensor_i</var> retorna um delta de Kronecker. Por exemplo, se <code>coord(x)</code> tiver
-sido concluída então <code>idiff(x([],[i]),j)</code> fornece <code>kdelta([i],[j])</code>.
-<code>coord</code> que é uma lista de todos os objectos indexados tendo essa propriedade.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>remcoord</b><i> (<var>tensor_1</var>, <var>tensor_2</var>, ...)</i>
-<a name="IDX888"></a>
-</dt>
-<dt><u>Função:</u> <b>remcoord</b><i> (all)</i>
-<a name="IDX889"></a>
-</dt>
-<dd><p>Remove a propriedade de coordenada de diferenciação dos <code>tensor_i</code>
-que foram estabelecidos através da função <code>coord</code>.  <code>remcoord(all)</code>
-remove essa propriedade de todos os objectos indexados.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>makebox</b><i> (<var>expr</var>)</i>
-<a name="IDX890"></a>
-</dt>
-<dd><p>Mostra <var>expr</var> da mesma maneira que <code>show</code>; todavia,
-qualquer tensor d'Alembertiano ocorrendo em <var>expr</var> será indicado usando o
-símbolo <code>[]</code>.  Por exemplo, <code>[]p([m],[n])</code> representa
-<code>g([],[i,j])*p([m],[n],i,j)</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>conmetderiv</b><i> (<var>expr</var>, <var>tensor</var>)</i>
-<a name="IDX891"></a>
-</dt>
-<dd><p>Simplifica expressões contendo derivadas comuns de
-ambas as formas covariantes e contravariantes do tensor métrico (a
-restrição corrente).  Por exemplo, <code>conmetderiv</code> pode relatar a
-derivada do tensor contravariante métrico com símbolos de
-Christoffel como visto adiante:
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) ishow(g([],[a,b],c))$
-                                      a b
-(%t2)                                g
-                                      ,c
-(%i3) ishow(conmetderiv(%,g))$
-                         %1 b      a       %1 a      b
-(%t3)                 - g     ichr2     - g     ichr2
-                                   %1 c              %1 c
-</pre></dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>simpmetderiv</b><i> (<var>expr</var>)</i>
-<a name="IDX892"></a>
-</dt>
-<dt><u>Função:</u> <b>simpmetderiv</b><i> (<var>expr</var>[, <var>stop</var>])</i>
-<a name="IDX893"></a>
-</dt>
-<dd><p>Simplifica expressões contendo produtos de derivadas de
-tensores métricos. Especificamente, <code>simpmetderiv</code> reconhece duas identidades:
-</p>
-<pre class="example">
-   ab        ab           ab                 a
-  g   g   + g   g     = (g   g  )   = (kdelta )   = 0
-   ,d  bc        bc,d         bc ,d          c ,d
-
-</pre>
-<p>consequêntemente
-</p>
-<pre class="example">
-   ab          ab
-  g   g   = - g   g
-   ,d  bc          bc,d
-</pre>
-<p>e
-</p>
-<pre class="example">
-  ab          ab
- g   g     = g   g
-  ,j  ab,i    ,i  ab,j
-
-</pre>
-<p>que seguem de simetrias de símbolos de Christoffel.
-</p>
-<p>A função <code>simpmetderiv</code> toma um parâmetro opcional que, quando
-presente, faz com que a função pare após a primeira substituição feita com
-sucesso em uma expressão produto. A função <code>simpmetderiv</code>
-também faz uso da variável global <var>flipflag</var> que determina
-como aplicar uma ordenação &quot;canonica&quot; para os índices de produto.
-</p>
-<p>Colocados juntos, essas compatibilidades podem ser usadas poderosamente para encontrar
-simplificações que são difíceis ou impossíveis de realizar de outra forma.
-Isso é demonstrado através do seguinte exemplo que explicitamente usa o 
-recurso de simplificação parcial de <code>simpmetderiv</code> para obter uma
-expressão contractível:
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) imetric(g);
-(%o2)                                done
-(%i3) ishow(g([],[a,b])*g([],[b,c])*g([a,b],[],d)*g([b,c],[],e))$
-                             a b  b c
-(%t3)                       g    g    g      g
-                                       a b,d  b c,e
-(%i4) ishow(canform(%))$
-
-errexp1 has improper indices
- -- an error.  Quitting.  To debug this try debugmode(true);
-(%i5) ishow(simpmetderiv(%))$
-                             a b  b c
-(%t5)                       g    g    g      g
-                                       a b,d  b c,e
-(%i6) flipflag:not flipflag;
+(%i6) constantp (exp (x));
 (%o6)                                true
-(%i7) ishow(simpmetderiv(%th(2)))$
-                               a b  b c
-(%t7)                         g    g    g    g
-                               ,d   ,e   a b  b c
-(%i8) flipflag:not flipflag;
-(%o8)                                false
-(%i9) ishow(simpmetderiv(%th(2),stop))$
-                               a b  b c
-(%t9)                       - g    g    g      g
-                                    ,e   a b,d  b c
-(%i10) ishow(contract(%))$
-                                    b c
-(%t10)                           - g    g
-                                    ,e   c b,d
-
-</pre>
-<p>Veja também <code>weyl.dem</code> para um exemplo que usa <code>simpmetderiv</code>
-e <code>conmetderiv</code> juntos para simplificar contrações do tensor de Weyl.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>flush1deriv</b><i> (<var>expr</var>, <var>tensor</var>)</i>
-<a name="IDX894"></a>
-</dt>
-<dd><p>Escolhe para zero, em <code>expr</code>, todas as ocorrências de <code>tensor</code> que possuem
-exactamente um índice derivativo.
-</p>
-</dd></dl>
-
-<hr size="6">
-<a name="SEC96"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC95" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC97" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC92" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.2.4 Tensores em espaços curvos </h3>
-
-<dl>
-<dt><u>Função:</u> <b>imetric</b><i> (<var>g</var>)</i>
-<a name="IDX895"></a>
-</dt>
-<dt><u>Variável de sistema:</u> <b>imetric</b>
-<a name="IDX896"></a>
-</dt>
-<dd><p>Especifica a métrica através de atribuição à variável <code>imetric:<var>g</var></code>
-adicionalmente, as propriedades de contração da métrica <var>g</var> são escolhidas através da
-execução dos comandos <code>defcon(<var>g</var>),defcon(<var>g</var>,<var>g</var>,kdelta)</code>.
-A variável <code>imetric</code> (desassociada por padrão), é associada à métrica, atribuida pelo
-comando <code>imetric(<var>g</var>)</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>idim</b><i> (<var>n</var>)</i>
-<a name="IDX897"></a>
-</dt>
-<dd><p>Escolhe as dimensões da métrica. Também inicializa as propriedades de
-antisimetria dos símbolos de Levi-Civita para as dimensões dadas.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>ichr1</b><i> ([<var>i</var>, <var>j</var>, <var>k</var>])</i>
-<a name="IDX898"></a>
-</dt>
-<dd><p>Retorna o símbolo de Christoffel de primeiro tipo via
-definição
-</p><pre class="example">       (g      + g      - g     )/2 .
-         ik,j     jk,i     ij,k
-</pre>
-<p>Para avaliar os símbolos de Christoffel para uma métrica particular, à
-variável <code>imetric</code> deve ser atribuída um nome como no exemplo sob <code>chr2</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>ichr2</b><i> ([<var>i</var>, <var>j</var>], [<var>k</var>])</i>
-<a name="IDX899"></a>
-</dt>
-<dd><p>Retorna o símbolo de Christoffel de segundo tipo
-definido pela relação
-</p><pre class="example">                       ks
-   ichr2([i,j],[k]) = g    (g      + g      - g     )/2
-                             is,j     js,i     ij,s
-</pre></dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>icurvature</b><i> ([<var>i</var>, <var>j</var>, <var>k</var>], [<var>h</var>])</i>
-<a name="IDX900"></a>
-</dt>
-<dd><p>Retorna o tensor da curvatura de
-Riemann em termos de símbolos de Christoffel de segundo
-tipo (<code>ichr2</code>).  A seguinte notação é usada:
-</p><pre class="example">               h             h            h         %1         h
-     icurvature     = - ichr2      - ichr2     ichr2    + ichr2
-               i j k         i k,j        %1 j      i k        i j,k
-                               h          %1
-                        + ichr2      ichr2
-                               %1 k       i j
-</pre></dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>covdiff</b><i> (<var>expr</var>, <var>v_1</var>, <var>v_2</var>, ...)</i>
-<a name="IDX901"></a>
-</dt>
-<dd><p>Retorna a derivada da covariante de <var>expr</var> com
-relação às variáveis <var>v_i</var> em termos de símbolos de Christoffel de
-segundo tipo (<code>ichr2</code>).  Com o objectivo de avaliar esses, se pode usar
-<code>ev(<var>expr</var>,ichr2)</code>.
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) entertensor()$
-Enter tensor name: a;
-Enter a list of the índices covariantes: [i,j];
-Enter a list of the índices contravariantes: [k];
-Enter a list of the derivative indices: [];
-                                      k
-(%t2)                                a
-                                      i j
-(%i3) ishow(covdiff(%,s))$
-             k         %1     k         %1     k            k     %1
-(%t3)     - a     ichr2    - a     ichr2    + a      + ichr2     a
-             i %1      j s    %1 j      i s    i j,s        %1 s  i j
-(%i4) imetric:g;
-(%o4)            g
-(%i5) ishow(ev(%th(2),ichr2))$
-  %1 %4  k
- g      a     (g       - g       + g  )
-  i %1   s %4,j  j s,%4    j %4,s
-(%t5) - ------------------------------------------
-       2
-    %1 %3  k
-   g   a     (g       - g    + g     )
-    %1 j   s %3,i    i s,%3    i %3,s
- - ------------------------------------------
-         2
-    k %2  %1
-   g     a    (g        - g    + g      )
-   i j   s %2,%1    %1 s,%2    %1 %2,s   k
- + ------------------------------------------- + a
-   2     i j,s
-(%i6) 
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>lorentz_gauge</b><i> (<var>expr</var>)</i>
-<a name="IDX902"></a>
-</dt>
-<dd><p>Impõe a condição de Lorentz através da substituição de 0 para todos os
-objectos indexados em <var>expr</var> que possui um índice de derivada idêntico ao
-índice contravariante.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>igeodesic_coords</b><i> (<var>expr</var>, <var>nome</var>)</i>
-<a name="IDX903"></a>
-</dt>
-<dd><p>Faz com que símbolos de Christoffel não diferenciados e
-a primeira derivada do tensor métrico tendam para zero em <var>expr</var>. O <var>nome</var>
-na função <code>igeodesic_coords</code> refere-se à métrica <var>nome</var>
-(se isso aparecer em <var>expr</var>) enquando os coeficientes de conecção devem ser
-chamados com os nomes <code>ichr1</code> e/ou <code>ichr2</code>. O seguinte exemplo
-demonstra a verificação da identidade cíclica satisfeita através do tensor da
-curvatura de Riemann usando a função <code>igeodesic_coords</code>.
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) ishow(icurvature([r,s,t],[u]))$
-             u            u         %1         u            u         %1
-(%t2) - ichr2      - ichr2     ichr2    + ichr2      + ichr2     ichr2
-             r t,s        %1 s      r t        r s,t        %1 t      r s
-(%i3) ishow(igeodesic_coords(%,ichr2))$
-                                 u            u
-(%t3)                       ichr2      - ichr2
-                                 r s,t        r t,s
-(%i4) ishow(igeodesic_coords(icurvature([r,s,t],[u]),ichr2)+
-            igeodesic_coords(icurvature([s,t,r],[u]),ichr2)+
-            igeodesic_coords(icurvature([t,r,s],[u]),ichr2))$
-             u            u            u            u            u
-(%t4) - ichr2      + ichr2      + ichr2      - ichr2      - ichr2
-             t s,r        t r,s        s t,r        s r,t        r t,s
-
-                                                                  u
-                                                           + ichr2
-                                                                  r s,t
-(%i5) canform(%);
-(%o5)                                  0
-
-</pre>
-</dd></dl>
-
-<hr size="6">
-<a name="SEC97"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC96" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC98" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC92" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.2.5 Referenciais móveis </h3>
-
-<p>Maxima actualmente tem a habilidade de executar cálculos usando referenciais móveis.
-Essas podem ser referenciais ortonormais (tetrads, vielbeins) ou um referencial arbitrária.
-</p>
-<p>Para usar referenciais,  primeiro escolha <code>iframe_flag</code> para <code>true</code>. Isso
-faz com que os símbolos de Christoffel, <code>ichr1</code> e <code>ichr2</code>, sejam substituídos
-pelos referenciais mais gerais de coeficientes de conecção <code>icc1</code> e <code>icc2</code>
-em cálculos. Especialmente, o comportamento de <code>covdiff</code> e
-<code>icurvature</code> são alterados.
-</p>
-<p>O referencial é definido através de dois tensores: o campo de referencial inversa (<code>ifri</code>),
-a base tetrad dual),
-e a métrica do referencial <code>ifg</code>. A métrica do referencial é a matriz identidade para
-referenciais ortonormais, ou a métrica de Lorentz para referenciais ortonormais no espaço-tempo de
-Minkowski. O campo de referencial inverso define a base do referencial (vectores unitários).
-Propriedades de contração são definidas para o campo de referencial e para a métrica do referencial.
-</p>
-<p>Quando <code>iframe_flag</code> for <code>true</code>, muitas expressões <code>itensor</code> usam a métrica do
-referencial <code>ifg</code> em lugar da métrica definida através de <code>imetric</code> para
-o decremento e para o incremento de índices.
-</p>
-<p>IMPORTANTE: Escolhendo a variável <code>iframe_flag</code> para <code>true</code> N&Atilde;O
-remove a definição das propriedades de contração de uma métrica definida através de uma chamada a
-<code>defcon</code> ou <code>imetric</code>. Se um campo de referencial for usado, ele é melhor para
-definir a métrica através de atribuição desse nome para a variável <code>imetric</code>
-e N&Atilde;O invoque a função <code>imetric</code>.
-</p>
-<p>Maxima usa esses dois tensores para definir os coeficientes de referencial (<code>ifc1</code>
-e <code>ifc2</code>) cuja forma parte dos coeficientes de conecção (<code>icc1</code>
-e <code>icc2</code>), como demonstra o seguinte exemplo:
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) iframe_flag:true;
-(%o2)                                true
-(%i3) ishow(covdiff(v([],[i]),j))$
-                               i        i     %1
-(%t3)                         v   + icc2     v
-                               ,j       %1 j
-(%i4) ishow(ev(%,icc2))$
-                        %1      i           i        i
-(%t4)                  v   (ifc2     + ichr2    ) + v
-                                %1 j        %1 j     ,j
-(%i5) ishow(ev(%,ifc2))$
-            %1    i %2
-           v   ifg     (ifb        - ifb        + ifb       )
-                           j %2 %1      %2 %1 j      %1 j %2     i
-(%t5)      -------------------------------------------------- + v
-                                   2                             ,j
-(%i6) ishow(ifb([a,b,c]))$
-                       %5    %4
-(%t6)               ifr   ifr   (ifri        - ifri       )
-                       a     b       c %4,%5       c %5,%4
-
-</pre>
-<p>Um método alternativo é usado para calcular o suporte do referencial (<code>ifb</code>) se
-o sinalizador <code>iframe_bracket_form</code> é escolhido para <code>false</code>:
-</p>
-<pre class="example">
-(%i8) block([iframe_bracket_form:false],ishow(ifb([a,b,c])))$
-                       %7    %6        %6      %7
-(%t8)              (ifr   ifr     - ifr     ifr  ) ifri
-                       a     b,%7      a,%7    b       c %6
-
-</pre>
-
-<dl>
-<dt><u>Função:</u> <b>iframes</b><i> ()</i>
-<a name="IDX904"></a>
-</dt>
-<dd><p>Uma vez que nessa versão do Maxima, identidades de contração para <code>ifr</code> e
-<code>ifri</code> são sempre definidas, como é o suporte do referencial (<code>ifb</code>), essa
-função não faz nada.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variável:</u> <b>ifb</b>
-<a name="IDX905"></a>
-</dt>
-<dd><p>O suporte do referencial. A contribuição da métrica do referencial para os coeficientes
-de conecção é expressa usando o suporte do referencial:
-</p>
-<pre class="example">
-          - ifb      + ifb      + ifb
-               c a b      b c a      a b c
-ifc1    = --------------------------------
-    abc                  2
-
-</pre>
-<p>O suporte do referencial por si mesmo é definido em termos de campo de
-referencial e métrica do referencial. Dois métodos alternativos de
-cálculo são usados dependendo do valor de
-<code>frame_bracket_form</code>. Se <code>true</code> (o padrão) ou se o
-sinalizador <code>itorsion_flag</code> for <code>true</code>:
-</p>
-<pre class="example">
-          d      e                                      f
-ifb =  ifr    ifr   (ifri      - ifri      - ifri    itr   )
-   abc    b      c       a d,e       a e,d       a f    d e
-
-
-</pre>
-<p>Otherwise:
-</p>
-<pre class="example">
-             e      d        d      e
-ifb    = (ifr    ifr    - ifr    ifr   ) ifri
-   abc       b      c,e      b,e    c        a d
-
-</pre>
+(%i7) constantp (foo (x) + bar (%e) + baz (2));
+(%o7)                                false
+(%i8) 
+</pre></div>
 
 </dd></dl>
 
-
-<dl>
-<dt><u>Variável:</u> <b>icc1</b>
-<a name="IDX906"></a>
-</dt>
-<dd><p>Coeficientes de conecção de primeiro tipo. Em <code>itensor</code>, definido como
+<a name="Item_003a-Expressions_002fdeffn_002fdeclare"></a><dl>
+<dt><a name="index-declare"></a>Função: <strong>declare</strong> <em>(<var>a_1</var>, <var>p_1</var>, <var>a_2</var>, <var>p_2</var>, ...)</em></dt>
+<dd><p>Atribui aos átomos ou lista de átomos <var>a_i</var> a propriedade ou lista de propriedades <var>p_i</var>.
+Quando <var>a_i</var> e/ou <var>p_i</var> forem listas,
+cada um dos átomos recebe todas as propriedades.
 </p>
-<pre class="example">
-icc1    = ichr1    - ikt1    - inmc1
-    abc        abc       abc        abc
-
-</pre>
-<p>Nessa expressão, se <code>iframe_flag</code> for <code>true</code>, o símbolo de Christoffel
-<code>ichr1</code> é substituído com o coeficiente de conecção do referencial <code>ifc1</code>.
-Se <code>itorsion_flag</code> for <code>false</code>, <code>ikt1</code>
-será omitido. <code>ikt1</code> é também omitido se uma base de referencial for usada, como a
-torsão está já calculada como parte do suporte do referencial.
-Ultimamente, como <code>inonmet_flag</code> é <code>false</code>,
-<code>inmc1</code> não estará presente.
+<p><code>declare</code> não avalia seus argumentos.
+<code>declare</code> sempre retorna <code>done</code>.
 </p>
+<p>Como colocado na descrição para cada sinalizador de declaração,
+para alguns sinalizadores
+<code>featurep(<var>objecto</var>, <var>recurso</var>)</code>
+retorna <code>true</code> se <var>objecto</var> tiver sido declarado para ter <var>recurso</var>.
+Todavia, <code>featurep</code> não reconhece alguns sinalizadores; isso é um erro.
+</p>
+<p>Veja também <code>features</code>.
+</p>
+<p><code>declare</code> reconhece as seguintes propriedades:
+</p>
+<dl compact="compact">
+<dt><code>evfun</code></dt>
+<dd><p>Torna <var>a_i</var> conhecido para <code>ev</code> de forma que a função nomeada por <var>a_i</var>
+é aplicada quando <var>a_i</var> aparece como um sinalizador argumento de <code>ev</code>.
+Veja <code>evfun</code>.
+</p>
+</dd>
+<dt><code>evflag</code></dt>
+<dd><p>Torna <var>a_i</var> conhecido para a função <code>ev</code> de forma que <var>a_i</var> é associado a <code>true</code>
+durante a execução de <code>ev</code> quando <var>a_i</var> aparece como um sinalizador argumento de <code>ev</code>.
+Veja <code>evflag</code>.
+</p>
+ 
+
+</dd>
+<dt><code>bindtest</code></dt>
+<dd><p>Diz ao Maxima para disparar um erro quando <var>a_i</var> for avaliado como sendo livre de associação.
+</p>
+</dd>
+<dt><code>noun</code></dt>
+<dd><p>Diz ao Maxima para passar <var>a_i</var> como um substantivo. 
+O efeito disso é substituir intâncias de <var>a_i</var> com <code>'<var>a_i</var></code>
+ou <code>nounify(<var>a_i</var>)</code>, ependendo do contexto.
+</p>
+</dd>
+<dt><code>constant</code></dt>
+<dd><p>Diz ao Maxima para considerar <var>a_i</var> uma constante simbólica.
+</p>
+</dd>
+<dt><code>scalar</code></dt>
+<dd><p>Diz ao Maxima para considerar <var>a_i</var> uma variável escalar.
+</p>
+</dd>
+<dt><code>nonscalar</code></dt>
+<dd><p>Diz ao Maxima para considerar <var>a_i</var> uma variável não escalar.
+The usual application is to declare a variable as a symbolic vector or matrix.
+</p>
+</dd>
+<dt><code>mainvar</code></dt>
+<dd><p>Diz ao Maxima para considerar <var>a_i</var> uma &quot;variável principal&quot; (<code>mainvar</code>).
+<code>ordergreatp</code> determina a ordenação de átomos como segue:
+</p>
+<p>(variáveis principais) &gt; (outras variáveis) &gt; (variáveis escalares) &gt; (constantes) &gt; (números)
+</p>
+</dd>
+<dt><code>alphabetic</code></dt>
+<dd><p>Diz ao Maxima para reconhecer todos os caracteres em <var>a_i</var> (que deve ser uma sequência de caracteres) como caractere alfabético.
+</p>
+</dd>
+<dt><code>feature</code></dt>
+<dd><p>Diz ao Maxima para reconhecer <var>a_i</var> como nome de um recurso.
+Other atoms may then be declared to have the <var>a_i</var> property.
+</p>
+</dd>
+<dt><code>rassociative</code>, <code>lassociative</code></dt>
+<dd><p>Diz ao Maxima para reconhecer <var>a_i</var> como uma funcão associativa a direita ou associativa a esquerda.
+</p>
+</dd>
+<dt><code>nary</code></dt>
+<dd><p>Diz ao Maxima para reconhecer <var>a_i</var> como uma função n-ária (com muitos argumentos).
+</p>
+<p>A declaração <code>nary</code> não tem o mesmo objectivo que uma chamada à função <code>nary</code>.
+O único efeito de <code>declare(foo, nary)</code> é para instruir o simplificador do Maxima
+a melhorar as próximas expressões,
+por exemplo, para simplificar <code>foo(x, foo(y, z))</code> para <code>foo(x, y, z)</code>.
+</p>
+</dd>
+<dt><code>symmetric</code>, <code>antisymmetric</code>, <code>commutative</code></dt>
+<dd><p>Diz ao Maxima para reconhecer <var>a_i</var> como uma função simétrica ou antisimétrica.
+<code>commutative</code> é o mesmo que <code>symmetric</code>.
+</p>
+</dd>
+<dt><code>oddfun</code>, <code>evenfun</code></dt>
+<dd><p>Diz ao Maxima para reconhecer <var>a_i</var> como uma função par ou uma função ímpar.
+</p> 
+</dd>
+<dt><code>outative</code></dt>
+<dd><p>Diz ao Maxima para simplificar expressões <var>a_i</var>
+colocando factores constantes em evidência no primeiro argumento.
+</p>
+<p>Quando <var>a_i</var> tiver um argumento,
+um factor é onsiderado constante se for um literal ou se for declarado como sendo constante.
+</p>
+<p>Quando <var>a_i</var> tiver dois ou mais argumentos,
+um factor é considerado constante
+se o segundo argumento for um símbolo
+e o factor estiver livre do segundo argumento.
+</p>
+</dd>
+<dt><code>multiplicative</code></dt>
+<dd><p>Diz ao Maxima para simplificar expressões do tipo <var>a_i</var>
+através da substituição <code><var>a_i</var>(x * y * z * ...)</code> <code>--&gt;</code>
+<code><var>a_i</var>(x) * <var>a_i</var>(y) * <var>a_i</var>(z) * ...</code>.
+A substituição é realizada no primeiro argumento somente.
+</p>
+</dd>
+<dt><code>additive</code></dt>
+<dd><p>Diz ao Maxima para simplificar expressões do tipo <var>a_i</var>
+através da substituição <code><var>a_i</var>(x + y + z + ...)</code> <code>--&gt;</code>
+<code><var>a_i</var>(x) + <var>a_i</var>(y) + <var>a_i</var>(z) + ...</code>.
+A substituição é realizada no primeiro argumento somente.
+</p>
+</dd>
+<dt><code>linear</code></dt>
+<dd><p>Equivalente a declarar <var>a_i</var> ao mesmo tempo <code>outative</code> e <code>additive</code>.
+</p>
+ 
+</dd>
+<dt><code>integer</code>, <code>noninteger</code></dt>
+<dd><p>Diz ao Maxima para reconhecer <var>a_i</var> como como uma variável inteira ou como uma variável não inteira.
+</p> 
+<p>Maxima reconhece os seguintes recursos de objectos:
+</p>
+</dd>
+<dt><code>even</code>, <code>odd</code></dt>
+<dd><p>Diz ao Maxima para reconhecer <var>a_i</var> como uma variável inteira par ou como uma variável inteira ímpar.
+</p>
+</dd>
+<dt><code>rational</code>, <code>irrational</code></dt>
+<dd><p>Diz ao Maxima para reconhecer <var>a_i</var> como uma variável real e racional ou como uma variável real e irracional.
+</p>
+</dd>
+<dt><code>real</code>, <code>imaginary</code>, <code>complex</code></dt>
+<dd><p>Dia ao Maxima para reconhecer <var>a_i</var> como uma variável real, imaginária pura ou complexa.
+</p> 
+</dd>
+<dt><code>increasing</code>, <code>decreasing</code></dt>
+<dd><p>Dia ao Maxima para reconhecer <var>a_i</var> como uma função de incremento ou decremento.
+</p>
+</dd>
+<dt><code>posfun</code></dt>
+<dd><p>Diz ao Maxima para reconhecer <var>a_i</var> como uma função positiva.
+</p>
+</dd>
+<dt><code>integervalued</code></dt>
+<dd><p>Diz ao Maxima para reconhecer <var>a_i</var> como uma função de valores inteiros.
+</p>
+</dd>
+</dl>
+
+<p>Exemplos:
+</p>
+<p>Declarações <code>evfun</code> e <code>evflag</code>.
+</p><div class="example">
+<pre class="example">(%i1) declare (expand, evfun);
+(%o1)                         done
+(%i2) (a + b)^3;
+                                   3
+(%o2)                       (b + a)
+(%i3) (a + b)^3, expand;
+                     3        2      2      3
+(%o3)               b  + 3 a b  + 3 a  b + a
+(%i4) declare (demoivre, evflag);
+(%o4)                         done
+(%i5) exp (a + b*%i);
+                             %i b + a
+(%o5)                      %e
+(%i6) exp (a + b*%i), demoivre;
+                      a
+(%o6)               %e  (%i sin(b) + cos(b))
+</pre></div>
+
+<p>Declaração <code>bindtest</code>.
+</p><div class="example">
+<pre class="example">(%i1) aa + bb;
+(%o1)                        bb + aa
+(%i2) declare (aa, bindtest);
+(%o2)                         done
+(%i3) aa + bb;
+aa unbound variable
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i4) aa : 1234;
+(%o4)                         1234
+(%i5) aa + bb;
+(%o5)                       bb + 1234
+</pre></div>
+
+<p>Declaração <code>noun</code>.
+</p><div class="example">
+<pre class="example">(%i1) factor (12345678);
+                             2
+(%o1)                     2 3  47 14593
+(%i2) declare (factor, noun);
+(%o2)                         done
+(%i3) factor (12345678);
+(%o3)                   factor(12345678)
+(%i4) ''%, nouns;
+                             2
+(%o4)                     2 3  47 14593
+</pre></div>
+
+<p>Declarações <code>constant</code>, <code>scalar</code>, <code>nonscalar</code>, e <code>mainvar</code>.
+</p>
+<p>Declaração <code>alphabetic</code>.
+</p><div class="example">
+<pre class="example">(%i1) xx\~yy\`\@ : 1729;
+(%o1)                         1729
+(%i2) declare (&quot;~`@&quot;, alphabetic);
+(%o2)                         done
+(%i3) xx~yy`@ + @yy`xx + `xx@@yy~;
+(%o3)               `xx@@yy~ + @yy`xx + 1729
+(%i4) listofvars (%);
+(%o4)                  [@yy`xx, `xx@@yy~]
+</pre></div>
+
+<p>Declaração <code>feature</code>.
+</p><div class="example">
+<pre class="example">(%i1) declare (FOO, feature);
+(%o1)                         done
+(%i2) declare (x, FOO);
+(%o2)                         done
+(%i3) featurep (x, FOO);
+(%o3)                         true
+</pre></div>
+
+<p>Declarações <code>rassociative</code> e <code>lassociative</code>.
+</p>
+<p>Declaração <code>nary</code>.
+</p><div class="example">
+<pre class="example">(%i1) H (H (a, b), H (c, H (d, e)));
+(%o1)               H(H(a, b), H(c, H(d, e)))
+(%i2) declare (H, nary);
+(%o2)                         done
+(%i3) H (H (a, b), H (c, H (d, e)));
+(%o3)                   H(a, b, c, d, e)
+</pre></div>
+
+<p>Declarações <code>symmetric</code> e <code>antisymmetric</code>.
+</p><div class="example">
+<pre class="example">(%i1) S (b, a);
+(%o1)                        S(b, a)
+(%i2) declare (S, symmetric);
+(%o2)                         done
+(%i3) S (b, a);
+(%o3)                        S(a, b)
+(%i4) S (a, c, e, d, b);
+(%o4)                   S(a, b, c, d, e)
+(%i5) T (b, a);
+(%o5)                        T(b, a)
+(%i6) declare (T, antisymmetric);
+(%o6)                         done
+(%i7) T (b, a);
+(%o7)                       - T(a, b)
+(%i8) T (a, c, e, d, b);
+(%o8)                   T(a, b, c, d, e)
+</pre></div>
+
+<p>Declarações <code>oddfun</code> e <code>evenfun</code>.
+</p><div class="example">
+<pre class="example">(%i1) o (- u) + o (u);
+(%o1)                     o(u) + o(- u)
+(%i2) declare (o, oddfun);
+(%o2)                         done
+(%i3) o (- u) + o (u);
+(%o3)                           0
+(%i4) e (- u) - e (u);
+(%o4)                     e(- u) - e(u)
+(%i5) declare (e, evenfun);
+(%o5)                         done
+(%i6) e (- u) - e (u);
+(%o6)                           0
+</pre></div>
+
+<p>Declaração <code>outative</code>.
+</p><div class="example">
+<pre class="example">(%i1) F1 (100 * x);
+(%o1)                       F1(100 x)
+(%i2) declare (F1, outative);
+(%o2)                         done
+(%i3) F1 (100 * x);
+(%o3)                       100 F1(x)
+(%i4) declare (zz, constant);
+(%o4)                         done
+(%i5) F1 (zz * y);
+(%o5)                       zz F1(y)
+</pre></div>
+
+<p>Declaração <code>multiplicative</code>.
+</p><div class="example">
+<pre class="example">(%i1) F2 (a * b * c);
+(%o1)                       F2(a b c)
+(%i2) declare (F2, multiplicative);
+(%o2)                         done
+(%i3) F2 (a * b * c);
+(%o3)                   F2(a) F2(b) F2(c)
+</pre></div>
+
+<p>Declaração <code>additive</code>.
+</p><div class="example">
+<pre class="example">(%i1) F3 (a + b + c);
+(%o1)                     F3(c + b + a)
+(%i2) declare (F3, additive);
+(%o2)                         done
+(%i3) F3 (a + b + c);
+(%o3)                 F3(c) + F3(b) + F3(a)
+</pre></div>
+
+<p>Declaração <code>linear</code>.
+</p><div class="example">
+<pre class="example">(%i1) 'sum (F(k) + G(k), k, 1, inf);
+                       inf
+                       ====
+                       \
+(%o1)                   &gt;    (G(k) + F(k))
+                       /
+                       ====
+                       k = 1
+(%i2) declare (nounify (sum), linear);
+(%o2)                         done
+(%i3) 'sum (F(k) + G(k), k, 1, inf);
+                     inf          inf
+                     ====         ====
+                     \            \
+(%o3)                 &gt;    G(k) +  &gt;    F(k)
+                     /            /
+                     ====         ====
+                     k = 1        k = 1
+</pre></div>
 
 </dd></dl>
 
-<dl>
-<dt><u>Variável:</u> <b>icc2</b>
-<a name="IDX907"></a>
-</dt>
-<dd><p>Coeficientes de conecção de segundo tipo. Em <code>itensor</code>, definido como
-</p>
-<pre class="example">
-    c         c        c         c
-icc2   = ichr2   - ikt2   - inmc2
-    ab        ab       ab        ab
-
-</pre>
-<p>Nessa expressão, se <code>iframe_flag</code> for <code>true</code>, o símbolo de Christoffel
-<code>ichr2</code> é substituído com o coeficiente de conecção <code>ifc2</code>.
-Se <code>itorsion_flag</code> for <code>false</code>, <code>ikt2</code>
-será omitido. <code>ikt2</code> também será omitido se uma base de referencial for usada, uma vez que a
-torsão já está calculada como parte do suporte do referencial.
-Ultimamente, como <code>inonmet_flag</code> é <code>false</code>,
-<code>inmc2</code> não estará presente.
+<a name="Item_003a-Expressions_002fdeffn_002fdisolate"></a><dl>
+<dt><a name="index-disolate"></a>Função: <strong>disolate</strong> <em>(<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</em></dt>
+<dd><p>é similar a <code>isolate (<var>expr</var>, <var>x</var>)</code>
+excepto que essa função habilita ao utilizador isolar
+mais que uma variável simultâneamente.  Isso pode ser útil, por
+exemplo, se se tiver tentado mudar variáveis em uma integração
+múltipla, e em mudança de variável envolvendo duas ou mais das
+variáveis de integração.  Essa função é chamada automaticamente de
+<samp>simplification/disol.mac</samp>.  Uma demostração está disponível através de
+<code>demo(&quot;disol&quot;)$</code>.
 </p>
 </dd></dl>
 
-<dl>
-<dt><u>Variável:</u> <b>ifc1</b>
-<a name="IDX908"></a>
-</dt>
-<dd><p>Coeficiente de referencial de primeiro tipo (também conhecido como coeficientes de
-rotação de Ricci).  Esse tensor representa a contribuição
-da métrica do referencial para o coeficiente de conecção de primeiro tipo. Definido
-como:
-</p>
-<pre class="example">
-          - ifb      + ifb      + ifb
-               c a b      b c a      a b c
-ifc1    = --------------------------------
-    abc                   2
-
-
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Variável:</u> <b>ifc2</b>
-<a name="IDX909"></a>
-</dt>
-<dd><p>Coeficiente de referencial de primeiro tipo. Esse tensor representa a contribuição
-da métrica do referencial para o coeficiente de conecção de primeiro tipo. Definido
-como uma permutação de suporte de referencial (<code>ifb</code>) com os índices
-apropriados incrementados e decrementados como necessário:
-</p>
-<pre class="example">
-    c       cd
-ifc2   = ifg   ifc1
-    ab             abd
-
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Variável:</u> <b>ifr</b>
-<a name="IDX910"></a>
-</dt>
-<dd><p>O campo do referencial. Contrai (<code>ifri</code>) para e com a forma do
-campo inverso do referencial para formar a métrica do referencial
-(<code>ifg</code>).
+<a name="Item_003a-Expressions_002fdeffn_002fdispform"></a><dl>
+<dt><a name="index-dispform"></a>Função: <strong>dispform</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna a representação externa de <var>expr</var> com relação a seu
+principal operador.  Isso pode ser útil em conjunção com <code>part</code> que
+também lida com a representação externa.  Suponha que <var>expr</var> seja -A .
+Então a representação interna de <var>expr</var> é  &quot;*&quot;(-1,A), enquanto que
+a representação externa é &quot;-&quot;(A). <code>dispform (<var>expr</var>, all)</code> converte a
+expressão inteira (não apenas o nível mais alto) para o formato externo.  Por
+exemplo, se <code>expr: sin (sqrt (x))</code>, então <code>freeof (sqrt, expr)</code> e
+<code>freeof (sqrt, dispform (expr))</code> fornece <code>true</code>, enquanto
+<code>freeof (sqrt, dispform (expr, all))</code> fornece <code>false</code>.
 </p>
 </dd></dl>
 
-<dl>
-<dt><u>Variável:</u> <b>ifri</b>
-<a name="IDX911"></a>
-</dt>
-<dd><p>O campo inverso do referencial. Especifica a base do referencial (vectores base duais). Juntamente
-com a métrica do referencial, forma a base de todos os cálculos baseados em
-referenciais.
+<a name="Item_003a-Expressions_002fdeffn_002fdistrib"></a><dl>
+<dt><a name="index-distrib"></a>Função: <strong>distrib</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Distribue adições sobre produtos.  <code>distrib</code> difere de <code>expand</code>
+no facto de que <code>distrib</code> trabalha em somente no nível mais alto de uma expressão, i.e., <code>distrib</code> não
+é recursiva e <code>distrib</code> é mais rápida que <code>expand</code>.  <code>distrib</code> difere de <code>multthru</code> no
+que <code>distrib</code> expande todas as adições naquele nível.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) distrib ((a+b) * (c+d));
+(%o1)                 b d + a d + b c + a c
+(%i2) multthru ((a+b) * (c+d));
+(%o2)                 (b + a) d + (b + a) c
+(%i3) distrib (1/((a+b) * (c+d)));
+                                1
+(%o3)                    ---------------
+                         (b + a) (d + c)
+(%i4) expand (1/((a+b) * (c+d)), 1, 0);
+                                1
+(%o4)                 ---------------------
+                      b d + a d + b c + a c
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fdpart"></a><dl>
+<dt><a name="index-dpart"></a>Função: <strong>dpart</strong> <em>(<var>expr</var>, <var>n_1</var>, ..., <var>n_k</var>)</em></dt>
+<dd><p>Selecciona a mesma subexpressão que <code>part</code>, mas
+em lugar de apenas retornar aquela subexpressão como seu valor, isso retorna
+a expressão completa com a subexpressão seleccionada mostrada dentro
+de uma caixa.  A caixa é actualmente parte da expressão.
+</p>
+<div class="example">
+<pre class="example">(%i1) dpart (x+y/z^2, 1, 2, 1);
+                             y
+(%o1)                       ---- + x
+                               2
+                            &quot;&quot;&quot;
+                            &quot;z&quot;
+                            &quot;&quot;&quot;
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fexp"></a><dl>
+<dt><a name="index-exp"></a>Função: <strong>exp</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Representa função exponencial.  
+Instâncias de <code>exp (<var>x</var>)</code> em uma entrada são simplificadas para <code>%e^<var>x</var></code>;
+<code>exp</code> não aparece em expressões simplificadas.
+</p>
+<p><code>demoivre</code> se <code>true</code> faz com que <code>%e^(a + b %i)</code> simplificar para
+<code>%e^(a (cos(b) + %i sin(b)))</code> se <code>b</code> for livre de <code>%i</code>. veja <code>demoivre</code>.
+</p>
+<p><code>%emode</code>, quando <code>true</code>, 
+faz com que <code>%e^(%pi %i x)</code> seja simplificado. Veja <code>%emode</code>.
+</p>
+<p><code>%enumer</code>, quando <code>true</code> faz com que <code>%e</code> seja substituído por
+2.718...  quando <code>numer</code> for <code>true</code>. Veja <code>%enumer</code>.
 </p>
 </dd></dl>
 
-<dl>
-<dt><u>Variável:</u> <b>ifg</b>
-<a name="IDX912"></a>
-</dt>
-<dd><p>A métrica do referencial. O valor padrão é <code>kdelta</code>, mas pode ser mudada usando
-<code>components</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variável:</u> <b>ifgi</b>
-<a name="IDX913"></a>
-</dt>
-<dd><p>O inverso da métrica do referencial. Contrai com a métrica do referencial (<code>ifg</code>)
-para <code>kdelta</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variável de Opção:</u> <b>iframe_bracket_form</b>
-<a name="IDX914"></a>
-</dt>
+<a name="Item_003a-Expressions_002fdefvr_002f_0025emode"></a><dl>
+<dt><a name="index-_0025emode"></a>Variável de opção: <strong>%emode</strong></dt>
 <dd><p>Valor por omissão: <code>true</code>
 </p>
-<p>Especifica como o suporte do referencial (<code>ifb</code>) é calculado.
+<p>Quando <code>%emode</code> for <code>true</code>,
+<code>%e^(%pi %i x)</code> é simplificado como
+segue.
+</p>
+<p><code>%e^(%pi %i x)</code> simplifica para <code>cos (%pi x) + %i sin (%pi x)</code> se <code>x</code> for um inteiro ou
+um múltiplo de 1/2, 1/3, 1/4, ou 1/6, e então é adicionalmente simplificado.
+</p>
+<p>Para outro <code>x</code> numérico,
+<code>%e^(%pi %i x)</code> simplifica para <code>%e^(%pi %i y)</code> onde <code>y</code> é <code>x - 2 k</code>
+para algum inteiro <code>k</code> tal que <code>abs(y) &lt; 1</code>.  
+</p>
+<p>Quando <code>%emode</code> for <code>false</code>, nenhuma
+simplificação adicional de <code>%e^(%pi %i x)</code> é realizada.
 </p>
 </dd></dl>
 
-<hr size="6">
-<a name="SEC98"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC97" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC99" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC92" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.2.6 Torsão e não metricidade </h3>
-
-<p>Maxima pode trabalhar com torsão e não metricidade. Quando o sinalizador
-<code>itorsion_flag</code> for escolhido para <code>true</code>, a contribuição de torsão
-é adicionada aos coeficientes de conecção. Similarmente, quando o sinalizador
-<code>inonmet_flag</code> for <code>true</code>, componentes de não metricidades são incluídos.
-</p>
-<dl>
-<dt><u>Variável:</u> <b>inm</b>
-<a name="IDX915"></a>
-</dt>
-<dd><p>O vector de não metricidade. Conforme a não metricidade está definida através da
-derivada covariante do tensor métrico. Normalmente zero, o tensor da
-métrica derivada covariante irá avaliar para o seguinte quando
-<code>inonmet_flag</code> for escolhido para <code>true</code>:
-</p>
-<pre class="example">
-g     =- g  inm
- ij;k     ij  k
-
-</pre>
-</dd></dl>
-
-
-<dl>
-<dt><u>Variável:</u> <b>inmc1</b>
-<a name="IDX916"></a>
-</dt>
-<dd><p>Permutação covariante de componentes do vector de não metricidade. Definida como
-</p>
-<pre class="example">
-           g   inm  - inm  g   - g   inm
-            ab    c      a  bc    ac    b
-inmc1    = ------------------------------
-     abc                 2
-
-</pre>
-<p>(Substitue <code>ifg</code> em lugar de <code>g</code> se um referencial métrico for usada.)
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variável:</u> <b>inmc2</b>
-<a name="IDX917"></a>
-</dt>
-<dd><p>Permutação covariante de componentes do vector de não metricidade. Usada
-nos coeficicientes de conecção se <code>inonmet_flag</code> for <code>true</code>. Definida
-como:
-</p>
-<pre class="example">
-                      c         c         cd
-          -inm  kdelta  - kdelta  inm  + g   inm  g
-     c        a       b         a    b          d  ab
-inmc2   = -------------------------------------------
-     ab                        2
-
-</pre>
-<p>(Substitue <code>ifg</code> em lugar de <code>g</code> se um referencial métrico for usada.)
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variável:</u> <b>ikt1</b>
-<a name="IDX918"></a>
-</dt>
-<dd><p>Permutação covariante do tensor de torsão (também conhecido como contorsão).
-Definido como:
-</p>
-<pre class="example">
-                  d           d       d
-          -g   itr  - g    itr   - itr   g
-            ad    cb    bd    ca      ab  cd
-ikt1    = ----------------------------------
-    abc                   2
-
-</pre>
-<p>(Substitue <code>ifg</code> em lugar de <code>g</code> se um referencial métrico for usada.)
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variável:</u> <b>ikt2</b>
-<a name="IDX919"></a>
-</dt>
-<dd><p>Permutação contravariante do tensor de torsão (também conhecida como contorsão).
-Definida como:
-</p>
-<pre class="example">
-    c     cd
-ikt2   = g   ikt1
-    ab           abd
-
-</pre>
-<p>(Substitue <code>ifg</code> em lugar de <code>g</code> se um referencial métrico for usada.)
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Variável:</u> <b>itr</b>
-<a name="IDX920"></a>
-</dt>
-<dd><p>O tensor de torsão. Para uma métrica com torsão, diferenciação covariante
-repetida sobre uma funçào escalar não irá comutar,como demonstrado
-através do seguinte exemplo:
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) imetric:g;
-(%o2)                                  g
-(%i3) covdiff(covdiff(f([],[]),i),j)-covdiff(covdiff(f([],[]),j),i)$
-(%i4) ishow(%)$
-                                   %4              %2
-(%t4)                    f    ichr2    - f    ichr2
-                          ,%4      j i    ,%2      i j
-(%i5) canform(%);
-(%o5)                                  0
-(%i6) itorsion_flag:true;
-(%o6)                                true
-(%i7) covdiff(covdiff(f([],[]),i),j)-covdiff(covdiff(f([],[]),j),i)$
-(%i8) ishow(%)$
-                           %8             %6
-(%t8)             f    icc2    - f    icc2    - f     + f
-                   ,%8     j i    ,%6     i j    ,j i    ,i j
-(%i9) ishow(canform(%))$
-                                   %1             %1
-(%t9)                     f    icc2    - f    icc2
-                           ,%1     j i    ,%1     i j
-(%i10) ishow(canform(ev(%,icc2)))$
-                                   %1             %1
-(%t10)                    f    ikt2    - f    ikt2
-                           ,%1     i j    ,%1     j i
-(%i11) ishow(canform(ev(%,ikt2)))$
-                      %2 %1                    %2 %1
-(%t11)          f    g      ikt1       - f    g      ikt1
-                 ,%2            i j %1    ,%2            j i %1
-(%i12) ishow(factor(canform(rename(expand(ev(%,ikt1))))))$
-                           %3 %2            %1       %1
-                     f    g      g      (itr    - itr   )
-                      ,%3         %2 %1     j i      i j
-(%t12)               ------------------------------------
-                                      2
-(%i13) decsym(itr,2,1,[anti(all)],[]);
-(%o13)                               done
-(%i14) defcon(g,g,kdelta);
-(%o14)                               done
-(%i15) subst(g,nounify(g),%th(3))$
-(%i16) ishow(canform(contract(%)))$
-                                           %1
-(%t16)                           - f    itr
-                                    ,%1    i j
-
-</pre>
-</dd></dl>
-
-<hr size="6">
-<a name="SEC99"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC98" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC100" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC92" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.2.7 Álgebra externa (como em produto externo) </h3>
-
-<p>O pacote <code>itensor</code> pode executar operações sobre campos tensores
-covariantes totalmente antisimétricos. Um campo tensor totalmente antisimétrico de classe
-(0,L) corresponde a uma forma diferencial L. Sobre esses objectos, uma
-operação de multiplicação funciona como um produto externo, ou produto cunha,
-é definido.
-</p>
-<p>Desafortunadamente, nem todos os autores concordam sobre a definição de produto
-cunha. Alguns autores preferem uma definição que corresponde à
-noção de antisimetrização: nessas palavras, o produto cunha de
-dois campos vectoriais, por exemplo, pode ser definido como
-</p>
-<pre class="example">            a a  - a a
-             i j    j i
- a  /\ a  = -----------
-  i     j        2
-</pre>
-<p>Mais geralmente, o produto de uma forma p e uma forma q pode ser definido como
-</p>
-<pre class="example">                       1     k1..kp l1..lq
-A       /\ B       = ------ D              A       B
- i1..ip     j1..jq   (p+q)!  i1..ip j1..jq  k1..kp  l1..lq
-</pre>
-<p>onde <code>D</code> simboliza o delta de Kronecker.
-</p>
-<p>Outros autores, todavia, preferem uma definição &quot;geométrica&quot; que corresponde à
-notação de elemento volume:
-</p>
-<pre class="example">a  /\ a  = a a  - a a
- i     j    i j    j i
-</pre>
-<p>e, no caso geral
-</p>
-<pre class="example">                       1    k1..kp l1..lq
-A       /\ B       = ----- D              A       B
- i1..ip     j1..jq   p! q!  i1..ip j1..jq  k1..kp  l1..lq
-</pre>
-<p>Uma vez que <code>itensor</code> é um pacote de algebra de tensores, a primeira dessas duas
-definições aparenta ser a mais natural por si mesma. Muitas aplicações, todavia,
-usam a segunda definição. Para resolver esse dilema, um sinalizador tem sido
-implementado que controla o comportamento do produto cunha: se
-<code>igeowedge_flag</code> for <code>false</code> (o padrão), a primeira, definição
-&quot;tensorial&quot; é usada, de outra forma a segunda, definição &quot;geométrica&quot; irá
-ser aplicada.
-</p>
-<dl>
-<dt><u>Operador:</u> <b>~</b>
-<a name="IDX921"></a>
-</dt>
-<dd><p>O operador do produto cunha é definido como sendo o acento til <code>~</code>. O til é
-um operador binário. Seus argumentos podem ser expressões envolvendo escalares,
-tensores covariantes de categoria 1, ou tensores covariantes de categoria <code>l</code> que
-tiverem sido declarados antisimétricos em todos os índices covariantes.
-</p>
-<p>O comportamento do operador do produto cunha é controlado através do
-sinalizador <code>igeowedge_flag</code>, como no seguinte exemplo:
-</p>
-<pre class="example">(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) ishow(a([i])~b([j]))$
-                                 a  b  - b  a
-                                  i  j    i  j
-(%t2)                            -------------
-                                       2
-(%i3) decsym(a,2,0,[anti(all)],[]);
-(%o3)                                done
-(%i4) ishow(a([i,j])~b([k]))$
-                          a    b  + b  a    - a    b
-                           i j  k    i  j k    i k  j
-(%t4)                     ---------------------------
-                                       3
-(%i5) igeowedge_flag:true;
-(%o5)                                true
-(%i6) ishow(a([i])~b([j]))$
-(%t6)                            a  b  - b  a
-                                  i  j    i  j
-(%i7) ishow(a([i,j])~b([k]))$
-(%t7)                     a    b  + b  a    - a    b
-                           i j  k    i  j k    i k  j
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Operador:</u> <b>|</b>
-<a name="IDX922"></a>
-</dt>
-<dd><p>A barra vertical <code>|</code> denota a operação binária
-&quot;contração com um vector&quot;. Quando um tensor covariante totalmente antisimétrico é contraído
-com um vector contravariante, o resultado é o mesmo independente de qual índice
-foi usado para a contração. Dessa forma, é possível definir a
-operação de contração de uma forma livre de índices.
-</p>
-<p>No pacote <code>itensor</code>, contração com um vector é sempre realizada
-com relação ao primeiro índice na ordem literal de ordenação. Isso garante
-uma melhor simplificação de expressões envolvendo o operador <code>|</code>. Por exemplo:
-</p>
-<pre class="example">(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) decsym(a,2,0,[anti(all)],[]);
-(%o2)                                done
-(%i3) ishow(a([i,j],[])|v)$
-                                    %1
-(%t3)                              v   a
-                                        %1 j
-(%i4) ishow(a([j,i],[])|v)$
-                                     %1
-(%t4)                             - v   a
-                                         %1 j
-</pre>
-<p>Note que isso é essencial que os tensores usado como o operador <code>|</code> seja
-declarado totalmente antisimétrico em seus índices covariantes. De outra forma,
-os resultados serão incorrectos.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>extdiff</b><i> (<var>expr</var>, <var>i</var>)</i>
-<a name="IDX923"></a>
-</dt>
-<dd><p>Calcula a derivada externa de <var>expr</var> com relação ao índice
-<var>i</var>. A derivada externa é formalmente definida como o produto
-cunha do operador de derivada parcial e uma forma diferencial. Como
-tal, essa operação é também controlada através da escolha de <code>igeowedge_flag</code>.
-Por exemplo:
-</p>
-<pre class="example">(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) ishow(extdiff(v([i]),j))$
-                                  v    - v
-                                   j,i    i,j
-(%t2)                             -----------
-                                       2
-(%i3) decsym(a,2,0,[anti(all)],[]);
-(%o3)                                done
-(%i4) ishow(extdiff(a([i,j]),k))$
-                           a      - a      + a
-                            j k,i    i k,j    i j,k
-(%t4)                      ------------------------
-                                      3
-(%i5) igeowedge_flag:true;
-(%o5)                                true
-(%i6) ishow(extdiff(v([i]),j))$
-(%t6)                             v    - v
-                                   j,i    i,j
-(%i7) ishow(extdiff(a([i,j]),k))$
-(%t7)                      a      - a      + a
-                            j k,i    i k,j    i j,k
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Função:</u> <b>hodge</b><i> (<var>expr</var>)</i>
-<a name="IDX924"></a>
-</dt>
-<dd><p>Calcula o Hodge dual de <var>expr</var>. Por exemplo:
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) imetric(g);
-(%o2)                            done
-(%i3) idim(4);
-(%o3)                            done
-(%i4) icounter:100;
-(%o4)                             100
-(%i5) decsym(A,3,0,[anti(all)],[])$
-
-(%i6) ishow(A([i,j,k],[]))$
-(%t6)                           A
-                                 i j k
-(%i7) ishow(canform(hodge(%)))$
-                          %1 %2 %3 %4
-               levi_civita            g        A
-                                       %1 %102  %2 %3 %4
-(%t7)          -----------------------------------------
-                                   6
-(%i8) ishow(canform(hodge(%)))$
-                 %1 %2 %3 %8            %4 %5 %6 %7
-(%t8) levi_civita            levi_civita            g        g
-                                                     %1 %106  %2 %107
-                                            g        g      A        /6
-                                             %3 %108  %4 %8  %5 %6 %7
-(%i9) lc2kdt(%)$
-
-(%i10) %,kdelta$
-
-(%i11) ishow(canform(contract(expand(%))))$
-(%t11)                     - A
-                              %106 %107 %108
-
-</pre>
-</dd></dl>
-
-<dl>
-<dt><u>Variável de Opção:</u> <b>igeowedge_flag</b>
-<a name="IDX925"></a>
-</dt>
+<a name="Item_003a-Expressions_002fdefvr_002f_0025enumer"></a><dl>
+<dt><a name="index-_0025enumer"></a>Variável de opção: <strong>%enumer</strong></dt>
 <dd><p>Valor por omissão: <code>false</code>
 </p>
-<p>Controla o comportamento de produto cunha e derivada externa. Quando
-for esconhida para <code>false</code> (o padrão), a noção de formas diferenciais irá
-corresponder àquela de um campo tensor covariante totalmente antisimétrico.
-Quando escolhida para <code>true</code>, formas diferenciais irão concordar com a noção do
-elemento volume.
+<p>Quando <code>%enumer</code> for <code>true</code>,
+<code>%e</code> é substituido por seu valor numérico
+2.718...  mesmo que <code>numer</code> seja <code>true</code>. 
+</p>
+<p>Quando <code>%enumer</code> for <code>false</code>, essa substituição é realizada
+somente se o expoente em <code>%e^x</code> avaliar para um número.
+</p>
+<p>Veja também <code>ev</code> e <code>numer</code>.
 </p>
 </dd></dl>
 
-
-<hr size="6">
-<a name="SEC100"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC99" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC101" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC92" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.2.8 Exportando expressões TeX </h3>
-
-<p>O pacote <code>itensor</code> fornece suporte limitado à exportação de expressões
-de tensores para o TeX.  Uma vez que expressões <code>itensor</code> aparecem como chamada a funções,
-o comando regular <code>tex</code> do Maxima não produzirá a saída
-esperada. Pode tentar no seu lugar o comando <code>tentex</code>, o qual tenta
-traduzir expressões de tensores dentro de objectos TeX indexados apropriadamente.
+<a name="Item_003a-Expressions_002fdefvr_002fexptisolate"></a><dl>
+<dt><a name="index-exptisolate"></a>Variável de opção: <strong>exptisolate</strong></dt>
+<dd><p>Valor por omissão: <code>false</code>
 </p>
-<dl>
-<dt><u>Função:</u> <b>tentex</b><i> (<var>expr</var>)</i>
-<a name="IDX926"></a>
-</dt>
-<dd><p>Para usar a função <code>tentex</code>, deve primeiro chamar <code>tentex</code>,
-como no seguinte exemplo:
-</p>
-<pre class="example">
-(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) load(tentex);
-(%o2)       /share/tensor/tentex.lisp
-(%i3) idummyx:m;
-(%o3)                                  m
-(%i4) ishow(icurvature([j,k,l],[i]))$
-            m1       i           m1       i           i            i
-(%t4)  ichr2    ichr2     - ichr2    ichr2     - ichr2      + ichr2
-            j k      m1 l        j l      m1 k        j l,k        j k,l
-(%i5) tentex(%)$
-$$\Gamma_{j\,k}^{m_1}\,\Gamma_{l\,m_1}^{i}-\Gamma_{j\,l}^{m_1}\,
- \Gamma_{k\,m_1}^{i}-\Gamma_{j\,l,k}^{i}+\Gamma_{j\,k,l}^{i}$$
-
-</pre>
-<p>Note o uso da declaração <code>idummyx</code>, para evitar o aparecimento
-do sinal de porcentagem na expressão TeX, o qual pode induzir a erros de compilação.
-</p>
-<p>Note Bem: Essa vesão da função <code>tentex</code> é um tanto quanto experimental.
+<p><code>exptisolate</code>, quando <code>true</code>, faz com que <code>isolate (expr, var)</code>
+examine expoentes de átomos (tais como <code>%e</code>) que contenham <code>var</code>.
 </p>
 </dd></dl>
 
-<hr size="6">
-<a name="SEC101"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC100" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC102" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC92" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.2.9 Interagindo com o pacote <code>ctensor</code> </h3>
-
-<p>O pacote <code>itensor</code> possui a habilidade de gerar código Maxima que pode
-então ser executado no contexto do pacote <code>ctensor</code>. A função que executa
-essa tarefa é <code>ic_convert</code>.
+<a name="Item_003a-Expressions_002fdefvr_002fexptsubst"></a><dl>
+<dt><a name="index-exptsubst"></a>Variável de opção: <strong>exptsubst</strong></dt>
+<dd><p>Valor por omissão: <code>false</code>
 </p>
-<dl>
-<dt><u>Função:</u> <b>ic_convert</b><i> (<var>eqn</var>)</i>
-<a name="IDX927"></a>
-</dt>
-<dd><p>Converte a equação <var>eqn</var> na sintaxe <code>itensor</code> para uma declaração de atribuição <code>ctensor</code>.
-Adições implícitas sobre índices que ocorrem exactamente duas vezes são tornadas explícitas enquanto objectos
-indexados são transformados em arrays (os arrays subscritos estão na
-ordem de covariância seguidos de índices contravariantes dos objectos
-indexados). A derivada de um objecto indexado será substituída pela
-forma substantiva de <code>diff</code> tomada com relação a <code>ct_coords</code> subscrita
-pelo índice de derivação. Os símbolos de Christoffel <code>ichr1</code> e <code>ichr2</code>
-irão ser traduzidos para <code>lcs</code> e <code>mcs</code>, respectivamente e se
-<code>metricconvert</code> for <code>true</code> então todas as ocorrências da métrica
-com dois índices covariantes (ou contravariantes) irão ser renomeadas para <code>lg</code>
-(ou <code>ug</code>). Adicionalmente, ciclos <code>do</code> irão ser introduzidos adicionando sobre
-todos os índices livres de forma que a
-declaração de atribuição transformada pode ser avaliada através de apenas fazendo
-<code>ev</code>. Os seguintes exemplos demonstam os recursos dessa
-função.
+<p><code>exptsubst</code>, quando <code>true</code>, permite substituições tais como <code>y</code>
+para <code>%e^x</code> em <code>%e^(a x)</code>.
 </p>
-<pre class="example">(%i1) load(itensor);
-(%o1)      /share/tensor/itensor.lisp
-(%i2) eqn:ishow(t([i,j],[k])=f([],[])*g([l,m],[])*a([],[m],j)*b([i],[l,k]))$
-                             k        m   l k
-(%t2)                       t    = f a   b    g
-                             i j      ,j  i    l m
-(%i3) ic_convert(eqn);
-(%o3) for i thru dim do (for j thru dim 
-
-do (for k thru dim do t        : f sum(sum(diff(a , ct_coords ) b
-                       i, j, k                   m           j   i, l, k
-
- g    , l, 1, dim), m, 1, dim)))
-  l, m
-(%i4) imetric(g);
-(%o4)                                done
-(%i5) metricconvert:true;
-(%o5)                                true
-(%i6) ic_convert(eqn);
-(%o6) for i thru dim do (for j thru dim 
-
-do (for k thru dim do t        : f sum(sum(diff(a , ct_coords ) b
-                       i, j, k                   m           j   i, l, k
-
- lg    , l, 1, dim), m, 1, dim)))
-   l, m
-</pre>
 </dd></dl>
 
-<hr size="6">
-<a name="SEC102"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC101" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC92" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h3 class="subsection"> 27.2.10 Palavras reservadas </h3>
-
-<p>As palavras seguintes do Maxima são usadas internamente pelo pacote <code>itensor</code> e
-não podem ser redefinidas:
+<a name="Item_003a-Expressions_002fdeffn_002ffreeof"></a><dl>
+<dt><a name="index-freeof"></a>Função: <strong>freeof</strong> <em>(<var>x_1</var>, ..., <var>x_n</var>, <var>expr</var>)</em></dt>
+<dd><p><code>freeof (<var>x_1</var>, <var>expr</var>)</code>
+Retorna <code>true</code>
+se nenhuma subexpressão de <var>expr</var> for igual a <var>x_1</var>
+ou se <var>x_1</var> ocorrer somente uma variável que não tenha associação fora da expressão <var>expr</var>,
+e retorna <code>false</code> de outra forma.
 </p>
-<pre class="example">  Keyword    Comments
-  ------------------------------------------
-  indices2() versão interna de <code>indices()</code>
-  conti      Lista de índices contravariantes
-  covi       Lista de índices covariantes de um objecto indexado
-  deri       Lista de índices de derivada de um objecto indexado
-  name       Retorna o nome de um objecto indexado
-  concan
-  irpmon
-  lc0
-  _lc2kdt0
-  _lcprod
-  _extlc
-</pre>
+<p><code>freeof (<var>x_1</var>, ..., <var>x_n</var>, <var>expr</var>)</code>
+é equivalente a <code>freeof (<var>x_1</var>, <var>expr</var>) and ... and freeof (<var>x_n</var>, <var>expr</var>)</code>.
+</p>
+<p>Os argumentos <var>x_1</var>, ..., <var>x_n</var> 
+podem ser nomes de funções e variáveis, nomes subscritos,
+operadores (empacotados em aspas duplas), ou expressões gerais.
+<code>freeof</code> avalia seus argumentos.
+</p>
+<p><code>freeof</code> opera somente sobre <var>expr</var> como isso representa (após simplificação e avaliação) e
+não tenta determinar se alguma expressão equivalente pode fornecer um resultado diferente.
+Em particular, simplificação pode retornar uma expressão equivalente mas diferente que compreende
+alguns diferentes elementos da forma original de <var>expr</var>.
+</p>
+<p>Uma variável é uma variável dummy em uma expressão se não tiver associação fora da expressão.
+Variáveis dummy recoreconhecidas através de <code>freeof</code> são
+o índice de um somatório ou produtório, o limite da variável em <code>limit</code>,
+a variável de integração na forma de integral definida de <code>integrate</code>,
+a variável original em <code>laplace</code>,
+variáveis formais em expressoes <code>at</code>,
+e argumentos em expressões <code>lambda</code>.
+Variáveis locais em <code>block</code> não são reconhecidas por <code>freeof</code> como variáveis dummy;
+isso é um bug.
+</p>
+<p>A forma indefinida de <code>integrate</code> <i>not</i> é livre de suas variáveis de integração.
+</p>
+<ul>
+<li> Argumentos são nomes de funções, variáveis, nomes subscritos, operadores, e expressões.
+<code>freeof (a, b, expr)</code> é equivalente a
+<code>freeof (a, expr) and freeof (b, expr)</code>.
+
+<div class="example">
+<pre class="example">(%i1) expr: z^3 * cos (a[1]) * b^(c+d);
+                                 d + c  3
+(%o1)                   cos(a ) b      z
+                             1
+(%i2) freeof (z, expr);
+(%o2)                         false
+(%i3) freeof (cos, expr);
+(%o3)                         false
+(%i4) freeof (a[1], expr);
+(%o4)                         false
+(%i5) freeof (cos (a[1]), expr);
+(%o5)                         false
+(%i6) freeof (b^(c+d), expr);
+(%o6)                         false
+(%i7) freeof (&quot;^&quot;, expr);
+(%o7)                         false
+(%i8) freeof (w, sin, a[2], sin (a[2]), b*(c+d), expr);
+(%o8)                         true
+</pre></div>
+
+</li><li> <code>freeof</code> avalia seus argumentos.
+
+<div class="example">
+<pre class="example">(%i1) expr: (a+b)^5$
+(%i2) c: a$
+(%i3) freeof (c, expr);
+(%o3)                         false
+</pre></div>
+
+</li><li> <code>freeof</code> não considera expressões equivalentes.
+Simplificação pode retornar uma expressão equivalente mas diferente.
+
+<div class="example">
+<pre class="example">(%i1) expr: (a+b)^5$
+(%i2) expand (expr);
+          5        4       2  3       3  2      4      5
+(%o2)    b  + 5 a b  + 10 a  b  + 10 a  b  + 5 a  b + a
+(%i3) freeof (a+b, %);
+(%o3)                         true
+(%i4) freeof (a+b, expr);
+(%o4)                         false
+(%i5) exp (x);
+                                 x
+(%o5)                          %e
+(%i6) freeof (exp, exp (x));
+(%o6)                         true
+</pre></div>
+
+</li><li> Um somatório ou uma integral definida está livre de uma variável dummy.
+Uma integral indefinida não é livre de suas variáveis de integração.
+
+<div class="example">
+<pre class="example">(%i1) freeof (i, 'sum (f(i), i, 0, n));
+(%o1)                         true
+(%i2) freeof (x, 'integrate (x^2, x, 0, 1));
+(%o2)                         true
+(%i3) freeof (x, 'integrate (x^2, x));
+(%o3)                         false
+</pre></div>
+</li></ul>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fgenfact"></a><dl>
+<dt><a name="index-genfact"></a>Função: <strong>genfact</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dd><p>Retorna o factorial generalizado, definido como
+<code>x (x-z) (x - 2 z) ... (x - (y - 1) z)</code>.  Dessa forma, para integral <var>x</var>,
+<code>genfact (x, x, 1) = x!</code> e <code>genfact (x, x/2, 2) = x!!</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fimagpart"></a><dl>
+<dt><a name="index-imagpart"></a>Função: <strong>imagpart</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna a parte imaginária da expressão <var>expr</var>.
+</p>
+<p><code>imagpart</code> é uma função computacional,
+não uma função de simplificação.
+</p>
+<p>Veja também <code>abs</code>, <code>carg</code>, <code>polarform</code>, <code>rectform</code>,
+e <code>realpart</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002finfix"></a><dl>
+<dt><a name="index-infix"></a>Função: <strong>infix</strong> <em>(<var>op</var>)</em></dt>
+<dt><a name="index-infix-1"></a>Função: <strong>infix</strong> <em>(<var>op</var>, <var>lbp</var>, <var>rbp</var>)</em></dt>
+<dt><a name="index-infix-2"></a>Função: <strong>infix</strong> <em>(<var>op</var>, <var>lbp</var>, <var>rbp</var>, <var>lpos</var>, <var>rpos</var>, <var>pos</var>)</em></dt>
+<dd><p>Declara <var>op</var> para ser um operador infixo.
+Um operador infixo é uma função de dois argumentos,
+com o nome da função escrito entre os argumentos.
+Por exemplo, o operador de subtração <code>-</code> é um operador infixo.
+</p>
+<p><code>infix (<var>op</var>)</code> declara <var>op</var> para ser um operador infixo
+com expoentes associados padrão (esquerdo e direito ambos iguais a 180)
+e podendo ser qualquer entre prefixado, infixado, posfixado, nário, 
+matchfix e nofix (esquerdo e direito ambos iguais a <code>any</code>).
+</p>
+<p><code>infix (<var>op</var>, <var>lbp</var>, <var>rbp</var>)</code> declara <var>op</var> para ser um operador infixo
+com expoentes associados esquerdo e directio equilibrados
+e podendo ser qualquer entre prefixado, infixado, posfixado, nário, 
+matchfix e nofix (esquerdo e direito ambos iguais a <code>any</code>).
+</p>
+<p><code>infix (<var>op</var>, <var>lbp</var>, <var>rbp</var>, <var>lpos</var>, <var>rpos</var>, <var>pos</var>)</code>
+declara <var>op</var> para ser um operdor infixo
+com expoentes associados padrão e podendo ser um entre 
+prefixado, infixado, posfixado, nário, matchfix e nofix.
+</p>
+<p>A precedência de <var>op</var> com relação a outros operadores
+derivam dos expoentes associados directiro e esquerdo dos operadores em questão.
+Se os expoentes associados esquerdo e direito de <var>op</var> forem ambos maiores
+que o expoente associado esquerdo e o direito de algum outro operador,
+então <var>op</var> tem prededência sobre o outro operador.
+Se os expoentes associados não forem ambos maior ou menor,
+alguma relação mais complicada ocorre.
+</p>
+<p>A associatividade de <var>op</var> depende de seus expoentes associados.
+Maior expoente associado esquerdo (<var>eae</var>) implica uma instância de
+<var>op</var> é avaliadas antes de outros operadores para sua esquerda em uma expressão,
+enquanto maior expoente associado direito (<var>ead</var>) implica uma instância de
+<var>op</var> é avaliada antes de outros operadores para sua direita em uma expressão.
+Dessa forma maior <var>eae</var> torna <var>op</var> associativo à direita,
+enquanto maior <var>ead</var> torna <var>op</var> associativa à esquerda.
+Se <var>eae</var> for igual a <var>ead</var>, <var>op</var> é associativa à esquerda.
+</p>
+<p>Veja também <code>Syntax</code>.
+</p>
+<p>Exemplos:
+</p>
+<p>Se os expoentes associados esquerdo e direito de <var>op</var> forem ambos maiores
+que os expoentes associados à direita e à esquerda de algum outro operador,
+então <var>op</var> tem precedência sobre o outro operador.
+</p>
+<div class="example">
+<pre class="example">(%i1) :lisp (get '$+ 'lbp)
+100
+(%i1) :lisp (get '$+ 'rbp)
+100
+(%i1) infix (&quot;##&quot;, 101, 101);
+(%o1)                          ##
+(%i2) &quot;##&quot;(a, b) := sconcat(&quot;(&quot;, a, &quot;,&quot;, b, &quot;)&quot;);
+(%o2)       (a ## b) := sconcat(&quot;(&quot;, a, &quot;,&quot;, b, &quot;)&quot;)
+(%i3) 1 + a ## b + 2;
+(%o3)                       (a,b) + 3
+(%i4) infix (&quot;##&quot;, 99, 99);
+(%o4)                          ##
+(%i5) 1 + a ## b + 2;
+(%o5)                       (a+1,b+2)
+</pre></div>
+
+<p>grande <var>eae</var> torna <var>op</var> associativa à direita,
+enquanto grande <var>ead</var> torna <var>op</var> associativa à esquerda.
+</p>
+<div class="example">
+<pre class="example">(%i1) infix (&quot;##&quot;, 100, 99);
+(%o1)                          ##
+(%i2) &quot;##&quot;(a, b) := sconcat(&quot;(&quot;, a, &quot;,&quot;, b, &quot;)&quot;)$
+(%i3) foo ## bar ## baz;
+(%o3)                    (foo,(bar,baz))
+(%i4) infix (&quot;##&quot;, 100, 101);
+(%o4)                          ##
+(%i5) foo ## bar ## baz;
+(%o5)                    ((foo,bar),baz)
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdefvr_002finflag"></a><dl>
+<dt><a name="index-inflag"></a>Variável de opção: <strong>inflag</strong></dt>
+<dd><p>Velor padrão: <code>false</code>
+</p>
+<p>Quando <code>inflag</code> for <code>true</code>, funções para extração de
+partes inspecionam a forma interna de <code>expr</code>.
+</p>
+<p>Note que o simplificador re-organiza expressões.
+Dessa forma <code>first (x + y)</code> retorna <code>x</code> se <code>inflag</code>
+for <code>true</code> e <code>y</code> se <code>inflag</code> for <code>false</code>.
+(<code>first (y + x)</code> fornece os mesmos resultados.)
+</p>
+<p>Também, escolhendo <code>inflag</code> para <code>true</code> e chamando <code>part</code> ou <code>substpart</code> é
+o mesmo que chamar <code>inpart</code> ou <code>substinpart</code>.
+</p>
+<p>As funções afectadas pela posição do sinalizador <code>inflag</code> são:
+<code>part</code>, <code>substpart</code>, <code>first</code>, <code>rest</code>, <code>last</code>, <code>length</code>,
+a estrutura <code>for</code> ... <code>in</code>,
+<code>map</code>, <code>fullmap</code>, <code>maplist</code>, <code>reveal</code> e <code>pickapart</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002finpart"></a><dl>
+<dt><a name="index-inpart"></a>Função: <strong>inpart</strong> <em>(<var>expr</var>, <var>n_1</var>, ..., <var>n_k</var>)</em></dt>
+<dd><p>É similar a <code>part</code> mas trabalha sobre a representação
+interna da expressão em lugar da forma de exibição e
+dessa forma pode ser mais rápida uma vez que nenhuma formatação é realizada.  Cuidado deve ser tomado
+com relação à ordem de subexpressões em adições e produtos
+(uma vez que a ordem das variáveis na forma interna é muitas vezes diferente
+daquela na forma mostrada) e no manuseio com menos unário,
+subtração, e divisão (uma vez que esses operadores são removidos da
+expressão). <code>part (x+y, 0)</code> ou <code>inpart (x+y, 0)</code> retorna <code>+</code>, embora com o objectivo de
+referirse ao operador isso deva ser abraçado por aspas duplas.  Por exemplo
+<code>... if inpart (%o9,0) = &quot;+&quot; then ...</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) x + y + w*z;
+(%o1)                      w z + y + x
+(%i2) inpart (%, 3, 2);
+(%o2)                           z
+(%i3) part (%th (2), 1, 2);
+(%o3)                           z
+(%i4) 'limit (f(x)^g(x+1), x, 0, minus);
+                                  g(x + 1)
+(%o4)                 limit   f(x)
+                      x -&gt; 0-
+(%i5) inpart (%, 1, 2);
+(%o5)                       g(x + 1)
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fisolate"></a><dl>
+<dt><a name="index-isolate"></a>Função: <strong>isolate</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<dd><p>Retorna <var>expr</var> com subexpressões que são adições e
+que não possuem <var>x</var> substituido por rótulos de expressão intermédia
+(esses sendo símbolos at&ocirc;micos como <code>%t1</code>, <code>%t2</code>, ...).  Isso é muitas vezes útil
+para evitar expansões desnecessárias de subexpressões que não possuam
+a variável de interesse.  Uma vez que os rótulos intermédios são associados às
+subexpressões eles podem todos ser substituídos de volta por avaliação da
+expressão em que ocorrerem.
+</p>
+<p><code>exptisolate</code> (valor padrão: <code>false</code>) se <code>true</code> fará com que <code>isolate</code> examine expoentes de
+átomos (como <code>%e</code>) que contenham <var>x</var>.
+</p>
+<p><code>isolate_wrt_times</code> se <code>true</code>, então <code>isolate</code> irá também isolar com relação a 
+produtos. Veja <code>isolate_wrt_times</code>.
+</p>
+<p>Faça <code>example (isolate)</code> para exemplos.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdefvr_002fisolate_005fwrt_005ftimes"></a><dl>
+<dt><a name="index-isolate_005fwrt_005ftimes"></a>Variável de opção: <strong>isolate_wrt_times</strong></dt>
+<dd><p>Valor por omissão: <code>false</code>
+</p>
+<p>Quando <code>isolate_wrt_times</code> for <code>true</code>, <code>isolate</code>
+irá também isolar com relação a produtos.  E.g. compare ambas as escolhas do
+comutador em
+</p>
+<div class="example">
+<pre class="example">(%i1) isolate_wrt_times: true$
+(%i2) isolate (expand ((a+b+c)^2), c);
+
+(%t2)                          2 a
 
 
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC88" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC103" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_72.html#SEC271" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+(%t3)                          2 b
+
+
+                          2            2
+(%t4)                    b  + 2 a b + a
+
+                     2
+(%o4)               c  + %t3 c + %t2 c + %t4
+(%i4) isolate_wrt_times: false$
+(%i5) isolate (expand ((a+b+c)^2), c);
+                     2
+(%o5)               c  + 2 b c + 2 a c + %t4
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdefvr_002flistconstvars"></a><dl>
+<dt><a name="index-listconstvars"></a>Variável de opção: <strong>listconstvars</strong></dt>
+<dd><p>Valor por omissão: <code>false</code>
+</p>
+<p>Quando <code>listconstvars</code> for <code>true</code>, isso fará com que <code>listofvars</code>
+inclua <code>%e</code>, <code>%pi</code>, <code>%i</code>, e quaisquer variáveis declaradas contantes na lista
+seja retornado se aparecer na expressão que chamar <code>listofvars</code>.
+O comportamento padrão é omitir isso.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdefvr_002flistdummyvars"></a><dl>
+<dt><a name="index-listdummyvars"></a>Variável de opção: <strong>listdummyvars</strong></dt>
+<dd><p>Valor por omissão: <code>true</code>
+</p>
+<p>Quando <code>listdummyvars</code> for <code>false</code>, &quot;variáveis dummy&quot; na
+expressão não serão incluídas na lista retornada por <code>listofvars</code>.
+(O significado de &quot;variável dummy&quot; é o mesmo que em <code>freeof</code>.
+&quot;Variáveis dummy&quot; são conceitos matemáticos como o índice de um somatório ou
+produtório, a variável limite, e a variável da integral definida.)
+Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) listdummyvars: true$
+(%i2) listofvars ('sum(f(i), i, 0, n));
+(%o2)                        [i, n]
+(%i3) listdummyvars: false$
+(%i4) listofvars ('sum(f(i), i, 0, n));
+(%o4)                          [n]
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002flistofvars"></a><dl>
+<dt><a name="index-listofvars"></a>Função: <strong>listofvars</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna uma lista de variáveis em <var>expr</var>.
+</p>
+<p><code>listconstvars</code> se <code>true</code> faz com que <code>listofvars</code> inclua <code>%e</code>, <code>%pi</code>,
+<code>%i</code>, e quaisquer variáveis declaradas constantes na lista é retornada se
+aparecer em <var>expr</var>.  O comportamento padrão é omitir isso.
+</p>
+<div class="example">
+<pre class="example">(%i1) listofvars (f (x[1]+y) / g^(2+a));
+(%o1)                     [g, a, x , y]
+                                  1
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002flfreeof"></a><dl>
+<dt><a name="index-lfreeof"></a>Função: <strong>lfreeof</strong> <em>(<var>lista</var>, <var>expr</var>)</em></dt>
+<dd><p>Para cada um dos membros <var>m</var> de lista, chama <code>freeof (<var>m</var>, <var>expr</var>)</code>.
+Retorna <code>false</code> se qualquer chamada a <code>freeof</code> for feita e <code>true</code> de outra forma.
+</p></dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002flopow"></a><dl>
+<dt><a name="index-lopow"></a>Função: <strong>lopow</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<dd><p>Retorna o menor expoente de <var>x</var> que explicitamente aparecer em
+<var>expr</var>.  Dessa forma
+</p>
+<div class="example">
+<pre class="example">(%i1) lopow ((x+y)^2 + (x+y)^a, x+y);
+(%o1)                       min(a, 2)
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002flpart"></a><dl>
+<dt><a name="index-lpart"></a>Função: <strong>lpart</strong> <em>(<var>rótulo</var>, <var>expr</var>, <var>n_1</var>, ..., <var>n_k</var>)</em></dt>
+<dd><p>é similar a <code>dpart</code> mas usa uma caixa rotulada. Uma caixa
+rotulada é similar à que é produzida por <code>dpart</code> mas a
+produzida por <code>lpart</code> tem o nome na linha do topo.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fmultthru"></a><dl>
+<dt><a name="index-multthru"></a>Função: <strong>multthru</strong> <em>(<var>expr</var>)</em></dt>
+<dt><a name="index-multthru-1"></a>Função: <strong>multthru</strong> <em>(<var>expr_1</var>, <var>expr_2</var>)</em></dt>
+<dd><p>Multiplica um factor (que pode ser uma adição) de <var>expr</var> pelos
+outros factores de <var>expr</var>.  Isto é, <var>expr</var> é <code><var>f_1</var> <var>f_2</var> ... <var>f_n</var></code>
+onde ao menos
+um factor, digamos <var>f_i</var>, é uma soma de termos.  Cada termo naquela soma é
+multiplicado por outros factores no produto.  (A saber todos os
+factores excepto <var>f_i</var>).  <code>multthru</code> não expande somas exponenciais.
+Essa função é o caminho mais rápido para distribuir produtos (comutativos
+ou não) sobre adições.  Uma vez que quocientes são representados como
+produtos <code>multthru</code> podem ser usados para dividir adições por produtos também.
+</p>
+<p><code>multthru (<var>expr_1</var>, <var>expr_2</var>)</code> multiplica cada termo em <var>expr_2</var> (que pode ser uma
+adição ou uma equção) por <var>expr_1</var>.  Se <var>expr_1</var> não for por si mesmo uma adição então essa
+forma é equivalente a <code>multthru (<var>expr_1</var>*<var>expr_2</var>)</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) x/(x-y)^2 - 1/(x-y) - f(x)/(x-y)^3;
+                      1        x         f(x)
+(%o1)             - ----- + -------- - --------
+                    x - y          2          3
+                            (x - y)    (x - y)
+(%i2) multthru ((x-y)^3, %);
+                           2
+(%o2)             - (x - y)  + x (x - y) - f(x)
+(%i3) ratexpand (%);
+                           2
+(%o3)                   - y  + x y - f(x)
+(%i4) ((a+b)^10*s^2 + 2*a*b*s + (a*b)^2)/(a*b*s^2);
+                        10  2              2  2
+                 (b + a)   s  + 2 a b s + a  b
+(%o4)            ------------------------------
+                                  2
+                             a b s
+(%i5) multthru (%);  /* note que isso não expande (b+a)^10 */
+                                        10
+                       2   a b   (b + a)
+(%o5)                  - + --- + ---------
+                       s    2       a b
+                           s
+(%i6) multthru (a.(b+c.(d+e)+f));
+(%o6)            a . f + a . c . (e + d) + a . b
+(%i7) expand (a.(b+c.(d+e)+f));
+(%o7)         a . f + a . c . e + a . c . d + a . b
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fnounify"></a><dl>
+<dt><a name="index-nounify"></a>Função: <strong>nounify</strong> <em>(<var>f</var>)</em></dt>
+<dd><p>Retorna a forma substantiva do nome da função <var>f</var>.  Isso é
+necessário se se quer referir ao nome de uma função verbo como se esse nome
+fosse um substantivo.  Note que algumas funções verbos irão retornar sua forma
+substantiva senão puderem ser avaliadas para certos argumentos.  A forma substantiva é também
+a forma retornada se uma chamada de função é precedida por um apóstrofo.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fnterms"></a><dl>
+<dt><a name="index-nterms"></a>Função: <strong>nterms</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna o número de termos que <var>expr</var> pode ter se for
+completamente expandida e nenhum cancelamento ou combinação de termos
+acontecer.
+Note expressões como <code>sin (<var>expr</var>)</code>, <code>sqrt (<var>expr</var>)</code>, <code>exp (<var>expr</var>)</code>, etc.
+contam como apenas um termo independentemente de quantos termos <var>expr</var> tenha (se <var>expr</var> for uma
+adição).
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fop"></a><dl>
+<dt><a name="index-op"></a>Função: <strong>op</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna o operador principal da expressão <var>expr</var>.
+<code>op (<var>expr</var>)</code> é equivalente a <code>part (<var>expr</var>, 0)</code>. 
+</p>
+<p><code>op</code> retorna uma sequência de caracteres se o operador principal for uma
+operador interno ou definido pelo utilizador como
+prefixado, binário ou n-ário infixo, posfixado, matchfix ou nofix.
+De outra forma, se <var>expr</var> for uma expressão de função subscrita,
+<code>op</code> retorna uma função subscrita;
+nesse caso o valor de retorno não é um átomo.
+De outro modo, <var>expr</var> é uma função de array ou uma expressão de função comum,
+e <code>op</code> retorna um símbolo.
+</p>
+<p><code>op</code> observa o valor do sinalizador global <code>inflag</code>.
+</p>
+<p><code>op</code> avalia seus argumentos.
+</p>
+<p>Veja também <code>args</code>.
+</p>
+<p>Exemplos:
+</p>
+
+<div class="example">
+<pre class="example">(%i1) stringdisp: true$
+(%i2) op (a * b * c);
+(%o2)                          &quot;*&quot;
+(%i3) op (a * b + c);
+(%o3)                          &quot;+&quot;
+(%i4) op ('sin (a + b));
+(%o4)                          sin
+(%i5) op (a!);
+(%o5)                          &quot;!&quot;
+(%i6) op (-a);
+(%o6)                          &quot;-&quot;
+(%i7) op ([a, b, c]);
+(%o7)                          &quot;[&quot;
+(%i8) op ('(if a &gt; b then c else d));
+(%o8)                         &quot;if&quot;
+(%i9) op ('foo (a));
+(%o9)                          foo
+(%i10) prefix (foo);
+(%o10)                        &quot;foo&quot;
+(%i11) op (foo a);
+(%o11)                        &quot;foo&quot;
+(%i12) op (F [x, y] (a, b, c));
+(%o12)                        F
+                               x, y
+(%i13) op (G [u, v, w]);
+(%o13)                          G
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002foperatorp"></a><dl>
+<dt><a name="index-operatorp"></a>Função: <strong>operatorp</strong> <em>(<var>expr</var>, <var>op</var>)</em></dt>
+<dt><a name="index-operatorp-1"></a>Função: <strong>operatorp</strong> <em>(<var>expr</var>, [<var>op_1</var>, ..., <var>op_n</var>])</em></dt>
+<dd>
+<p><code>operatorp (<var>expr</var>, <var>op</var>)</code> retorna <code>true</code>
+se <var>op</var> for igual ao operador de <var>expr</var>.
+</p>
+<p><code>operatorp (<var>expr</var>, [<var>op_1</var>, ..., <var>op_n</var>])</code> retorna <code>true</code>
+se algum elementos de <var>op_1</var>, ..., <var>op_n</var> for igual ao operador de <var>expr</var>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002foptimize"></a><dl>
+<dt><a name="index-optimize"></a>Função: <strong>optimize</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna uma expressão que produz o mesmo valor e
+efeito que <var>expr</var> mas faz de forma mais eficientemente por evitar a
+recomputação de subexpressões comuns.  <code>optimize</code> também tem o mesmo
+efeito de &quot;colapsar&quot; seus argumentos de forma que todas as subexpressões comuns
+são compartilhadas.
+Faça <code>example (optimize)</code> para exemplos.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdefvr_002foptimprefix"></a><dl>
+<dt><a name="index-optimprefix"></a>Variável de opção: <strong>optimprefix</strong></dt>
+<dd><p>Valor por omissão: <code>%</code>
+</p>
+<p><code>optimprefix</code> é o prefixo usado para símbolos gerados pelo
+comando <code>optimize</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fordergreat"></a><dl>
+<dt><a name="index-ordergreat"></a>Função: <strong>ordergreat</strong> <em>(<var>v_1</var>, ..., <var>v_n</var>)</em></dt>
+<dd><p>Escolhe aliases para as variáveis <var>v_1</var>, ..., <var>v_n</var>
+tais que <var>v_1</var> &gt; <var>v_2</var> &gt; ...  &gt; <var>v_n</var>,
+e <var>v_n</var> &gt; qualquer outra variável não mencionada como um
+argumento.
+</p>
+<p>Veja também <code>orderless</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fordergreatp"></a><dl>
+<dt><a name="index-ordergreatp"></a>Função: <strong>ordergreatp</strong> <em>(<var>expr_1</var>, <var>expr_2</var>)</em></dt>
+<dd><p>Retorna <code>true</code> se <var>expr_2</var> precede <var>expr_1</var> na
+ordenação escolhida com a função <code>ordergreat</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002forderless"></a><dl>
+<dt><a name="index-orderless"></a>Função: <strong>orderless</strong> <em>(<var>v_1</var>, ..., <var>v_n</var>)</em></dt>
+<dd><p>Escolhe aliases para as variáveis <var>v_1</var>, ..., <var>v_n</var>
+tais que <var>v_1</var> &lt; <var>v_2</var> &lt; ...  &lt; <var>v_n</var>,
+and <var>v_n</var> &lt; qualquer outra variável não mencionada como um
+argumento.
+</p>
+<p>Dessa forma a escala de ordenação completa é: constantes numéricas &lt;
+constantes declaradas &lt; escalares declarados &lt; primeiro argumento para <code>orderless</code> &lt;
+...  &lt; último argumento para <code>orderless</code> &lt; variáveis que começam com A &lt; ...
+&lt; variáveis que começam com Z &lt; último argumento para <code>ordergreat</code> &lt;
+ ... &lt; primeiro argumento para <code>ordergreat</code> &lt; <code>mainvar</code>s - variáveis principais declaradas.
+</p>
+<p>Veja também <code>ordergreat</code> e <code>mainvar</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002forderlessp"></a><dl>
+<dt><a name="index-orderlessp"></a>Função: <strong>orderlessp</strong> <em>(<var>expr_1</var>, <var>expr_2</var>)</em></dt>
+<dd><p>Retorna <code>true</code> se <var>expr_1</var> precede <var>expr_2</var> na
+ordenação escolhida pelo comando <code>orderless</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fpart"></a><dl>
+<dt><a name="index-part"></a>Função: <strong>part</strong> <em>(<var>expr</var>, <var>n_1</var>, ..., <var>n_k</var>)</em></dt>
+<dd><p>Retorna partes da forma exibida de <code>expr</code>. Essa função
+obtém a parte de <code>expr</code> como especificado pelos índices <var>n_1</var>, ..., <var>n_k</var>.  A primeira
+parte <var>n_1</var> de <code>expr</code> é obtida, então a parte <var>n_2</var> daquela  é obtida, etc.  O resultado é
+parte <var>n_k</var> de ... parte <var>n_2</var> da parte <var>n_1</var> da <code>expr</code>.
+</p>
+<p><code>part</code> pode ser usada para obter um elemento de uma lista, uma linha de uma matriz, etc.
+</p>
+<p>Se o último argumento para uma função <code>part</code> for uma lista de índices então
+muitas subexpressões serão pinçadas, cada uma correspondendo a um
+índice da lista.  Dessa forma <code>part (x + y + z, [1, 3])</code> é <code>z+x</code>.
+</p>
+<p><code>piece</code> mantém a última expressão seleccionada quando usando as funções
+<code>part</code>.  Isso é escolhido durante a execução da função e dessa forma
+pode referir-se à função em si mesma como mostrado abaixo.
+</p>
+<p>Se <code>partswitch</code> for escolhido para <code>true</code> então <code>end</code> é retornado quando uma
+parte seleccionada de uma expressão não existir, de outra forma uma mensagem de
+erro é forncecida.
+</p>
+
+<p>Exemplo: <code>part (z+2*y, 2, 1)</code> retorna 2.
+</p>
+<p><code>example (part)</code> mostra exemplos adicionais.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fpartition"></a><dl>
+<dt><a name="index-partition"></a>Função: <strong>partition</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<dd><p>Retorna uma lista de duas expressões.  Elas são (1)
+os factores de <var>expr</var> (se essa expressão for um produto), os termos de <var>expr</var> (se isso for uma
+adição), ou a lista (se isso for uma lsita) que não contiver <code>var</code> e, (2)
+os factores, termos, ou lista que faz.
+</p>
+<div class="example">
+<pre class="example">(%i1) partition (2*a*x*f(x), x);
+(%o1)                     [2 a, x f(x)]
+(%i2) partition (a+b, x);
+(%o2)                      [b + a, 0]
+(%i3) partition ([a, b, f(a), c], a); 
+(%o3)                  [[b, c], [a, f(a)]]
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdefvr_002fpartswitch"></a><dl>
+<dt><a name="index-partswitch"></a>Variável de opção: <strong>partswitch</strong></dt>
+<dd><p>Valor por omissão: <code>false</code>
+</p>
+<p>Quando <code>partswitch</code> for <code>true</code>, <code>end</code> é retornado
+quando uma parte seleccionada de uma expressão não existir, de outra forma uma
+mensagem de erro é fornecida.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fpickapart"></a><dl>
+<dt><a name="index-pickapart"></a>Função: <strong>pickapart</strong> <em>(<var>expr</var>, <var>n</var>)</em></dt>
+<dd><p>Atribui rótulos de expressão intermédia a subexpressões de
+<var>expr</var> de comprimento <var>n</var>, um inteiro.
+A subexpressões maiores ou menores não são atribuidos rótulos.
+<code>pickapart</code> retorna uma expressão em termos de expressões intermédias
+equivalentes à expressão original <var>expr</var>.
+</p>
+<p>Veja também <code>part</code>, <code>dpart</code>, <code>lpart</code>, <code>inpart</code>, e <code>reveal</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: (a+b)/2 + sin (x^2)/3 - log (1 + sqrt(x+1));
+                                          2
+                                     sin(x )   b + a
+(%o1)       - log(sqrt(x + 1) + 1) + ------- + -----
+                                        3        2
+(%i2) pickapart (expr, 0);
+
+                                          2
+                                     sin(x )   b + a
+(%t2)       - log(sqrt(x + 1) + 1) + ------- + -----
+                                        3        2
+
+(%o2)                          %t2
+(%i3) pickapart (expr, 1);
+
+(%t3)                - log(sqrt(x + 1) + 1)
+
+
+                                  2
+                             sin(x )
+(%t4)                        -------
+                                3
+
+
+                              b + a
+(%t5)                         -----
+                                2
+
+(%o5)                    %t5 + %t4 + %t3
+(%i5) pickapart (expr, 2);
+
+(%t6)                 log(sqrt(x + 1) + 1)
+
+
+                                  2
+(%t7)                        sin(x )
+
+
+(%t8)                         b + a
+
+                         %t8   %t7
+(%o8)                    --- + --- - %t6
+                          2     3
+(%i8) pickapart (expr, 3);
+
+(%t9)                    sqrt(x + 1) + 1
+
+
+                                2
+(%t10)                         x
+
+                  b + a              sin(%t10)
+(%o10)            ----- - log(%t9) + ---------
+                    2                    3
+(%i10) pickapart (expr, 4);
+
+(%t11)                     sqrt(x + 1)
+
+                      2
+                 sin(x )   b + a
+(%o11)           ------- + ----- - log(%t11 + 1)
+                    3        2
+(%i11) pickapart (expr, 5);
+
+(%t12)                        x + 1
+
+                   2
+              sin(x )   b + a
+(%o12)        ------- + ----- - log(sqrt(%t12) + 1)
+                 3        2
+(%i12) pickapart (expr, 6);
+                  2
+             sin(x )   b + a
+(%o12)       ------- + ----- - log(sqrt(x + 1) + 1)
+                3        2
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdefvr_002fpiece"></a><dl>
+<dt><a name="index-piece"></a>Variável de sistema: <strong>piece</strong></dt>
+<dd><p>Mantém a ultima expressão seleccionada quando usando funções
+<code>part</code>.
+Isso é escolhido durante a execução da função e dessa forma
+pode referir-se à função em si mesma.
+</p>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fpolarform"></a><dl>
+<dt><a name="index-polarform"></a>Função: <strong>polarform</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna uma expressão <code>r %e^(%i theta)</code> equivalente a <var>expr</var>,
+tal que <code>r</code> e <code>theta</code> sejam puramente reais.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fpowers"></a><dl>
+<dt><a name="index-powers"></a>Função: <strong>powers</strong> <em>(<var>expr</var>, <var>x</var>)</em></dt>
+<dd><p>Fornece os expoentes de <var>x</var> que ocorrem em expressão <var>expr</var>.
+</p>
+<p><code>load (&quot;powers&quot;)</code> chama essa função.
+</p>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fproduct"></a><dl>
+<dt><a name="index-product"></a>Função: <strong>product</strong> <em>(<var>expr</var>, <var>i</var>, <var>i_0</var>, <var>i_1</var>)</em></dt>
+<dd><p>Representa um produto dos velores de <code>expr</code> com
+o índice <var>i</var> variando de <var>i_0</var> a <var>i_1</var>.
+A forma substantiva <code>'product</code> é mostrada como um pi maiísculo.
+</p>
+<p><code>product</code> avalia <var>expr</var> e os limites inferior e superior <var>i_0</var> e <var>i_1</var>,
+<code>product</code> coloca um apóstrofo (não avalia) o índice <var>i</var>.
+</p>
+<p>Se os limites superiores e inferiores diferirem por um inteiro,
+<var>expr</var> é avaliada para cada valor do índice <var>i</var>,
+e o resultado  um produto explícito.
+</p>
+<p>de outra forma, o intervalo do índice é indefinido.
+Algumas regras são aplicads para simplificar o produto.
+Quando a variável global <code>simpproduct</code> for <code>true</code>, regras adicionais são aplicadas.
+Em alguns casos, simplificação um resultado que não é um produto;
+de outra forma, o resultado é uma forma substantiva <code>'product</code>.
+</p>
+<p>Veja também <code>nouns</code> e <code>evflag</code>.
+</p>
+<p>Exemplos:
+</p>
+
+<div class="example">
+<pre class="example">(%i1) product (x + i*(i+1)/2, i, 1, 4);
+(%o1)           (x + 1) (x + 3) (x + 6) (x + 10)
+(%i2) product (i^2, i, 1, 7);
+(%o2)                       25401600
+(%i3) product (a[i], i, 1, 7);
+(%o3)                 a  a  a  a  a  a  a
+                       1  2  3  4  5  6  7
+(%i4) product (a(i), i, 1, 7);
+(%o4)          a(1) a(2) a(3) a(4) a(5) a(6) a(7)
+(%i5) product (a(i), i, 1, n);
+                             n
+                           /===\
+                            ! !
+(%o5)                       ! !  a(i)
+                            ! !
+                           i = 1
+(%i6) product (k, k, 1, n);
+                               n
+                             /===\
+                              ! !
+(%o6)                         ! !  k
+                              ! !
+                             k = 1
+(%i7) product (k, k, 1, n), simpproduct;
+(%o7)                          n!
+(%i8) product (integrate (x^k, x, 0, 1), k, 1, n);
+                             n
+                           /===\
+                            ! !    1
+(%o8)                       ! !  -----
+                            ! !  k + 1
+                           k = 1
+(%i9) product (if k &lt;= 5 then a^k else b^k, k, 1, 10);
+                              15  40
+(%o9)                        a   b
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002frealpart"></a><dl>
+<dt><a name="index-realpart"></a>Função: <strong>realpart</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna a parte real de <var>expr</var>. <code>realpart</code> e <code>imagpart</code> irão
+trabalhar sobre expressões envolvendo funções trigonométricas e hiperbólicas,
+bem como raízes quadradas, logaritmos, e exponenciação.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002frectform"></a><dl>
+<dt><a name="index-rectform"></a>Função: <strong>rectform</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna uma expressão <code>a + b %i</code> equivalente a <var>expr</var>,
+tal que <var>a</var> e <var>b</var> sejam puramente reais.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002frembox"></a><dl>
+<dt><a name="index-rembox"></a>Função: <strong>rembox</strong> <em>(<var>expr</var>, unlabelled)</em></dt>
+<dt><a name="index-rembox-1"></a>Função: <strong>rembox</strong> <em>(<var>expr</var>, <var>rótulo</var>)</em></dt>
+<dt><a name="index-rembox-2"></a>Função: <strong>rembox</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Remove caixas de <var>expr</var>.
+</p>
+<p><code>rembox (<var>expr</var>, unlabelled)</code> remove todas as caixas sem rótulos de <var>expr</var>.
+</p>
+<p><code>rembox (<var>expr</var>, <var>rótulo</var>)</code> remove somente caixas contendo <var>rótulo</var>.
+</p>
+<p><code>rembox (<var>expr</var>)</code> remove todas as caixas, rotuladas e nã rotuladas.
+</p>
+<p>Caixas são desenhadas pelas funções <code>box</code>, <code>dpart</code>, e <code>lpart</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: (a*d - b*c)/h^2 + sin(%pi*x);
+                                  a d - b c
+(%o1)                sin(%pi x) + ---------
+                                      2
+                                     h
+(%i2) dpart (dpart (expr, 1, 1), 2, 2);
+                        &quot;&quot;&quot;&quot;&quot;&quot;&quot;    a d - b c
+(%o2)               sin(&quot;%pi x&quot;) + ---------
+                        &quot;&quot;&quot;&quot;&quot;&quot;&quot;      &quot;&quot;&quot;&quot;
+                                     &quot; 2&quot;
+                                     &quot;h &quot;
+                                     &quot;&quot;&quot;&quot;
+(%i3) expr2: lpart (BAR, lpart (FOO, %, 1), 2);
+                  FOO&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;   BAR&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+                  &quot;    &quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;   &quot;a d - b c&quot;
+(%o3)             &quot;sin(&quot;%pi x&quot;)&quot; + &quot;---------&quot;
+                  &quot;    &quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;   &quot;  &quot;&quot;&quot;&quot;   &quot;
+                  &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;   &quot;  &quot; 2&quot;   &quot;
+                                   &quot;  &quot;h &quot;   &quot;
+                                   &quot;  &quot;&quot;&quot;&quot;   &quot;
+                                   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+(%i4) rembox (expr2, unlabelled);
+                                  BAR&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+                   FOO&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;   &quot;a d - b c&quot;
+(%o4)              &quot;sin(%pi x)&quot; + &quot;---------&quot;
+                   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;   &quot;    2    &quot;
+                                  &quot;   h     &quot;
+                                  &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+(%i5) rembox (expr2, FOO);
+                                  BAR&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+                       &quot;&quot;&quot;&quot;&quot;&quot;&quot;    &quot;a d - b c&quot;
+(%o5)              sin(&quot;%pi x&quot;) + &quot;---------&quot;
+                       &quot;&quot;&quot;&quot;&quot;&quot;&quot;    &quot;  &quot;&quot;&quot;&quot;   &quot;
+                                  &quot;  &quot; 2&quot;   &quot;
+                                  &quot;  &quot;h &quot;   &quot;
+                                  &quot;  &quot;&quot;&quot;&quot;   &quot;
+                                  &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+(%i6) rembox (expr2, BAR);
+                   FOO&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+                   &quot;    &quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;   a d - b c
+(%o6)              &quot;sin(&quot;%pi x&quot;)&quot; + ---------
+                   &quot;    &quot;&quot;&quot;&quot;&quot;&quot;&quot; &quot;     &quot;&quot;&quot;&quot;
+                   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;     &quot; 2&quot;
+                                      &quot;h &quot;
+                                      &quot;&quot;&quot;&quot;
+(%i7) rembox (expr2);
+                                  a d - b c
+(%o7)                sin(%pi x) + ---------
+                                      2
+                                     h
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fsum"></a><dl>
+<dt><a name="index-sum"></a>Função: <strong>sum</strong> <em>(<var>expr</var>, <var>i</var>, <var>i_0</var>, <var>i_1</var>)</em></dt>
+<dd><p>Representa um somatório dos valores de <var>expr</var> com
+o índice <var>i</var> variando de <var>i_0</var> a <var>i_1</var>.
+A forma substantiva <code>'sum</code> é mostrada com uma letra sigma maiúscula.
+<code>sum</code> avalia seu somando <var>expr</var> e limites inferior e superior <var>i_0</var> e <var>i_1</var>,
+<code>sum</code> coloca apóstrofo (não avalia) o índice <var>i</var>.
+</p>
+<p>Se os limites superiores e inferiores diferirem de um número inteiro,
+o somatoriando <var>expr</var> é avaliado para cada valor do índice do somatório <var>i</var>,
+e o resultado é uma adição explícita.
+</p>
+<p>De outra forma, o intervalo dos índices é indefinido.
+Algumas regras são aplicadas para simplificar o somatório.
+Quando a variável global <code>simpsum</code> for <code>true</code>, regras adicionais são aplicadas.
+Em alguns casos, simplificações retornam um resultado que não é um somatório;
+de outra forma, o resultado é uma forma substantiva <code>'sum</code>.
+</p>
+<p>Quando o <code>evflag</code> (sinalizador de avaliação) <code>cauchysum</code> for <code>true</code>,
+um produto de somatórios é mostrado como um produto de Cauchy,
+no qual o índice do somatório mais interno é uma função de
+índice de um nível acima, em lugar de variar independentemente.
+</p>
+<p>A variável global <code>genindex</code> é o prefixo alfabético usado para gerar o próximo índice do somatório,
+quando um índice automaticamente gerado for necessário.
+</p>
+<p><code>gensumnum</code> é o sufixo numérico usando para gerar o próximo índice do somatório,
+quando um índice gerado automaticamente for necessário.
+Quando <code>gensumnum</code> for <code>false</code>, um índice gerado automaticamente é somente
+<code>genindex</code> sem sufixo numérico.
+</p>
+<p>Veja também <code>sumcontract</code>, <code>intosum</code>,
+<code>bashindices</code>, <code>niceindices</code>,
+<code>nouns</code>, <code>evflag</code>, e <code>zeilberger</code>.
+</p>
+<p>Exemplos:
+</p>
+
+<div class="example">
+<pre class="example">(%i1) sum (i^2, i, 1, 7);
+(%o1)                          140
+(%i2) sum (a[i], i, 1, 7);
+(%o2)           a  + a  + a  + a  + a  + a  + a
+                 7    6    5    4    3    2    1
+(%i3) sum (a(i), i, 1, 7);
+(%o3)    a(7) + a(6) + a(5) + a(4) + a(3) + a(2) + a(1)
+(%i4) sum (a(i), i, 1, n);
+                            n
+                           ====
+                           \
+(%o4)                       &gt;    a(i)
+                           /
+                           ====
+                           i = 1
+(%i5) sum (2^i + i^2, i, 0, n);
+                          n
+                         ====
+                         \       i    2
+(%o5)                     &gt;    (2  + i )
+                         /
+                         ====
+                         i = 0
+(%i6) sum (2^i + i^2, i, 0, n), simpsum;
+                              3      2
+                   n + 1   2 n  + 3 n  + n
+(%o6)             2      + --------------- - 1
+                                  6
+(%i7) sum (1/3^i, i, 1, inf);
+                            inf
+                            ====
+                            \     1
+(%o7)                        &gt;    --
+                            /      i
+                            ====  3
+                            i = 1
+(%i8) sum (1/3^i, i, 1, inf), simpsum;
+                                1
+(%o8)                           -
+                                2
+(%i9) sum (i^2, i, 1, 4) * sum (1/i^2, i, 1, inf);
+                              inf
+                              ====
+                              \     1
+(%o9)                      30  &gt;    --
+                              /      2
+                              ====  i
+                              i = 1
+(%i10) sum (i^2, i, 1, 4) * sum (1/i^2, i, 1, inf), simpsum;
+                                  2
+(%o10)                       5 %pi
+(%i11) sum (integrate (x^k, x, 0, 1), k, 1, n);
+                            n
+                           ====
+                           \       1
+(%o11)                      &gt;    -----
+                           /     k + 1
+                           ====
+                           k = 1
+(%i12) sum (if k &lt;= 5 then a^k else b^k, k, 1, 10));
+Incorrect syntax: Too many )'s
+else b^k, k, 1, 10))
+                  ^
+(%i12) linenum:11;
+(%o11)                         11
+(%i12) sum (integrate (x^k, x, 0, 1), k, 1, n);
+                            n
+                           ====
+                           \       1
+(%o12)                      &gt;    -----
+                           /     k + 1
+                           ====
+                           k = 1
+(%i13) sum (if k &lt;= 5 then a^k else b^k, k, 1, 10);
+          10    9    8    7    6    5    4    3    2
+(%o13)   b   + b  + b  + b  + b  + a  + a  + a  + a  + a
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002flsum"></a><dl>
+<dt><a name="index-lsum"></a>Função: <strong>lsum</strong> <em>(<var>expr</var>, <var>x</var>, <var>L</var>)</em></dt>
+<dd><p>Representas a adição de <var>expr</var> a cada elemento <var>x</var> em <var>L</var>.
+</p>
+<p>Uma forma substantiva <code>'lsum</code> é retornada
+se o argumento <var>L</var> não avaliar para uma lista.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) lsum (x^i, i, [1, 2, 7]);
+                            7    2
+(%o1)                      x  + x  + x
+(%i2) lsum (i^2, i, rootsof (x^3 - 1, x));
+                     ====
+                     \      2
+(%o2)                 &gt;    i
+                     /
+                     ====
+                                   3
+                     i in rootsof(x  - 1, x)
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Expressions_002fdeffn_002fverbify"></a><dl>
+<dt><a name="index-verbify"></a>Função: <strong>verbify</strong> <em>(<var>f</var>)</em></dt>
+<dd><p>Retorna a forma verbal da função chamada <var>f</var>.
+</p>
+<p>Veja também <code>verb</code>, <code>noun</code>, e <code>nounify</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) verbify ('foo);
+(%o1)                          foo
+(%i2) :lisp $%
+$FOO
+(%i2) nounify (foo);
+(%o2)                          foo
+(%i3) :lisp $%
+%FOO
+</pre></div>
+
+</dd></dl>
+
+
+<hr>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Robert Dodier</em> on <em>Dezembro, 9 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Previous: <a href="maxima_26.html#Sintaxe" accesskey="p" rel="previous">Sintaxe</a>, Acima: <a href="maxima_19.html#Express_00f5es" accesskey="u" rel="up">Expressões</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
 
-</p>
+
+
 </body>
 </html>

@@ -1,36 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Gnuplot_pipes Format Functions (Maxima 5.45.0 Manual)</title>
+<title>Maxima 5.46.0 Manual: Gnuplot_pipes Format Functions</title>
 
-<meta name="description" content="Gnuplot_pipes Format Functions (Maxima 5.45.0 Manual)">
-<meta name="keywords" content="Gnuplot_pipes Format Functions (Maxima 5.45.0 Manual)">
+<meta name="description" content="Maxima 5.46.0 Manual: Gnuplot_pipes Format Functions">
+<meta name="keywords" content="Maxima 5.46.0 Manual: Gnuplot_pipes Format Functions">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<link href="index.html" rel="start" title="Top">
-<link href="maxima_369.html" rel="index" title="Function and Variable Index">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_377.html#Function-and-Variable-Index" rel="index" title="Function and Variable Index">
 <link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="maxima_61.html" rel="up" title="Plotting">
-<link href="maxima_68.html" rel="next" title="File Input and Output">
-<link href="maxima_66.html" rel="prev" title="Gnuplot Options">
+<link href="maxima_61.html#Plotting" rel="up" title="Plotting">
+<link href="maxima_68.html#File-Input-and-Output" rel="next" title="File Input and Output">
+<link href="maxima_66.html#Gnuplot-Options" rel="previous" title="Gnuplot Options">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
       font-family: "FreeSans", sans-serif}
@@ -52,7 +62,7 @@ pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
     background-color: rgb(238,238,255)}
 div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
 div.image {margin: 0; padding: 1em; text-align: center}
-div.categorybox {border: 1px solid gray; padding-top: 0px; padding-bottom: 0px;
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
     padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
 img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
@@ -63,78 +73,81 @@ img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-r
 
 </head>
 
-<body lang="en">
-<span id="Gnuplot_005fpipes-Format-Functions"></span><div class="header">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Gnuplot_005fpipes-Format-Functions"></a>
+<div class="header">
 <p>
-Previous: <a href="maxima_66.html" accesskey="p" rel="prev">Gnuplot Options</a>, Up: <a href="maxima_61.html" accesskey="u" rel="up">Plotting</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_66.html#Gnuplot-Options" accesskey="p" rel="previous">Gnuplot Options</a>, Up: <a href="maxima_61.html#Plotting" accesskey="u" rel="up">Plotting</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Gnuplot_005fpipes-Format-Functions-1"></span><h3 class="section">12.6 Gnuplot_pipes Format Functions</h3>
+<a name="Gnuplot_005fpipes-Format-Functions-1"></a>
+<h3 class="section">12.6 Gnuplot_pipes Format Functions</h3>
 
-<span id="gnuplot_005fstart"></span><span id="Item_003a-Plotting_002fdeffn_002fgnuplot_005fstart"></span><dl>
-<dt id="index-gnuplot_005fstart">Function: <strong>gnuplot_start</strong> <em>()</em></dt>
+<a name="gnuplot_005fstart"></a><a name="Item_003a-Plotting_002fdeffn_002fgnuplot_005fstart"></a><dl>
+<dt><a name="index-gnuplot_005fstart"></a>Function: <strong>gnuplot_start</strong> <em>()</em></dt>
 <dd>
 <p>Opens the pipe to gnuplot used for plotting with the <code>gnuplot_pipes</code>
 format.  Is not necessary to manually open the pipe before plotting.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Plotting">Plotting</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
-
-<span id="gnuplot_005fclose"></span><span id="Item_003a-Plotting_002fdeffn_002fgnuplot_005fclose"></span><dl>
-<dt id="index-gnuplot_005fclose">Function: <strong>gnuplot_close</strong> <em>()</em></dt>
+<a name="gnuplot_005fclose"></a><a name="Item_003a-Plotting_002fdeffn_002fgnuplot_005fclose"></a><dl>
+<dt><a name="index-gnuplot_005fclose"></a>Function: <strong>gnuplot_close</strong> <em>()</em></dt>
 <dd>
 <p>Closes the pipe to gnuplot which is used with the <code>gnuplot_pipes</code> format.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Plotting">Plotting</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
+<a name="gnuplot_005fsend"></a><a name="Item_003a-Plotting_002fdeffn_002fgnuplot_005fsend"></a><dl>
+<dt><a name="index-gnuplot_005fsend"></a>Function: <strong>gnuplot_send</strong> <em>(<var>s</var>)</em></dt>
+<dd>
+<p>Sends the command <var>s</var> to the gnuplot pipe. If that pipe is not currently
+opened, it will be opened before sending the command. <var>s</var> must be a
+string.
+</p>
+<div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Plotting">Plotting</a>
+&middot;</div></dd></dl>
 
-<span id="gnuplot_005frestart"></span><span id="Item_003a-Plotting_002fdeffn_002fgnuplot_005frestart"></span><dl>
-<dt id="index-gnuplot_005frestart">Function: <strong>gnuplot_restart</strong> <em>()</em></dt>
+<a name="gnuplot_005frestart"></a><a name="Item_003a-Plotting_002fdeffn_002fgnuplot_005frestart"></a><dl>
+<dt><a name="index-gnuplot_005frestart"></a>Function: <strong>gnuplot_restart</strong> <em>()</em></dt>
 <dd>
 <p>Closes the pipe to gnuplot which is used with the <code>gnuplot_pipes</code>
 format and opens a new pipe.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Plotting">Plotting</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
-
-<span id="gnuplot_005freplot"></span><span id="Item_003a-Plotting_002fdeffn_002fgnuplot_005freplot"></span><dl>
-<dt id="index-gnuplot_005freplot">Function: <strong>gnuplot_replot</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>gnuplot_replot</tt> () <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>gnuplot_replot</tt> (<var>s</var>)</em></dt>
+<a name="gnuplot_005freplot"></a><a name="Item_003a-Plotting_002fdeffn_002fgnuplot_005freplot"></a><dl>
+<dt><a name="index-gnuplot_005freplot"></a>Function: <strong>gnuplot_replot</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>gnuplot_replot</tt> () <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>gnuplot_replot</tt> (<var>s</var>)</em></dt>
 <dd>
 <p>Updates the gnuplot window.  If <code>gnuplot_replot</code> is called with a
 gnuplot command in a string <var>s</var>, then <code>s</code> is sent to gnuplot
 before reploting the window.
 </p>
 <div class=categorybox>
+Categories:<a href="maxima_378.html#Category_003a-Plotting">Plotting</a>
+&middot;</div></dd></dl>
 
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
-
-<span id="gnuplot_005freset"></span><span id="Item_003a-Plotting_002fdeffn_002fgnuplot_005freset"></span><dl>
-<dt id="index-gnuplot_005freset">Function: <strong>gnuplot_reset</strong> <em>()</em></dt>
+<a name="gnuplot_005freset"></a><a name="Item_003a-Plotting_002fdeffn_002fgnuplot_005freset"></a><dl>
+<dt><a name="index-gnuplot_005freset"></a>Function: <strong>gnuplot_reset</strong> <em>()</em></dt>
 <dd>
 <p>Resets the state of gnuplot used with the <code>gnuplot_pipes</code> format.  To
 update the gnuplot window call <code><a href="#gnuplot_005freplot">gnuplot_replot</a></code> after <code>gnuplot_reset</code>.
 </p>
 <div class=categorybox>
-
-<p>Categories:&nbsp;&nbsp;<a href="maxima_370.html#Category_003a-Plotting">Plotting</a>
-</div>
-</p></dd></dl>
+Categories:<a href="maxima_378.html#Category_003a-Plotting">Plotting</a>
+&middot;</div></dd></dl>
 
 
-<span id="Item_003a-include_002dmaxima_002fnode_002fFile-Input-and-Output"></span><hr>
+<hr>
 <div class="header">
 <p>
-Previous: <a href="maxima_66.html" accesskey="p" rel="prev">Gnuplot Options</a>, Up: <a href="maxima_61.html" accesskey="u" rel="up">Plotting</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_369.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="maxima_66.html#Gnuplot-Options" accesskey="p" rel="previous">Gnuplot Options</a>, Up: <a href="maxima_61.html#Plotting" accesskey="u" rel="up">Plotting</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_377.html#Function-and-Variable-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

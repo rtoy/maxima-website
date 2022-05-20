@@ -1,498 +1,707 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on Outubro, 14 2014 by texi2html 1.76 -->
-<!--
-Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
-            Karl Berry  <karl@freefriends.org>
-            Olaf Bachmann <obachman@mathematik.uni-kl.de>
-            and many others.
-Maintained by: Many creative people <dev@texi2html.cvshome.org>
-Send bugs and suggestions to <users@texi2html.cvshome.org>
-
--->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manual do Maxima: 29. Pacote atensor</title>
+<title>Manual do Maxima: Funções e Variáveis Definidas para Simplificação</title>
 
-<meta name="description" content="Manual do Maxima: 29. Pacote atensor">
-<meta name="keywords" content="Manual do Maxima: 29. Pacote atensor">
+<meta name="description" content="Manual do Maxima: Funções e Variáveis Definidas para Simplificação">
+<meta name="keywords" content="Manual do Maxima: Funções e Variáveis Definidas para Simplificação">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2html 1.76">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_28.html#Simplifica_00e7_00e3o" rel="up" title="Simplificação">
+<link href="maxima_30.html#Montando-Gr_00e1ficos" rel="next" title="Montando Gráficos">
+<link href="maxima_28.html#Simplifica_00e7_00e3o" rel="previous" title="Simplificação">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-pre.display {font-family: serif}
-pre.format {font-family: serif}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: serif; font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.sansserif {font-family:sans-serif; font-weight:normal;}
-ul.toc {list-style: none}
-body
-{
-    color: black;
-    background: white; 
-    margin-left: 8%;
-    margin-right: 13%;
-}
-
-h1
-{
-    margin-left: +8%;
-    font-size: 150%;
-    font-family: sans-serif
-}
-
-h2
-{
-    font-size: 125%;
-    font-family: sans-serif
-}
-
-h3
-{
-    font-size: 100%;
-    font-family: sans-serif
-}
-
-h2,h3,h4,h5,h6 { margin-left: +4%; }
-
-div.textbox
-{
-    border: solid;
-    border-width: thin;
-    /* width: 100%; */
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em
-}
-
-div.titlebox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background: rgb(200,255,255);
-    font-family: sans-serif
-}
-
-div.synopsisbox
-{
-    border: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-     background: rgb(255,220,255);
-    /*background: rgb(200,255,255); */
-    /* font-family: fixed */
-}
-
-pre.example
-{
-    border: 1px solid gray;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    /* background: rgb(247,242,180); */ /* kind of sandy */
-    /* background: rgb(200,255,255); */ /* sky blue */
-    background-color: #F1F5F9; /* light blue-gray */
-    /* font-family: "Lucida Console", monospace */
-}
-
-div.spacerbox
-{
-    border: none;
-    padding-top: 2em;
-    padding-bottom: 2em
-}
-
-div.image
-{
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-}
-
-div.categorybox
-{
-    border: 1px solid gray;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 1em;
-    padding-right: 1em;
-    background: rgb(247,242,220);
-}
-
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
 
 -->
 </style>
 
-<link rel="icon" href="figures/favicon.ico"/>
+<link rel="icon" href="figures/favicon.ico">
+
 </head>
 
 <body lang="pt" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-
-<a name="Pacote-atensor"></a>
-<a name="SEC118"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="maxima_28.html#SEC117" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC119" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima_28.html#SEC104" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_30.html#SEC121" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter"> 29. Pacote atensor </h1>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#SEC119">29.1 Introdu&ccedil;&atilde;o ao Pacote atensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top"><a href="#SEC120">29.2 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para o Pacote atensor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr size="6">
-<a name="Introdu_00e7_00e3o-ao-Pacote-atensor"></a>
-<a name="SEC119"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC118" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC120" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC118" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC118" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_30.html#SEC121" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h2 class="section"> 29.1 Introdu&ccedil;&atilde;o ao Pacote atensor </h2>
-
-<p><code>atensor</code> &eacute; um pacote de manipul&ccedil;&atilde;o de tensores alg&eacute;bricos.  Para usar <code>atensor</code>,
-digite <code>load(atensor)</code>, seguido por uma chamada &agrave; fun&ccedil;&atilde;o 
-<code>init_atensor</code>.
-</p>
-<p>A ess&ecirc;ncia de <code>atensor</code> &eacute; um conjunto de regras de simplifica&ccedil;&atilde;o para o operador
-de produto (ponto) n&atilde;o comutativo (&quot;<code>.</code>&quot;).  <code>atensor</code> reconhece
-muitos tipos de &aacute;lgebra; as regras de simplifica&ccedil;&atilde;o correspondentes s&atilde;o ativadas quando
-a fun&ccedil;&atilde;o <code>init_atensor</code> &eacute; chamada.
-</p>
-<p>A compatibilidade de <code>atensor</code> pode ser demonstrada pela defini&ccedil;&atilde;o da
-&aacute;lgebra de quat&eacute;rnios como uma &aacute;lgera-Clifford Cl(0,2) com dois vetores
-fundamentais.  As tr&ecirc;s unidades quaterni&ocirc;nicas imagin&aacute;rias fundamentais s&atilde;o ent&atilde;o os dois
-vetores base  e seu produto, i.e.:
-</p>
-<pre class="example">    i = v     j = v     k = v  .  v
-         1         2         1    2
-</pre>
-<p>Embora o pacote <code>atensor</code> tenha uma defini&ccedil;&atilde;o interna para a
-&aacute;lgebra dos quat&eacute;rnios, isso n&atilde;o foi usado nesse exemplo, no qual n&oacute;s
-nos esfor&ccedil;amos para construir a tabela de multiplica&ccedil;&atilde;o dos quat&eacute;rnios como uma matriz:
-</p>
-<pre class="example">
-(%i1) load(atensor);
-(%o1)       /share/tensor/atensor.mac
-(%i2) init_atensor(clifford,0,0,2);
-(%o2)                                done
-(%i3) atensimp(v[1].v[1]);
-(%o3)                                 - 1
-(%i4) atensimp((v[1].v[2]).(v[1].v[2]));
-(%o4)                                 - 1
-(%i5) q:zeromatrix(4,4);
-                                [ 0  0  0  0 ]
-                                [            ]
-                                [ 0  0  0  0 ]
-(%o5)                           [            ]
-                                [ 0  0  0  0 ]
-                                [            ]
-                                [ 0  0  0  0 ]
-(%i6) q[1,1]:1;
-(%o6)                                  1
-(%i7) for i thru adim do q[1,i+1]:q[i+1,1]:v[i];
-(%o7)                                done
-(%i8) q[1,4]:q[4,1]:v[1].v[2];
-(%o8)                               v  .  v
-                                     1    2
-(%i9) for i from 2 thru 4 do for j from 2 thru 4 do
-      q[i,j]:atensimp(q[i,1].q[1,j]);
-(%o9)                                done
-(%i10) q;
-                   [    1        v         v      v  .  v  ]
-                   [              1         2      1    2 ]
-                   [                                      ]
-                   [   v         - 1     v  .  v    - v    ]
-                   [    1                 1    2      2   ]
-(%o10)             [                                      ]
-                   [   v      - v  .  v     - 1      v     ]
-                   [    2        1    2              1    ]
-                   [                                      ]
-                   [ v  .  v      v        - v       - 1   ]
-                   [  1    2      2          1            ]
-</pre>
-<p><code>atensor</code> reconhece como bases vetoriais s&iacute;mbolos indexados, onde o s&iacute;mbolo 
-&eacute; aquele armazenado em <code>asymbol</code> e o i&iacute;ndice est&aacute; entre 1 e <code>adim</code>.
-Para s&iacute;mbolos indexado, e somente para s&iacute;mbolos indexados, as formas bilineares
-<code>sf</code>, <code>af</code>, e <code>av</code> s&atilde;o avaliadas.  A avalia&ccedil;&atilde;o
-substitui os valores  de <code>aform[i,j]</code> em lugar de <code>fun(v[i],v[j])</code>
-onde <code>v</code> representa o valor de <code>asymbol</code> e <code>fun</code> &eacute;
-ainda <code>af</code> ou <code>sf</code>; ou, isso substitui <code>v[aform[i,j]]</code>
-em lugar de <code>av(v[i],v[j])</code>.
-</p>
-<p>Desnecess&aacute;rio dizer, as fun&ccedil;&otilde;es <code>sf</code>, <code>af</code> e <code>av</code>
-podem ser redefinidas.
-</p>
-<p>Quando o pacote <code>atensor</code> &eacute; chamado, os seguintes sinalizadores s&atilde;o configurados:
-</p>
-<pre class="example">dotscrules:true;
-dotdistrib:true;
-dotexptsimp:false;
-</pre>
-<p>Se voc&ecirc; deseja experimentar com uma &aacute;lgebra n&atilde;o associativa, voc&ecirc; pode tamb&eacute;m
-considerar a configura&ccedil;&atilde;o de <code>dotassoc</code> para <code>false</code>.  Nesse caso, todavia,
-<code>atensimp</code> n&atilde;o star&aacute; sempre habilitado a obter as simplifica&ccedil;&otilde;es
-desejadas.
-</p>
-
-<hr size="6">
-<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-o-Pacote-atensor"></a>
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC119" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_30.html#SEC121" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#SEC118" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#SEC118" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_30.html#SEC121" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-
-<a name="SEC120"></a>
-<h2 class="section"> 29.2 Fun&ccedil;&otilde;es e Vari&aacute;veis Definidas para o Pacote atensor </h2>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>init_atensor</b><i> (<var>alg_type</var>, <var>opt_dims</var>)</i>
-<a name="IDX1010"></a>
-</dt>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>init_atensor</b><i> (<var>alg_type</var>)</i>
-<a name="IDX1011"></a>
-</dt>
-<dd><p>Inicializa o pacote <code>atensor</code> com o tipo especificado de &aacute;lgebra.  <var>alg_type</var>
-pode ser um dos seguintes:
-</p>
-<p><code>universal</code>: A &aacute;lgebra universal tendo regras n&atilde;o comutativas.
-</p>
-<p><code>grassmann</code>: A &aacute;lgebra de Grassman &eacute; definida pela rela&ccedil;&atilde;o de 
-comuta&ccedil;&atilde;o <code>u.v+v.u=0</code>.
-</p>
-<p><code>clifford</code>: A &aacute;lgebra de Clifford &eacute; definida pela rela&ccedil;&atilde;o
-de comuta&ccedil;&atilde;o <code>u.v+v.u=-2*sf(u,v)</code> onde <code>sf</code> &eacute; a fun&ccedil;&atilde;o
-valor-escalar sim&eacute;trico.  Para essa &aacute;lgebra, <var>opt_dims</var> pode ser acima de tr&ecirc;s 
-inteiros n&atilde;o negativos, representando o n&uacute;mero de dimens&otilde;es positivas,
-dimens&otilde;es degeneradas, e dimens&otilde;es negativas da &aacute;lgebra, respectivamente.  Se
-quaisquer valores <var>opt_dims</var> s&atilde;o fornecidos, <code>atensor</code> ir&aacute; configurar os
-valores de <code>adim</code> e <code>aform</code> apropriadamente.  Caso contr&aacute;rio,
-<code>adim</code> ir&aacute; por padr&atilde;o para 0 e <code>aform</code> n&atilde;o ser&aacute; definida.
-</p>
-<p><code>symmetric</code>: A &aacute;lgebra sim&eacute;trica &eacute; definida pela rela&ccedil;&atilde;o de 
-comuta&ccedil;&atilde;o <code>u.v-v.u=0</code>.
-</p>
-<p><code>symplectic</code>: A &aacute;lgebra simpl&eacute;tica &eacute; definida pela rela&ccedil;&atilde;o de 
-comuta&ccedil;&atilde;o <code>u.v-v.u=2*af(u,v)</code> onde <code>af</code> &eacute; uma fun&ccedil;&atilde;o valor-escalar 
-antisim&eacute;trica.  Para a &aacute;lgebra simpl&eacute;tica, <var>opt_dims</var> pode
-mais de dois inteiros n&atilde;o negativos, representando a dimens&atilde;o n&atilde;o degenerada e
-e a dimens&atilde;o degenerada, respectivamente.  Se quaisquer valores <var>opt_dims</var> s&atilde;o
-fornecidos, <code>atensor</code> ir&aacute; configurar os valores de <code>adim</code> e <code>aform</code>
-apropriadamente.  Caso contr&aacute;rio, <code>adim</code> ir&aacute; por padr&atilde;o para 0 e <code>aform</code>
-n&atilde;o ser&aacute; definida.
-</p>
-<p><code>lie_envelop</code>: O inv&oacute;lucro da &aacute;lgebra de Lie &eacute; definido pela 
-rela&ccedil;&atilde;o de comuta&ccedil;&atilde;o <code>u.v-v.u=2*av(u,v)</code> onde <code>av</code> &eacute;
-uma fun&ccedil;&atilde;o antisim&eacute;trica.
-</p>
-<p>A fun&ccedil;&atilde;o <code>init_atensor</code> tamb&eacute;m reconhece muitos tipos pr&eacute;-definidos de 
-&aacute;lgebra:
-</p>
-<p><code>complex</code> implementa a &aacute;lgebra de n&uacute;meros complexos como a
-&aacute;lgebra de Clifford Cl(0,1).  A chamada <code>init_atensor(complex)</code> &eacute;
-equivalente a <code>init_atensor(clifford,0,0,1)</code>.
-</p>
-<p><code>quaternion</code> implementa a &aacute;lgebra de quat&eacute;rnios.  A chamada
-<code>init_atensor(quaternion)</code> &eacute; equivalente a 
-<code>init_atensor(clifford,0,0,2)</code>.
-</p>
-<p><code>pauli</code> implementa a &aacute;lgebra de Pauli-spinors como a Clifford-&aacute;lgebra
-Cl(3,0).  Uma chamada a <code>init_atensor(pauli)</code> &eacute; equivalente a
-<code>init_atensor(clifford,3)</code>.
-</p>
-<p><code>dirac</code> implementa a &aacute;lgebra de Dirac-spinors como a Clifford-&aacute;lgebra
-Cl(3,1).  Uma chamada a <code>init_atensor(dirac)</code> &eacute; equivalente a
-<code>init_atensor(clifford,3,0,1)</code>.
-</p>
-</dd></dl>
-
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>atensimp</b><i> (<var>expr</var>)</i>
-<a name="IDX1012"></a>
-</dt>
-<dd><p>Simplifica a express&atilde;o alg&eacute;brica de tensores <var>expr</var> conforme as regras
-configuradas por uma chamada a <code>init_atensor</code>.  Simplifica&ccedil;&otilde;es incluem
-aplica&ccedil;&atilde;o recursiva de rela&ccedil;&otilde;es comutativas e resolu&ccedil;&otilde;es de chamadas a
-<code>sf</code>, <code>af</code>, e <code>av</code> onde for aplic&aacute;vel.  Uma
-salvaguarda &eacute; usada para garantir que a fun&ccedil;&atilde;o sempre termine, mesmo para
-express&otilde;es complexas.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>alg_type</b>
-<a name="IDX1013"></a>
-</dt>
-<dd><p>O tipo de &aacute;lgebra.  Valores v&aacute;lidos s&aacute;o <code>universal</code>, <code>grassmann</code>,
-<code>clifford</code>, <code>symmetric</code>, <code>symplectic</code> e <code>lie_envelop</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Vari&aacute;vel:</u> <b>adim</b>
-<a name="IDX1014"></a>
-</dt>
-<dd><p>Valor padr&atilde;o: 0
-</p>
-<p>A dimensionalidade da &aacute;lgebra.  <code>atensor</code> usa o valor de <code>adim</code>
-para determinar se um objeto indexado &eacute; uma base vetorial v&aacute;lida. Veja <code>abasep</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Vari&aacute;vel:</u> <b>aform</b>
-<a name="IDX1015"></a>
-</dt>
-<dd><p>Valor padr&atilde;o para as formas bilineares <code>sf</code>, <code>af</code>, e
-<code>av</code>.  O padr&atilde;o &eacute; a matriz identidade <code>ident(3)</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Vari&aacute;vel:</u> <b>asymbol</b>
-<a name="IDX1016"></a>
-</dt>
-<dd><p>Valor padr&atilde;o: <code>v</code>
-</p>
-<p>O s&iacute;mbolo para bases vetoriais.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>sf</b><i> (<var>u</var>, <var>v</var>)</i>
-<a name="IDX1017"></a>
-</dt>
-<dd><p>&Eacute; uma fun&ccedil;&atilde;o escalar sim&eacute;trica que &eacute; usada em rela&ccedil;&otilde;es comutativas.
-A implementa&ccedil;&atilde;o padr&atilde;o verifica se ambos os argumentos s&atilde;o bases vetoriais
-usando <code>abasep</code> e se esse for o caso, substitui o valor 
-correspondente da matriz <code>aform</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>af</b><i> (<var>u</var>, <var>v</var>)</i>
-<a name="IDX1018"></a>
-</dt>
-<dd><p>&Eacute; uma fun&ccedil;&atilde;o escalar antisim&eacute;trica que &eacute; usada em rela&ccedil;&otilde;es comutativas.
-A implementa&ccedil;&atilde;o padr&atilde;o verifica se ambos os argumentos s&atilde;o bases vetoriais
-usando <code>abasep</code> e se esse for o caso, substitui o
-valor correspondente da matriz <code>aform</code>.
-</p>
-</dd></dl>
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>av</b><i> (<var>u</var>, <var>v</var>)</i>
-<a name="IDX1019"></a>
-</dt>
-<dd><p>&Eacute; uma fun&ccedil;&atilde;o antisim&eacute;trica que &eacute; usada em rela&ccedil;&otilde;es comutativas.
-A implementa&ccedil;&atilde;o padr&atilde;o verifica se ambos os argumentos s&atilde;o bases vetoriais
-usando <code>abasep</code> e se esse for o caso, substitui o
-valor correspondente da matriz <code>aform</code>.
-</p>
-<p>Por exemplo:
-</p>
-<pre class="example">(%i1) load(atensor);
-(%o1)       /share/tensor/atensor.mac
-(%i2) adim:3;
-(%o2)                                  3
-(%i3) aform:matrix([0,3,-2],[-3,0,1],[2,-1,0]);
-                               [  0    3   - 2 ]
-                               [               ]
-(%o3)                          [ - 3   0    1  ]
-                               [               ]
-                               [  2   - 1   0  ]
-(%i4) asymbol:x;
-(%o4)                                  x
-(%i5) av(x[1],x[2]);
-(%o5)                                 x
-                                       3
-</pre>
-</dd></dl>
-
-
-<dl>
-<dt><u>Fun&ccedil;&atilde;o:</u> <b>abasep</b><i> (<var>v</var>)</i>
-<a name="IDX1020"></a>
-</dt>
-<dd><p>Verifica se esse argumento &eacute; uma base vetorial <code>atensor</code> .  E ser&aacute;, se ele for
-um s&iacute;mbolo indexado, com o s&iacute;mbolo sendo o mesmo que o valor de
-<code>asymbol</code>, e o &iacute;ndice tiver o mesmo valor num&eacute;rico entre 1
-e <code>adim</code>.
-</p>
-</dd></dl>
-
-<hr size="6">
-<table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#SEC118" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="maxima_30.html#SEC121" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="maxima.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_77.html#SEC295" title="Index">&Iacute;ndice</a>]</td>
-<td valign="middle" align="left">[<a href="maxima_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
+<a name="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Simplifica_00e7_00e3o"></a>
+<div class="header">
 <p>
- <font size="-1">
-  This document was generated by <em>Jaime Villate</em> on <em>Outubro, 14 2014</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
- </font>
- <br>
+Previous: <a href="maxima_28.html#Simplifica_00e7_00e3o" accesskey="p" rel="previous">Simplificação</a>, Acima: <a href="maxima_28.html#Simplifica_00e7_00e3o" accesskey="u" rel="up">Simplificação</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<a name="Funcoes-e-Variaveis-Definidas-para-Simplificacao"></a>
+<h3 class="section">7.1 Funções e Variáveis Definidas para Simplificação</h3>
 
+<a name="Item_003a-Simplification_002fdefvr_002faskexp"></a><dl>
+<dt><a name="index-askexp"></a>Variável de sistema: <strong>askexp</strong></dt>
+<dd><p>Quando <code>asksign</code> é chamada,
+<code>askexp</code> é a expressão que <code>asksign</code> está testando.
 </p>
+<p>Antigamente, era possível para um usuário inspecionar <code>askexp</code>
+entrando em uma parada do Maxima com control-A.
+</p></dd></dl>
+
+<a name="Item_003a-Simplification_002fdeffn_002faskinteger"></a><dl>
+<dt><a name="index-askinteger"></a>Função: <strong>askinteger</strong> <em>(<var>expr</var>, integer)</em></dt>
+<dt><a name="index-askinteger-1"></a>Função: <strong>askinteger</strong> <em>(<var>expr</var>)</em></dt>
+<dt><a name="index-askinteger-2"></a>Função: <strong>askinteger</strong> <em>(<var>expr</var>, even)</em></dt>
+<dt><a name="index-askinteger-3"></a>Função: <strong>askinteger</strong> <em>(<var>expr</var>, odd)</em></dt>
+<dd>
+<p><code>askinteger (<var>expr</var>, integer)</code> tenta determinar a partir da base de dados do <code>assume</code>
+se <var>expr</var> é um inteiro.
+<code>askinteger</code> pergunta ao usuário pela linha de comando se isso não puder ser feito de outra forma,
+e tenta instalar a informação na base de dados do <code>assume</code> se for possível.
+<code>askinteger (<var>expr</var>)</code> é equivalente a <code>askinteger (<var>expr</var>, integer)</code>.
+</p>
+<p><code>askinteger (<var>expr</var>, even)</code> e <code>askinteger (<var>expr</var>, odd)</code>
+da mesma forma tentam determinar se <var>expr</var> é um inteiro par ou inteiro ímpar, respectivamente.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdeffn_002fasksign"></a><dl>
+<dt><a name="index-asksign"></a>Função: <strong>asksign</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Primeiro tenta determinar se a expressão
+especificada é positiva, negativa, ou zero.  Se isso não for possível, <code>asksign</code> pergunta ao
+usuário pelas questões necessárias para completar a sua dedução.  As respostas
+do usuário são guardadas na base de dados pelo tempo que durar a computação
+corrente. O valor de retorno de <code>asksign</code> é um entre <code>pos</code>, <code>neg</code>,
+ou <code>zero</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdeffn_002fdemoivre"></a><dl>
+<dt><a name="index-demoivre"></a>Função: <strong>demoivre</strong> <em>(<var>expr</var>)</em></dt>
+<dt><a name="index-demoivre-1"></a>Variável de opção: <strong>demoivre</strong></dt>
+<dd>
+<p>A função <code>demoivre (expr)</code> converte uma expressão
+sem escolher a variável global <code>demoivre</code>.
+</p>
+<p>Quando a variável <code>demoivre</code> for <code>true</code>,
+exponenciais complexas são convertidas em expressões equivalentes em termos de funções circulares:
+<code>exp (a + b*%i)</code> simplifica para <code>%e^a * (cos(b) + %i*sin(b))</code>
+se <code>b</code> for livre de <code>%i</code>.
+<code>a</code> e <code>b</code> não são expandidos.
+</p>
+<p>O valor padrão de <code>demoivre</code> é <code>false</code>.
+</p>
+<p><code>exponentialize</code> converte funções circulares e hiperbólicas para a forma exponencial.
+<code>demoivre</code> e <code>exponentialize</code> não podem
+ambas serem <code>true</code> ao mesmo tempo.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Simplification_002fdefvr_002fdomain"></a><dl>
+<dt><a name="index-domain"></a>Variável de opção: <strong>domain</strong></dt>
+<dd><p>Valor padrão: <code>real</code>
+</p>
+<p>Quando <code>domain</code> for escolhida para <code>complex</code>, <code>sqrt (x^2)</code> permanecerá
+<code>sqrt (x^2)</code> em lugar de retornar <code>abs(x)</code>.
+</p>
+
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdeffn_002fexpand"></a><dl>
+<dt><a name="index-expand"></a>Função: <strong>expand</strong> <em>(<var>expr</var>)</em></dt>
+<dt><a name="index-expand-1"></a>Função: <strong>expand</strong> <em>(<var>expr</var>, <var>p</var>, <var>n</var>)</em></dt>
+<dd><p>Expande a expressão <var>expr</var>.
+Produtos de somas e somas exponenciadas são
+multiplicadas para fora, numeradores de expressões racionais que são adições são
+quebradas em suas respectivas parcelas, e multiplicação (comutativa
+e não comutativa) é distribuída sobre a adição em todos os níveis de
+<var>expr</var>.
+</p>
+<p>Para polinômios se pode usar freq&uuml;êntemente <code>ratexpand</code> que possui um
+algorítmo mais eficiente.
+</p>
+<p><code>maxnegex</code> e <code>maxposex</code> controlam o máximo expoente negativo e
+o máximo expoente positivo, respectivamente, que irão expandir.
+</p>
+<p><code>expand (<var>expr</var>, <var>p</var>, <var>n</var>)</code> expande <var>expr</var>, 
+usando <var>p</var> para <code>maxposex</code> e <var>n</var> para <code>maxnegex</code>.
+Isso é útil com o objetivo de expandir partes mas não tudo em uma expressão.
+</p>
+<p><code>expon</code> - o expoente da maior potência negativa que é
+automaticamente expandida (independente de chamadas a <code>expand</code>).  Por Exemplo
+se <code>expon</code> for 4 então <code>(x+1)^(-5)</code> não será automaticamente expandido.
+</p>
+<p><code>expop</code> - o maior expoente positivo que é automaticamente
+expandido.  Dessa forma <code>(x+1)^3</code>, quando digitado, será automaticamente expandido
+somente se <code>expop</code> for maior que ou igual a 3.  Se for desejado ter
+<code>(x+1)^n</code> expandido onde <code>n</code> é maior que <code>expop</code> então executando
+<code>expand ((x+1)^n)</code> trabalhará somente se <code>maxposex</code> não for menor que <code>n</code>.
+</p>
+<p>O sinalizador <code>expand</code> usado com <code>ev</code> causa expansão.
+</p>
+<p>O arquivo <samp>simplification/facexp.mac</samp>
+contém muitas funções relacionadas (em particular <code>facsum</code>, <code>factorfacsum</code>
+e <code>collectterms</code>, que são chamadas automaticamente) e variáveis (<code>nextlayerfactor</code>
+e <code>facsum_combine</code>) que fornecem ao usuário com a habilidade para estruturar
+expressões por expansão controlada.
+Descrições breves de função estão disponível em <samp>simplification/facexp.usg</samp>.
+Um arquivo demonstrativo está disponível fazendo <code>demo(&quot;facexp&quot;)</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdeffn_002fexpandwrt"></a><dl>
+<dt><a name="index-expandwrt"></a>Função: <strong>expandwrt</strong> <em>(<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</em></dt>
+<dd><p>Expande a expressão <code>expr</code> com relação às 
+variáveis <var>x_1</var>, ..., <var>x_n</var>.
+Todos os produtos envolvendo as variáveis aparecem explicitamente.  A forma retornada
+será livre de produtos de somas de expressões que não estão livres das
+variáveis.   <var>x_1</var>, ..., <var>x_n</var>
+podem ser variáveis, operadores, ou expressões.
+</p>
+<p>Por padrão, denominadores não são expandidos, mas isso pode ser controlado
+através do comutador <code>expandwrt_denom</code>.
+</p>
+<p>Essa função, <code>expandwrt</code>, não é automaticamente chamada a partir de
+<samp>simplification/stopex.mac</samp>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Simplification_002fdefvr_002fexpandwrt_005fdenom"></a><dl>
+<dt><a name="index-expandwrt_005fdenom"></a>Variável de opção: <strong>expandwrt_denom</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p><code>expandwrt_denom</code> controla o tratamento de expressões
+racionais por <code>expandwrt</code>.  Se <code>true</code>, então ambos o numerador e
+o denominador da expressão serão expandidos conforme os
+argumentos de <code>expandwrt</code>, mas se <code>expandwrt_denom</code> for <code>false</code>, então somente
+o numerador será expandido por aquele caminho.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdeffn_002fexpandwrt_005ffactored"></a><dl>
+<dt><a name="index-expandwrt_005ffactored"></a>Função: <strong>expandwrt_factored</strong> <em>(<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</em></dt>
+<dd><p>é similar a <code>expandwrt</code>, mas trata expressões que são produtos um tanto quanto diferentemente.
+<code>expandwrt_factored</code> expande somente sobre esses fatores de <code>expr</code>
+que contiverem as variáveis <var>x_1</var>, ..., <var>x_n</var>.
+</p>
+<p>Essa função é automaticamente chamada a aprtir de <samp>simplification/stopex.mac</samp>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Simplification_002fdefvr_002fexpon"></a><dl>
+<dt><a name="index-expon"></a>Variável de opção: <strong>expon</strong></dt>
+<dd><p>Valor padrão: 0
+</p>
+<p><code>expon</code> é o expoente da maior potência negativa que
+é automaticamente expandido (independente de chamadas a <code>expand</code>).  Por
+exemplo, se <code>expon</code> for 4 então <code>(x+1)^(-5)</code> não será automaticamente
+expandido.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Simplification_002fdeffn_002fexponentialize"></a><dl>
+<dt><a name="index-exponentialize"></a>Função: <strong>exponentialize</strong> <em>(<var>expr</var>)</em></dt>
+<dt><a name="index-exponentialize-1"></a>Variável de opção: <strong>exponentialize</strong></dt>
+<dd>
+<p>A função <code>exponentialize (expr)</code> converte 
+funções circulares e hiperbólicas em <var>expr</var> para exponenciais,
+sem escolher a variável global <code>exponentialize</code>.
+</p>
+<p>Quando a variável <code>exponentialize</code> for <code>true</code>,
+todas as funções circulares e hiperbólicas  são convertidas para a forma exponencial.
+O valor padrão é <code>false</code>.
+</p>
+<p><code>demoivre</code> converte exponenciais complexas em funções circulares.
+<code>exponentialize</code> e <code>demoivre</code> não podem
+ambas serem <code>true</code> ao mesmo tempo.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fexpop"></a><dl>
+<dt><a name="index-expop"></a>Variável de opção: <strong>expop</strong></dt>
+<dd><p>Valor padrão: 0
+</p>
+<p><code>expop</code> - o maior expoente positivo que é 
+automaticamente expandido.  Dessa forma <code>(x+1)^3</code>, quando digitado, será
+automaticamente expandido somente se <code>expop</code> for maior que ou igual a 3.  
+Se for desejado ter <code>(x+1)^n</code> expandido onde <code>n</code> é maior que 
+<code>expop</code> então executando <code>expand ((x+1)^n)</code> trabalhará somente se <code>maxposex</code> não for 
+menor que <code>n</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002ffactlim"></a><dl>
+<dt><a name="index-factlim"></a>Variável de opção: <strong>factlim</strong></dt>
+<dd><p>Valor padrão: -1
+</p>
+<p><code>factlim</code> especifica o maior fatorial que é
+automaticamente expandido.  Se for -1 então todos os inteiros são expandidos.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdeffn_002fintosum"></a><dl>
+<dt><a name="index-intosum"></a>Função: <strong>intosum</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Move fatores multiplicativos fora de um somatório para dentro.
+Se o índice for usado na
+expressão de fora, então a função tentará achar um índice
+razoável, o mesmo que é feito para <code>sumcontract</code>.  Isso é essencialmente a
+idéia inversa da propriedade <code>outative</code> de somatórios, mas note que isso
+não remove essa propriedade, somente pula sua verificação.
+</p>
+<p>Em alguns casos,
+um <code>scanmap (multthru, <var>expr</var>)</code> pode ser necessário antes de <code>intosum</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002flassociative"></a><dl>
+<dt><a name="index-lassociative"></a>Declaração: <strong>lassociative</strong></dt>
+<dd><p><code>declare (g, lassociative)</code> diz ao
+simplificador do Maxima que <code>g</code> é associativa à esquerda.  E.g., <code>g (g (a, b), g (c, d))</code> irá
+simplificar para <code>g (g (g (a, b), c), d)</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002flinear"></a><dl>
+<dt><a name="index-linear-1"></a>Declaração: <strong>linear</strong></dt>
+<dd><p>Uma das propriedades operativas do Maxima.  Para funções de uma única variável <code>f</code> então
+declarada, a &quot;expansão&quot; <code>f(x + y)</code> retorna <code>f(x) + f(y)</code>,
+<code>f(a*x)</code> retorna <code>a*f(x)</code> tomando
+lugar onde <code>a</code> for uma &quot;constante&quot;.  para funções de dois ou mais argumentos,
+&quot;linearidade&quot; é definida para ser como no caso de <code>sum</code> ou <code>integrate</code>,
+i.e., <code>f (a*x + b, x)</code> retorna <code>a*f(x,x) + b*f(1,x)</code>
+para <code>a</code> e <code>b</code> livres de <code>x</code>.
+</p>
+<p><code>linear</code> é equivalente a <code>additive</code> e <code>outative</code>.
+Veja também <code>opproperties</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fmainvar"></a><dl>
+<dt><a name="index-mainvar"></a>Declaração: <strong>mainvar</strong></dt>
+<dd><p>Você pode declarar variáveis para serem <code>mainvar</code> (variável principal).  A escala de
+ordenação para átomos é essencialmente: números &lt; constantes (e.g., <code>%e</code>, <code>%pi</code>) &lt;
+escalares &lt; outras variáveis &lt; mainvars.  E.g., compare <code>expand ((X+Y)^4)</code>
+com <code>(declare (x, mainvar), expand ((x+y)^4))</code>.  (Nota: Cuidado deve ser
+tomado se você eleger o uso desse recurso acima.  E.g., se você subtrair uma
+expressão na qual <code>x</code> for uma <code>mainvar</code> de uma na qual <code>x</code> não seja uma
+<code>mainvar</code>, resimplificação e.g. com <code>ev (expr, simp)</code> pode ser
+necessária se for para ocorrer um cancelamento.  Também, se você grava uma
+expressão na qual <code>x</code> é uma <code>mainvar</code>, você provavelmente pode também gravar <code>x</code>.)
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fmaxapplydepth"></a><dl>
+<dt><a name="index-maxapplydepth"></a>Variável de opção: <strong>maxapplydepth</strong></dt>
+<dd><p>Valor padrão: 10000
+</p>
+<p><code>maxapplydepth</code> é a máxima definição para a qual <code>apply1</code>
+e <code>apply2</code> irão pesquisar.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fmaxapplyheight"></a><dl>
+<dt><a name="index-maxapplyheight"></a>Variável de opção: <strong>maxapplyheight</strong></dt>
+<dd><p>Valor padrão: 10000
+</p>
+<p><code>maxapplyheight</code> é a elevação máxima a qual <code>applyb1</code>
+irá alcançar antes de abandonar.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fmaxnegex"></a><dl>
+<dt><a name="index-maxnegex"></a>Variável de opção: <strong>maxnegex</strong></dt>
+<dd><p>Valor padrão: 1000
+</p>
+<p><code>maxnegex</code> é o maior expoente negativo que será
+expandido pelo comando <code>expand</code> (veja também <code>maxposex</code>).
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fmaxposex"></a><dl>
+<dt><a name="index-maxposex"></a>Variável de opção: <strong>maxposex</strong></dt>
+<dd><p>Valor padrão: 1000
+</p>
+<p><code>maxposex</code> é o maior expoente que será
+expandido com o comando <code>expand</code> (veja também <code>maxnegex</code>).
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fmultiplicative"></a><dl>
+<dt><a name="index-multiplicative"></a>Declaração: <strong>multiplicative</strong></dt>
+<dd><p><code>declare (f, multiplicative)</code> diz ao simplificador do Maxima que <code>f</code> é multiplicativa.
+</p>
+<ol>
+<li> Se <code>f</code> for uma função de uma única variável, sempre que o simplificador encontrar <code>f</code> aplicada
+a um produto, <code>f</code> distribue sobre aquele produto.  E.g., <code>f(x*y)</code>
+simplifica para <code>f(x)*f(y)</code>.
+</li><li> Se <code>f</code> é uma função de 2 ou mais argumentos, multiplicatividade é
+definida como multiplicatividade no primeiro argumento para <code>f</code>, e.g.,
+<code>f (g(x) * h(x), x)</code> simplifica para <code>f (g(x) ,x) * f (h(x), x)</code>.
+</li></ol>
+
+<p>Essa simplificação não ocorre quando <code>f</code> é aplicada a expressões da
+forma <code>product (x[i], i, m, n)</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fnegdistrib"></a><dl>
+<dt><a name="index-negdistrib"></a>Variável de opção: <strong>negdistrib</strong></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>negdistrib</code> for <code>true</code>, -1 distribue
+sobre uma expressão.  E.g., <code>-(x + y)</code> transforma-se em <code>- y - x</code>.  Mudando o valor de <code>negdistrib</code> para <code>false</code>
+permitirá que <code>- (x + y)</code> seja mostrado como foi escrito.  Isso algumas vezes é útil
+mas seja muito cuidadoso: como o sinalizador <code>simp</code>, isso é um sinalizador que você pode não
+querer escolher para <code>false</code> como algo natural ou necessário com excessão
+de usar localmente no seu Maxima.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fnegsumdispflag"></a><dl>
+<dt><a name="index-negsumdispflag"></a>Variável de opção: <strong>negsumdispflag</strong></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>negsumdispflag</code> for <code>true</code>, <code>x - y</code> é mostrado como <code>x - y</code>
+em lugar de como <code>- y + x</code>.  Escolhendo isso para <code>false</code> faz com que a verificação especial em
+visualização para a diferença das duas expressões não seja concluída.  Uma
+aplicação é que dessa forma <code>a + %i*b</code> e <code>a - %i*b</code> podem ambos serem mostrados pelo
+mesmo caminho.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fnoeval"></a><dl>
+<dt><a name="index-noeval"></a>Símbolo especial: <strong>noeval</strong></dt>
+<dd><p><code>noeval</code> suprime a fase de avaliação de <code>ev</code>.  Isso é útil em
+conjunção com outros comutadores e para fazer com que expressões      
+sejam resimplificadas sem serem reavaliadas.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fnoun"></a><dl>
+<dt><a name="index-noun"></a>Declaração: <strong>noun</strong></dt>
+<dd><p><code>noun</code> é uma das opções do comando <code>declare</code>.  Essa opção faz com que um
+função seja declarada como &quot;noun&quot; (substantivo), significando que ela não deve ser avaliada
+automaticamente.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fnoundisp"></a><dl>
+<dt><a name="index-noundisp"></a>Variável de opção: <strong>noundisp</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Quando <code>noundisp</code> for <code>true</code>, substantivos (nouns) são mostrados com
+um apóstrofo.  Esse comutador é sempre <code>true</code> quando mostrando definições de
+função.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fnouns"></a><dl>
+<dt><a name="index-nouns"></a>Símbolo especial: <strong>nouns</strong></dt>
+<dd><p><code>nouns</code> é um <code>evflag</code> (sinalizador de avaliação). Quando usado como uma opção para o comando <code>ev</code>,
+<code>nouns</code> converte todas as
+formas substantivas (&quot;noun&quot;) que ocorrem na expressão que está sendo avaliada para verbos (&quot;verbs&quot;), i.e.,
+avalia essas expressões.  Veja também <code>noun</code>, <code>nounify</code>, <code>verb</code>, e <code>verbify</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fnumer"></a><dl>
+<dt><a name="index-numer"></a>Símbolo especial: <strong>numer</strong></dt>
+<dd><p><code>numer</code> faz com que algumas funções matemáticas (incluindo exponenciação)
+com argumentos numéricos sejam avaliados em ponto flutuante. Isso faz com que
+variáveis em <code>expr</code> às quais tenham sido dados valores numéricos a elas sejam substituídas pelos
+seus valores correspondentes.  <code>numer</code> também escolhe o sinalizador <code>float</code> para <code>on</code>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Simplification_002fdeffn_002fnumerval"></a><dl>
+<dt><a name="index-numerval"></a>Função: <strong>numerval</strong> <em>(<var>x_1</var>, <var>expr_1</var>, ..., <var>var_n</var>, <var>expr_n</var>)</em></dt>
+<dd><p>Declara as variáveis <code>x_1</code>, ..., <var>x_n</var> para terem
+valores numéricos iguais a <code>expr_1</code>, ..., <code>expr_n</code>.
+O valor numérico é avaliado e substituido para a variável
+em quaisquer expressões na qual a variável ocorra se o sinalizador <code>numer</code> for
+<code>true</code>. Veja também <code>ev</code>.
+</p>
+<p>As expressões <code>expr_1</code>, ..., <code>expr_n</code> podem ser quaisquer expressões,
+não necessariamente numéricas.
+</p></dd></dl>
+
+
+<a name="Item_003a-Simplification_002fdefvr_002fopproperties"></a><dl>
+<dt><a name="index-opproperties"></a>Variável de sistema: <strong>opproperties</strong></dt>
+<dd>
+<p><code>opproperties</code> é a lista de propriedades de operadores especiais reconhecidas pelo
+simplificador do Maxima:
+<code>linear</code>, <code>additive</code>, <code>multiplicative</code>, <code>outative</code> (veja logo abaixo), <code>evenfun</code>,
+<code>oddfun</code>, <code>commutative</code>, <code>symmetric</code>, <code>antisymmetric</code>, <code>nary</code>, 
+<code>lassociative</code>, <code>rassociative</code>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Simplification_002fdefvr_002fopsubst"></a><dl>
+<dt><a name="index-opsubst-3"></a>Variável de opção: <strong>opsubst</strong></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>opsubst</code> for <code>false</code>, <code>subst</code> não tenta
+substituir dentro de um operador de uma expressão.  E.g., 
+<code>(opsubst: false, subst (x^2, r, r+r[0]))</code> irá trabalhar.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002foutative"></a><dl>
+<dt><a name="index-outative"></a>Declaração: <strong>outative</strong></dt>
+<dd><p><code>declare (f, outative)</code> diz ao simplificador do Maxima que fatores constantes
+no argumento de <code>f</code> podem ser puxados para fora.
+</p>
+<ol>
+<li> Se <code>f</code> for uma função de uma única variável, sempre que o simplificador encontrar <code>f</code> aplicada
+a um produto, aquele produto será particionado em fatores que são
+constantes e fatores que não são e os fatores constantes serão
+puxados para fora.  E.g., <code>f(a*x)</code> simplificará para <code>a*f(x)</code> onde <code>a</code> é uma
+constante.  Fatores de constantes não atômicas não serão puxados para fora.
+</li><li> Se <code>f</code> for uma função de 2 ou mais argumentos, a colocação para fora é definida
+como no caso de <code>sum</code> ou <code>integrate</code>, i.e., <code>f (a*g(x), x)</code> irá simplificar
+para <code>a * f(g(x), x)</code> sendo <code>a</code> livre de <code>x</code>.
+</li></ol>
+
+<p><code>sum</code>, <code>integrate</code>, e <code>limit</code> são todas <code>outative</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fposfun"></a><dl>
+<dt><a name="index-posfun"></a>Declaração: <strong>posfun</strong></dt>
+<dd><p><code>declare (f, posfun)</code> declara <code>f</code> para ser uma função positiva.
+<code>is (f(x) &gt; 0)</code> retorna <code>true</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdeffn_002fradcan"></a><dl>
+<dt><a name="index-radcan"></a>Função: <strong>radcan</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Simplifica <var>expr</var>, que pode conter logarítmos, exponenciais, e
+radicais, convertendo essa expressão em uma forma que é canônica sobre uma ampla
+classe de expressões e uma dada ordenação de variáveis; isto é, todas
+formas funcionalmente equivalentes são mapeadas em uma única forma.  Para uma
+classe um tanto quanto ampla de expressões, <code>radcan</code> produz uma forma regular.
+Duas expressões equivalentes nessa classe não possuem necessáriamente a
+mesma aparência, mas suas diferenças podem ser simplificadas por <code>radcan</code> para
+zero.
+</p>
+<p>Para algumas expressões <code>radcan</code> é que consome inteiramente o tempo.  Esse
+é o custo de explorar certos relacionamentos entre os componentes da
+expressão para simplificações baseadas sobre fatoração e
+expansões de fração-parcial de expoentes.  
+</p>
+<p>Quando <code>%e_to_numlog</code> for <code>true</code>, 
+<code>%e^(r*log(expr))</code> simplifica para <code>expr^r</code> se <code>r</code> for um número racional.
+</p>
+<p>Quando <code>radexpand</code> for <code>false</code>, certas transformações são inibidas.
+<code>radcan (sqrt (1-x))</code> permanece <code>sqrt (1-x)</code>
+e não é simplificada para <code>%i sqrt (x-1)</code>. 
+<code>radcan (sqrt (x^2 - 2*x + 11))</code> permanece <code>sqrt (x^2 - 2*x + 1)</code>
+e não é simplificada para <code>x - 1</code>.
+</p>
+<p><code>example (radcan)</code> mostra alguns exemplos.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fradexpand"></a><dl>
+<dt><a name="index-radexpand"></a>Variável de opção: <strong>radexpand</strong></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p><code>radexpand</code> controla algumas simplificações de radicais.
+</p>
+<p>Quando <code>radexpand</code> for <code>all</code>, faz com que n-ésimas raízes de
+fatores de um produto que são potências de n sejam puxados para fora do
+radical.  E.g. Se <code>radexpand</code> for <code>all</code>, <code>sqrt (16*x^2)</code> simplifica para <code>4*x</code>.
+</p>
+<p>Mais particularmente, considere <code>sqrt (x^2)</code>.
+</p><ul>
+<li> Se <code>radexpand</code> for <code>all</code> or <code>assume (x &gt; 0)</code> tiver sido executado, 
+<code>sqrt(x^2)</code> simplifica para <code>x</code>.
+</li><li> Se <code>radexpand</code> for <code>true</code> e <code>domain</code> for <code>real</code> (isso é o padrão), 
+<code>sqrt(x^2)</code> simplifica para <code>abs(x)</code>.
+</li><li> Se <code>radexpand</code> for <code>false</code>, ou <code>radexpand</code> for <code>true</code> e <code>domain</code> for <code>complex</code>, 
+<code>sqrt(x^2)</code> não é simplificado.
+</li></ul>
+
+<p>Note que <code>domain</code> somente interessa quando <code>radexpand</code> for <code>true</code>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Simplification_002fdefvr_002fradsubstflag"></a><dl>
+<dt><a name="index-radsubstflag"></a>Variável de opção: <strong>radsubstflag</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p><code>radsubstflag</code>, se <code>true</code>, permite a <code>ratsubst</code> fazer
+substituições tais como <code>u</code> por <code>sqrt (x)</code> em <code>x</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002frassociative"></a><dl>
+<dt><a name="index-rassociative"></a>Declaração: <strong>rassociative</strong></dt>
+<dd><p><code>declare (g, rassociative)</code> diz ao simplificador do
+Maxima que <code>g</code> é associativa à direita.  E.g.,
+<code>g(g(a, b), g(c, d))</code> simplifica para <code>g(a, g(b, g(c, d)))</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdeffn_002fscsimp"></a><dl>
+<dt><a name="index-scsimp"></a>Função: <strong>scsimp</strong> <em>(<var>expr</var>, <var>rule_1</var>, ..., <var>rule_n</var>)</em></dt>
+<dd><p>Simplificação Seq&uuml;êncial Comparativa (método devido a Stoute).
+<code>scsimp</code> tenta simplificar <var>expr</var>
+conforme as regras <var>rule_1</var>, ..., <var>rule_n</var>.
+Se uma expressão pequena for obtida, o processo
+repete-se.  De outra forma após todas as simplificações serem tentadas, <code>scsimp</code> retorna
+a resposta original.
+</p>
+<p><code>example (scsimp)</code> mostra alguns exemplos.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fsimpsum"></a><dl>
+<dt><a name="index-simpsum"></a>Variável de opção: <strong>simpsum</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Quando <code>simpsum</code> for <code>true</code>, o resultado de uma <code>sum</code> é
+simplificado.  Essa simplificação pode algumas vezes estar apta a produzir uma
+forma fechada.  Se <code>simpsum</code> for <code>false</code> ou se a forma com apóstrofo <code>'sum</code> for usada, o valor é uma
+forma substantiva aditiva que é uma representação da notação sigma usada em
+matemática.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdeffn_002fsumcontract"></a><dl>
+<dt><a name="index-sumcontract"></a>Função: <strong>sumcontract</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Combina todas as parcelas de um somatório que possuem
+limites superiores e inferiores que diferem por constantes. O resultado é uma
+expressão contendo um somatório para cada escolha de cada tais somatórios
+adicionados a todos os termos extras apropriados que tiveram de ser extraídos para a forma
+dessa adição.  <code>sumcontract</code> combina todas as somas compatíveis e usa os
+indices de uma as somas se puder, e então tenta formar um
+índice razoável se não for usar qualquer dos fornecidos.
+</p>
+<p>Isso pode ser necessário fazer um <code>intosum (<var>expr</var>)</code> antes de <code>sumcontract</code>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Simplification_002fdefvr_002fsumexpand"></a><dl>
+<dt><a name="index-sumexpand"></a>Variável de opção: <strong>sumexpand</strong></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Quando <code>sumexpand</code> for <code>true</code>, produtos de somas e
+somas exponeciadas simplificam para somas aninhadas.
+</p>
+<p>Veja também <code>cauchysum</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) sumexpand: true$
+(%i2) sum (f (i), i, 0, m) * sum (g (j), j, 0, n);
+                     m      n
+                    ====   ====
+                    \      \
+(%o2)                &gt;      &gt;     f(i1) g(i2)
+                    /      /
+                    ====   ====
+                    i1 = 0 i2 = 0
+(%i3) sum (f (i), i, 0, m)^2;
+                     m      m
+                    ====   ====
+                    \      \
+(%o3)                &gt;      &gt;     f(i3) f(i4)
+                    /      /
+                    ====   ====
+                    i3 = 0 i4 = 0
+</pre></div>
+
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fsumsplitfact"></a><dl>
+<dt><a name="index-sumsplitfact"></a>Variável de opção: <strong>sumsplitfact</strong></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>sumsplitfact</code> for <code>false</code>,
+<code>minfactorial</code> é aplicado após um <code>factcomb</code>.
+</p>
+</dd></dl>
+
+<a name="Item_003a-Simplification_002fdefvr_002fsymmetric"></a><dl>
+<dt><a name="index-symmetric"></a>Declaração: <strong>symmetric</strong></dt>
+<dd><p><code>declare (h, symmetric)</code> diz ao simplificador
+do Maxima que <code>h</code> é uma função simétrica.  E.g., <code>h (x, z, y)</code> 
+simplifica para <code>h (x, y, z)</code>.
+</p>
+<p><code>commutative</code> é sinônimo de <code>symmetric</code>.
+</p>
+</dd></dl>
+
+
+<a name="Item_003a-Simplification_002fdeffn_002funknown"></a><dl>
+<dt><a name="index-unknown"></a>Função: <strong>unknown</strong> <em>(<var>expr</var>)</em></dt>
+<dd><p>Retorna <code>true</code> se e somente se <var>expr</var> contém um operador ou função
+não reconhecida pelo simplificador do Maxima.
+</p>
+</dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_28.html#Simplifica_00e7_00e3o" accesskey="p" rel="previous">Simplificação</a>, Acima: <a href="maxima_28.html#Simplifica_00e7_00e3o" accesskey="u" rel="up">Simplificação</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html#g_t_00cdndice-de-Fun_00e7_00f5es-e-Vari_00e1veis" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
 </body>
 </html>

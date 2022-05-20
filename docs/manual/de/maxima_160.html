@@ -1,0 +1,1046 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Maxima Manual: Funktionen und Variablen f&uuml;r Funktionsdefinitionen</title>
+
+<meta name="description" content="Maxima Manual: Funktionen und Variablen f&uuml;r Funktionsdefinitionen">
+<meta name="keywords" content="Maxima Manual: Funktionen und Variablen f&uuml;r Funktionsdefinitionen">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="maxima_toc.html#Top" rel="start" title="Top">
+<link href="maxima_334.html#Index-der-Variablen-und-Funktionen" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_157.html#Funktionsdefinitionen" rel="up" title="Funktionsdefinitionen">
+<link href="maxima_161.html#Laufzeitumgebung" rel="next" title="Laufzeitumgebung">
+<link href="maxima_159.html#Makros" rel="previous" title="Makros">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+
+</head>
+
+<body lang="de" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Funktionen-und-Variablen-f_00fcr-Funktionsdefinitionen"></a>
+<div class="header">
+<p>
+Previous: <a href="maxima_159.html#Makros" accesskey="p" rel="previous">Makros</a>, Nach oben: <a href="maxima_157.html#Funktionsdefinitionen" accesskey="u" rel="up">Funktionsdefinitionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Funktionen-und-Variablen-fur-Funktionsdefinitionen"></a>
+<h3 class="section">25.3 Funktionen und Variablen f&uuml;r Funktionsdefinitionen</h3>
+
+<a name="apply"></a><a name="Item_003a-Function_002ede_002fdeffn_002fapply"></a><dl>
+<dt><a name="index-apply"></a>Funktion: <strong>apply</strong> <em>(<var>F</var>, [<var>x_1</var>, &hellip;, <var>x_n</var>])</em></dt>
+<dd>
+<p>Konstruiert den Ausdruck <code><var>F</var>(<var>arg_1</var>, ..., <var>arg_n</var>)</code> und 
+wertet diesen aus.
+</p>
+<p><code>apply</code> versucht nicht Array-Funktionen von gew&ouml;hnlichen Funktionen zu
+unterscheiden.  Ist <var>F</var> der Name eine Array-Funktion, wertet <code>apply</code>
+den Ausdruck <code><var>F</var>(...)</code> aus.  <code><a href="maxima_24.html#arrayapply">arrayapply</a></code> entspricht der 
+Funktion <code>apply</code>, wenn <var>F</var> eine Array-Funktion ist.
+</p>
+<p>Beispiele:
+</p>
+<p><code>apply</code> wertet die Argumente aus.  In diesem Beispiel wird die Funktion
+<code><a href="maxima_50.html#min">min</a></code> auf die Liste <code>L</code> angewendet.
+</p>
+<div class="example">
+<pre class="example">(%i1) L : [1, 5, -10.2, 4, 3];
+(%o1)                 [1, 5, - 10.2, 4, 3]
+(%i2) apply (min, L);
+(%o2)                        - 10.2
+</pre></div>
+
+<p><code>apply</code> wertet die Argumente auch dann aus, wenn die Funktion <code>F</code>
+die Auswertung ihrer Argumente unterdr&uuml;ckt.
+</p>
+<div class="example">
+<pre class="example">(%i1) F (x) := x / 1729;
+</pre><pre class="example">                                   x
+(%o1)                     F(x) := ----
+                                  1729
+</pre><pre class="example">(%i2) fname : F;
+(%o2)                           F
+(%i3) dispfun (F);
+                                   x
+(%t3)                     F(x) := ----
+                                  1729
+
+(%o3)                         [%t3]
+(%i4) dispfun (fname);
+fname is not the name of a user function.
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i5) apply (dispfun, [fname]);
+                                   x
+(%t5)                     F(x) := ----
+                                  1729
+
+(%o5)                         [%t5]
+</pre></div>
+
+<p><code>apply</code> wertet den Namen der Funktion <var>F</var> aus.  Mit dem
+<a href="maxima_45.html#g_t_0027">Quote-Operator</a> <code>'</code> wird die Auswertung unterdr&uuml;ckt.
+<code><a href="maxima_48.html#demoivre">demoivre</a></code> ist der Name einer globalen Optionsvariable und einer Funktion.
+</p>
+<div class="example">
+<pre class="example">(%i1) demoivre;
+(%o1)                         false
+(%i2) demoivre (exp (%i * x));
+(%o2)                  %i sin(x) + cos(x)
+(%i3) apply (demoivre, [exp (%i * x)]);
+demoivre evaluates to false
+Improper name or value in functional position.
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i4) apply ('demoivre, [exp (%i * x)]);
+(%o4)                  %i sin(x) + cos(x)
+</pre></div>
+</dd></dl>
+
+<a name="define"></a><a name="Item_003a-Function_002ede_002fdeffn_002fdefine"></a><dl>
+<dt><a name="index-define"></a>Funktion: <strong>define</strong> <em>(<var>f</var>(<var>x_1</var>, &hellip;, <var>x_n</var>), <var>expr</var>)</em></dt>
+<dt><a name="index-define-1"></a>Funktion: <strong>define</strong> <em>(<var>f</var>[<var>x_1</var>, &hellip;, <var>x_n</var>], <var>expr</var>)</em></dt>
+<dt><a name="index-define-2"></a>Funktion: <strong>define</strong> <em>(funmake (<var>f</var>, [<var>x_1</var>, &hellip;, <var>x_n</var>]), <var>expr</var>)</em></dt>
+<dt><a name="index-define-3"></a>Funktion: <strong>define</strong> <em>(arraymake (<var>f</var>, [<var>x_1</var>, &hellip;, <var>x_n</var>]), <var>expr</var>)</em></dt>
+<dt><a name="index-define-4"></a>Funktion: <strong>define</strong> <em>(ev (<var>expr_1</var>), <var>expr_2</var>)</em></dt>
+<dd>
+<p>Definiert eine Funktion mit dem Namen <var>f</var> und den Argumenten <var>x1</var>, 
+&hellip;, <var>x_n</var> und der Funktionsdefinition <var>expr</var>.  <code>define</code>
+wertet das zweite Argument immer aus.
+</p>
+<p>Ist das letzte oder einzige Argument <var>x_n</var> eine Liste mit einem Element, 
+dann akzeptiert die Funktion eine variable Anzahl an Argumenten.  Die Argumente
+der Funktion werden nacheinander den Variablen <var>x_1</var>, &hellip;, <var>x_(n-1)</var>
+zugewiesen.  Sind weitere Argumente vorhanden, werden diese als Liste der
+Variablen <var>x_n</var> zugewiesen.
+</p>
+<p>Ist das erste Argument der Funktion <code>define</code> ein Ausdruck der Form
+<code><var>f</var>(<var>x_1</var>, ..., <var>x_n</var>)</code> oder <code><var>f</var>[<var>x_1</var>, ...,
+<var>x_n</var>]</code> werden die Argumente der Funktion ausgewertet, aber nicht die
+Funktion <var>f</var> selbst.  <var>f</var> wird auch dann nicht ausgewertet, wenn es
+bereits eine Funktion mit dem Namen <var>f</var> gibt.
+</p>
+<p>Das erste Argument wird dann ausgewertet, wenn es ein Ausdruck mit den 
+Funktionen <code><a href="#funmake">funmake</a></code>, <code><a href="maxima_24.html#arraymake">arraymake</a></code> oder <code><a href="maxima_45.html#ev">ev</a></code> ist.
+</p>
+<p>Alle Funktionsdefinitionen treten in demselben Namensraum auf.  Die Definition
+einer Funktion <code>g</code> innerhalb einer Funktion <code>f</code> f&uuml;hrt nicht 
+automatisch zu einer lokalen Definition.  Um eine lokale Funktion zu erhalten,
+kann <code>lokal(g)</code> innerhalb der Funktion <code>f</code> ausgef&uuml;hrt werden.
+Siehe auch <code><a href="maxima_168.html#local">local</a></code>.
+</p>
+<p>Ist eines der Argumente <var>x_k</var> nach der Auswertung ein quotiertes Symbol,
+wertet die mit <code>define</code> definierte Funktion das Argument nicht aus.
+Alle weiteren Argumente der Funktion werden ausgewertet.
+</p>
+<p>Siehe auch <code><a href="maxima_39.html#g_t_003a_003d">:=</a></code> und <code><a href="maxima_39.html#g_t_003a_003a_003d">::=</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<p><code>define</code> wertet das zweite Argument aus.
+</p>
+<div class="example">
+<pre class="example">(%i1) expr : cos(y) - sin(x);
+(%o1)                    cos(y) - sin(x)
+(%i2) define (F1 (x, y), expr);
+(%o2)              F1(x, y) := cos(y) - sin(x)
+(%i3) F1 (a, b);
+(%o3)                    cos(b) - sin(a)
+(%i4) F2 (x, y) := expr;
+(%o4)                   F2(x, y) := expr
+(%i5) F2 (a, b);
+(%o5)                    cos(y) - sin(x)
+</pre></div>
+
+
+<p>Mit <code>define</code> k&ouml;nnen gew&ouml;hnliche Maxima-Funktionen und Array-Funktionen 
+definiert werden.
+</p>
+<div class="example">
+<pre class="example">(%i1) define (G1 (x, y), x.y - y.x);
+(%o1)               G1(x, y) := x . y - y . x
+(%i2) define (G2 [x, y], x.y - y.x);
+(%o2)                G2     := x . y - y . x
+                       x, y
+</pre></div>
+
+<p>Ist das letzte oder einzige Argument <var>x_n</var> eine Liste mit einem Element,
+akzeptiert die mit <code>define</code> definierte Funktion eine variable Anzahl an
+Argumenten.
+</p>
+<div class="example">
+<pre class="example">(%i1) define (H ([L]), '(apply (&quot;+&quot;, L)));
+(%o1)                H([L]) := apply(&quot;+&quot;, L)
+(%i2) H (a, b, c);
+(%o2)                       c + b + a
+</pre></div>
+
+<p>Ist das erste Argument ein Ausdruck mit den Funktionen <code>funmake</code>,
+<code>arraymake</code> oder <code>ev</code> wird das Argument ausgewertet.
+</p>
+<div class="example">
+<pre class="example">(%i1) [F : I, u : x];
+(%o1)                        [I, x]
+(%i2) funmake (F, [u]);
+(%o2)                         I(x)
+(%i3) define (funmake (F, [u]), cos(u) + 1);
+(%o3)                  I(x) := cos(x) + 1
+(%i4) define (arraymake (F, [u]), cos(u) + 1);
+(%o4)                   I  := cos(x) + 1
+                         x
+(%i5) define (foo (x, y), bar (y, x));
+(%o5)                foo(x, y) := bar(y, x)
+(%i6) define (ev (foo (x, y)), sin(x) - cos(y));
+(%o6)             bar(y, x) := sin(x) - cos(y)
+</pre></div>
+</dd></dl>
+
+<a name="define_005fvariable"></a><a name="Item_003a-Function_002ede_002fdeffn_002fdefine_005fvariable"></a><dl>
+<dt><a name="index-define_005fvariable"></a>Funktion: <strong>define_variable</strong> <em>(<var>name</var>, <var>default_value</var>, <var>mode</var>)</em></dt>
+<dd>
+<p>Definiert eine globale Variable in der Maxima-Umgebung.  <code>define_variable</code>
+ist n&uuml;tzlich f&uuml;r das Schreiben von Paketen, die h&auml;ufig &uuml;bersetzt oder 
+kompiliert werden.  <code>define_variable</code> f&uuml;hrt die folgenden Schritte aus:
+</p>
+<ol>
+<li> <code>mode_declare(<var>name</var>, <var>mode</var>)</code> deklariert den Typ der Variablen
+<var>name</var> f&uuml;r den &Uuml;bersetzer.  Siehe <code><a href="maxima_171.html#mode_005fdeclare">mode_declare</a></code> f&uuml;r eine Liste 
+der m&ouml;glichen Typen.
+
+</li><li> Hat die Variable keinen Wert, wird der Variablen der Wert <var>default_value</var>
+zugewiesen.
+
+</li><li> <code>declare(<var>name</var>, special)</code> deklariert die Variable als Special.
+
+</li><li> Ordnet der Variablen <var>name</var> eine Testfunktion zu, um sicherzustellen, dass 
+der Variablen nur Werte zugewiesen werden k&ouml;nnen.
+</li></ol>
+
+<p>Einer mit <code>define_variable</code> definierten Variablen, die einen anderen Typ 
+als <code>any</code> erhalten hat, kann die Eigenschaft <code>value_check</code> zugewiesen
+werden.  Die <code>value_check</code>-Eigenschaft ist eine Aussagefunktion mit einer
+Variablen oder ein Lambda-Ausdruck, die aufgerufen werden, wenn der Variablen
+ein Wert zugewiesen werden soll.  Das Argument der <code>value_check</code>-Funktion
+ist der Wert, den die Variable erhalten soll.
+</p>
+<p><code>define_variable</code> wertet <code>default_value</code> aus.  Die Argumente 
+<code>name</code> und <code>mode</code> werden nicht ausgewertet.  <code>define_variable</code>
+gibt den aktuellen Wert der Variable <code>name</code> zur&uuml;ck.  Dieser ist
+<code>default_value</code>, wenn der Variablen bisher kein Wert zugewiesen wurde.
+</p>
+<p>Beispiele:
+</p>
+<p><code>foo</code> ist eine boolesche Variable mit dem Wert <code>true</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) define_variable (foo, true, boolean);
+(%o1)                         true
+(%i2) foo;
+(%o2)                         true
+(%i3) foo: false;
+(%o3)                         false
+(%i4) foo: %pi;
+Error: foo was declared mode boolean, has value: %pi
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i5) foo;
+(%o5)                         false
+</pre></div>
+
+<p><code>bar</code> ist eine Variable mit dem Typ einer ganzen Zahl, die eine Primzahl
+sein muss.
+</p>
+<div class="example">
+<pre class="example">(%i1) define_variable (bar, 2, integer);
+(%o1)                           2
+(%i2) qput (bar, prime_test, value_check);
+(%o2)                      prime_test
+(%i3) prime_test (y) := if not primep(y) then
+                           error (y, &quot;is not prime.&quot;);
+(%o3) prime_test(y) := if not primep(y)
+
+                                   then error(y, &quot;is not prime.&quot;)
+(%i4) bar: 1439;
+(%o4)                         1439
+(%i5) bar: 1440;
+1440 is not prime.
+#0: prime_test(y=1440)
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i6) bar;
+(%o6)                         1439
+</pre></div>
+
+<p><code>baz_quux</code> ist eine Variable, der kein Wert zugewiesen werden kann.  Der
+Typ <code>any_check</code> ist vergleichbar mit <code>any</code>.  Aber <code>any_check</code> 
+ruft im Gegensatz zu <code>any</code> den <code>value_check</code>-Mechanismus auf.
+</p>
+<div class="example">
+<pre class="example">(%i1) define_variable (baz_quux, 'baz_quux, any_check);
+(%o1)                       baz_quux
+(%i2) F: lambda ([y], if y # 'baz_quux then
+                 error (&quot;Cannot assign to `baz_quux'.&quot;));
+(%o2) lambda([y], if y # 'baz_quux
+
+                        then error(Cannot assign to `baz_quux'.))
+(%i3) qput (baz_quux, ''F, value_check);
+(%o3) lambda([y], if y # 'baz_quux
+
+                        then error(Cannot assign to `baz_quux'.))
+(%i4) baz_quux: 'baz_quux;
+(%o4)                       baz_quux
+(%i5) baz_quux: sqrt(2);
+Cannot assign to `baz_quux'.
+#0: lambda([y],if y # 'baz_quux then
+                 error(&quot;Cannot assign to `baz_quux'.&quot;))(y=sqrt(2))
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i6) baz_quux;
+(%o6)                       baz_quux
+</pre></div>
+</dd></dl>
+
+<a name="dispfun"></a><a name="Item_003a-Function_002ede_002fdeffn_002fdispfun"></a><dl>
+<dt><a name="index-dispfun"></a>Funktion: <strong>dispfun</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>)</em></dt>
+<dt><a name="index-dispfun-1"></a>Funktion: <strong>dispfun</strong> <em>(all)</em></dt>
+<dd>
+<p>Zeigt die Definitionen der nutzerdefinierten Funktionen <var>f_1</var>, &hellip;, 
+<var>f_n</var> an.  Die Argumente k&ouml;nnen gew&ouml;hnliche Funktionen, Makros, 
+Array-Funktionen oder indizierte Funktionen sein.
+</p>
+<p><code>dispfun(all)</code> zeigt die Definitionen aller nutzerdefinierten Funktionen
+an, die in den Informationslisten <code><a href="#functions">functions</a></code>, <code><a href="maxima_24.html#arrays">arrays</a></code> oder
+<code><a href="maxima_159.html#macros">macros</a></code> enthalten sind.
+</p>
+<p><code>dispfun</code> erzeugt Zwischenmarken <code>%t</code> f&uuml;r jede einzelne anzuzeigende
+Funktion und weist die Funktionsdefinitionen den Zwischenmarken zu.  Im 
+Gegensatz dazu, zeigt die Funktion <code><a href="#fundef">fundef</a></code> die Funktionsdefinition ohne
+Zwischenmarken an.
+</p>
+<p><code>dispfun</code> wertet die Argumente nicht aus.  <code>dispfun</code> gibt eine Liste
+mit den Zwischenmarken zur&uuml;ck, die zu den angezeigten Funktionen geh&ouml;ren.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) m(x, y) ::= x^(-y);
+                                     - y
+(%o1)                   m(x, y) ::= x
+(%i2) f(x, y) :=  x^(-y);
+                                     - y
+(%o2)                    f(x, y) := x
+(%i3) g[x, y] :=  x^(-y);
+                                    - y
+(%o3)                     g     := x
+                           x, y
+(%i4) h[x](y) :=  x^(-y);
+                                    - y
+(%o4)                     h (y) := x
+                           x
+(%i5) i[8](y) :=  8^(-y);
+                                    - y
+(%o5)                     i (y) := 8
+                           8
+(%i6) dispfun (m, f, g, h, h[5], h[10], i[8]);
+                                     - y
+(%t6)                   m(x, y) ::= x
+
+                                     - y
+(%t7)                    f(x, y) := x
+
+                                    - y
+(%t8)                     g     := x
+                           x, y
+
+                                    - y
+(%t9)                     h (y) := x
+                           x
+
+                                    1
+(%t10)                     h (y) := --
+                            5        y
+                                    5
+
+</pre><pre class="example">                                     1
+(%t11)                    h  (y) := ---
+                           10         y
+                                    10
+</pre><pre class="example">
+                                    - y
+(%t12)                    i (y) := 8
+                           8
+
+(%o12)       [%t6, %t7, %t8, %t9, %t10, %t11, %t12]
+(%i12) ''%;
+</pre><pre class="example">                     - y              - y            - y
+(%o12) [m(x, y) ::= x   , f(x, y) := x   , g     := x   , 
+                                            x, y
+                  - y           1              1             - y
+        h (y) := x   , h (y) := --, h  (y) := ---, i (y) := 8   ]
+         x              5        y   10         y   8
+                                5             10
+</pre></div>
+</dd></dl>
+
+<a name="fullmap"></a><a name="Item_003a-Function_002ede_002fdeffn_002ffullmap"></a><dl>
+<dt><a name="index-fullmap"></a>Funktion: <strong>fullmap</strong> <em>(<var>f</var>, <var>expr_1</var>, &hellip;)</em></dt>
+<dd>
+<p>Die Funktion <code>fullmap</code> ist vergleichbar mit der Funktion <code><a href="#map">map</a></code>.<!-- /@w -->
+Im  Unterschied zu der Funktion <code>map</code> kann <code>fullmap</code> auf
+verschachtelte Ausdr&uuml;cke angewendet werden.
+</p>
+<p>Intern wird <code>fullmap</code> von Maxima f&uuml;r die Vereinfachung von Matrizen 
+aufgerufen.  Daher k&ouml;nnen bei der Vereinfachung von Matrizen Fehlermeldungen 
+im Zusammenhang mit <code>fullmap</code> auftreten, ohne dass die Funktion direkt 
+aufgerufen wurde.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) a + b * c;
+(%o1)                        b c + a
+(%i2) fullmap (g, %);
+(%o2)                   g(b) g(c) + g(a)
+(%i3) map (g, %th(2));
+(%o3)                     g(b c) + g(a)
+</pre></div>
+</dd></dl>
+
+<a name="fullmapl"></a><a name="Item_003a-Function_002ede_002fdeffn_002ffullmapl"></a><dl>
+<dt><a name="index-fullmapl"></a>Funktion: <strong>fullmapl</strong> <em>(<var>f</var>, <var>list_1</var>, &hellip;)</em></dt>
+<dd>
+<p>Die Funktion <code>fullmapl</code> ist vergleichbar mit <code><a href="#fullmap">fullmap</a></code>.<!-- /@w -->
+<code>fullmapl</code> kann jedoch nur auf Matrizen und Listen angewendet werden kann.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) fullmapl (&quot;+&quot;, [3, [4, 5]], [[a, 1], [0, -1.5]]);
+(%o1)                [[a + 3, 4], [4, 3.5]]
+</pre></div>
+</dd></dl>
+
+<a name="functions"></a><a name="Item_003a-Function_002ede_002fdefvr_002ffunctions"></a><dl>
+<dt><a name="index-functions"></a>Systemvariable: <strong>functions</strong></dt>
+<dd><p>Standardwert: <code>[]</code>
+</p>
+<p><code>functions</code> ist eine Informationsliste, die die vom Nutzer mit dem
+Operator <code><a href="maxima_39.html#g_t_003a_003d">:=</a></code> oder der Funktion <code><a href="#define">define</a></code> definierten Funktionen
+enth&auml;lt.  Siehe auch die Systemvariable <code><a href="maxima_9.html#infolists">infolists</a></code>.
+</p>
+<p>Array-Funktionen und indizierte Funktionen werden nicht in die Informationsliste
+<code><a href="#functions">functions</a></code>, sondern in die Informationsliste <code><a href="maxima_24.html#arrays">arrays</a></code><!-- /@w -->
+eingetragen.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) F_1 (x) := x - 100;
+(%o1)                   F_1(x) := x - 100
+(%i2) F_2 (x, y) := x / y;
+                                      x
+(%o2)                    F_2(x, y) := -
+                                      y
+(%i3) define (F_3 (x), sqrt (x));
+(%o3)                   F_3(x) := sqrt(x)
+(%i4) G_1 [x] := x - 100;
+(%o4)                    G_1  := x - 100
+                            x
+(%i5) G_2 [x, y] := x / y;
+                                     x
+(%o5)                     G_2     := -
+                             x, y    y
+(%i6) define (G_3 [x], sqrt (x));
+(%o6)                    G_3  := sqrt(x)
+                            x
+(%i7) H_1 [x] (y) := x^y;
+                                      y
+(%o7)                     H_1 (y) := x
+                             x
+(%i8) functions;
+(%o8)              [F_1(x), F_2(x, y), F_3(x)]
+(%i9) arrays;
+(%o9)                 [G_1, G_2, G_3, H_1]
+</pre></div>
+</dd></dl>
+
+<a name="fundef"></a><a name="Item_003a-Function_002ede_002fdeffn_002ffundef"></a><dl>
+<dt><a name="index-fundef"></a>Funktion: <strong>fundef</strong> <em>(<var>f</var>)</em></dt>
+<dd>
+<p>Gibt die Definition der Funktion <var>f</var> zur&uuml;ck.
+</p>
+<p>Das Argument <var>f</var> kann eine gew&ouml;hnliche Funktion, eine Makro-Funktion, eine
+Array-Funktion oder eine indizierte Funktion sein.
+</p>
+<p><code>fundef</code> wertet das Argument aus.  Siehe auch <code><a href="#dispfun">dispfun</a></code>.
+</p></dd></dl>
+
+<a name="funmake"></a><a name="Item_003a-Function_002ede_002fdeffn_002ffunmake"></a><dl>
+<dt><a name="index-funmake"></a>Funktion: <strong>funmake</strong> <em>(<var>F</var>, [<var>arg_1</var>, &hellip;, <var>arg_n</var>])</em></dt>
+<dd>
+<p>Gibt den Ausdruck <code><var>F</var>(<var>arg_1</var>, ..., <var>arg_n</var>)</code> zur&uuml;ck.  Die
+R&uuml;ckgabe wird vereinfacht, aber nicht ausgewertet.  Die Funktion <var>F</var> wird
+also nicht aufgerufen, auch wenn diese existiert.
+</p>
+<p><code>funmake</code> versucht nicht, Array-Funktionen von gew&ouml;hnlichen Funktionen zu 
+unterscheiden.  Ist <var>F</var> der Name einer Array-Funktion, dann gibt
+<code>funmake</code> einen Ausdruck der Form <code><var>F</var>(...)</code> zur&uuml;ck.
+F&uuml;r Array-Funktionen kann die Funktion <code><a href="maxima_24.html#arraymake">arraymake</a></code> verwendet werden.
+</p>
+<p><code>funmake</code> wertet die Argumente aus.
+</p>
+<p>Beispiele:
+</p>
+<p><code>funmake</code> angewendet auf eine gew&ouml;hnliche Funktion.
+</p>
+<div class="example">
+<pre class="example">(%i1) F (x, y) := y^2 - x^2;
+                                   2    2
+(%o1)                  F(x, y) := y  - x
+(%i2) funmake (F, [a + 1, b + 1]);
+(%o2)                    F(a + 1, b + 1)
+(%i3) ''%;
+                              2          2
+(%o3)                  (b + 1)  - (a + 1)
+</pre></div>
+
+<p><code>funmake</code> angewendet auf ein Makro.
+</p>
+<div class="example">
+<pre class="example">(%i1) G (x) ::= (x - 1)/2;
+                                  x - 1
+(%o1)                    G(x) ::= -----
+                                    2
+(%i2) funmake (G, [u]);
+(%o2)                         G(u)
+(%i3) ''%;
+                              u - 1
+(%o3)                         -----
+                                2
+</pre></div>
+
+<p><code>funmake</code> angewendet auf eine indizierte Funktion.
+</p>
+<div class="example">
+<pre class="example">(%i1) H [a] (x) := (x - 1)^a;
+                                        a
+(%o1)                   H (x) := (x - 1)
+                         a
+(%i2) funmake (H [n], [%e]);
+                                       n
+(%o2)               lambda([x], (x - 1) )(%e)
+(%i3) ''%;
+                                    n
+(%o3)                       (%e - 1)
+(%i4) funmake ('(H [n]), [%e]);
+(%o4)                        H (%e)
+                              n
+(%i5) ''%;
+                                    n
+(%o5)                       (%e - 1)
+</pre></div>
+
+<p><code>funmake</code> angewendet auf ein Symbol, welches keine Funktion 
+repr&auml;sentiert.
+</p>
+<div class="example">
+<pre class="example">(%i1) funmake (A, [u]);
+(%o1)                         A(u)
+(%i2) ''%;
+(%o2)                         A(u)
+</pre></div>
+
+<p><code>funmake</code> wertet die Argumente, aber nicht die R&uuml;ckgabe aus.
+</p>
+<div class="example">
+<pre class="example">(%i1) det(a,b,c) := b^2 -4*a*c;
+                                    2
+(%o1)              det(a, b, c) := b  - 4 a c
+(%i2) (x : 8, y : 10, z : 12);
+(%o2)                          12
+(%i3) f : det;
+(%o3)                          det
+(%i4) funmake (f, [x, y, z]);
+(%o4)                    det(8, 10, 12)
+(%i5) ''%;
+(%o5)                         - 284
+</pre></div>
+
+<p>Maxima vereinfacht den R&uuml;ckgabewert der Funktion <code>funmake</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) funmake (sin, [%pi / 2]);
+(%o1)                           1
+</pre></div>
+</dd></dl>
+
+<a name="lambda"></a><a name="Item_003a-Function_002ede_002fdeffn_002flambda"></a><dl>
+<dt><a name="index-lambda"></a>Funktion: <strong>lambda</strong> <em>([<var>x_1</var>, &hellip;, <var>x_m</var>], <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dt><a name="index-lambda-1"></a>Funktion: <strong>lambda</strong> <em>([[<var>L</var>]], <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dt><a name="index-lambda-2"></a>Funktion: <strong>lambda</strong> <em>([<var>x_1</var>, &hellip;, <var>x_m</var>, [<var>L</var>]], <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dd>
+<p>Definiert einen Lambda-Ausdruck, der auch als anonyme Funktion bezeichnet wird,
+und gibt diesen zur&uuml;ck.  Die Funktion kann Argumente <var>x_1</var>, &hellip;,
+<var>x_m</var> und optionale Argumente <var>L</var> haben.  Die R&uuml;ckgabe der Funktion
+ist das Ergebnis des Ausdrucks <var>exprn</var>.  Ein Lambda-Ausdruck kann einer
+Variablen zugewiesen werden und wertet wie eine gew&ouml;hnliche Funktion aus.  Ein
+Lambda-Ausdruck kann an solchen Stellen verwendet werden, wo der Name einer
+Funktion erwartet wird.
+</p>
+<p>Wird der Lambda-Ausdruck ausgewertet, werden lokale Variablen <var>x_1</var>, 
+&hellip;, <var>x_m</var> erzeugt.  <code>lambda</code> kann innerhalb von Bl&ouml;cken oder 
+anderen Lambda-Ausdr&uuml;cken verwendet werden.  Mit jeder <code>block</code>-Anweisung 
+oder jedem Lambda-Ausdruck werden erneut lokale Variablen erzeugt.  Die lokalen
+Variablen sind jeweils global zu jeder eingeschlossenen <code>block</code>-Anweisung
+oder zu jedem eingeschlossenen Lambda-Ausdruck.  Ist eine Variable innerhalb von
+<code>block</code> oder <code>lambda</code> nicht lokal, hat sie den Wert der 
+n&auml;chst h&ouml;heren Anweisung, die ihr einen Wert gibt oder den globalen Wert der 
+Maxima-Umgebung.
+</p>
+<p>Nachdem die lokalen Variablen erzeugt sind, werden die Ausdr&uuml;cke <var>expr_1</var>,
+&hellip;, <var>expr_n</var> nacheinander ausgewertet.  Die Systemvariable <code>%%</code>,
+welche das Ergebnis eines vorhergehendes Ausdrucks enth&auml;lt, kann verwendet 
+werden.  In einem Lambda-Ausdruck k&ouml;nnen die Anweisungen <code><a href="maxima_168.html#catch">catch</a></code> und
+<code><a href="maxima_168.html#throw">throw</a></code> verwendet werden.
+</p>
+<p>Die <code><a href="maxima_168.html#return">return</a></code>-Anweisung kann in einem Lambda-Ausdruck nur verwendet werden,
+wenn sie von einer <code>block</code>-Anweisung eingeschlossen wird.  Die 
+<code>return</code>-Anweisung definiert jedoch den R&uuml;ckgabewert des Blocks und nicht 
+des Lambda-Ausdrucks.  Auch die <code><a href="maxima_168.html#go">go</a></code>-Anweisung kann in einem
+Lambda-Ausdrucks nur in einem Block verwendet werden.
+</p>
+<p><code>lambda</code> wertet die Argumente nicht aus.
+</p>
+<p>Beispiele:
+</p>
+<p>Ein Lambda-Ausdruck kann einer Variablen zugewiesen werden und wie eine
+gew&ouml;hnliche Funktion ausgewertet werden.
+</p>
+<div class="example">
+<pre class="example">(%i1) f: lambda ([x], x^2);
+                                      2
+(%o1)                    lambda([x], x )
+(%i2) f(a);
+                                2
+(%o2)                          a
+</pre></div>
+
+<p>Ein Lamda-Ausdruck kann an Stellen verwendet werden, wo der Name einer Funktion
+erwartet wird.
+</p>
+<div class="example">
+<pre class="example">(%i3) lambda ([x], x^2) (a);
+                                2
+(%o3)                          a
+(%i4) apply (lambda ([x], x^2), [a]);
+                                2
+(%o4)                          a
+(%i5) map (lambda ([x], x^2), [a, b, c, d, e]);
+                        2   2   2   2   2
+(%o5)                 [a , b , c , d , e ]
+</pre></div>
+
+<p>Die Argumente sind lokale Variablen.  Andere Variablen sind globale Variablen.
+Globale Variablen werden zu dem Zeitpunkt ausgewertet, wenn der Lambda-Ausdruck
+ausgewertet wird.
+</p>
+<div class="example">
+<pre class="example">(%i6) a: %pi$
+(%i7) b: %e$
+(%i8) g: lambda ([a], a*b);
+(%o8)                   lambda([a], a b)
+(%i9) b: %gamma$
+(%i10) g(1/2);
+                             %gamma
+(%o10)                       ------
+                               2
+(%i11) g2: lambda ([a], a*''b);
+(%o11)                lambda([a], a %gamma)
+(%i12) b: %e$
+(%i13) g2(1/2);
+                             %gamma
+(%o13)                       ------
+                               2
+</pre></div>
+
+<p>Lambda-Ausdr&uuml;cke k&ouml;nnen verschachtelt werden.  Lokale Variablen eines
+&auml;u&szlig;eren Lambda-Ausdrucks sind global zu den enthaltenen
+Lambda-Ausdr&uuml;cken, au&szlig;er diese werden wieder als lokal erkl&auml;rt.
+</p>
+<div class="example">
+<pre class="example">(%i14) h: lambda ([a, b], h2: lambda ([a], a*b), h2(1/2));
+                                                   1
+(%o14)    lambda([a, b], h2 : lambda([a], a b), h2(-))
+                                                   2
+(%i15) h(%pi, %gamma);
+                             %gamma
+(%o15)                       ------
+                               2
+</pre></div>
+
+<p>Da <code>lambda</code> die Argumente nicht auswertet, definiert der unten angegebene
+Ausdruck <code>i</code> keine Funktion &quot;multipliziere mit <code>a</code>&quot;.  Solch eine
+Funktion kann mit Hilfe der Funktion <code><a href="maxima_159.html#buildq">buildq</a></code> definiert werden.
+</p>
+<div class="example">
+<pre class="example">(%i16) i: lambda ([a], lambda ([x], a*x));
+(%o16)            lambda([a], lambda([x], a x))
+(%i17) i(1/2);
+(%o17)                  lambda([x], a x)
+(%i18) i2: lambda([a], buildq([a: a], lambda([x], a*x)));
+(%o18)    lambda([a], buildq([a : a], lambda([x], a x)))
+(%i19) i2(1/2);
+                                     x
+(%o19)                   lambda([x], -)
+                                     2
+(%i20) i2(1/2)(%pi);
+                               %pi
+(%o20)                         ---
+                                2
+</pre></div>
+
+<p>Ein Lambda-Ausdruck kann eine variable Anzahl an Argumenten haben, wenn das
+letzte Argument eine Liste mit einem Element ist.
+</p>
+<div class="example">
+<pre class="example">(%i1) f : lambda ([aa, bb, [cc]], aa * cc + bb);
+(%o1)          lambda([aa, bb, [cc]], aa cc + bb)
+(%i2) f (foo, %i, 17, 29, 256);
+(%o2)       [17 foo + %i, 29 foo + %i, 256 foo + %i]
+(%i3) g : lambda ([[aa]], apply (&quot;+&quot;, aa));
+(%o3)             lambda([[aa]], apply(+, aa))
+(%i4) g (17, 29, x, y, z, %e);
+(%o4)                  z + y + x + %e + 46
+</pre></div>
+</dd></dl>
+
+<a name="map"></a><a name="Item_003a-Function_002ede_002fdeffn_002fmap"></a><dl>
+<dt><a name="index-map"></a>Funktion: <strong>map</strong> <em>(<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dd>
+<p>Gibt einen Ausdruck zur&uuml;ck, dessen Hauptoperator derselbe ist, wie der der
+Argumente <var>expr_1</var>, &hellip;, <var>expr_n</var> aber dessen Operanden das Ergebnis
+der Anwendung des Operators <var>f</var> auf die Teilausdr&uuml;cke des Ausdrucks sind.
+<var>f</var> ist entweder der Name einer Funktion mit <em>n</em> Argumenten oder
+ein Lambda-Ausdruck mit <em>n</em> Argumenten.
+</p>
+<p>Hat <code><a href="#maperror">maperror</a></code> den Wert <code>false</code>, wird die Anwendung der Funktion
+<var>f</var> gestoppt, (1) wenn die Anwendung auf den k&uuml;rzesten Ausdruck 
+<var>expr_i</var> beendet ist und die Ausdr&uuml;cke nicht alle dieselbe L&auml;nge haben 
+oder (2) wenn die Ausdr&uuml;cke <var>expr_i</var> einen verschiedenen Typ haben.  Hat 
+<code>maperror</code> den Wert <code>true</code> wird in den obigen F&auml;llen eine 
+Fehlermeldung ausgegeben.
+</p>
+
+
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) map(f,x+a*y+b*z);
+(%o1)                        f(b z) + f(a y) + f(x)
+(%i2) map(lambda([u],partfrac(u,x)),x+1/(x^3+4*x^2+5*x+2));
+                           1       1        1
+(%o2)                     ----- - ----- + -------- + x
+                         x + 2   x + 1          2
+                                         (x + 1)
+(%i3) map(ratsimp, x/(x^2+x)+(y^2+y)/y);
+                                      1
+(%o3)                            y + ----- + 1
+                                    x + 1
+(%i4) map(&quot;=&quot;,[a,b],[-0.5,3]);
+(%o4)                          [a = - 0.5, b = 3]
+
+
+</pre></div>
+</dd></dl>
+
+<a name="mapatom"></a><a name="Item_003a-Function_002ede_002fdeffn_002fmapatom"></a><dl>
+<dt><a name="index-mapatom"></a>Funktion: <strong>mapatom</strong> <em>(<var>expr</var>)</em></dt>
+<dd>
+<p>Gibt den Wert <code>true</code> zur&uuml;ck, wenn der Ausdruck <var>expr</var> von Funktionen 
+die auf Argumente angewendete werden, als ein Atom betrachtet wird.  Als Atome
+werden Zahlen, einschlie&szlig;lich rationaler Zahlen und gro&szlig;er 
+Gleitkommazahlen, Symbole und indizierte Symbole betrachtet.
+</p></dd></dl>
+
+<a name="maperror"></a><a name="Item_003a-Function_002ede_002fdefvr_002fmaperror"></a><dl>
+<dt><a name="index-maperror"></a>Optionsvariable: <strong>maperror</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+<p>Hat <code>maperror</code> den Wert <code>false</code>, wird die Anwendung der Funktion 
+<var>f</var> gestoppt, (1) wenn die Anwendung auf den k&uuml;rzesten Ausdruck 
+<var>expr_i</var> beendet ist und die Ausdr&uuml;cke nicht alle dieselbe L&auml;nge haben 
+oder (2) wenn die Ausdr&uuml;cke <var>expr_i</var> einen verschiedenen Typ haben.  Hat 
+<code>maperror</code> den Wert <code>true</code> wird in den obigen F&auml;llen eine 
+Fehlermeldung ausgegeben.
+</p></dd></dl>
+
+<a name="mapprint"></a><a name="Item_003a-Function_002ede_002fdefvr_002fmapprint"></a><dl>
+<dt><a name="index-mapprint"></a>Optionsvariable: <strong>mapprint</strong></dt>
+<dd><p>Standardwert: <code>true</code>
+</p>
+<p>Hat <code>mapprint</code> den Wert <code>true</code>, werden verschiedene Informationen von
+den Funktionen <code><a href="#map">map</a></code>, <code><a href="#maplist">maplist</a></code> und <code><a href="#fullmap">fullmap</a></code> ausgegeben.
+Dies ist der Fall, wenn die Funktion <code>map</code> die Funktion <code>apply</code>
+aufruft oder wenn f&uuml;r die Funktion <code>map</code> die Argumente eine verschiedene
+L&auml;nge haben.
+</p>
+<p>Hat <code>mapprint</code> den Wert <code>false</code>, werden diese Meldungen unterdr&uuml;ckt.
+</p></dd></dl>
+
+<a name="maplist"></a><a name="Item_003a-Function_002ede_002fdeffn_002fmaplist"></a><dl>
+<dt><a name="index-maplist"></a>Funktion: <strong>maplist</strong> <em>(<var>f</var>, <var>expr_1</var>, &hellip;, <var>expr_n</var>)</em></dt>
+<dd>
+<p>Wendet die Funktion <var>f</var> auf die Ausdr&uuml;cke <var>expr_1</var>, &hellip;, 
+<var>expr_n</var> an und gibt das Ergebnis als eine Liste zur&uuml;ck.  <var>f</var> ist der 
+Name einer Funktion oder ein lambda-Ausdruck.
+</p>
+<p>Im Unterschied zu <code>maplist</code> gibt die Funktion <code><a href="#map">map</a></code> einen Ausdruck
+zur&uuml;ck, der denselben Hauptoperator wie die Ausdr&uuml;cke <var>expr_i</var> hat.
+</p></dd></dl>
+
+<a name="outermap"></a><a name="Item_003a-Function_002ede_002fdeffn_002foutermap"></a><dl>
+<dt><a name="index-outermap"></a>Funktion: <strong>outermap</strong> <em>(<var>f</var>, <var>a_1</var>, &hellip;, <var>a_n</var>)</em></dt>
+<dd>
+<p>Wendet die Funktion <var>f</var> auf jedes Element des &auml;u&szlig;eren Produktes der
+Argumente <var>a_1</var> <code>x</code> <var>a_2</var> <code>x</code> &hellip; <code>x</code> <var>a_n</var> an. 
+</p>
+<p><var>f</var> ist der Name einer Funktion mit <em>n</em> Argumenten oder ein 
+Lambda-Ausdruck mit <em>n</em> Argumenten.  Jedes Argument <var>a_k</var> kann eine
+Liste oder verschachtelte Liste, eine Matrix oder irgendein anderer Ausdruck
+sein.
+</p>
+
+<p><code>outermap</code> wertet die Argumente aus.
+</p>
+<p>Siehe auch <code><a href="#map">map</a></code>, <code><a href="#maplist">maplist</a></code> und <code><a href="#apply">apply</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<p>Einfaches Beispiel f&uuml;r <code>outermap</code>.  Die Funktion <code>F</code> ist 
+undefiniert.
+</p>
+<div class="example">
+<pre class="example">(%i1) outermap(F, [a, b, c], [1, 2, 3]);
+(%o1) [[F(a, 1), F(a, 2), F(a, 3)], [F(b, 1), F(b, 2), F(b, 3)], 
+                                     [F(c, 1), F(c, 2), F(c, 3)]]
+(%i2) outermap(F, matrix([a, b],[c, d]), matrix([1, 2],[3, 4]));
+         [ [ F(a, 1)  F(a, 2) ]  [ F(b, 1)  F(b, 2) ] ]
+         [ [                  ]  [                  ] ]
+         [ [ F(a, 3)  F(a, 4) ]  [ F(b, 3)  F(b, 4) ] ]
+(%o2)    [                                            ]
+         [ [ F(c, 1)  F(c, 2) ]  [ F(d, 1)  F(d, 2) ] ]
+         [ [                  ]  [                  ] ]
+         [ [ F(c, 3)  F(c, 4) ]  [ F(d, 3)  F(d, 4) ] ]
+(%i3) outermap (F, [a, b], x, matrix ([1, 2], [3, 4]));
+       [ F(a, x, 1)  F(a, x, 2) ]  [ F(b, x, 1)  F(b, x, 2) ]
+(%o3) [[                        ], [                        ]]
+       [ F(a, x, 3)  F(a, x, 4) ]  [ F(b, x, 3)  F(b, x, 4) ]
+(%i4) outermap (F, [a, b], matrix ([1, 2]), matrix ([x], [y]));
+       [ [ F(a, 1, x) ]  [ F(a, 2, x) ] ]
+(%o4) [[ [            ]  [            ] ], 
+       [ [ F(a, 1, y) ]  [ F(a, 2, y) ] ]
+                              [ [ F(b, 1, x) ]  [ F(b, 2, x) ] ]
+                              [ [            ]  [            ] ]]
+                              [ [ F(b, 1, y) ]  [ F(b, 2, y) ] ]
+(%i5) outermap (&quot;+&quot;, [a, b, c], [1, 2, 3]);
+(%o5) [[a + 1, a + 2, a + 3], [b + 1, b + 2, b + 3], 
+                                           [c + 1, c + 2, c + 3]]
+</pre></div>
+
+<p>Das Beispiel zeigt die R&uuml;ckgabe der Funktion <code>outermap</code> detaillierter.
+Das erste, zweite und dritte Argument sind eine Matrix, eine Liste und eine
+Matrix.  Der R&uuml;ckgabewert ist eine Matrix.  Jedes Element der Matrix ist eine
+Liste und jedes Element der Liste ist eine Matrix.
+</p>
+<div class="example">
+<pre class="example">(%i1) arg_1 :  matrix ([a, b], [c, d]);
+                            [ a  b ]
+(%o1)                       [      ]
+                            [ c  d ]
+(%i2) arg_2 : [11, 22];
+(%o2)                       [11, 22]
+(%i3) arg_3 : matrix ([xx, yy]);
+(%o3)                      [ xx  yy ]
+(%i4) xx_0 : outermap(lambda([x, y, z], x / y + z), arg_1,
+                                                   arg_2, arg_3);
+               [  [      a        a  ]  [      a        a  ]  ]
+               [ [[ xx + --  yy + -- ], [ xx + --  yy + -- ]] ]
+               [  [      11       11 ]  [      22       22 ]  ]
+(%o4)  Col 1 = [                                              ]
+               [  [      c        c  ]  [      c        c  ]  ]
+               [ [[ xx + --  yy + -- ], [ xx + --  yy + -- ]] ]
+               [  [      11       11 ]  [      22       22 ]  ]
+                 [  [      b        b  ]  [      b        b  ]  ]
+                 [ [[ xx + --  yy + -- ], [ xx + --  yy + -- ]] ]
+                 [  [      11       11 ]  [      22       22 ]  ]
+         Col 2 = [                                              ]
+                 [  [      d        d  ]  [      d        d  ]  ]
+                 [ [[ xx + --  yy + -- ], [ xx + --  yy + -- ]] ]
+                 [  [      11       11 ]  [      22       22 ]  ]
+(%i5) xx_1 : xx_0 [1][1];
+           [      a        a  ]  [      a        a  ]
+(%o5)     [[ xx + --  yy + -- ], [ xx + --  yy + -- ]]
+           [      11       11 ]  [      22       22 ]
+(%i6) xx_2 : xx_0 [1][1] [1];
+                      [      a        a  ]
+(%o6)                 [ xx + --  yy + -- ]
+                      [      11       11 ]
+(%i7) xx_3 : xx_0 [1][1] [1] [1][1];
+                                  a
+(%o7)                        xx + --
+                                  11
+(%i8) [op (arg_1), op (arg_2), op (arg_3)];
+(%o8)                  [matrix, [, matrix]
+(%i9) [op (xx_0), op (xx_1), op (xx_2)];
+(%o9)                  [matrix, [, matrix]
+</pre></div>
+
+<p><code>outermap</code> erh&auml;lt die Struktur der Argumente im Ergebnis.  Die Funktion
+<code>cartesian_product</code> erh&auml;lt die Struktur der Argumente nicht.
+</p>
+<div class="example">
+<pre class="example">(%i1) outermap (F, [a, b, c], [1, 2, 3]);
+(%o1) [[F(a, 1), F(a, 2), F(a, 3)], [F(b, 1), F(b, 2), F(b, 3)], 
+                                     [F(c, 1), F(c, 2), F(c, 3)]]
+(%i2) setify (flatten (%));
+(%o2) {F(a, 1), F(a, 2), F(a, 3), F(b, 1), F(b, 2), F(b, 3), 
+                                       F(c, 1), F(c, 2), F(c, 3)}
+(%i3) map(lambda([L], apply(F, L)),
+                     cartesian_product({a, b, c}, {1, 2, 3}));
+(%o3) {F(a, 1), F(a, 2), F(a, 3), F(b, 1), F(b, 2), F(b, 3), 
+                                       F(c, 1), F(c, 2), F(c, 3)}
+(%i4) is (equal (%, %th (2)));
+(%o4)                         true
+</pre></div>
+</dd></dl>
+
+<a name="remfunction"></a><a name="Item_003a-Function_002ede_002fdeffn_002fremfunction"></a><dl>
+<dt><a name="index-remfunction"></a>Funktion: <strong>remfunction</strong> <em>(<var>f_1</var>, &hellip;, <var>f_n</var>)</em></dt>
+<dt><a name="index-remfunction-1"></a>Funktion: <strong>remfunction</strong> <em>(all)</em></dt>
+<dd>
+<p>Hebt die Bindung der Symbole <var>f_1</var>, &hellip;, <var>f_n</var> an ihre
+Funktionsdefinitionen auf.  Die Argumente k&ouml;nnen die Namen von Funktionen 
+sein, die mit dem Operator <code><a href="maxima_39.html#g_t_003a_003d">:=</a></code> oder der Funktion <code><a href="#define">define</a></code> definiert
+wurden sowie Makro-Funktionen, die mit dem Operator <code><a href="maxima_39.html#g_t_003a_003a_003d">::=</a></code> definiert wurden.
+</p>
+<p><code>remfunction(all)</code> entfernt alle Bindungen von Funktionsdefinitionen.
+</p>
+<p><code>remfunction</code> gibt eine Liste mit den Symbolen zur&uuml;ck, die von ihren 
+Funktionsdefinitionen entbunden wurden.  <code>false</code> wird f&uuml;r die Symbole
+zur&uuml;ckgegeben, f&uuml;r die es keine Funktionsdefinition gibt.
+</p>
+<p><code>remfunction</code> wertet die Argumente nicht aus.
+</p>
+<p><code>remfunction</code> kann nicht auf Array-Funktionen und indizierte Funktionen
+angewendet werden.  F&uuml;r diese Funktionen kann <code><a href="maxima_24.html#remarray">remarray</a></code> verwendet
+werden.
+</p></dd></dl>
+
+<a name="scanmap"></a><a name="Item_003a-Function_002ede_002fdeffn_002fscanmap"></a><dl>
+<dt><a name="index-scanmap"></a>Funktion: <strong>scanmap</strong> <em>(<var>f</var>, <var>expr</var>)</em></dt>
+<dt><a name="index-scanmap-1"></a>Funktion: <strong>scanmap</strong> <em>(<var>f</var>, <var>expr</var>, bottomup)</em></dt>
+<dd>
+<p>Wendet die Funktion <var>f</var> rekursiv auf alle Teilausdr&uuml;cke in <var>expr</var> an.
+Dies kann zum Beispiel verwendet werden, um einen Ausdruck vollst&auml;ndig zu 
+faktorisieren.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) exp:(a^2+2*a+1)*y + x^2$
+(%i2) scanmap(factor,exp);
+                                    2      2
+(%o2)                         (a + 1)  y + x
+</pre></div>
+
+<div class="example">
+<pre class="example">(%i3) scanmap(factor,expand(exp));
+                           2                  2
+(%o3)                      a  y + 2 a y + y + x
+</pre></div>
+
+<p>Ein weiteres Beispiel f&uuml;r die Anwendung einer Funktion auf alle 
+Teilausdr&uuml;cke.
+</p>
+<div class="example">
+<pre class="example">(%i4) expr : u*v^(a*x+b) + c$
+(%i5) scanmap('f, expr);
+                    f(f(f(a) f(x)) + f(b))
+(%o5) f(f(f(u) f(f(v)                      )) + f(c))
+</pre></div>
+
+<p><code>scanmap (<var>f</var>, <var>expr</var>, bottomup)</code> wendet die Funktion <var>f</var>
+Bottom-up auf den Ausdruck <var>expr</var> an.
+</p>
+
+<div class="example">
+<pre class="example">scanmap(f,a*x+b) -&gt;
+   f(a*x+b) -&gt; f(f(a*x)+f(b)) -&gt; f(f(f(a)*f(x))+f(b))
+scanmap(f,a*x+b,bottomup) -&gt; f(a)*f(x)+f(b)
+    -&gt; f(f(a)*f(x))+f(b) -&gt;
+     f(f(f(a)*f(x))+f(b))
+</pre></div>
+</dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="maxima_159.html#Makros" accesskey="p" rel="previous">Makros</a>, Nach oben: <a href="maxima_157.html#Funktionsdefinitionen" accesskey="u" rel="up">Funktionsdefinitionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html#Index-der-Variablen-und-Funktionen" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
