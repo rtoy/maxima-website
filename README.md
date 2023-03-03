@@ -47,6 +47,8 @@ automatically update the website. The following is retained for
 information only.
 
 
+
+
 If you are a member of the project and you use Linux, you can update the
 pages in the Web server using rsync. First move to the directory where you
 have your copy of the Web repository, make sure you don't have any additional
