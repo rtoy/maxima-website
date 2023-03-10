@@ -30,15 +30,14 @@ villate@fe.up.pt.
 If you are a member of the project, you can also commit your changes
 directly into the Git repository. If you are not a member but would
 like to have write privileges to help improve the site, ask villate@fe.up.pt
-or other project administrators to give you access. You can also send
-your contributions tho the discussion mailing list.
+or other project administrators to give you access.
 
-Obsolete
---------
-
-There is now, in hooks/post-receive-user, a few lines that
-automatically update the website. The following is retained for
-information only.
+After committing any modifications to the repository, the Sourceforge
+Web server pages must be refreshed manually by copying any new files
+and updating changed files in the Web server. If you are not a member
+of the project, the project administrators will do that once they
+become aware that the repository has changed or you can request a Web
+server update in the mailing list.
 
 If you are a member of the project and you use Linux, you can update the
 pages in the Web server using rsync. First move to the directory where you
