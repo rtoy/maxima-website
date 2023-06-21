@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para atensor (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para atensor (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para atensor (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_127.html" rel="up" title="atensor">
+<link href="maxima_128.html" rel="prev" title="Introducción a atensor">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Funciones-y-variables-para-atensor">
+<div class="header">
+<p>
+Anterior: <a href="maxima_128.html" accesskey="p" rel="prev">Introducción a atensor</a>, Subir: <a href="maxima_127.html" accesskey="u" rel="up">atensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+<span id="Funciones-y-variables-para-atensor-1"></span><h3 class="section">27.2 Funciones y variables para atensor</h3>
+
+<span id="Item_003a-Atensor_002ees_002fdeffn_002finit_005fatensor"></span><dl class="def">
+<dt id="index-init_005fatensor"><span class="category">Función: </span><span><strong>init_atensor</strong> <em>(<var>alg_type</var>, <var>opt_dims</var>)</em><a href='#index-init_005fatensor' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-init_005fatensor-1"><span class="category">Función: </span><span><strong>init_atensor</strong> <em>(<var>alg_type</var>)</em><a href='#index-init_005fatensor-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Inicializa el paquete <code>atensor</code> con el tipo de álgebra especificado, <var>alg_type</var>, que puede ser una de las siguientes:
+</p>
+<p><code>universal</code>: El álgebra universal no tiene reglas de conmutación.
+</p>
+<p><code>grassmann</code>: El álgebra de Grassman se define mediante la relación de conmutación <code>u.v+v.u=0</code>.
+</p>
+<p><code>clifford</code>: El álgebra de Clifford se define mediante la regla de conmutación  <code>u.v+v.u=-2*sf(u,v)</code> donde  <code>sf</code> es una función escalar simétrica. Para esta álgebra,  <var>opt_dims</var> puede contener hasta tres enteros no negativos, que representan el número de dimensiones positivas, degeneradas y negativas, respectivamente, de esta álgebra. Si se suministran los valores de <var>opt_dims</var>, <code>atensor</code> configurará los valores de <code>adim</code> y <code>aform</code> de forma apropiada. En otro caso, <code>adim</code> tomará por defecto el valor 0 y <code>aform</code> no se definirá.
+</p>
+<p><code>symmetric</code>: El álgebra simétrica se define mediante la regla de conmutación <code>u.v-v.u=0</code>.
+</p>
+<p><code>symplectic</code>: El álgebra simpléctica se define mediante la regla de conmutación <code>u.v-v.u=2*af(u,v)</code>, donde <code>af</code> es una función escalar antisimétrica. Para el álgebra simpléctica, <var>opt_dims</var> puede contener hasta dos enteros no negativos, que representan las dimensiones no degeneradas y degeneradas, respectivamente. Si se suministran los valores de <var>opt_dims</var>, <code>atensor</code> configurará los valores de <code>adim</code> y <code>aform</code> de forma apropiada. En otro caso, <code>adim</code> tomará por defecto el valor 0 y <code>aform</code> no se definirá.
+</p>
+<p><code>lie_envelop</code>: El álgebra de la envolvente de Lie se define mediante la regla de conmutación <code>u.v-v.u=2*av(u,v)</code>, donde <code>av</code> es una función antisimétrica.
+</p>
+<p>La función <code>init_atensor</code> también reconoce algunos tipos de álgebras predefinidas:
+</p>
+<p><code>complex</code> implementa el álgebra de números complejos como un álgebra de Clifford Cl(0,1). La llamada  <code>init_atensor(complex)</code> equivale a <code>init_atensor(clifford,0,0,1)</code>.
+</p>
+<p><code>quaternion</code> implementa el álgebra de cuaterniones. La llamada <code>init_atensor(quaternion)</code> equivale a
+<code>init_atensor(clifford,0,0,2)</code>.
+</p>
+<p><code>pauli</code> implementa el álgebra de Pauli como un álgebra de Clifford Cl(3,0). La llamada <code>init_atensor(pauli)</code> equivale a <code>init_atensor(clifford,3)</code>.
+</p>
+<p><code>dirac</code> implementa el álgebra de Dirac como un álgebra de Clifford Cl(3,1). La llamada <code>init_atensor(dirac)</code> equivale a <code>init_atensor(clifford,3,0,1)</code>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Atensor_002ees_002fdeffn_002fatensimp"></span><dl class="def">
+<dt id="index-atensimp"><span class="category">Función: </span><span><strong>atensimp</strong> <em>(<var>expr</var>)</em><a href='#index-atensimp' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Simplifica la expresión algebraica de un tensor  <var>expr</var> de acuerdo con las reglas configuradas mediante una llamada a  <code>init_atensor</code>. La simplificación incluye la aplicación recursiva de las reglas de conmutación y llamadas a <code>sf</code>, <code>af</code> y <code>av</code> siempre que sea posible. Se utiliza un algoritmo que asegure que la función termina siempre, incluso en el caso de expresiones complejas.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Atensor_002ees_002fdeffn_002falg_005ftype"></span><dl class="def">
+<dt id="index-alg_005ftype"><span class="category">Función: </span><span><strong>alg_type</strong><a href='#index-alg_005ftype' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Tipo de álgebra. Valores válidos son <code>universal</code>, <code>grassmann</code>,
+<code>clifford</code>, <code>symmetric</code>, <code>symplectic</code> y <code>lie_envelop</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Atensor_002ees_002fdefvr_002fadim"></span><dl class="def">
+<dt id="index-adim"><span class="category">Variable: </span><span><strong>adim</strong><a href='#index-adim' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: 0
+</p>
+<p>La dimensión del álgebra. El paquete <code>atensor</code> utiliza el valor de <code>adim</code> para determinar si un objeto indexado es un vector válido para la base. Véase <code>abasep</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Atensor_002ees_002fdefvr_002faform"></span><dl class="def">
+<dt id="index-aform"><span class="category">Variable: </span><span><strong>aform</strong><a href='#index-aform' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>ident(3)</code>
+</p>
+<p>Valores por defecto para las formas bilineales  <code>sf</code>, <code>af</code> y <code>av</code>. El valor por defecto es la matriz identidad <code>ident(3)</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Atensor_002ees_002fdefvr_002fasymbol"></span><dl class="def">
+<dt id="index-asymbol"><span class="category">Variable: </span><span><strong>asymbol</strong><a href='#index-asymbol' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>v</code>
+</p>
+<p>Símbolo para los vectores base.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Atensor_002ees_002fdeffn_002fsf"></span><dl class="def">
+<dt id="index-sf"><span class="category">Función: </span><span><strong>sf</strong> <em>(<var>u</var>, <var>v</var>)</em><a href='#index-sf' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Una función escalar simétrica que se utiliza en relaciones de conmutación. La implementación por defecto analiza si los dos argumentos son vectores base mediante  <code>abasep</code> y en tal caso sustituye el valor correspondiente de la matriz  <code>aform</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Atensor_002ees_002fdeffn_002faf"></span><dl class="def">
+<dt id="index-af"><span class="category">Función: </span><span><strong>af</strong> <em>(<var>u</var>, <var>v</var>)</em><a href='#index-af' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Una función escalar antisimétrica que se utiliza en relaciones de conmutación. La implementación por defecto analiza si los dos argumentos son vectores base mediante  <code>abasep</code> y en tal caso sustituye el valor correspondiente de la matriz  <code>aform</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Atensor_002ees_002fdeffn_002fav"></span><dl class="def">
+<dt id="index-av"><span class="category">Función: </span><span><strong>av</strong> <em>(<var>u</var>, <var>v</var>)</em><a href='#index-av' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Una función antisimétrica que se utiliza en relaciones de conmutación. La implementación por defecto analiza si los dos argumentos son vectores base mediante  <code>abasep</code> y en tal caso sustituye el valor correspondiente de la matriz  <code>aform</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;atensor&quot;);
+(%o1)       /share/tensor/atensor.mac
+(%i2) adim:3;
+(%o2)                                  3
+(%i3) aform:matrix([0,3,-2],[-3,0,1],[2,-1,0]);
+                               [  0    3   - 2 ]
+                               [               ]
+(%o3)                          [ - 3   0    1  ]
+                               [               ]
+                               [  2   - 1   0  ]
+(%i4) asymbol:x;
+(%o4)                                  x
+(%i5) av(x[1],x[2]);
+(%o5)                                 x
+                                       3
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-Atensor_002ees_002fdeffn_002fabasep"></span><dl class="def">
+<dt id="index-abasep"><span class="category">Función: </span><span><strong>abasep</strong> <em>(<var>v</var>)</em><a href='#index-abasep' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Analiza si su argumento es un vector base en <code>atensor</code>. Esto es, si se trata de un símbolo indexado, siendo el símbolo el mismo que el valor de <code>asymbol</code> y si el índice tiene un valor numérico entre 1 y <code>adim</code>.
+</p>
+</dd></dl>
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Anterior: <a href="maxima_128.html" accesskey="p" rel="prev">Introducción a atensor</a>, Subir: <a href="maxima_127.html" accesskey="u" rel="up">atensor</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

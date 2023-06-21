@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introducción a las cadenas de texto (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Introducción a las cadenas de texto (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Introducción a las cadenas de texto (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_14.html" rel="up" title="Cadenas de texto">
+<link href="maxima_16.html" rel="next" title="Funciones y variables para las cadenas de texto">
+<link href="maxima_14.html" rel="prev" title="Cadenas de texto">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="subsection" id="Introducci_00f3n-a-las-cadenas-de-texto">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_16.html" accesskey="n" rel="next">Funciones y variables para las cadenas de texto</a>, Anterior: <a href="maxima_14.html" accesskey="p" rel="prev">Cadenas de texto</a>, Subir: <a href="maxima_14.html" accesskey="u" rel="up">Cadenas de texto</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Introduccion-a-las-cadenas-de-texto"></span><h4 class="subsection">5.2.1 Introducción a las cadenas de texto</h4>
+
+
+
+
+<p>Las cadenas de caracteres deben ir acotadas por comillas dobles (<code>&quot;</code>)
+al ser introducidas en Maxima, siendo luego mostradas con o sin ellas, 
+dependiendo del valor de la variable global <code>stringdisp</code>.
+</p>
+<p>Las cadenas pueden contener todo tipo de caracteres, incluyendo tabulaciones,
+caracteres de nueva línea y de retorno.
+La secuencia <code>\&quot;</code> se reconoce literalmente como una comilla doble, al
+tiempo que <code>\\</code> se interpreta como una barra invertida. Cuando la barra
+invertida aparece al final de una línea, tanto la barra como el
+final de línea (representado éste bien por el carácter de nueva 
+línea o el de retorno) son ignorados, de forma que la cadena
+continúa en el siguiente renglón. No se reconocen más combinaciones especiales
+de la barra invertida con otros caracteres aparte de las comentadas; de modo
+que si la barra invertida aparece antes de cualquier otro carácter distinto de
+<code>&quot;</code>, <code>\</code>, o de un final de línea, dicha barra será
+ignorada.
+No hay manera de representar los caracteres especiales
+(tabulación, nueva línea o retorno) de otra
+forma que no sea incluyéndolos literalmente en la cadena.
+</p>
+<p>No existe en Maxima el tipo de variable carácter, debiéndose
+representar un carácter simple como una cadena de un solo carácter.
+</p>
+<p>El paquete adicional <code>stringproc</code> contiene muchas funciones que
+permiten trabajar con cadenas.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) s_1 : &quot;This is a string.&quot;;
+(%o1)               This is a string.
+(%i2) s_2 : &quot;Embedded \&quot;double quotes\&quot; and backslash \\ characters.&quot;;
+(%o2) Embedded &quot;double quotes&quot; and backslash \ characters.
+(%i3) s_3 : &quot;Embedded line termination
+in this string.&quot;;
+(%o3) Embedded line termination
+in this string.
+(%i4) s_4 : &quot;Ignore the \
+line termination \
+characters in \
+this string.&quot;;
+(%o4) Ignore the line termination characters in this string.
+(%i5) stringdisp : false;
+(%o5)                         false
+(%i6) s_1;
+(%o6)               This is a string.
+(%i7) stringdisp : true;
+(%o7)                         true
+(%i8) s_1;
+(%o8)              &quot;This is a string.&quot;
+</pre></div>
+
+
+
+
+
+
+
+
+<span id="Item_003a-DataTypes_002ees_002fnode_002fFunciones-y-variables-para-las-cadenas-de-texto"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_16.html" accesskey="n" rel="next">Funciones y variables para las cadenas de texto</a>, Anterior: <a href="maxima_14.html" accesskey="p" rel="prev">Cadenas de texto</a>, Subir: <a href="maxima_14.html" accesskey="u" rel="up">Cadenas de texto</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

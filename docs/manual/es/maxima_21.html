@@ -1,0 +1,809 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para listas (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para listas (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para listas (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_19.html" rel="up" title="Listas">
+<link href="maxima_20.html" rel="prev" title="Introducción a las listas">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="subsection" id="Funciones-y-variables-para-listas">
+<div class="header">
+<p>
+Anterior: <a href="maxima_20.html" accesskey="p" rel="prev">Introducción a las listas</a>, Subir: <a href="maxima_19.html" accesskey="u" rel="up">Listas</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Funciones-y-variables-para-listas-1"></span><h4 class="subsection">5.4.2 Funciones y variables para listas</h4>
+
+
+
+<span id="Item_003a-Lists_002ees_002fdefvr_002f_005b"></span><dl class="def">
+<dt id="index-_005b"><span class="category">Operador: </span><span><strong>[</strong><a href='#index-_005b' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Lists_002ees_002fdefvr_002f_005d"></span></dd><dt id="index-_005d"><span class="category">Operador: </span><span><strong>]</strong><a href='#index-_005d' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>[</code> y <code>]</code> marcan, respectivamente, el comienzo y el final de una lista.
+</p>
+<p><code>[</code> y <code>]</code> también se utilizan para indicar los subíndices
+de una lista o de un array.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) x: [a, b, c];
+(%o1)                       [a, b, c]
+</pre><pre class="example">(%i2) x[3];
+(%o2)                           c
+</pre><pre class="example">(%i3) array (y, fixnum, 3);
+(%o3)                           y
+</pre><pre class="example">(%i4) y[2]: %pi;
+(%o4)                          %pi
+</pre><pre class="example">(%i5) y[2];
+(%o5)                          %pi
+</pre><pre class="example">(%i6) z['foo]: 'bar;
+(%o6)                          bar
+</pre><pre class="example">(%i7) z['foo];
+(%o7)                          bar
+</pre><pre class="example">(%i8) g[k] := 1/(k^2+1);
+                                  1
+(%o8)                     g  := ------
+                           k     2
+                                k  + 1
+</pre><pre class="example">(%i9) g[10];
+                                1
+(%o9)                          ---
+                               101
+</pre></div>
+
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fappend"></span><dl class="def">
+<dt id="index-append"><span class="category">Función: </span><span><strong>append</strong> <em>(<var>lista_1</var>, ..., <var>lista_n</var>)</em><a href='#index-append' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve una lista cuyos elementos son los de la lista <var>lista_1</var> seguidos de los de <var>lista_2</var>, ...  La función <code>append</code> también opera con expresiones generales, como la llamada <code>append (f(a,b), f(c,d,e));</code>, de la que se obtiene <code>f(a,b,c,d,e)</code>.
+</p>
+<p>Tecléese <code>example(append);</code> para ver un ejemplo.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fassoc"></span><dl class="def">
+<dt id="index-assoc"><span class="category">Función: </span><span><strong>assoc</strong> <em>(<var>clave</var>, <var>lista</var>, <var>valor_por_defecto</var>)</em><a href='#index-assoc' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-assoc-1"><span class="category">Function: </span><span><strong>assoc</strong> <em>(<var>clave</var>, <var>lista</var>)</em><a href='#index-assoc-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Esta función busca la <var>clave</var> en el lado derecho de la  <var>lista</var>, la cual es de la forma <code>[x,y,z,...]</code>, donde cada elemento  es una expresión formada por un operador binario y dos elementos. Por ejemplo, <code>x=1</code>, <code>2^3</code>, <code>[a,b]</code> etc.  La <var>clave</var> se compara con el primer operando. La función <code>assoc</code> devuelve el segundo operando si se encuentra con que la <code>clave</code> coincide.  Si la <code>clave</code> no coincide entonces devuelve el valor <var>valor_por_defecto</var>. El argumento <var>valor_por_defecto</var> es opcional; en caso de no estar presente, se devolverá <code>false</code>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fcons"></span><dl class="def">
+<dt id="index-cons"><span class="category">Función: </span><span><strong>cons</strong> <em>(<var>expr</var>, <var>lista</var>)</em><a href='#index-cons' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve una nueva lista en la que el elemento <var>expr</var> ocupa la primera posición, seguido de los elementos de <var>lista</var>. La función  <code>cons</code> también opera con otro tipo de expresiones, como  <code>cons(x, f(a,b,c));</code>  -&gt;  <code>f(x,a,b,c)</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fcopylist"></span><dl class="def">
+<dt id="index-copylist"><span class="category">Función: </span><span><strong>copylist</strong> <em>(<var>lista</var>)</em><a href='#index-copylist' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve una copia de la <var>lista</var>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fcreate_005flist"></span><dl class="def">
+<dt id="index-create_005flist"><span class="category">Función: </span><span><strong>create_list</strong> <em>(<var>form</var>, <var>x_1</var>, <var>list_1</var>, ..., <var>x_n</var>, <var>list_n</var>)</em><a href='#index-create_005flist' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Crea una lista mediante la evaluación de <var>form</var> con <var>x_1</var> tomando cada uno de los
+valores de <var>list_1</var>, para cada uno de estos valores liga <var>x_2</var> con cada elemento de 
+<var>list_2</var>, .... El número de elementos en el resultado será el producto del número de elementos
+en cada lista. Cada variable <var>x_i</var> debe ser un símbolo y no será evaluado.
+La lista de argumentos será evaluada una vez al comienzo de la iteración.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) create_list (x^i, i, [1, 3, 7]);
+                                3   7
+(%o1)                      [x, x , x ]
+</pre></div>
+
+<p>Con una doble iteración:
+</p>
+<div class="example">
+<pre class="example">(%i1) create_list ([i, j], i, [a, b], j, [e, f, h]);
+(%o1)   [[a, e], [a, f], [a, h], [b, e], [b, f], [b, h]]
+</pre></div>
+
+<p>En lugar de <var>list_i</var> se pueden suministrar dos argumentos cada uno de los cuales 
+debería poder evaluarse a un número, los cuales serán los límites inferior
+y superior, ambos inclusive, para cada iteración.
+</p>
+<div class="example">
+<pre class="example">(%i1) create_list ([i, j], i, [1, 2, 3], j, 1, i);
+(%o1)   [[1, 1], [2, 1], [2, 2], [3, 1], [3, 2], [3, 3]]
+</pre></div>
+
+<p>Nótese que los límites o lista para la variable <code>j</code> pueden depender
+del valor actual de <code>i</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fdelete"></span><dl class="def">
+<dt id="index-delete"><span class="category">Función: </span><span><strong>delete</strong> <em>(<var>expr_1</var>, <var>expr_2</var>)</em><a href='#index-delete' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-delete-1"><span class="category">Función: </span><span><strong>delete</strong> <em>(<var>expr_1</var>, <var>expr_2</var>, <var>n</var>)</em><a href='#index-delete-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>delete(<var>expr_1</var>, <var>expr_2</var>)</code>
+elimina de <var>expr_2</var> cualesquiera argumentos del operador
+del nivel superior que sean iguales a <var>expr_1</var>.
+Nótese que los argumentos de las subexpresiones no se ven
+afectados por esta función.
+</p>
+<p><var>expr_1</var> puede ser un átomo o una expresión no
+atómica. <var>expr_2</var> puede ser cualquier expresión no
+atómica. La función <code>delete</code> devuelve una
+nueva expresión sin modificar <var>expr_2</var>.
+</p>
+<p><code>delete(<var>expr_1</var>, <var>expr_2</var>, <var>n</var>)</code>
+elimina de <var>expr_2</var> los primeros <var>n</var> argumentos
+del operador del nivel superior que sean iguales a <var>expr_1</var>.
+Si hay menos de <var>n</var> argumentos iguales, entonces se
+eliminan todos ellos.
+</p>
+<p>Ejemplos:
+</p>
+<p>Eliminando elementos de una lista.
+</p>
+<div class="example">
+<pre class="example">(%i1) delete (y, [w, x, y, z, z, y, x, w]);
+(%o1)                  [w, x, z, z, x, w]
+</pre></div>
+
+<p>Eliminando términos de una suma.
+</p>
+<div class="example">
+<pre class="example">(%i1) delete (sin(x), x + sin(x) + y);
+(%o1)                         y + x
+</pre></div>
+
+<p>Eliminando factores de un producto.
+</p>
+<div class="example">
+<pre class="example">(%i1) delete (u - x, (u - w)*(u - x)*(u - y)*(u - z));
+(%o1)                (u - w) (u - y) (u - z)
+</pre></div>
+
+<p>Eliminando argumentos de una expresión arbitraria.
+</p>
+<div class="example">
+<pre class="example">(%i1) delete (a, foo (a, b, c, d, a));
+(%o1)                     foo(b, c, d)
+</pre></div>
+
+<p>Limitando el número de argumentos a eliminar.
+</p>
+<div class="example">
+<pre class="example">(%i1) delete (a, foo (a, b, a, c, d, a), 2);
+(%o1)                    foo(b, c, d, a)
+</pre></div>
+
+<p>Los argumentos se comparan respecto de &quot;=&quot;.
+Aquellos argumentos que verifiquen la condición <code>equal</code>,
+pero no &quot;=&quot; no serán eliminados.
+</p>
+<div class="example">
+<pre class="example">(%i1) [is (equal (0, 0)), is (equal (0, 0.0)), is (equal (0, 0b0))];
+rat: replaced 0.0 by 0/1 = 0.0
+`rat' replaced 0.0B0 by 0/1 = 0.0B0
+(%o1)                  [true, true, true]
+</pre><pre class="example">(%i2) [is (0 = 0), is (0 = 0.0), is (0 = 0b0)];
+(%o2)                 [true, false, false]
+</pre><pre class="example">(%i3) delete (0, [0, 0.0, 0b0]);
+(%o3)                     [0.0, 0.0b0]
+</pre><pre class="example">(%i4) is (equal ((x + y)*(x - y), x^2 - y^2));
+(%o4)                         true
+</pre><pre class="example">(%i5) is ((x + y)*(x - y) = x^2 - y^2);
+(%o5)                         false
+</pre><pre class="example">(%i6) delete ((x + y)*(x - y), [(x + y)*(x - y), x^2 - y^2]);
+                              2    2
+(%o6)                       [x  - y ]
+</pre></div>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002feighth"></span><dl class="def">
+<dt id="index-eighth"><span class="category">Función: </span><span><strong>eighth</strong> <em>(<var>expr</var>)</em><a href='#index-eighth' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve el octavo elemento de la lista o expresión <var>expr</var>. Véase <code>first</code> para más detalles.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fendcons"></span><dl class="def">
+<dt id="index-endcons"><span class="category">Función: </span><span><strong>endcons</strong> <em>(<var>expr</var>, <var>lista</var>)</em><a href='#index-endcons' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve una nueva lista formada por los elementos de <code>lista</code> seguidos de los de <var>expr</var>. La función <code>endcons</code> también opera con expresiones generales, por ejemplo <code>endcons(x, f(a,b,c));</code>  -&gt;  <code>f(a,b,c,x)</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002ffifth"></span><dl class="def">
+<dt id="index-fifth"><span class="category">Función: </span><span><strong>fifth</strong> <em>(<var>expr</var>)</em><a href='#index-fifth' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve el quinto elemento de la lista o expresión <var>expr</var>. Véase <code>first</code> para más detalles.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002ffirst"></span><dl class="def">
+<dt id="index-first"><span class="category">Función: </span><span><strong>first</strong> <em>(<var>expr</var>)</em><a href='#index-first' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve la primera parte de <var>expr</var>, que puede consistir en el primer elemento de una lista, la primera fila de una matriz, el primer término de una suma, etc. Nótese que tanto <code>first</code> como sus funciones relacionadas, <code>rest</code> y <code>last</code>, operan sobre la forma en la que <var>expr</var> es mostrada por Maxima, no sobre la forma en la que es introducida la expresión. Sin embargo, cuando la variable <code>inflag</code> toma el valor <code>true</code> estas funciones tendrán en cuenta el formato interno de <var>expr</var>. Téngase en cuenta que el simplificador reordena las expresiones.  Así, <code>first(x+y)</code> devolverá <code>x</code> si <code>inflag</code> vale <code>true</code> y <code>y</code> cuando <code>inflag</code> tome el valor <code>false</code> (<code>first(y+x)</code> devuelve el mismo resultado). Las funciones <code>second</code> ... <code>tenth</code> devuelven desde el segundo hasta el décimo elemento del argumento de entrada.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002ffourth"></span><dl class="def">
+<dt id="index-fourth"><span class="category">Función: </span><span><strong>fourth</strong> <em>(<var>expr</var>)</em><a href='#index-fourth' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve el cuarto elemento de la lista o expresión <var>expr</var>. Véase <code>first</code> para más detalles.
+</p>
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fjoin"></span><dl class="def">
+<dt id="index-join"><span class="category">Función: </span><span><strong>join</strong> <em>(<var>l</var>, <var>m</var>)</em><a href='#index-join' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Crea una nueva lista con los elementos de las listas <var>l</var> y <var>m</var> alternados.
+El resultado tiene como elementos <code>[<var>l</var>[1], <var>m</var>[1], <var>l</var>[2], <var>m</var>[2], ...]</code>.
+Las listas <var>l</var> y <var>m</var> pueden contener cualquier tipo de elementos.
+</p>
+<p>Si las listas son de diferente longitud, <code>join</code> ignora los elementos sobrantes de la lista más larga.
+</p>
+<p>Maxima da error si o bien <var>l</var> o <var>m</var> no son listas.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) L1: [a, sin(b), c!, d - 1];
+(%o1)                [a, sin(b), c!, d - 1]
+</pre><pre class="example">(%i2) join (L1, [1, 2, 3, 4]);
+(%o2)          [a, 1, sin(b), 2, c!, 3, d - 1, 4]
+</pre><pre class="example">(%i3) join (L1, [aa, bb, cc, dd, ee, ff]);
+(%o3)        [a, aa, sin(b), bb, c!, cc, d - 1, dd]
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002flast"></span><dl class="def">
+<dt id="index-last"><span class="category">Función: </span><span><strong>last</strong> <em>(<var>expr</var>)</em><a href='#index-last' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve la última parte (término, fila, elemento, etc.) de <var>expr</var>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002flength"></span><dl class="def">
+<dt id="index-length"><span class="category">Función: </span><span><strong>length</strong> <em>(<var>expr</var>)</em><a href='#index-length' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve (por defecto) el número de partes de que consta <var>expr</var> en la versión correspondiente a la que muestra.  En el caso de listas, se devuelve el número de elementos, si se trata de matrices el número de filas y se se trata de sumas el número de términos o sumandos (véase <code>dispform</code>).
+</p>
+<p>La función <code>length</code> se ve afectada por el valor de la variable <code>inflag</code>.  Así, <code>length(a/(b*c));</code> devuelve 2 si <code>inflag</code> vale <code>false</code> (dando por hecho que <code>exptdispflag</code> vale <code>true</code>), pero devuelve 3 si <code>inflag</code> vale <code>true</code> (ya que la representación interna es <code>a*b^-1*c^-1</code>).
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdefvr_002flistarith"></span><dl class="def">
+<dt id="index-listarith"><span class="category">Variable opcional: </span><span><strong>listarith</strong><a href='#index-listarith' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>Cuando vale <code>false</code> provoca que no se realicen operaciones aritméticas con listas;  cuando vale <code>true</code>, las operaciones con listas y matrices son contagiosas, en el sentido de que las listas se transforman en matrices, retornando resultados de este último tipo. Sin embargo, operaciones que involucren listas con listas devolverán también listas.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002flistp"></span><dl class="def">
+<dt id="index-listp"><span class="category">Función: </span><span><strong>listp</strong> <em>(<var>expr</var>)</em><a href='#index-listp' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve el valor <code>true</code> si <var>expr</var> es una lista, y <code>false</code> en caso contrario.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fmakelist"></span><dl class="def">
+<dt id="index-makelist"><span class="category">Función: </span><span><strong>makelist</strong> <em>()</em><a href='#index-makelist' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-makelist-1"><span class="category">Función: </span><span><strong>makelist</strong> <em>(<var>expr</var>, <var>n</var>)</em><a href='#index-makelist-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-makelist-2"><span class="category">Función: </span><span><strong>makelist</strong> <em>(<var>expr</var>, <var>i</var>, <var>i_max</var>)</em><a href='#index-makelist-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-makelist-3"><span class="category">Función: </span><span><strong>makelist</strong> <em>(<var>expr</var>, <var>i</var>, <var>i_0</var>, <var>i_max</var>)</em><a href='#index-makelist-3' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-makelist-4"><span class="category">Función: </span><span><strong>makelist</strong> <em>(<var>expr</var>, <var>i</var>, <var>i_0</var>, <var>i_max</var>, <var>step</var>)</em><a href='#index-makelist-4' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-makelist-5"><span class="category">Función: </span><span><strong>makelist</strong> <em>(<var>expr</var>, <var>x</var>, <var>list</var>)</em><a href='#index-makelist-5' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>El primer formato, <code>makelist ()</code>, crea una lista vacía. El
+segundo formato, <code>makelist (<var>expr</var>)</code>, crea una lista con <var>expr</var>
+como único elemento. <code>makelist (<var>expr</var>, <var>n</var>)</code> crea una lista
+de <var>n</var> elementos generados a partir de <var>expr</var>.
+</p>
+<p>El formato más general, <code>makelist (<var>expr</var>, <var>i</var>, <var>i_0</var>,
+<var>i_max</var>, <var>step</var>)</code>, devuelve la lista de elementos obtenidos al
+aplicar <code>ev (<var>expr</var>, <var>i</var>=<var>j</var>)</code> a los elementos <var>j</var> 
+de la secuencia <var>i_0</var>, <var>i_0</var> + <var>step</var>, <var>i_0</var> +
+2*<var>step</var>, ..., siendo <var>|j|</var> menor o igual que <var>|i_max|</var>.
+</p>
+<p>El incremento <var>step</var> puede ser un número (positivo o negativo) o una
+expresión. En caso de omitirse, se utilizará 1 como valor por defecto.
+Si se omiten  <var>i_0</var> y <var>step</var>, se le asignará a ambos 1 como valor
+por defecto.
+</p>
+<p><code>makelist (<var>expr</var>, <var>x</var>, <var>list</var>)</code> devuelve una lista, cuyo
+<code>j</code>-ésimo elemento es igual a
+<code>ev (<var>expr</var>, <var>x</var>=<var>list</var>[j])</code> tomando <code>j</code> valores desde
+1 hasta <code>length (<var>list</var>)</code>.
+</p>
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) makelist (concat (x,i), i, 6);
+(%o1)               [x1, x2, x3, x4, x5, x6]
+</pre><pre class="example">(%i2) makelist (x=y, y, [a, b, c]);
+(%o2)                 [x = a, x = b, x = c]
+</pre><pre class="example">(%i3) makelist (x^2, x, 3, 2*%pi, 2);
+(%o3)                        [9, 25]
+</pre><pre class="example">(%i4) makelist (random(6), 4);
+(%o4)                     [2, 0, 2, 5]
+</pre><pre class="example">(%i5) flatten (makelist (makelist (i^2, 3), i, 4));
+(%o5)        [1, 1, 1, 4, 4, 4, 9, 9, 9, 16, 16, 16]
+</pre><pre class="example">(%i6) flatten (makelist (makelist (i^2, i, 3), 4));
+(%o6)         [1, 4, 9, 1, 4, 9, 1, 4, 9, 1, 4, 9]
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fmember"></span><dl class="def">
+<dt id="index-member"><span class="category">Función: </span><span><strong>member</strong> <em>(<var>expr_1</var>, <var>expr_2</var>)</em><a href='#index-member' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve <code>true</code> si <code>is(<var>expr_1</var> = <var>a</var>)</code>
+para algún elemento <var>a</var> de <code>args(<var>expr_2</var>)</code>,
+en caso contrario devuelve <code>false</code>.
+</p>
+<p>Normalmente, <code>expr_2</code> será una lista,
+en cuyo caso <code>args(<var>expr_2</var>) = <var>expr_2</var></code>,
+y la comprobación será si <code>is(<var>expr_1</var> = <var>a</var>)</code> para 
+algún elemento <var>a</var> de <code>expr_2</code>.
+</p>
+<p>La función <code>member</code> no inspecciona las partes de los argumentos de <code>expr_2</code>,
+por lo que puede devolver <code>false</code> si <code>expr_1</code> es parte de alguno de los argumentos de <code>expr_2</code>.
+</p>
+<p>Véase también <code>elementp</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) member (8, [8, 8.0, 8b0]);
+(%o1)                         true
+</pre><pre class="example">(%i2) member (8, [8.0, 8b0]);
+(%o2)                         false
+</pre><pre class="example">(%i3) member (b, [a, b, c]);
+(%o3)                         true
+</pre><pre class="example">(%i4) member (b, [[a, b], [b, c]]);
+(%o4)                         false
+</pre><pre class="example">(%i5) member ([b, c], [[a, b], [b, c]]);
+(%o5)                         true
+</pre><pre class="example">(%i6) F (1, 1/2, 1/4, 1/8);
+                               1  1  1
+(%o6)                     F(1, -, -, -)
+                               2  4  8
+</pre><pre class="example">(%i7) member (1/8, %);
+(%o7)                         true
+</pre><pre class="example">(%i8) member (&quot;ab&quot;, [&quot;aa&quot;, &quot;ab&quot;, sin(1), a + b]);
+(%o8)                         true
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fninth"></span><dl class="def">
+<dt id="index-ninth"><span class="category">Función: </span><span><strong>ninth</strong> <em>(<var>expr</var>)</em><a href='#index-ninth' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve el noveno elemento de la lista o expresión <var>expr</var>. Véase <code>first</code> para más detalles.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fpop"></span><dl class="def">
+<dt id="index-pop"><span class="category">Función: </span><span><strong>pop</strong> <em>(<var>list</var>)</em><a href='#index-pop' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Borra el primer elemento de la lista <var>list</var> y devuelve este
+mismo elemento.
+</p>
+<p>Si el argumento <var>list</var> es una lista vacía, o
+simplemente no es una lista, Maxima devuelve un mensaje de error.
+</p>
+<p>Véase <code>push</code> para los ejemplos.
+</p>
+<p>Ejecútese <code>load(&quot;basic&quot;)</code> antes de utilizar esta función.
+</p></dd></dl>
+
+
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fpush"></span><dl class="def">
+<dt id="index-push"><span class="category">Función: </span><span><strong>push</strong> <em>(<var>item</var>, <var>list</var>)</em><a href='#index-push' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Añade al comienzo de la lista <var>list</var> el elemento <var>item</var>,
+devolviendo este mismo elemento. El argumento <var>list</var> debe ser necesariamente
+una lista, mientras que <var>item</var> puede ser cualquier símbolo
+o expresión.
+</p>
+<p>Si el argumento <var>list</var> no es una lista, Maxima devuelve un
+mensaje de error.
+</p>
+<p>Véase <code>pop</code> para eliminar el primer elemento de una lista.
+</p>
+<p>Ejecútese <code>load(&quot;basic&quot;)</code> antes de utilizar esta función.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;basic&quot;)$
+</pre><pre class="example">(%i2) ll: [];
+(%o2)                          []
+</pre><pre class="example">(%i3) push (x, ll);
+(%o3)                          [x]
+</pre><pre class="example">(%i4) push (x^2+y, ll);
+                                 2
+(%o4)                      [y + x , x]
+</pre><pre class="example">(%i5) a: push (&quot;string&quot;, ll);
+                                     2
+(%o5)                  [string, y + x , x]
+</pre><pre class="example">(%i6) pop (ll);
+(%o6)                        string
+</pre><pre class="example">(%i7) pop (ll);
+                                  2
+(%o7)                        y + x
+</pre><pre class="example">(%i8) pop (ll);
+(%o8)                           x
+</pre><pre class="example">(%i9) ll;
+(%o9)                          []
+</pre><pre class="example">(%i10) a;
+                                     2
+(%o10)                 [string, y + x , x]
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002frest"></span><dl class="def">
+<dt id="index-rest"><span class="category">Función: </span><span><strong>rest</strong> <em>(<var>expr</var>, <var>n</var>)</em><a href='#index-rest' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-rest-1"><span class="category">Función: </span><span><strong>rest</strong> <em>(<var>expr</var>)</em><a href='#index-rest-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve <var>expr</var> sin sus primeros <var>n</var> elementos si <var>n</var> es positivo, o sus últimos <code>- <var>n</var></code> elementos si <var>n</var> es negativo. En caso de que <var>n</var> tome el valor 1 puede ser omitido. La expresión  <var>expr</var> puede ser una lista, una matriz o cualquier otra expresión.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002freverse"></span><dl class="def">
+<dt id="index-reverse"><span class="category">Función: </span><span><strong>reverse</strong> <em>(<var>lista</var>)</em><a href='#index-reverse' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Invierte el orden de los elementos de la <var>lista</var> (no los propios elementos). La función <code>reverse</code> también opera sobre expresiones generales, como en  <code>reverse(a=b);</code> gives <code>b=a</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fsecond"></span><dl class="def">
+<dt id="index-second"><span class="category">Función: </span><span><strong>second</strong> <em>(<var>expr</var>)</em><a href='#index-second' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve el segundo elemento de la lista o expresión <var>expr</var>. Véase <code>first</code> para más detalles.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fseventh"></span><dl class="def">
+<dt id="index-seventh"><span class="category">Función: </span><span><strong>seventh</strong> <em>(<var>expr</var>)</em><a href='#index-seventh' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve el séptimo elemento de la lista o expresión <var>expr</var>. Véase <code>first</code> para más detalles.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fsixth"></span><dl class="def">
+<dt id="index-sixth"><span class="category">Función: </span><span><strong>sixth</strong> <em>(<var>expr</var>)</em><a href='#index-sixth' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve el sexto elemento de la lista o expresión <var>expr</var>. Véase <code>first</code> para más detalles.
+</p>
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fsort"></span><dl class="def">
+<dt id="index-sort"><span class="category">Función: </span><span><strong>sort</strong> <em>(<var>L</var>, <var>P</var>)</em><a href='#index-sort' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-sort-1"><span class="category">Función: </span><span><strong>sort</strong> <em>(<var>L</var>)</em><a href='#index-sort-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>sort(<var>L</var>, <var>P</var>)</code> ordena la lista <var>L</var> de acuerdo con el predicado <code>P</code>
+de dos argumentos, el cual define un preorden total sobre los elementos de <var>L</var>.
+Si <code><var>P</var>(a, b)</code> vale <code>true</code>, entonces <code>a</code> aparece antes que <code>b</code> en
+el resultado. Si ninguna de las expresiones <code><var>P</var>(a, b)</code> y <code><var>P</var>(b, a)</code>
+valen <code>true</code>, entonces <code>a</code> y <code>b</code> son equivalentes y aparecen en el
+resultado en el mismo orden que a la entrada; esto es, <code>sort</code> es un orden estable.
+</p>
+<p>Si tanto <code><var>P</var>(a, b)</code> como <code><var>P</var>(b, a)</code> valen ambos <code>true</code> para
+algunos elementos de <var>L</var>, entonces <var>P</var> no es un predicado de orden correcto,
+siento entonces el resultado indefinido. Si <code><var>P</var>(a, b)</code> toma un valor diferente
+a <code>true</code> o <code>false</code>, entonces <code>sort</code> devuelve un error.
+</p>
+<p>El predicado puede especificarse como el nombre de una función, de una operación binaria
+infija o como una expresión <code>lambda</code>. Si se especifica con el nombre de un operador,
+dicho nombre debe encerrarse con comillas dobles.
+</p>
+<p>La lista ordenada se devuelve como un nuevo objeto, no modificándose el argumento <var>L</var>.
+</p>
+<p><code>sort(<var>L</var>)</code> equivale a <code>sort(<var>L</var>, orderlessp)</code>.
+</p>
+<p>La ordenación por defecto es ascendente, tal como queda determinada por <code>orderlessp</code>.
+El predicado <code>ordergreatp</code> ordena las listas en orden descendente.
+</p>
+<p>Todos los átomos y expresiones de Maxima son comparables respecto de los predicados
+<code>orderlessp</code> y <code>ordergreatp</code>.
+</p>
+<p>Los operadores <code>&lt;</code> y <code>&gt;</code> ordenan números, constantes y expresiones constantes por
+magnitud. Nótese que <code>orderlessp</code> y <code>ordergreatp</code> no ordenan números, 
+constantes y expresiones constantes por magnitud.
+</p>
+<p><code>ordermagnitudep</code> ordena números, constantes y expresiones constantes de igual modo
+que lo hace <code>&lt;</code>, y cualesquiera otros elementos lo hace igual que <code>orderlessp</code>.
+</p>
+<p>Ejemplos:
+</p>
+<p><code>sort</code> ordena una lista respecto de un predicado de dos argumentos que define un
+preorden total en los elementos de la lista.
+</p>
+<div class="example">
+<pre class="example">(%i1) sort ([1, a, b, 2, 3, c], 'orderlessp);
+(%o1)                  [1, 2, 3, a, b, c]
+(%i2) sort ([1, a, b, 2, 3, c], 'ordergreatp);
+(%o2)                  [c, b, a, 3, 2, 1]
+</pre></div>
+
+<p>El predicado puede especificarse con el nombre de una función, de un
+operador binario infijo o una expresión <code>lambda</code>. Si se especifica
+con el nombre de un operador, dicho nombre debe encerrarse con comillas dobles.
+</p>
+<div class="example">
+<pre class="example">(%i1) L : [[1, x], [3, y], [4, w], [2, z]];
+(%o1)           [[1, x], [3, y], [4, w], [2, z]]
+(%i2) foo (a, b) := a[1] &gt; b[1];
+(%o2)                 foo(a, b) := a  &gt; b
+                                    1    1
+(%i3) sort (L, 'foo);
+(%o3)           [[4, w], [3, y], [2, z], [1, x]]
+(%i4) infix (&quot;&gt;&gt;&quot;);
+(%o4)                          &gt;&gt;
+(%i5) a &gt;&gt; b := a[1] &gt; b[1];
+(%o5)                   a &gt;&gt; b := a  &gt; b
+                                   1    1
+(%i6) sort (L, &quot;&gt;&gt;&quot;);
+(%o6)           [[4, w], [3, y], [2, z], [1, x]]
+(%i7) sort (L, lambda ([a, b], a[1] &gt; b[1]));
+(%o7)           [[4, w], [3, y], [2, z], [1, x]]
+</pre></div>
+
+<p><code>sort(<var>L</var>)</code> equivale a <code>sort(<var>L</var>, orderlessp)</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) L : [a, 2*b, -5, 7, 1 + %e, %pi];
+(%o1)             [a, 2 b, - 5, 7, %e + 1, %pi]
+(%i2) sort (L);
+(%o2)             [- 5, 7, %e + 1, %pi, a, 2 b]
+(%i3) sort (L, 'orderlessp);
+(%o3)             [- 5, 7, %e + 1, %pi, a, 2 b]
+</pre></div>
+
+<p>La ordenación por defecto es ascendente, tal como queda determinada por <code>orderlessp</code>.
+El predicado <code>ordergreatp</code> ordena las listas en orden descendente.
+</p>
+<div class="example">
+<pre class="example">(%i1) L : [a, 2*b, -5, 7, 1 + %e, %pi];
+(%o1)                    [a, 2 b, - 5, 7, %e + 1, %pi]
+(%i2) sort (L);
+(%o2)                    [- 5, 7, %e + 1, %pi, a, 2 b]
+(%i3) sort (L, 'ordergreatp);
+(%o3)                    [2 b, a, %pi, %e + 1, 7, - 5]
+</pre></div>
+
+<p>Todos los átomos y expresiones de Maxima son comparables respecto de los predicados
+<code>orderlessp</code> y <code>ordergreatp</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) L : [11, -17, 29b0, 9*c, 7.55, foo(x, y), -5/2, b + a];
+                                                 5
+(%o1)  [11, - 17, 2.9b1, 9 c, 7.55, foo(x, y), - -, b + a]
+                                                 2
+(%i2) sort (L, orderlessp);
+                5
+(%o2)  [- 17, - -, 7.55, 11, 2.9b1, b + a, 9 c, foo(x, y)]
+                2
+(%i3) sort (L, ordergreatp);
+                                                  5
+(%o3)  [foo(x, y), 9 c, b + a, 2.9b1, 11, 7.55, - -, - 17]
+                                                  2
+</pre></div>
+
+<p>Los operadores <code>&lt;</code> y <code>&gt;</code> ordenan números, constantes y expresiones constantes por
+magnitud. Nótese que <code>orderlessp</code> y <code>ordergreatp</code> no ordenan números, 
+constantes y expresiones constantes por magnitud.
+</p>
+<div class="example">
+<pre class="example">(%i1) L : [%pi, 3, 4, %e, %gamma];
+(%o1)                [%pi, 3, 4, %e, %gamma]
+(%i2) sort (L, &quot;&gt;&quot;);
+(%o2)                [4, %pi, 3, %e, %gamma]
+(%i3) sort (L, ordergreatp);
+(%o3)                [%pi, %gamma, %e, 4, 3]
+</pre></div>
+
+<p><code>ordermagnitudep</code> ordena números, constantes y expresiones constantes de igual modo
+que lo hace <code>&lt;</code>, y cualesquiera otros elementos lo hace igual que <code>orderlessp</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) L : [%i, 1+%i, 2*x, minf, inf, %e, sin(1), 0, 1, 2, 3, 1.0, 1.0b0];
+(%o1) [%i, %i + 1, 2 x, minf, inf, %e, sin(1), 0, 1, 2, 3, 1.0, 
+                                                           1.0b0]
+(%i2) sort (L, ordermagnitudep);
+(%o2) [minf, 0, sin(1), 1, 1.0, 1.0b0, 2, %e, 3, inf, %i, 
+                                                     %i + 1, 2 x]
+(%i3) sort (L, orderlessp);
+(%o3) [0, 1, 1.0, 2, 3, %e, %i, %i + 1, inf, minf, sin(1), 
+                                                      1.0b0, 2 x]
+</pre></div>
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fsublist"></span><dl class="def">
+<dt id="index-sublist"><span class="category">Función: </span><span><strong>sublist</strong> <em>(<var>list</var>, <var>p</var>)</em><a href='#index-sublist' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la lista de elementos de <var>list</var> para los cuales el predicado <code>p</code> retorna <code>true</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) L: [1, 2, 3, 4, 5, 6];
+(%o1)                  [1, 2, 3, 4, 5, 6]
+</pre><pre class="example">(%i2) sublist (L, evenp);
+(%o2)                       [2, 4, 6]
+</pre></div>
+
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fsublist_005findices"></span><dl class="def">
+<dt id="index-sublist_005findices"><span class="category">Función: </span><span><strong>sublist_indices</strong> <em>(<var>L</var>, <var>P</var>)</em><a href='#index-sublist_005findices' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve los índices de los elementos <code>x</code> de la
+lista <var>L</var> para la cual el predicado <code>maybe(<var>P</var>(x))</code>
+devuelve <code>true</code>, lo que excluye a <code>unknown</code> y a <code>false</code>.
+<var>P</var> puede ser el nombre de una función o de una expresión lambda.
+<var>L</var> debe ser una lista literal.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) sublist_indices ('[a, b, b, c, 1, 2, b, 3, b],
+                       lambda ([x], x='b));
+(%o1)                     [2, 3, 7, 9]
+</pre><pre class="example">(%i2) sublist_indices ('[a, b, b, c, 1, 2, b, 3, b], symbolp);
+(%o2)                  [1, 2, 3, 4, 7, 9]
+</pre><pre class="example">(%i3) sublist_indices ([1 &gt; 0, 1 &lt; 0, 2 &lt; 1, 2 &gt; 1, 2 &gt; 0],
+                       identity);
+(%o3)                       [1, 4, 5]
+</pre><pre class="example">(%i4) assume (x &lt; -1);
+(%o4)                       [x &lt; - 1]
+</pre><pre class="example">(%i5) map (maybe, [x &gt; 0, x &lt; 0, x &lt; -2]);
+(%o5)                [false, true, unknown]
+</pre><pre class="example">(%i6) sublist_indices ([x &gt; 0, x &lt; 0, x &lt; -2], identity);
+(%o6)                          [2]
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002funique"></span><dl class="def">
+<dt id="index-unique"><span class="category">Función: </span><span><strong>unique</strong> <em>(<var>L</var>)</em><a href='#index-unique' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve la lista <var>L</var> sin redundancias, es decir, sin
+elementos repetidos
+</p>
+<p>Cuando ninguno de los elementos de <var>L</var> está repetido,
+<code>unique</code> devuelve una réplica de <var>L</var>, no la
+propia <var>L</var>.
+</p>
+<p>Si <var>L</var> no es una lista, <code>unique</code> devuelve <var>L</var>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) unique ([1, %pi, a + b, 2, 1, %e, %pi, a + b, [1]]);
+(%o1)              [1, 2, %e, %pi, [1], b + a]
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002ftenth"></span><dl class="def">
+<dt id="index-tenth"><span class="category">Función: </span><span><strong>tenth</strong> <em>(<var>expr</var>)</em><a href='#index-tenth' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve el décimo elemento de la lista o expresión <var>expr</var>. Véase <code>first</code> para más detalles.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Lists_002ees_002fdeffn_002fthird"></span><dl class="def">
+<dt id="index-third"><span class="category">Función: </span><span><strong>third</strong> <em>(<var>expr</var>)</em><a href='#index-third' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve el tercer elemento de la lista o expresión <var>expr</var>. Véase <code>first</code> para más detalles.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Arrays_002ees_002fnode_002fArrays"></span></div>
+<hr>
+<div class="header">
+<p>
+Anterior: <a href="maxima_20.html" accesskey="p" rel="prev">Introducción a las listas</a>, Subir: <a href="maxima_19.html" accesskey="u" rel="up">Listas</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

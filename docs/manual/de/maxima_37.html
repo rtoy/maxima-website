@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Logische Operatoren (Maxima Manual)</title>
+
+<meta name="description" content="Logische Operatoren (Maxima Manual)">
+<meta name="keywords" content="Logische Operatoren (Maxima Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_334.html" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_33.html" rel="up" title="Operatoren">
+<link href="maxima_38.html" rel="next" title="Operatoren f&uuml;r Gleichungen">
+<link href="maxima_36.html" rel="prev" title="Relationale Operatoren">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="de">
+<div class="section" id="Logische-Operatoren">
+<div class="header">
+<p>
+Nächste: <a href="maxima_38.html" accesskey="n" rel="next">Operatoren f&uuml;r Gleichungen</a>, Vorige: <a href="maxima_36.html" accesskey="p" rel="prev">Relationale Operatoren</a>, Nach oben: <a href="maxima_33.html" accesskey="u" rel="up">Operatoren</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Logische-Operatoren-1"></span><h3 class="section">7.4 Logische Operatoren</h3>
+
+<span id="and"></span><span id="Item_003a-Operators_002ede_002fdeffn_002fand"></span><dl class="def">
+<dt id="index-and"><span class="category">Operator: </span><span><strong>and</strong><a href='#index-and' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Ist der logische Operator der Konjunktion.  <code>and</code> ist ein 
+N-ary-Operator.  Die Operanden sind boolesche Ausdr&uuml;cke und das Ergebnis ist
+ein boolescher Wert.
+</p>
+<p>Der Operator <code>and</code> erzwingt die Auswertung aller oder einen Teil der
+Operanden.  Die Operanden werden in der Reihenfolge ausgewertet, in der sie
+auftreten.  <code>and</code> wertet nur so viele Operanden aus, wie n&ouml;tig sind, um
+das Ergebnis des Ausdrucks zu bestimmen.  Hat irgendein Argument den Wert
+<code>false</code>, ist das Ergebnis <code>false</code> und die weiteren Argumente werden
+nicht ausgewertet.
+</p>
+<p>Die Optionsvariable <code><a href="maxima_64.html#prederror">prederror</a></code> kontrolliert das Verhalten von <code>and</code>
+f&uuml;r den Fall, dass ein Operand nicht zu <code>true</code> oder <code>false</code>
+ausgewertet werden kann.  <code>and</code> gibt eine Fehlermeldung aus, wenn 
+<code>prederror</code> den Wert <code>true</code> hat.  Andernfalls werden Operanden
+akzeptiert, die nicht zu <code>true</code> oder <code>false</code> ausgewertet werden
+k&ouml;nnen und das Ergebnis ist ein boolescher Ausdruck.
+</p>
+<p><code>and</code> ist nicht kommutativ, da aufgrund von nicht ausgewerteten Operanden
+die Ausdr&uuml;cke <code>a and b</code> und <code>b and a</code> ein unterschiedliches Ergebnis
+haben k&ouml;nnen.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) n:2;
+(%o1)                           2
+(%i2) integerp(n) and evenp(n);
+(%o2)                         true
+(%i3) not(a=b) and 1=1 and integerp(2);
+(%o3)                         true
+(%i4) not(a=b) and 1=1 and oddp(2);
+(%o4)                         false
+(%i5) a and b;
+(%o5)                        a and b
+(%i6) prederror:true$
+(%i7) a and b;
+
+Unable to evaluate predicate a
+ -- an error. To debug this try: debugmode(true);
+</pre></div>
+
+<p>Da <code>and</code> nur so viele Operanden auswertet wie notwendig sind, um das
+Ergebnis festzustellen, f&uuml;hrt der syntaktische Fehler im zweiten Operanden
+nicht zu einer Fehlermeldung, das das Ergebnis bereits mit dem ersten
+Operanden feststeht.
+</p>
+<div class="example">
+<pre class="example">(%i8) a=b and sin(2,2);
+(%o8)                         false
+</pre></div>
+</dd></dl>
+
+<span id="or"></span><span id="Item_003a-Operators_002ede_002fdeffn_002for"></span><dl class="def">
+<dt id="index-or"><span class="category">Operator: </span><span><strong>or</strong><a href='#index-or' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Ist der logische Operator der Disjunktion.  <code>or</code> ist ein N-ary-Operator.
+Die Operanden sind boolesche Ausdr&uuml;cke und das Ergebnis ist ein boolescher
+Wert.
+</p>
+<p>Der Operator <code>or</code> erzwingt die Auswertung aller oder einen Teil der
+Operanden.  Die Operanden werden in der Reihenfolge ausgewertet, in der sie
+auftreten.  <code>or</code> wertet nur so viele Operanden aus wie n&ouml;tig sind, um
+das Ergebnis des Ausdrucks zu bestimmen.  Hat irgendein Operand den Wert
+<code>true</code>, ist das Ergebnis <code>true</code> und die weiteren Operanden werden
+nicht ausgewertet.
+</p>
+<p>Die Optionsvariable <code><a href="maxima_64.html#prederror">prederror</a></code> kontrolliert das Verhalten von <code>or</code>
+f&uuml;r den Fall, dass ein Operand nicht zu <code>true</code> oder <code>false</code>
+ausgewertet werden kann.  <code>or</code> gibt eine Fehlermeldung, wenn
+<code>prederror</code> den Wert <code>true</code> hat.  Andernfalls werden Operanden
+akzeptiert, die nicht zu <code>true</code> oder <code>false</code> ausgewertet werden
+k&ouml;nnen und das Ergebnis ist ein boolescher Ausdruck.
+</p>
+<p><code>or</code> ist nicht kommutativ, da aufgrund von nicht ausgewerteten Operanden
+die Ausdr&uuml;cke <code>a or b</code> und <code>b or a</code> ein unterschiedliches Ergebnis
+haben k&ouml;nnen.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) n:2;
+(%o1)                           2
+(%i2) oddp(n) or evenp(n);
+(%o2)                         true
+(%i3) a=b or not(1=1) or integerp(2);
+(%o3)                         true
+(%i4) a or b;
+(%o4)                        a or b
+(%i5) prederror:true$
+(%i6) a or b;
+
+Unable to evaluate predicate a
+ -- an error. To debug this try: debugmode(true);
+</pre></div>
+
+<p>Da <code>or</code> nur so viele Operanden auswertet wie notwendig sind, um das
+Ergebnis festzustellen, f&uuml;hrt der syntaktische Fehler im zweiten Operanden
+nicht zu einer Fehlermeldung, da das Ergebnis bereits mit dem ersten
+Operanden feststeht.
+</p>
+<div class="example">
+<pre class="example">(%i7) integerp(2) or sin(2,2);
+(%o7)                         true
+</pre></div>
+</dd></dl>
+
+<span id="not"></span><span id="Item_003a-Operators_002ede_002fdeffn_002fnot"></span><dl class="def">
+<dt id="index-not"><span class="category">Operator: </span><span><strong>not</strong><a href='#index-not' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Ist die logische Negation.  <code>not</code> ist ein Prefix-Operator.  Der Operand
+ist ein boolescher Ausdruck und das Ergebnis ein boolescher Wert.
+</p>
+<p>Der Operator <code>not</code> erzwingt die Auswertung des Operanden.  Die
+Optionsvariable <code><a href="maxima_64.html#prederror">prederror</a></code> kontrolliert das Verhalten von <code>not</code> f&uuml;r
+den Fall, dass der Operand nicht zu <code>true</code> oder <code>false</code> ausgewertet
+werden kann.  <code>not</code> gibt eine Fehlermeldung, wenn <code>prederror</code> den Wert
+<code>true</code> hat.  Andernfalls wird ein Operand akzeptiert, der nicht zu
+<code>true</code> oder <code>false</code> ausgewertet werden kann, und das Ergebnis ist ein
+boolescher Ausdruck.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) not integerp(2);
+(%o1)                         false
+(%i2) not (a=b);
+(%o2)                         true
+(%i3) not a;
+(%o3)                         not a
+(%i4) prederror:true$
+(%i5) not a;
+
+Unable to evaluate predicate a
+ -- an error. To debug this try: debugmode(true);
+</pre></div>
+</dd></dl>
+
+<span id="Item_003a-Operators_002ede_002fnode_002fOperatoren-f_00fcr-Gleichungen"></span></div>
+<hr>
+<div class="header">
+<p>
+Nächste: <a href="maxima_38.html" accesskey="n" rel="next">Operatoren f&uuml;r Gleichungen</a>, Vorige: <a href="maxima_36.html" accesskey="p" rel="prev">Relationale Operatoren</a>, Nach oben: <a href="maxima_33.html" accesskey="u" rel="up">Operatoren</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

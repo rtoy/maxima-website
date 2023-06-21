@@ -1,0 +1,870 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para la línea de comandos (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para la línea de comandos (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para la línea de comandos (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_6.html" rel="up" title="Línea de comandos">
+<link href="maxima_9.html" rel="next" title="Funciones y variables para la impresión">
+<link href="maxima_7.html" rel="prev" title="Introducción a la línea de comandos">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Funciones-y-variables-para-la-l_00ednea-de-comandos">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_9.html" accesskey="n" rel="next">Funciones y variables para la impresión</a>, Anterior: <a href="maxima_7.html" accesskey="p" rel="prev">Introducción a la línea de comandos</a>, Subir: <a href="maxima_6.html" accesskey="u" rel="up">Línea de comandos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+<span id="Funciones-y-variables-para-la-linea-de-comandos"></span><h3 class="section">4.2 Funciones y variables para la línea de comandos</h3>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002f_005f_005f"></span><dl class="def">
+<dt id="index-_005f_005f"><span class="category">Variable del sistema: </span><span><strong>__</strong><a href='#index-_005f_005f' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>__</code> es la expresión de entrada que está siendo actualmente evaluada.
+Esto es, mientras se está evaluando una expresión de entrada, 
+<code>__</code> es igual a <var>expr</var>.
+</p>
+<p>A <code>__</code> se le asigna la expresión de entrada antes de que ésta sea 
+simplificada o evaluada. Sin embargo, el valor de <code>__</code> es simplificado,
+pero no evaluado, cuando su valor es mostrado en el terminal.
+</p>
+<p>La variable <code>__</code> es reconocida por  <code>batch</code> y por <code>load</code>.
+Cuando un fichero es procesado por <code>batch</code>, la variable <code>__</code>
+tiene el mismo significado que en el modo interactivo.
+Cuando un fichero es procesado por <code>load</code>, a la variable <code>__</code>
+se le asigna la última expresión introducida, bien desde el modo
+interactivo, bien en un fichero por lotes; en ningún caso se le asigna 
+a <code>__</code> una expresión de entrada del fichero que está siendo procesado.
+En particular, si <code>load (<var>filename</var>)</code> es ejecutado desde el modo
+interactivo, entonces <code>__</code> almacena la expresión <code>load (<var>filename</var>)</code>
+mientras el fichero está siendo procesado.
+</p>
+<p>Véanse también <code>_</code> y <code>%</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) print (&quot;I was called as&quot;, __);
+I was called as print(I was called as, __) 
+(%o1)              print(I was called as, __)
+(%i2) foo (__);
+(%o2)                     foo(foo(__))
+(%i3) g (x) := (print (&quot;Current input expression =&quot;, __), 0);
+(%o3) g(x) := (print(&quot;Current input expression =&quot;, __), 0)
+(%i4) [aa : 1, bb : 2, cc : 3];
+(%o4)                       [1, 2, 3]
+(%i5) (aa + bb + cc)/(dd + ee + g(x));
+                            cc + bb + aa
+Current input expression = -------------- 
+                           g(x) + ee + dd
+                                6
+(%o5)                        -------
+                             ee + dd
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002f_005f"></span><dl class="def">
+<dt id="index-_005f"><span class="category">Variable del sistema: </span><span><strong>_</strong><a href='#index-_005f' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>El símbolo <code>_</code> representa la última expresión de entrada (esto es, <code>%i1</code>, <code>%i2</code>, <code>%i3</code>, ...).
+</p>
+<p>Al símbolo <code>_</code> se le asigna la expresión de entrada antes de que ésta sea simplificada o evaluada. Sin embargo, el valor de <code>_</code> se simplifica (pero no se evalúa) cuando se muestra en el terminal.
+</p>
+<p>La variable <code>_</code> es reconocida por  <code>batch</code> y por <code>load</code>.
+Cuando un fichero es procesado por <code>batch</code>, la variable <code>_</code>
+tiene el mismo significado que en el modo interactivo.
+Cuando un fichero es procesado por <code>load</code>, a la variable <code>_</code>
+se le asigna la última expresión introducida, bien desde el modo
+interactivo, bien en un fichero por lotes; en ningún caso se le asigna 
+a <code>_</code> una expresión de entrada del fichero que está siendo procesado.
+</p>
+<p>Véanse también <code>__</code> y <code>%</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) 13 + 29;
+(%o1)                          42
+(%i2) :lisp $_
+((MPLUS) 13 29)
+(%i2) _;
+(%o2)                          42
+(%i3) sin (%pi/2);
+(%o3)                           1
+(%i4) :lisp $_
+((%SIN) ((MQUOTIENT) $%PI 2))
+(%i4) _;
+(%o4)                           1
+(%i5) a: 13$
+(%i6) b: 29$
+(%i7) a + b;
+(%o7)                          42
+(%i8) :lisp $_
+((MPLUS) $A $B)
+(%i8) _;
+(%o8)                         b + a
+(%i9) a + b;
+(%o9)                          42
+(%i10) ev (_);
+(%o10)                         42
+</pre></div>
+
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002f_0025"></span><dl class="def">
+<dt id="index-_0025"><span class="category">Variable del sistema: </span><span><strong>%</strong><a href='#index-_0025' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>El símbolo <code>%</code> representa la expresión de salida (esto es, <code>%o1</code>, <code>%o2</code>, <code>%o3</code>, ...)
+más reciente calculada por Maxima, independientemente de que la haya mostrado o no.
+</p>
+<p>La variable <code>%</code> es reconocida por  <code>batch</code> y por <code>load</code>.
+Cuando un fichero es procesado por <code>batch</code>, la variable <code>%</code>
+tiene el mismo significado que en el modo interactivo.
+Cuando un fichero es procesado por <code>load</code>, a la variable <code>%</code>
+se le asigna la última expresión introducida, bien desde el modo
+interactivo, bien en un fichero por lotes; en ningún caso se le asigna 
+a <code>%</code> una expresión de entrada del fichero que está siendo procesado.
+</p>
+<p>Véanse también <code>_</code>, <code>%%</code> y <code>%th</code>.
+</p>
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002f_0025_0025"></span><dl class="def">
+<dt id="index-_0025_0025"><span class="category">Variable del sistema: </span><span><strong>%%</strong><a href='#index-_0025_0025' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>En una sentencia compuesta, como <code>block</code>, <code>lambda</code> o 
+<code>(<var>s_1</var>, ..., <var>s_n</var>)</code>, <code>%%</code> es el valor de la sentencia previa.
+</p>
+<p>La variable <code>%%</code> no estÃ¡ definida cuando se utiliza en la primera sentencia,
+o fuera de una sentencia compuesta.
+</p>
+<p><code>%%</code> se puede utilizar con <code>batch</code> y <code>load</code>, manteniendo en ambos
+casos el mismo significado que en el modo interactivo.
+</p>
+<p>Véase también <code>%</code>
+</p>
+<p>Ejemplos:
+</p>
+<p>Los siguientes dos ejemplos devuelven el mismo resultado.
+</p>
+<div class="example">
+<pre class="example">(%i1) block (integrate (x^5, x), ev (%%, x=2) - ev (%%, x=1));
+                               21
+(%o1)                          --
+                               2
+(%i2) block ([prev], prev: integrate (x^5, x),
+               ev (prev, x=2) - ev (prev, x=1));
+                               21
+(%o2)                          --
+                               2
+
+</pre></div>
+
+<p>Una sentencia compuesta puede contener otras sentencias compuestas.
+Independientemente de que una sentencia sea simple o compuesta, <code>%%</code> es 
+el valor de la sentencia previa.
+</p>
+<div class="example">
+<pre class="example">(%i3) block (block (a^n, %%*42), %%/6);
+                                 n
+(%o3)                         7 a
+</pre></div>
+
+<p>Dentro de una sentencia compuesta, el valor de <code>%%</code> puede inspeccionarse
+en un punto de interrupción que se abra ejecutando la función <code>break</code>.
+Por ejemplo, escribiendo <code>%%;</code> en el siguiente ejemplo se obtiene <code>42</code>.
+</p>
+<div class="example">
+<pre class="example">(%i4) block (a: 42, break ())$
+
+Entering a Maxima break point. Type 'exit;' to resume.
+_%%;
+42
+_
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002f_0025th"></span><dl class="def">
+<dt id="index-_0025th"><span class="category">Función: </span><span><strong>%th</strong> <em>(<var>i</var>)</em><a href='#index-_0025th' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Es el valor de la expresión de la <var>i</var>-ésima salida anterior.
+Esto es, si la siguiente expresión a calcular es la salida <var>n</var>-ésima,
+<code>%th (<var>m</var>)</code> es la salida  (<var>n</var> - <var>m</var>)-ésima.
+</p>
+<p><code>%th</code> es reconocido por <code>batch</code> y <code>load</code>, interpretándose
+de la misma manera que se acaba de indicar. Cuando un fichero es procesado
+por <code>load</code>, <code>%th</code> se refiere a los cálculos más recientes;
+<code>%th</code> no hace referencia a las expresiones de salida incluidas en el
+propio fichero que se está procesando.
+</p>
+<p>Véanse también <code>%</code> y <code>%%</code>
+</p>
+<p>Ejemplo:
+</p>
+<p><code>%th</code> es útil en ficheros <code>batch</code> para hacer referencia a grupos de resultados
+recién obtenidos.  En este ejemplo se asigna a <code>s</code> la suma de los cinco resultados.
+</p>
+<div class="example">
+<pre class="example">(%i1) 1;2;3;4;5;
+(%o1)                           1
+(%o2)                           2
+(%o3)                           3
+(%o4)                           4
+(%o5)                           5
+(%i6) block (s: 0, for i:1 thru 5 do s: s + %th(i), s);
+(%o6)                          15
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002f_003f"></span><dl class="def">
+<dt id="index-_003f"><span class="category">Símbolo especial: </span><span><strong>?</strong><a href='#index-_003f' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Como prefijo de una función o nombre de variable, <code>?</code> significa que el nombre es de Lisp, no de Maxima.
+Por ejemplo, <code>?round</code> representa la función de Lisp <code>ROUND</code>.
+Véase <code>Lisp y Maxima</code> para más información.
+</p>
+<p>La notación <code>? word</code> (un símbolo de interrogación
+seguido de una palabra y separados por un espacio)
+equivale a <code>describe (&quot;word&quot;)</code>.
+El símbolo de interrogación debe escribirse al
+comienzo de la línea de entrada; en caso contrario
+no se reconoce como una solicitud de documentación.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Command_002ees_002fdeffn_002f_003f_003f"></span><dl class="def">
+<dt id="index-_003f_003f"><span class="category">Símbolo especial: </span><span><strong>??</strong><a href='#index-_003f_003f' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>La notación <code>?? palabra</code> (<code>??</code> seguido de un espacio
+y una palabra) equivale a <code>describe(&quot;palabra&quot;, inexact)</code>.
+El símbolo de interrogación debe escribirse al
+comienzo de la línea de entrada; en caso contrario
+no se reconoce como una solicitud de documentación.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002finchar"></span><dl class="def">
+<dt id="index-inchar"><span class="category">Variable opcional: </span><span><strong>inchar</strong><a href='#index-inchar' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>%i</code>
+</p>
+<p>La variable <code>inchar</code> es el prefijo de las etiquetas de las
+expresiones introducidas por el usuario. Maxima crea automáticamente 
+una etiqueta para cada expresión de entrada concatenando <code>inchar</code> 
+y <code>linenum</code>.
+</p>
+<p>A <code>inchar</code> se le puede asignar cualquier símbolo 
+o cadena, no necesariamente un caracácter sencillo. Puesto que
+internamente Maxima solo tiene en cuenta el primer carácter del
+prefijo, los prefijos <code>inchar</code>, <code>outchar</code> y <code>linechar</code>
+deben comenzar con caracteres diferentes; en caso contrario, sentencias
+como <code>kill(inlables)</code> pueden dar resultados inesperados.
+</p>
+<p>Véase también <code>labels</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) inchar: &quot;input&quot;;
+(%o1)                         input
+(input2) expand((a+b)^3);
+                     3        2      2      3
+(%o2)               b  + 3 a b  + 3 a  b + a
+(input3)
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002finfolists"></span><dl class="def">
+<dt id="index-infolists"><span class="category">Variable del sistema: </span><span><strong>infolists</strong><a href='#index-infolists' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>[]</code>
+</p>
+<p>La variable <code>infolists</code> es una lista con los nombres de todas las listas que guardan información sobre Maxima. Estas son:
+</p>
+<dl compact="compact">
+<dt><span><code>labels</code></span></dt>
+<dd><p>Todas las etiquetas <code>%i</code>, <code>%o</code> y <code>%t</code> con valores asignados.
+</p></dd>
+<dt><span><code>values</code></span></dt>
+<dd><p>Todos los átomos que son variables de usuario, no opciones de Maxima creadas con  <code>:</code> o <code>::</code>.
+</p></dd>
+<dt><span><code>functions</code></span></dt>
+<dd><p>Todas las funciones de usuario creadas con <code>:=</code> o <code>define</code>.
+</p></dd>
+<dt><span><code>arrays</code></span></dt>
+<dd><p>Arreglos declarados y no declarados, creados por <code>:</code>, <code>::</code> o <code>:=</code>.
+</p></dd>
+<dt><span><code>macros</code></span></dt>
+<dd><p>Cualquier macro definida por el usuario.
+</p></dd>
+<dt><span><code>myoptions</code></span></dt>
+<dd><p>Todas las opciones inicializadas por el usuario, independientemente de que posteriormente hayan sido devueltas a sus valores por defecto.
+</p></dd>
+<dt><span><code>rules</code></span></dt>
+<dd><p>Reglas de patrones y simplificación definidas por el usuario, creadas con <code>tellsimp</code>, <code>tellsimpafter</code>, <code>defmatch</code> o <code>defrule</code>.
+</p></dd>
+<dt><span><code>aliases</code></span></dt>
+<dd><p>Átomos que tienen un &quot;alias&quot; definido por el usuario, creado por las funciones <code>alias</code>, <code>ordergreat</code> o <code>orderless</code> o por haber declarado el átomo como <code>noun</code> (nombre) con <code>declare</code>.
+</p></dd>
+<dt><span><code>dependencies</code></span></dt>
+<dd><p>Átomos que tienen dependencias funcionales, creados por las funciones <code>depends</code> o <code>gradef</code>.
+</p></dd>
+<dt><span><code>gradefs</code></span></dt>
+<dd><p>Funciones que tienen derivadas definidas por el usuario, creadas por la función <code>gradef</code>.
+</p></dd>
+<dt><span><code>props</code></span></dt>
+<dd><p>Todos los átomos que tengan cualquier propiedad que no sea de las mencionadas hasta ahora, como las establecidas por <code>atvalue</code>, <code>matchdeclare</code>, etc., así como propiedadas especificadas en la función <code>declare</code>.
+</p></dd>
+<dt><span><code>let_rule_packages</code></span></dt>
+<dd><p>Todos los paquetes de reglas <code>let</code> definidos por el usuario, junto con el paquete especial <code>default_let_rule_package</code>; <code>default_let_rule_package</code> es el nombre del paquete de reglas utilizado cuando no se use ningún otro especificado por el usuario.
+</p></dd>
+</dl>
+
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fkill"></span><dl class="def">
+<dt id="index-kill"><span class="category">Función: </span><span><strong>kill</strong> <em>(<var>a_1</var>, ..., <var>a_n</var>)</em><a href='#index-kill' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-kill-1"><span class="category">Función: </span><span><strong>kill</strong> <em>(labels)</em><a href='#index-kill-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-kill-2"><span class="category">Función: </span><span><strong>kill</strong> <em>(inlabels, outlabels, linelabels)</em><a href='#index-kill-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-kill-3"><span class="category">Función: </span><span><strong>kill</strong> <em>(<var>n</var>)</em><a href='#index-kill-3' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-kill-4"><span class="category">Función: </span><span><strong>kill</strong> <em>([<var>m</var>, <var>n</var>])</em><a href='#index-kill-4' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-kill-5"><span class="category">Función: </span><span><strong>kill</strong> <em>(values, functions, arrays, ...)</em><a href='#index-kill-5' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-kill-6"><span class="category">Función: </span><span><strong>kill</strong> <em>(all)</em><a href='#index-kill-6' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-kill-7"><span class="category">Función: </span><span><strong>kill</strong> <em>(allbut (<var>a_1</var>, ..., <var>a_n</var>))</em><a href='#index-kill-7' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Elimina todas las asignaciones (valor, función, arreglo o regla) hechas a los
+argumentos <var>a_1</var>, ..., <var>a_n</var>.
+Un argumento <var>a_k</var> puede ser un símbolo o el elemento
+de un array. Si <var>a_k</var> es elemento de un array, <code>kill</code> elimina la
+asignación hecha a este elemento sin afectar al resto del array.
+</p>
+<p>Se reconocen varios argumentos especiales. 
+Se pueden combinar diferentes clases de argumentos, 
+como por ejemplo, <code>kill (inlabels, functions, allbut (foo, bar))</code>.
+</p>
+<p>La instrucción <code>kill (labels)</code> borra todas las asignaciones asociadas
+a las etiquetas de entrada, de salida e intermedias creadas hasta el
+momento. La instrucción <code>kill (inlabels)</code> elimina únicamente
+las asignaciones de las etiquetas de entrada que comienzan con el
+valor actual de <code>inchar</code>. Del mismo modo, <code>kill (outlabels)</code>
+elimina únicamente las asignaciones de las etiquetas de salida
+que comienzan con el valor actual de <code>outchar</code>. Finalmente,
+<code>kill (linelabels)</code> elimina únicamente las asignaciones
+de las etiquetas de las expresiones intermedias
+que comienzan con el valor actual de <code>linechar</code>.
+</p>
+<p>La instrucción <code>kill (<var>n</var>)</code>, siendo <var>n</var> un entero,
+elimina las asignaciones de las últimas <var>n</var> etiquetas, tanto
+de entrada como de salida.
+</p>
+<p>La instrucción <code>kill ([<var>m</var>, <var>n</var>])</code> elimina las asignaciones
+hechas a las etiquetas de entrada y salida desde la <var>m</var> hasta la<var>n</var>.
+</p>
+<p>La instrucción <code>kill (<var>infolist</var>)</code>, siendo <var>infolist</var> 
+cualquier elemento de <code>infolists</code> (como <code>values</code>, <code>functions</code> 
+o <code>arrays</code>), elimina todas las asignaciones hechas a los elementos de
+<var>infolist</var>. Véase también <code>infolists</code>.
+</p>
+<p>La instrucción <code>kill (all)</code> elimina todas las asignaciones de
+todas las variables, pero no reinicia las variables globales a sus
+valores por defecto. Véase también <code>reset</code>.
+</p>
+<p>La instrucción <code>kill (allbut (<var>a_1</var>, ..., <var>a_n</var>))</code>
+elimina las asignaciones hechas a todas las variables,
+excepto a <var>a_1</var>, ..., <var>a_n</var>; la instrucción
+<code>kill (allbut (<var>infolist</var>))</code> elimina todas las asignaciones,
+excepto las de los elementos de <var>infolist</var>, pudiendo ser <var>infolist</var>
+igual a <code>values</code>, <code>functions</code>, <code>arrays</code>, etc.
+</p>
+<p>La memoria reservada para una asignación no se libera hasta que
+no se vacíen todos los símbolos
+asociados con esta asignación; por ejemplo, para liberar la memoria
+del valor de un símbolo es necesario eliminar tanto
+la asignación de la etiqueta de salida que muestra el resultado,
+como la del propio símbolo.
+</p>
+<p>La función <code>kill</code> no evalua sus argumentos. 
+El operador comilla-comilla, <code>'<!-- /@w -->'</code>, obliga a que se realice la evaluación.
+</p>
+<p>La llamada <code>kill (<var>symbol</var>)</code> elimina todas las propiedades de <var>symbol</var>.
+Por el contrario, <code>remvalue</code>, <code>remfunction</code>, <code>remarray</code> y <code>remrule</code>
+eliminan propiedades específicas. 
+</p>
+<p><code>kill</code> siempre devuelve <code>done</code>, incluso cuando alguno de sus 
+argumentos carecía de asignación previa. 
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002flabels"></span><dl class="def">
+<dt id="index-labels"><span class="category">Función: </span><span><strong>labels</strong> <em>(<var>symbol</var>)</em><a href='#index-labels' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-labels-1"><span class="category">Variable del sistema: </span><span><strong>labels</strong><a href='#index-labels-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna la lista de etiquetas de entrada, salida o de expresiones intermedias las cuales empiezan con <var>symbol</var>. 
+Típicamente <var>symbol</var> es el valor de las variables <code>inchar</code>, <code>outchar</code> o <code>linechar</code>. 
+El caractér de etiqueta puede ser pasado con o sin signo de porcentaje, 
+así, por ejemplo, <code>i</code> y <code>%i</code> producen el mismo resultado.  
+</p>
+<p>Si ninguna etiqueta empieza con <var>symbol</var>, <code>labels</code> retorna a una
+lista vacía. 
+</p>
+<p>La función <code>labels</code> no evalua su argumento.
+El operador comilla-comilla, <code>'<!-- /@w -->'</code>, obliga a que se realice la evaluación.
+Por ejemplo, 
+<code>labels (''inchar)</code> devuelve las etiquetas de entrada que empiezan con el caractér de etiqueta de entrada actual. 
+</p>
+<p>La variable <code>labels</code> es una lista de las etiquetas de entrada, salida y expresiones intermedias, incluyendo todas las etiquetas anteriores en el caso de que <code>inchar</code>, <code>outchar</code> o <code>linechar</code> hayan sido redefinidas. 
+</p>
+<p>Por defecto, Maxima muestra el resultado de cada expresión introducida por el usuario, asignando al resultado una etiqueta de salida. 
+La salida (es decir el resultado) puede ser suprimida terminando la expresión de entrada con un <code>$</code> (signo de dólar) en vez de un <code>;</code> (punto y coma). 
+En este caso, se crea la etiqueta de salida y se le asigna el resultado, aunque éste no se muestre; aún así, la etiqueta puede ser referenciada de la misma forma que se hace con aquéllas cuyos resultados sí son mostrados.
+</p>
+<p>Véanse también: <code>%</code>, <code>%%</code> y <code>%th</code>. 
+</p>
+<p>Las etiquetas de expresiones intermedias pueden ser generadas por algunas funciones. El interruptor <code>programmode</code> controla si <code>solve</code> y algunas otras funciones generan etiquetas de expresiones intermedias en vez de retornar una lista de expresiones. 
+Algunas otras funciones, tales como <code>ldisplay</code>, siempre generan etiquetas de expresiones intermedias. 
+</p> 
+
+<p>Véase también: <code>inchar</code>, <code>outchar</code>, <code>linechar</code> y <code>infolists</code>.
+</p>
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002flinechar"></span><dl class="def">
+<dt id="index-linechar"><span class="category">Variable opcional: </span><span><strong>linechar</strong><a href='#index-linechar' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>%t</code>
+</p>
+<p>La variable <code>linechar</code> es el prefijo de las etiquetas que
+genera Maxima para expresiones intermedias. Cuando sea necesario,
+Maxima creará una etiqueta para cada expresión intermedia 
+concatenando <code>linechar</code> y <code>linenum</code>.
+</p>
+<p>A <code>linechar</code> se le puede asignar cualquier símbolo 
+o cadena, no necesariamente un caracácter sencillo. Puesto que
+internamente Maxima solo tiene en cuenta el primer carácter del
+prefijo, los prefijos <code>inchar</code>, <code>outchar</code> y <code>linechar</code>
+deben comenzar con caracteres diferentes; en caso contrario, sentencias
+como <code>kill(inlables)</code> pueden dar resultados inesperados.
+</p>
+<p>Las expresiones intermedias pueden ser mostradas o no.
+Véanse también <code>programmode</code> y <code>labels</code>.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002flinenum"></span><dl class="def">
+<dt id="index-linenum"><span class="category">Variable del sistema: </span><span><strong>linenum</strong><a href='#index-linenum' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>El número de la línea del par de expresiones de entrada y salida actuales. 
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fmyoptions"></span><dl class="def">
+<dt id="index-myoptions"><span class="category">Variable del sistema: </span><span><strong>myoptions</strong><a href='#index-myoptions' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>[]</code>
+</p>
+<p><code>myoptions</code> es la lista de todas las opciones que nunca fueron reconfiguradas por el usuario, aunque éstas hayan sido reconfiguradas a su valor por defecto. 
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fnolabels"></span><dl class="def">
+<dt id="index-nolabels"><span class="category">Variable opcional: </span><span><strong>nolabels</strong><a href='#index-nolabels' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Cuando <code>nolabels</code> vale <code>true</code>,
+las etiquetas de entrada y salida 
+(<code>%i</code> y <code>%o</code>, respectivamente)
+son mostradas, pero a éstas no se les 
+asignan los resultados; además, las etiquetas no se
+incorporan a la lista <code>labels</code>.
+Puesto que a las etiquetas no se les asignan resultados, 
+el colector de basura puede recuperar la memoria ocupada
+por éstos.
+</p>
+<p>En el caso contrario, a las etiquetas de entrada y salida se les asignan los resultados correspondientes y son añadidas a la lista <code>labels</code>.
+</p>
+<p>Las etiquetas de expresiones intermedias (<code>%t</code>) no se ven afectadas por la variable <code>nolabels</code>;
+independientemente de que <code>nolabels</code> valga <code>true</code> o <code>false</code>, a las etiquetas de expresiones intermedias se les asignan siempre valores, además de ser añadidas a la lista <code>labels</code>.
+</p>
+<p>Véanse también <code>batch</code>, <code>batchload</code> y <code>labels</code>. 
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002foptionset"></span><dl class="def">
+<dt id="index-optionset"><span class="category">Variable opcional: </span><span><strong>optionset</strong><a href='#index-optionset' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Cuando <code>optionset</code> tiene como valor <code>true</code>, Maxima imprime un
+mensaje cada vez que una opción de Maxima es reconfigurada. Esto es 
+muy útil si el usuario duda con frecuencia de la correctitud de alguna
+opción y quiere estar seguro de la variable a la que él asignó un
+valor fue verdaramente una variable opción (o interruptor). 
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) optionset:true;
+assignment: assigning to option optionset
+(%o1)                         true
+(%i2) gamma_expand:true;
+assignment: assigning to option gamma_expand
+(%o2)                         true
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002foutchar"></span><dl class="def">
+<dt id="index-outchar"><span class="category">Variable opcional: </span><span><strong>outchar</strong><a href='#index-outchar' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>%o</code>
+</p>
+<p>La variable <code>outchar</code> es el prefijo de las etiquetas de las 
+expresiones calculadas por Maxima. Maxima crea automáticamente 
+una etiqueta para cada expresión calculada concatenando <code>outchar</code>
+y <code>linenum</code>.
+</p>
+<p>A <code>outchar</code> se le puede asignar cualquier símbolo 
+o cadena, no necesariamente un caracácter sencillo. Puesto que
+internamente Maxima solo tiene en cuenta el primer carácter del
+prefijo, los prefijos <code>inchar</code>, <code>outchar</code> y <code>linechar</code>
+deben comenzar con caracteres diferentes; en caso contrario, sentencias
+como <code>kill(inlables)</code> pueden dar resultados inesperados.
+</p>
+<p>Véase también <code>labels</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) outchar: &quot;output&quot;;
+(output1)                    output
+(%i2) expand((a+b)^3);
+                     3        2      2      3
+(output2)           b  + 3 a b  + 3 a  b + a
+(%i3)
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fplayback"></span><dl class="def">
+<dt id="index-playback"><span class="category">Función: </span><span><strong>playback</strong> <em>()</em><a href='#index-playback' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-playback-1"><span class="category">Función: </span><span><strong>playback</strong> <em>(<var>n</var>)</em><a href='#index-playback-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-playback-2"><span class="category">Función: </span><span><strong>playback</strong> <em>([<var>m</var>, <var>n</var>])</em><a href='#index-playback-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-playback-3"><span class="category">Función: </span><span><strong>playback</strong> <em>([<var>m</var>])</em><a href='#index-playback-3' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-playback-4"><span class="category">Función: </span><span><strong>playback</strong> <em>(input)</em><a href='#index-playback-4' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-playback-5"><span class="category">Función: </span><span><strong>playback</strong> <em>(slow)</em><a href='#index-playback-5' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-playback-6"><span class="category">Función: </span><span><strong>playback</strong> <em>(time)</em><a href='#index-playback-6' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-playback-7"><span class="category">Función: </span><span><strong>playback</strong> <em>(grind)</em><a href='#index-playback-7' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Muestra las entradas, salidas y expresiones intermedias 
+sin recalcularlas. 
+<code>playback</code> sólo muestra las expresiones asociadas con etiquetas; 
+cualquier otra salida (tal como texto impreso por <code>print</code> o <code>describe</code>, o mensajes de error) no es mostrada. 
+Véase también: <code>labels</code>. 
+</p>
+<p><code>playback</code> no evalua sus argumentos. 
+El operador comilla-comilla, <code>'<!-- /@w -->'</code>, obliga a que se realice la evaluación.
+<code>playback</code> siempre devuelve <code>done</code>. 
+</p>
+<p><code>playback ()</code> (sin argumentos) muestra todas las entradas, salidas y expresiones intermedias generadas hasta el momento. 
+Una expresión de salida es mostrada incluso si ésta fue suprimida por el caracter de terminación <code>$</code>, cuando fue originalmente calculada. 
+</p>
+<p><code>playback (<var>n</var>)</code>  muestra las <var>n</var> expresiones más recientes. Cada entrada, salida y expresión intermedia cuenta como una. 
+</p>
+<p><code>playback ([<var>m</var>, <var>n</var>])</code> muestra entradas, salidas y expresiones intermedias con los números desde <var>m</var> hasta <var>n</var>, ambos inclusive. 
+</p>
+<p><code>playback ([<var>m</var>])</code> es equivalente a <code>playback ([<var>m</var>, <var>m</var>])</code>;
+esto usualmente imprime un par de expresiones de entrada y salida. 
+</p>
+<p><code>playback (input)</code> muestra todas las expresiones de entrada generadas hasta el momento. 
+</p>
+<p><code>playback (slow)</code> hace pausas entre expresiones y
+espera a que el usuario pulse la tecla <code>enter</code> para continuar. 
+Esto es un comportamiento similar a <code>demo</code>. 
+</p>
+<p><code>playback (slow)</code> es muy útil en conjunción con <code>save</code> o
+<code>stringout</code> cuando se crea un archivo secundario de almacenamiento con el objetivo de elegir cuidadosamente las expresiones realmente útiles. 
+</p>
+
+<p><code>playback (time)</code> muestra el tiempo de computo por cada expresión. 
+</p>
+
+<p><code>playback (grind)</code> muestra las expresiones de entrada 
+en el mismo formato como la función <code>grind</code>. 
+Las expresiones de salida no se ven afectadas por la opción 
+<code>grind</code>. 
+Vea <code>grind</code>. 
+Los argumentos pueden ser combinados, por ejemplo, 
+<code>playback ([5, 10], grind, time, slow)</code>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fprompt"></span><dl class="def">
+<dt id="index-prompt"><span class="category">Variable opcional: </span><span><strong>prompt</strong><a href='#index-prompt' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>_</code>
+</p>
+<p><code>prompt</code> es el símbolo del prompt de la función <code>demo</code>, 
+del modo <code>playback (slow)</code> y del bucle de interrupción de Maxima (el que se invoca con <code>break</code>). 
+</p>
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fquit"></span><dl class="def">
+<dt id="index-quit"><span class="category">Función: </span><span><strong>quit</strong> <em>()</em><a href='#index-quit' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Termina una sesión de Maxima. 
+Nótese que la función debe ser invocada como <code>quit();</code> o <code>quit()$</code>, no como <code>quit</code>. 
+</p>
+<p>Para parar un cálculo muy demorado 
+pulse <code>Control-C</code>. 
+La acción por defecto es retornar a prompt de Maxima. 
+Si <code>*debugger-hook*</code> tiene como valor <code>nil</code>,
+pulsar <code>Control-C</code> abrirá el depurador de Lisp. 
+Vea también: <code>debugging</code>. 
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fread"></span><dl class="def">
+<dt id="index-read"><span class="category">Función: </span><span><strong>read</strong> <em>(<var>expr_1</var>, ..., <var>expr_n</var>)</em><a href='#index-read' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Imprime <var>expr_1</var>, ..., <var>expr_n</var> y a continuación lee una expresión desde la consola y devuelve la expresión evaluada. La expresión termina con un punto y coma <code>;</code> o con el símbolo de dólar <code>$</code>.
+</p>
+<p>Véase también <code>readonly</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) foo: 42$ 
+(%i2) foo: read (&quot;foo vale&quot;, foo, &quot; -- nuevo valor.&quot;)$
+foo vale 42  -- nuevo valor. 
+(a+b)^3;
+(%i3) foo;
+                                     3
+(%o3)                         (b + a)
+</pre></div>
+
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002freadonly"></span><dl class="def">
+<dt id="index-readonly"><span class="category">Función: </span><span><strong>readonly</strong> <em>(<var>expr_1</var>, ..., <var>expr_n</var>)</em><a href='#index-readonly' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Imprime <var>expr_1</var>, ..., <var>expr_n</var> y a continuación lee una expresión desde la consola y devuelve la expresión sin evaluar. La expresión termina con un punto y coma <code>;</code> o con el símbolo de dólar <code>$</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) aa: 7$
+(%i2) foo: readonly (&quot;Introducir expresion:&quot;);
+Introducir expresion: 
+2^aa;
+                                  aa
+(%o2)                            2
+(%i3) foo: read (&quot;Introducir expresion:&quot;);
+Introducir expresion: 
+2^aa;
+(%o3)                            128
+</pre></div>
+
+<p>Véase también <code>read</code>.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002freset"></span><dl class="def">
+<dt id="index-reset"><span class="category">Función: </span><span><strong>reset</strong> <em>()</em><a href='#index-reset' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Reconfigura muchas variables y opciones globales y algunas otras variables a sus valores por defecto. 
+</p>
+<p><code>reset</code> procesa las variables que se encuentran en la lista Lisp 
+<code>*variable-initial-values*</code>. 
+La macro Lisp <code>defmvar</code> pone las variables en ésta lista (entre otras acciones). 
+Muchas, pero no todas, las variables y opciones globales son definidas por <code>defmvar</code>, y algunas variables definidas por <code>defmvar</code> no son ni variables ni opciones globales. 
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fshowtime"></span><dl class="def">
+<dt id="index-showtime"><span class="category">Variable opcional: </span><span><strong>showtime</strong><a href='#index-showtime' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Cuando <code>showtime</code> tiene como valor <code>true</code>, el tiempo de cálculo y el tiempo de retardo se imprimen junto con la salida de cada expresión. 
+</p>
+<p>El tiempo de cálculo se almacena siempre, de manera que <code>time</code> y <code>playback</code> puedan mostrar el tiempo de cálculo incluso cuando <code>showtime</code> vale <code>false</code>.
+</p>
+<p>Véase también <code>timer</code>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fto_005flisp"></span><dl class="def">
+<dt id="index-to_005flisp"><span class="category">Function: </span><span><strong>to_lisp</strong> <em>()</em><a href='#index-to_005flisp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Entra en el intérprete Lisp bajo Maxima. <code>(to-maxima)</code> retorna de nuevo a Maxima. 
+</p>
+<p>Ejemplo:
+</p>
+<p>Define una función y entra en el nivel Lisp. La definición
+se consulta en la lista de propiedades, luego se extrae la definición
+de la función, se factoriza y almacena el resultado en la variable <code>$result</code>.
+Esta variable se puede utilizar luego una vez se haya vuelto al nivel
+de Maxima.
+</p>
+<div class="example">
+<pre class="example">(%i1) f(x):=x^2+x;
+                                         2
+(%o1)                           f(x) := x  + x
+(%i2) to_lisp();
+Type (to-maxima) to restart, ($quit) to quit Maxima.
+
+MAXIMA&gt; (symbol-plist '$f)
+(MPROPS (NIL MEXPR ((LAMBDA) ((MLIST) $X) ((MPLUS) ((MEXPT) $X 2) $X))))
+MAXIMA&gt; (setq $result ($factor (caddr (mget '$f 'mexpr))))
+((MTIMES SIMP FACTORED) $X ((MPLUS SIMP IRREDUCIBLE) 1 $X))
+MAXIMA&gt; (to-maxima)
+Returning to Maxima
+(%o2)                                true
+(%i3) result;
+(%o3)                              x (x + 1)
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fvalues"></span><dl class="def">
+<dt id="index-values"><span class="category">Variable del sistema: </span><span><strong>values</strong><a href='#index-values' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor inicial: <code>[]</code>
+</p>
+<p><code>values</code> es una lista de todas las variables que el usuario ha creado
+(no incluye las opciones de Maxima ni los interruptores). 
+La lista comprende los símbolos a los que se ha asignado un
+valor mediante <code>:</code> o <code>::</code>.
+</p>
+<p>Si el valor de una variable se borra con cualquiera de las instrucciones
+<code>kill</code>, <code>remove</code> o <code>remvalue</code>, dicha variable desaparece
+de la lista <code>values</code>.
+</p>
+<p>Véase <code>functions</code> para una lista de funciones definidas por el
+usuario.
+</p>
+<p>Ejemplos:
+</p>
+<p>Primero, <code>values</code> muestra los símbolos <code>a</code>, 
+<code>b</code> y <code>c</code>, pero no <code>d</code>, pues no tiene valor asignado,
+ni la función de usuario <code>f</code>. Luego los valores de las variables se
+borran y <code>values</code> queda como una lista vacía.
+</p>
+<div class="example">
+<pre class="example">(%i1) [a:99, b::a-90, c:a-b, d, f(x):= x^2];
+                                                  2
+(%o1)                     [99, 9, 90, d, f(x) := x ]
+(%i2) values;
+(%o2)                              [a, b, c]
+(%i3) [kill(a), remove(b,value), remvalue(c)];
+(%o3)                          [done, done, [c]]
+(%i4) values;
+(%o4)                                 []
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="Item_003a-Command_002ees_002fnode_002fFunciones-y-variables-para-la-impresi_00f3n"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_9.html" accesskey="n" rel="next">Funciones y variables para la impresión</a>, Anterior: <a href="maxima_7.html" accesskey="p" rel="prev">Introducción a la línea de comandos</a>, Subir: <a href="maxima_6.html" accesskey="u" rel="up">Línea de comandos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

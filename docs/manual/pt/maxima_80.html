@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ponto (Manual do Maxima 5.47.0)</title>
+
+<meta name="description" content="Ponto (Manual do Maxima 5.47.0)">
+<meta name="keywords" content="Ponto (Manual do Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_218.html" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_79.html" rel="up" title="Introdução a Matrizes e Álgebra Linear">
+<link href="maxima_81.html" rel="next" title="Vetores">
+<link href="maxima_79.html" rel="prev" title="Introdução a Matrizes e Álgebra Linear">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="pt">
+<div class="subsection" id="Ponto">
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_81.html" accesskey="n" rel="next">Vetores</a>, Anterior: <a href="maxima_79.html" accesskey="p" rel="prev">Introdução a Matrizes e Álgebra Linear</a>, Acima: <a href="maxima_79.html" accesskey="u" rel="up">Introdução a Matrizes e Álgebra Linear</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<span id="Ponto-1"></span><h4 class="subsection">25.1.1, Ponto</h4>
+<p>O operador <code>.</code> representa multiplicação não comutativa e produto escalar.
+Quando os operandos são matrizes 1-coluna ou 1-linha <code>a</code> e <code>b</code>,
+a expresão <code>a.b</code> é equivalente a <code>sum (a[i]*b[i], i, 1, length(a))</code>.
+Se <code>a</code> e <code>b</code> não são complexos, isso é o produto escalar,
+também chamado produto interno ou produto do ponto, de <code>a</code> e <code>b</code>.
+O produto escalar é definido como <code>conjugate(a).b</code> quando <code>a</code> e <code>b</code> são complexos;
+<code>innerproduct</code> no pacote <code>eigen</code> fornece o produto escalar complexo.
+</p>
+<p>Quando os operandos são matrizes mais gerais,
+o produto é a matriz produto <code>a</code> e <code>b</code>.
+O número de linhas de <code>b</code> deve ser igual ao número de colunas de <code>a</code>,
+e o resultado tem número de linhas igual ao número de linhas de <code>a</code>
+e número de colunas igual ao número de colunas de <code>b</code>.
+</p>
+<p>Para distinguir <code>.</code> como um operador aritmético do 
+ponto decimal em um número em ponto flutuante,
+pode ser necessário deixar espaços em cada lado.
+Por exemplo, <code>5.e3</code> é <code>5000.0</code> mas <code>5 . e3</code> é <code>5</code> vezes <code>e3</code>.
+</p>
+<p>Existem muitos sinalizadores que governam a simplificação de
+expresões envolvendo <code>.</code>, a saber
+<code>dot</code>, <code>dot0nscsimp</code>, <code>dot0simp</code>, <code>dot1simp</code>, <code>dotassoc</code>, 
+<code>dotconstrules</code>, <code>dotdistrib</code>, <code>dotexptsimp</code>, <code>dotident</code>,
+e <code>dotscrules</code>.
+</p>
+<span id="Item_003a-Matrices_002fnode_002fVetores"></span></div>
+<hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_81.html" accesskey="n" rel="next">Vetores</a>, Anterior: <a href="maxima_79.html" accesskey="p" rel="prev">Introdução a Matrizes e Álgebra Linear</a>, Acima: <a href="maxima_79.html" accesskey="u" rel="up">Introdução a Matrizes e Álgebra Linear</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

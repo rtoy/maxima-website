@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Definiciones para fractales complejos (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Definiciones para fractales complejos (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Definiciones para fractales complejos (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_toc.html" rel="up" title="Top">
+<link href="maxima_223.html" rel="next" title="Definiciones para cops de Koch">
+<link href="maxima_221.html" rel="prev" title="Definiciones para IFS fractals">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Definiciones-para-fractales-complejos">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_223.html" accesskey="n" rel="next">Definiciones para cops de Koch</a>, Anterior: <a href="maxima_221.html" accesskey="p" rel="prev">Definiciones para IFS fractals</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Definiciones-para-fractales-complejos-1"></span><h3 class="section">53.3 Definiciones para fractales complejos</h3>
+
+<span id="Item_003a-fractals_002fdeffn_002fmandelbrot_005fset"></span><dl class="def">
+<dt id="index-mandelbrot_005fset"><span class="category">Función: </span><span><strong>mandelbrot_set</strong> <em>(<var>x</var>, <var>y</var>)</em><a href='#index-mandelbrot_005fset' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Conjunto de Mandelbrot.
+</p>
+<p>Esta función debe realizar muchas operaciones y puede tardar bastante
+tiempo en ejecutarse, tiempo que también depende del número de puntos
+de la malla.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;fractals&quot;)$
+(%i2) plot3d (mandelbrot_set, [x, -2.5, 1], [y, -1.5, 1.5],
+                [gnuplot_preamble, &quot;set view map&quot;],
+                [gnuplot_pm3d, true],
+                [grid, 150, 150])$
+</pre></div>
+</dd></dl>
+
+
+
+
+<span id="Item_003a-fractals_002fdeffn_002fjulia_005fset"></span><dl class="def">
+<dt id="index-julia_005fset"><span class="category">Función: </span><span><strong>julia_set</strong> <em>(<var>x</var>, <var>y</var>)</em><a href='#index-julia_005fset' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Conjuntos de Julia.
+</p>
+<p>Esta función debe realizar muchas operaciones y puede tardar bastante
+tiempo en ejecutarse, tiempo que también depende del número de puntos
+de la malla.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;fractals&quot;)$
+(%i2) plot3d (julia_set, [x, -2, 1], [y, -1.5, 1.5],
+                [gnuplot_preamble, &quot;set view map&quot;],
+                [gnuplot_pm3d, true],
+                [grid, 150, 150])$
+</pre></div>
+
+<p>Véase también <code>julia_parameter</code>.
+</p></dd></dl>
+
+
+
+
+<span id="Item_003a-fractals_002fdefvr_002fjulia_005fparameter"></span><dl class="def">
+<dt id="index-julia_005fparameter"><span class="category">Variable opcional: </span><span><strong>julia_parameter</strong><a href='#index-julia_005fparameter' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>%i</code>
+</p>
+<p>Parámetro complejo para fractales de Julia. Su valor por defecto es <code>%i</code>,
+y otros que se sugieren son: <code>-.745+%i*.113002</code>, <code>-.39054-%i*.58679</code>,
+<code>-.15652+%i*1.03225</code>, <code>-.194+%i*.6557</code> y <code>.011031-%i*.67037</code>.
+</p>
+</dd></dl>
+
+
+
+
+
+<span id="Item_003a-fractals_002fdeffn_002fjulia_005fsin"></span><dl class="def">
+<dt id="index-julia_005fsin"><span class="category">Función: </span><span><strong>julia_sin</strong> <em>(<var>x</var>, <var>y</var>)</em><a href='#index-julia_005fsin' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Mientras que la función <code>julia_set</code> implementa la transformación 
+<code>julia_parameter+z^2</code>, la función <code>julia_sin</code> implementa 
+<code>julia_parameter*sin(z)</code>. Véase el código fuente para más detalles.
+</p>
+<p>Este programa es lento porque calcula muchos senos; el tiempo de ejecución 
+también depende del número de puntos de la malla.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;fractals&quot;)$
+(%i2) julia_parameter:1+.1*%i$
+(%i3) plot3d (julia_sin, [x, -2, 2], [y, -3, 3], 
+                [gnuplot_preamble, &quot;set view map&quot;],
+                [gnuplot_pm3d, true],
+                [grid, 150, 150])$
+</pre></div>
+
+<p>Véase también <code>julia_parameter</code>.
+</p></dd></dl>
+
+<span id="Item_003a-fractals_002fnode_002fDefiniciones-para-cops-de-Koch"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_223.html" accesskey="n" rel="next">Definiciones para cops de Koch</a>, Anterior: <a href="maxima_221.html" accesskey="p" rel="prev">Definiciones para IFS fractals</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

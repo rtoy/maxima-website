@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Explicit Simplifications Using Identities (Maxima 5.47.0 Manual)</title>
+
+<meta name="description" content="Explicit Simplifications Using Identities (Maxima 5.47.0 Manual)">
+<meta name="keywords" content="Explicit Simplifications Using Identities (Maxima 5.47.0 Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_423.html" rel="index" title="Function and Variable Index">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="maxima_54.html" rel="up" title="Functions and Variables for Trigonometric">
+<link href="maxima_58.html" rel="next" title="Additional Functions">
+<link href="maxima_56.html" rel="prev" title="Options Controlling Simplification">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body lang="en" class="tex2jax_ignore">
+<div class="subsubsection" id="Explicit-Simplifications-Using-Identities">
+<div class="header">
+<p>
+Next: <a href="maxima_58.html" accesskey="n" rel="next">Additional Functions</a>, Previous: <a href="maxima_56.html" accesskey="p" rel="prev">Options Controlling Simplification</a>, Up: <a href="maxima_54.html" accesskey="u" rel="up">Functions and Variables for Trigonometric</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Explicit-Simplifications-Using-Identities-1"></span><h4 class="subsubsection">10.5.2.3 Explicit Simplifications Using Identities</h4>
+
+<span id="trigexpand"></span><span id="Item_003a-MathFunctions_002fdeffn_002ftrigexpand"></span><dl class="def">
+<dt id="index-trigexpand"><span class="category">Function: </span><span><strong>trigexpand</strong> <em>(<var>expr</var>)</em><a href='#index-trigexpand' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Expands trigonometric and hyperbolic functions of
+sums of angles and of multiple angles occurring in <var>expr</var>.  For best
+results, <var>expr</var> should be expanded.  To enhance user control of
+simplification, this function expands only one level at a time,
+expanding sums of angles or multiple angles.  To obtain full expansion
+into sines and cosines immediately, set the switch <code>trigexpand: true</code>.
+</p>
+<p><code>trigexpand</code> is governed by the following global flags:
+</p>
+<dl compact="compact">
+<dt><span><code><a href="#trigexpand">trigexpand</a></code></span></dt>
+<dd><p>If <code>true</code> causes expansion of all
+expressions containing sin&rsquo;s and cos&rsquo;s occurring subsequently.
+</p></dd>
+<dt><span><code><a href="maxima_56.html#halfangles">halfangles</a></code></span></dt>
+<dd><p>If <code>true</code> causes half-angles to be simplified
+away.
+</p></dd>
+<dt><span><code><a href="#trigexpandplus">trigexpandplus</a></code></span></dt>
+<dd><p>Controls the &quot;sum&quot; rule for <code>trigexpand</code>,
+expansion of sums (e.g. <code>sin(x + y)</code>) will take place only if
+<code>trigexpandplus</code> is <code>true</code>.
+</p></dd>
+<dt><span><code><a href="#trigexpandtimes">trigexpandtimes</a></code></span></dt>
+<dd><p>Controls the &quot;product&quot; rule for <code>trigexpand</code>,
+expansion of products (e.g. <code>sin(2 x)</code>) will take place only if
+<code>trigexpandtimes</code> is <code>true</code>.
+</p></dd>
+</dl>
+
+<p>Examples:
+</p>
+<div class="example">
+<pre class="example">(%i1) x+sin(3*x)/sin(x),trigexpand=true,expand;
+                         2            2
+(%o1)              (- sin (x)) + 3 cos (x) + x
+</pre><pre class="example">(%i2) trigexpand(sin(10*x+y));
+(%o2)          cos(10 x) sin(y) + sin(10 x) cos(y)
+</pre></div>
+
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Simplification-functions">Simplification functions</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="trigexpandplus"></span><span id="Item_003a-MathFunctions_002fdefvr_002ftrigexpandplus"></span><dl class="def">
+<dt id="index-trigexpandplus"><span class="category">Option variable: </span><span><strong>trigexpandplus</strong><a href='#index-trigexpandplus' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Default value: <code>true</code>
+</p>
+<p><code>trigexpandplus</code> controls the &quot;sum&quot; rule for
+<code><a href="#trigexpand">trigexpand</a></code>.  Thus, when the <code><a href="#trigexpand">trigexpand</a></code> command is used or the
+<code><a href="#trigexpand">trigexpand</a></code> switch set to <code>true</code>, expansion of sums
+(e.g. <code>sin(x+y))</code> will take place only if <code>trigexpandplus</code> is
+<code>true</code>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="trigexpandtimes"></span><span id="Item_003a-MathFunctions_002fdefvr_002ftrigexpandtimes"></span><dl class="def">
+<dt id="index-trigexpandtimes"><span class="category">Option variable: </span><span><strong>trigexpandtimes</strong><a href='#index-trigexpandtimes' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Default value: <code>true</code>
+</p>
+<p><code>trigexpandtimes</code> controls the &quot;product&quot; rule for <code><a href="#trigexpand">trigexpand</a></code>.
+Thus, when the <code><a href="#trigexpand">trigexpand</a></code> command is used or the <code><a href="#trigexpand">trigexpand</a></code>
+switch set to <code>true</code>, expansion of products (e.g. <code>sin(2*x)</code>)
+will take place only if <code>trigexpandtimes</code> is <code>true</code>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="triginverses"></span><span id="Item_003a-MathFunctions_002fdefvr_002ftriginverses"></span><dl class="def">
+<dt id="index-triginverses"><span class="category">Option variable: </span><span><strong>triginverses</strong><a href='#index-triginverses' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Default value: <code>true</code>
+</p>
+<p><code>triginverses</code> controls the simplification of the
+composition of trigonometric and hyperbolic functions with their inverse
+functions.
+</p>
+<p>If <code>all</code>, both e.g. <code>atan(tan(<var>x</var>))</code>
+and <code>tan(atan(<var>x</var>))</code> simplify to <var>x</var>.
+</p>
+<p>If <code>true</code>, the <code><var>arcfun</var>(<var>fun</var>(<var>x</var>))</code>
+simplification is turned off.
+</p>
+<p>If <code>false</code>, both the
+<code><var>arcfun</var>(<var>fun</var>(<var>x</var>))</code> and
+<code><var>fun</var>(<var>arcfun</var>(<var>x</var>))</code>
+simplifications are turned off.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="trigreduce"></span><span id="Item_003a-MathFunctions_002fdeffn_002ftrigreduce"></span><dl class="def">
+<dt id="index-trigreduce"><span class="category">Function: </span><span><strong>trigreduce</strong> <em><br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>trigreduce</tt> (<var>expr</var>, <var>x</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>trigreduce</tt> (<var>expr</var>)</em><a href='#index-trigreduce' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Combines products and powers of trigonometric
+and hyperbolic sin&rsquo;s and cos&rsquo;s of <var>x</var> into those of multiples of <var>x</var>.
+It also tries to eliminate these functions when they occur in
+denominators.  If <var>x</var> is omitted then all variables in <var>expr</var> are used.
+</p>
+<p>See also <code><a href="maxima_144.html#poissimp">poissimp</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) trigreduce(-sin(x)^2+3*cos(x)^2+x);
+               cos(2 x)      cos(2 x)   1        1
+(%o1)          -------- + 3 (-------- + -) + x - -
+                  2             2       2        2
+</pre></div>
+
+
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Simplification-functions">Simplification functions</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="trigsimp"></span><span id="Item_003a-MathFunctions_002fdeffn_002ftrigsimp"></span><dl class="def">
+<dt id="index-trigsimp"><span class="category">Function: </span><span><strong>trigsimp</strong> <em>(<var>expr</var>)</em><a href='#index-trigsimp' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Employs the identities 
+<em class='tex2jax_process'>\(\sin\left(x\right)^2 + \cos\left(x\right)^2 = 1\)</em>
+ and 
+<em class='tex2jax_process'>\(\cosh\left(x\right)^2 - \sinh\left(x\right)^2 = 1\)</em>
+ to
+simplify expressions containing <code>tan</code>, <code>sec</code>,
+etc., to <code>sin</code>, <code>cos</code>, <code>sinh</code>, <code>cosh</code>.
+</p>
+<p><code><a href="#trigreduce">trigreduce</a></code>, <code><a href="maxima_80.html#ratsimp">ratsimp</a></code>, and <code><a href="maxima_46.html#radcan">radcan</a></code> may be
+able to further simplify the result.
+</p>
+<p><code>demo (&quot;trgsmp.dem&quot;)</code> displays some examples of <code>trigsimp</code>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Simplification-functions">Simplification functions</a>
+&middot;
+</div>
+</dd></dl>
+
+
+<span id="trigrat"></span><span id="Item_003a-MathFunctions_002fdeffn_002ftrigrat"></span><dl class="def">
+<dt id="index-trigrat"><span class="category">Function: </span><span><strong>trigrat</strong> <em>(<var>expr</var>)</em><a href='#index-trigrat' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Gives a canonical simplified quasilinear form of a trigonometrical expression;
+<var>expr</var> is a rational fraction of several <code>sin</code>, <code>cos</code> or
+<code>tan</code>, the arguments of them are linear forms in some variables (or
+kernels) and <code>%pi/<var>n</var></code> (<var>n</var> integer) with integer coefficients.
+The result is a simplified fraction with numerator and denominator linear in
+<code>sin</code> and <code>cos</code>.  Thus <code>trigrat</code> linearize always when it is
+possible.
+</p>
+<div class="example">
+<pre class="example">(%i1) trigrat(sin(3*a)/sin(a+%pi/3));
+(%o1)            sqrt(3) sin(2 a) + cos(2 a) - 1
+</pre></div>
+
+<p>The following example is taken from
+Davenport, Siret, and Tournier, <i>Calcul Formel</i>, Masson (or in English,
+Addison-Wesley), section 1.5.5, Morley theorem.
+</p>
+<div class="example">
+<pre class="example">(%i1) c : %pi/3 - a - b$
+</pre><pre class="example">(%i2) bc : sin(a)*sin(3*c)/sin(a+b);
+                                           %pi
+                 sin(a) sin(3 ((- b) - a + ---))
+                                            3
+(%o2)            -------------------------------
+                           sin(b + a)
+</pre><pre class="example">(%i3) ba : bc, c=a, a=c;
+                                         %pi
+                    sin(3 a) sin(b + a - ---)
+                                          3
+(%o3)               -------------------------
+                                  %pi
+                          sin(a - ---)
+                                   3
+</pre><pre class="example">(%i4) ac2 : ba^2 + bc^2 - 2*bc*ba*cos(b);
+         2         2         %pi
+      sin (3 a) sin (b + a - ---)
+                              3
+(%o4) ---------------------------
+                2     %pi
+             sin (a - ---)
+                       3
+                                         %pi
+ - (2 sin(a) sin(3 a) sin(3 ((- b) - a + ---)) cos(b)
+                                          3
+             %pi            %pi
+ sin(b + a - ---))/(sin(a - ---) sin(b + a))
+              3              3
+      2       2                %pi
+   sin (a) sin (3 ((- b) - a + ---))
+                                3
+ + ---------------------------------
+                 2
+              sin (b + a)
+</pre><pre class="example">(%i5) trigrat (ac2);
+(%o5) - (sqrt(3) sin(4 b + 4 a) - cos(4 b + 4 a)
+ - 2 sqrt(3) sin(4 b + 2 a) + 2 cos(4 b + 2 a)
+ - 2 sqrt(3) sin(2 b + 4 a) + 2 cos(2 b + 4 a)
+ + 4 sqrt(3) sin(2 b + 2 a) - 8 cos(2 b + 2 a) - 4 cos(2 b - 2 a)
+ + sqrt(3) sin(4 b) - cos(4 b) - 2 sqrt(3) sin(2 b) + 10 cos(2 b)
+ + sqrt(3) sin(4 a) - cos(4 a) - 2 sqrt(3) sin(2 a) + 10 cos(2 a)
+ - 9)/4
+</pre></div>
+
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Simplification-functions">Simplification functions</a>
+&middot;
+</div>
+</dd></dl>
+
+
+<span id="Item_003a-MathFunctions_002fnode_002fAdditional-Functions"></span></div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="maxima_58.html" accesskey="n" rel="next">Additional Functions</a>, Previous: <a href="maxima_56.html" accesskey="p" rel="prev">Options Controlling Simplification</a>, Up: <a href="maxima_54.html" accesskey="u" rel="up">Functions and Variables for Trigonometric</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>JavaScript license information</small></a>
+</body>
+</html>

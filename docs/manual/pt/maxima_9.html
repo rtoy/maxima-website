@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introdução a Linha de Comandos (Manual do Maxima 5.47.0)</title>
+
+<meta name="description" content="Introdução a Linha de Comandos (Manual do Maxima 5.47.0)">
+<meta name="keywords" content="Introdução a Linha de Comandos (Manual do Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_218.html" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_8.html" rel="up" title="Linha de Comandos">
+<link href="maxima_10.html" rel="next" title="Definições para Linha de Comandos">
+<link href="maxima_8.html" rel="prev" title="Linha de Comandos">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="pt">
+<div class="section" id="Introdu_00e7_00e3o-a-Linha-de-Comandos">
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_10.html" accesskey="n" rel="next">Definições para Linha de Comandos</a>, Anterior: <a href="maxima_8.html" accesskey="p" rel="prev">Linha de Comandos</a>, Acima: <a href="maxima_8.html" accesskey="u" rel="up">Linha de Comandos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<span id="Introducao-a-Linha-de-Comandos"></span><h3 class="section">4.1, Introdução a Linha de Comandos</h3>
+
+<span id="Item_003a-Command_002fdeffn_002f_0027"></span><dl class="def">
+<dt id="index-_0027"><span class="category">Operador: </span><span><strong>'</strong><a href='#index-_0027' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>O operador apóstrofo <code>'</code> evita avaliação.
+</p>
+<p>Aplicado a um símbolo,
+o apóstrofo evita avaliação do símbolo.
+</p>
+<p>Aplicado a uma chamada de função,
+o apóstrofo evita avaliação da chamada de função,
+embora os argumentos da função sejam ainda avaliados (se a avaliação não for de outra forma evitada).
+O resultado é a forma substantiva da chamada de função.
+</p>
+<p>Aplicada a uma espressão com parêntesis,
+o apóstrofo evita avaliação de todos os símbolos e chamadas de função na expressão.
+E.g., <code>'(f(x))</code> significa não avalie a expressão <code>f(x)</code>.
+<code>'f(x)</code> (com apóstrofo aplicado a <code>f</code> em lugar de <code>f(x)</code>)
+retorna a forma substantiva de <code>f</code> aplicada a <code>[x]</code>.
+</p>
+<p>O apóstrofo nao evita simplificação.
+</p>
+<p>Quando o sinalizador global <code>noundisp</code> for <code>true</code>,
+substantivos são mostrados com um apóstrofo.
+Esse comutador é sempre <code>true</code> quando mostrando definições de funções.
+</p>
+<p>Veja também operador apóstrofo-apóstrofo <code>''</code> e <code>nouns</code>.
+</p>
+<p>Exemplos:
+</p>
+<p>Aplicado a um símbolo,
+o apóstrofo evita avaliação do símbolo.
+</p>
+<div class="example">
+<pre class="example">(%i1) aa: 1024;
+(%o1)                         1024
+(%i2) aa^2;
+(%o2)                        1048576
+(%i3) 'aa^2;
+                                 2
+(%o3)                          aa
+(%i4) ''%;
+(%o4)                        1048576
+</pre></div>
+
+<p>Aplicado a uma chamada de função,
+o apóstrofo evita avaliação da chamada de função.
+O resultado é a forma substantiva da chamada de função.
+</p>
+<div class="example">
+<pre class="example">(%i1) x0: 5;
+(%o1)                           5
+(%i2) x1: 7;
+(%o2)                           7
+(%i3) integrate (x^2, x, x0, x1);
+                               218
+(%o3)                          ---
+                                3
+(%i4) 'integrate (x^2, x, x0, x1);
+                             7
+                            /
+                            [   2
+(%o4)                       I  x  dx
+                            ]
+                            /
+                             5
+(%i5) %, nouns;
+                               218
+(%o5)                          ---
+                                3
+</pre></div>
+
+<p>Aplicado a uma expressão com parêntesis,
+o apóstrofo evita avaliação de todos os símbolos e chamadas de função na expressão.
+</p>
+<div class="example">
+<pre class="example">(%i1) aa: 1024;
+(%o1)                         1024
+(%i2) bb: 19;
+(%o2)                          19
+(%i3) sqrt(aa) + bb;
+(%o3)                          51
+(%i4) '(sqrt(aa) + bb);
+(%o4)                     bb + sqrt(aa)
+(%i5) ''%;
+(%o5)                          51
+</pre></div>
+
+<p>O apóstrofo não evita simplificação.
+</p>
+<div class="example">
+<pre class="example">(%i1) sin (17 * %pi) + cos (17 * %pi);
+(%o1)                          - 1
+(%i2) '(sin (17 * %pi) + cos (17 * %pi));
+(%o2)                          - 1
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Command_002fdeffn_002f_0027_0027"></span><dl class="def">
+<dt id="index-_0027_0027"><span class="category">Operador: </span><span><strong>''</strong><a href='#index-_0027_0027' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>O operador apóstrofo-apóstrofo <code>'<!-- /@w -->'</code> (dois apóstrofost) modifica avaliação em expressões de entrada.
+</p>
+<p>Aplicado a uma expressão geral <var>expr</var>, apóstrofo-apóstrofo faz com que o valor de <var>expr</var>
+seja substituído por <var>expr</var> na expressão de entrada.
+</p>
+<p>Aplicado ao operadro de uma expressão,
+apóstrofo-apóstrofo modifica o operadro de um susbstantivo para um verbo (se esse operador não for já um verbo).
+</p>
+<p>O operador apóstrofo-apóstrofo é aplicado através do passador de entrada;
+o apóstrofo-apóstrofo não é armazenado como parte de uma expressão de entrada passada.
+O operador apóstrofo-apóstrofo é sempre aplicado tão rapidamente quanto for passado,
+e não pode receber um terceiro apóstrofo.
+Dessa forma faz com que ocorra avaliação quando essa avaliação for de outra forma suprimida,
+da mesma forma que em definições de função, definições de expressãoes lambda, e expressões que recebem um apóstrofo simples <code>'</code>.
+</p>
+<p>Apóstrofo-apóstrofo é reconhecido por <code>batch</code> e <code>load</code>.
+</p>
+<p>Veja também o operador apóstrofo <code>'</code> e <code>nouns</code>.
+</p>
+<p>Exemplos:
+</p>
+<p>Aplicado a uma expressão geral <var>expr</var>, apóstrofo-apóstrofo fazem com que o valor de <var>expr</var>
+seja substituido por <var>expr</var> na expressão de entrada.
+</p>
+<div class="example">
+<pre class="example">(%i1) expand ((a + b)^3);
+                     3        2      2      3
+(%o1)               b  + 3 a b  + 3 a  b + a
+(%i2) [_, ''_];
+                         3    3        2      2      3
+(%o2)     [expand((b + a) ), b  + 3 a b  + 3 a  b + a ]
+(%i3) [%i1, ''%i1];
+                         3    3        2      2      3
+(%o3)     [expand((b + a) ), b  + 3 a b  + 3 a  b + a ]
+(%i4) [aa : cc, bb : dd, cc : 17, dd : 29];
+(%o4)                   [cc, dd, 17, 29]
+(%i5) foo_1 (x) := aa - bb * x;
+(%o5)                 foo_1(x) := aa - bb x
+(%i6) foo_1 (10);
+(%o6)                      cc - 10 dd
+(%i7) ''%;
+(%o7)                         - 273
+(%i8) ''(foo_1 (10));
+(%o8)                         - 273
+(%i9) foo_2 (x) := ''aa - ''bb * x;
+(%o9)                 foo_2(x) := cc - dd x
+(%i10) foo_2 (10);
+(%o10)                        - 273
+(%i11) [x0 : x1, x1 : x2, x2 : x3];
+(%o11)                    [x1, x2, x3]
+(%i12) x0;
+(%o12)                         x1
+(%i13) ''x0;
+(%o13)                         x2
+(%i14) '' ''x0;
+(%o14)                         x3
+</pre></div>
+
+<p>Aplicado ao operador de uma expressão,
+apóstrofo-apóstrofo muda o operadro de um substantivo para um verbo (se esse operadro não for já um verbo).
+</p>
+<div class="example">
+<pre class="example">(%i1) sin (1);
+(%o1)                        sin(1)
+(%i2) ''sin (1);
+(%o2)                    0.8414709848079
+(%i3) declare (foo, noun);
+(%o3)                         done
+(%i4) foo (x) := x - 1729;
+(%o4)                 ''foo(x) := x - 1729
+(%i5) foo (100);
+(%o5)                       foo(100)
+(%i6) ''foo (100);
+(%o6)                        - 1629
+</pre></div>
+
+<p>O operador apóstrofo-apóstrofo é aplicado por meio de um passador de entrada;
+operador-apóstrofo não é armazenado como parte da expressão de entrada.
+</p>
+<div class="example">
+<pre class="example">(%i1) [aa : bb, cc : dd, bb : 1234, dd : 5678];
+(%o1)                 [bb, dd, 1234, 5678]
+(%i2) aa + cc;
+(%o2)                        dd + bb
+(%i3) display (_, op (_), args (_));
+                           _ = cc + aa
+
+                         op(cc + aa) = +
+
+                    args(cc + aa) = [cc, aa]
+
+(%o3)                         done
+(%i4) ''(aa + cc);
+(%o4)                         6912
+(%i5) display (_, op (_), args (_));
+                           _ = dd + bb
+
+                         op(dd + bb) = +
+
+                    args(dd + bb) = [dd, bb]
+
+(%o5)                         done
+</pre></div>
+
+<p>Apóstrofo apóstrofo faz com que ocorra avaliação quando a avaliação tiver sido de outra forma suprimida,
+da mesma forma que em definições de função, da mesma forma que em definições de função lambda expressions, E expressões que recebem o apóstrofo simples <code>'</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) foo_1a (x) := ''(integrate (log (x), x));
+(%o1)               foo_1a(x) := x log(x) - x
+(%i2) foo_1b (x) := integrate (log (x), x);
+(%o2)           foo_1b(x) := integrate(log(x), x)
+(%i3) dispfun (foo_1a, foo_1b);
+(%t3)               foo_1a(x) := x log(x) - x
+
+(%t4)           foo_1b(x) := integrate(log(x), x)
+
+(%o4)                      [%t3, %t4]
+(%i4) integrate (log (x), x);
+(%o4)                     x log(x) - x
+(%i5) foo_2a (x) := ''%;
+(%o5)               foo_2a(x) := x log(x) - x
+(%i6) foo_2b (x) := %;
+(%o6)                    foo_2b(x) := %
+(%i7) dispfun (foo_2a, foo_2b);
+(%t7)               foo_2a(x) := x log(x) - x
+
+(%t8)                    foo_2b(x) := %
+
+(%o8)                      [%t7, %t8]
+(%i8) F : lambda ([u], diff (sin (u), u));
+(%o8)             lambda([u], diff(sin(u), u))
+(%i9) G : lambda ([u], ''(diff (sin (u), u)));
+(%o9)                  lambda([u], cos(u))
+(%i10) '(sum (a[k], k, 1, 3) + sum (b[k], k, 1, 3));
+(%o10)         sum(b , k, 1, 3) + sum(a , k, 1, 3)
+                    k                  k
+(%i11) '(''(sum (a[k], k, 1, 3)) + ''(sum (b[k], k, 1, 3)));
+(%o11)             b  + a  + b  + a  + b  + a
+                    3    3    2    2    1    1
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Command_002fnode_002fDefini_00e7_00f5es-para-Linha-de-Comandos"></span></div>
+<hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_10.html" accesskey="n" rel="next">Definições para Linha de Comandos</a>, Anterior: <a href="maxima_8.html" accesskey="p" rel="prev">Linha de Comandos</a>, Acima: <a href="maxima_8.html" accesskey="u" rel="up">Linha de Comandos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

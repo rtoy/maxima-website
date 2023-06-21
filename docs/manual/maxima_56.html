@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Options Controlling Simplification (Maxima 5.47.0 Manual)</title>
+
+<meta name="description" content="Options Controlling Simplification (Maxima 5.47.0 Manual)">
+<meta name="keywords" content="Options Controlling Simplification (Maxima 5.47.0 Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_423.html" rel="index" title="Function and Variable Index">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="maxima_54.html" rel="up" title="Functions and Variables for Trigonometric">
+<link href="maxima_57.html" rel="next" title="Explicit Simplifications Using Identities">
+<link href="maxima_55.html" rel="prev" title="Trigonometric and Hyperbolic Functions">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body lang="en" class="tex2jax_ignore">
+<div class="subsubsection" id="Options-Controlling-Simplification">
+<div class="header">
+<p>
+Next: <a href="maxima_57.html" accesskey="n" rel="next">Explicit Simplifications Using Identities</a>, Previous: <a href="maxima_55.html" accesskey="p" rel="prev">Trigonometric and Hyperbolic Functions</a>, Up: <a href="maxima_54.html" accesskey="u" rel="up">Functions and Variables for Trigonometric</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Options-Controlling-Simplification-1"></span><h4 class="subsubsection">10.5.2.2 Options Controlling Simplification</h4>
+<span id="g_t_0025piargs"></span><span id="Item_003a-MathFunctions_002fdefvr_002f_0025piargs"></span><dl class="def">
+<dt id="index-_0025piargs"><span class="category">Option variable: </span><span><strong>%piargs</strong><a href='#index-_0025piargs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Default value: <code>true</code>
+</p>
+<p>When <code>%piargs</code> is <code>true</code>,
+trigonometric functions are simplified to algebraic constants
+when the argument is an integer multiple
+of 
+<em class='tex2jax_process'>\(\pi,\)</em>
+<!-- /@w --> 
+<em class='tex2jax_process'>\(\pi/2,\)</em>
+<!-- /@w --> 
+<em class='tex2jax_process'>\(\pi/4,\)</em>
+<!-- /@w --> or 
+<em class='tex2jax_process'>\(\pi/6.\)</em>
+</p>
+
+<p>Maxima knows some identities which can be applied when 
+<em class='tex2jax_process'>\(\pi\)</em>
+, etc.,
+are multiplied by an integer variable (that is, a symbol declared to be
+integer).
+</p>
+<p>Examples:
+</p>
+<div class="example">
+<pre class="example">(%i1) %piargs : false$
+</pre><pre class="example">(%i2) [sin (%pi), sin (%pi/2), sin (%pi/3)];
+                                %pi       %pi
+(%o2)            [sin(%pi), sin(---), sin(---)]
+                                 2         3
+</pre><pre class="example">(%i3) [sin (%pi/4), sin (%pi/5), sin (%pi/6)];
+                      %pi       %pi       %pi
+(%o3)            [sin(---), sin(---), sin(---)]
+                       4         5         6
+</pre><pre class="example">(%i4) %piargs : true$
+</pre><pre class="example">(%i5) [sin (%pi), sin (%pi/2), sin (%pi/3)];
+                                sqrt(3)
+(%o5)                    [0, 1, -------]
+                                   2
+</pre><pre class="example">(%i6) [sin (%pi/4), sin (%pi/5), sin (%pi/6)];
+                         1         %pi   1
+(%o6)                [-------, sin(---), -]
+                      sqrt(2)       5    2
+</pre><pre class="example">(%i7) [cos (%pi/3), cos (10*%pi/3), tan (10*%pi/3),
+       cos (sqrt(2)*%pi/3)];
+                1    1               sqrt(2) %pi
+(%o7)          [-, - -, sqrt(3), cos(-----------)]
+                2    2                    3
+</pre></div>
+
+<p>Some identities are applied when 
+<em class='tex2jax_process'>\(\pi\)</em>
+ and 
+<em class='tex2jax_process'>\(\pi/2\)</em>
+ are
+multiplied by an integer variable.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (n, integer, m, even)$
+</pre><pre class="example">(%i2) [sin (%pi * n), cos (%pi * m), sin (%pi/2 * m),
+       cos (%pi/2 * m)];
+                                      m/2
+(%o2)                  [0, 1, 0, (- 1)   ]
+</pre></div>
+
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="g_t_0025iargs"></span><span id="Item_003a-MathFunctions_002fdefvr_002f_0025iargs"></span><dl class="def">
+<dt id="index-_0025iargs"><span class="category">Option variable: </span><span><strong>%iargs</strong><a href='#index-_0025iargs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Default value: <code>true</code>
+</p>
+<p>When <code>%iargs</code> is <code>true</code>,
+trigonometric functions are simplified to hyperbolic functions
+when the argument is apparently a multiple of the imaginary
+unit 
+<em class='tex2jax_process'>\(i.\)</em>
+</p>
+
+<p>Even when the argument is demonstrably real, the simplification is applied;
+Maxima considers only whether the argument is a literal multiple
+of 
+<em class='tex2jax_process'>\(i.\)</em>
+</p>
+
+<p>Examples:
+</p>
+<div class="example">
+<pre class="example">(%i1) %iargs : false$
+</pre><pre class="example">(%i2) [sin (%i * x), cos (%i * x), tan (%i * x)];
+(%o2)           [sin(%i x), cos(%i x), tan(%i x)]
+</pre><pre class="example">(%i3) %iargs : true$
+</pre><pre class="example">(%i4) [sin (%i * x), cos (%i * x), tan (%i * x)];
+(%o4)           [%i sinh(x), cosh(x), %i tanh(x)]
+</pre></div>
+
+<p>Even when the argument is demonstrably real, the simplification is applied.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (x, imaginary)$
+</pre><pre class="example">(%i2) [featurep (x, imaginary), featurep (x, real)];
+(%o2)                     [true, false]
+</pre><pre class="example">(%i3) sin (%i * x);
+(%o3)                      %i sinh(x)
+</pre></div>
+
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Hyperbolic-functions">Hyperbolic functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="halfangles"></span><span id="Item_003a-MathFunctions_002fdefvr_002fhalfangles"></span><dl class="def">
+<dt id="index-halfangles"><span class="category">Option variable: </span><span><strong>halfangles</strong><a href='#index-halfangles' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Default value: <code>false</code>
+</p>
+<p>When <code>halfangles</code> is <code>true</code>, trigonometric functions of arguments 
+<code><var>expr</var>/2</code> are simplified to functions of <var>expr</var>.
+</p>
+<p>For a real argument <em class='tex2jax_process'>\(x\)</em> in the interval
+<!-- /@w -->
+<em class='tex2jax_process'>\(0 \le x &lt; 2\pi,\)</em>
+<!-- /@w --> 
+<em class='tex2jax_process'>\(\sin{x\over 2}\)</em>
+ simplifies to a simple formula:
+<div class="displaymath"><em class="tex2jax_process">\[{\sqrt{1-\cos x}\over\sqrt{2}}
+\]</em></div></p>
+
+<p>A complicated factor is needed to make this formula correct for all complex 
+arguments <em class='tex2jax_process'>\(z = x+iy\)</em>:
+<div class="displaymath"><em class="tex2jax_process">\[(-1)^{\lfloor{x/(2\pi)}\rfloor}
+\left[1-\rm{unit\_step}(-y)
+\left(1+(-1)^{\lfloor{x/(2\pi)}\rfloor - \lceil{x/(2\pi)}\rceil}\right)\right]
+
+\]</em></div></p>
+
+<p>Maxima knows this factor and similar factors for the functions <code>sin</code>, 
+<code>cos</code>, <code>sinh</code>, and <code>cosh</code>.  For special values of the argument 
+<em class='tex2jax_process'>\(z\)</em> these factors simplify accordingly.
+</p>
+<p>Examples:
+</p>
+<div class="example">
+<pre class="example">(%i1) halfangles : false$
+</pre><pre class="example">(%i2) sin (x / 2);
+                                 x
+(%o2)                        sin(-)
+                                 2
+</pre><pre class="example">(%i3) halfangles : true$
+</pre><pre class="example">(%i4) sin (x / 2);
+                            x
+                    floor(-----)
+                          2 %pi
+               (- 1)             sqrt(1 - cos(x))
+(%o4)          ----------------------------------
+                            sqrt(2)
+</pre><pre class="example">(%i5) assume(x&gt;0, x&lt;2*%pi)$
+</pre><pre class="example">(%i6) sin(x / 2);
+                        sqrt(1 - cos(x))
+(%o6)                   ----------------
+                            sqrt(2)
+</pre></div>
+
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="trigsign"></span><span id="Item_003a-MathFunctions_002fdefvr_002ftrigsign"></span><dl class="def">
+<dt id="index-trigsign"><span class="category">Option variable: </span><span><strong>trigsign</strong><a href='#index-trigsign' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Default value: <code>true</code>
+</p>
+<p>When <code>trigsign</code> is <code>true</code>, it permits simplification of negative
+arguments to trigonometric functions.  E.g., 
+<em class='tex2jax_process'>\(\sin(-x)\)</em>
+ will
+become 
+<em class='tex2jax_process'>\(-\sin x\)</em>
+ only if <code>trigsign</code> is <code>true</code>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Trigonometric-functions">Trigonometric functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Simplification-flags-and-variables">Simplification flags and variables</a>
+&middot;
+</div>
+</dd></dl>
+
+
+<span id="Item_003a-MathFunctions_002fnode_002fExplicit-Simplifications-Using-Identities"></span></div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="maxima_57.html" accesskey="n" rel="next">Explicit Simplifications Using Identities</a>, Previous: <a href="maxima_55.html" accesskey="p" rel="prev">Trigonometric and Hyperbolic Functions</a>, Up: <a href="maxima_54.html" accesskey="u" rel="up">Functions and Variables for Trigonometric</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>JavaScript license information</small></a>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tensoranalysis (Maxima Manual)</title>
+
+<meta name="description" content="Tensoranalysis (Maxima Manual)">
+<meta name="keywords" content="Tensoranalysis (Maxima Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_334.html" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_114.html" rel="up" title="Funktionen und Variablen f&uuml;r itensor">
+<link href="maxima_118.html" rel="next" title="Tensoren in gekr&uuml;mmten R&auml;umen">
+<link href="maxima_116.html" rel="prev" title="Tensorsymmetrien">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="de">
+<div class="subsubsection" id="Tensoranalysis">
+<div class="header">
+<p>
+Nächste: <a href="maxima_118.html" accesskey="n" rel="next">Tensoren in gekr&uuml;mmten R&auml;umen</a>, Vorige: <a href="maxima_116.html" accesskey="p" rel="prev">Tensorsymmetrien</a>, Nach oben: <a href="maxima_114.html" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r <small>ITENSOR</small></a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Tensoranalysis-1"></span><h4 class="subsubsection">20.2.2.3 Tensoranalysis</h4>
+
+<span id="itensor_005fdiff"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fdiff"></span><dl class="def">
+<dt id="index-diff-5"><span class="category">Funktion: </span><span><strong>diff</strong> <em>(<var>expr</var>, <var>v_1</var>, <var>n_1</var>, <var>v_2</var>, <var>n_2</var>, &hellip;)</em><a href='#index-diff-5' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Ist die gleichnamige Funktion <code><a href="maxima_90.html#diff">diff</a></code> f&uuml;r die Differentiation einer
+tensoriellen Gr&ouml;&szlig;e.  <code>diff</code> ist f&uuml;r das Paket <code>itensor</code>
+erweitert.  Die tensorielle Gr&ouml;&szlig;e <var>expr</var> wird <var>n_1</var>-mal nach der
+Variablen <var>v_1</var>, <var>n_2</var> nach der Variablen <var>v_2</var>, &hellip;
+abgeleitet.  Die Argumente <code>v_1</code> k&ouml;nnen ganze Zahlen von <code>1</code>,
+&hellip;, <code><a href="maxima_127.html#dim">dim</a></code> sein.  In diesem Fall bezeichnen die ganzen Zahlen der Reihe
+nach die Indizes, die in der Optionsvariablen <code><a href="#vect_005fcoords">vect_coords</a></code> abgelegt sind.
+<code>dim</code> ist die Dimension der tensoriellen Gr&ouml;&szlig;en.
+</p>
+
+<p>Weiterhin erlaubt die erweiterte Funktion <code>diff</code> die Berechnung von 
+Ableitungen nach indizierten Variablen.  So k&ouml;nnen Ausdr&uuml;cke, die den
+Metriktensor und seine Ableitungen enthalten, nach dem Metriktensor und seinen
+Ableitungen abgeleitet werden.
+</p>
+
+
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;)$
+
+(%i2) depends(v,t);
+(%o2)                        [v(t)]
+(%i3) ishow(diff(v([i,j],[k])^2, t,1))$
+                          k    d    k
+(%t3)                  2 v    (-- (v   ))
+                          i j  dt   i j
+(%i4) ishow(diff(v([i,j],[k])^2, t,2))$
+                       2
+                 k    d     k          d    k    2
+(%t4)         2 v    (--- (v   )) + 2 (-- (v   ))
+                 i j    2   i j        dt   i j
+                      dt
+</pre></div>
+</dd></dl>
+
+<span id="idiff"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fidiff"></span><dl class="def">
+<dt id="index-idiff"><span class="category">Funktion: </span><span><strong>idiff</strong> <em>(<var>expr</var>, <var>v_1</var>, [<var>n_1</var>, [<var>v_2</var>, <var>n_2</var>] &hellip;])</em><a href='#index-idiff' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p><code>idiff</code> f&uuml;hrt Ableitungen nach den Koordinaten einer tensoriellen
+Gr&ouml;&szlig;e aus.  Im Unterschied dazu f&uuml;hrt die Funktion <code><a href="maxima_90.html#diff">diff</a></code><!-- /@w -->
+Ableitungen nach den unabh&auml;ngigen Variablen aus.  Eine tensorielle Gr&ouml;&szlig;e
+erh&auml;lt zus&auml;tzlich den Index <var>v_1</var>, der die Ableitung bezeichnet.
+Mehrfache Indizes f&uuml;r Ableitungen werden sortiert, au&szlig;er wenn die
+Optionsvariable <code><a href="maxima_119.html#iframe_005fflag">iframe_flag</a></code> den Wert <code>true</code> hat.
+</p>
+
+<p><code>idiff</code> kann auch die Determinante des Metriktensors ableiten.  Wird zum
+Beispiel der Optionsvariablen <code><a href="maxima_118.html#imetric">imetric</a></code> der Wert <code>g</code> zugewiesen,
+dann hat das Kommando <code>idiff(determinant(g), k)</code> das Ergebnis
+<code>2 * determinant(g) * ichr2([%i,k], [%i])</code>, wobei die Dummy-Variable
+passend gew&auml;hlt wird.
+</p></dd></dl>
+
+<span id="liediff"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fliediff"></span><dl class="def">
+<dt id="index-liediff"><span class="category">Funktion: </span><span><strong>liediff</strong> <em>(<var>v</var>, <var>ten</var>)</em><a href='#index-liediff' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Berechnet die Lie-Ableitung eines tensoriellen Ausdrucks <var>ten</var> f&uuml;r das
+Vektorfeld <var>v</var>.  Das Argument <var>ten</var> kann irgendeine tensorielle
+Gr&ouml;&szlig;e sein.  Das Argument <var>v</var> ist der Name eines Vektorfeldes und
+wird ohne Indizes angegeben.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(liediff(v,a([i,j],[])*b([],[k],l)))$
+       k    %2            %2          %2
+(%t2) b   (v   a       + v   a     + v   a    )
+       ,l       i j,%2    ,j  i %2    ,i  %2 j
+
+                          %1  k        %1  k      %1  k
+                      + (v   b      - b   v    + v   b   ) a
+                              ,%1 l    ,l  ,%1    ,l  ,%1   i j
+</pre></div>
+</dd></dl>
+
+<span id="rediff"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002frediff"></span><dl class="def">
+<dt id="index-rediff"><span class="category">Funktion: </span><span><strong>rediff</strong> <em>(<var>ten</var>)</em><a href='#index-rediff' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Wertet jedes Auftreten von Substantivformen der Funktion <code><a href="#idiff">idiff</a></code> in
+dem tensoriellem Ausdruck <var>ten</var> aus.
+</p></dd></dl>
+
+<span id="undiff"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fundiff"></span><dl class="def">
+<dt id="index-undiff"><span class="category">Funktion: </span><span><strong>undiff</strong> <em>(<var>expr</var>)</em><a href='#index-undiff' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Gibt einen zum Argument <var>expr</var> &auml;quivalenten Ausdruck zur&uuml;ck, in dem
+alle Ableitungen von indizierten Gr&ouml;&szlig;en durch Substantivformen der
+Funktion <code><a href="#idiff">idiff</a></code> ersetzt sind.
+</p>
+
+</dd></dl>
+
+<span id="evundiff"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fevundiff"></span><dl class="def">
+<dt id="index-evundiff"><span class="category">Funktion: </span><span><strong>evundiff</strong> <em>(<var>expr</var>)</em><a href='#index-evundiff' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Ist &auml;quivalent zur Ausf&uuml;hrung der Funktion <code><a href="#undiff">undiff</a></code>, der die
+Funktionen <code><a href="maxima_45.html#ev">ev</a></code> und <code><a href="#rediff">rediff</a></code> nachfolgen.
+</p>
+
+<p><code>evundiff</code> erlaubt die Auswertung von Ausdr&uuml;cken, die nicht direkt in
+ihrer abgeleiteten Form ausgewertet werden k&ouml;nnen.  So f&uuml;hrt das folgende
+Beispiel zu einer Fehlermeldung:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) icurvature([i,j,k],[l],m);
+Maxima encountered a Lisp error:
+
+ Error in $ICURVATURE [or a callee]:
+ $ICURVATURE [or a callee] requires less than three arguments.
+
+Automatically continuing.
+To reenable the Lisp debugger set *debugger-hook* to nil.
+</pre></div>
+
+
+<p>Wird jedoch <code>icurvature</code> in der Substantivform verwendet, kann der
+Ausdruck mit <code>evundiff</code> ausgewertet werden:
+</p>
+<div class="example">
+<pre class="example">(%i3) ishow('icurvature([i,j,k],[l],m))$
+</pre><pre class="example">                                         l
+(%t3)                          icurvature
+                                         i j k,m
+</pre><pre class="example">(%i4) ishow(evundiff(%))$
+             l              l         %1           l           %1
+(%t4) - ichr2        - ichr2     ichr2      - ichr2       ichr2
+             i k,j m        %1 j      i k,m        %1 j,m      i k
+
+             l              l         %1           l           %1
+      + ichr2        + ichr2     ichr2      + ichr2       ichr2
+             i j,k m        %1 k      i j,m        %1 k,m      i j
+</pre></div>
+
+
+<p>Um Christoffel-Symbole abzuleiten, wird die Funktion <code>evundiff</code>
+nicht ben&ouml;tigt:
+</p>
+<div class="example">
+<pre class="example">(%i5) imetric(g);
+(%o5)                                done
+(%i6) ishow(ichr2([i,j],[k],l))$
+</pre><pre class="example">       k %3
+      g     (g         - g         + g        )
+              j %3,i l    i j,%3 l    i %3,j l
+(%t6) -----------------------------------------
+                          2
+</pre><pre class="example">
+
+                         k %3
+                        g     (g       - g       + g      )
+                         ,l     j %3,i    i j,%3    i %3,j
+                      + -----------------------------------
+                                         2
+</pre></div>
+</dd></dl>
+
+<span id="flush"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fflush"></span><dl class="def">
+<dt id="index-flush"><span class="category">Funktion: </span><span><strong>flush</strong> <em>(<var>expr</var>, <var>tensor_1</var>, <var>tensor_2</var>, &hellip;)</em><a href='#index-flush' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Alle tensoriellen Gr&ouml;&szlig;en <var>tensor_i</var> die im Ausdruck <var>expr</var>
+auftreten und keine Ableitungen haben, werden zu Null gesetzt.
+</p></dd></dl>
+
+<span id="flushd"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fflushd"></span><dl class="def">
+<dt id="index-flushd"><span class="category">Funktion: </span><span><strong>flushd</strong> <em>(<var>expr</var>, <var>tensor_1</var>, <var>tensor_2</var>, &hellip;)</em><a href='#index-flushd' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Alle tensoriellen Gr&ouml;&szlig;en <var>tensor_i</var> die im Ausdruck <var>expr</var>
+auftreten und Ableitungen haben, werden zu Null gesetzt.
+</p></dd></dl>
+
+<span id="flushnd"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fflushnd"></span><dl class="def">
+<dt id="index-flushnd"><span class="category">Funktion: </span><span><strong>flushnd</strong> <em>(<var>expr</var>, <var>tensor</var>, <var>n</var>)</em><a href='#index-flushnd' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Setzt alle Ableitungen der tensoriellen Gr&ouml;&szlig;e <var>tensor</var> die im Ausdruck
+<var>expr</var> auftritt und <var>n</var> oder mehr Ableitungen hat, auf den Wert Null.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(a([i],[J,r],k,r)+a([i],[j,r,s],k,r,s))$
+                                J r      j r s
+(%t2)                          a      + a
+                                i,k r    i,k r s
+(%i3) ishow(flushnd(%,a,3))$
+                                     J r
+(%t3)                               a
+                                     i,k r
+</pre></div>
+</dd></dl>
+
+<span id="coord"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fcoord"></span><dl class="def">
+<dt id="index-coord"><span class="category">Funktion: </span><span><strong>coord</strong> <em>(<var>tensor_1</var>, <var>tensor_2</var>, &hellip;)</em><a href='#index-coord' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-coord-1"><span class="category">Systemvariable: </span><span><strong>coord</strong><a href='#index-coord-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Gibt der tensoriellen Gr&ouml;&szlig;e <var>tensor_i</var> die Eigenschaft, dass die
+kovariante Ableitung eines Vektors mit dem Namen <var>tensor_i</var> das Ergebnis
+Kronecker-Delta hat.
+</p>
+<p><code>coord</code> ist auch eine Systemvariable, die alle tensoriellen Gr&ouml;&szlig;en
+enth&auml;lt, die mit der Funktion <code>coord</code> die Eigenschaft der kovarianten
+Ableitung erhalten haben.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) coord(x);
+(%o1)                         done
+(%i2) idiff(x([],[i]),j);
+(%o2)                   kdelta([j], [i])
+(%i3) coord;
+(%o3)                          [x]
+</pre></div>
+</dd></dl>
+
+<span id="remcoord"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fremcoord"></span><dl class="def">
+<dt id="index-remcoord"><span class="category">Funktion: </span><span><strong>remcoord</strong> <em>(<var>tensor_1</var>, <var>tensor_2</var>, &hellip;)</em><a href='#index-remcoord' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-remcoord-1"><span class="category">Funktion: </span><span><strong>remcoord</strong> <em>(all)</em><a href='#index-remcoord-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Entfernt die mit der Funktion <code><a href="#coord">coord</a></code> definierte Eigenschaft f&uuml;r die
+tensoriellen Gr&ouml;&szlig;en <var>tensor_i</var>.  Das Kommando <code>remcoord(all)</code>
+entfernt diese Eigenschaft f&uuml;r alle tensoriellen Gr&ouml;&szlig;en.
+</p></dd></dl>
+
+<span id="makebox"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fmakebox"></span><dl class="def">
+<dt id="index-makebox"><span class="category">Funktion: </span><span><strong>makebox</strong> <em>(<var>expr</var>, <var>name</var>)</em><a href='#index-makebox' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Zeigt das Argument <var>expr</var> auf die gleiche Weise an wie die Funktion
+<code><a href="maxima_115.html#ishow">ishow</a></code> mit dem Unterschied, dass der d’Alembert-Operator <var>name</var> im
+Ausdruck durch <code>[]</code> ersetzt wird.
+</p>
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) makebox(g([],[i,j])*p([m],[n],i,j),g);
+(%o1)                     []p([m], [n])
+</pre></div>
+</dd></dl>
+
+<span id="conmetderiv"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fconmetderiv"></span><dl class="def">
+<dt id="index-conmetderiv"><span class="category">Funktion: </span><span><strong>conmetderiv</strong> <em>(<var>expr</var>, <var>tensor</var>)</em><a href='#index-conmetderiv' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Vereinfacht Ausdr&uuml;cke, die kovariante und kontravariante Ableitungen des
+Metriktensors enthalten.  <code>conmetderiv</code> kann zum Beispiel die Ableitungen
+des kontravarianten Metriktensors in Beziehung zu den Christoffel-Symbolen 
+setzen:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) ishow(g([],[a,b],c))$
+                                      a b
+(%t2)                                g
+                                      ,c
+(%i3) ishow(conmetderiv(%,g))$
+                         %1 b      a       %1 a      b
+(%t3)                 - g     ichr2     - g     ichr2
+                                   %1 c              %1 c
+</pre></div>
+</dd></dl>
+
+<span id="simpmetderiv"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fsimpmetderiv"></span><dl class="def">
+<dt id="index-simpmetderiv"><span class="category">Funktion: </span><span><strong>simpmetderiv</strong> <em>(<var>expr</var>)</em><a href='#index-simpmetderiv' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-simpmetderiv-1"><span class="category">Funktion: </span><span><strong>simpmetderiv</strong> <em>(<var>expr</var>[, <var>stop</var>])</em><a href='#index-simpmetderiv-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Vereinfacht Ausdr&uuml;cke die Produkte von Ableitungen des Metriktensors
+enthalten.  Im besonderen erkennt <code>simpmetderiv</code> die folgenden
+Identit&auml;ten:
+</p>
+<div class="example">
+<pre class="example">   ab        ab           ab                 a
+  g   g   + g   g     = (g   g  )   = (kdelta )   = 0
+   ,d  bc        bc,d         bc ,d          c ,d
+</pre></div>
+
+<p>daher ist
+</p>
+<div class="example">
+<pre class="example">   ab          ab
+  g   g   = - g   g
+   ,d  bc          bc,d
+</pre></div>
+
+<p>und
+</p>
+<div class="example">
+<pre class="example">  ab          ab
+ g   g     = g   g
+  ,j  ab,i    ,i  ab,j
+</pre></div>
+
+
+<p>was aus den Symmetrien der Christoffel-Symbole folgt.
+</p>
+
+<p>Die Funktion <code>simpmetderiv</code> akzeptiert einen optionalen Parameter
+<var>stop</var>.  Ist dieser vorhanden, stoppt die Funktion nach der ersten
+erfolgreichen Substitution in einem Produkt.  <code>simpmetderiv</code> beachtet
+ferner die Optionsvariable <code><a href="maxima_115.html#flipflag">flipflag</a></code>, welche die Ordnung der Indizes
+kontrolliert.
+</p>
+
+<p>Siehe auch <code>weyl.dem</code> f&uuml;r Beispiele der Funktionen <code>simpmetderiv</code>
+und <code><a href="#conmetderiv">conmetderiv</a></code>, die die Vereinfachung des Weyl-Tensors zeigen.
+</p>
+
+
+<p>Beispiel:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;itensor&quot;);
+(%o1)      /share/tensor/itensor.lisp
+(%i2) imetric(g);
+(%o2)                                done
+(%i3) ishow(g([],[a,b])*g([],[b,c])*g([a,b],[],d)*g([b,c],[],e))$
+                             a b  b c
+(%t3)                       g    g    g      g
+                                       a b,d  b c,e
+(%i4) ishow(canform(%))$
+
+errexp1 has improper indices
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i5) ishow(simpmetderiv(%))$
+                             a b  b c
+(%t5)                       g    g    g      g
+                                       a b,d  b c,e
+(%i6) flipflag:not flipflag;
+(%o6)                                true
+(%i7) ishow(simpmetderiv(%th(2)))$
+                               a b  b c
+(%t7)                         g    g    g    g
+                               ,d   ,e   a b  b c
+(%i8) flipflag:not flipflag;
+(%o8)                                false
+(%i9) ishow(simpmetderiv(%th(2),stop))$
+                               a b  b c
+(%t9)                       - g    g    g      g
+                                    ,e   a b,d  b c
+(%i10) ishow(contract(%))$
+                                    b c
+(%t10)                           - g    g
+                                    ,e   c b,d
+</pre></div>
+</dd></dl>
+
+<span id="flush1deriv"></span><span id="Item_003a-Itensor_002ede_002fdeffn_002fflush1deriv"></span><dl class="def">
+<dt id="index-flush1deriv"><span class="category">Funktion: </span><span><strong>flush1deriv</strong> <em>(<var>expr</var>, <var>tensor</var>)</em><a href='#index-flush1deriv' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+<p>Setzt alle tensoriellen Gr&ouml;&szlig;en, die genau einen Ableitungsindex haben,
+auf den Wert Null.
+</p></dd></dl>
+
+<span id="vect_005fcoords"></span><span id="Item_003a-Itensor_002ede_002fdefvr_002fvect_005fcoords"></span><dl class="def">
+<dt id="index-vect_005fcoords"><span class="category">Optionsvariable: </span><span><strong>vect_coords</strong><a href='#index-vect_005fcoords' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Standardwert: <code>false</code>
+</p>
+<p>Tensoren k&ouml;nnen durch Angabe von ganzen Zahlen nach den einzelnen Komponenten
+abgeleitet werden.  In diesem Fall bezeichnen die ganzen Zahlen der Reihe nach
+die Indizes, die in der Optionsvariablen <code>vect_coords</code> abgelegt sind.
+</p></dd></dl>
+
+<span id="Item_003a-Itensor_002ede_002fnode_002fTensoren-in-gekr_00fcmmten-R_00e4umen"></span></div>
+<hr>
+<div class="header">
+<p>
+Nächste: <a href="maxima_118.html" accesskey="n" rel="next">Tensoren in gekr&uuml;mmten R&auml;umen</a>, Vorige: <a href="maxima_116.html" accesskey="p" rel="prev">Tensorsymmetrien</a>, Nach oben: <a href="maxima_114.html" accesskey="u" rel="up">Funktionen und Variablen f&uuml;r <small>ITENSOR</small></a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

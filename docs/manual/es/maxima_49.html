@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones para los números (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones para los números (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones para los números (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_48.html" rel="up" title="Funciones matemáticas">
+<link href="maxima_50.html" rel="next" title="Funciones para los números complejos">
+<link href="maxima_48.html" rel="prev" title="Funciones matemáticas">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Funciones-para-los-n_00fameros">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_50.html" accesskey="n" rel="next">Funciones para los números complejos</a>, Anterior: <a href="maxima_48.html" accesskey="p" rel="prev">Funciones matemáticas</a>, Subir: <a href="maxima_48.html" accesskey="u" rel="up">Funciones matemáticas</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Funciones-para-los-numeros"></span><h3 class="section">10.1 Funciones para los números</h3>
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fabs"></span><dl class="def">
+<dt id="index-abs"><span class="category">Función: </span><span><strong>abs</strong> <em>(<var>z</var>)</em><a href='#index-abs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>La función <code>abs</code> representa el valor absoluto y se puede aplicar tanto 
+a argumentos numéricos como simbólicos. Si el argumento <var>z</var> es un
+número real o complejo, <code>abs</code> devuelve el valor absoluto de <var>z</var>.
+Si es posible, las expresiones simbólicas que utilizan la función del
+valor absoluto también se simplifican.
+</p>
+<p>Maxima puede derivar, integrar y calcular límites de expresiones
+que contengan a <code>abs</code>. El paquete <code>abs_integrate</code> extiende las
+capacidades de Maxima para calcular integrales que contengan llamadas a
+<code>abs</code>. Véase <code>(%i12)</code> en el ejemplo de más abajo.
+</p>
+<p>Cuando se aplica a una lista o matriz, <code>abs</code> se distribuye automáticamente
+sobre sus elementos. De forma similar, también se distribuye sobre los dos
+miembros de una igualdad. Para cambiar este comportamiento por defecto, 
+véase la variable <code>distribute_over</code>.
+</p>
+<p>Ejemplos:
+</p>
+<p>Cálculo del valor absoluto de números reales y complejos, incluyendo
+constantes numéricas e infinitos. El primer ejemplo muestra cómo 
+<code>abs</code> se distribuye sobre los elementos de una lista.
+</p>
+<div class="example">
+<pre class="example">(%i1) abs([-4, 0, 1, 1+%i]);
+(%o1)                  [4, 0, 1, sqrt(2)]
+
+(%i2) abs((1+%i)*(1-%i));
+(%o2)                           2
+(%i3) abs(%e+%i);
+                                2
+(%o3)                    sqrt(%e  + 1)
+(%i4) abs([inf, infinity, minf]);
+(%o4)                   [inf, inf, inf]
+</pre></div>
+
+<p>Simplificación de expresiones que contienen <code>abs</code>:
+</p>
+<div class="example">
+<pre class="example">(%i5) abs(x^2);
+                                2
+(%o5)                          x
+(%i6) abs(x^3);
+                             2
+(%o6)                       x  abs(x)
+
+(%i7) abs(abs(x));
+(%o7)                       abs(x)
+(%i8) abs(conjugate(x));
+(%o8)                       abs(x)
+</pre></div>
+
+<p>Integrando y derivando con la función <code>abs</code>. Nótese que se pueden
+calcular más integrales que involucren la función <code>abs</code> si se
+carga el paquete <code>abs_integrate</code>. El último ejemplo muestra la
+transformada de Laplace de <code>abs</code>. Véase <code>laplace</code>.
+</p>
+<div class="example">
+<pre class="example">(%i9) diff(x*abs(x),x),expand;
+(%o9)                       2 abs(x)
+
+(%i10) integrate(abs(x),x);
+                             x abs(x)
+(%o10)                       --------
+                                2
+
+(%i11) integrate(x*abs(x),x);
+                           /
+                           [
+(%o11)                     I x abs(x) dx
+                           ]
+                           /
+
+(%i12) load(&quot;abs_integrate&quot;)$
+(%i13) integrate(x*abs(x),x);
+                      2           3
+                     x  abs(x)   x  signum(x)
+(%o13)               --------- - ------------
+                         2            6
+
+(%i14) integrate(abs(x),x,-2,%pi);
+                               2
+                            %pi
+(%o14)                      ---- + 2
+                             2
+
+(%i15) laplace(abs(x),x,s);
+                               1
+(%o15)                         --
+                                2
+                               s
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fceiling"></span><dl class="def">
+<dt id="index-ceiling"><span class="category">Función: </span><span><strong>ceiling</strong> <em>(<var>x</var>)</em><a href='#index-ceiling' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Si <var>x</var> es un número real, devuelve el menor entero mayor o igual que <var>x</var>.  
+</p>
+<p>Si <var>x</var> es una expresión constante (por ejemplo, <code>10 * %pi</code>), 
+<code>ceiling</code> evalúa <var>x</var> haciendo uso de números grandes en coma flotante (big floats), aplicando a continuación
+ <code>ceiling</code> al número decimal obtenido. Puesto que <code>ceiling</code> hace evaluaciones en coma flotante, es posible, pero improbable, que esta función devuelva un valor erróneo para entradas constantes. Para evitar estos errores, la evaluación en punto flotante se lleva a cabo utilizando tres valores para <code>fpprec</code>.
+</p>
+<p>Para argumentos no constantes, <code>ceiling</code> intenta devolver un valor simplificado. Aquí se presentan algunos ejemplos sobre las simplificaciones que <code>ceiling</code> es capaz de hacer:
+</p>
+<div class="example">
+<pre class="example">(%i1) ceiling (ceiling (x));
+(%o1)                      ceiling(x)
+(%i2) ceiling (floor (x));
+(%o2)                       floor(x)
+(%i3) declare (n, integer)$
+(%i4) [ceiling (n), ceiling (abs (n)), ceiling (max (n, 6))];
+(%o4)                [n, abs(n), max(n, 6)]
+(%i5) assume (x &gt; 0, x &lt; 1)$
+(%i6) ceiling (x);
+(%o6)                           1
+(%i7) tex (ceiling (a));
+$$\left \lceil a \right \rceil$$
+(%o7)                                false
+</pre></div>
+
+<p>La función <code>ceiling</code> no se extiende automáticamente a los elementos de listas y matrices.
+Por último, para todos los argumentos que tengan una forma compleja, <code>ceiling</code> devuelve una forma nominal.
+</p>
+<p>Si el rango de una función es subconjunto de los números enteros, entonces puede ser declarada como <code>integervalued</code>. Tanto <code>ceiling</code> como <code>floor</code> son funciones que hacen uso de esta información; por ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (f, integervalued)$
+(%i2) floor (f(x));
+(%o2)                         f(x)
+(%i3) ceiling (f(x) - 1);
+(%o3)                       f(x) - 1
+</pre></div>
+
+<p>Ejemplo de uso:
+</p>
+<div class="example">
+<pre class="example">(%i1) unitfrac(r) := block([uf : [], q],
+    if not(ratnump(r)) then
+       error(&quot;unitfrac: argument must be a rational number&quot;),
+    while r # 0 do (
+        uf : cons(q : 1/ceiling(1/r), uf),
+        r : r - q),
+    reverse(uf))$
+</pre><pre class="example">(%i2) unitfrac (9/10);
+                            1  1  1
+(%o2)                      [-, -, --]
+                            2  3  15
+(%i3) apply (&quot;+&quot;, %);
+                               9
+(%o3)                          --
+                               10
+(%i4) unitfrac (-9/10);
+                                  1
+(%o4)                       [- 1, --]
+                                  10
+(%i5) apply (&quot;+&quot;, %);
+                                9
+(%o5)                         - --
+                                10
+(%i6) unitfrac (36/37);
+                        1  1  1  1    1
+(%o6)                  [-, -, -, --, ----]
+                        2  3  8  69  6808
+(%i7) apply (&quot;+&quot;, %);
+                               36
+(%o7)                          --
+                               37
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fentier"></span><dl class="def">
+<dt id="index-entier"><span class="category">Función: </span><span><strong>entier</strong> <em>(<var>x</var>)</em><a href='#index-entier' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el mayor entero menor o igual a <var>x</var>, siendo <var>x</var> numérico. La función  <code>fix</code> (como en
+<code>fixnum</code>) es un sinónimo, de modo que <code>fix(<var>x</var>)</code> hace justamente lo mismo.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002ffloor"></span><dl class="def">
+<dt id="index-floor"><span class="category">Función: </span><span><strong>floor</strong> <em>(<var>x</var>)</em><a href='#index-floor' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Si <var>x</var> es un número real, devuelve el mayor entero menor o igual que <var>x</var>.
+</p>
+<p>Si <var>x</var> es una expresión constante (por ejemplo, <code>10 * %pi</code>), 
+<code>floor</code> evalúa <var>x</var> haciendo uso de números grandes en coma flotante (big floats), aplicando a continuación
+ <code>floor</code> al número decimal obtenido. Puesto que <code>floor</code> hace evaluaciones en coma flotante, es posible, pero improbable, que esta función devuelva un valor erróneo para entradas constantes. Para evitar estos errores, la evaluación en punto flotante se lleva a cabo utilizando tres valores para <code>fpprec</code>.
+</p>
+<p>Para argumentos no constantes, <code>floor</code> intenta devolver un valor simplificado. Aquí se presentan algunos ejemplos sobre las simplificaciones que <code>floor</code> es capaz de hacer:
+</p>
+<div class="example">
+<pre class="example">(%i1) floor (ceiling (x));
+(%o1)                      ceiling(x)
+(%i2) floor (floor (x));
+(%o2)                       floor(x)
+(%i3) declare (n, integer)$
+(%i4) [floor (n), floor (abs (n)), floor (min (n, 6))];
+(%o4)                [n, abs(n), min(n, 6)]
+(%i5) assume (x &gt; 0, x &lt; 1)$
+(%i6) floor (x);
+(%o6)                           0
+(%i7) tex (floor (a));
+$$\left \lfloor a \right \rfloor$$
+(%o7)                         false
+</pre></div>
+
+<p>La función <code>floor</code> no se extiende automáticamente a los elementos de listas y matrices.
+Por último, para todos los argumentos que tengan una forma compleja, <code>floor</code> devuelve una forma nominal.
+</p>
+<p>Si el rango de una función es subconjunto de los números enteros, entonces puede ser declarada como <code>integervalued</code>. Tanto <code>ceiling</code> como <code>floor</code> son funciones que hacen uso de esta información; por ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (f, integervalued)$
+(%i2) floor (f(x));
+(%o2)                         f(x)
+(%i3) ceiling (f(x) - 1);
+(%o3)                       f(x) - 1
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002ffix"></span><dl class="def">
+<dt id="index-fix"><span class="category">Función: </span><span><strong>fix</strong> <em>(<var>x</var>)</em><a href='#index-fix' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Es un sinónimo de  <code>entier (<var>x</var>)</code>.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002flmax"></span><dl class="def">
+<dt id="index-lmax"><span class="category">Función: </span><span><strong>lmax</strong> <em>(<var>L</var>)</em><a href='#index-lmax' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Si <var>L</var> es una lista o conjunto, devuelve <code>apply ('max, args (<var>L</var>))</code>.  Si <var>L</var> no es una lista o conjunto, envía un mensaje de error.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002flmin"></span><dl class="def">
+<dt id="index-lmin"><span class="category">Función: </span><span><strong>lmin</strong> <em>(<var>L</var>)</em><a href='#index-lmin' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Si <var>L</var> es una lista o conjunto, devuelve <code>apply ('min, args (<var>L</var>))</code>.  Si <var>L</var> no es una lista o conjunto, envía un mensaje de error.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fmax"></span><dl class="def">
+<dt id="index-max"><span class="category">Función: </span><span><strong>max</strong> <em>(<var>x_1</var>, ..., <var>x_n</var>)</em><a href='#index-max' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor simplificado de la mayor de las expresiones desde <var>x_1</var> hasta <var>x_n</var>.
+Si <code>get (trylevel, maxmin)</code> es 2 o más, <code>max</code> aplica la simplificación 
+<code>max (e, -e) --&gt; |e|</code>.  Si <code>get (trylevel, maxmin)</code> es 3 o más, <var>max</var> intenta
+eliminar las expresiones que estén entre otros dos de los argumentos dados; por ejemplo,
+<code>max (x, 2*x, 3*x) --&gt; max (x, 3*x)</code>. Para asignar el valor 2 a <code>trylevel</code> se puede hacer
+<code>put (trylevel, 2, maxmin)</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fmin"></span><dl class="def">
+<dt id="index-min"><span class="category">Función: </span><span><strong>min</strong> <em>(<var>x_1</var>, ..., <var>x_n</var>)</em><a href='#index-min' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor simplificado de la menor de las expresiones desde <var>x_1</var> hasta <var>x_n</var>.
+Si <code>get (trylevel, maxmin)</code> es 2 o más, <code>min</code> aplica la simplificación 
+<code>min (e, -e) --&gt; |e|</code>.  Si <code>get (trylevel, maxmin)</code> es 3 o más, <var>min</var> intenta
+eliminar las expresiones que estén entre otros dos de los argumentos dados; por ejemplo,
+<code>min (x, 2*x, 3*x) --&gt; min (x, 3*x)</code>. Para asignar el valor 2 a <code>trylevel</code> se puede hacer
+<code>put (trylevel, 2, maxmin)</code>.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fround"></span><dl class="def">
+<dt id="index-round"><span class="category">Función: </span><span><strong>round</strong> <em>(<var>x</var>)</em><a href='#index-round' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Si <var>x</var> es un número real, la función devuelve el entero más 
+próximo a <var>x</var>. Los múltiplos de 1/2 se redondean al entero par más próximo.
+La evaluación de <var>x</var> es similar a <code>floor</code> y <code>ceiling</code>.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fsignum"></span><dl class="def">
+<dt id="index-signum"><span class="category">Función: </span><span><strong>signum</strong> <em>(<var>x</var>)</em><a href='#index-signum' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Tanto sea <var>x</var> real o complejo, la función <code>signum</code> devuelve 0 si <var>x</var>
+es cero. Para un valor no nulo de <var>x</var>, la función devuelve <code>x/abs(x)</code>.
+</p>
+<p>Para valores no numéricos de <var>x</var>, Maxima intenta determinar el
+signo del argumento. Cuando es negativo, cero o positivo, <code>signum</code>
+devuelve -1, 0 o 1, respectivamente. En caso de no poder determinarse,
+<code>signum</code> devuelve una forma simplificada equivalente. Estas 
+simplificaciones incluyen la transformación de <code>signum(-x)</code>
+en <code>-signum(x)</code> y la de <code>signum(x*y)</code> en
+<code>signum(x) * signum(y)</code>.
+</p>
+<p>La función <code>signum</code> es distributiva respecto de listas,
+matrices o ecuaciones. Véase <code>distribute_over</code>.
+</p>
+</dd></dl>
+
+
+
+
+
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fnode_002fFunciones-para-los-n_00fameros-complejos"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_50.html" accesskey="n" rel="next">Funciones para los números complejos</a>, Anterior: <a href="maxima_48.html" accesskey="p" rel="prev">Funciones matemáticas</a>, Subir: <a href="maxima_48.html" accesskey="u" rel="up">Funciones matemáticas</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

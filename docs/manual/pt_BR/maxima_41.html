@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introdução a Polinômios (Manual do Maxima)</title>
+
+<meta name="description" content="Introdução a Polinômios (Manual do Maxima)">
+<meta name="keywords" content="Introdução a Polinômios (Manual do Maxima)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_231.html" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_40.html" rel="up" title="Polinômios">
+<link href="maxima_42.html" rel="next" title="Funções e Variáveis Definidas para Polinômios">
+<link href="maxima_40.html" rel="prev" title="Polinômios">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="pt">
+<div class="section" id="Introdu_00e7_00e3o-a-Polin_00f4mios">
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_42.html" accesskey="n" rel="next">Funções e Variáveis Definidas para Polinômios</a>, Anterior: <a href="maxima_40.html" accesskey="p" rel="prev">Polinômios</a>, Acima: <a href="maxima_40.html" accesskey="u" rel="up">Polinômios</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<span id="Introducao-a-Polinomios"></span><h3 class="section">12.1, Introdução a Polinômios</h3>
+
+<p>Polinômios são armazenados no Maxima ou na forma geral ou na
+forma de Expressões Racionais Canônicas (CRE).  Essa última é uma forma
+padrão, e é usada internamente por operações tais como <code>factor</code>, <code>ratsimp</code>, e
+assim por diante.
+</p>
+<p>Expressões Racionais Canônicas constituem um tipo de representação
+que é especialmente adequado para polinômios expandidos e funções
+racionais (também para polinômios parcialmente fatorados e funções
+racionais quando RATFAC for escolhida para <code>true</code>).  Nessa forma CRE uma
+ordenação de variáveis (da mais para a menos importante) é assumida para cada
+expressão.  Polinômios são representados recursivamente por uma lista
+consistindo da variável principal seguida por uma série de pares de
+expressões, uma para cada termo do polinômio.  O primeiro membro de
+cada par é o expoente da variável principal naquele termo e o
+segundo membro é o coeficiente daquele termo que pode ser um número ou
+um polinômio em outra variável novamente respresentado nessa forma.  Sendo assim
+a parte principal da forma CRE de 3*X^2-1 é (X 2 3 0 -1) e que a parte principal da
+forma CRE de 2*X*Y+X-3 é (Y 1 (X 1 2) 0 (X 1 1 0 -3)) assumindo Y como sendo a
+variável principal, e é (X 1 (Y 1 2 0 1) 0 -3) assumindo X como sendo a
+variável principal. A variável principal é usualmente determineda pela ordem alfabética
+reversa.  As &quot;variáveis&quot; de uma expressão CRE não necessariamente devem ser atômicas.  De fato
+qualquer subexpressão cujo principal operador não for + - * / or ^ com expoente
+inteiro será considerado uma &quot;variável&quot; da expressão (na forma CRE) na
+qual essa ocorrer.  Por exemplo as variáveis CRE da expressão
+X+SIN(X+1)+2*SQRT(X)+1 são X, SQRT(X), e SIN(X+1).  Se o usuário
+não especifica uma ordem de variáveis pelo uso da função RATVARS
+Maxima escolherá a alfabética por conta própria.  Em geral, CREs representam
+expressões racionais, isto é, razões de polinômios, onde o
+numerador e o denominador não possuem fatores comuns, e o denominador for
+positivo.  A forma interna é essencialmente um par de polinômios (o
+numerador e o denominador) precedidos pela lista de ordenação de variável.  Se
+uma expressão a ser mostrada estiver na forma CRE ou se contiver quaisquer
+subexpressões na forma CRE, o símbolo /R/ seguirá o rótulo da linha.
+Veja a função RAT para saber como converter uma expressão para a forma CRE.  Uma
+forma CRE extendida é usada para a representação de séries de Taylor.  A
+noção de uma expressão racional é extendida de modo que os expoentes das
+variáveis podem ser números racionais positivos ou negativos em lugar de apenas
+inteiros positivos e os coeficientes podem eles mesmos serem expressões
+racionais como descrito acima em lugar de apenas polinômios.  Estes são
+representados internamente por uma forma polinomial recursiva que é similar
+à forma CRE e é a generalização dessa mesma forma CRE, mas carrega informação
+adicional tal com o grau de truncação.  Do mesmo modo que na forma CRE, o
+símbolo /T/ segue o rótulo de linha que contém as tais expressões.
+</p>
+<span id="Item_003a-Polynomials_002fnode_002fFun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Polin_00f4mios"></span></div>
+<hr>
+<div class="header">
+<p>
+Pr&oacute;ximo: <a href="maxima_42.html" accesskey="n" rel="next">Funções e Variáveis Definidas para Polinômios</a>, Anterior: <a href="maxima_40.html" accesskey="p" rel="prev">Polinômios</a>, Acima: <a href="maxima_40.html" accesskey="u" rel="up">Polinômios</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

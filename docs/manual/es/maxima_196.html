@@ -1,0 +1,1566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para distribuciones continuas (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para distribuciones continuas (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para distribuciones continuas (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_194.html" rel="up" title="distrib">
+<link href="maxima_197.html" rel="next" title="Funciones y variables para distribuciones discretas">
+<link href="maxima_195.html" rel="prev" title="Introducción a distrib">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body lang="es" class="tex2jax_ignore">
+<div class="section" id="Funciones-y-variables-para-distribuciones-continuas">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_197.html" accesskey="n" rel="next">Funciones y variables para distribuciones discretas</a>, Anterior: <a href="maxima_195.html" accesskey="p" rel="prev">Introducción a distrib</a>, Subir: <a href="maxima_194.html" accesskey="u" rel="up">distrib</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Funciones-y-variables-para-distribuciones-continuas-1"></span><h3 class="section">46.2 Funciones y variables para distribuciones continuas</h3>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fnormal"></span><dl class="def">
+<dt id="index-pdf_005fnormal"><span class="category">Función: </span><span><strong>pdf_normal</strong> <em>(<var>x</var>,<var>m</var>,<var>s</var>)</em><a href='#index-pdf_005fnormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de la variable aleatoria <i>Normal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fnormal"></span><dl class="def">
+<dt id="index-cdf_005fnormal"><span class="category">Función: </span><span><strong>cdf_normal</strong> <em>(<var>x</var>,<var>m</var>,<var>s</var>)</em><a href='#index-cdf_005fnormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de la variable aleatoria <i>Normal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>. Esta función se define en términos de la función de error,  <code>erf</code>, de Maxima.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_normal(x,m,s);
+                                    x - m
+                              erf(---------)
+                                  sqrt(2) s    1
+(%o2)                         -------------- + -
+                                    2          2
+</pre></div>
+
+<p>Véase también <code>erf</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fnormal"></span><dl class="def">
+<dt id="index-quantile_005fnormal"><span class="category">Función: </span><span><strong>quantile_normal</strong> <em>(<var>q</var>,<var>m</var>,<var>s</var>)</em><a href='#index-quantile_005fnormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Normal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>; en otras palabras, es la inversa de  <code>cdf_normal</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) quantile_normal(95/100,0,1);
+                                      9
+(%o2)             sqrt(2) inverse_erf(--)
+                                      10
+(%i3) float(%);
+(%o3)               1.644853626951472
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fnormal"></span><dl class="def">
+<dt id="index-mean_005fnormal"><span class="category">Función: </span><span><strong>mean_normal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-mean_005fnormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Normal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>, es decir <var>m</var>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fnormal"></span><dl class="def">
+<dt id="index-var_005fnormal"><span class="category">Función: </span><span><strong>var_normal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-var_005fnormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Normal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>, es decir <var>s^2</var>.
+</p></dd></dl>
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fnormal"></span><dl class="def">
+<dt id="index-std_005fnormal"><span class="category">Función: </span><span><strong>std_normal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-std_005fnormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Normal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>, es decir <var>s</var>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fnormal"></span><dl class="def">
+<dt id="index-skewness_005fnormal"><span class="category">Función: </span><span><strong>skewness_normal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-skewness_005fnormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Normal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>, que es siempre igual a 0. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fnormal"></span><dl class="def">
+<dt id="index-kurtosis_005fnormal"><span class="category">Función: </span><span><strong>kurtosis_normal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-kurtosis_005fnormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis de una variable aleatoria <i>Normal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>, que es siempre igual a 0. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fnormal"></span><dl class="def">
+<dt id="index-random_005fnormal"><span class="category">Función: </span><span><strong>random_normal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-random_005fnormal' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fnormal-1"><span class="category">Función: </span><span><strong>random_normal</strong> <em>(<var>m</var>,<var>s</var>,<var>n</var>)</em><a href='#index-random_005fnormal-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Normal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>. Llamando a <code>random_normal</code> con un tercer argumento <var>n</var>, se simula una muestra aleatoria de tamaño <var>n</var>.
+</p>
+<p>El algoritmo de simulación es el de Box-Mueller, tal como está descrito en Knuth, D.E. (1981) <var>Seminumerical Algorithms. The Art of Computer Programming.</var> Addison-Wesley.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fstudent_005ft"></span><dl class="def">
+<dt id="index-pdf_005fstudent_005ft"><span class="category">Función: </span><span><strong>pdf_student_t</strong> <em>(<var>x</var>,<var>n</var>)</em><a href='#index-pdf_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de Student <em class='tex2jax_process'>\(t(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fstudent_005ft"></span><dl class="def">
+<dt id="index-cdf_005fstudent_005ft"><span class="category">Función: </span><span><strong>cdf_student_t</strong> <em>(<var>x</var>,<var>n</var>)</em><a href='#index-cdf_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de Student <em class='tex2jax_process'>\(t(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_student_t(1/2, 7/3);
+</pre><pre class="example">                                         7  1  28
+             beta_incomplete_regularized(-, -, --)
+                                         6  2  31
+(%o2)    1 - -------------------------------------
+                               2
+</pre><pre class="example">(%i3) float(%);
+(%o3)                .6698450596140415
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fstudent_005ft"></span><dl class="def">
+<dt id="index-quantile_005fstudent_005ft"><span class="category">Función: </span><span><strong>quantile_student_t</strong> <em>(<var>q</var>,<var>n</var>)</em><a href='#index-quantile_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de Student <em class='tex2jax_process'>\(t(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_student_t</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fstudent_005ft"></span><dl class="def">
+<dt id="index-mean_005fstudent_005ft"><span class="category">Función: </span><span><strong>mean_student_t</strong> <em>(<var>n</var>)</em><a href='#index-mean_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de una variable aleatoria de Student <em class='tex2jax_process'>\(t(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>, que vale siempre 0. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fstudent_005ft"></span><dl class="def">
+<dt id="index-var_005fstudent_005ft"><span class="category">Función: </span><span><strong>var_student_t</strong> <em>(<var>n</var>)</em><a href='#index-var_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de una variable aleatoria de Student <em class='tex2jax_process'>\(t(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;2\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) var_student_t(n);
+                                n
+(%o2)                         -----
+                              n - 2
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fstudent_005ft"></span><dl class="def">
+<dt id="index-std_005fstudent_005ft"><span class="category">Función: </span><span><strong>std_student_t</strong> <em>(<var>n</var>)</em><a href='#index-std_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de una variable aleatoria de Student <em class='tex2jax_process'>\(t(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;2\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fstudent_005ft"></span><dl class="def">
+<dt id="index-skewness_005fstudent_005ft"><span class="category">Función: </span><span><strong>skewness_student_t</strong> <em>(<var>n</var>)</em><a href='#index-skewness_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de Student <em class='tex2jax_process'>\(t(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;3\)</em>, que vale siempre 0. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fstudent_005ft"></span><dl class="def">
+<dt id="index-kurtosis_005fstudent_005ft"><span class="category">Función: </span><span><strong>kurtosis_student_t</strong> <em>(<var>n</var>)</em><a href='#index-kurtosis_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria de Student <em class='tex2jax_process'>\(t(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;4\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fstudent_005ft"></span><dl class="def">
+<dt id="index-random_005fstudent_005ft"><span class="category">Función: </span><span><strong>random_student_t</strong> <em>(<var>n</var>)</em><a href='#index-random_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fstudent_005ft-1"><span class="category">Función: </span><span><strong>random_student_t</strong> <em>(<var>n</var>,<var>m</var>)</em><a href='#index-random_005fstudent_005ft-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio <em class='tex2jax_process'>\(t(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>. Llamando a <code>random_student_t</code> con un segundo argumento <var>m</var>, se obtiene una muestra aleatoria simulada de tamaño <var>m</var>.
+</p>
+<p>El algoritmo utilizado está basado en el hecho de que si <var>Z</var> es una variable aleatoria normal <em class='tex2jax_process'>\(N(0,1)\)</em> y <em class='tex2jax_process'>\(S^2\)</em> es una chi cuadrada de <var>n</var> grados de libertad, <em class='tex2jax_process'>\(Chi^2(n)\)</em>, entonces
+</p><div class="example">
+<pre class="example">                           Z
+                 X = -------------
+                     /   2  \ 1/2
+                     |  S   |
+                     | ---  |
+                     \  n   /
+</pre></div>
+
+<p>es una variable aleatoria de Student de <var>n</var> grados de libertad, <em class='tex2jax_process'>\(t(n)\)</em>.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fnoncentral_005fstudent_005ft"></span><dl class="def">
+<dt id="index-pdf_005fnoncentral_005fstudent_005ft"><span class="category">Función: </span><span><strong>pdf_noncentral_student_t</strong> <em>(<var>x</var>,<var>n</var>,<var>ncp</var>)</em><a href='#index-pdf_005fnoncentral_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria no central de Student <em class='tex2jax_process'>\(nc_t(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> grados de libertad y parámetro de no centralidad <em class='tex2jax_process'>\(ncp\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+<p>En ocasiones es necesario hacer algún trabajo extra para obtener el resultado final.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) expand(pdf_noncentral_student_t(3,5,0.1));
+                           7/2                         7/2
+      0.04296414417400905 5      1.323650307289301e-6 5
+(%o2) ------------------------ + -------------------------
+         3/2   5/2                       sqrt(%pi)
+        2    14    sqrt(%pi)
+                                                        7/2
+                                   1.94793720435093e-4 5
+                                 + ------------------------
+                                             %pi
+(%i3) float(%);
+(%o3)          .02080593159405669
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fnoncentral_005fstudent_005ft"></span><dl class="def">
+<dt id="index-cdf_005fnoncentral_005fstudent_005ft"><span class="category">Función: </span><span><strong>cdf_noncentral_student_t</strong> <em>(<var>x</var>,<var>n</var>,<var>ncp</var>)</em><a href='#index-cdf_005fnoncentral_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria no central de Student <em class='tex2jax_process'>\(nc_t(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> grados de libertad y parámetro de no centralidad <em class='tex2jax_process'>\(ncp\)</em>. Esta función no tiene expresión compacta y se calcula numéricamente. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_noncentral_student_t(-2,5,-5);
+(%o2)          .9952030093319743
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fnoncentral_005fstudent_005ft"></span><dl class="def">
+<dt id="index-quantile_005fnoncentral_005fstudent_005ft"><span class="category">Función: </span><span><strong>quantile_noncentral_student_t</strong> <em>(<var>q</var>,<var>n</var>,<var>ncp</var>)</em><a href='#index-quantile_005fnoncentral_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria no central de Student <em class='tex2jax_process'>\(nc_t(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> grados de libertad y parámetro de no centralidad <em class='tex2jax_process'>\(ncp\)</em>; en otras palabras, se trata de la inversa de <code>cdf_noncentral_student_t</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fnoncentral_005fstudent_005ft"></span><dl class="def">
+<dt id="index-mean_005fnoncentral_005fstudent_005ft"><span class="category">Función: </span><span><strong>mean_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-mean_005fnoncentral_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de una variable aleatoria no central de Student <em class='tex2jax_process'>\(nc_t(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;1\)</em> grados de libertad y parámetro de no centralidad <em class='tex2jax_process'>\(ncp\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) mean_noncentral_student_t(df,k);
+                   df - 1
+             gamma(------) sqrt(df) k
+                     2
+(%o2)        ------------------------
+                              df
+                sqrt(2) gamma(--)
+                              2
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fnoncentral_005fstudent_005ft"></span><dl class="def">
+<dt id="index-var_005fnoncentral_005fstudent_005ft"><span class="category">Función: </span><span><strong>var_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-var_005fnoncentral_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de una variable aleatoria no central de Student <em class='tex2jax_process'>\(nc_t(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;2\)</em> grados de libertad y parámetro de no centralidad <em class='tex2jax_process'>\(ncp\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fnoncentral_005fstudent_005ft"></span><dl class="def">
+<dt id="index-std_005fnoncentral_005fstudent_005ft"><span class="category">Función: </span><span><strong>std_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-std_005fnoncentral_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de una variable aleatoria no central de Student <em class='tex2jax_process'>\(nc_t(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;2\)</em> grados de libertad y parámetro de no centralidad <em class='tex2jax_process'>\(ncp\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fnoncentral_005fstudent_005ft"></span><dl class="def">
+<dt id="index-skewness_005fnoncentral_005fstudent_005ft"><span class="category">Función: </span><span><strong>skewness_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-skewness_005fnoncentral_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria no central de Student <em class='tex2jax_process'>\(nc_t(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;3\)</em> grados de libertad y parámetro de no centralidad <em class='tex2jax_process'>\(ncp\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fnoncentral_005fstudent_005ft"></span><dl class="def">
+<dt id="index-kurtosis_005fnoncentral_005fstudent_005ft"><span class="category">Función: </span><span><strong>kurtosis_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-kurtosis_005fnoncentral_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis de una variable aleatoria no central de Student <em class='tex2jax_process'>\(nc_t(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;4\)</em> grados de libertad y parámetro de no centralidad <em class='tex2jax_process'>\(ncp\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fnoncentral_005fstudent_005ft"></span><dl class="def">
+<dt id="index-random_005fnoncentral_005fstudent_005ft"><span class="category">Función: </span><span><strong>random_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-random_005fnoncentral_005fstudent_005ft' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fnoncentral_005fstudent_005ft-1"><span class="category">Función: </span><span><strong>random_noncentral_student_t</strong> <em>(<var>n</var>,<var>ncp</var>,<var>m</var>)</em><a href='#index-random_005fnoncentral_005fstudent_005ft-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio <em class='tex2jax_process'>\(nc_t(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>. Llamando a <code>random_noncentral_student_t</code> con un tercer argumento <var>m</var>, se obtiene una muestra aleatoria simulada de tamaño <var>m</var>.
+</p>
+<p>El algoritmo utilizado está basado en el hecho de que si <var>X</var> es una variable aleatoria normal <em class='tex2jax_process'>\(N(ncp,1)\)</em> y <em class='tex2jax_process'>\(S^2\)</em> es una chi cuadrada de <var>n</var> grados de libertad, <em class='tex2jax_process'>\(Chi^2(n)\)</em>, entonces
+</p><div class="example">
+<pre class="example">                           X
+                 U = -------------
+                     /   2  \ 1/2
+                     |  S   |
+                     | ---  |
+                     \  n   /
+</pre></div>
+
+<p>es una variable aleatoria no central de Student de <var>n</var> grados de libertad y parámetro de no centralidad <em class='tex2jax_process'>\(ncp\)</em>, <em class='tex2jax_process'>\(nc_t(n,ncp)\)</em>.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fchi2"></span><dl class="def">
+<dt id="index-pdf_005fchi2"><span class="category">Función: </span><span><strong>pdf_chi2</strong> <em>(<var>x</var>,<var>n</var>)</em><a href='#index-pdf_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria chi-cuadrado <em class='tex2jax_process'>\(Chi^2(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>. La variable aleatoria <em class='tex2jax_process'>\(Chi^2(n)\)</em> equivale a una <i>Gamma</i><em class='tex2jax_process'>\((n/2,2)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) pdf_chi2(x,n);
+                         n/2 - 1   - x/2
+                        x        %e
+(%o2)                   ----------------
+                          n/2       n
+                         2    gamma(-)
+                                    2
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fchi2"></span><dl class="def">
+<dt id="index-cdf_005fchi2"><span class="category">Función: </span><span><strong>cdf_chi2</strong> <em>(<var>x</var>,<var>n</var>)</em><a href='#index-cdf_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria chi-cuadrado <em class='tex2jax_process'>\(Chi^2(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_chi2(3,4);
+                                               3
+(%o2)      1 - gamma_incomplete_regularized(2, -)
+                                               2
+(%i3) float(%);
+(%o3)               .4421745996289256
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fchi2"></span><dl class="def">
+<dt id="index-quantile_005fchi2"><span class="category">Función: </span><span><strong>quantile_chi2</strong> <em>(<var>q</var>,<var>n</var>)</em><a href='#index-quantile_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <em class='tex2jax_process'>\(Chi^2(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_chi2</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>.
+</p>
+<p>Esta función no tiene expresión compacta y se calcula numéricamente.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) quantile_chi2(0.99,9);
+(%o2)                   21.66599433346194
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fchi2"></span><dl class="def">
+<dt id="index-mean_005fchi2"><span class="category">Función: </span><span><strong>mean_chi2</strong> <em>(<var>n</var>)</em><a href='#index-mean_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria  <em class='tex2jax_process'>\(Chi^2(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <em class='tex2jax_process'>\(Chi^2(n)\)</em> equivale a una <i>Gamma</i><em class='tex2jax_process'>\((n/2,2)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) mean_chi2(n);
+(%o2)                           n
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fchi2"></span><dl class="def">
+<dt id="index-var_005fchi2"><span class="category">Función: </span><span><strong>var_chi2</strong> <em>(<var>n</var>)</em><a href='#index-var_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria  <em class='tex2jax_process'>\(Chi^2(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <em class='tex2jax_process'>\(Chi^2(n)\)</em> equivale a una <i>Gamma</i><em class='tex2jax_process'>\((n/2,2)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) var_chi2(n);
+(%o2)                          2 n
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fchi2"></span><dl class="def">
+<dt id="index-std_005fchi2"><span class="category">Función: </span><span><strong>std_chi2</strong> <em>(<var>n</var>)</em><a href='#index-std_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria  <em class='tex2jax_process'>\(Chi^2(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <em class='tex2jax_process'>\(Chi^2(n)\)</em> equivale a una <i>Gamma</i><em class='tex2jax_process'>\((n/2,2)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) std_chi2(n);
+(%o2)                    sqrt(2) sqrt(n)
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fchi2"></span><dl class="def">
+<dt id="index-skewness_005fchi2"><span class="category">Función: </span><span><strong>skewness_chi2</strong> <em>(<var>n</var>)</em><a href='#index-skewness_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria  <em class='tex2jax_process'>\(Chi^2(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <em class='tex2jax_process'>\(Chi^2(n)\)</em> equivale a una <i>Gamma</i><em class='tex2jax_process'>\((n/2,2)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) skewness_chi2(n);
+</pre><pre class="example">                                     3/2
+                                    2
+(%o2)                              -------
+                                   sqrt(n)
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fchi2"></span><dl class="def">
+<dt id="index-kurtosis_005fchi2"><span class="category">Función: </span><span><strong>kurtosis_chi2</strong> <em>(<var>n</var>)</em><a href='#index-kurtosis_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria  <em class='tex2jax_process'>\(Chi^2(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <em class='tex2jax_process'>\(Chi^2(n)\)</em> equivale a una <i>Gamma</i><em class='tex2jax_process'>\((n/2,2)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) kurtosis_chi2(n);
+                               12
+(%o2)                          --
+                               n
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fchi2"></span><dl class="def">
+<dt id="index-random_005fchi2"><span class="category">Función: </span><span><strong>random_chi2</strong> <em>(<var>n</var>)</em><a href='#index-random_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fchi2-1"><span class="category">Función: </span><span><strong>random_chi2</strong> <em>(<var>n</var>,<var>m</var>)</em><a href='#index-random_005fchi2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <em class='tex2jax_process'>\(Chi^2(n)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em>. Llamando a <code>random_chi2</code> con un segundo argumento <var>m</var>, se simulará una muestra aleatoria de tamaño <var>m</var>.
+</p>
+<p>La simulación está basada en el algoritmo de Ahrens-Cheng. Véase <code>random_gamma</code> para más detalles.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-pdf_005fnoncentral_005fchi2"><span class="category">Función: </span><span><strong>pdf_noncentral_chi2</strong> <em>(<var>x</var>,<var>n</var>,<var>ncp</var>)</em><a href='#index-pdf_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria chi-cuadrado no centrada <em class='tex2jax_process'>\(nc_Chi^2(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> y parámetro de no centralidad <em class='tex2jax_process'>\(ncp&gt;=0\)</em>. Para hacer uso de esta función ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-cdf_005fnoncentral_005fchi2"><span class="category">Función: </span><span><strong>cdf_noncentral_chi2</strong> <em>(<var>x</var>,<var>n</var>,<var>ncp</var>)</em><a href='#index-cdf_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria chi-cuadrado no centrada <em class='tex2jax_process'>\(nc_Chi^2(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> y parámetro de no centralidad <em class='tex2jax_process'>\(ncp&gt;=0\)</em>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-quantile_005fnoncentral_005fchi2"><span class="category">Función: </span><span><strong>quantile_noncentral_chi2</strong> <em>(<var>q</var>,<var>n</var>,<var>ncp</var>)</em><a href='#index-quantile_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria chi-cuadrado no centrada <em class='tex2jax_process'>\(nc_Chi^2(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> y parámetro de no centralidad <em class='tex2jax_process'>\(ncp&gt;=0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_noncentral_chi2</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>.
+</p>
+<p>Esta función no tiene expresión compacta y se calcula numéricamente.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-mean_005fnoncentral_005fchi2"><span class="category">Función: </span><span><strong>mean_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-mean_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria chi-cuadrado no centrada <em class='tex2jax_process'>\(nc_Chi^2(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> y parámetro de no centralidad <em class='tex2jax_process'>\(ncp&gt;=0\)</em>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-var_005fnoncentral_005fchi2"><span class="category">Función: </span><span><strong>var_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-var_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria chi-cuadrado no centrada  <em class='tex2jax_process'>\(nc_Chi^2(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> y parámetro de no centralidad <em class='tex2jax_process'>\(ncp&gt;=0\)</em>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-std_005fnoncentral_005fchi2"><span class="category">Función: </span><span><strong>std_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-std_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria chi-cuadrado no centrada  <em class='tex2jax_process'>\(nc_Chi^2(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> y parámetro de no centralidad <em class='tex2jax_process'>\(ncp&gt;=0\)</em>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-skewness_005fnoncentral_005fchi2"><span class="category">Función: </span><span><strong>skewness_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-skewness_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria chi-cuadrado no centrada  <em class='tex2jax_process'>\(nc_Chi^2(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> y parámetro de no centralidad <em class='tex2jax_process'>\(ncp&gt;=0\)</em>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-kurtosis_005fnoncentral_005fchi2"><span class="category">Función: </span><span><strong>kurtosis_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-kurtosis_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria chi-cuadrado no centrada <em class='tex2jax_process'>\(nc_Chi^2(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> y parámetro de no centralidad <em class='tex2jax_process'>\(ncp&gt;=0\)</em>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-random_005fnoncentral_005fchi2"><span class="category">Función: </span><span><strong>random_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-random_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fnoncentral_005fchi2-1"><span class="category">Función: </span><span><strong>random_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>,<var>m</var>)</em><a href='#index-random_005fnoncentral_005fchi2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <em class='tex2jax_process'>\(nc_Chi^2(n,ncp)\)</em>, con <em class='tex2jax_process'>\(n&gt;0\)</em> y parámetro de no centralidad <em class='tex2jax_process'>\(ncp&gt;=0\)</em>. Llamando a <code>random_noncentral_chi2</code> con un tercer argumento <var>m</var>, se simulará una muestra aleatoria de tamaño <var>m</var>.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005ff"></span><dl class="def">
+<dt id="index-pdf_005ff"><span class="category">Función: </span><span><strong>pdf_f</strong> <em>(<var>x</var>,<var>m</var>,<var>n</var>)</em><a href='#index-pdf_005ff' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria  <i>F</i><em class='tex2jax_process'>\((m,n)\)</em>, con <em class='tex2jax_process'>\(m,n&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005ff"></span><dl class="def">
+<dt id="index-cdf_005ff"><span class="category">Función: </span><span><strong>cdf_f</strong> <em>(<var>x</var>,<var>m</var>,<var>n</var>)</em><a href='#index-cdf_005ff' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria  <i>F</i><em class='tex2jax_process'>\((m,n)\)</em>, con <em class='tex2jax_process'>\(m,n&gt;0\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_f(2,3,9/4);
+                                         9  3  3
+(%o2)    1 - beta_incomplete_regularized(-, -, --)
+                                         8  2  11
+(%i3) float(%);
+(%o3)                 0.66756728179008
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005ff"></span><dl class="def">
+<dt id="index-quantile_005ff"><span class="category">Función: </span><span><strong>quantile_f</strong> <em>(<var>q</var>,<var>m</var>,<var>n</var>)</em><a href='#index-quantile_005ff' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria  <i>F</i><em class='tex2jax_process'>\((m,n)\)</em>, con <em class='tex2jax_process'>\(m,n&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_f</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) quantile_f(2/5,sqrt(3),5);
+                               2
+(%o2)               quantile_f(-, sqrt(3), 5)
+                               5
+(%i3) %,numer;
+(%o3)                   0.518947838573693
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005ff"></span><dl class="def">
+<dt id="index-mean_005ff"><span class="category">Función: </span><span><strong>mean_f</strong> <em>(<var>m</var>,<var>n</var>)</em><a href='#index-mean_005ff' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria  <i>F</i><em class='tex2jax_process'>\((m,n)\)</em>, con <em class='tex2jax_process'>\(m&gt;0, n&gt;2\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005ff"></span><dl class="def">
+<dt id="index-var_005ff"><span class="category">Función: </span><span><strong>var_f</strong> <em>(<var>m</var>,<var>n</var>)</em><a href='#index-var_005ff' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria  <i>F</i><em class='tex2jax_process'>\((m,n)\)</em>, con <em class='tex2jax_process'>\(m&gt;0, n&gt;4\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005ff"></span><dl class="def">
+<dt id="index-std_005ff"><span class="category">Función: </span><span><strong>std_f</strong> <em>(<var>m</var>,<var>n</var>)</em><a href='#index-std_005ff' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria  <i>F</i><em class='tex2jax_process'>\((m,n)\)</em>, con <em class='tex2jax_process'>\(m&gt;0, n&gt;4\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005ff"></span><dl class="def">
+<dt id="index-skewness_005ff"><span class="category">Función: </span><span><strong>skewness_f</strong> <em>(<var>m</var>,<var>n</var>)</em><a href='#index-skewness_005ff' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria  <i>F</i><em class='tex2jax_process'>\((m,n)\)</em>, con <em class='tex2jax_process'>\(m&gt;0, n&gt;6\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005ff"></span><dl class="def">
+<dt id="index-kurtosis_005ff"><span class="category">Función: </span><span><strong>kurtosis_f</strong> <em>(<var>m</var>,<var>n</var>)</em><a href='#index-kurtosis_005ff' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria  <i>F</i><em class='tex2jax_process'>\((m,n)\)</em>, con <em class='tex2jax_process'>\(m&gt;0, n&gt;8\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005ff"></span><dl class="def">
+<dt id="index-random_005ff"><span class="category">Función: </span><span><strong>random_f</strong> <em>(<var>m</var>,<var>n</var>)</em><a href='#index-random_005ff' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005ff-1"><span class="category">Función: </span><span><strong>random_f</strong> <em>(<var>m</var>,<var>n</var>,<var>k</var>)</em><a href='#index-random_005ff-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>F</i><em class='tex2jax_process'>\((m,n)\)</em>, con <em class='tex2jax_process'>\(m,n&gt;0\)</em>. Llamando a  <code>random_f</code> con un tercer argumento <var>k</var>, se simulará una muestra aleatoria de tamaño <var>k</var>.
+</p>
+<p>El algoritmo de simulación está basado en el hecho de que si <var>X</var> es una variable aleatoria <em class='tex2jax_process'>\(Chi^2(m)\)</em> y <em class='tex2jax_process'>\(Y\)</em> es una <em class='tex2jax_process'>\(Chi^2(n)\)</em>, entonces
+</p><div class="example">
+<pre class="example">                        n X
+                    F = ---
+                        m Y
+</pre></div>
+
+<p>es una variable aleatoria <em class='tex2jax_process'>\(F\)</em> con <var>m</var> y <var>n</var> grados de libertad, <i>F</i><em class='tex2jax_process'>\((m,n)\)</em>.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fexp"></span><dl class="def">
+<dt id="index-pdf_005fexp"><span class="category">Función: </span><span><strong>pdf_exp</strong> <em>(<var>x</var>,<var>m</var>)</em><a href='#index-pdf_005fexp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em>, con <em class='tex2jax_process'>\(m&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((1,1/m)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) pdf_exp(x,m);
+                                - m x
+(%o2)                       m %e
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fexp"></span><dl class="def">
+<dt id="index-cdf_005fexp"><span class="category">Función: </span><span><strong>cdf_exp</strong> <em>(<var>x</var>,<var>m</var>)</em><a href='#index-cdf_005fexp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em>, con <em class='tex2jax_process'>\(m&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((1,1/m)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_exp(x,m);
+                                 - m x
+(%o2)                      1 - %e
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fexp"></span><dl class="def">
+<dt id="index-quantile_005fexp"><span class="category">Función: </span><span><strong>quantile_exp</strong> <em>(<var>q</var>,<var>m</var>)</em><a href='#index-quantile_005fexp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em>, con <em class='tex2jax_process'>\(m&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_exp</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((1,1/m)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) quantile_exp(0.56,5);
+(%o2)                   .1641961104139661
+(%i3) quantile_exp(0.56,m);
+                                            1
+(%o3)             quantile_weibull(0.56, 1, -)
+                                            m
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fexp"></span><dl class="def">
+<dt id="index-mean_005fexp"><span class="category">Función: </span><span><strong>mean_exp</strong> <em>(<var>m</var>)</em><a href='#index-mean_005fexp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em>, con <em class='tex2jax_process'>\(m&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((1,1/m)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) mean_exp(m);
+                                1
+(%o2)                           -
+                                m
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fexp"></span><dl class="def">
+<dt id="index-var_005fexp"><span class="category">Función: </span><span><strong>var_exp</strong> <em>(<var>m</var>)</em><a href='#index-var_005fexp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em>, con <em class='tex2jax_process'>\(m&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((1,1/m)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) var_exp(m);
+                               1
+(%o2)                          --
+                                2
+                               m
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fexp"></span><dl class="def">
+<dt id="index-std_005fexp"><span class="category">Función: </span><span><strong>std_exp</strong> <em>(<var>m</var>)</em><a href='#index-std_005fexp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em>, con <em class='tex2jax_process'>\(m&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((1,1/m)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) std_exp(m);
+                                1
+(%o2)                           -
+                                m
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fexp"></span><dl class="def">
+<dt id="index-skewness_005fexp"><span class="category">Función: </span><span><strong>skewness_exp</strong> <em>(<var>m</var>)</em><a href='#index-skewness_005fexp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em>, con <em class='tex2jax_process'>\(m&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((1,1/m)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) skewness_exp(m);
+(%o2)                           2
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fexp"></span><dl class="def">
+<dt id="index-kurtosis_005fexp"><span class="category">Función: </span><span><strong>kurtosis_exp</strong> <em>(<var>m</var>)</em><a href='#index-kurtosis_005fexp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em>, con <em class='tex2jax_process'>\(m&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((1,1/m)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) kurtosis_exp(m);
+(%o3)                           6
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fexp"></span><dl class="def">
+<dt id="index-random_005fexp"><span class="category">Función: </span><span><strong>random_exp</strong> <em>(<var>m</var>)</em><a href='#index-random_005fexp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fexp-1"><span class="category">Función: </span><span><strong>random_exp</strong> <em>(<var>m</var>,<var>k</var>)</em><a href='#index-random_005fexp-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Exponencial</i><em class='tex2jax_process'>\((m)\)</em>, con <em class='tex2jax_process'>\(m&gt;0\)</em>. Llamando a <code>random_exp2</code> con un segundo argumento <var>k</var>, se simulará una muestra aleatoria de tamaño <var>k</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005flognormal"></span><dl class="def">
+<dt id="index-pdf_005flognormal"><span class="category">Función: </span><span><strong>pdf_lognormal</strong> <em>(<var>x</var>,<var>m</var>,<var>s</var>)</em><a href='#index-pdf_005flognormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria <i>Lognormal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005flognormal"></span><dl class="def">
+<dt id="index-cdf_005flognormal"><span class="category">Función: </span><span><strong>cdf_lognormal</strong> <em>(<var>x</var>,<var>m</var>,<var>s</var>)</em><a href='#index-cdf_005flognormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria <i>Lognormal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>.   Esta función se define en términos de la función de error, <code>erf</code>, de Maxima.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) assume(x&gt;0, s&gt;0)$  cdf_lognormal(x,m,s);
+</pre><pre class="example">                           log(x) - m
+                       erf(----------)
+                           sqrt(2) s     1
+(%o2)                  --------------- + -
+                              2          2
+</pre></div>
+
+<p>Véase también <code>erf</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005flognormal"></span><dl class="def">
+<dt id="index-quantile_005flognormal"><span class="category">Función: </span><span><strong>quantile_lognormal</strong> <em>(<var>q</var>,<var>m</var>,<var>s</var>)</em><a href='#index-quantile_005flognormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Lognormal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_lognormal</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005flognormal"></span><dl class="def">
+<dt id="index-mean_005flognormal"><span class="category">Función: </span><span><strong>mean_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-mean_005flognormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Lognormal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005flognormal"></span><dl class="def">
+<dt id="index-var_005flognormal"><span class="category">Función: </span><span><strong>var_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-var_005flognormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Lognormal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005flognormal"></span><dl class="def">
+<dt id="index-std_005flognormal"><span class="category">Función: </span><span><strong>std_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-std_005flognormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Lognormal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005flognormal"></span><dl class="def">
+<dt id="index-skewness_005flognormal"><span class="category">Función: </span><span><strong>skewness_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-skewness_005flognormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Lognormal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005flognormal"></span><dl class="def">
+<dt id="index-kurtosis_005flognormal"><span class="category">Función: </span><span><strong>kurtosis_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-kurtosis_005flognormal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria <i>Lognormal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005flognormal"></span><dl class="def">
+<dt id="index-random_005flognormal"><span class="category">Función: </span><span><strong>random_lognormal</strong> <em>(<var>m</var>,<var>s</var>)</em><a href='#index-random_005flognormal' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005flognormal-1"><span class="category">Función: </span><span><strong>random_lognormal</strong> <em>(<var>m</var>,<var>s</var>,<var>n</var>)</em><a href='#index-random_005flognormal-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Lognormal</i><em class='tex2jax_process'>\((m,s)\)</em>, con <em class='tex2jax_process'>\(s&gt;0\)</em>. Llamando a <code>random_lognormal</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño <var>n</var>.
+</p>
+<p>Las variables lognormales se simulan mediante variables normales. Véase <code>random_normal</code> para más detalles.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fgamma"></span><dl class="def">
+<dt id="index-pdf_005fgamma"><span class="category">Función: </span><span><strong>pdf_gamma</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-pdf_005fgamma' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria <i>Gamma</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fgamma"></span><dl class="def">
+<dt id="index-cdf_005fgamma"><span class="category">Función: </span><span><strong>cdf_gamma</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-cdf_005fgamma' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria <i>Gamma</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. 
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_gamma(3,5,21);
+                                              1
+(%o2)     1 - gamma_incomplete_regularized(5, -)
+                                              7
+(%i3) float(%);
+(%o3)              4.402663157376807E-7
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fgamma"></span><dl class="def">
+<dt id="index-quantile_005fgamma"><span class="category">Función: </span><span><strong>quantile_gamma</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em><a href='#index-quantile_005fgamma' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Gamma</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_gamma</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fgamma"></span><dl class="def">
+<dt id="index-mean_005fgamma"><span class="category">Función: </span><span><strong>mean_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-mean_005fgamma' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Gamma</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fgamma"></span><dl class="def">
+<dt id="index-var_005fgamma"><span class="category">Función: </span><span><strong>var_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-var_005fgamma' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Gamma</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fgamma"></span><dl class="def">
+<dt id="index-std_005fgamma"><span class="category">Función: </span><span><strong>std_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-std_005fgamma' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Gamma</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fgamma"></span><dl class="def">
+<dt id="index-skewness_005fgamma"><span class="category">Función: </span><span><strong>skewness_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-skewness_005fgamma' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Gamma</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fgamma"></span><dl class="def">
+<dt id="index-kurtosis_005fgamma"><span class="category">Función: </span><span><strong>kurtosis_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-kurtosis_005fgamma' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria <i>Gamma</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fgamma"></span><dl class="def">
+<dt id="index-random_005fgamma"><span class="category">Función: </span><span><strong>random_gamma</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-random_005fgamma' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fgamma-1"><span class="category">Función: </span><span><strong>random_gamma</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em><a href='#index-random_005fgamma-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Gamma</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Llamando a <code>random_gamma</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño <var>n</var>.
+</p>
+<p>El algoritmo de simulación es una combinación de dos procedimientos, según sea el valor del parámetro <var>a</var>:
+</p>
+<p>Para <em class='tex2jax_process'>\(a&gt;=1\)</em>, Cheng, R.C.H. y Feast, G.M. (1979). <var>Some simple gamma variate generators</var>. Appl. Stat., 28, 3, 290-295.
+</p>
+<p>Para <em class='tex2jax_process'>\(0&lt;a&lt;1\)</em>, Ahrens, J.H. y Dieter, U. (1974). <var>Computer methods for sampling from gamma, beta, poisson and binomial distributions</var>. Computing, 12, 223-246.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fbeta"></span><dl class="def">
+<dt id="index-pdf_005fbeta"><span class="category">Función: </span><span><strong>pdf_beta</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-pdf_005fbeta' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria <i>Beta</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fbeta"></span><dl class="def">
+<dt id="index-cdf_005fbeta"><span class="category">Función: </span><span><strong>cdf_beta</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-cdf_005fbeta' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria <i>Beta</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_beta(1/3,15,2);
+                             11
+(%o2)                     --------
+                          14348907
+(%i3) float(%);
+(%o3)              7.666089131388195E-7
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fbeta"></span><dl class="def">
+<dt id="index-quantile_005fbeta"><span class="category">Función: </span><span><strong>quantile_beta</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em><a href='#index-quantile_005fbeta' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Beta</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_beta</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fbeta"></span><dl class="def">
+<dt id="index-mean_005fbeta"><span class="category">Función: </span><span><strong>mean_beta</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-mean_005fbeta' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Beta</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fbeta"></span><dl class="def">
+<dt id="index-var_005fbeta"><span class="category">Función: </span><span><strong>var_beta</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-var_005fbeta' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Beta</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fbeta"></span><dl class="def">
+<dt id="index-std_005fbeta"><span class="category">Función: </span><span><strong>std_beta</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-std_005fbeta' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Beta</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fbeta"></span><dl class="def">
+<dt id="index-skewness_005fbeta"><span class="category">Función: </span><span><strong>skewness_beta</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-skewness_005fbeta' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Beta</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fbeta"></span><dl class="def">
+<dt id="index-kurtosis_005fbeta"><span class="category">Función: </span><span><strong>kurtosis_beta</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-kurtosis_005fbeta' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis de una variable aleatoria <i>Beta</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fbeta"></span><dl class="def">
+<dt id="index-random_005fbeta"><span class="category">Función: </span><span><strong>random_beta</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-random_005fbeta' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fbeta-1"><span class="category">Función: </span><span><strong>random_beta</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em><a href='#index-random_005fbeta-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio <i>Beta</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Llamando a <code>random_beta</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación es el decrito en Cheng, R.C.H. (1978). <var>Generating Beta Variates with Nonintegral Shape Parameters</var>. Communications of the ACM, 21:317-322.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fcontinuous_005funiform"></span><dl class="def">
+<dt id="index-pdf_005fcontinuous_005funiform"><span class="category">Función: </span><span><strong>pdf_continuous_uniform</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-pdf_005fcontinuous_005funiform' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria  <i>Uniforme Continua</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&lt;b\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fcontinuous_005funiform"></span><dl class="def">
+<dt id="index-cdf_005fcontinuous_005funiform"><span class="category">Función: </span><span><strong>cdf_continuous_uniform</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-cdf_005fcontinuous_005funiform' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria  <i>Uniforme Continua</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&lt;b\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fcontinuous_005funiform"></span><dl class="def">
+<dt id="index-quantile_005fcontinuous_005funiform"><span class="category">Función: </span><span><strong>quantile_continuous_uniform</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em><a href='#index-quantile_005fcontinuous_005funiform' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria  <i>Uniforme Continua</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&lt;b\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_continuous_uniform</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fcontinuous_005funiform"></span><dl class="def">
+<dt id="index-mean_005fcontinuous_005funiform"><span class="category">Función: </span><span><strong>mean_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-mean_005fcontinuous_005funiform' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria  <i>Uniforme Continua</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&lt;b\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fcontinuous_005funiform"></span><dl class="def">
+<dt id="index-var_005fcontinuous_005funiform"><span class="category">Función: </span><span><strong>var_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-var_005fcontinuous_005funiform' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria  <i>Uniforme Continua</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&lt;b\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fcontinuous_005funiform"></span><dl class="def">
+<dt id="index-std_005fcontinuous_005funiform"><span class="category">Función: </span><span><strong>std_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-std_005fcontinuous_005funiform' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria  <i>Uniforme Continua</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&lt;b\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fcontinuous_005funiform"></span><dl class="def">
+<dt id="index-skewness_005fcontinuous_005funiform"><span class="category">Función: </span><span><strong>skewness_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-skewness_005fcontinuous_005funiform' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria  <i>Uniforme Continua</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&lt;b\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fcontinuous_005funiform"></span><dl class="def">
+<dt id="index-kurtosis_005fcontinuous_005funiform"><span class="category">Función: </span><span><strong>kurtosis_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-kurtosis_005fcontinuous_005funiform' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria  <i>Uniforme Continua</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&lt;b\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fcontinuous_005funiform"></span><dl class="def">
+<dt id="index-random_005fcontinuous_005funiform"><span class="category">Función: </span><span><strong>random_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-random_005fcontinuous_005funiform' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fcontinuous_005funiform-1"><span class="category">Función: </span><span><strong>random_continuous_uniform</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em><a href='#index-random_005fcontinuous_005funiform-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Uniforme Continuo</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&lt;b\)</em>. Llamando a <code>random_continuous_uniform</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>Esta función es una aplicación directa de la función  <code>random</code> de Maxima.
+</p>
+<p>Véase también <code>random</code>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005flogistic"></span><dl class="def">
+<dt id="index-pdf_005flogistic"><span class="category">Función: </span><span><strong>pdf_logistic</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-pdf_005flogistic' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria <i>Logística</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005flogistic"></span><dl class="def">
+<dt id="index-cdf_005flogistic"><span class="category">Función: </span><span><strong>cdf_logistic</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-cdf_005flogistic' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria <i>Logística</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005flogistic"></span><dl class="def">
+<dt id="index-quantile_005flogistic"><span class="category">Función: </span><span><strong>quantile_logistic</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em><a href='#index-quantile_005flogistic' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria <i>Logística</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_logistic</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005flogistic"></span><dl class="def">
+<dt id="index-mean_005flogistic"><span class="category">Función: </span><span><strong>mean_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-mean_005flogistic' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria <i>Logística</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005flogistic"></span><dl class="def">
+<dt id="index-var_005flogistic"><span class="category">Función: </span><span><strong>var_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-var_005flogistic' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria <i>Logística</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005flogistic"></span><dl class="def">
+<dt id="index-std_005flogistic"><span class="category">Función: </span><span><strong>std_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-std_005flogistic' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria <i>Logística</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005flogistic"></span><dl class="def">
+<dt id="index-skewness_005flogistic"><span class="category">Función: </span><span><strong>skewness_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-skewness_005flogistic' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria <i>Logística</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005flogistic"></span><dl class="def">
+<dt id="index-kurtosis_005flogistic"><span class="category">Función: </span><span><strong>kurtosis_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-kurtosis_005flogistic' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria <i>Logística</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005flogistic"></span><dl class="def">
+<dt id="index-random_005flogistic"><span class="category">Función: </span><span><strong>random_logistic</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-random_005flogistic' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005flogistic-1"><span class="category">Función: </span><span><strong>random_logistic</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em><a href='#index-random_005flogistic-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Logístico</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Llamando a  <code>random_logistic</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fpareto"></span><dl class="def">
+<dt id="index-pdf_005fpareto"><span class="category">Función: </span><span><strong>pdf_pareto</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-pdf_005fpareto' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Pareto</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fpareto"></span><dl class="def">
+<dt id="index-cdf_005fpareto"><span class="category">Función: </span><span><strong>cdf_pareto</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-cdf_005fpareto' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Pareto</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fpareto"></span><dl class="def">
+<dt id="index-quantile_005fpareto"><span class="category">Función: </span><span><strong>quantile_pareto</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em><a href='#index-quantile_005fpareto' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Pareto</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_pareto</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fpareto"></span><dl class="def">
+<dt id="index-mean_005fpareto"><span class="category">Función: </span><span><strong>mean_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-mean_005fpareto' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria de <i>Pareto</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&gt;1,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fpareto"></span><dl class="def">
+<dt id="index-var_005fpareto"><span class="category">Función: </span><span><strong>var_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-var_005fpareto' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria de <i>Pareto</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&gt;2,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fpareto"></span><dl class="def">
+<dt id="index-std_005fpareto"><span class="category">Función: </span><span><strong>std_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-std_005fpareto' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria de <i>Pareto</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&gt;2,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fpareto"></span><dl class="def">
+<dt id="index-skewness_005fpareto"><span class="category">Función: </span><span><strong>skewness_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-skewness_005fpareto' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de <i>Pareto</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&gt;3,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fpareto"></span><dl class="def">
+<dt id="index-kurtosis_005fpareto"><span class="category">Función: </span><span><strong>kurtosis_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-kurtosis_005fpareto' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis de una variable aleatoria de <i>Pareto</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&gt;4,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fpareto"></span><dl class="def">
+<dt id="index-random_005fpareto"><span class="category">Función: </span><span><strong>random_pareto</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-random_005fpareto' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fpareto-1"><span class="category">Función: </span><span><strong>random_pareto</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em><a href='#index-random_005fpareto-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Pareto</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a&gt;0,b&gt;0\)</em>. Llamando a  <code>random_pareto</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fweibull"></span><dl class="def">
+<dt id="index-pdf_005fweibull"><span class="category">Función: </span><span><strong>pdf_weibull</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-pdf_005fweibull' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Weibull</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fweibull"></span><dl class="def">
+<dt id="index-cdf_005fweibull"><span class="category">Función: </span><span><strong>cdf_weibull</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-cdf_005fweibull' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Weibull</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fweibull"></span><dl class="def">
+<dt id="index-quantile_005fweibull"><span class="category">Función: </span><span><strong>quantile_weibull</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em><a href='#index-quantile_005fweibull' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Weibull</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_weibull</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fweibull"></span><dl class="def">
+<dt id="index-mean_005fweibull"><span class="category">Función: </span><span><strong>mean_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-mean_005fweibull' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria de <i>Weibull</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fweibull"></span><dl class="def">
+<dt id="index-var_005fweibull"><span class="category">Función: </span><span><strong>var_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-var_005fweibull' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria de <i>Weibull</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fweibull"></span><dl class="def">
+<dt id="index-std_005fweibull"><span class="category">Función: </span><span><strong>std_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-std_005fweibull' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria de <i>Weibull</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fweibull"></span><dl class="def">
+<dt id="index-skewness_005fweibull"><span class="category">Función: </span><span><strong>skewness_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-skewness_005fweibull' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de <i>Weibull</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fweibull"></span><dl class="def">
+<dt id="index-kurtosis_005fweibull"><span class="category">Función: </span><span><strong>kurtosis_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-kurtosis_005fweibull' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria de <i>Weibull</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fweibull"></span><dl class="def">
+<dt id="index-random_005fweibull"><span class="category">Función: </span><span><strong>random_weibull</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-random_005fweibull' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fweibull-1"><span class="category">Función: </span><span><strong>random_weibull</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em><a href='#index-random_005fweibull-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Weibull</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(a,b&gt;0\)</em>. Llamando a  <code>random_weibull</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005frayleigh"></span><dl class="def">
+<dt id="index-pdf_005frayleigh"><span class="category">Función: </span><span><strong>pdf_rayleigh</strong> <em>(<var>x</var>,<var>b</var>)</em><a href='#index-pdf_005frayleigh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((2,1/b)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) pdf_rayleigh(x,b);
+                                    2  2
+                           2     - b  x
+(%o2)                   2 b  x %e
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005frayleigh"></span><dl class="def">
+<dt id="index-cdf_005frayleigh"><span class="category">Función: </span><span><strong>cdf_rayleigh</strong> <em>(<var>x</var>,<var>b</var>)</em><a href='#index-cdf_005frayleigh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((2,1/b)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) cdf_rayleigh(x,b);
+                                   2  2
+                                - b  x
+(%o2)                     1 - %e
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005frayleigh"></span><dl class="def">
+<dt id="index-quantile_005frayleigh"><span class="category">Función: </span><span><strong>quantile_rayleigh</strong> <em>(<var>q</var>,<var>b</var>)</em><a href='#index-quantile_005frayleigh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_rayleigh</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((2,1/b)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) quantile_rayleigh(0.99,b);
+                        2.145966026289347
+(%o2)                   -----------------
+                                b
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005frayleigh"></span><dl class="def">
+<dt id="index-mean_005frayleigh"><span class="category">Función: </span><span><strong>mean_rayleigh</strong> <em>(<var>b</var>)</em><a href='#index-mean_005frayleigh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria de <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((2,1/b)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) mean_rayleigh(b);
+                            sqrt(%pi)
+(%o2)                       ---------
+                               2 b
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005frayleigh"></span><dl class="def">
+<dt id="index-var_005frayleigh"><span class="category">Función: </span><span><strong>var_rayleigh</strong> <em>(<var>b</var>)</em><a href='#index-var_005frayleigh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria de <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((2,1/b)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) var_rayleigh(b);
+                                 %pi
+                             1 - ---
+                                  4
+(%o2)                        -------
+                                2
+                               b
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005frayleigh"></span><dl class="def">
+<dt id="index-std_005frayleigh"><span class="category">Función: </span><span><strong>std_rayleigh</strong> <em>(<var>b</var>)</em><a href='#index-std_005frayleigh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria de <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((2,1/b)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) std_rayleigh(b);
+                                   %pi
+                          sqrt(1 - ---)
+                                    4
+(%o2)                     -------------
+                                b
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005frayleigh"></span><dl class="def">
+<dt id="index-skewness_005frayleigh"><span class="category">Función: </span><span><strong>skewness_rayleigh</strong> <em>(<var>b</var>)</em><a href='#index-skewness_005frayleigh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((2,1/b)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) skewness_rayleigh(b);
+                         3/2
+                      %pi      3 sqrt(%pi)
+                      ------ - -----------
+                        4           4
+(%o2)                 --------------------
+                               %pi 3/2
+                          (1 - ---)
+                                4
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005frayleigh"></span><dl class="def">
+<dt id="index-kurtosis_005frayleigh"><span class="category">Función: </span><span><strong>kurtosis_rayleigh</strong> <em>(<var>b</var>)</em><a href='#index-kurtosis_005frayleigh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria de <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>.
+</p>
+<p>La variable aleatoria <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em> equivale a una <i>Weibull</i><em class='tex2jax_process'>\((2,1/b)\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) kurtosis_rayleigh(b);
+                                  2
+                             3 %pi
+                         2 - ------
+                               16
+(%o2)                    ---------- - 3
+                              %pi 2
+                         (1 - ---)
+                               4
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005frayleigh"></span><dl class="def">
+<dt id="index-random_005frayleigh"><span class="category">Función: </span><span><strong>random_rayleigh</strong> <em>(<var>b</var>)</em><a href='#index-random_005frayleigh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005frayleigh-1"><span class="category">Función: </span><span><strong>random_rayleigh</strong> <em>(<var>b</var>,<var>n</var>)</em><a href='#index-random_005frayleigh-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Rayleigh</i><em class='tex2jax_process'>\((b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Llamando a  <code>random_rayleigh</code> con un segundo argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005flaplace"></span><dl class="def">
+<dt id="index-pdf_005flaplace"><span class="category">Función: </span><span><strong>pdf_laplace</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-pdf_005flaplace' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Laplace</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005flaplace"></span><dl class="def">
+<dt id="index-cdf_005flaplace"><span class="category">Función: </span><span><strong>cdf_laplace</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-cdf_005flaplace' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Laplace</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005flaplace"></span><dl class="def">
+<dt id="index-quantile_005flaplace"><span class="category">Función: </span><span><strong>quantile_laplace</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em><a href='#index-quantile_005flaplace' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Laplace</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_laplace</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005flaplace"></span><dl class="def">
+<dt id="index-mean_005flaplace"><span class="category">Función: </span><span><strong>mean_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-mean_005flaplace' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria de <i>Laplace</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005flaplace"></span><dl class="def">
+<dt id="index-var_005flaplace"><span class="category">Función: </span><span><strong>var_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-var_005flaplace' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria de <i>Laplace</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005flaplace"></span><dl class="def">
+<dt id="index-std_005flaplace"><span class="category">Función: </span><span><strong>std_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-std_005flaplace' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria de <i>Laplace</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005flaplace"></span><dl class="def">
+<dt id="index-skewness_005flaplace"><span class="category">Función: </span><span><strong>skewness_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-skewness_005flaplace' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de <i>Laplace</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005flaplace"></span><dl class="def">
+<dt id="index-kurtosis_005flaplace"><span class="category">Función: </span><span><strong>kurtosis_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-kurtosis_005flaplace' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis una variable aleatoria de <i>Laplace</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005flaplace"></span><dl class="def">
+<dt id="index-random_005flaplace"><span class="category">Función: </span><span><strong>random_laplace</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-random_005flaplace' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005flaplace-1"><span class="category">Función: </span><span><strong>random_laplace</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em><a href='#index-random_005flaplace-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Laplace</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Llamando a  <code>random_laplace</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fcauchy"></span><dl class="def">
+<dt id="index-pdf_005fcauchy"><span class="category">Función: </span><span><strong>pdf_cauchy</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-pdf_005fcauchy' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Cauchy</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fcauchy"></span><dl class="def">
+<dt id="index-cdf_005fcauchy"><span class="category">Función: </span><span><strong>cdf_cauchy</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-cdf_005fcauchy' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Cauchy</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fcauchy"></span><dl class="def">
+<dt id="index-quantile_005fcauchy"><span class="category">Función: </span><span><strong>quantile_cauchy</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em><a href='#index-quantile_005fcauchy' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Cauchy</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_cauchy</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fcauchy"></span><dl class="def">
+<dt id="index-random_005fcauchy"><span class="category">Función: </span><span><strong>random_cauchy</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-random_005fcauchy' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fcauchy-1"><span class="category">Función: </span><span><strong>random_cauchy</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em><a href='#index-random_005fcauchy-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Cauchy</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Llamando a  <code>random_cauchy</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-distrib_002fdeffn_002fpdf_005fgumbel"></span><dl class="def">
+<dt id="index-pdf_005fgumbel"><span class="category">Función: </span><span><strong>pdf_gumbel</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-pdf_005fgumbel' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de densidad de una variable aleatoria de <i>Gumbel</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fcdf_005fgumbel"></span><dl class="def">
+<dt id="index-cdf_005fgumbel"><span class="category">Función: </span><span><strong>cdf_gumbel</strong> <em>(<var>x</var>,<var>a</var>,<var>b</var>)</em><a href='#index-cdf_005fgumbel' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el valor correspondiente a <var>x</var> de la función de distribución de una variable aleatoria de <i>Gumbel</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fquantile_005fgumbel"></span><dl class="def">
+<dt id="index-quantile_005fgumbel"><span class="category">Función: </span><span><strong>quantile_gumbel</strong> <em>(<var>q</var>,<var>a</var>,<var>b</var>)</em><a href='#index-quantile_005fgumbel' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el <var>q</var>-cuantil de una variable aleatoria de <i>Gumbel</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>; en otras palabras, se trata de la inversa de  <code>cdf_gumbel</code>. El argumento <var>q</var> debe ser un número de <em class='tex2jax_process'>\([0,1]\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fmean_005fgumbel"></span><dl class="def">
+<dt id="index-mean_005fgumbel"><span class="category">Función: </span><span><strong>mean_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-mean_005fgumbel' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la media de  una variable aleatoria de <i>Gumbel</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) mean_gumbel(a,b);
+(%o2)                     %gamma b + a
+</pre></div>
+<p>donde el símbolo <code>%gamma</code> representa la constante de Euler-Mascheroni. Véase también <code>%gamma</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fvar_005fgumbel"></span><dl class="def">
+<dt id="index-var_005fgumbel"><span class="category">Función: </span><span><strong>var_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-var_005fgumbel' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la varianza de  una variable aleatoria de <i>Gumbel</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fstd_005fgumbel"></span><dl class="def">
+<dt id="index-std_005fgumbel"><span class="category">Función: </span><span><strong>std_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-std_005fgumbel' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve la desviación típica de  una variable aleatoria de <i>Gumbel</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fskewness_005fgumbel"></span><dl class="def">
+<dt id="index-skewness_005fgumbel"><span class="category">Función: </span><span><strong>skewness_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-skewness_005fgumbel' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de asimetría de una variable aleatoria de <i>Gumbel</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>.
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;distrib&quot;)$
+(%i2) skewness_gumbel(a,b);
+                                  3/2
+                               2 6    zeta(3)
+(%o2)                          --------------
+                                       3
+                                    %pi
+</pre></div>
+<p>donde <code>zeta</code> representa la función zeta de Riemann.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fgumbel"></span><dl class="def">
+<dt id="index-kurtosis_005fgumbel"><span class="category">Función: </span><span><strong>kurtosis_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-kurtosis_005fgumbel' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve el coeficiente de curtosis de una variable aleatoria de <i>Gumbel</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fdeffn_002frandom_005fgumbel"></span><dl class="def">
+<dt id="index-random_005fgumbel"><span class="category">Función: </span><span><strong>random_gumbel</strong> <em>(<var>a</var>,<var>b</var>)</em><a href='#index-random_005fgumbel' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-random_005fgumbel-1"><span class="category">Función: </span><span><strong>random_gumbel</strong> <em>(<var>a</var>,<var>b</var>,<var>n</var>)</em><a href='#index-random_005fgumbel-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve un valor aleatorio  <i>Gumbel</i><em class='tex2jax_process'>\((a,b)\)</em>, con <em class='tex2jax_process'>\(b&gt;0\)</em>. Llamando a  <code>random_gumbel</code> con un tercer argumento <var>n</var>, se simulará una muestra aleatoria de tamaño  <var>n</var>.
+</p>
+<p>El algoritmo de simulación está basado en el método inverso.
+</p>
+<p>Para hacer uso de esta función, ejecútese primero <code>load(&quot;distrib&quot;)</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-distrib_002fnode_002fFunciones-y-variables-para-distribuciones-discretas"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_197.html" accesskey="n" rel="next">Funciones y variables para distribuciones discretas</a>, Anterior: <a href="maxima_195.html" accesskey="p" rel="prev">Introducción a distrib</a>, Subir: <a href="maxima_194.html" accesskey="u" rel="up">distrib</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>Información de licencia de JavaScript</small></a>
+</body>
+</html>

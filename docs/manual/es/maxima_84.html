@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Función de error (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Función de error (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Función de error (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_78.html" rel="up" title="Funciones Especiales">
+<link href="maxima_85.html" rel="next" title="Funciones de Struve">
+<link href="maxima_83.html" rel="prev" title="Integral exponencial">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Funci_00f3n-de-error">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_85.html" accesskey="n" rel="next">Funciones de Struve</a>, Anterior: <a href="maxima_83.html" accesskey="p" rel="prev">Integral exponencial</a>, Subir: <a href="maxima_78.html" accesskey="u" rel="up">Funciones Especiales</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Funcion-de-error"></span><h3 class="section">15.6 Función de error</h3>
+
+<p>La función de error y sus asociadas se definen en el 
+capítulo 7 de Abramowitz y Stegun, 
+<i>Handbook of Mathematical Functions</i>.
+</p>
+
+<span id="Item_003a-Special_002ees_002fdeffn_002ferf"></span><dl class="def">
+<dt id="index-erf"><span class="category">Función: </span><span><strong>erf</strong> <em>(<var>z</var>)</em><a href='#index-erf' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Función de error erf(z) (A&amp;S 7.1.1)
+</p>
+<p>Véase también <code>erfflag</code>.
+</p></dd></dl>
+
+<span id="Item_003a-Special_002ees_002fdeffn_002ferfc"></span><dl class="def">
+<dt id="index-erfc"><span class="category">Función: </span><span><strong>erfc</strong> <em>(<var>z</var>)</em><a href='#index-erfc' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Complemento de la función de error erfc(z) (A&amp;S 7.1.2)
+</p>
+<p><code>erfc(z) = 1-erf(z)</code>
+</p></dd></dl>
+
+<span id="Item_003a-Special_002ees_002fdeffn_002ferfi"></span><dl class="def">
+<dt id="index-erfi"><span class="category">Función: </span><span><strong>erfi</strong> <em>(<var>z</var>)</em><a href='#index-erfi' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Función de error imaginaria. 
+</p>
+<p><code>erfi(z) = -%i*erf(%i*z)</code>
+</p></dd></dl>
+
+<span id="Item_003a-Special_002ees_002fdeffn_002ferf_005fgeneralized"></span><dl class="def">
+<dt id="index-erf_005fgeneralized"><span class="category">Función: </span><span><strong>erf_generalized</strong> <em>(<var>z1</var>,<var>z2</var>)</em><a href='#index-erf_005fgeneralized' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Función de error generalizada Erf(z1,z2)
+</p></dd></dl>
+
+
+<span id="Item_003a-Special_002ees_002fdeffn_002ffresnel_005fc"></span><dl class="def">
+<dt id="index-fresnel_005fc"><span class="category">Función: </span><span><strong>fresnel_c</strong> <em>(<var>z</var>)</em><a href='#index-fresnel_005fc' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Integral de Fresnel <code>C(z) = integrate(cos((%pi/2)*t^2),t,0,z)</code>. (A&amp;S 7.3.1)
+</p>
+<p>La simplificación <code>fresnel_c(-x) = -fresnel_c(x)</code> se aplica cuando
+la variable global <code>trigsign</code> vale <code>true</code>.
+</p>
+<p>La simplificación <code>fresnel_s(%i*x) =  -%i*fresnel_s(x)</code> se aplica cuando
+la variable global <code>%iargs</code> vale <code>true</code>.
+</p>
+<p>Véanse también <code>erf_representation</code> y
+<code>hypergeometric_representation</code>.
+</p></dd></dl>
+
+<span id="Item_003a-Special_002ees_002fdeffn_002ffresnel_005fs"></span><dl class="def">
+<dt id="index-fresnel_005fs"><span class="category">Función: </span><span><strong>fresnel_s</strong> <em>(<var>z</var>)</em><a href='#index-fresnel_005fs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Integral de Fresnel S(z) = integrate(sin((%pi/2)*t^2),t,0,z). (A&amp;S 7.3.2)
+</p>
+<p>La simplificación fresnel_s(-x) = -fresnel_s(x) se aplica cuando
+la variable global <code>trigsign</code> vale <code>true</code>.
+</p>
+<p>La simplificación fresnel_s(%i*x) =  %i*fresnel_s(x) se aplica cuando
+la variable global <code>%iargs</code> vale <code>true</code>.
+</p>
+<p>Véanse también <code>erf_representation</code> y
+<code>hypergeometric_representation</code>.
+</p></dd></dl>
+
+<span id="Item_003a-Special_002ees_002fdefvr_002ferf_005frepresentation"></span><dl class="def">
+<dt id="index-erf_005frepresentation"><span class="category">Variable opcional: </span><span><strong>erf_representation</strong><a href='#index-erf_005frepresentation' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: false
+</p>
+<p>Cuando valga <code>true</code> erfc, erfi, erf_generalized, fresnel_s 
+y fresnel_c se transforman a erf.
+</p></dd></dl>
+
+<span id="Item_003a-Special_002ees_002fdefvr_002fhypergeometric_005frepresentation"></span><dl class="def">
+<dt id="index-hypergeometric_005frepresentation"><span class="category">Variable opcional: </span><span><strong>hypergeometric_representation</strong><a href='#index-hypergeometric_005frepresentation' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: false
+</p>
+<p>Permite obtener la representación hipergeométrica
+de las funciones fresnel_s y fresnel_c.
+</p></dd></dl>
+
+
+
+
+
+
+
+<span id="Item_003a-Special_002ees_002fnode_002fFunciones-de-Struve"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_85.html" accesskey="n" rel="next">Funciones de Struve</a>, Anterior: <a href="maxima_83.html" accesskey="p" rel="prev">Integral exponencial</a>, Subir: <a href="maxima_78.html" accesskey="u" rel="up">Funciones Especiales</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einf&uuml;hrung in Maximas Datenbank (Maxima Manual)</title>
+
+<meta name="description" content="Einf&uuml;hrung in Maximas Datenbank (Maxima Manual)">
+<meta name="keywords" content="Einf&uuml;hrung in Maximas Datenbank (Maxima Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_334.html" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_61.html" rel="up" title="Maximas Datenbank">
+<link href="maxima_63.html" rel="next" title="Funktionen und Variablen f&uuml;r Eigenschaften">
+<link href="maxima_61.html" rel="prev" title="Maximas Datenbank">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="de">
+<div class="section" id="Einf_00fchrung-in-Maximas-Datenbank">
+<div class="header">
+<p>
+Nächste: <a href="maxima_63.html" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r Eigenschaften</a>, Vorige: <a href="maxima_61.html" accesskey="p" rel="prev">Maximas Datenbank</a>, Nach oben: <a href="maxima_61.html" accesskey="u" rel="up">Maximas Datenbank</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Einfuhrung-in-Maximas-Datenbank"></span><h3 class="section">11.1 Einf&uuml;hrung in Maximas Datenbank</h3>
+
+<span id="Eigenschaften"></span><h4 class="subheading">Eigenschaften</h4>
+
+<p>Variablen und Funktionen k&ouml;nnen mit der Funktion <code><a href="maxima_63.html#declare">declare</a></code> Eigenschaften
+zugewiesen werden.  Diese Eigenschaften werden in eine Datenbank abgelegt oder
+in eine von Lisp bereitgestellte Eigenschaftsliste eingetragen.  Mit der
+Funktion <code><a href="maxima_63.html#featurep">featurep</a></code> kann gepr&uuml;ft werden, ob ein Symbol eine bestimmte
+Eigenschaft hat und mit der Funktion <code><a href="maxima_63.html#properties">properties</a></code> k&ouml;nnen alle
+Eigenschaften eines Symbols angezeigt werden.  Die Funktion <code><a href="maxima_63.html#remove">remove</a></code><!-- /@w -->
+l&ouml;scht Eigenschaften aus der Datenbank oder von der Eigenschaftsliste.  Wird
+mit der Funktion <code><a href="maxima_9.html#kill">kill</a></code> ein Symbol entfernt, werden auch die zugewiesenen
+Eigenschaften gel&ouml;scht.
+</p>
+<p>Weiterhin k&ouml;nnen mit den Funktionen <code><a href="maxima_63.html#put">put</a></code> und <code><a href="maxima_63.html#qput">qput</a></code> beliebige
+vom Nutzer vorgesehene Eigenschaften in die Eigenschaftsliste zu einem Symbol
+abgelegt werden.  Mit der Funktion <code><a href="maxima_63.html#get">get</a></code> werden die Eigenschaften von
+der Eigenschaftsliste gelesen und mit der Funktion <code><a href="maxima_63.html#rem">rem</a></code> gel&ouml;scht.
+</p>
+<p>Variablen k&ouml;nnen die folgenden Eigenschaften erhalten, die in die Datenbank
+eingetragen werden.
+</p>
+<pre class="verbatim">   constant
+   integer        noninteger
+   even           odd
+   rational       irrational
+   real           imaginary      complex
+</pre>
+<p>Funktionen k&ouml;nnen die folgenden Eigenschaften erhalten, die in die Datenbank
+eingetragen werden.
+</p>
+<pre class="verbatim">   increasing     decreasing
+   posfun         integervalued
+</pre>
+<p>Die folgenden Eigenschaften k&ouml;nnen f&uuml;r Funktionen definiert werden und 
+wirken sich auf die Vereinfachung dieser Funktionen aus.  Diese Eigenschaften
+werden in <a href="maxima_46.html">Vereinfachung</a> beschrieben.
+</p>
+<pre class="verbatim">   linear         additive       multiplicative
+   outative       commutative    symmetric      
+   antisymmetric  nary           lassociativ
+   rassociative   evenfun        oddfun
+</pre>
+<p>Weitere Eigenschaften, die Variablen und Funktionen erhalten k&ouml;nnen, und
+die in die Lisp-Eigenschaftsliste des Symbols abgelegt werden, sind.
+</p>
+<pre class="verbatim">   bindtest       feature        alphabetic
+   scalar         nonscalar      nonarray
+</pre>
+<span id="Kontexte"></span><h4 class="subheading">Kontexte</h4>
+
+<p>Maxima verwaltet Kontexte, um Eigenschaften von Variablen und Funktionen sowie
+Fakten abzulegen.  Fakten werden mit der Funktion <code><a href="maxima_64.html#assume">assume</a></code> definiert und
+in dem aktuellen Kontext abgelegt.  Mit <code>assume(a&gt;10)</code> erh&auml;lt Maxima zum
+Beispiel die Information, dass die Variable <code>a</code> gr&ouml;&szlig;er als <code>10</code>
+ist.  Mit der Funktion <code><a href="maxima_64.html#forget">forget</a></code> werden Fakten aus der Datenbank entfernt.
+Fragt Maxima den Nutzer nach Eigenschaften von Variablen, werden die Antworten
+in einem Kontext abgelegt.
+</p>
+<p>Ein Kontext hat einen Namen, mit dem auf diesen Bezug genommen werden kann.
+Nach dem Starten von Maxima hat der aktuelle Kontext den Namen <code>initial</code>.
+Es kann eine beliebige Anzahl weiterer Kontexte definiert werden.  Diese
+k&ouml;nnen hierarchisch voneinander abh&auml;ngen.  So ist der Kontext <code>initial</code>
+ein Unterkontext zum Kontext <code>global</code>.  Die Fakten in einem
+&uuml;bergeordneten Kontext sind in dem Unterkontext immer pr&auml;sent.  Der Kontext
+<code>global</code> enth&auml;lt zum Beispiel Fakten, die von Maxima initialisiert
+werden, und zus&auml;tzlich zu den Fakten des Kontextes <code>initial</code> aktiv sind.
+</p>
+<p>Kontexte k&ouml;nnen eine beliege Anzahl an Fakten aufnehmen.  Sie k&ouml;nnen mit der
+Funktion <code><a href="maxima_64.html#deactivate">deactivate</a></code> deaktiviert werden, ohne dass die Fakten verloren
+gehen und sp&auml;ter mit der Funktion <code><a href="maxima_64.html#activate">activate</a></code> aktiviert werden, wodurch
+die Fakten f&uuml;r Aussagefunktionen wieder zur Verf&uuml;gung stehen.
+</p>
+<span id="Item_003a-Database_002ede_002fnode_002fFunktionen-und-Variablen-f_00fcr-Eigenschaften"></span></div>
+<hr>
+<div class="header">
+<p>
+Nächste: <a href="maxima_63.html" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r Eigenschaften</a>, Vorige: <a href="maxima_61.html" accesskey="p" rel="prev">Maximas Datenbank</a>, Nach oben: <a href="maxima_61.html" accesskey="u" rel="up">Maximas Datenbank</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

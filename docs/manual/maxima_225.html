@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Noncentral Chi-squared Random Variable (Maxima 5.47.0 Manual)</title>
+
+<meta name="description" content="Noncentral Chi-squared Random Variable (Maxima 5.47.0 Manual)">
+<meta name="keywords" content="Noncentral Chi-squared Random Variable (Maxima 5.47.0 Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_423.html" rel="index" title="Function and Variable Index">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="maxima_220.html" rel="up" title="Functions and Variables for continuous distributions">
+<link href="maxima_226.html" rel="next" title="F Random Variable">
+<link href="maxima_224.html" rel="prev" title="Chi-squared Random Variable">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body lang="en" class="tex2jax_ignore">
+<div class="subsection" id="Noncentral-Chi_002dsquared-Random-Variable">
+<div class="header">
+<p>
+Next: <a href="maxima_226.html" accesskey="n" rel="next">F Random Variable</a>, Previous: <a href="maxima_224.html" accesskey="p" rel="prev">Chi-squared Random Variable</a>, Up: <a href="maxima_220.html" accesskey="u" rel="up">Functions and Variables for continuous distributions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Noncentral-Chi_002dsquared-Random-Variable-1"></span><h4 class="subsection">52.2.5 Noncentral Chi-squared Random Variable</h4>
+
+<p>Let 
+<em class='tex2jax_process'>\(X_1, X_2, ..., X_n\)</em>
+ be <em class='tex2jax_process'>\(n\)</em> 
+independent normally distributed random variables with
+means 
+<em class='tex2jax_process'>\(\mu_k\)</em>
+ and unit variances.  Then the random variable
+</p>
+<div class="displaymath"><em class="tex2jax_process">\[\sum_{k=1}^n X_k^2
+\]</em></div>
+
+<p>has a noncentral 
+<em class='tex2jax_process'>\(\chi^2\)</em>
+ distribution.  The
+number of degrees of freedom is <em class='tex2jax_process'>\(n\)</em>, and the noncentrality
+parameter is defined by
+</p>
+<div class="displaymath"><em class="tex2jax_process">\[\sum_{k=1}^n \mu_k^2
+\]</em></div>
+
+<span id="pdf_005fnoncentral_005fchi2"></span><span id="Item_003a-distrib_002fdeffn_002fpdf_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-pdf_005fnoncentral_005fchi2"><span class="category">Function: </span><span><strong>pdf_noncentral_chi2</strong> <em>(<var>x</var>,<var>n</var>,<var>ncp</var>)</em><a href='#index-pdf_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Returns the value at <em class='tex2jax_process'>\(x\)</em> of the density function of a 
+noncentral 
+<em class='tex2jax_process'>\(\chi^2\)</em>
+ random
+variable m4_noncentral_chi2(n,ncp), with <em class='tex2jax_process'>\(n&gt;0\)</em> and noncentrality parameter <em class='tex2jax_process'>\(ncp&gt;=0\)</em>. To 
+make use of this function, write first <code>load(&quot;distrib&quot;)</code>.
+</p>
+<p>For <em class='tex2jax_process'>\(x &lt; 0\)</em>, the pdf is 0, and for 
+<em class='tex2jax_process'>\(x \ge 0\)</em>
+ the pdf is
+<div class="displaymath"><em class="tex2jax_process">\[f(x; n, \lambda) =
+{1\over 2}e^{-(x+\lambda)/2} \left(x\over
+\lambda\right)^{n/4-1/2}I_{{n\over 2} - 1}\left(\sqrt{n \lambda}\right)
+
+\]</em></div></p>
+
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Package-distrib">Package distrib</a>
+&middot;
+</div>
+
+</dd></dl>
+
+
+<span id="cdf_005fnoncentral_005fchi2"></span><span id="Item_003a-distrib_002fdeffn_002fcdf_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-cdf_005fnoncentral_005fchi2"><span class="category">Function: </span><span><strong>cdf_noncentral_chi2</strong> <em>(<var>x</var>,<var>n</var>,<var>ncp</var>)</em><a href='#index-cdf_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Returns the value at <var>x</var> of the distribution function of a noncentral Chi-square random variable m4_noncentral_chi2(n,ncp), with <em class='tex2jax_process'>\(n&gt;0\)</em> and noncentrality parameter <em class='tex2jax_process'>\(ncp&gt;=0\)</em>. To make use of this function, write first <code>load(&quot;distrib&quot;)</code>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Package-distrib">Package distrib</a>
+&middot;
+</div>
+
+</dd></dl>
+
+
+<span id="quantile_005fnoncentral_005fchi2"></span><span id="Item_003a-distrib_002fdeffn_002fquantile_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-quantile_005fnoncentral_005fchi2"><span class="category">Function: </span><span><strong>quantile_noncentral_chi2</strong> <em>(<var>q</var>,<var>n</var>,<var>ncp</var>)</em><a href='#index-quantile_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Returns the <var>q</var>-quantile of a noncentral Chi-square random variable m4_noncentral_chi2(n,ncp), with <em class='tex2jax_process'>\(n&gt;0\)</em> and noncentrality parameter <em class='tex2jax_process'>\(ncp&gt;=0\)</em>; in other words, this is the inverse of <code>cdf_noncentral_chi2</code>. Argument <var>q</var> must be an element of <em class='tex2jax_process'>\([0,1]\)</em>.
+</p>
+<p>This function has no closed form and it is numerically computed.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Package-distrib">Package distrib</a>
+&middot;
+</div>
+
+</dd></dl>
+
+
+<span id="mean_005fnoncentral_005fchi2"></span><span id="Item_003a-distrib_002fdeffn_002fmean_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-mean_005fnoncentral_005fchi2"><span class="category">Function: </span><span><strong>mean_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-mean_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Returns the mean of a noncentral Chi-square random variable m4_noncentral_chi2(n,ncp), with <em class='tex2jax_process'>\(n&gt;0\)</em> and noncentrality parameter <em class='tex2jax_process'>\(ncp&gt;=0\)</em>.
+</p>
+<p>The mean is
+<div class="displaymath"><em class="tex2jax_process">\[E[X] = n + \mu
+\]</em></div></p>
+<p>where 
+<em class='tex2jax_process'>\(\mu\)</em>
+ is the noncentrality parameter <var>ncp</var>.
+</p>
+
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Package-distrib">Package distrib</a>
+&middot;
+</div>
+
+</dd></dl>
+
+
+<span id="var_005fnoncentral_005fchi2"></span><span id="Item_003a-distrib_002fdeffn_002fvar_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-var_005fnoncentral_005fchi2"><span class="category">Function: </span><span><strong>var_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-var_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Returns the variance of a noncentral Chi-square random variable m4_noncentral_chi2(n,ncp), with <em class='tex2jax_process'>\(n&gt;0\)</em> and noncentrality parameter <em class='tex2jax_process'>\(ncp&gt;=0\)</em>.
+</p>
+<p>The variance is
+<div class="displaymath"><em class="tex2jax_process">\[V[X] = 2(n+2\mu)
+\]</em></div></p>
+<p>where 
+<em class='tex2jax_process'>\(\mu\)</em>
+ is the noncentrality parameter <var>ncp</var>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Package-distrib">Package distrib</a>
+&middot;
+</div>
+
+</dd></dl>
+
+
+<span id="std_005fnoncentral_005fchi2"></span><span id="Item_003a-distrib_002fdeffn_002fstd_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-std_005fnoncentral_005fchi2"><span class="category">Function: </span><span><strong>std_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-std_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Returns the standard deviation of a noncentral Chi-square random variable m4_noncentral_chi2(n,ncp), with <em class='tex2jax_process'>\(n&gt;0\)</em> and noncentrality parameter <em class='tex2jax_process'>\(ncp&gt;=0\)</em>.
+</p>
+<p>The standard deviation is
+<div class="displaymath"><em class="tex2jax_process">\[D[X] = \sqrt{2(n+2\mu)}
+\]</em></div></p>
+<p>where 
+<em class='tex2jax_process'>\(\mu\)</em>
+ is the noncentrality parameter <var>ncp</var>.
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Package-distrib">Package distrib</a>
+&middot;
+</div>
+</p>
+</dd></dl>
+
+
+<span id="skewness_005fnoncentral_005fchi2"></span><span id="Item_003a-distrib_002fdeffn_002fskewness_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-skewness_005fnoncentral_005fchi2"><span class="category">Function: </span><span><strong>skewness_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-skewness_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Returns the skewness coefficient of a noncentral Chi-square random variable m4_noncentral_chi2(n,ncp), with <em class='tex2jax_process'>\(n&gt;0\)</em> and noncentrality parameter <em class='tex2jax_process'>\(ncp&gt;=0\)</em>.
+</p>
+<p>The skewness coefficient is
+<div class="displaymath"><em class="tex2jax_process">\[SK[X] = {2^{3/2}(n+3\mu) \over (n+2\mu)^{3/2}}
+\]</em></div></p>
+<p>where 
+<em class='tex2jax_process'>\(\mu\)</em>
+ is the noncentrality parameter <var>ncp</var>.
+</p>
+
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Package-distrib">Package distrib</a>
+&middot;
+</div>
+
+</dd></dl>
+
+
+<span id="kurtosis_005fnoncentral_005fchi2"></span><span id="Item_003a-distrib_002fdeffn_002fkurtosis_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-kurtosis_005fnoncentral_005fchi2"><span class="category">Function: </span><span><strong>kurtosis_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>)</em><a href='#index-kurtosis_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Returns the kurtosis coefficient of a noncentral Chi-square random variable m4_noncentral_chi2(n,ncp), with <em class='tex2jax_process'>\(n&gt;0\)</em> and noncentrality parameter <em class='tex2jax_process'>\(ncp&gt;=0\)</em>.
+</p>
+<p>The kurtosis coefficient is
+<div class="displaymath"><em class="tex2jax_process">\[KU[X] = {12(n+4\mu)\over (2+2\mu)^2}
+\]</em></div></p>
+<p>where 
+<em class='tex2jax_process'>\(\mu\)</em>
+ is the noncentrality parameter <var>ncp</var>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Package-distrib">Package distrib</a>
+&middot;
+</div>
+
+</dd></dl>
+
+
+<span id="random_005fnoncentral_005fchi2"></span><span id="Item_003a-distrib_002fdeffn_002frandom_005fnoncentral_005fchi2"></span><dl class="def">
+<dt id="index-random_005fnoncentral_005fchi2"><span class="category">Function: </span><span><strong>random_noncentral_chi2</strong> <em>(<var>n</var>,<var>ncp</var>) <br>&nbsp;&nbsp;&nbsp;&nbsp;<tt>random_noncentral_chi2</tt> (<var>n</var>,<var>ncp</var>,<var>m</var>)</em><a href='#index-random_005fnoncentral_005fchi2' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Returns a noncentral Chi-square random variate m4_noncentral_chi2(n,ncp), with <em class='tex2jax_process'>\(n&gt;0\)</em> and noncentrality parameter <em class='tex2jax_process'>\(ncp&gt;=0\)</em>. Calling <code>random_noncentral_chi2</code> with a third argument <var>m</var>, a random sample of size <var>m</var> will be simulated.
+</p>
+<p>To make use of this function, write first <code>load(&quot;distrib&quot;)</code>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Package-distrib">Package distrib</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Random-numbers">Random numbers</a>
+&middot;
+</div>
+
+</dd></dl>
+
+
+
+<span id="Item_003a-distrib_002fnode_002fF-Random-Variable"></span></div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="maxima_226.html" accesskey="n" rel="next">F Random Variable</a>, Previous: <a href="maxima_224.html" accesskey="p" rel="prev">Chi-squared Random Variable</a>, Up: <a href="maxima_220.html" accesskey="u" rel="up">Functions and Variables for continuous distributions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>JavaScript license information</small></a>
+</body>
+</html>

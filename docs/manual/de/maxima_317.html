@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einf&uuml;hrung in die Verarbeitung von Zeichenketten (Maxima Manual)</title>
+
+<meta name="description" content="Einf&uuml;hrung in die Verarbeitung von Zeichenketten (Maxima Manual)">
+<meta name="keywords" content="Einf&uuml;hrung in die Verarbeitung von Zeichenketten (Maxima Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_334.html" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_316.html" rel="up" title="stringproc">
+<link href="maxima_318.html" rel="next" title="Ein- und Ausgabe">
+<link href="maxima_316.html" rel="prev" title="stringproc">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="de">
+<div class="section" id="Einf_00fchrung-in-die-Verarbeitung-von-Zeichenketten">
+<div class="header">
+<p>
+Nächste: <a href="maxima_318.html" accesskey="n" rel="next">Ein- und Ausgabe</a>, Vorige: <a href="maxima_316.html" accesskey="p" rel="prev">stringproc</a>, Nach oben: <a href="maxima_316.html" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Einfuhrung-in-die-Verarbeitung-von-Zeichenketten"></span><h3 class="section">73.1 Einf&uuml;hrung in die Verarbeitung von Zeichenketten</h3>
+
+<p>Das Paket <code>stringproc</code> enth&auml;lt Funktionen f&uuml;r die Verarbeitung von 
+Zeichen und Zeichenketten, was Formatierung, Zeichenkodierung und 
+die Behandlung von Datenstr&ouml;men mit einschlie&szlig;t. 
+Abgerundet wird dieses Paket durch Werkzeuge f&uuml;r die Kryptographie, wie z.B. 
+Base64 und Hashfunktionen.
+</p>
+<p>Das Paket kann explizit durch <code>load(&quot;stringproc&quot;)</code> geladen werden oder 
+automatisch durch die Verwendung einer der enthaltenden Funktionen. 
+</p>
+<p>Fragen und Fehlerberichte senden Sie bitte direkt an den Autor, 
+dessen e-Mail-Adresse durch den folgenden Befehl ausgegeben wird. 
+</p>
+<p><code>printf(true, &quot;~{~a~}@gmail.com&quot;, split(sdowncase(&quot;Volker van Nek&quot;)))$</code>
+</p>
+
+<p>Eine Zeichenkette wird durch die Eingabe von z.B. <code>&quot;Text&quot;</code> erzeugt. 
+Ist die Optionsvariable <code>stringdisp</code> auf <code>false</code> gesetzt, was 
+standardm&auml;&szlig;ig der Fall ist, werden die (doppelten) Anf&uuml;hrungszeichen 
+nicht mit ausgegeben. <a href="maxima_320.html#stringp">stringp</a> ist ein Test, ob ein Objekt eine 
+Zeichenkette ist.
+</p>
+<div class="example">
+<pre class="example">(%i1) str: &quot;Text&quot;;
+(%o1)                         Text
+(%i2) stringp(str);
+(%o2)                         true
+</pre></div>
+
+<p>Schriftzeichen werden in Maxima durch Zeichenketten der L&auml;nge 1 dargestellt. 
+<a href="maxima_319.html#charp">charp</a> ist hier der entsprechende Test.
+</p>
+<div class="example">
+<pre class="example">(%i1) char: &quot;e&quot;;
+(%o1)                           e
+(%i2) charp(char);
+(%o2)                         true
+</pre></div>
+
+<p>Positionsindizes in Zeichenketten sind in Maxima genau so wie in Listen 
+1-indiziert, wodurch die folgende &Uuml;bereinstimmung entsteht.
+</p>
+<div class="example">
+<pre class="example">(%i1) is(charat(&quot;Lisp&quot;,1) = charlist(&quot;Lisp&quot;)[1]);
+(%o1)                         true
+</pre></div>
+
+<p>Eine Zeichenkette kann Ausdr&uuml;cke enthalten, die Maxima versteht. 
+Diese k&ouml;nnen mit <a href="maxima_320.html#parse_005fstring">parse_string</a> heraus gel&ouml;st werden.
+</p>
+<div class="example">
+<pre class="example">(%i1) map(parse_string, [&quot;42&quot; ,&quot;sqrt(2)&quot;, &quot;%pi&quot;]);
+(%o1)                   [42, sqrt(2), %pi]
+(%i2) map('float, %);
+(%o2)        [42.0, 1.414213562373095, 3.141592653589793]
+</pre></div>
+
+<p>Zeichenketten k&ouml;nnen als Schriftzeichen und bin&auml;r als Oktette verarbeitet werden. 
+<a href="maxima_321.html#string_005fto_005foctets">string_to_octets</a> bzw. <a href="maxima_321.html#octets_005fto_005fstring">octets_to_string</a> dienen hierbei zur Umrechnung. 
+Die verwendbaren Kodierungen sind dabei von der Plattform, der Anwendung und vom 
+unter Maxima liegenden Lisp abh&auml;ngig. 
+(Folgend Maxima in GNU/Linux, kompiliert mit SBCL.)
+</p>
+<div class="example">
+<pre class="example">(%i1) obase: 16.$
+(%i2) string_to_octets(&quot;$&pound;&euro;&quot;, &quot;cp1252&quot;);
+(%o2)                     [24, 0A3, 80]
+(%i3) string_to_octets(&quot;$&pound;&euro;&quot;, &quot;utf-8&quot;);
+(%o3)               [24, 0C2, 0A3, 0E2, 82, 0AC]
+</pre></div>
+
+<p>Dem entsprechend k&ouml;nnen Zeichenketten an Datenstr&ouml;me f&uuml;r Schriftzeichen und 
+als Oktette an bin&auml;re Str&ouml;me weiter gegeben werden. Das folgende Beispiel 
+zeigt das Schreiben und Lesen von Schriftzeichen in bzw. aus einer Datei.
+</p>
+<p><a href="maxima_318.html#openw">openw</a> gibt dabei einen Ausgabestrom in eine Datei zur&uuml;ck, 
+mit <a href="maxima_318.html#printf">printf</a> wird formatiert in diesen Strom geschrieben und 
+mit z.B. <a href="maxima_318.html#close">close</a> werden die im Strom enthaltenden Zeichen in die Datei 
+geschrieben. 
+</p>
+<div class="example">
+<pre class="example">(%i1) s: openw(&quot;file.txt&quot;);
+(%o1)                #&lt;output stream file.txt&gt;
+(%i2) printf(s, &quot;~%~d ~f ~a ~a ~f ~e ~a~%&quot;, 
+42, 1.234, sqrt(2), %pi, 1.0e-2, 1.0e-2, 1.0b-2)$
+(%i3) close(s)$
+</pre></div>
+
+<p><a href="maxima_318.html#openr">openr</a> gibt folgend einen Eingabestrom aus der obigen Datei zur&uuml;ck und 
+<a href="maxima_318.html#readline">readline</a> die gelesene Zeile als Zeichenkette.
+Mit z.B. <a href="maxima_320.html#split">split</a> oder <a href="maxima_320.html#tokens">tokens</a> kann die Zeichenkette anschlie&szlig;end 
+in seine Bestandteile zerlegt werden. 
+<a href="maxima_320.html#parse_005fstring">parse_string</a> verwandelt diese dann in auswertbare Ausdr&uuml;cke.
+</p>
+<div class="example">
+<pre class="example">(%i4) s: openr(&quot;file.txt&quot;);
+(%o4)                 #&lt;input stream file.txt&gt;
+(%i5) readline(s);
+(%o5)          42 1.234 sqrt(2) %pi 0.01 1.0E-2 1.0b-2
+(%i6) map(parse_string, split(%));
+(%o6)       [42, 1.234, sqrt(2), %pi, 0.01, 0.01, 1.0b-2]
+(%i7) close(s)$
+</pre></div>
+
+<span id="Item_003a-stringproc_002ede_002fnode_002fEin_002d-und-Ausgabe"></span></div>
+<hr>
+<div class="header">
+<p>
+Nächste: <a href="maxima_318.html" accesskey="n" rel="next">Ein- und Ausgabe</a>, Vorige: <a href="maxima_316.html" accesskey="p" rel="prev">stringproc</a>, Nach oben: <a href="maxima_316.html" accesskey="u" rel="up">stringproc</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

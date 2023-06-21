@@ -1,0 +1,758 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para la impresión (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para la impresión (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para la impresión (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_6.html" rel="up" title="Línea de comandos">
+<link href="maxima_8.html" rel="prev" title="Funciones y variables para la línea de comandos">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Funciones-y-variables-para-la-impresi_00f3n">
+<div class="header">
+<p>
+Anterior: <a href="maxima_8.html" accesskey="p" rel="prev">Funciones y variables para la línea de comandos</a>, Subir: <a href="maxima_6.html" accesskey="u" rel="up">Línea de comandos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+<span id="Funciones-y-variables-para-la-impresion"></span><h3 class="section">4.3 Funciones y variables para la impresión</h3>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002f_0025edispflag"></span><dl class="def">
+<dt id="index-_0025edispflag"><span class="category">Variable opcional: </span><span><strong>%edispflag</strong><a href='#index-_0025edispflag' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>%edispflag</code> vale <code>true</code>, Maxima muestra <code>%e</code> elevado
+a un exponente negativo como un cociente. Por ejemplo, <code>%e^-x</code> se
+muestra como <code>1/%e^x</code>. Véase también <code>exptdispflag</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) %e^-10;
+                               - 10
+(%o1)                        %e
+(%i2) %edispflag:true$
+(%i3) %e^-10;
+                               1
+(%o3)                         ----
+                                10
+                              %e
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fabsboxchar"></span><dl class="def">
+<dt id="index-absboxchar"><span class="category">Variable opcional: </span><span><strong>absboxchar</strong><a href='#index-absboxchar' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>!</code>
+</p>
+<p>La variable <code>absboxchar</code> es el carácter utilizado para representar el valor absoluto de una expresión que ocupa más de una línea de altura.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) abs((x^3+1));
+                            ! 3    !
+(%o1)                       !x  + 1!
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fdisp"></span><dl class="def">
+<dt id="index-disp"><span class="category">Función: </span><span><strong>disp</strong> <em>(<var>expr_1</var>, <var>expr_2</var>, ...)</em><a href='#index-disp' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Es como <code>display</code> pero sólo se muestran los valores de
+los argumentos, no las ecuaciones. Es útil para argumentos 
+complicados que no tienen nombre o en situaciones en las que 
+solamente es de interés el valor del argumento pero no su nombre.
+</p>
+<p>Véanse también <code>ldisp</code> y <code>print</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) b[1,2]:x-x^2$
+(%i2) x:123$
+(%i3) disp(x, b[1,2], sin(1.0));
+                               123
+
+                                  2
+                             x - x
+
+                        .8414709848078965
+
+(%o3)                         done
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fdisplay"></span><dl class="def">
+<dt id="index-display"><span class="category">Función: </span><span><strong>display</strong> <em>(<var>expr_1</var>, <var>expr_2</var>, ...)</em><a href='#index-display' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Muestra las ecuaciones cuyos miembros izquierdos son 
+<var>expr_i</var> sin evaluar y cuyos miembros derechos son los 
+valores de las expresiones. Esta función es útil en los 
+bloques y en las sentencias <code>for</code> para mostrar resultados 
+intermedios.  Los argumentos de <code>display</code> suelen ser átomos, 
+variables subindicadas o llamadas a funciones.
+</p>
+<p>Véanse también <code>ldisplay</code>, <code>disp</code> y <code>ldisp</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) b[1,2]:x-x^2$
+(%i2) x:123$
+(%i3) display(x, b[1,2], sin(1.0));
+                             x = 123
+
+                                      2
+                         b     = x - x
+                          1, 2
+
+                  sin(1.0) = .8414709848078965
+
+(%o3)                         done
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fdisplay2d"></span><dl class="def">
+<dt id="index-display2d"><span class="category">Variable opcional: </span><span><strong>display2d</strong><a href='#index-display2d' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>Si <code>display2d</code> vale <code>false</code>, la salida por consola es
+una cadena unidimensional, en lugar de una expresión bidimensional.
+</p>
+<p>Véase también <code>leftjust</code> para cambiar la justificación a
+la izquierda o el centrado de la ecuación.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) x/(x^2+1);
+                               x
+(%o1)                        ------
+                              2
+                             x  + 1
+(%i2) display2d:false$
+(%i3) x/(x^2+1);
+(%o3) x/(x^2+1)
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fdisplay_005fformat_005finternal"></span><dl class="def">
+<dt id="index-display_005fformat_005finternal"><span class="category">Variable opcional: </span><span><strong>display_format_internal</strong><a href='#index-display_005fformat_005finternal' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>display_format_internal</code> vale <code>true</code>,
+las expresiones se muestran sin ser transformadas de manera que oculten su representación matemática interna. Se representa lo que la función <code>inpart</code> devolvería, en oposición a <code>part</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">User     part       inpart
+a-b;      a - b     a + (- 1) b
+
+           a            - 1
+a/b;       -         a b
+           b
+                       1/2
+sqrt(x);   sqrt(x)    x
+
+          4 X        4
+X*4/3;    ---        - X
+           3         3
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fdispterms"></span><dl class="def">
+<dt id="index-dispterms"><span class="category">Función: </span><span><strong>dispterms</strong> <em>(<var>expr</var>)</em><a href='#index-dispterms' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Muestra <var>expr</var> en partes, una debajo de la otra.
+Esto es, primero se muestra el operador de <var>expr</var>, luego 
+cada término si se trata de una suma, o cada factor si es un 
+producto, o si no se muestra separadamente la parte de una expresión 
+más general. Es útil si <var>expr</var> es demasiado grande para 
+representarla de otra forma.  Por ejemplo, si <code>P1</code>, <code>P2</code>, ...  
+son expresiones muy grandes, entonces el programa de representación 
+puede superar el espacio de almacenamiento tratando de mostrar 
+<code>P1 + P2 + ...</code> todo junto.  Sin embargo, <code>dispterms (P1 + P2 + ...)</code> 
+muestra <code>P1</code>, debajo  <code>P2</code>, etc.  Cuando una expresión exponencial 
+es demasiado ancha para ser representada como <code>A^B</code>, si no se utiliza 
+<code>dispterms</code>, entonces aparecerá como <code>expt (A, B)</code> (o como 
+<code>ncexpt (A, B)</code>, en lugar de <code>A^^B</code>).
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) dispterms(2*a*sin(x)+%e^x);
+
++
+
+2 a sin(x)
+
+  x
+%e
+
+(%o1)                         done
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fexpt"></span><dl class="def">
+<dt id="index-expt"><span class="category">Símbolo especial: </span><span><strong>expt</strong> <em>(<var>a</var>, <var>b</var>)</em><a href='#index-expt' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Command_002ees_002fdeffn_002fncexpt"></span></dd><dt id="index-ncexpt"><span class="category">Símbolo especial: </span><span><strong>ncexpt</strong> <em>(<var>a</var>, <var>b</var>)</em><a href='#index-ncexpt' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Si una expresión exponencial es demasiado ancha para ser mostrada como <code><var>a</var>^<var>b</var></code> aparecerá como <code>expt (<var>a</var>, <var>b</var>)</code> (o como <code>ncexpt (<var>a</var>, <var>b</var>)</code> en lugar de <code><var>a</var>^^<var>b</var></code>).
+</p>
+<p>Las funciones <code>expt</code> y <code>ncexpt</code> no se reconocen en una entrada.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fexptdispflag"></span><dl class="def">
+<dt id="index-exptdispflag"><span class="category">Variable opcional: </span><span><strong>exptdispflag</strong><a href='#index-exptdispflag' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>Si <code>exptdispflag</code> vale <code>true</code>, Maxima muestra las expresiones con 
+exponentes negativos como cocientes. Véase también <code>%edispflag</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) exptdispflag:true;
+(%o1)                         true
+(%i2) 10^-x;
+                                1
+(%o2)                          ---
+                                 x
+                               10
+(%i3) exptdispflag:false;
+(%o3)                         false
+(%i4) 10^-x;
+                                - x
+(%o4)                         10
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fgrind"></span><dl class="def">
+<dt id="index-grind"><span class="category">Función: </span><span><strong>grind</strong> <em>(<var>expr</var>)</em><a href='#index-grind' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-grind-1"><span class="category">Variable opcional: </span><span><strong>grind</strong><a href='#index-grind-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>La función <code>grind</code> imprime <var>expr</var>
+en la consola en un formato admisible como entrada para Maxima. La función 
+<code>grind</code> devuelve siempre <code>done</code>.
+</p>
+<p>Cuando <var>expr</var> es el nombre de una función o macro, <code>grind</code>
+muestra la definición de la función o de la macro en lugar de sólo
+su nombre.
+</p>
+<p>Véase también <code>string</code>, que devuelve una cadena en lugar de imprimir la salida. La función
+<code>grind</code> intenta imprimir la expresión de forma que sea lago más sencilla de leer que la salida de <code>string</code>.
+</p>
+<p>Cuando la variable <code>grind</code> vale <code>true</code>,
+la salida de <code>string</code> y <code>stringout</code> tienen el mismo formato que la de <code>grind</code>;
+en caso contrario no se formatea la salida de esas funciones.
+El valor por defecto de la variable <code>grind</code> es <code>false</code>.
+</p>
+<p>La variable <code>grind</code> también se puede utilizar como  argumento en <code>playback</code>.
+Si <code>grind</code> está presente,
+<code>playback</code> imprime las expresiones de entrada en el mismo formato que lo hace la función <code>grind</code>;
+en caso contrario no se formatean la expresiones de entrada.
+</p>
+<p>La función <code>grind</code> evalúa sus argumentos.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) aa + 1729;
+(%o1)                       aa + 1729
+(%i2) grind (%);
+aa+1729$
+(%o2)                         done
+(%i3) [aa, 1729, aa + 1729];
+(%o3)                 [aa, 1729, aa + 1729]
+(%i4) grind (%);
+[aa,1729,aa+1729]$
+(%o4)                         done
+(%i5) matrix ([aa, 17], [29, bb]);
+                           [ aa  17 ]
+(%o5)                      [        ]
+                           [ 29  bb ]
+(%i6) grind (%);
+matrix([aa,17],[29,bb])$
+(%o6)                         done
+(%i7) set (aa, 17, 29, bb);
+(%o7)                   {17, 29, aa, bb}
+(%i8) grind (%);
+{17,29,aa,bb}$
+(%o8)                         done
+(%i9) exp (aa / (bb + 17)^29);
+                                aa
+                            -----------
+                                     29
+                            (bb + 17)
+(%o9)                     %e
+(%i10) grind (%);
+%e^(aa/(bb+17)^29)$
+(%o10)                        done
+(%i11) expr: expand ((aa + bb)^10);
+         10           9        2   8         3   7         4   6
+(%o11) bb   + 10 aa bb  + 45 aa  bb  + 120 aa  bb  + 210 aa  bb
+         5   5         6   4         7   3        8   2
+ + 252 aa  bb  + 210 aa  bb  + 120 aa  bb  + 45 aa  bb
+        9        10
+ + 10 aa  bb + aa
+(%i12) grind (expr);
+bb^10+10*aa*bb^9+45*aa^2*bb^8+120*aa^3*bb^7+210*aa^4*bb^6
+     +252*aa^5*bb^5+210*aa^6*bb^4+120*aa^7*bb^3+45*aa^8*bb^2
+     +10*aa^9*bb+aa^10$
+(%o12)                        done
+(%i13) string (expr);
+(%o13) bb^10+10*aa*bb^9+45*aa^2*bb^8+120*aa^3*bb^7+210*aa^4*bb^6\
++252*aa^5*bb^5+210*aa^6*bb^4+120*aa^7*bb^3+45*aa^8*bb^2+10*aa^9*\
+bb+aa^10
+(%i14) cholesky (A):= block ([n : length (A), L : copymatrix (A),
+  p : makelist (0, i, 1, length (A))], for i thru n do
+  for j : i thru n do
+  (x : L[i, j], x : x - sum (L[j, k] * L[i, k], k, 1, i - 1),
+  if i = j then p[i] : 1 / sqrt(x) else L[j, i] : x * p[i]),
+  for i thru n do L[i, i] : 1 / p[i],
+  for i thru n do for j : i + 1 thru n do L[i, j] : 0, L)$
+(%i15) grind (cholesky);
+cholesky(A):=block(
+         [n:length(A),L:copymatrix(A),
+          p:makelist(0,i,1,length(A))],
+         for i thru n do
+             (for j from i thru n do
+                  (x:L[i,j],x:x-sum(L[j,k]*L[i,k],k,1,i-1),
+                   if i = j then p[i]:1/sqrt(x)
+                       else L[j,i]:x*p[i])),
+         for i thru n do L[i,i]:1/p[i],
+         for i thru n do (for j from i+1 thru n do L[i,j]:0),L)$
+(%o15)                        done
+(%i16) string (fundef (cholesky));
+(%o16) cholesky(A):=block([n:length(A),L:copymatrix(A),p:makelis\
+t(0,i,1,length(A))],for i thru n do (for j from i thru n do (x:L\
+[i,j],x:x-sum(L[j,k]*L[i,k],k,1,i-1),if i = j then p[i]:1/sqrt(x\
+) else L[j,i]:x*p[i])),for i thru n do L[i,i]:1/p[i],for i thru \
+n do (for j from i+1 thru n do L[i,j]:0),L)
+</pre></div>
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fibase"></span><dl class="def">
+<dt id="index-ibase"><span class="category">Variable opcional: </span><span><strong>ibase</strong><a href='#index-ibase' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>10</code>
+</p>
+<p><code>ibase</code> es la base en la que Maxima lee valores enteros.
+</p>
+<p>A <code>ibase</code> se le puede asignar cualquier entero entre
+2 y 36 (base decimal), ambos inclusive.
+Si <code>ibase</code> es mayor que 10,
+las cifras a utilizar serán los dígitos de
+0 a 9, junto con las letras del alfabeto A, B, C, ..., 
+tantas como sean necesarias para completar la base <code>ibase</code>.
+Las letras se interpretarán como cifras sólo cuando el 
+primer dígito sea un valor entre 9.
+Es indiferente hacer uso de letras mayúsculas o minúsculas.
+Las cifras para la base 36, la mayor posible, son los 
+dígitos numéricos de 0 a 9 y las letras desde
+la A hasta la Z.
+</p>
+<p>Cualquiera que sea el valor de <code>ibase</code>, si un entero termina
+con un punto decimal, se interpretará en base 10.
+</p>
+<p>Véase también <code>obase</code>.
+</p>
+<p>Ejemplos:
+</p>
+<p><code>ibase</code> menor que 10.
+</p>
+<div class="example">
+<pre class="example">(%i1) ibase : 2 $
+(%i2) obase;
+(%o2)                          10
+(%i3) 1111111111111111;
+(%o3)                         65535
+</pre></div>
+
+<p><code>ibase</code> mayor que 10.
+Las letras se interpretan como dígitos sólo
+si el primer dígito es una cifra entre 0 y 9.
+</p>
+<div class="example">
+<pre class="example">(%i1) ibase : 16 $
+(%i2) obase;
+(%o2)                          10
+(%i3) 1000;
+(%o3)                         4096
+(%i4) abcd;
+(%o4)                         abcd
+(%i5) symbolp (abcd);
+(%o5)                         true
+(%i6) 0abcd;
+(%o6)                         43981
+(%i7) symbolp (0abcd);
+(%o7)                         false
+</pre></div>
+
+<p>Independientemente del valor de <code>ibase</code>, si el entero
+termina con un punto decimal, se interpretará en base
+diez.
+</p>
+<div class="example">
+<pre class="example">(%i1) ibase : 36 $
+(%i2) obase;
+(%o2)                          10
+(%i3) 1234;
+(%o3)                         49360
+(%i4) 1234.;
+(%o4)                         1234
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fldisp"></span><dl class="def">
+<dt id="index-ldisp"><span class="category">Función: </span><span><strong>ldisp</strong> <em>(<var>expr_1</var>, ..., <var>expr_n</var>)</em><a href='#index-ldisp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Muestra las expresiones <var>expr_1</var>, ..., <var>expr_n</var> en la consola con el formato de salida;
+<code>ldisp</code> asigna una etiqueta a cada argumento y devuelve la lista de etiquetas.
+</p>
+<p>Véanse también <code>disp</code>, <code>display</code> y <code>ldisplay</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) e: (a+b)^3;
+                                   3
+(%o1)                       (b + a)
+(%i2) f: expand (e);
+                     3        2      2      3
+(%o2)               b  + 3 a b  + 3 a  b + a
+(%i3) ldisp (e, f);
+                                   3
+(%t3)                       (b + a)
+
+                     3        2      2      3
+(%t4)               b  + 3 a b  + 3 a  b + a
+
+(%o4)                      [%t3, %t4]
+(%i4) %t3;
+                                   3
+(%o4)                       (b + a)
+(%i5) %t4;
+                     3        2      2      3
+(%o5)               b  + 3 a b  + 3 a  b + a
+</pre></div>
+
+</dd></dl>
+
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fldisplay"></span><dl class="def">
+<dt id="index-ldisplay"><span class="category">Función: </span><span><strong>ldisplay</strong> <em>(<var>expr_1</var>, ..., <var>expr_n</var>)</em><a href='#index-ldisplay' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Muestra las expresiones <var>expr_1</var>, ..., <var>expr_n</var> en la consola con el formato de salida.
+Cad expresión se muestra como una ecuación de la forma <code>lhs = rhs</code>
+en la que <code>lhs</code> es uno de los argumentos de <code>ldisplay</code>
+y <code>rhs</code> su valor. Normalmente, cada argumento será el nombre de una variable. La función
+<code>ldisp</code> asigna una etiqueta a cada ecuación y devuelve la lista de etiquetas.
+</p>
+<p>Véanse también <code>disp</code>, <code>display</code> y <code>ldisp</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) e: (a+b)^3;
+                                   3
+(%o1)                       (b + a)
+(%i2) f: expand (e);
+                     3        2      2      3
+(%o2)               b  + 3 a b  + 3 a  b + a
+(%i3) ldisplay (e, f);
+                                     3
+(%t3)                     e = (b + a)
+
+                       3        2      2      3
+(%t4)             f = b  + 3 a b  + 3 a  b + a
+
+(%o4)                      [%t3, %t4]
+(%i4) %t3;
+                                     3
+(%o4)                     e = (b + a)
+(%i5) %t4;
+                       3        2      2      3
+(%o5)             f = b  + 3 a b  + 3 a  b + a
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002flinel"></span><dl class="def">
+<dt id="index-linel"><span class="category">Variable opcional: </span><span><strong>linel</strong><a href='#index-linel' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>79</code>
+</p>
+<p>La variable <code>linel</code> es la anchura (medida en número de caracteres) de la consola que se le da a Maxima para que muestre las expresiones. A <code>linel</code> se le puede asignar cualquier valor, pero si éste es muy pequeño o grande resultará de poca utilidad. El texto que impriman las funciones internas de Maxima, como los mensajes de error y las salidas de la función <code>describe</code>, no se ve afectado por el valor de <code>linel</code>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002flispdisp"></span><dl class="def">
+<dt id="index-lispdisp"><span class="category">Variable opcional: </span><span><strong>lispdisp</strong><a href='#index-lispdisp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>lispdisp</code> vale <code>true</code>, los símbolos de Lisp se muestran precedidos del carácter de interrogación <code>?</code>. En caso contrario, los símbolos de Lisp se muestran sin esta marca.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) lispdisp: false$
+(%i2) ?foo + ?bar;
+(%o2)                       foo + bar
+(%i3) lispdisp: true$
+(%i4) ?foo + ?bar;
+(%o4)                      ?foo + ?bar
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fnegsumdispflag"></span><dl class="def">
+<dt id="index-negsumdispflag"><span class="category">Variable opcional: </span><span><strong>negsumdispflag</strong><a href='#index-negsumdispflag' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>Si <code>negsumdispflag</code> vale <code>true</code>, <code>x - y</code> se muestra como <code>x - y</code>
+en lugar de <code>- y + x</code>.  Dándole el valor <code>false</code> se realiza un análisis adicional para que no se representen de forma muy diferente dos expresiones similares.  Una aplicación puede ser para que <code>a + %i*b</code> y <code>a - %i*b</code> se representen ambas de la misma manera.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fobase"></span><dl class="def">
+<dt id="index-obase"><span class="category">Variable opcional: </span><span><strong>obase</strong><a href='#index-obase' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>10</code>
+</p>
+<p><code>obase</code> es la base en la que Maxima imprime los números enteros.
+</p>
+<p>A <code>obase</code> se le puede asignar cualquier entero entre
+2 y 36 (base decimal), ambos inclusive.
+Si <code>obase</code> es mayor que 10,
+las cifras a utilizar serán los dígitos de
+0 a 9, junto con las letras del alfabeto A, B, C, ..., 
+tantas como sean necesarias para completar la base <code>obase</code>.
+Si el primer dígito resulta ser una letra, se le
+añadirá el cero como prefijo.
+Las cifras para la base 36, la mayor posible, son los 
+dígitos numéricos de 0 a 9 y las letras desde
+la A hasta la Z.
+</p>
+<p>Véase también <code>ibase</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) obase : 2;
+(%o1)                          10
+(%i2) 2^8 - 1;
+(%o10)                      11111111
+(%i3) obase : 8;
+(%o3)                          10
+(%i4) 8^8 - 1;
+(%o4)                       77777777
+(%i5) obase : 16;
+(%o5)                          10
+(%i6) 16^8 - 1;
+(%o6)                       0FFFFFFFF
+(%i7) obase : 36;
+(%o7)                          10
+(%i8) 36^8 - 1;
+(%o8)                       0ZZZZZZZZ
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fpfeformat"></span><dl class="def">
+<dt id="index-pfeformat"><span class="category">Variable opcional: </span><span><strong>pfeformat</strong><a href='#index-pfeformat' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>pfeformat</code> vale <code>true</code>, una fracción de enteros será mostrada con el carácter de barra inclinada <code>/</code> entre ellos.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) pfeformat: false$
+(%i2) 2^16/7^3;
+                              65536
+(%o2)                         -----
+                               343
+(%i3) (a+b)/8;
+                              b + a
+(%o3)                         -----
+                                8
+(%i4) pfeformat: true$ 
+(%i5) 2^16/7^3;
+(%o5)                       65536/343
+(%i6) (a+b)/8;
+(%o6)                      1/8 (b + a)
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fpowerdisp"></span><dl class="def">
+<dt id="index-powerdisp"><span class="category">Variable opcional: </span><span><strong>powerdisp</strong><a href='#index-powerdisp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>powerdisp</code> vale <code>true</code>, se muestran las sumas con sus términos ordenados de menor a mayor potencia. Así, un polinomio se presenta como una serie de potencias truncada con el término constante al principio y el de mayor potencia al final.
+</p>
+<p>Por defecto, los términos de una suma se muestran en el orden de las potencias decrecientes.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) powerdisp:true;
+(%o1)                         true
+(%i2) x^2+x^3+x^4;
+                           2    3    4
+(%o2)                     x  + x  + x
+(%i3) powerdisp:false;
+(%o3)                         false
+(%i4) x^2+x^3+x^4;
+                           4    3    2
+(%o4)                     x  + x  + x
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdeffn_002fprint"></span><dl class="def">
+<dt id="index-print"><span class="category">Función: </span><span><strong>print</strong> <em>(<var>expr_1</var>, ..., <var>expr_n</var>)</em><a href='#index-print' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Evalúa y muestra las expresiones  <var>expr_1</var>, ..., <var>expr_n</var> secuencialmente de izquierda a derecha, comenzando la impresión por el borde izquierdo de la consola.
+</p>
+<p>El valor devuelto por <code>print</code> es el valor de su último argumento. La función <code>print</code> no genera etiquetas para las expresiones intermedias.
+</p>
+<p>Véanse también <code>display</code>, <code>disp</code>, <code>ldisplay</code> y <code>ldisp</code>, que muestran una expresión por línea, mientras que <code>print</code> trata de mostrar dos o más expresiones por línea.
+</p>
+<p>Para mostrar el contenido de un archivo véase <code>printfile</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) r: print (&quot;(a+b)^3 is&quot;, expand ((a+b)^3), &quot;log (a^10/b) is&quot;,
+      radcan (log (a^10/b)))$
+            3        2      2      3
+(a+b)^3 is b  + 3 a b  + 3 a  b + a  log (a^10/b) is 
+
+                                              10 log(a) - log(b) 
+(%i2) r;
+(%o2)                  10 log(a) - log(b)
+(%i3) disp (&quot;(a+b)^3 is&quot;, expand ((a+b)^3), &quot;log (a^10/b) is&quot;,
+      radcan (log (a^10/b)))$
+                           (a+b)^3 is
+
+                     3        2      2      3
+                    b  + 3 a b  + 3 a  b + a
+
+                         log (a^10/b) is
+
+                       10 log(a) - log(b)
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fsqrtdispflag"></span><dl class="def">
+<dt id="index-sqrtdispflag"><span class="category">Variable opcional: </span><span><strong>sqrtdispflag</strong><a href='#index-sqrtdispflag' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>Si <code>sqrtdispflag</code> vale <code>false</code>, hará que <code>sqrt</code> se muestre con el exponente 1/2.
+</p></dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fstardisp"></span><dl class="def">
+<dt id="index-stardisp"><span class="category">Variable opcional: </span><span><strong>stardisp</strong><a href='#index-stardisp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>stardisp</code> vale <code>true</code>, la multiplicación se muestra con un asterisco <code>*</code> entre los operandos.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Command_002ees_002fdefvr_002fttyoff"></span><dl class="def">
+<dt id="index-ttyoff"><span class="category">Variable opcional: </span><span><strong>ttyoff</strong><a href='#index-ttyoff' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>ttyoff</code> vale <code>true</code>, no se muestran las expresiones resultantes, pero éstas se calculan de todos modos y se les asignan etiquetas. Véase <code>labels</code>.
+</p>
+<p>El texto que escriban las funciones internas de Maxima, tales como los mensajes de error y las salidas de <code>describe</code>,
+no se ven afectadas por <code>ttyoff</code>.
+</p>
+</dd></dl>
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Anterior: <a href="maxima_8.html" accesskey="p" rel="prev">Funciones y variables para la línea de comandos</a>, Subir: <a href="maxima_6.html" accesskey="u" rel="up">Línea de comandos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

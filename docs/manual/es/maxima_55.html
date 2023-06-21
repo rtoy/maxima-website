@@ -1,0 +1,611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para trigonometría (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para trigonometría (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para trigonometría (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_53.html" rel="up" title="Funciones trigonométricas">
+<link href="maxima_54.html" rel="prev" title="Introducción a la trigonometría">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body lang="es" class="tex2jax_ignore">
+<div class="subsection" id="Funciones-y-variables-para-trigonometr_00eda">
+<div class="header">
+<p>
+Anterior: <a href="maxima_54.html" accesskey="p" rel="prev">Introducción a la trigonometría</a>, Subir: <a href="maxima_53.html" accesskey="u" rel="up">Funciones trigonométricas</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Funciones-y-variables-para-trigonometria"></span><h4 class="subsection">10.5.2 Funciones y variables para trigonometría</h4>
+
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdefvr_002f_0025piargs"></span><dl class="def">
+<dt id="index-_0025piargs"><span class="category">Variable opcional: </span><span><strong>%piargs</strong><a href='#index-_0025piargs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>Cuando <code>%piargs</code> vale <code>true</code>, las funciones trigonométricas
+se simplifican a constantes algebraicas cuando el argumento es múltiplo
+entero de 
+<em class='tex2jax_process'>\(%pi\)</em>, <em class='tex2jax_process'>\(%pi/2\)</em>, <em class='tex2jax_process'>\(%pi/3\)</em>, <em class='tex2jax_process'>\(%pi/4\)</em> o <em class='tex2jax_process'>\(%pi/6\)</em>.
+</p>
+<p>Maxima conoce algunas identidades aplicables cuando <em class='tex2jax_process'>\(%pi\)</em>, etc.,
+se multiplican por una variable entera (esto es, un símbolo
+declarado como entero).
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) %piargs : false$
+</pre><pre class="example">(%i2) [sin (%pi), sin (%pi/2), sin (%pi/3)];
+                                %pi       %pi
+(%o2)            [sin(%pi), sin(---), sin(---)]
+                                 2         3
+</pre><pre class="example">(%i3) [sin (%pi/4), sin (%pi/5), sin (%pi/6)];
+                      %pi       %pi       %pi
+(%o3)            [sin(---), sin(---), sin(---)]
+                       4         5         6
+</pre><pre class="example">(%i4) %piargs : true$
+</pre><pre class="example">(%i5) [sin (%pi), sin (%pi/2), sin (%pi/3)];
+                                sqrt(3)
+(%o5)                    [0, 1, -------]
+                                   2
+</pre><pre class="example">(%i6) [sin (%pi/4), sin (%pi/5), sin (%pi/6)];
+                         1         %pi   1
+(%o6)                [-------, sin(---), -]
+                      sqrt(2)       5    2
+</pre><pre class="example">(%i7) [cos (%pi/3), cos (10*%pi/3), tan (10*%pi/3),
+       cos (sqrt(2)*%pi/3)];
+                1    1               sqrt(2) %pi
+(%o7)          [-, - -, sqrt(3), cos(-----------)]
+                2    2                    3
+</pre></div>
+
+
+<p>Se aplican ciertas identidades cuando <em class='tex2jax_process'>\(%pi\)</em> o <em class='tex2jax_process'>\(%pi/2\)</em> se multiplican por una variable entera.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (n, integer, m, even)$
+</pre><pre class="example">(%i2) [sin (%pi * n), cos (%pi * m), sin (%pi/2 * m),
+       cos (%pi/2 * m)];
+                                      m/2
+(%o2)                  [0, 1, 0, (- 1)   ]
+</pre></div>
+
+</dd></dl>
+
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdefvr_002f_0025iargs"></span><dl class="def">
+<dt id="index-_0025iargs"><span class="category">Variable opcional: </span><span><strong>%iargs</strong><a href='#index-_0025iargs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>Cuando <code>%iargs</code> vale <code>true</code>, las funciones trigonométricas
+se simplifican a funciones hiperbólicas
+si el argumento es aparentemente un múltiplo de la unidad imaginaria <em class='tex2jax_process'>\(%i\)</em>.
+</p>
+<p>La simplificación se lleva a cabo incluso cuando el argumento es manifiestamente real;
+Maxima sólo se fija en si el argumento es un múltiplo literal de <em class='tex2jax_process'>\(%i\)</em>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) %iargs : false$
+</pre><pre class="example">(%i2) [sin (%i * x), cos (%i * x), tan (%i * x)];
+(%o2)           [sin(%i x), cos(%i x), tan(%i x)]
+</pre><pre class="example">(%i3) %iargs : true$
+</pre><pre class="example">(%i4) [sin (%i * x), cos (%i * x), tan (%i * x)];
+(%o4)           [%i sinh(x), cosh(x), %i tanh(x)]
+</pre></div>
+
+<p>La simplificación se aplica incluso en el caso de que
+el argumento se reduzca a un número real.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (x, imaginary)$
+</pre><pre class="example">(%i2) [featurep (x, imaginary), featurep (x, real)];
+(%o2)                     [true, false]
+</pre><pre class="example">(%i3) sin (%i * x);
+(%o3)                      %i sinh(x)
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002facos"></span><dl class="def">
+<dt id="index-acos"><span class="category">Function: </span><span><strong>acos</strong> <em>(<var>x</var>)</em><a href='#index-acos' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco coseno.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002facosh"></span><dl class="def">
+<dt id="index-acosh"><span class="category">Función: </span><span><strong>acosh</strong> <em>(<var>x</var>)</em><a href='#index-acosh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco coseno hiperbólico.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002facot"></span><dl class="def">
+<dt id="index-acot"><span class="category">Función: </span><span><strong>acot</strong> <em>(<var>x</var>)</em><a href='#index-acot' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco cotangente.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002facoth"></span><dl class="def">
+<dt id="index-acoth"><span class="category">Función: </span><span><strong>acoth</strong> <em>(<var>x</var>)</em><a href='#index-acoth' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco cotangente hiperbólica.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002facsc"></span><dl class="def">
+<dt id="index-acsc"><span class="category">Función: </span><span><strong>acsc</strong> <em>(<var>x</var>)</em><a href='#index-acsc' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco cosecante.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002facsch"></span><dl class="def">
+<dt id="index-acsch"><span class="category">Función: </span><span><strong>acsch</strong> <em>(<var>x</var>)</em><a href='#index-acsch' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco cosecante hiperbólica.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fasec"></span><dl class="def">
+<dt id="index-asec"><span class="category">Función: </span><span><strong>asec</strong> <em>(<var>x</var>)</em><a href='#index-asec' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco secante.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fasech"></span><dl class="def">
+<dt id="index-asech"><span class="category">Función: </span><span><strong>asech</strong> <em>(<var>x</var>)</em><a href='#index-asech' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco secante hiperbólica.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fasin"></span><dl class="def">
+<dt id="index-asin"><span class="category">Función: </span><span><strong>asin</strong> <em>(<var>x</var>)</em><a href='#index-asin' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco seno.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fasinh"></span><dl class="def">
+<dt id="index-asinh"><span class="category">Función: </span><span><strong>asinh</strong> <em>(<var>x</var>)</em><a href='#index-asinh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco seno hiperbólico.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fatan"></span><dl class="def">
+<dt id="index-atan"><span class="category">Función: </span><span><strong>atan</strong> <em>(<var>x</var>)</em><a href='#index-atan' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco tangente.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fatan2"></span><dl class="def">
+<dt id="index-atan2"><span class="category">Función: </span><span><strong>atan2</strong> <em>(<var>y</var>, <var>x</var>)</em><a href='#index-atan2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Calcula el valor de <code>atan(<var>y</var>/<var>x</var>)</code> en el intervalo de <code>-%pi</code> a <code>%pi</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fatanh"></span><dl class="def">
+<dt id="index-atanh"><span class="category">Función: </span><span><strong>atanh</strong> <em>(<var>x</var>)</em><a href='#index-atanh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Arco tangente hiperbólica.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdefvr_002fatrig1"></span><dl class="def">
+<dt id="index-atrig1"><span class="category">Paquete: </span><span><strong>atrig1</strong><a href='#index-atrig1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>El paquete <code>atrig1</code> contiene ciertas reglas de simplificación adicionales para las funciones trigonométricas inversas. Junto con las reglas que ya conoce Maxima, los siguientes ángulos están completamente implementados:
+<code>0</code>, <code>%pi/6</code>, <code>%pi/4</code>, <code>%pi/3</code> y <code>%pi/2</code>.  
+Los ángulos correspondientes en los otros tres cuadrantes también están disponibles.  
+Para hacer uso de estas reglas, ejecútese <code>load(&quot;atrig1&quot;);</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fcos"></span><dl class="def">
+<dt id="index-cos"><span class="category">Función: </span><span><strong>cos</strong> <em>(<var>x</var>)</em><a href='#index-cos' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Coseno.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fcosh"></span><dl class="def">
+<dt id="index-cosh"><span class="category">Función: </span><span><strong>cosh</strong> <em>(<var>x</var>)</em><a href='#index-cosh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Coseno hiperbólico.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fcot"></span><dl class="def">
+<dt id="index-cot"><span class="category">Función: </span><span><strong>cot</strong> <em>(<var>x</var>)</em><a href='#index-cot' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Cotangente.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fcoth"></span><dl class="def">
+<dt id="index-coth"><span class="category">Función: </span><span><strong>coth</strong> <em>(<var>x</var>)</em><a href='#index-coth' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Cotangente hiperbólica.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fcsc"></span><dl class="def">
+<dt id="index-csc"><span class="category">Función: </span><span><strong>csc</strong> <em>(<var>x</var>)</em><a href='#index-csc' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Cosecante.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fcsch"></span><dl class="def">
+<dt id="index-csch"><span class="category">Función: </span><span><strong>csch</strong> <em>(<var>x</var>)</em><a href='#index-csch' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Cosecante hiperbólica.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdefvr_002fhalfangles"></span><dl class="def">
+<dt id="index-halfangles"><span class="category">Variable opcional: </span><span><strong>halfangles</strong><a href='#index-halfangles' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>halfangles</code> vale <code>true</code>, las funciones
+trigonométricas con argumentos del tipo <code><var>expr</var>/2</code>
+se simplifican a funciones con argumentos <var>expr</var>.
+</p>
+<p>Para un argumento real <var>x</var> en el intervalo <code>0 &lt; x &lt; 2*%pi</code>
+el seno del semiángulo se simplifica como
+</p>
+<div class="example">
+<pre class="example">                    sqrt(1 - cos(x))
+                    ----------------
+                        sqrt(2)
+</pre></div>
+
+<p>Se necesita un factor relativamente complicado para que esta fórmula
+sea también válida para cualquier argumento complejo <var>z</var>:
+</p>
+<div class="example">
+<pre class="example">           realpart(z)
+     floor(-----------)
+              2 %pi
+(- 1)                   (1 - unit_step(- imagpart(z))
+
+                      realpart(z)            realpart(z)
+                floor(-----------) - ceiling(-----------)
+                         2 %pi                  2 %pi
+          ((- 1)                                          + 1))
+</pre></div>
+
+<p>Maxima reconoce este factor y otros similares para las funciones <code>sin</code>, 
+<code>cos</code>, <code>sinh</code> y <code>cosh</code>. Para valores especiales del argumento
+<em class='tex2jax_process'>\(z\)</em>, estos factores se simplifican de forma apropiada.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) halfangles:false;
+(%o1)                                false
+(%i2) sin(x/2);
+                                        x
+(%o2)                               sin(-)
+                                        2
+(%i3) halfangles:true;
+(%o3)                                true
+(%i4) sin(x/2);
+                                                    x
+                                            floor(-----)
+                                                  2 %pi
+                      sqrt(1 - cos(x)) (- 1)
+(%o4)                 ----------------------------------
+                                   sqrt(2)
+(%i5) assume(x&gt;0, x&lt;2*%pi)$
+(%i6) sin(x/2);
+                               sqrt(1 - cos(x))
+(%o6)                          ----------------
+                                   sqrt(2)
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-MathFunctions_002ees_002fdefvr_002fntrig"></span><dl class="def">
+<dt id="index-ntrig"><span class="category">Paquete: </span><span><strong>ntrig</strong><a href='#index-ntrig' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>El paquete <code>ntrig</code> contiene un conjunto de reglas de simplificación que se pueden usar para simplificar funciones trigonométricas cuyos argumentos son de la forma
+<code><var>f</var>(<var>n</var> %pi/10)</code> donde <var>f</var> es cualquiera de las funciones 
+<code>sin</code>, <code>cos</code>, <code>tan</code>, <code>csc</code>, <code>sec</code> o <code>cot</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fsec"></span><dl class="def">
+<dt id="index-sec"><span class="category">Función: </span><span><strong>sec</strong> <em>(<var>x</var>)</em><a href='#index-sec' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Secante.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fsech"></span><dl class="def">
+<dt id="index-sech"><span class="category">Función: </span><span><strong>sech</strong> <em>(<var>x</var>)</em><a href='#index-sech' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Secante hiperbólica.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fsin"></span><dl class="def">
+<dt id="index-sin"><span class="category">Función: </span><span><strong>sin</strong> <em>(<var>x</var>)</em><a href='#index-sin' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Seno.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002fsinh"></span><dl class="def">
+<dt id="index-sinh"><span class="category">Función: </span><span><strong>sinh</strong> <em>(<var>x</var>)</em><a href='#index-sinh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Seno hiperbólico.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002ftan"></span><dl class="def">
+<dt id="index-tan"><span class="category">Función: </span><span><strong>tan</strong> <em>(<var>x</var>)</em><a href='#index-tan' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Tangente.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002ftanh"></span><dl class="def">
+<dt id="index-tanh"><span class="category">Función: </span><span><strong>tanh</strong> <em>(<var>x</var>)</em><a href='#index-tanh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Tangente hiperbólica.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002ftrigexpand"></span><dl class="def">
+<dt id="index-trigexpand"><span class="category">Función: </span><span><strong>trigexpand</strong> <em>(<var>expr</var>)</em><a href='#index-trigexpand' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Expande funciones trigonométricas e hiperbólicas de sumas de ángulos y de múltiplos de ángulos presentes en <var>expr</var>.  Para mejorar los resultados, <var>expr</var> debería expandirse. Para facilitar el control por parte del usuario de las simplificaciones, esta función tan solo expande un nivel de cada vez, expandiendo sumas de ángulos o de múltiplos de ángulos. A fin de obtener una expansión completa en senos y coseno, se le dará a la variable <code>trigexpand</code> el valor <code>true</code>.
+</p>
+<p>La función <code>trigexpand</code> está controlada por las siguientes variables:
+</p>
+<dl compact="compact">
+<dt><span><code>trigexpand</code></span></dt>
+<dd><p>Si vale <code>true</code>, provoca la expansión de todas las expresiones que contengan senos y cosenos.
+</p></dd>
+<dt><span><code>trigexpandplus</code></span></dt>
+<dd><p>Controla la regla de la suma para <code>trigexpand</code>, la expansión de una suma como <code>sin(x + y)</code> se llevará a cabo sólo si <code>trigexpandplus</code> vale <code>true</code>.
+</p></dd>
+<dt><span><code>trigexpandtimes</code></span></dt>
+<dd><p>Controla la regla del producto para <code>trigexpand</code>, la expansión de un producto como <code>sin(2 x)</code> se llevará a cabo sólo si <code>trigexpandtimes</code> vale <code>true</code>.
+</p></dd>
+</dl>
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) x+sin(3*x)/sin(x),trigexpand=true,expand;
+                         2           2
+(%o1)               - sin (x) + 3 cos (x) + x
+</pre><pre class="example">(%i2) trigexpand(sin(10*x+y));
+(%o2)          cos(10 x) sin(y) + sin(10 x) cos(y)
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdefvr_002ftrigexpandplus"></span><dl class="def">
+<dt id="index-trigexpandplus"><span class="category">Variable optativa: </span><span><strong>trigexpandplus</strong><a href='#index-trigexpandplus' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>La variable <code>trigexpandplus</code> controla la regla de la suma para <code>trigexpand</code>.  Así, si la instrucción <code>trigexpand</code> se utiliza o si la variable <code>trigexpand</code> vale <code>true</code>, se realizará la expansión de sumas como <code>sin(x+y)</code> sólo si <code>trigexpandplus</code> vale <code>true</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdefvr_002ftrigexpandtimes"></span><dl class="def">
+<dt id="index-trigexpandtimes"><span class="category">Variable optativa: </span><span><strong>trigexpandtimes</strong><a href='#index-trigexpandtimes' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>La variable <code>trigexpandtimes</code> controla la regla del producto para <code>trigexpand</code>.  Así, si la instrucción <code>trigexpand</code> se utiliza o si la variable <code>trigexpand</code> vale <code>true</code>, se realizará la expansión de productos como <code>sin(2*x)</code> sólo si <code>trigexpandtimes</code> vale <code>true</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdefvr_002ftriginverses"></span><dl class="def">
+<dt id="index-triginverses"><span class="category">Variable optativa: </span><span><strong>triginverses</strong><a href='#index-triginverses' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>La variable <code>triginverses</code> controla la simplificación de la composición de funciones trigonométricas e hiperbólicas con sus funciones inversas.
+</p>
+<p>Si vale <code>all</code>, tanto <code>atan(tan(<var>x</var>))</code>  como <code>tan(atan(<var>x</var>))</code> se reducen a <var>x</var>.  
+</p>
+<p>Si vale <code>true</code>, se desactiva la simplificación de <code><var>arcfun</var>(<var>fun</var>(<var>x</var>))</code>.
+</p>
+<p>Si vale <code>false</code>, se desactivan las simplificaciones de 
+<code><var>arcfun</var>(<var>fun</var>(<var>x</var>))</code> y 
+<code><var>fun</var>(<var>arcfun</var>(<var>x</var>))</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002ftrigreduce"></span><dl class="def">
+<dt id="index-trigreduce"><span class="category">Función: </span><span><strong>trigreduce</strong> <em>(<var>expr</var>, <var>x</var>)</em><a href='#index-trigreduce' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-trigreduce-1"><span class="category">Función: </span><span><strong>trigreduce</strong> <em>(<var>expr</var>)</em><a href='#index-trigreduce-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Combina productos y potencias de senos y cosenos trigonométricos e hiperbólicos de <var>x</var>, transformándolos en otros que son múltiplos de <var>x</var>.  También intenta eliminar estas funciones cuando aparecen en los denominadores.  Si no se introduce el argumento <var>x</var>, entonces se utilizan todas las variables de <var>expr</var>.
+</p>
+<p>Véase también <code>poissimp</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) trigreduce(-sin(x)^2+3*cos(x)^2+x);
+               cos(2 x)      cos(2 x)   1        1
+(%o1)          -------- + 3 (-------- + -) + x - -
+                  2             2       2        2
+</pre></div>
+
+
+<p>Las rutinas de simplificación trigonométrica utilizan información declarada en algunos casos sencillos. Las declaraciones sobre variables se utilizan como se indica a continuación:
+</p>
+<div class="example">
+<pre class="example">(%i1) declare(j, integer, e, even, o, odd)$
+(%i2) sin(x + (e + 1/2)*%pi);
+(%o2)                        cos(x)
+(%i3) sin(x + (o + 1/2)*%pi);
+(%o3)                       - cos(x)
+
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdefvr_002ftrigsign"></span><dl class="def">
+<dt id="index-trigsign"><span class="category">Variable optativa: </span><span><strong>trigsign</strong><a href='#index-trigsign' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>Si <code>trigsign</code> vale <code>true</code>, se permite la simplificación de argumentos negativos en funciones trigonométricas, como en <code>sin(-x)</code>, que se transformará en <code>-sin(x)</code> sólo si <code>trigsign</code> vale <code>true</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002ftrigsimp"></span><dl class="def">
+<dt id="index-trigsimp"><span class="category">Función: </span><span><strong>trigsimp</strong> <em>(<var>expr</var>)</em><a href='#index-trigsimp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Utiliza las identidades <em class='tex2jax_process'>\(sin(x)^2 + cos(x)^2 = 1\)</em> y
+<em class='tex2jax_process'>\(cosh(x)^2 - sinh(x)^2 = 1\)</em> para simplificar expresiones que contienen <code>tan</code>, <code>sec</code>,
+etc., en expresiones con <code>sin</code>, <code>cos</code>, <code>sinh</code>, <code>cosh</code>.
+</p>
+<p>Las funciones <code>trigreduce</code>, <code>ratsimp</code> y <code>radcan</code> puden seguir siendo útiles para continuar el proceso de simplificación.
+</p>
+<p>La instrucción <code>demo (&quot;trgsmp.dem&quot;)</code> muestra algunos ejemplos de <code>trigsimp</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ees_002fdeffn_002ftrigrat"></span><dl class="def">
+<dt id="index-trigrat"><span class="category">Función: </span><span><strong>trigrat</strong> <em>(<var>expr</var>)</em><a href='#index-trigrat' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve una forma canónica simplificada cuasi-lineal de una expresión trigonométrica;
+<var>expr</var> es una fracción racional que contiene <code>sin</code>, <code>cos</code> o <code>tan</code>, 
+cuyos argumentos son formas lineales respecto de ciertas variables (o kernels) y <code>%pi/<var>n</var></code>
+(<var>n</var> entero) con coeficientes enteros. El resultado es una fracción simplificada con 
+el numerador y denominador lineales respecto de <code>sin</code> y <code>cos</code>. Así,
+ <code>trigrat</code> devuelve una expresión lineal siempre que sea posible.
+</p>
+<div class="example">
+<pre class="example">(%i1) trigrat(sin(3*a)/sin(a+%pi/3));
+(%o1)            sqrt(3) sin(2 a) + cos(2 a) - 1
+</pre></div>
+
+<p>El siguiente ejemplo se ha tomado de
+Davenport, Siret y Tournier, <i>Calcul Formel</i>, Masson (o en inglés,
+Addison-Wesley), sección 1.5.5, teorema de Morley.
+</p>
+<div class="example">
+<pre class="example">(%i1) c : %pi/3 - a - b$
+</pre><pre class="example">(%i2) bc : sin(a)*sin(3*c)/sin(a+b);
+                                          %pi
+                  sin(a) sin(3 (- b - a + ---))
+                                           3
+(%o2)             -----------------------------
+                           sin(b + a)
+</pre><pre class="example">(%i3) ba : bc, c=a, a=c;
+                                         %pi
+                    sin(3 a) sin(b + a - ---)
+                                          3
+(%o3)               -------------------------
+                                  %pi
+                          sin(a - ---)
+                                   3
+</pre><pre class="example">(%i4) ac2 : ba^2 + bc^2 - 2*bc*ba*cos(b);
+         2         2         %pi
+      sin (3 a) sin (b + a - ---)
+                              3
+(%o4) ---------------------------
+                2     %pi
+             sin (a - ---)
+                       3
+                                       %pi
+ - (2 sin(a) sin(3 a) sin(3 (- b - a + ---)) cos(b)
+                                        3
+             %pi            %pi
+ sin(b + a - ---))/(sin(a - ---) sin(b + a))
+              3              3
+      2       2              %pi
+   sin (a) sin (3 (- b - a + ---))
+                              3
+ + -------------------------------
+                2
+             sin (b + a)
+</pre><pre class="example">(%i5) trigrat (ac2);
+(%o5) - (sqrt(3) sin(4 b + 4 a) - cos(4 b + 4 a)
+ - 2 sqrt(3) sin(4 b + 2 a) + 2 cos(4 b + 2 a)
+ - 2 sqrt(3) sin(2 b + 4 a) + 2 cos(2 b + 4 a)
+ + 4 sqrt(3) sin(2 b + 2 a) - 8 cos(2 b + 2 a) - 4 cos(2 b - 2 a)
+ + sqrt(3) sin(4 b) - cos(4 b) - 2 sqrt(3) sin(2 b) + 10 cos(2 b)
+ + sqrt(3) sin(4 a) - cos(4 a) - 2 sqrt(3) sin(2 a) + 10 cos(2 a)
+ - 9)/4
+</pre></div>
+
+</dd></dl>
+
+
+
+
+
+
+
+
+<span id="Item_003a-MathFunctions_002ees_002fnode_002fN_00fameros-aleatorios"></span></div>
+<hr>
+<div class="header">
+<p>
+Anterior: <a href="maxima_54.html" accesskey="p" rel="prev">Introducción a la trigonometría</a>, Subir: <a href="maxima_53.html" accesskey="u" rel="up">Funciones trigonométricas</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>Información de licencia de JavaScript</small></a>
+</body>
+</html>

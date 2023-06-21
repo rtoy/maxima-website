@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Definições para Detecção e Relato de Erros (Manual do Maxima 5.47.0)</title>
+
+<meta name="description" content="Definições para Detecção e Relato de Erros (Manual do Maxima 5.47.0)">
+<meta name="keywords" content="Definições para Detecção e Relato de Erros (Manual do Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_218.html" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_1.html" rel="up" title="Detecção e Relato de Erros">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="pt">
+<div class="section" id="Defini_00e7_00f5es-para-Detec_00e7_00e3o-e-Relato-de-Erros">
+<div class="header">
+<p>
+Acima: <a href="maxima_1.html" accesskey="u" rel="up">Detecção e Relato de Erros</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<span id="Definicoes-para-Deteccao-e-Relato-de-Erros"></span><h3 class="section">2.1, Definições para Detecção e Relato de Erros</h3>
+<span id="Item_003a-Bugs_002fdeffn_002frun_005ftestsuite"></span><dl class="def">
+<dt id="index-run_005ftestsuite"><span class="category">Função: </span><span><strong>run_testsuite</strong> <em>()</em><a href='#index-run_005ftestsuite' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-run_005ftestsuite-1"><span class="category">Função: </span><span><strong>run_testsuite</strong> <em>(<var>boolean</var>)</em><a href='#index-run_005ftestsuite-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-run_005ftestsuite-2"><span class="category">Função: </span><span><strong>run_testsuite</strong> <em>(<var>boolean</var>, <var>boolean</var>)</em><a href='#index-run_005ftestsuite-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-run_005ftestsuite-3"><span class="category">Função: </span><span><strong>run_testsuite</strong> <em>(<var>boolean</var>, <var>boolean</var>, <var>list</var>)</em><a href='#index-run_005ftestsuite-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Executa o conjunto de testes do Maxima.  Testes que produzem a resposta
+desejada são considerados &ldquo;aprovações&rdquo; (em inglês, passes) e testes que
+não produzem a resposta desejada são marcados como erros.
+</p>
+<p><code>run_testsuite ()</code> mostra somente testes que não são aprovados.
+</p>
+<p><code>run_testsuite (true)</code> mostra somente testes que são marcados como
+erros, bem como as falhas.
+</p>
+<p><code>run_testsuite (true, true)</code> mostra todos os testes.
+</p>
+<p>Se for usado o terceiro argumento opcional, que deve ser uma lista,
+executam-se unicamente os testes indicados nessa lista. Os nomes de
+todos os testes é especificado por <code>testsuite_files</code>.
+</p>
+<p><code>run_testsuite</code> altera a variável de ambiente Maxima.  Tipicamente
+um script de teste executa <code>kill</code> para estabelecer uma variável de
+ambiente (uma a saber sem funções definidas pelo utilizador e variáveis)
+e então define funções e variáveis apropriadamente para o teste.
+</p>
+<p><code>run_testsuite</code> retorna <code>done</code>.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-testsuite_005ffiles"><span class="category">Variável: </span><span><strong>testsuite_files</strong><a href='#index-testsuite_005ffiles' class='copiable-anchor'> &para;</a></span></dt>
+<dd>     
+<p><code>testsuite_files</code> é o conjunto de testes a ser executado por
+<code>run_testsuite</code>. É uma lista de nomes de ficheiros contendo os
+testes a executar. Se alguns dos testes num ficheiro falha de forma
+conhecida, então em lugar de listar o nome do ficheiro mostra-se uma
+lista com o nome do ficheiro e o número dos testes que falharam.
+</p>
+<p>Por exemplo, a linha seguinte é uma parte do conjunto de testes padrão:
+</p>
+<div class="example">
+<pre class="example"> [&quot;rtest13s&quot;, [&quot;rtest14&quot;, 57, 63]]
+</pre></div>
+
+<p>Essa linha especifica o conjunto de testes contidos nos ficheiros &quot;rtest13s&quot; e
+&quot;rtest14&quot;, em que os testes números 57 e 63 do ficheiro &quot;rtest14&quot; falharam de forma conhecida.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-bug_005freport"><span class="category">Função: </span><span><strong>bug_report</strong> <em>()</em><a href='#index-bug_005freport' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Mostra os números de versão do Maxima e do Lisp e o apontador para o
+sítio onde devem informar-se os erros encontrados no Maxima, para que
+possam ser solucionados.  A informação das versões pode ser consultada
+também com <code>build_info</code>.
+</p>
+<p>Quando se informa sobre um erro, é muito útil indicar a versão do Maxima
+e do Lisp usadas.
+</p>
+<p>A saída do comando <code>bug_report</code> é uma sequência de caracteres vazia
+<code>&quot;&quot;</code>.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-build_005finfo"><span class="category">Função: </span><span><strong>build_info</strong> <em>()</em><a href='#index-build_005finfo' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Mostra os números de versão do Maxima e do Lisp.
+</p>
+<p>A saída do comando <code>build_info</code> é uma sequência de caracteres vazia
+<code>&quot;&quot;</code>.
+</p></dd></dl>
+
+</div>
+<hr>
+<div class="header">
+<p>
+Acima: <a href="maxima_1.html" accesskey="u" rel="up">Detecção e Relato de Erros</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

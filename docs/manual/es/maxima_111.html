@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introducción a la resolución numérica de ecuaciones diferenciales (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Introducción a la resolución numérica de ecuaciones diferenciales (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Introducción a la resolución numérica de ecuaciones diferenciales (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_107.html" rel="up" title="Métodos numéricos">
+<link href="maxima_112.html" rel="next" title="Funciones para la resolución numérica de ecuaciones diferenciales">
+<link href="maxima_110.html" rel="prev" title="Funciones para la resolución numérica de ecuaciones">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Introducci_00f3n-a-la-resoluci_00f3n-num_00e9rica-de-ecuaciones-diferenciales">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_112.html" accesskey="n" rel="next">Funciones para la resolución numérica de ecuaciones diferenciales</a>, Anterior: <a href="maxima_110.html" accesskey="p" rel="prev">Funciones para la resolución numérica de ecuaciones</a>, Subir: <a href="maxima_107.html" accesskey="u" rel="up">Métodos numéricos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Introduccion-a-la-resolucion-numerica-de-ecuaciones-diferenciales"></span><h3 class="section">22.4 Introducción a la resolución numérica de ecuaciones diferenciales</h3>
+
+<p>Las ecuaciones diferenciales ordinarias (EDO) que se resuelven con las funciones de esta
+sección deben tener la forma
+</p><div class="example">
+<pre class="example">       dy
+       -- = F(x,y)
+       dx
+</pre></div>
+<p>la cual es una EDO de primer orden. Las ecuaciones diferenciales de orden 
+<var>n</var> deben escribirse como un sistema de <var>n</var> ecuaciones de primer
+orden del tipo anterior. Por ejemplo, una EDO de segundo orden debe escribirse
+como un sistema de dos ecuaciones,
+</p><div class="example">
+<pre class="example">       dx               dy
+       -- = G(x,y,t)    -- = F(x,y,t) 
+       dt               dt
+</pre></div>
+
+<p>El primer argumento de las funciones debe ser una lista con las expresiones
+de los miembros derechos de las EDOs. Las variables cuyas derivadas se representan
+por las expresiones anteriores deben darse en una segunda lista. En el caso antes
+citado, las variables son <var>x</var> y <var>y</var>. La variable independiente, <var>t</var>
+en los mismos ejemplos anteriores, pueden darse mediante una opción adicional. 
+Si las expresiones dadas no dependen de esa variable independiente, el sistema
+recibe el nombre de autónomo.
+</p>
+
+
+
+
+
+
+<span id="Item_003a-Numerical_002ees_002fnode_002fFunciones-para-la-resoluci_00f3n-num_00e9rica-de-ecuaciones-diferenciales"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_112.html" accesskey="n" rel="next">Funciones para la resolución numérica de ecuaciones diferenciales</a>, Anterior: <a href="maxima_110.html" accesskey="p" rel="prev">Funciones para la resolución numérica de ecuaciones</a>, Subir: <a href="maxima_107.html" accesskey="u" rel="up">Métodos numéricos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

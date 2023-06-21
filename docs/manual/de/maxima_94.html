@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einf&uuml;hrung in QUADPACK (Maxima Manual)</title>
+
+<meta name="description" content="Einf&uuml;hrung in QUADPACK (Maxima Manual)">
+<meta name="keywords" content="Einf&uuml;hrung in QUADPACK (Maxima Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_334.html" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_91.html" rel="up" title="Integration">
+<link href="maxima_95.html" rel="next" title="Funktionen und Variablen f&uuml;r QUADPACK">
+<link href="maxima_93.html" rel="prev" title="Funktionen und Variablen der Integration">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body lang="de" class="tex2jax_ignore">
+<div class="subsection" id="Einf_00fchrung-in-QUADPACK">
+<div class="header">
+<p>
+Nächste: <a href="maxima_95.html" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r QUADPACK</a>, Vorige: <a href="maxima_93.html" accesskey="p" rel="prev">Funktionen und Variablen der Integration</a>, Nach oben: <a href="maxima_91.html" accesskey="u" rel="up">Integration</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Einfuhrung-in-QUADPACK"></span><h4 class="subsection">16.3.3 Einf&uuml;hrung in QUADPACK</h4>
+
+
+<p>QUADPACK ist eine Sammlung von Funktionen f&uuml;r die numerische Berechnung von
+eindimensionalen bestimmten Integralen.  QUADPACK hat den Ursprung in einem 
+Projekt von R. Piessens <a id="DOCF1" href="#FOOT1"><sup>1</sup></a>, E. de Doncker <a id="DOCF2" href="#FOOT2"><sup>2</sup></a>, C. Ueberhuber <a id="DOCF3" href="#FOOT3"><sup>3</sup></a>, und D. Kahaner <a id="DOCF4" href="#FOOT4"><sup>4</sup></a>.
+</p>
+<p>Die QUADPACK-Bibliothek, die in Maxima enthalten ist, ist eine automatische
+&Uuml;bersetzung des Fortran Quellcodes mit dem Programm <code>f2cl</code> wie er
+in der SLATEC Common Mathematical Library, Version 4.1 
+<a id="DOCF5" href="#FOOT5"><sup>5</sup></a> vorliegt.  Die SLATEC Bibliothek
+datiert auf Juli 1993.  Die QUADPACK Funktionen wurden bereits einige Jahre
+fr&uuml;her programmiert.  Es gibt eine weitere Version von QUADPACK bei Netlib
+<a id="DOCF6" href="#FOOT6"><sup>6</sup></a>.  Es ist jedoch unklar worin
+sich diese von der SLATEC Version unterscheidet.
+</p>
+<p>Alle QUADPACK-Funktionen versuchen automatisch, ein bestimmtes Integral
+numerisch innerhalb eine spezifizierten Genauigkeit zu berechnen.  Die
+&Uuml;bersetzung nach Lisp enth&auml;lt einige weitere nicht-automatische Funktionen,
+die jedoch nicht als Maxima Funktionen zur Verf&uuml;gung stehen.
+</p>
+<p>Weitere Informationen &uuml;ber das QUADPACK-Paket sind in dem QUADPACK-Buch
+<a id="DOCF7" href="#FOOT7"><sup>7</sup></a> enthalten.
+</p>
+<span id="Ubersicht-uber-die-Integrationsroutinen"></span><h4 class="subsubheading">&Uuml;bersicht &uuml;ber die Integrationsroutinen</h4>
+
+<dl compact="compact">
+<dt><span><code>quad_qag</code></span></dt>
+<dd><p>Integration einer allgemeinen Funktion &uuml;ber ein endliches Intervall.
+<code><a href="maxima_95.html#quad_005fqag">quad_qag</a></code> implementiert einen globalen adaptiven Integrator auf
+Grundlage der Strategie von Aind (Piessens, 1973).  Es kann aus 6 verschiedenen 
+Paaren von Gau&szlig;-Kronrad-Quadraturformeln ausgew&auml;hlt werden.  Die Formeln 
+h&ouml;heren Grades sind f&uuml;r stark oszillierende Integranden geeignet.
+</p>
+</dd>
+<dt><span><code>quad_qags</code></span></dt>
+<dd><p>Integration einer allgemeinen Funktion &uuml;ber ein endliches Intervall.
+Die Funktion <code><a href="maxima_95.html#quad_005fqags">quad_qags</a></code> implementiert die Strategie einer globalen   
+adaptiven Unterteilung des Integrationsintervalls mit Extrapolation (de Doncker,
+1978).  Zus&auml;tzlich wird versucht, die Konvergenz der Integralapproximation mit
+Hilfe des Epsilon-Algorithmus (Wynn, 1956) zu beschleunigen.  Dies f&uuml;hrt zum 
+Beispiel bei Integranden mit Singularit&auml;ten, deren Lage und Typ unbekannt 
+sind, zu einer Effizienzsteigerung.
+</p>
+</dd>
+<dt><span><code>quad_qagi</code></span></dt>
+<dd><p>Die Funktion <code><a href="maxima_95.html#quad_005fqagi">quad_qagi</a></code> f&uuml;hrt die Integration einer allgemeinen Funktion
+&uuml;ber ein unendliches oder halb-unendliches Intervall aus.  Das Intervall
+wird auf ein endliches Intervall transformiert.  Das transformierte
+Integrationsproblem wird dann mit einer geringf&uuml;gig modifizierten Algorithmus
+wie in <code><a href="maxima_95.html#quad_005fqags">quad_qags</a></code> gel&ouml;st.
+</p>
+</dd>
+<dt><span><code>quad_qawo</code></span></dt>
+<dd><p>Berechnung von Integralen mit den trigonometrischen Gewichtsfunktionen 
+<em class='tex2jax_process'>\(cos(omega x) f(x)\)</em> oder <em class='tex2jax_process'>\(sin(omega x) f(x)\)</em> &uuml;ber ein endliches 
+Intervall, wobei <em class='tex2jax_process'>\(omega\)</em> eine Konstante ist.
+Der Algorithmus der Funktion <code><a href="maxima_95.html#quad_005fqawo">quad_qawo</a></code> zur basiert auf eine modifizierte
+Clenshaw-Curtis-Technik.  <code>quad_qawo</code> wendet eine adaptive Unterteilung des
+Integrationsintervalls mit Extrapolation an, die vergleichbar mit dem
+Algorithmus von <code><a href="maxima_95.html#quad_005fqags">quad_qags</a></code> ist.  Zus&auml;tzlich wird versucht, die
+Konvergenz der Integralapproximation mit Hilfe des Epsilon-Algorithmus (Wynn, 
+1956) zu beschleunigen.
+</p>
+</dd>
+<dt><span><code>quad_qawf</code></span></dt>
+<dd><p>Die Funktion <code><a href="maxima_95.html#quad_005fqawf">quad_qawf</a></code> berechnet die Sinus- oder
+Kosinus-Fouriertransformation &uuml;ber ein halb-unendliches
+Intervall.  Dabei wird die global adaptive Routine <code><a href="maxima_95.html#quad_005fqawo">quad_qawo</a></code> sukzessive
+auf endliche Teilintervalle angewendet.  Zur Konvergenzbeschleunigung der
+resultierenden alternierenden Reihe wird der Epsilon-Algorithmus
+(Wynn, 1956) verwendet.
+</p>
+</dd>
+<dt><span><code>quad_qaws</code></span></dt>
+<dd><p>Integration von <em class='tex2jax_process'>\(w(x) f(x)\)</em> &uuml;ber ein endliches Intervall <em class='tex2jax_process'>\([a, b]\)</em>,
+wobei <em class='tex2jax_process'>\(w\)</em> eine Funktion der Form <em class='tex2jax_process'>\((x - a)^alpha (b - x)^beta v(x)\)</em>
+ist und <em class='tex2jax_process'>\(v(x)\)</em> ist 1 oder <em class='tex2jax_process'>\(log(x - a)\)</em> oder <em class='tex2jax_process'>\(log(b - x)\)</em> oder
+<em class='tex2jax_process'>\(log(x - a) log(b - x)\)</em>, und <em class='tex2jax_process'>\(alpha &gt; -1\)</em> und <em class='tex2jax_process'>\(beta &gt; -1\)</em>.
+<code><a href="maxima_95.html#quad_005fqaws">quad_qaws</a></code> ist speziell f&uuml;r die effiziente Berechnung von Integralen
+&uuml;ber endliche Intervalle mit algebraischen oder algebraisch-logarithmischen
+Endpunktsingularit&auml;ten konzipiert.  Eine globale adaptive Strategie mit 
+Unterteilung des Integrationsintervalls wird angewendet.  Auf Teilintervalle
+die keinen Endpunkt des Integrationsintervalls enthalten, kommt ein
+Gau&szlig;-Kronrod-Formelpaar und auf Randintervallen kommen modifizierte
+Clenshaw-Curtis-Formeln zur Anwendung.
+</p>
+</dd>
+<dt><span><code>quad_qawc</code></span></dt>
+<dd><p>Die Funktion <code><a href="maxima_95.html#quad_005fqawc">quad_qawc</a></code> berechnet den Cauchyschen Hauptwert von
+<em class='tex2jax_process'>\(f(x)(x - c)\)</em> &uuml;ber ein endliches Intervall <em class='tex2jax_process'>\((a, b)\)</em> und dem Wert
+<em class='tex2jax_process'>\(c\)</em>.  Es wird eine modifizierte Clenshaw-Curtis-Formel angewendet, wenn
+<em class='tex2jax_process'>\(c\)</em> im Teilbereich enthalten ist.  Andernfalls wird eine globale adaptive
+Strategie mit einem Gau&szlig;-Kronrod-Formelpaar angewendet.
+</p>
+
+</dd>
+<dt><span><code>quad_qagp</code></span></dt>
+<dd><p>Basically the same as <code>quad_qags</code> but points of singularity or
+discontinuity of the integrand must be supplied.  This makes it easier
+for the integrator to produce a good solution.
+</p></dd>
+</dl>
+
+<span id="Item_003a-Calculus_002ede_002fnode_002fFunktionen-und-Variablen-f_00fcr-QUADPACK"></span></div>
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Fußnoten</h4>
+
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<p>Applied Mathematics and Programming Division, 
+K.U. Leuven</p>
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
+<p>Applied Mathematics and Programming 
+Division, K.U. Leuven</p>
+<h5><a id="FOOT3" href="#DOCF3">(3)</a></h5>
+<p>Institut f&uuml;r Mathematik, T.U. 
+Wien</p>
+<h5><a id="FOOT4" href="#DOCF4">(4)</a></h5>
+<p>National Bureau of Standards, Washington, D.C., 
+U.S.A</p>
+<h5><a id="FOOT5" href="#DOCF5">(5)</a></h5>
+<p><a href="http://www.netlib.org/slatec">http://www.netlib.org/slatec</a></p>
+<h5><a id="FOOT6" href="#DOCF6">(6)</a></h5>
+<p><a href="http://www.netlib.org/quadpack">http://www.netlib.org/quadpack</a></p>
+<h5><a id="FOOT7" href="#DOCF7">(7)</a></h5>
+<p>R. Piessens, E. de Doncker-Kapenga, C.W. Uberhuber, and D.K. 
+Berlin: Springer-Verlag, 1983, ISBN 0387125531.</p>
+</div>
+<hr>
+<div class="header">
+<p>
+Nächste: <a href="maxima_95.html" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r QUADPACK</a>, Vorige: <a href="maxima_93.html" accesskey="p" rel="prev">Funktionen und Variablen der Integration</a>, Nach oben: <a href="maxima_91.html" accesskey="u" rel="up">Integration</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>JavaScript license information</small></a>
+</body>
+</html>

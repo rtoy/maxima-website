@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introducción a la evaluación (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Introducción a la evaluación (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Introducción a la evaluación (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_36.html" rel="up" title="Evaluación">
+<link href="maxima_38.html" rel="next" title="Funciones y variables para la evaluación">
+<link href="maxima_36.html" rel="prev" title="Evaluación">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Introducci_00f3n-a-la-evaluaci_00f3n">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_38.html" accesskey="n" rel="next">Funciones y variables para la evaluación</a>, Anterior: <a href="maxima_36.html" accesskey="p" rel="prev">Evaluación</a>, Subir: <a href="maxima_36.html" accesskey="u" rel="up">Evaluación</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Introduccion-a-la-evaluacion"></span><h3 class="section">7.1 Introducción a la evaluación</h3>
+
+<p>Las fases que se suceden desde que el usuario solicita un cálculo hasta que
+obtiene el resultado son: la propia solicitud del cálculo, la evaluación,
+la simplificación y la respuesta.
+</p>
+<p>Toda expresión <var>expr</var> que se introduzca en Maxima será evaluada, de manera
+que los símbolos que no tengan asociado ningún valor y los números
+evalúan a sí mismos; en cambio, aquellos símbolos
+que tengan un valor asociado serán sustituídos por tales valores.
+</p>
+<p>Dos ejemplos. En el primero, los símbolos y los números se evalúan
+a sí mismos; en el segundo ejemplo, al asignarle a la variable <code>a</code>
+el valor <code>2</code>, allá donde se escriba <code>a</code> será sustituido por dicho valor.
+</p>
+<div class="example">
+<pre class="example">(%i1) [a, b, 2, 1/2, 1.0];
+                                  1
+(%o1)                   [a, b, 2, -, 1.0]
+                                  2
+(%i2) a:2$
+
+(%i3) [a, sin(a), a^2];
+(%o3)                    [2, sin(2), 4]
+</pre></div>
+
+<p>Maxima distingue entre funciones en forma verbal y funciones en forma
+nominal. Las funciones en forma verbal son evaluadas tomando en cuenta
+los valores dados a sus argumentos; en cambio, las funciones nominales
+no son evaluadas, aunque sus argumentos tengan valores asignados. Las
+funciones son susceptibles de ser tratadas de ambos modos; ejemplos 
+típicos son la función de diferenciación <code>diff</code>
+y la de integración <code>integrate</code>.
+</p>
+<p>En el siguiente ejemplo se le asigna a la variable <code>a</code> cierto
+valor, a continuación se invoca la función <code>diff</code> en su
+forma verbal con sus argumentos tomando los valores <code>a*x^2</code> y <code>x</code>.
+Seguidamente se invoca a la misma función <code>diff</code> en su
+forma nominal, lo cual se consigue mediante el operador de comilla simple (<code>'</code>);
+en este caso la función no es evaluada y devuelve una expresión simbólica
+en la que los argumentos sí han sido evaluados, pues la variable
+<code>a</code> es sustituida por el valor <code>1/2</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) a:1/2;
+                                1
+(%o1)                           -
+                                2
+(%i2) diff(a*x^2, x);
+(%o2)                           x
+(%i3) 'diff(a*x^2, x);
+</pre><pre class="example">                                  2
+                             d   x
+(%o3)                        -- (--)
+                             dx  2
+</pre></div>
+
+<p>Sin embargo, no todas las funciones de Maxima sustituyen sus argumentos por
+sus valores. La documentación para cada función informará si sus argumentos
+son evaluados o no.
+</p>
+<p>Por ejemplo, la función <code>properties</code> no evalúa sus argumentos, lo cual
+resulta práctico para el usuario, ya que en caso contrario debería
+utilizar el operador de comilla simple <code>'</code> a fin de poder mostrar las
+propiedades del símbolo <code>a</code>. A continuación se muestra 
+como en el primer caso se devuelve una lista vacía, ya que no se
+le ha encontrado ninguna propiedad al símbolo <code>a</code>; una vez
+se le ha asignado el valor <code>2</code>, la función <code>properties</code> nos dice
+que la variable guarda un valor y esto es así porque no ha sustituido
+el símbolo <code>a</code> por su valor <code>2</code>. En consecuencia, la
+función <code>properties</code> muestra las propiedades de <code>'a</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) properties(a);
+(%o1)                          []
+(%i2) a:2$
+
+(%i3) properties(a);
+(%o3)                        [value]
+</pre></div>
+
+<p>La evaluación de símbolos, funciones y expresiones se puede
+controlar con los operadores de comilla simple (<code>'</code>) y de doble comilla
+simple (<code>'<!-- /@w -->'</code>). La evaluación se suprime con la comilla simple y se
+fuerza con la doble comilla simple (que no comilla doble).
+</p>
+<p>Con la función <code>ev</code> se evalúa una expresión dentro de un contexto
+determinado controlado por el valor de ciertas variables <code>evflag</code> y
+funciones de evaluación <code>evfun</code>.
+</p>
+
+
+
+
+
+
+
+
+
+<span id="Item_003a-Evaluation_002ees_002fnode_002fFunciones-y-variables-para-la-evaluaci_00f3n"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_38.html" accesskey="n" rel="next">Funciones y variables para la evaluación</a>, Anterior: <a href="maxima_36.html" accesskey="p" rel="prev">Evaluación</a>, Subir: <a href="maxima_36.html" accesskey="u" rel="up">Evaluación</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

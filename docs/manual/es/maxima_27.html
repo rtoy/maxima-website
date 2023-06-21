@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para las estructuras (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para las estructuras (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para las estructuras (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_25.html" rel="up" title="Estructuras">
+<link href="maxima_26.html" rel="prev" title="Introducción a las estructuras">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="subsection" id="Funciones-y-variables-para-las-estructuras">
+<div class="header">
+<p>
+Anterior: <a href="maxima_26.html" accesskey="p" rel="prev">Introducción a las estructuras</a>, Subir: <a href="maxima_25.html" accesskey="u" rel="up">Estructuras</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Funciones-y-variables-para-las-estructuras-1"></span><h4 class="subsection">5.6.2 Funciones y variables para las estructuras</h4>
+
+<span id="Item_003a-defstruct_002fdefvr_002fstructures"></span><dl class="def">
+<dt id="index-structures"><span class="category">Variable global: </span><span><strong>structures</strong><a href='#index-structures' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>structures</code> es la lista que contiene las estructuras definidas por el usuario con <code>defstruct</code>.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-defstruct_002fdeffn_002fdefstruct"></span><dl class="def">
+<dt id="index-defstruct"><span class="category">Función: </span><span><strong>defstruct</strong> <em>(<var>S</var>(<var>a_1</var>, ..., <var>a_n</var>))</em><a href='#index-defstruct' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-defstruct-1"><span class="category">Función: </span><span><strong>defstruct</strong> <em>(<var>S</var>(<var>a_1</var> = <var>v_1</var>, ..., <var>a_n</var> = <var>v_n</var>))</em><a href='#index-defstruct-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Define una estructura, la cual es una lista de nombres de campos <var>a_1</var>, ..., <var>a_n</var>
+asociados a un símbolo <var>S</var>.
+Todo individuo de una estructura dada consiste en una expresión con operador <var>S</var>
+y exactamente <code>n</code> argumentos. La sentencia <code>new(<var>S</var>)</code> crea un nuevo
+individuo con estructura <var>S</var>.
+</p>
+<p>Un argumento consistente en un símbolo <var>a</var> especifica el nombre de
+un campo. Un argumento consistente en una ecuación <code><var>a</var> = <var>v</var></code> especifica
+el nombre del campo <var>a</var> junto con su valor por defecto <var>v</var>. El valor por
+defecto puede ser cualquier tipo de expresión.
+</p>
+<p>La llamada a <code>defstruct</code> añade <var>S</var> a la lista de estructuras definidas
+por el usuario, <code>structures</code>.
+</p>
+<p>La sentencia <code>kill(<var>S</var>)</code> borra <var>S</var> de la lista de estructuras
+definidas por el usuario y elimina la definición de la estructura.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) defstruct (foo (a, b, c));
+(%o1)                    [foo(a, b, c)]
+(%i2) structures;
+(%o2)                    [foo(a, b, c)]
+(%i3) new (foo);
+(%o3)                     foo(a, b, c)
+(%i4) defstruct (bar (v, w, x = 123, y = %pi));
+(%o4)             [bar(v, w, x = 123, y = %pi)]
+(%i5) structures;
+(%o5)      [foo(a, b, c), bar(v, w, x = 123, y = %pi)]
+(%i6) new (bar);
+(%o6)              bar(v, w, x = 123, y = %pi)
+(%i7) kill (foo);
+(%o7)                         done
+(%i8) structures;
+(%o8)             [bar(v, w, x = 123, y = %pi)]
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-defstruct_002fdeffn_002fnew"></span><dl class="def">
+<dt id="index-new"><span class="category">Función: </span><span><strong>new</strong> <em>(<var>S</var>)</em><a href='#index-new' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-new-1"><span class="category">Función: </span><span><strong>new</strong> <em>(<var>S</var> (<var>v_1</var>, ..., <var>v_n</var>))</em><a href='#index-new-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>new</code> crea nuevos individuos de estructuras declaradas.
+</p>
+<p>La sentencia <code>new(<var>S</var>)</code> crea un nuevo individuo de 
+estructura <var>S</var> en el que cada campo toma su valor por defecto,
+si este fue definido, o sin valor alguno en caso de que no se haya
+fijado un valor por defecto en la definición de la estructura.
+</p>
+<p>La sentencia <code>new(<var>S</var>(<var>v_1</var>, ..., <var>v_n</var>))</code>
+crea un nuevo individuo de estructura <var>S</var> en el que los campos
+adquieren los valores <var>v_1</var>, ..., <var>v_n</var>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) defstruct (foo (w, x = %e, y = 42, z));
+(%o1)              [foo(w, x = %e, y = 42, z)]
+(%i2) new (foo);
+(%o2)               foo(w, x = %e, y = 42, z)
+(%i3) new (foo (1, 2, 4, 8));
+(%o3)            foo(w = 1, x = 2, y = 4, z = 8)
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-defstruct_002fdeffn_002f_0040"></span><dl class="def">
+<dt id="index-_0040"><span class="category">Operador: </span><span><strong>@</strong><a href='#index-_0040' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>@</code> es el operador para acceder a los campos de las estructuras.
+</p>
+<p>La expresión <code><var>x</var>@ <var>a</var></code> hace referencia al valor del
+campo <var>a</var> del individuo <var>x</var> de una estructura dada. El nombre del campo no se evalúa.
+</p>
+<p>Si el campo <var>a</var> de <var>x</var> no tiene valor asignado, <code><var>x</var>@ <var>a</var></code>
+se evalúa a sí mismo; es decir, devuelve la propia expresión
+<code><var>x</var>@ <var>a</var></code> tal cual.
+</p>
+<p>La sentencia <code>kill(<var>x</var>@ <var>a</var>)</code> elimina el valor del campo <var>a</var> de <var>x</var>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) defstruct (foo (x, y, z));
+(%o1)                    [foo(x, y, z)]
+(%i2) u : new (foo (123, a - b, %pi));
+(%o2)           foo(x = 123, y = a - b, z = %pi)
+(%i3) u@z;
+(%o3)                          %pi
+(%i4) u@z : %e;
+(%o4)                          %e
+(%i5) u;
+(%o5)            foo(x = 123, y = a - b, z = %e)
+(%i6) kill (u@z);
+(%o6)                         done
+(%i7) u;
+(%o7)              foo(x = 123, y = a - b, z)
+(%i8) u@z;
+(%o8)                          u@z
+</pre></div>
+
+<p>El nombre del campo no se evalúa.
+</p>
+<div class="example">
+<pre class="example">(%i1) defstruct (bar (g, h));
+(%o1)                      [bar(g, h)]
+(%i2) x : new (bar);
+(%o2)                       bar(g, h)
+(%i3) x@h : 42;
+(%o3)                          42
+(%i4) h : 123;
+(%o4)                          123
+(%i5) x@h;
+(%o5)                          42
+(%i6) x@h : 19;
+(%o6)                          19
+(%i7) x;
+(%o7)                    bar(g, h = 19)
+(%i8) h;
+(%o8)                          123
+</pre></div>
+
+</dd></dl>
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Anterior: <a href="maxima_26.html" accesskey="p" rel="prev">Introducción a las estructuras</a>, Subir: <a href="maxima_25.html" accesskey="u" rel="up">Estructuras</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

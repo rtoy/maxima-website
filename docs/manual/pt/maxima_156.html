@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Definições para f90 (Manual do Maxima 5.47.0)</title>
+
+<meta name="description" content="Definições para f90 (Manual do Maxima 5.47.0)">
+<meta name="keywords" content="Definições para f90 (Manual do Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_218.html" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_155.html" rel="up" title="f90">
+<link href="maxima_155.html" rel="prev" title="f90">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="pt">
+<div class="section" id="Defini_00e7_00f5es-para-f90">
+<div class="header">
+<p>
+Anterior: <a href="maxima_155.html" accesskey="p" rel="prev">f90</a>, Acima: <a href="maxima_155.html" accesskey="u" rel="up">f90</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<span id="Definicoes-para-f90"></span><h3 class="section">49.1, Definições para f90</h3>
+
+
+<span id="Item_003a-f90_002fdeffn_002ff90"></span><dl class="def">
+<dt id="index-f90"><span class="category">Função: </span><span><strong>f90</strong> <em>(<var>expr</var>)</em><a href='#index-f90' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>O comando f90 é uma actualização do comando
+<code>fortran</code> original do maxima. A principal diferença
+é na forma como são divididas as linhas muito compridas.
+</p>
+<p>No exemplo seguinte, observe como o comando <code>fortran</code> divide linhas
+no meio de símbolos. O comando <code>f90</code> nunca separa uma
+linha no meio de um símbolo.
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;f90&quot;)$
+
+(%i2) expr:expand((xxx+yyy+7)^4);
+         4            3         3        2    2
+(%o2) yyy  + 4 xxx yyy  + 28 yyy  + 6 xxx  yyy
+             2          2        3             2
+ + 84 xxx yyy  + 294 yyy  + 4 xxx  yyy + 84 xxx  yyy
+                               4         3          2
+ + 588 xxx yyy + 1372 yyy + xxx  + 28 xxx  + 294 xxx
+ + 1372 xxx + 2401
+(%i3) fortran(expr);
+      yyy**4+4*xxx*yyy**3+28*yyy**3+6*xxx**2*yyy**2+84*xxx*yyy**2+294*yy
+     1   y**2+4*xxx**3*yyy+84*xxx**2*yyy+588*xxx*yyy+1372*yyy+xxx**4+28*
+     2   xxx**3+294*xxx**2+1372*xxx+2401
+(%o3)                       done
+(%i4) f90(expr);
+yyy**4+4*xxx*yyy**3+28*yyy**3+6*xxx**2*yyy**2+84*xxx*yyy**2+294* &amp;
+     yyy**2+4*xxx**3*yyy+84*xxx**2*yyy+588*xxx*yyy+1372*yyy+xxx** &amp;
+     4+28*xxx**3+294*xxx**2+1372*xxx+2401
+(%o4)                       done
+</pre></div>
+
+<p>A função <code>f90</code> foi criada como uma forma rápida de resolver
+um problema. Não será necessariamente um bom exemplo a seguir para
+traduções de outras linguagens de programação.
+</p>
+<p>Para usar esta função, use primeiro <code>load(&quot;f90&quot;)</code>.
+</p></dd></dl>
+
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Anterior: <a href="maxima_155.html" accesskey="p" rel="prev">f90</a>, Acima: <a href="maxima_155.html" accesskey="u" rel="up">f90</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_218.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

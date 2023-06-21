@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introduction to algebraic extensions (Maxima 5.47.0 Manual)</title>
+
+<meta name="description" content="Introduction to algebraic extensions (Maxima 5.47.0 Manual)">
+<meta name="keywords" content="Introduction to algebraic extensions (Maxima 5.47.0 Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_423.html" rel="index" title="Function and Variable Index">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="maxima_78.html" rel="up" title="Polynomials">
+<link href="maxima_82.html" rel="next" title="Functions and Variables for algebraic extensions">
+<link href="maxima_80.html" rel="prev" title="Functions and Variables for Polynomials">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body lang="en" class="tex2jax_ignore">
+<div class="section" id="Introduction-to-algebraic-extensions">
+<div class="header">
+<p>
+Next: <a href="maxima_82.html" accesskey="n" rel="next">Functions and Variables for algebraic extensions</a>, Previous: <a href="maxima_80.html" accesskey="p" rel="prev">Functions and Variables for Polynomials</a>, Up: <a href="maxima_78.html" accesskey="u" rel="up">Polynomials</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Introduction-to-algebraic-extensions-1"></span><h3 class="section">14.3 Introduction to algebraic extensions</h3>
+
+<p>We assume here that the fields are of characteristic 0 so that
+irreductible polynomials have simple roots (are separable, thus square
+free). The base fields <em class='tex2jax_process'>\(K\)</em> of interest are the field <em class='tex2jax_process'>\(Q\)</em> of rational
+numbers, for algebraic numbers, and the fields of rational functions on
+the real numbers <em class='tex2jax_process'>\(R\)</em> or the complex numbers <em class='tex2jax_process'>\(C\)</em>, that is <em class='tex2jax_process'>\(R(t)\)</em> or <em class='tex2jax_process'>\(C(t)\)</em>, when
+considering algebraic functions. An extension of degree <em class='tex2jax_process'>\(n\)</em> is defined by
+an irreducible degree <em class='tex2jax_process'>\(n\)</em> polynomial <em class='tex2jax_process'>\(p(x)\)</em> with coefficients in the base
+field, and consists of the quotient of the ring <em class='tex2jax_process'>\(K[x]\)</em> of polynomials by
+the multiples of <em class='tex2jax_process'>\(p(x)\)</em>. So if <em class='tex2jax_process'>\(p(x) = x^n + p_0 x^{n - 1} + ... + p_n\)</em>, each time one
+encounters <em class='tex2jax_process'>\(x^n\)</em> one substitutes <em class='tex2jax_process'>\(-(p_0 x^{n - 1} + ... + p_n)\)</em>. This is a field
+because of Bezout&rsquo;s identity, and a vector space of dimension <em class='tex2jax_process'>\(n\)</em> over <em class='tex2jax_process'>\(K\)</em>
+spanned by <em class='tex2jax_process'>\(1, x, ..., x^{n - 1}\)</em>.  When <em class='tex2jax_process'>\(K = C(t)\)</em>, this field can be identified
+with the field of algebraic functions on the algebraic curve of equation
+<em class='tex2jax_process'>\(p(x, t) = 0\)</em>.
+</p>
+<p>In Maxima the process of taking rationals modulo <em class='tex2jax_process'>\(p\)</em> is obtained by the
+function <code>tellrat</code> when <code>algebraic</code> is true. The best way to ensure,
+in particular when considering the case where <em class='tex2jax_process'>\(p\)</em> depends on other
+variables that this simplification property is attached to <em class='tex2jax_process'>\(x\)</em> is to write
+(note the polynomial must be monic):
+<code>tellrat(x^n = -(p_0*x^(n - 1) + ... + p_n))</code> where the <em class='tex2jax_process'>\(p_i\)</em> may depend on
+other variables. When one wants to remove this tellrat property one then
+has to write <code>untellrat(x)</code>.
+</p>
+<p>In the field <em class='tex2jax_process'>\(K[x]\)</em> one may do all sorts of algebraic computations, taking
+quotients, GCD of two elements, etc. by the same algorithms as in the
+usual case.  In particular one can do factorization of polynomials on an
+extension, using the function <code>algfac</code> below.  Moreover
+multiplication by an element <em class='tex2jax_process'>\(f\)</em> is a linear operation of the vector space
+<em class='tex2jax_process'>\(K[x]\)</em> over <em class='tex2jax_process'>\(K\)</em> and as such has a trace and a determinant. These are called
+<code>algtrace</code> and <code>algnorm</code> below. One can see that the trace of
+an element <em class='tex2jax_process'>\(f(x)\)</em> in <em class='tex2jax_process'>\(K[x]\)</em> is the sum of the values <em class='tex2jax_process'>\(f(a)\)</em> when <em class='tex2jax_process'>\(a\)</em> runs over
+roots of <em class='tex2jax_process'>\(p\)</em> and the norm is the product of the <em class='tex2jax_process'>\(f(a)\)</em>. Both are symmetric
+in the roots of <em class='tex2jax_process'>\(p\)</em> and thus belong to <em class='tex2jax_process'>\(K\)</em>.
+</p>
+<p>The field <em class='tex2jax_process'>\(K[x]\)</em> is also called the field obtained by adjoining a root <em class='tex2jax_process'>\(a\)</em>
+of <em class='tex2jax_process'>\(p(x)\)</em> to <em class='tex2jax_process'>\(K\)</em>. One can similarly adjoin a second root <em class='tex2jax_process'>\(b\)</em> of another
+polynomial obtaining a new extension <em class='tex2jax_process'>\(K[a,b]\)</em>. In fact there is a &ldquo;prime
+element&rdquo; <em class='tex2jax_process'>\(c\)</em> in <em class='tex2jax_process'>\(K[a, b]\)</em> such that <em class='tex2jax_process'>\(K[a, b] = K[c]\)</em>. This is obtained by
+function <code>primeelmt</code> below. Recursively one can thus adjoin any
+number of elements.  In particular adjoining all the roots of <em class='tex2jax_process'>\(p(x)\)</em> to <em class='tex2jax_process'>\(K\)</em>
+one gets the splitting field of <em class='tex2jax_process'>\(p\)</em>, which is the smallest extension in
+which <em class='tex2jax_process'>\(p\)</em> completely splits in linear functions. The function
+<code>splitfield</code> constructs a primitive element of the splitting field,
+which in general is of very high degree.
+</p>
+<p>The relevant concepts are explained in a concise and self-contained way in the
+small books edited by Dover:
+&ldquo;Algebraic theory of numbers,&rdquo; by Pierre Samuel,
+&ldquo;Algebraic curves,&rdquo; by  Robert Walker,
+and the methods presented here are described in the article
+&ldquo;Algebraic factoring and rational function integration&rdquo; by B. Trager,
+<em>Proceedings of the 1976 AMS Symposium on Symbolic and Algebraic Computation</em>.
+</p>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="maxima_82.html" accesskey="n" rel="next">Functions and Variables for algebraic extensions</a>, Previous: <a href="maxima_80.html" accesskey="p" rel="prev">Functions and Variables for Polynomials</a>, Up: <a href="maxima_78.html" accesskey="u" rel="up">Polynomials</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>JavaScript license information</small></a>
+</body>
+</html>

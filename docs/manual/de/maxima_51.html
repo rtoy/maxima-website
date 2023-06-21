@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funktionen f&uuml;r komplexe Zahlen (Maxima Manual)</title>
+
+<meta name="description" content="Funktionen f&uuml;r komplexe Zahlen (Maxima Manual)">
+<meta name="keywords" content="Funktionen f&uuml;r komplexe Zahlen (Maxima Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_334.html" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_49.html" rel="up" title="Mathematische Funktionen">
+<link href="maxima_52.html" rel="next" title="Funktionen der Kombinatorik">
+<link href="maxima_50.html" rel="prev" title="Funktionen f&uuml;r Zahlen">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="de">
+<div class="section" id="Funktionen-f_00fcr-komplexe-Zahlen">
+<div class="header">
+<p>
+Nächste: <a href="maxima_52.html" accesskey="n" rel="next">Funktionen der Kombinatorik</a>, Vorige: <a href="maxima_50.html" accesskey="p" rel="prev">Funktionen f&uuml;r Zahlen</a>, Nach oben: <a href="maxima_49.html" accesskey="u" rel="up">Mathematische Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Funktionen-fur-komplexe-Zahlen"></span><h3 class="section">10.2 Funktionen f&uuml;r komplexe Zahlen</h3>
+
+<span id="cabs"></span><span id="Item_003a-MathFunctions_002ede_002fdeffn_002fcabs"></span><dl class="def">
+<dt id="index-cabs"><span class="category">Funktion: </span><span><strong>cabs</strong> <em>(<var>expr</var>)</em><a href='#index-cabs' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Berechnet den Betrag eines komplexen Ausdrucks <var>expr</var>.  Im Unterschied
+zu der Funktion <code><a href="maxima_50.html#abs">abs</a></code>, zerlegt die Funktion <code>cabs</code> einen komplexen
+Ausdruck immer in einen Realteil und Imagin&auml;rteil, um den komplexen Betrag zu
+berechnen.  Sind <var>x</var> und <var>y</var> zwei reelle Variablen oder Ausdr&uuml;cke,
+berechnet die Funktion <code>cabs</code> den Betrag des komplexen Ausdrucks
+<code>x + %i*y</code> als:
+</p><div class="example">
+<pre class="example">                           2    2
+                     sqrt(y  + x )
+</pre></div>
+
+<p>Die Funktion <code>cabs</code> nutzt Symmetrieeigenschaften und implementierte
+Eigenschaften komplexer Funktionen, um den Betrag eines Ausdrucks zu berechnen.
+Sind solche Eigenschaften f&uuml;r eine Funktion vorhanden, k&ouml;nnen diese mit der
+Funktion <code><a href="maxima_63.html#properties">properties</a></code> angezeigt werden.  Eigenschaften, die das Ergebnis
+der Funktion <code>cabs</code> bestimmen, sind: <code>mirror symmetry</code>,
+<code>conjugate function</code> und <code>complex characteristic</code>.
+</p>
+<p><code>cabs</code> ist eine Verbfunktion, die nicht f&uuml;r das symbolische Rechnen
+geeignet ist.  F&uuml;r das symbolische Rechnen wie der Integration oder der
+Ableitung von Ausdr&uuml;cken mit der Betragsfunktion muss die Funktion <code>abs</code>
+verwendet werden.
+</p>
+<p>Das Ergebnis der Funktion <code>cabs</code> kann die Betragsfunktion <code><a href="maxima_50.html#abs">abs</a></code> und
+den Arkustangens <code><a href="maxima_56.html#atan2">atan2</a></code> enthalten.
+</p>
+<p><code>cabs</code> wird automatisch auf die Elemente von Listen und Matrizen sowie auf
+die beiden Seiten von Gleichungen angewendet.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#rectform">rectform</a></code>, <code><a href="#realpart">realpart</a></code>,<!-- /@w -->
+<code><a href="#imagpart">imagpart</a></code>, <code><a href="#carg">carg</a></code>, <code><a href="#conjugate">conjugate</a></code>, und 
+<code><a href="#polarform">polarform</a></code> f&uuml;r das Rechnen mit komplexen Zahlen.
+</p>
+<p>Beispiele:
+</p>
+<p>Zwei Beispiele mit der Wurzelfunktion <code><a href="maxima_53.html#sqrt">sqrt</a></code> und der Sinusfunktion
+<code><a href="maxima_56.html#sin">sin</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) cabs(sqrt(1+%i*x));
+                             2     1/4
+(%o1)                      (x  + 1)
+(%i2) cabs(sin(x+%i*y));
+                    2        2         2        2
+(%o2)       sqrt(cos (x) sinh (y) + sin (x) cosh (y))
+</pre></div>
+
+<p>Die Funktion <code><a href="maxima_142.html#erf">erf</a></code> hat Spiegelsymmetrie, die hier f&uuml;r die Berechnung des
+komplexen Betrages angewendet wird.
+</p>
+<div class="example">
+<pre class="example">(%i3) cabs(erf(x+%i*y));
+</pre><pre class="example">                                          2
+           (erf(%i y + x) - erf(%i y - x))
+(%o3) sqrt(--------------------------------
+                          4
+                                                               2
+                                (erf(%i y + x) + erf(%i y - x))
+                              - --------------------------------)
+                                               4
+</pre></div>
+
+<p>Maxima kennt komplexe Eigenschaften der Besselfunktionen, um den komplexen
+Betrag zu vereinfachen.  Dies ist ein Beispiel f&uuml;r die Besselfunktion
+<code><a href="maxima_136.html#bessel_005fj">bessel_j</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i4) cabs(bessel_j(1,%i));
+(%o4)                 abs(bessel_j(1, %i))
+</pre></div>
+</dd></dl>
+
+<span id="carg"></span><span id="Item_003a-MathFunctions_002ede_002fdeffn_002fcarg"></span><dl class="def">
+<dt id="index-carg"><span class="category">Funktion: </span><span><strong>carg</strong> <em>(<var>expr</var>)</em><a href='#index-carg' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Gibt das komplexe Argument des Ausdrucks <var>expr</var> zur&uuml;ck.  Das komplexe
+Argument ist ein Winkel <code>theta</code> im Intervall <code>(-%pi, %pi)</code> derart,
+dass <var>expr</var> = <code>r exp (theta %i)</code> gilt, wobei <code>r</code> den Betrag des
+komplexen Ausdrucks <var>expr</var> bezeichnet.  Das ist die Polarform des Ausdrucks,
+wie sie auch von der Funktion <code><a href="#polarform">polarform</a></code> zur&uuml;ckgegeben wird.  Der Betrag
+des komplexen Ausdrucks kann mit der Funktion <code><a href="#cabs">cabs</a></code> berechnet werden.
+</p>
+<p>Das Ergebnis der Funktion <code>carg</code> kann die Funktion <code><a href="maxima_56.html#atan2">atan2</a></code> enthalten.
+</p>
+<p><code>carg</code> wird automatisch auf die Elemente von Listen und Matrizen sowie auf
+die beiden Seiten von Gleichungen angewendet.  Siehe <code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Die Funktion <code>carg</code> ist eine Verbfunktion, mit der nicht symbolisch
+gerechnet werden kann.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#rectform">rectform</a></code>, <code><a href="#realpart">realpart</a></code> und
+<code><a href="#imagpart">imagpart</a></code> sowie die Funktionen <code><a href="#cabs">cabs</a></code> und <code><a href="#conjugate">conjugate</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) carg (1);
+(%o1)                           0
+(%i2) carg (1 + %i);
+</pre><pre class="example">                               %pi
+(%o2)                          ---
+                                4
+</pre><pre class="example">(%i3) carg (exp (%i));
+(%o3)                           1
+
+(%i4) carg (exp (3/2 * %pi * %i));
+                                %pi
+(%o4)                         - ---
+                                 2
+(%i5) carg(exp(x+%i*y));
+(%o5)                atan2(sin(y), cos(y))
+
+(%i6) carg(sqrt(x+%i*y));
+                          atan2(y, x)
+(%o6)                     -----------
+                               2
+(%i7) carg(sqrt(1+%i*y));
+                            atan(y)
+(%o7)                       -------
+                               2
+</pre></div>
+</dd></dl>
+
+<span id="conjugate"></span><span id="Item_003a-MathFunctions_002ede_002fdeffn_002fconjugate"></span><dl class="def">
+<dt id="index-conjugate"><span class="category">Funktion: </span><span><strong>conjugate</strong> <em>(<var>expr</var>)</em><a href='#index-conjugate' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Gibt den konjugiert komplexen Wert des Ausdrucks <var>expr</var> zur&uuml;ck.  Sind
+<var>x</var> und <var>y</var> reelle Variablen oder Ausdr&uuml;cke, dann hat der Ausdruck
+<code>x + %i*y</code> das Ergebnis <code>x - %i*y</code>.  Die Funktion <code>conjugate</code> ist
+f&uuml;r numerische und symbolische Rechnungen geeignet.
+</p>
+<p>Maxima kennt Regeln, um den konjugierten Wert f&uuml;r Summen, Produkte und
+Quotienten von komplexen Ausdr&uuml;cken zu vereinfachen.  Weiterhin kennt Maxima
+Symmetrieeigenschaften und komplexe Eigenschaften von Funktionen, um den 
+konjugierten Wert mit diesen Funktionen zu vereinfachen.  Sind solche
+Eigenschaften f&uuml;r eine Funktion vorhanden, k&ouml;nnen diese mit der
+Funktion <code><a href="maxima_63.html#properties">properties</a></code> angezeigt werden.  Eigenschaften, die das Ergebnis
+der Funktion <code>conjugate</code> bestimmen, sind: <code>mirror symmetry</code>,
+<code>conjugate function</code> und <code>complex characteristic</code>.
+</p>
+<p><code>conjugate</code> wird automatisch auf die Elemente von Listen und Matrizen sowie
+auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>F&uuml;r das Rechnen mit komplexen Ausdr&uuml;cken siehe auch die Funktionen
+<code><a href="#cabs">cabs</a></code> und <code><a href="#carg">carg</a></code> sowie <code><a href="#rectform">rectform</a></code> und <code><a href="#polarform">polarform</a></code>.
+</p>
+<p>Beispiele:
+</p>
+<p>Beispiele mit reellen, imagin&auml;ren und komplexen Variablen.
+</p>
+<div class="example">
+<pre class="example">(%i1) declare ([x, y], real, [z1, z2], complex, j, imaginary);
+(%o1)                         done
+(%i2) conjugate(x + %i*y);
+(%o2)                       x - %i y
+(%i3) conjugate(z1*z2);
+(%o3)              conjugate(z1) conjugate(z2)
+(%i4) conjugate(j/z2);
+                                 j
+(%o4)                    - -------------
+                           conjugate(z2)
+</pre></div>
+
+<p>Im Folgenden nutzt Maxima Symmetrieeigenschaften, um den konjugiert komplexen
+Wert der Funktionen <code><a href="maxima_140.html#gamma">gamma</a></code> und <code><a href="maxima_56.html#sin">sin</a></code> zu berechnen.  Die
+Logarithmusfunktion <code><a href="maxima_53.html#log">log</a></code> hat Spiegelsymmetrie, wenn das Argument einen
+positiven Realteil hat.
+</p>
+<div class="example">
+<pre class="example">(%i5) conjugate(gamma(x+%i*y));
+(%o5)                    gamma(x - %i y)
+(%i6) conjugate(sin(x+%i*y));
+(%o6)                    - sin(%i y - x)
+(%i7) conjugate(log(x+%i*y));
+(%o7)               conjugate(log(%i y + x))
+(%i8) conjugate(log(1+%i*y));
+(%o8)                     log(1 - %i y)
+</pre></div>
+</dd></dl>
+
+<span id="imagpart"></span><span id="Item_003a-MathFunctions_002ede_002fdeffn_002fimagpart"></span><dl class="def">
+<dt id="index-imagpart"><span class="category">Funktion: </span><span><strong>imagpart</strong> <em>(<var>expr</var>)</em><a href='#index-imagpart' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Gibt den Imagin&auml;rteil des Ausrucks <var>expr</var> zur&uuml;ck.  Intern berechnet
+Maxima den Imagin&auml;rteil mit der Funktion <code><a href="#rectform">rectform</a></code>, die einen
+Ausdruck in den Realteil und in den Imagin&auml;rteil zerlegt.  Daher treffen die
+Ausf&uuml;hrungen zu <code>rectform</code> auch auf die Funktion <code>imagpart</code> zu.
+</p>
+<p>Wie die Funktion <code>rectform</code> ist auch die Funktion <code>imagpart</code> eine
+Verbfunktion, mit der nicht symbolisch gerechnet werden kann.
+</p>
+<p><code>imagpart</code> wird automatisch auf die Elemente von Listen und Matrizen sowie
+auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Mit der Funktion <code><a href="#realpart">realpart</a></code> wird der Realteil eines Ausdrucks berechnet.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>, <code><a href="#carg">carg</a></code> und
+<code><a href="#conjugate">conjugate</a></code> f&uuml;r das Rechnen mit komplexen Zahlen.  Mit der Funktion
+<code><a href="#polarform">polarform</a></code> kann ein komplexer Ausdruck in die Polarform gebracht werden.
+</p>
+<p>Beispiele:
+</p>
+<p>F&uuml;r weitere Erl&auml;uterungen dieser Beispiele siehe auch die Funktion
+<code><a href="#rectform">rectform</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) imagpart((2-%i)/(1-%i));
+                                1
+(%o1)                           -
+                                2
+(%i2) imagpart(sin(x+%i*y));
+(%o2)                    cos(x) sinh(y)
+(%i3) imagpart(gamma(x+%i*y));
+             %i (gamma(x - %i y) - gamma(%i y + x))
+(%o3)        --------------------------------------
+                               2
+(%i4) imagpart(bessel_j(1,%i));
+(%o4)                    bessel_j(1, %i)
+</pre></div>
+</dd></dl>
+
+<span id="polarform"></span><span id="Item_003a-MathFunctions_002ede_002fdeffn_002fpolarform"></span><dl class="def">
+<dt id="index-polarform"><span class="category">Funktion: </span><span><strong>polarform</strong> <em>(<var>expr</var>)</em><a href='#index-polarform' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Gibt den Ausdruck <var>expr</var> in der Polarform <code>r %e^(%i theta)</code> zur&uuml;ck.
+<code>r</code> ist der Betrag des komplexen Ausdrucks, wie er auch mit der Funktion
+<code><a href="#cabs">cabs</a></code> berechnet werden kann.  <code>theta</code> ist das Argument des komplexen
+Ausdrucks, das mit der Funktion <code><a href="#carg">carg</a></code> berechnet werden kann.
+</p>
+<p>Maxima kennt komplexe Eigenschaften von Funktionen, die bei der Berechnung der
+Polarform angewendet werden.  Siehe die Funktion <code><a href="#cabs">cabs</a></code> f&uuml;r weitere
+Erl&auml;uterungen.
+</p>
+<p>Wenn mit komplexen Ausdr&uuml;cken in der Polarform gerechnet werden soll, ist es
+hilfreich die Optionsvariable <code><a href="maxima_53.html#g_t_0025emode">%emode</a></code> auf den Wert <code>false</code> zu setzen.
+Damit wird verhindert, dass Maxima komplexe Ausdr&uuml;cke mit der
+Exponentialfunktion <code><a href="maxima_53.html#exp">exp</a></code> automatisch in die Standardform vereinfacht.
+</p>
+<p><code>polarform</code> wird automatisch auf die Elemente von Listen und Matrizen sowie
+auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Die Funktion <code>polarform</code> ist eine Verbfunktion, mit der nicht symbolisch
+gerechnet werden kann.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>, <code><a href="#carg">carg</a></code> und
+<code><a href="#conjugate">conjugate</a></code> f&uuml;r das Rechnen mit komplexen Zahlen.  Mit der Funktion
+<code><a href="#rectform">rectform</a></code> kann ein komplexer Ausdruck in die Standardform gebracht werden.
+</p>
+<p>Beispiele:
+</p>
+<p>Die allgemeine Polarform eines komplexen Ausdrucks.  Die Variablen <var>x</var> und
+<var>y</var> werden von Maxima als reell angenommen.
+</p>
+<div class="example">
+<pre class="example">(%i1) polarform(x+%i*y);
+</pre><pre class="example">                       2    2    %i atan2(y, x)
+(%o1)            sqrt(y  + x ) %e
+</pre></div>
+
+<p>Die Polarform einer komplexen Zahl und eines Ausdrucks mit einer reellen 
+Variablen <var>x</var>.
+</p>
+<div class="example">
+<pre class="example">(%i2) polarform(4/5+3*%i/5);
+                           %i atan(3/4)
+(%o2)                    %e
+(%i3) polarform(sqrt(1+%i*x));
+                                  %i atan(x)
+                                  ----------
+                      2     1/4       2
+(%o3)               (x  + 1)    %e
+</pre></div>
+
+<p>Wenn in der Polarform gerechnet werden soll, ist es hilfreich die
+Optionsvariable <code><a href="maxima_53.html#g_t_0025emode">%emode</a></code> auf den Wert <code>false</code> zu setzen.  Damit wird
+verhindert, dass Maxima komplexe Ausdr&uuml;cke mit der Exponentialfunktion 
+<code><a href="maxima_53.html#exp">exp</a></code> automatisch in eine Standardform vereinfacht.
+</p>
+<div class="example">
+<pre class="example">(%i4) z:polarform(1+%i);
+                                  %i %pi
+                                  ------
+                                    4
+(%o4)                   sqrt(2) %e
+(%i5) z^3;
+                     3/2    %i         1
+(%o5)               2    (------- - -------)
+                          sqrt(2)   sqrt(2)
+(%i6) %emode:false;
+(%o6)                         false
+(%i7) z^3;
+                                3 %i %pi
+                                --------
+                          3/2      4
+(%o7)                    2    %e
+</pre></div>
+</dd></dl>
+
+<span id="realpart"></span><span id="Item_003a-MathFunctions_002ede_002fdeffn_002frealpart"></span><dl class="def">
+<dt id="index-realpart"><span class="category">Funktion: </span><span><strong>realpart</strong> <em>(<var>expr</var>)</em><a href='#index-realpart' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Gibt den Realteil des Ausdrucks <var>expr</var> zur&uuml;ck.  Intern berechnet Maxima
+den Realteil mit der Funktion <code><a href="#rectform">rectform</a></code>, die einen Ausdruck in den
+Realteil und in den Imagin&auml;rteil zerlegt.  Daher treffen die Ausf&uuml;hrungen
+zu <code>rectform</code> auch auf die Funktion <code>realpart</code> zu.
+</p>
+<p>Wie die Funktion <code>rectform</code> ist auch die Funktion <code>realpart</code> eine
+Verbfunktion, mit der nicht symbolisch gerechnet werden kann.
+</p>
+<p><code>realpart</code> wird automatisch auf die Elemente von Listen und Matrizen sowie
+auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Mit der Funktion <code><a href="#imagpart">imagpart</a></code> wird der Imagin&auml;rteil eines Ausdrucks
+berechnet.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>, <code><a href="#carg">carg</a></code> und
+<code><a href="#conjugate">conjugate</a></code> f&uuml;r das Rechnen mit komplexen Zahlen.  Mit der Funktion
+<code><a href="#polarform">polarform</a></code> kann ein komplexer Ausdruck in die Polarform gebracht werden.
+</p>
+<p>Beispiele:
+</p>
+<p>F&uuml;r weitere Erl&auml;uterungen dieser Beispiele siehe auch die Funktion
+<code><a href="#rectform">rectform</a></code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) realpart((2-%i)/(1-%i));
+                                3
+(%o1)                           -
+                                2
+(%i2) realpart(sin(x+%i*y));
+(%o2)                    sin(x) cosh(y)
+(%i3) realpart(gamma(x+%i*y));
+                gamma(%i y + x) + gamma(x - %i y)
+(%o3)           ---------------------------------
+                                2
+(%i4) realpart(bessel_j(1,%i));
+(%o4)                           0
+</pre></div>
+</dd></dl>
+
+<span id="rectform"></span><span id="Item_003a-MathFunctions_002ede_002fdeffn_002frectform"></span><dl class="def">
+<dt id="index-rectform"><span class="category">Funktion: </span><span><strong>rectform</strong> <em>(<var>expr</var>)</em><a href='#index-rectform' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Zerlegt den Ausdruck <var>expr</var> in den Realteil <code>a</code> und den Imagin&auml;rteil
+<code>b</code> und gibt den komplexen Ausdruck in der Standardform <code>a + b %i</code>
+zur&uuml;ck.
+</p>
+<p>Die Funktion <code>rectform</code> nutzt Symmetrieeigenschaften und implementierte
+Eigenschaften komplexer Funktionen, um den Realteil und Imagin&auml;rteil eines
+komplexen Ausdrucks zu berechnen.  Sind solche Eigenschaften f&uuml;r eine Funktion
+vorhanden, k&ouml;nnen diese mit der Funktion <code><a href="maxima_63.html#properties">properties</a></code> angezeigt werden.
+Eigenschaften, die das Ergebnis der Funktion <code>rectform</code> bestimmen, sind:
+<code>mirror symmetry</code>, <code>conjugate function</code> und
+<code>complex characteristic</code>.
+</p>
+<p><code>rectform</code> ist eine Verbfunktion, die nicht f&uuml;r das symbolische Rechnen
+geeignet ist.
+</p>
+<p><code>rectform</code> wird automatisch auf die Elemente von Listen und Matrizen sowie
+auf die beiden Seiten von Gleichungen angewendet.  Siehe
+<code><a href="maxima_48.html#distribute_005fover">distribute_over</a></code>.
+</p>
+<p>Die Funktionen <code><a href="#realpart">realpart</a></code> und <code><a href="#imagpart">imagpart</a></code> geben jeweils allein den
+Realteil und den Imagin&auml;rteil eines Ausdrucks zur&uuml;ck.  Um einen Ausdruck in
+die Polarform zu bringen, kann die Funktion <code><a href="#polarform">polarform</a></code> verwendet werden.
+</p>
+<p>Siehe auch die Funktionen <code><a href="#cabs">cabs</a></code>, <code><a href="#carg">carg</a></code> und
+<code><a href="#conjugate">conjugate</a></code> f&uuml;r das Rechnen mit komplexen Zahlen.
+</p>
+<p>Beispiele:
+</p>
+<p>Zerlegung eines komplexen Ausdrucks und der Sinusfunktion <code><a href="maxima_56.html#sin">sin</a></code> in den
+Realteil und Imagin&auml;rteil.  Maxima kennt komplexe Eigenschaften der
+trigonometrischen Funktionen, um den Realteil und den Imagin&auml;rteil zu
+bestimmen.
+</p>
+<div class="example">
+<pre class="example">(%i1) rectform((2-%i)/(1-%i));
+</pre><pre class="example">                             %i   3
+(%o1)                        -- + -
+                             2    2
+</pre><pre class="example">(%i2) rectform(sin(x+%i*y));
+(%o2)          %i cos(x) sinh(y) + sin(x) cosh(y)
+</pre></div>
+
+<p>Bei der Zerlegung in einen Realteil und einen Imagin&auml;rteil nutzt Maxima die
+Spiegelsymmetrie der Gammfunktion <code><a href="maxima_140.html#gamma">gamma</a></code>.  Die Eigenschaft der 
+Spiegelsymmetrie wird mit der Funktion <code><a href="maxima_63.html#properties">properties</a></code> angezeigt, der Eintrag
+lautet <code>mirror symmetry</code>.
+</p>
+<div class="example">
+<pre class="example">(%i3) properties(gamma);
+(%o3)    [mirror symmetry, noun, rule, gradef, transfun]
+
+(%i4) rectform(gamma(x+%i*y));
+      gamma(%i y + x) + gamma(x - %i y)
+(%o4) ---------------------------------
+                      2
+                                gamma(x - %i y) - gamma(%i y + x)
+                              - ---------------------------------
+                                                2
+</pre></div>
+
+<p>Maxima kennt komplexe Eigenschaften der Besselfunktionen.  Die Besselfunktion
+<code><a href="maxima_136.html#bessel_005fj">bessel_j</a></code> ist f&uuml;r eine ganzzahlige Ordnung und einem imagin&auml;ren
+Argument rein imagin&auml;r.
+</p>
+<div class="example">
+<pre class="example">(%i5) rectform(bessel_j(1,%i));
+(%o5)                  %i bessel_j(1, %i)
+</pre></div>
+</dd></dl>
+
+<span id="Item_003a-MathFunctions_002ede_002fnode_002fFunktionen-der-Kombinatorik"></span></div>
+<hr>
+<div class="header">
+<p>
+Nächste: <a href="maxima_52.html" accesskey="n" rel="next">Funktionen der Kombinatorik</a>, Vorige: <a href="maxima_50.html" accesskey="p" rel="prev">Funktionen f&uuml;r Zahlen</a>, Nach oben: <a href="maxima_49.html" accesskey="u" rel="up">Mathematische Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

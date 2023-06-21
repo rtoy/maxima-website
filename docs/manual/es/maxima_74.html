@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para salida Fortran (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para salida Fortran (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para salida Fortran (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_69.html" rel="up" title="Lectura y escritura">
+<link href="maxima_73.html" rel="prev" title="Funciones y variables para salida TeX">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Funciones-y-variables-para-salida-Fortran">
+<div class="header">
+<p>
+Anterior: <a href="maxima_73.html" accesskey="p" rel="prev">Funciones y variables para salida TeX</a>, Subir: <a href="maxima_69.html" accesskey="u" rel="up">Lectura y escritura</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Funciones-y-variables-para-salida-Fortran-1"></span><h3 class="section">13.5 Funciones y variables para salida Fortran</h3>
+
+<span id="Item_003a-Input_002ees_002fdefvr_002ffortindent"></span><dl class="def">
+<dt id="index-fortindent"><span class="category">Variable opcional: </span><span><strong>fortindent</strong><a href='#index-fortindent' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: 0
+</p>
+<p>La variable <code>fortindent</code> controla el margen izquierdo de las expresiones que 
+escribe la instrucción <code>fortran</code>.  El valor 0 escribe con un margen normal 
+de 6 espacios; valores positivos harán que las expresiones se escriban más a la derecha.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002ffortran"></span><dl class="def">
+<dt id="index-fortran"><span class="category">Función: </span><span><strong>fortran</strong> <em>(<var>expr</var>)</em><a href='#index-fortran' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Escribe <var>expr</var> en código Fortran. La salida se escribe con márgenes, y si ésta es demasiado larga <code>fortran</code> sigue escribiendo en líneas sucesivas. La función <code>fortran</code> escribe el operador de exponenciación <code>^</code> como <code>**</code>, e imprime un número complejo <code>a + b %i</code> como <code>(a,b)</code>.
+</p>
+<p>El argumento <var>expr</var> puede ser una ecuación. En tal caso, <code>fortran</code> escribe una sentencia de asignación, dándole el valor del miembro derecho de la expresión al miembro izquierdo. En particular, si el miembro derecho de <var>expr</var> es el nombre de una matriz, entonces <code>fortran</code> escribe una sentencia de asignación para cada elemento de la matriz.
+</p>
+<p>Si <var>expr</var> no es reconozida por <code>fortran</code>, la expresión se escribe en formato <code>grind</code> sin avisos. La función <code>fortran</code> no reconoce listas, arreglos ni funciones.
+</p>
+<p>La variable <code>fortindent</code> controla el margen izquierdo de las expresiones que escribe la instrucción <code>fortran</code>.  El valor 0 escribe con un margen normal de 6 espacios; valores positivos harán que las expresiones se escriban más a la derecha.
+</p>
+<p>Si <code>fortspaces</code> vale <code>true</code>, <code>fortran</code> rellena las líneas con espacios de 80 columnas.
+</p>
+<p>La función <code>fortran</code> evalúa sus argumentos; un argumento precedido de apóstrofo previene de la evaluación.
+La función <code>fortran</code> siempre devuelve <code>done</code>.
+</p>
+<p>Ejemplos:
+</p>
+<pre class="verbatim">(%i1) expr: (a + b)^12$
+(%i2) fortran (expr);
+      (b+a)**12                                                                 
+(%o2)                         done
+(%i3) fortran ('x=expr);
+      x = (b+a)**12                                                             
+(%o3)                         done
+(%i4) fortran ('x=expand (expr));
+      x = b**12+12*a*b**11+66*a**2*b**10+220*a**3*b**9+495*a**4*b**8+792        
+     1   *a**5*b**7+924*a**6*b**6+792*a**7*b**5+495*a**8*b**4+220*a**9*b        
+     2   **3+66*a**10*b**2+12*a**11*b+a**12                                     
+(%o4)                         done
+(%i5) fortran ('x=7+5*%i);
+      x = (7,5)                                                                 
+(%o5)                         done
+(%i6) fortran ('x=[1,2,3,4]);
+      x = [1,2,3,4]                                                             
+(%o6)                         done
+(%i7) f(x) := x^2$
+(%i8) fortran (f);
+      f                                                                         
+(%o8)                         done
+</pre></dd></dl>
+
+
+<span id="Item_003a-Input_002ees_002fdefvr_002ffortspaces"></span><dl class="def">
+<dt id="index-fortspaces"><span class="category">Variable opcional: </span><span><strong>fortspaces</strong><a href='#index-fortspaces' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>fortspaces</code> vale <code>true</code>, <code>fortran</code> rellena las líneas 
+con espacios de 80 columnas.
+</p></dd></dl>
+
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Anterior: <a href="maxima_73.html" accesskey="p" rel="prev">Funciones y variables para salida TeX</a>, Subir: <a href="maxima_69.html" accesskey="u" rel="up">Lectura y escritura</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

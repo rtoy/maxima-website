@@ -1,0 +1,1168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funções e Variáveis Definidas para Equações (Manual do Maxima)</title>
+
+<meta name="description" content="Funções e Variáveis Definidas para Equações (Manual do Maxima)">
+<meta name="keywords" content="Funções e Variáveis Definidas para Equações (Manual do Maxima)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_231.html" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_66.html" rel="up" title="Equações">
+<link href="maxima_66.html" rel="prev" title="Equações">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="pt">
+<div class="section" id="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Equa_00e7_00f5es">
+<div class="header">
+<p>
+Anterior: <a href="maxima_66.html" accesskey="p" rel="prev">Equações</a>, Acima: <a href="maxima_66.html" accesskey="u" rel="up">Equações</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<span id="Funcoes-e-Variaveis-Definidas-para-Equacoes"></span><h3 class="section">21.1, Funções e Variáveis Definidas para Equações</h3>
+
+<span id="Item_003a-Equations_002fdefvr_002f_0025rnum_005flist"></span><dl class="def">
+<dt id="index-_0025rnum_005flist"><span class="category">Variável: </span><span><strong>%rnum_list</strong><a href='#index-_0025rnum_005flist' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>[]</code>
+</p>
+<p><code>%rnum_list</code> é a lista de variáveis introduzidas em soluções
+por <code>algsys</code>.
+<code>%r</code> variáveis São adicionadas a <code>%rnum_list</code> na ordem em que
+forem criadas.
+Isso é conveniente para fazer substituições dentro da
+solução mais tarde.
+É recomendado usar essa lista em lugar de
+fazer <code>concat ('%r, j)</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002falgexact"></span><dl class="def">
+<dt id="index-algexact"><span class="category">Variável: </span><span><strong>algexact</strong><a href='#index-algexact' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p><code>algexact</code> afeta o comportamento de <code>algsys</code> como segue:
+</p>
+<p>Se <code>algexact</code> é <code>true</code>,
+<code>algsys</code> sempre chama <code>solve</code> e então usa <code>realroots</code>
+sobre falhas de <code>solve</code>.
+</p>
+<p>Se <code>algexact</code> é <code>false</code>, <code>solve</code> é chamada somente se
+o eliminante não for de uma variável, ou se for uma quadrática ou uma
+biquadrada.
+</p>
+<p>Dessa forma <code>algexact: true</code> não garante somente soluções
+exatas, apenas que <code>algsys</code> tentará primeiro pegar
+soluções exatas, e somente retorna aproximações quando tudo mais falha.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002falgsys"></span><dl class="def">
+<dt id="index-algsys"><span class="category">Função: </span><span><strong>algsys</strong> <em>([<var>expr_1</var>, ..., <var>expr_m</var>], [<var>x_1</var>, ..., <var>x_n</var>])</em><a href='#index-algsys' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-algsys-1"><span class="category">Função: </span><span><strong>algsys</strong> <em>([<var>eqn_1</var>, ..., <var>eqn_m</var>], [<var>x_1</var>, ..., <var>x_n</var>])</em><a href='#index-algsys-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Resolve polinômios simultâneos <var>expr_1</var>, ..., <var>expr_m</var>
+ou equações polinômiais <var>eqn_1</var>, ..., <var>eqn_m</var>
+para as variáveis <var>x_1</var>, ..., <var>x_n</var>.
+Uma expressão <var>expr</var> é equivalente a uma equação <code><var>expr</var> = 0</code>.
+Pode existir mais equações que variáveis ou vice-versa.
+</p>
+<p><code>algsys</code> retorna uma lista de soluções,
+com cada solução dada com uma lista de valores de estado das equações
+das variáveis <var>x_1</var>, ..., <var>x_n</var> que satisfazem o sistema de equações.
+Se <code>algsys</code> não pode achar uma solução, uma lista vazia <code>[]</code> é retornada.
+</p>
+<p>Os símbolos <code>%r1</code>, <code>%r2</code>, ...,
+são introduzidos tantos quantos forem necessários para representar parâmetros arbitrários na solução;
+essas variáveis são também anexadas à lista <code>%rnum_list</code>.
+</p>
+<p>O método usado é o seguinte:
+</p>
+<p>(1) Primeiro as equações são fatoradas e quebradas em subsistemas.
+</p>
+<p>(2) Para cada subsistema <var>S_i</var>, uma equação <var>E</var> e uma variável <var>x</var> são
+selecionados.
+A variável é escolhida para ter o menor grau não zero.
+Então a resultante de <var>E</var> e <var>E_j</var> em relação a <var>x</var> é calculada para cada um das
+equações restantes <var>E_j</var> nos subsistemas <var>S_i</var>.
+Isso retorna um novo subsistema <var>S_i&rsquo;</var> em umas poucas variáveis, como <var>x</var> tenha sido eliminada.
+O processo agora retorna ao passo (1).
+</p>
+<p>(3) Eventualmente, um subsistema consistindo de uma equação simples é
+obtido.  Se a equação é de várias variáveis e aproximações na
+forma de números em ponto flutuante nã tenham sido introduzidas, então <code>solve</code> é
+chamada para achar uma solução exata.
+</p>
+<p>Em alguns casos, <code>solve</code> não está habilitada a achar uma solução,
+ou se isso é feito a solução pode ser uma expressão expressão muito larga.
+</p>
+<p>Se a equação é de uma única variável e é ou linear, ou quadrática, ou
+biquadrada, então novamente <code>solve</code> é chamada se aproximações não tiverem
+sido introduzidas.  Se aproximações tiverem sido introduzidas ou a
+equação não é de uma única variável e nem tão pouco linear, quadratica, ou
+biquadrada, então o comutador <code>realonly</code> é <code>true</code>, A função
+<code>realroots</code> é chamada para achar o valor real das soluções.  Se
+<code>realonly</code> é <code>false</code>, então <code>allroots</code> é chamada a qual procura por
+soluções reais e complexas.
+</p>
+<p>Se <code>algsys</code> produz uma solução que tem
+poucos digitos significativos que o requerido, o usuário pode escolher o valor
+de <code>algepsilon</code> para um valor maior.
+</p>
+<p>Se <code>algexact</code> é escolhido para
+<code>true</code>, <code>solve</code> será sempre chamada.
+</p>
+<p>(4) Finalmente, as soluções obtidas no passo (3) são substituídas dentro
+dos níveis prévios e o processo de solução retorna para (1).
+</p>
+<p>Quando <code>algsys</code> encontrar uma equação de várias variáveis que contém
+aproximações em ponto flutuante (usualmente devido a suas falhas em achar
+soluções exatas por um estágio mais fácil), então não tentará
+aplicar métodos exatos para tais equações e em lugar disso imprime a mensagem:
+&quot;<code>algsys</code> cannot solve - system too complicated.&quot;
+</p>
+<p>Interações com <code>radcan</code> podem produzir expressões largas ou
+complicadas.
+Naquele caso, pode ser possível isolar partes do resultado
+com <code>pickapart</code> ou <code>reveal</code>.
+</p>
+<p>Ocasionalmente, <code>radcan</code> pode introduzir uma unidade imaginária
+<code>%i</code> dentro de uma solução que é atualmente avaliada como real.
+</p>
+<p>Exemplos:
+</p>
+<p>++</p><div class="example">
+<pre class="example">(%i1) e1: 2*x*(1 - a1) - 2*(x - 1)*a2;
+(%o1)              2 (1 - a1) x - 2 a2 (x - 1)
+(%i2) e2: a2 - a1; 
+(%o2)                        a2 - a1
+(%i3) e3: a1*(-y - x^2 + 1); 
+                                   2
+(%o3)                   a1 (- y - x  + 1)
+(%i4) e4: a2*(y - (x - 1)^2);
+                                       2
+(%o4)                   a2 (y - (x - 1) )
+(%i5) algsys ([e1, e2, e3, e4], [x, y, a1, a2]);
+(%o5) [[x = 0, y = %r1, a1 = 0, a2 = 0], 
+
+                                  [x = 1, y = 0, a1 = 1, a2 = 1]]
+(%i6) e1: x^2 - y^2;
+                              2    2
+(%o6)                        x  - y
+(%i7) e2: -1 - y + 2*y^2 - x + x^2;
+                         2        2
+(%o7)                 2 y  - y + x  - x - 1
+(%i8) algsys ([e1, e2], [x, y]);
+                 1            1
+(%o8) [[x = - -------, y = -------], 
+              sqrt(3)      sqrt(3)
+
+        1              1             1        1
+[x = -------, y = - -------], [x = - -, y = - -], [x = 1, y = 1]]
+     sqrt(3)        sqrt(3)          3        3
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002fallroots"></span><dl class="def">
+<dt id="index-allroots"><span class="category">Função: </span><span><strong>allroots</strong> <em>(<var>expr</var>)</em><a href='#index-allroots' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-allroots-1"><span class="category">Função: </span><span><strong>allroots</strong> <em>(<var>eqn</var>)</em><a href='#index-allroots-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Calcula aproximações numéricas de raízes reais e complexas do
+polinômio <var>expr</var> ou equação polinômial <var>eqn</var> de uma variável.
+</p>
+<p>O sinalizador <code>polyfactor</code> quando <code>true</code> faz com que
+<code>allroots</code> fatore o polinômio sobre os números reais se o
+polinômio for real, ou sobre os números complexos, se o polinômio for
+complexo.
+</p>
+<p><code>allroots</code> pode retornar resultados imprecisos no caso de multiplas raízes.
+Se o polinômio for real, <code>allroots (%i*<var>p</var>)</code>) pode retornar
+aproximações mais precisas que <code>allroots (<var>p</var>)</code>,
+como <code>allroots</code> invoca um algorítmo diferente naquele caso.
+</p>
+<p><code>allroots</code> rejeita não-polinômios.  Isso requer que o numerador
+após a classificação (<code>rat</code>&rsquo;ing) poderá ser um polinômio, e isso requer que o
+denominador seja quando muito um número complexo.  Com um resultado disso <code>allroots</code>
+irá sempre retornar uma expressão equivalente (mas fatorada), se
+<code>polyfactor</code> for <code>true</code>.
+</p>
+<p>Para polinômios complexos um algorítmo por Jenkins e Traub é
+usado (Algorithm 419, <i>Comm.  ACM</i>, vol.  15, (1972), p.  97).
+Para polinômios reais o algorítmo usado é devido a Jenkins (Algorithm 493, <i>ACM TOMS</i>,
+vol.  1, (1975), p.178).
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) eqn: (1 + 2*x)^3 = 13.5*(1 + x^5);
+                            3          5
+(%o1)              (2 x + 1)  = 13.5 (x  + 1)
+(%i2) soln: allroots (eqn);
+(%o2) [x = .8296749902129361, x = - 1.015755543828121, 
+
+x = .9659625152196369 %i - .4069597231924075, 
+
+x = - .9659625152196369 %i - .4069597231924075, x = 1.0]
+(%i3) for e in soln
+        do (e2: subst (e, eqn), disp (expand (lhs(e2) - rhs(e2))));
+                      - 3.5527136788005E-15
+
+                     - 5.32907051820075E-15
+
+         4.44089209850063E-15 %i - 4.88498130835069E-15
+
+        - 4.44089209850063E-15 %i - 4.88498130835069E-15
+
+                       3.5527136788005E-15
+
+(%o3)                         done
+(%i4) polyfactor: true$
+(%i5) allroots (eqn);
+(%o5) - 13.5 (x - 1.0) (x - .8296749902129361)
+
+                           2
+ (x + 1.015755543828121) (x  + .8139194463848151 x
+
+ + 1.098699797110288)
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fbacksubst"></span><dl class="def">
+<dt id="index-backsubst"><span class="category">Variável: </span><span><strong>backsubst</strong><a href='#index-backsubst' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>backsubst</code> é <code>false</code>, evita substituições
+em expressões anteriores após as equações terem sido triangularizadas.  Isso pode
+ser de grande ajuda em problemas muito grandes onde substituição em expressões anteriores pode vir a causar
+a geração de expressões extremamente largas.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fbreakup"></span><dl class="def">
+<dt id="index-breakup"><span class="category">Variável: </span><span><strong>breakup</strong><a href='#index-breakup' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>breakup</code> é <code>true</code>, <code>solve</code> expressa soluções
+de equações cúbicas e quárticas em termos de subexpressões comuns,
+que são atribuídas a rótulos de expressões intermediárias (<code>%t1</code>, <code>%t2</code>, etc.).
+De outra forma, subexpressões comuns não são identificadas.
+</p>
+<p><code>breakup: true</code> tem efeito somente quando <code>programmode</code> é <code>false</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) programmode: false$
+(%i2) breakup: true$
+(%i3) solve (x^3 + x^2 - 1);
+
+                        sqrt(23)    25 1/3
+(%t3)                  (--------- + --)
+                        6 sqrt(3)   54
+Solution:
+
+                                      sqrt(3) %i   1
+                                      ---------- - -
+                sqrt(3) %i   1            2        2   1
+(%t4)    x = (- ---------- - -) %t3 + -------------- - -
+                    2        2            9 %t3        3
+
+                                      sqrt(3) %i   1
+                                    - ---------- - -
+              sqrt(3) %i   1              2        2   1
+(%t5)    x = (---------- - -) %t3 + ---------------- - -
+                  2        2             9 %t3         3
+
+                                   1     1
+(%t6)                  x = %t3 + ----- - -
+                                 9 %t3   3
+(%o6)                    [%t4, %t5, %t6]
+(%i6) breakup: false$
+(%i7) solve (x^3 + x^2 - 1);
+Solution:
+
+             sqrt(3) %i   1
+             ---------- - -
+                 2        2        sqrt(23)    25 1/3
+(%t7) x = --------------------- + (--------- + --)
+             sqrt(23)    25 1/3    6 sqrt(3)   54
+          9 (--------- + --)
+             6 sqrt(3)   54
+
+                                              sqrt(3) %i   1    1
+                                           (- ---------- - -) - -
+                                                  2        2    3
+
+           sqrt(23)    25 1/3  sqrt(3) %i   1
+(%t8) x = (--------- + --)    (---------- - -)
+           6 sqrt(3)   54          2        2
+
+                                            sqrt(3) %i   1
+                                          - ---------- - -
+                                                2        2      1
+                                      + --------------------- - -
+                                           sqrt(23)    25 1/3   3
+                                        9 (--------- + --)
+                                           6 sqrt(3)   54
+
+            sqrt(23)    25 1/3             1             1
+(%t9)  x = (--------- + --)    + --------------------- - -
+            6 sqrt(3)   54          sqrt(23)    25 1/3   3
+                                 9 (--------- + --)
+                                    6 sqrt(3)   54
+(%o9)                    [%t7, %t8, %t9]
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002fdimension"></span><dl class="def">
+<dt id="index-dimension"><span class="category">Função: </span><span><strong>dimension</strong> <em>(<var>eqn</var>)</em><a href='#index-dimension' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-dimension-1"><span class="category">Função: </span><span><strong>dimension</strong> <em>(<var>eqn_1</var>, ..., <var>eqn_n</var>)</em><a href='#index-dimension-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p><code>dimen</code> é um pacote de análise dimensional.
+<code>load (&quot;dimen&quot;)</code> chama esse pacote.
+<code>demo (&quot;dimen&quot;)</code> mostra uma cura demostração.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fdispflag"></span><dl class="def">
+<dt id="index-dispflag"><span class="category">Variável: </span><span><strong>dispflag</strong><a href='#index-dispflag' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Se escolhida para <code>false</code> dentro de um <code>block</code> inibirá
+a visualização da saída gerada pelas funções solve chamadas de
+dentro de <code>block</code>.  Terminando <code>block</code> com um sinal de dolar, $, escolhe
+<code>dispflag</code> para <code>false</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002ffuncsolve"></span><dl class="def">
+<dt id="index-funcsolve"><span class="category">Função: </span><span><strong>funcsolve</strong> <em>(<var>eqn</var>, <var>g</var>(<var>t</var>))</em><a href='#index-funcsolve' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna <code>[<var>g</var>(<var>t</var>) = ...]</code>  ou <code>[]</code>, dependendo de existir
+ou não uma função racional <code><var>g</var>(<var>t</var>)</code> satisfazendo <var>eqn</var>,
+que deve ser de primeira ordem, polinômio linear em (para esse caso) 
+<code><var>g</var>(<var>t</var>)</code> e <code><var>g</var>(<var>t</var>+1)</code>
+</p>
+<div class="example">
+<pre class="example">(%i1) eqn: (n + 1)*f(n) - (n + 3)*f(n + 1)/(n + 1) = (n - 1)/(n + 2);
+                            (n + 3) f(n + 1)   n - 1
+(%o1)        (n + 1) f(n) - ---------------- = -----
+                                 n + 1         n + 2
+(%i2) funcsolve (eqn, f(n));
+
+Equações dependentes eliminadas:  (4 3)
+                                   n
+(%o2)                f(n) = ---------------
+                            (n + 1) (n + 2)
+</pre></div>
+
+<p>Atenção: essa é uma implementação muito rudimentar &ndash; muitas verificações de segurança
+e obviamente generalizações estão ausêntes.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fglobalsolve"></span><dl class="def">
+<dt id="index-globalsolve"><span class="category">Variável: </span><span><strong>globalsolve</strong><a href='#index-globalsolve' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>When <code>globalsolve</code> for <code>true</code>,
+variáveis para as quais as equações são resolvidas são atribuidas aos valores da solução encontrados por <code>linsolve</code>,
+e por <code>solve</code> quando resolvendo duas ou mais equações lineares.
+</p>
+<p>Quando <code>globalsolve</code> for <code>false</code>,
+soluções encontradas por <code>linsolve</code> e por <code>solve</code> quando resolvendo duas ou mais equações lineares
+são espressas como equações,
+e as variáveis para as quais a equação foi resolvida não são atribuidas.
+</p>
+<p>Quando resolvendo qualquer coisa outra que não duas equações lineares ou mais,
+<code>solve</code> ignora <code>globalsolve</code>.
+Outras funções que resolvem equações (e.g., <code>algsys</code>) sempre ignoram <code>globalsolve</code>.
+</p>    
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) globalsolve: true$
+(%i2) solve ([x + 3*y = 2, 2*x - y = 5], [x, y]);
+Solution
+
+                                 17
+(%t2)                        x : --
+                                 7
+
+                                   1
+(%t3)                        y : - -
+                                   7
+(%o3)                     [[%t2, %t3]]
+(%i3) x;
+                               17
+(%o3)                          --
+                               7
+(%i4) y;
+                                 1
+(%o4)                          - -
+                                 7
+(%i5) globalsolve: false$
+(%i6) kill (x, y)$
+(%i7) solve ([x + 3*y = 2, 2*x - y = 5], [x, y]);
+Solution
+
+                                 17
+(%t7)                        x = --
+                                 7
+
+                                   1
+(%t8)                        y = - -
+                                   7
+(%o8)                     [[%t7, %t8]]
+(%i8) x;
+(%o8)                           x
+(%i9) y;
+(%o9)                           y
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002fieqn"></span><dl class="def">
+<dt id="index-ieqn"><span class="category">Função: </span><span><strong>ieqn</strong> <em>(<var>ie</var>, <var>unk</var>, <var>tech</var>, <var>n</var>, <var>guess</var>)</em><a href='#index-ieqn' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p><code>inteqn</code> é um pacote para resolver equações com integrais.
+<code>load (&quot;inteqn&quot;)</code> carrega esse pacote.
+</p>
+<p><var>ie</var> é a equação integral; <var>unk</var> é a função desconhecida; <var>tech</var> é a
+técnica a ser tentada nesses dados acima (<var>tech</var> = <code>first</code> significa: tente
+a primeira técnica que achar uma solução; <var>tech</var> = <code>all</code> significa: tente todas a
+técnicas aplicáveis); <var>n</var> é o número máximo de termos a serem usados de
+<code>taylor</code>, <code>neumann</code>, <code>firstkindseries</code>, ou <code>fredseries</code> (isso é também o
+número máximo de ciclos de recurssão para o método de diferenciação); <var>guess</var> é
+o inicial suposto para <code>neumann</code> ou <code>firstkindseries</code>.
+</p>
+<p>Valores padrão do segundo até o quinto parâmetro são:
+</p>
+<p><var>unk</var>: <code><var>p</var>(<var>x</var>)</code>, onde <var>p</var> é a primeira função encontrada em um integrando
+que é desconhecida para Maxima e <var>x</var> é a variável que ocorre como um
+argumento para a primeira ocorrência de <var>p</var> achada fora de uma integral no
+caso de equações <code>secondkind</code> , ou é somente outra variável
+ao lado da variável de integração em equações <code>firstkind</code>.  Se uma
+tentativa de procurar por <var>x</var> falha, o usuário será perguntado para suprir a
+variável independente.
+</p>
+<p>tech: <code>first</code>
+</p>
+<p>n: 1
+</p>
+<p>guess: <code>none</code> o que fará com que <code>neumann</code> e <code>firstkindseries</code> use
+<code><var>f</var>(<var>x</var>)</code> como uma suposição inicial.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fieqnprint"></span><dl class="def">
+<dt id="index-ieqnprint"><span class="category">Variável de opção: </span><span><strong>ieqnprint</strong><a href='#index-ieqnprint' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p><code>ieqnprint</code> governa o comportamento do resultado
+retornado pelo comando <code>ieqn</code>.  Quando <code>ieqnprint</code> é
+<code>false</code>, as listas retornadas pela função <code>ieqn</code> são da forma
+</p>
+<p>[<var>solução</var>, <var>tecnica usada</var>, <var>nterms</var>, <var>sinalizador</var>]
+</p>
+<p>onde <var>sinalizador</var> é retirado se a solução for exata.
+</p>
+<p>De outra forma, isso é a
+palavra <code>approximate</code> ou <code>incomplete</code> correspondendo à forma inexata ou
+forma aberta de solução, respectivamente.  Se um método de série foi usado,
+<var>nterms</var> fornece o número de termos usados (que poderá ser menor que os n
+dados para <code>ieqn</code> se ocorrer um erro evita a geração de termos adicionais).
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002flhs"></span><dl class="def">
+<dt id="index-lhs"><span class="category">Função: </span><span><strong>lhs</strong> <em>(<var>expr</var>)</em><a href='#index-lhs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o lado esquerdo (isto é, o primeiro argumento)
+da expressão <var>expr</var>,
+quando o operador de <var>expr</var>
+for um dos operadores relacionais <code>&lt; &lt;= = # equal notequal &gt;= &gt;</code>,
+um dos operadores de atribuição <code>:= ::= : ::</code>,
+ou um operadro infixo definido pelo usuário, como declarado por meio de <code>infix</code>.
+</p>
+<p>Quando <var>expr</var> for um átomo ou
+seu operador for alguma coisa que não esses listados acima,
+<code>lhs</code> retorna <var>expr</var>.
+</p>
+<p>Veja também <code>rhs</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) e: aa + bb = cc;
+(%o1)                     bb + aa = cc
+(%i2) lhs (e);
+(%o2)                        bb + aa
+(%i3) rhs (e);
+(%o3)                          cc
+(%i4) [lhs (aa &lt; bb), lhs (aa &lt;= bb), lhs (aa &gt;= bb), lhs (aa &gt; bb)];
+(%o4)                   [aa, aa, aa, aa]
+(%i5) [lhs (aa = bb), lhs (aa # bb), lhs (equal (aa, bb)), lhs (notequal (aa, bb))];
+(%o5)                   [aa, aa, aa, aa]
+(%i6) e1: '(foo(x) := 2*x);
+(%o6)                     foo(x) := 2 x
+(%i7) e2: '(bar(y) ::= 3*y);
+(%o7)                    bar(y) ::= 3 y
+(%i8) e3: '(x : y);
+(%o8)                         x : y
+(%i9) e4: '(x :: y);
+(%o9)                        x :: y
+(%i10) [lhs (e1), lhs (e2), lhs (e3), lhs (e4)];
+(%o10)               [foo(x), bar(y), x, x]
+(%i11) infix (&quot;][&quot;);
+(%o11)                         ][
+(%i12) lhs (aa ][ bb);
+(%o12)                         aa
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002flinsolve"></span><dl class="def">
+<dt id="index-linsolve"><span class="category">Função: </span><span><strong>linsolve</strong> <em>([<var>expr_1</var>, ..., <var>expr_m</var>], [<var>x_1</var>, ..., <var>x_n</var>])</em><a href='#index-linsolve' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Resolve a lista de
+equações lineares simultâneas para a lista de variáveis.  As expressões
+devem ser cada uma polinômios nas variáveis e podem ser equações.
+</p>
+<p>Quando <code>globalsolve</code> é <code>true</code> então variáveis que foram resolvidas
+serão escolhidas para a solução do conjunto de equações simultâneas.
+</p>
+<p>Quando <code>backsubst</code> é <code>false</code>, <code>linsolve</code>
+não realiza substituição em equações anteriores após
+as equações terem sido triangularizadas.  Isso pode ser necessário em problemas
+muito grandes onde substituição em equações anteriores poderá causar a geração de
+expressões extremamente largas.
+</p>
+<p>Quando <code>linsolve_params</code> for <code>true</code>,
+<code>linsolve</code> também gera símbolos <code>%r</code>
+usados para representar parâmetros arbitrários descritos no manual sob
+<code>algsys</code>.
+De outra forma, <code>linsolve</code> resolve um menor-determinado sistema de
+equações com algumas variáveis expressas em termos de outras.
+</p>
+<p>Quando <code>programmode</code> for <code>false</code>,
+<code>linsolve</code> mostra a solução com expressões intermediárias com rótulos (<code>%t</code>),
+e retorna a lista de rótulos.
+</p>
+<div class="example">
+<pre class="example">(%i1) e1: x + z = y;
+(%o1)                       z + x = y
+(%i2) e2: 2*a*x - y = 2*a^2;
+                                       2
+(%o2)                   2 a x - y = 2 a
+(%i3) e3: y - 2*z = 2;
+(%o3)                      y - 2 z = 2
+(%i4) [globalsolve: false, programmode: true];
+(%o4)                     [false, true]
+(%i5) linsolve ([e1, e2, e3], [x, y, z]);
+(%o5)            [x = a + 1, y = 2 a, z = a - 1]
+(%i6) [globalsolve: false, programmode: false];
+(%o6)                    [false, false]
+(%i7) linsolve ([e1, e2, e3], [x, y, z]);
+Solution
+
+(%t7)                       z = a - 1
+
+(%t8)                        y = 2 a
+
+(%t9)                       x = a + 1
+(%o9)                    [%t7, %t8, %t9]
+(%i9) ''%;
+(%o9)            [z = a - 1, y = 2 a, x = a + 1]
+(%i10) [globalsolve: true, programmode: false];
+(%o10)                    [true, false]
+(%i11) linsolve ([e1, e2, e3], [x, y, z]);
+Solution
+
+(%t11)                      z : a - 1
+
+(%t12)                       y : 2 a
+
+(%t13)                      x : a + 1
+(%o13)                 [%t11, %t12, %t13]
+(%i13) ''%;
+(%o13)           [z : a - 1, y : 2 a, x : a + 1]
+(%i14) [x, y, z];
+(%o14)                 [a + 1, 2 a, a - 1]
+(%i15) [globalsolve: true, programmode: true];
+(%o15)                    [true, true]
+(%i16) linsolve ([e1, e2, e3], '[x, y, z]);
+(%o16)           [x : a + 1, y : 2 a, z : a - 1]
+(%i17) [x, y, z];
+(%o17)                 [a + 1, 2 a, a - 1]
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002flinsolvewarn"></span><dl class="def">
+<dt id="index-linsolvewarn"><span class="category">Variável: </span><span><strong>linsolvewarn</strong><a href='#index-linsolvewarn' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>linsolvewarn</code> é <code>true</code>,
+<code>linsolve</code> imprime uma mensagem &quot;Dependent equações eliminated&quot;.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002flinsolve_005fparams"></span><dl class="def">
+<dt id="index-linsolve_005fparams"><span class="category">Variável: </span><span><strong>linsolve_params</strong><a href='#index-linsolve_005fparams' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>linsolve_params</code> é <code>true</code>, <code>linsolve</code> também gera
+os símbolos <code>%r</code> usados para representar parâmetros arbitrários descritos no
+manual sob <code>algsys</code>.
+De outra forma, <code>linsolve</code> resolve um menor-determinado sistema de
+equações com algumas variáveis expressas em termos e outras.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fmultiplicities"></span><dl class="def">
+<dt id="index-multiplicities"><span class="category">Variável: </span><span><strong>multiplicities</strong><a href='#index-multiplicities' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>not_set_yet</code>
+</p>
+<p><code>multiplicities</code> é escolhida para uma lista de
+multiplicidades das soluções individuais retornadas por <code>solve</code> ou
+<code>realroots</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002fnroots"></span><dl class="def">
+<dt id="index-nroots"><span class="category">Função: </span><span><strong>nroots</strong> <em>(<var>p</var>, <var>low</var>, <var>high</var>)</em><a href='#index-nroots' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o número de raízes reais do polinômio 
+real de uma única variável <var>p</var> no intervalo semi-aberto
+<code>(<var>low</var>, <var>high</var>]</code>.
+Uma extremidade do intervalo podem ser <code>minf</code> ou <code>inf</code>.
+infinito e mais infinito.
+</p>
+<p><code>nroots</code> usa o método das sequ&uuml;ências de Sturm.
+</p>
+<div class="example">
+<pre class="example">(%i1) p: x^10 - 2*x^4 + 1/2$
+(%i2) nroots (p, -6, 9.1);
+(%o2)                           4
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002fnthroot"></span><dl class="def">
+<dt id="index-nthroot"><span class="category">Função: </span><span><strong>nthroot</strong> <em>(<var>p</var>, <var>n</var>)</em><a href='#index-nthroot' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Onde p é um polinômio com coeficientes inteiros e
+n é um inteiro positivo retorna q, um polinômio sobre os inteiros, tal
+que q^n=p ou imprime uma mensagem de erro indicando que p não é uma potência n-ésima
+perfeita.  Essa rotina é mais rápida que <code>factor</code> ou mesmo <code>sqfr</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fprogrammode"></span><dl class="def">
+<dt id="index-programmode"><span class="category">Variável: </span><span><strong>programmode</strong><a href='#index-programmode' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>programmode</code> é <code>true</code>,
+<code>solve</code>, <code>realroots</code>, <code>allroots</code>, e <code>linsolve</code>
+retornam soluções como elementos em uma lista.
+(Exceto quando <code>backsubst</code> é escolhido para <code>false</code>, nesse caso
+<code>programmode: false</code> é assumido.)
+</p>
+<p>Quando <code>programmode</code> é <code>false</code>, <code>solve</code>, etc.
+cria rótulos de expressões intermediárias
+<code>%t1</code>, <code>t2</code>, etc., e atribui as soluções para eles.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002frealonly"></span><dl class="def">
+<dt id="index-realonly"><span class="category">Variável: </span><span><strong>realonly</strong><a href='#index-realonly' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Quando <code>realonly</code> é <code>true</code>, <code>algsys</code> retorna somente
+aquelas soluções que estão livres de <code>%i</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002frealroots"></span><dl class="def">
+<dt id="index-realroots"><span class="category">Função: </span><span><strong>realroots</strong> <em>(<var>expr</var>, <var>bound</var>)</em><a href='#index-realroots' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-realroots-1"><span class="category">Função: </span><span><strong>realroots</strong> <em>(<var>eqn</var>, <var>bound</var>)</em><a href='#index-realroots-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-realroots-2"><span class="category">Função: </span><span><strong>realroots</strong> <em>(<var>expr</var>)</em><a href='#index-realroots-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-realroots-3"><span class="category">Função: </span><span><strong>realroots</strong> <em>(<var>eqn</var>)</em><a href='#index-realroots-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Calcula aproximações racionais das raízes reais da expressão polinomial <var>expr</var>
+ou da equação polinomial <var>eqn</var> de uma variável,
+dentro de uma tolerância de <var>bound</var>.
+coeficientes de <var>expr</var> ou de <var>eqn</var> devem ser números literais;
+constantes símbolo tais como <code>%pi</code> são rejeitadas.
+</p>
+<p><code>realroots</code> atribui as multiplicidades das raízes que encontrar
+para a variável global <code>multiplicities</code>.
+</p>
+<p><code>realroots</code> constrói uma seq&uuml;ência de Sturm para delimitar cada raíz,
+e então palica a bisecção para redefinir as aproximações.
+Todos os coeficientes são convertidos para os equivalentes racionais antes da busca por raízes,
+e cálculos são realizados por meio de aritmética racional exata.
+Mesmo se alguns coeficientes forem números em ponto flutuante,
+os resultados são racionais (a menos que forçados a números em ponto flutuante por <code>float</code> ou por <code>numer</code> flags).
+</p>
+<p>Quando <var>bound</var> for menor que 1, todas as raízes inteiras são encontradas exatamente.
+Quando <var>bound</var> não for especificado, será assumido como sendo igual à variável globa <code>rootsepsilon</code>.
+</p>
+<p>Quando a varável global <code>programmode</code> for <code>true</code>,
+<code>realroots</code> retorna uma lista da forma <code>[x = <var>x_1</var>, x = <var>x_2</var>, ...]</code>.
+Quando <code>programmode</code> for <code>false</code>,
+<code>realroots</code> cria rótulos de expressões intermediárias <code>%t1</code>, <code>%t2</code>, ...,
+atribui os resultados a eles, e retorna a lista de rótulos.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) realroots (-1 - x + x^5, 5e-6);
+                               612003
+(%o1)                     [x = ------]
+                               524288
+(%i2) ev (%[1], float);
+(%o2)                 x = 1.167303085327148
+(%i3) ev (-1 - x + x^5, %);
+(%o3)                - 7.396496210176905E-6
+</pre></div>
+
+
+<div class="example">
+<pre class="example">(%i1) realroots (expand ((1 - x)^5 * (2 - x)^3 * (3 - x)), 1e-20);
+(%o1)                 [x = 1, x = 2, x = 3]
+(%i2) multiplicities;
+(%o2)                       [5, 3, 1]
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002frhs"></span><dl class="def">
+<dt id="index-rhs"><span class="category">Função: </span><span><strong>rhs</strong> <em>(<var>expr</var>)</em><a href='#index-rhs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o lado direito (isto é, o segundo argumento)
+da expressão <var>expr</var>,
+quando o operador de <var>expr</var>
+for um dos operadores relacionais <code>&lt; &lt;= = # equal notequal &gt;= &gt;</code>,
+um dos operadores de atribuição <code>:= ::= : ::</code>,
+ou um operador binário infixo definido pelo usuário, como declarado por meio de <code>infix</code>.
+</p>
+<p>Quando <var>expr</var> for um étomo ou
+seu operadro for alguma coisa que não esses listados acima,
+<code>rhs</code> retorna 0.
+</p>
+<p>Veja também <code>lhs</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) e: aa + bb = cc;
+(%o1)                     bb + aa = cc
+(%i2) lhs (e);
+(%o2)                        bb + aa
+(%i3) rhs (e);
+(%o3)                          cc
+(%i4) [rhs (aa &lt; bb), rhs (aa &lt;= bb), rhs (aa &gt;= bb), rhs (aa &gt; bb)];
+(%o4)                   [bb, bb, bb, bb]
+(%i5) [rhs (aa = bb), rhs (aa # bb), rhs (equal (aa, bb)), rhs (notequal (aa, bb))];
+(%o5)                   [bb, bb, bb, bb]
+(%i6) e1: '(foo(x) := 2*x);
+(%o6)                     foo(x) := 2 x
+(%i7) e2: '(bar(y) ::= 3*y);
+(%o7)                    bar(y) ::= 3 y
+(%i8) e3: '(x : y);
+(%o8)                         x : y
+(%i9) e4: '(x :: y);
+(%o9)                        x :: y
+(%i10) [rhs (e1), rhs (e2), rhs (e3), rhs (e4)];
+(%o10)                  [2 x, 3 y, y, y]
+(%i11) infix (&quot;][&quot;);
+(%o11)                         ][
+(%i12) rhs (aa ][ bb);
+(%o12)                         bb
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002frootsconmode"></span><dl class="def">
+<dt id="index-rootsconmode"><span class="category">Variável de opção: </span><span><strong>rootsconmode</strong><a href='#index-rootsconmode' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p><code>rootsconmode</code> governa o comportamento do comando
+<code>rootscontract</code>.  Veja <code>rootscontract</code> para detalhes.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002frootscontract"></span><dl class="def">
+<dt id="index-rootscontract"><span class="category">Função: </span><span><strong>rootscontract</strong> <em>(<var>expr</var>)</em><a href='#index-rootscontract' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Converte produtos de raízes em raízes de produtos.
+Por exemplo,
+<code>rootscontract (sqrt(x)*y^(3/2))</code> retorna <code>sqrt(x*y^3)</code>.
+</p>
+<p>Quando <code>radexpand</code> é <code>true</code> e <code>domain</code> é <code>real</code>,
+<code>rootscontract</code> converte <code>abs</code> em <code>sqrt</code>, e.g.,
+<code>rootscontract (abs(x)*sqrt(y))</code> retorna <code>sqrt(x^2*y)</code>.
+</p>
+<p>Existe uma opção <code>rootsconmode</code>
+afetando <code>rootscontract</code> como segue:
+</p>
+<div class="example">
+<pre class="example">Problem            Value of        Result of applying
+                  rootsconmode        rootscontract
+      
+x^(1/2)*y^(3/2)      false          (x*y^3)^(1/2)
+x^(1/2)*y^(1/4)      false          x^(1/2)*y^(1/4)
+x^(1/2)*y^(1/4)      true           (x*y^(1/2))^(1/2)
+x^(1/2)*y^(1/3)      true           x^(1/2)*y^(1/3)
+x^(1/2)*y^(1/4)      all            (x^2*y)^(1/4)
+x^(1/2)*y^(1/3)      all            (x^3*y^2)^(1/6)
+</pre></div>
+
+<p>Quando <code>rootsconmode</code> é <code>false</code>, <code>rootscontract</code> contrai somente como relação a expoentes
+de número racional cujos denominadores são os mesmos.  A chave para os exemplos
+<code>rootsconmode: true</code> é simplesmente que 2 divides 4 mas não 
+divide 3.  <code>rootsconmode: all</code> envolve pegar o menor multiplo comum
+dos denominadores dos expoentes.
+</p>
+<p><code>rootscontract</code> usa <code>ratsimp</code> em uma maneira similar a <code>logcontract</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) rootsconmode: false$
+(%i2) rootscontract (x^(1/2)*y^(3/2));
+                                   3
+(%o2)                      sqrt(x y )
+(%i3) rootscontract (x^(1/2)*y^(1/4));
+                                   1/4
+(%o3)                     sqrt(x) y
+(%i4) rootsconmode: true$
+(%i5) rootscontract (x^(1/2)*y^(1/4));
+(%o5)                    sqrt(x sqrt(y))
+(%i6) rootscontract (x^(1/2)*y^(1/3));
+                                   1/3
+(%o6)                     sqrt(x) y
+(%i7) rootsconmode: all$
+(%i8) rootscontract (x^(1/2)*y^(1/4));
+                              2   1/4
+(%o8)                       (x  y)
+(%i9) rootscontract (x^(1/2)*y^(1/3));
+                             3  2 1/6
+(%o9)                      (x  y )
+(%i10) rootsconmode: false$
+(%i11) rootscontract (sqrt(sqrt(x) + sqrt(1 + x))
+                    *sqrt(sqrt(1 + x) - sqrt(x)));
+(%o11)                          1
+(%i12) rootsconmode: true$
+(%i13) rootscontract (sqrt(5 + sqrt(5)) - 5^(1/4)*sqrt(1 + sqrt(5)));
+(%o13)                          0
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002frootsepsilon"></span><dl class="def">
+<dt id="index-rootsepsilon"><span class="category">Variável de opção: </span><span><strong>rootsepsilon</strong><a href='#index-rootsepsilon' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: 1.0e-7
+</p>
+<p><code>rootsepsilon</code> é a tolerância que estabelece o
+intervalo de conficência para as raízes achadas pela função <code>realroots</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdeffn_002fsolve"></span><dl class="def">
+<dt id="index-solve"><span class="category">Função: </span><span><strong>solve</strong> <em>(<var>expr</var>, <var>x</var>)</em><a href='#index-solve' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-solve-1"><span class="category">Função: </span><span><strong>solve</strong> <em>(<var>expr</var>)</em><a href='#index-solve-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-solve-2"><span class="category">Função: </span><span><strong>solve</strong> <em>([<var>eqn_1</var>, ..., <var>eqn_n</var>], [<var>x_1</var>, ..., <var>x_n</var>])</em><a href='#index-solve-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Resolve a equação algébrica <var>expr</var> para a variável
+<var>x</var> e retorna uma lista de equações solução em <var>x</var>.  Se <var>expr</var> não é uma
+equação, a equação <code><var>expr</var> = 0</code> é assumida em seu lugar.
+<var>x</var> pode ser uma função (e.g. <code>f(x)</code>), ou outra expressão não atômica
+exceto uma adição ou um produto.  <var>x</var> pode ser omitido se <var>expr</var> contém somente uma
+variável.  <var>expr</var> pode ser uma expressão racional, e pode conter
+funções trigonométricas, exponenciais, etc.
+</p>
+<p>O seguinte método é usado:
+</p>
+<p>Tome <var>E</var> sendo a expressão e <var>X</var> sendo a variável.  Se <var>E</var> é linear em <var>X</var>
+então isso é trivialmente resolvido para <var>X</var>.  De outra forma se <var>E</var> é da forma
+<code>A*X^N + B</code> então o resultado é <code>(-B/A)^1/N)</code> vezes as <code>N</code>&rsquo;ésimas raízes da
+unidade.
+</p>
+<p>Se <var>E</var> não é linear em <var>X</var> então o máximo divisor comum (mdc) dos expoentes de <var>X</var> em <var>E</var> (digamos
+<var>N</var>) é dividido dentro dos expoentes e a multiplicidade das raízes é
+multiplicada por <var>N</var>.  Então <code>solve</code> é chamada novamente sobre o resultado.
+Se <var>E</var> for dada em fatores então <code>solve</code> é chamada sobre cada um dos fatores.  Finalmente
+<code>solve</code> usará as fórmulas quadráticas, cúbicas, ou quárticas onde
+necessário.
+</p>
+<p>No caso onde <var>E</var> for um polinômio em alguma função de variável a ser
+resolvida, digamos <code>F(X)</code>, então isso é primeiro resolvida para <code>F(X)</code> (chama o
+resultado <var>C</var>), então a equação <code>F(X)=C</code> pode ser resolvida para <var>X</var> fornecendo o
+inverso da função <var>F</var> que é conhecida.
+</p>
+<p><code>breakup</code> se <code>false</code> fará com que <code>solve</code> expresse as soluções de
+equações cúbicas ou quárticas como expressões simples ao invés de como feito
+em cima de várias subexpressões comuns que é o padrão.
+</p>
+<p><code>multiplicities</code> - será escolhido para uma lista de multiplicidades de
+soluções individuais retornadas por <code>solve</code>, <code>realroots</code>, ou <code>allroots</code>.
+Tente <code>apropos (solve)</code> para os comutadores que afetam <code>solve</code>.  <code>describe</code> pode
+então ser usada sobre o nome do comutador individual se seu proprósito não é
+claro.
+</p>
+<p><code>solve ([<var>eqn_1</var>, ..., <var>eqn_n</var>], [<var>x_1</var>, ..., <var>x_n</var>])</code>
+resolve um sistema de equações polinomiais
+(lineares ou não-lineares) simultâneas por chamada a <code>linsolve</code> ou
+<code>algsys</code> e retorna uma lista de listas solução nas variáveis.  No
+caso de <code>linsolve</code> essa lista conterá uma lista simples de
+soluções.  Isso pega duas listas como argumentos.  A primeira lista
+representa as equações a serem resolvidas; a segunda lista é a
+lista de desconhecidos a ser determinada.  Se o número total de
+variáveis nas equações é igual ao número de equações, a
+segunda lista-argumento pode ser omitida.  Para sistemas lineares se as dadas
+equações não são compatíveis, a mensagem <code>inconsistent</code> será
+mostrada (veja o comutador <code>solve_inconsistent_error</code> ); se não existe
+solução única, então <code>singular</code> será mostrado.
+</p>
+<p>Quando <code>programmode</code> for <code>false</code>,
+<code>solve</code> mostra soluções com rótulos de expressões intermediárias (<code>%t</code>),
+e retorna a lista de rótulos.
+</p>
+<p>Quando <code>globalsolve</code> for <code>true</code> e o problema for resolver duas ou mais equações lineares,
+cada variável para a qual a equação for resolvida é associada a seu valor na solução das equações.
+</p>
+<p>Exemplos:
+</p><div class="example">
+<pre class="example">(%i1) solve (asin (cos (3*x))*(f(x) - 1), x);
+
+SOLVE is using arc-trig functions to get a solution.
+Some solutions will be lost.
+                            %pi
+(%o1)                  [x = ---, f(x) = 1]
+                             6
+(%i2) ev (solve (5^f(x) = 125, f(x)), solveradcan);
+                                log(125)
+(%o2)                   [f(x) = --------]
+                                 log(5)
+(%i3) [4*x^2 - y^2 = 12, x*y - x = 2];
+                      2    2
+(%o3)             [4 x  - y  = 12, x y - x = 2]
+(%i4) solve (%, [x, y]);
+(%o4) [[x = 2, y = 2], [x = .5202594388652008 %i
+
+ - .1331240357358706, y = .0767837852378778
+
+ - 3.608003221870287 %i], [x = - .5202594388652008 %i
+
+ - .1331240357358706, y = 3.608003221870287 %i
+
+ + .0767837852378778], [x = - 1.733751846381093, 
+
+y = - .1535675710019696]]
+(%i5) solve (1 + a*x + x^3, x);
+                                       3
+              sqrt(3) %i   1   sqrt(4 a  + 27)   1 1/3
+(%o5) [x = (- ---------- - -) (--------------- - -)
+                  2        2      6 sqrt(3)      2
+
+        sqrt(3) %i   1
+       (---------- - -) a
+            2        2
+ - --------------------------, x = 
+              3
+      sqrt(4 a  + 27)   1 1/3
+   3 (--------------- - -)
+         6 sqrt(3)      2
+
+                          3
+ sqrt(3) %i   1   sqrt(4 a  + 27)   1 1/3
+(---------- - -) (--------------- - -)
+     2        2      6 sqrt(3)      2
+
+         sqrt(3) %i   1
+      (- ---------- - -) a
+             2        2
+ - --------------------------, x = 
+              3
+      sqrt(4 a  + 27)   1 1/3
+   3 (--------------- - -)
+         6 sqrt(3)      2
+
+         3
+ sqrt(4 a  + 27)   1 1/3               a
+(--------------- - -)    - --------------------------]
+    6 sqrt(3)      2                  3
+                              sqrt(4 a  + 27)   1 1/3
+                           3 (--------------- - -)
+                                 6 sqrt(3)      2
+(%i6) solve (x^3 - 1);
+             sqrt(3) %i - 1        sqrt(3) %i + 1
+(%o6)   [x = --------------, x = - --------------, x = 1]
+                   2                     2
+(%i7) solve (x^6 - 1);
+           sqrt(3) %i + 1      sqrt(3) %i - 1
+(%o7) [x = --------------, x = --------------, x = - 1, 
+                 2                   2
+
+                     sqrt(3) %i + 1        sqrt(3) %i - 1
+               x = - --------------, x = - --------------, x = 1]
+                           2                     2
+(%i8) ev (x^6 - 1, %[1]);
+                                      6
+                      (sqrt(3) %i + 1)
+(%o8)                 ----------------- - 1
+                             64
+(%i9) expand (%);
+(%o9)                           0
+(%i10) x^2 - 1;
+                              2
+(%o10)                       x  - 1
+(%i11) solve (%, x);
+(%o11)                  [x = - 1, x = 1]
+(%i12) ev (%th(2), %[1]);
+(%o12)                          0
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fsolvedecomposes"></span><dl class="def">
+<dt id="index-solvedecomposes"><span class="category">Variável de opção: </span><span><strong>solvedecomposes</strong><a href='#index-solvedecomposes' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>solvedecomposes</code> é <code>true</code>, <code>solve</code> chama
+<code>polydecomp</code> se perguntado para resolver polinômios.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fsolveexplicit"></span><dl class="def">
+<dt id="index-solveexplicit"><span class="category">Variável de opção: </span><span><strong>solveexplicit</strong><a href='#index-solveexplicit' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Quando <code>solveexplicit</code> é <code>true</code>, inibe <code>solve</code> de
+retornar soluções implícitas, isto é, soluções da forma <code>F(x) = 0</code>
+onde <code>F</code> é alguma função.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fsolvefactors"></span><dl class="def">
+<dt id="index-solvefactors"><span class="category">Variável de opção: </span><span><strong>solvefactors</strong><a href='#index-solvefactors' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>solvefactors</code> é <code>false</code>, <code>solve</code> não tenta
+fatorar a expressão.  O <code>false</code> escolhido pode ser desejado em alguns casos
+onde a fatoração não é necessária.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fsolvenullwarn"></span><dl class="def">
+<dt id="index-solvenullwarn"><span class="category">Variável de opção: </span><span><strong>solvenullwarn</strong><a href='#index-solvenullwarn' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>solvenullwarn</code> é <code>true</code>, 
+<code>solve</code> imprime uma mensagem de alerta se chamada com ou uma lista equação ou uma variável lista nula.
+Por exemplo, <code>solve ([], [])</code> imprimirá duas mensagens de alerta e retorna <code>[]</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fsolveradcan"></span><dl class="def">
+<dt id="index-solveradcan"><span class="category">Variável de opção: </span><span><strong>solveradcan</strong><a href='#index-solveradcan' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>false</code>
+</p>
+<p>Quando <code>solveradcan</code> é <code>true</code>, <code>solve</code> chama <code>radcan</code>
+que faz <code>solve</code> lento mas permitirá certamente que problemas
+contendo exponeniais e logarítmos sejam resolvidos.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fsolvetrigwarn"></span><dl class="def">
+<dt id="index-solvetrigwarn"><span class="category">Variável de opção: </span><span><strong>solvetrigwarn</strong><a href='#index-solvetrigwarn' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>solvetrigwarn</code> é <code>true</code>,
+<code>solve</code> pode imprimir uma mensagem dizendo que está usando funções
+trigonométricas inversas para resolver a equação, e desse modo perdendo
+soluções.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Equations_002fdefvr_002fsolve_005finconsistent_005ferror"></span><dl class="def">
+<dt id="index-solve_005finconsistent_005ferror"><span class="category">Variável de opção: </span><span><strong>solve_inconsistent_error</strong><a href='#index-solve_005finconsistent_005ferror' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: <code>true</code>
+</p>
+<p>Quando <code>solve_inconsistent_error</code> for <code>true</code>, <code>solve</code> e
+<code>linsolve</code> resultam em erro se as equações a serem resolvidas forem inconsistentes.
+</p>
+<p>Se <code>false</code>, <code>solve</code> e <code>linsolve</code> retornam uma lista vazia <code>[]</code> 
+se as equações forem inconsistentes.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) solve_inconsistent_error: true$
+(%i2) solve ([a + b = 1, a + b = 2], [a, b]);
+Inconsistent equações:  (2)
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i3) solve_inconsistent_error: false$
+(%i4) solve ([a + b = 1, a + b = 2], [a, b]);
+(%o4)                          []
+</pre></div>
+
+</dd></dl>
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Anterior: <a href="maxima_66.html" accesskey="p" rel="prev">Equações</a>, Acima: <a href="maxima_66.html" accesskey="u" rel="up">Equações</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

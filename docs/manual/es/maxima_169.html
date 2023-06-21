@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Claves de depuración (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Claves de depuración (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Claves de depuración (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_167.html" rel="up" title="Depurado">
+<link href="maxima_170.html" rel="next" title="Funciones y variables para depurado">
+<link href="maxima_168.html" rel="prev" title="Depuración del código fuente">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Claves-de-depuraci_00f3n">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_170.html" accesskey="n" rel="next">Funciones y variables para depurado</a>, Anterior: <a href="maxima_168.html" accesskey="p" rel="prev">Depuración del código fuente</a>, Subir: <a href="maxima_167.html" accesskey="u" rel="up">Depurado</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Claves-de-depuracion"></span><h3 class="section">38.2 Claves de depuración</h3>
+
+<p>Las claves de depuración son palabras que no son interpretadas como expresiones de Maxima. Una clave de depuración puede introducirse dentro de Maxima o del depurador. Las claves de depuración comienzan con dos puntos, &rsquo;:&rsquo;. Por ejemplo, para evaluar una expresión Lisp, se puede teclear <code>:lisp</code> seguido de la expresión a ser evaluada.
+</p>
+<div class="example">
+<pre class="example">(%i1) :lisp (+ 2 3) 
+5
+</pre></div>
+
+<p>El número de argumentos depende del comando en particular. Además, tampoco es necesario teclear el nombre completo de la instrucción, tan solo lo justo para diferenciarla de las otras instrucciones. Así, <code>:br</code> sería suficiente para <code>:break</code>.
+</p>
+<p>Las claves de depuración se listan a continuación.
+</p>
+<dl compact="compact">
+<dt><span><code>:break F n</code></span></dt>
+<dd><p>Establece un punto de referencia en la función <code>F</code> en la línea <code>n</code> contando a partir del comienzo de la función. Si <code>F</code> es una cadena, entonces se entiende que se trata de un fichero, siendo entonces <code>n</code> el número de línea a partir del comienzo del fichero. El valor <code>n</code> es opcional; en caso de no ser suministrado, se entenderá que vale cero (primera línea de la función o fichero).
+</p></dd>
+<dt><span><code>:bt</code></span></dt>
+<dd><p>Retrocede en la pila.
+</p></dd>
+<dt><span><code>:continue</code></span></dt>
+<dd><p>Continua el cómputo de la función.
+</p></dd>
+<dt><span><code>:delete</code></span></dt>
+<dd><p>Borra los punto de referencia especificados, o todos si no se especifica ninguno.
+</p></dd>
+<dt><span><code>:disable</code></span></dt>
+<dd><p>Deshabilita los puntos de referencia especificados, o todos si no se especifica ninguno.
+</p></dd>
+<dt><span><code>:enable</code></span></dt>
+<dd><p>Habilita los puntos de referencia especificados, o todos si no se especifica ninguno.
+</p></dd>
+<dt><span><code>:frame n</code></span></dt>
+<dd><p>Imprime el elemento <code>n</code> de la pila, o el actualmente activo si no se especifica ninguno.
+</p></dd>
+<dt><span><code>:help</code></span></dt>
+<dd><p>Imprime la ayuda sobre un comando del depurador, o de todos los comandos si no se especifica ninguno.
+</p></dd>
+<dt><span><code>:info</code></span></dt>
+<dd><p>Imprime información sobre un elemento.
+</p></dd>
+<dt><span><code>:lisp expresión</code></span></dt>
+<dd><p>Evalúa la <code>expresión</code> Lisp.
+</p></dd>
+<dt><span><code>:lisp-quiet expresión</code></span></dt>
+<dd><p>Evalúa la <code>expresión</code> Lisp sin devolver el resultado.
+</p></dd>
+<dt><span><code>:next</code></span></dt>
+<dd><p>Como <code>:step</code>, excepto que <code>:next</code> se salta las llamadas a funciones.
+</p></dd>
+<dt><span><code>:quit</code></span></dt>
+<dd><p>Sale del nivel actual del depurador sin completar el cómputo.
+</p></dd>
+<dt><span><code>:resume</code></span></dt>
+<dd><p>Continúa con el cómputo.
+</p></dd>
+<dt><span><code>:step</code></span></dt>
+<dd><p>Sigue con el cómputo de la función o fichero hasta que alcance una nueva línea fuente.
+</p></dd>
+<dt><span><code>:top</code></span></dt>
+<dd><p>Retorna a Maxima desde cualquier nivel del depurador sin completar el cómputo.
+</p></dd>
+</dl>
+
+
+<span id="Item_003a-Debugging_002ees_002fnode_002fFunciones-y-variables-para-depurado"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_170.html" accesskey="n" rel="next">Funciones y variables para depurado</a>, Anterior: <a href="maxima_168.html" accesskey="p" rel="prev">Depuración del código fuente</a>, Subir: <a href="maxima_167.html" accesskey="u" rel="up">Depurado</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

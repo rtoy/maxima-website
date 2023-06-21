@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para las cadenas de texto (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para las cadenas de texto (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para las cadenas de texto (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_14.html" rel="up" title="Cadenas de texto">
+<link href="maxima_15.html" rel="prev" title="Introducción a las cadenas de texto">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="subsection" id="Funciones-y-variables-para-las-cadenas-de-texto">
+<div class="header">
+<p>
+Anterior: <a href="maxima_15.html" accesskey="p" rel="prev">Introducción a las cadenas de texto</a>, Subir: <a href="maxima_14.html" accesskey="u" rel="up">Cadenas de texto</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Funciones-y-variables-para-las-cadenas-de-texto-1"></span><h4 class="subsection">5.2.2 Funciones y variables para las cadenas de texto</h4>
+
+
+
+<span id="Item_003a-DataTypes_002ees_002fdeffn_002fconcat"></span><dl class="def">
+<dt id="index-concat"><span class="category">Función: </span><span><strong>concat</strong> <em>(<var>arg_1</var>, <var>arg_2</var>, ...)</em><a href='#index-concat' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Concatena sus argumentos, que deben ser todos átomos.
+El valor devuelto es un símbolo si el primer argumento es a su vez un símbolo, o una cadena en caso contrario.
+</p>
+<p>La función <code>concat</code> evalúa sus argumentos.
+El apátrofo  <code>'</code> evita la evaluación.
+</p>
+<div class="example">
+<pre class="example">(%i1) y: 7$
+(%i2) z: 88$
+(%i3) concat (y, z/2);
+(%o3)                          744
+(%i4) concat ('y, z/2);
+(%o4)                          y44
+</pre></div>
+
+<p>A un símbolo construido por <code>concat</code> se le puede asignar un valor y ser utilizado posteriormente en expresiones.
+La asignación con el operador <code>::</code> evalúa su expresión izquierda.
+</p>
+<div class="example">
+<pre class="example">(%i5) a: concat ('y, z/2);
+(%o5)                          y44
+(%i6) a:: 123;
+(%o6)                          123
+(%i7) y44;
+(%o7)                          123
+(%i8) b^a;
+                               y44
+(%o8)                         b
+(%i9) %, numer;
+                               123
+(%o9)                         b
+</pre></div>
+
+<p>Nótese que aunque <code>concat (1, 2)</code> parezca un número, se trata de una cadena.
+</p>
+<div class="example">
+<pre class="example">(%i10) concat (1, 2) + 3;
+(%o10)                       12 + 3
+</pre></div>
+
+</dd></dl>
+
+
+
+<span id="Item_003a-DataTypes_002ees_002fdeffn_002fsconcat"></span><dl class="def">
+<dt id="index-sconcat"><span class="category">Función: </span><span><strong>sconcat</strong> <em>(<var>arg_1</var>, <var>arg_2</var>, ...)</em><a href='#index-sconcat' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Concatena sus argumentos para producir una cadena.
+Al contrario que <code>concat</code>, sus argumentos <i>no</i> necesitan ser átomos.
+</p>
+<p>El resultado es una cadena.
+</p>
+<div class="example">
+<pre class="example">(%i1) sconcat (&quot;xx[&quot;, 3, &quot;]:&quot;, expand ((x+y)^3));
+(%o1)               xx[3]:y^3+3*x*y^2+3*x^2*y+x^3
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-DataTypes_002ees_002fdeffn_002fstring"></span><dl class="def">
+<dt id="index-string"><span class="category">Función: </span><span><strong>string</strong> <em>(<var>expr</var>)</em><a href='#index-string' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Convierte <code>expr</code> a la notación lineal de Maxima, tal como si fuese tecleada.
+</p>
+<p>El valor que retorna la función <code>string</code> es una cadena, por lo que no puede ser utilizada en los cálculos.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-DataTypes_002ees_002fdefvr_002fstringdisp"></span><dl class="def">
+<dt id="index-stringdisp"><span class="category">Variable opcional: </span><span><strong>stringdisp</strong><a href='#index-stringdisp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Si <code>stringdisp</code> vale <code>true</code>,
+las cadenas alfanuméricas se muestran encerradas entre comillas dobles. En caso contrario, no se nuestran las comillas.
+</p>
+<p>La variable <code>stringdisp</code> vale siempre <code>true</code> cuando se muestra la definición de una función.
+</p>
+
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) stringdisp: false$
+(%i2) &quot;This is an example string.&quot;;
+(%o2)              This is an example string.
+(%i3) foo () :=
+      print (&quot;This is a string in a function definition.&quot;);
+(%o3) foo() := 
+              print(&quot;This is a string in a function definition.&quot;)
+(%i4) stringdisp: true$
+(%i5) &quot;This is an example string.&quot;;
+(%o5)             &quot;This is an example string.&quot;
+</pre></div>
+
+</dd></dl>
+
+
+
+<span id="Item_003a-Constants_002ees_002fnode_002fConstantes"></span></div>
+<hr>
+<div class="header">
+<p>
+Anterior: <a href="maxima_15.html" accesskey="p" rel="prev">Introducción a las cadenas de texto</a>, Subir: <a href="maxima_14.html" accesskey="u" rel="up">Cadenas de texto</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

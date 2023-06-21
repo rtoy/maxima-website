@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Zufallszahlen (Maxima Manual)</title>
+
+<meta name="description" content="Zufallszahlen (Maxima Manual)">
+<meta name="keywords" content="Zufallszahlen (Maxima Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_334.html" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_49.html" rel="up" title="Mathematische Funktionen">
+<link href="maxima_57.html" rel="prev" title="Hyperbelfunktionen">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="de">
+<div class="section" id="Zufallszahlen">
+<div class="header">
+<p>
+Vorige: <a href="maxima_57.html" accesskey="p" rel="prev">Hyperbelfunktionen</a>, Nach oben: <a href="maxima_49.html" accesskey="u" rel="up">Mathematische Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Zufallszahlen-1"></span><h3 class="section">10.7 Zufallszahlen</h3>
+
+<span id="make_005frandom_005fstate"></span><span id="Item_003a-MathFunctions_002ede_002fdeffn_002fmake_005frandom_005fstate"></span><dl class="def">
+<dt id="index-make_005frandom_005fstate"><span class="category">Funktion: </span><span><strong>make_random_state</strong> <em>(<var>n</var>)</em><a href='#index-make_005frandom_005fstate' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-make_005frandom_005fstate-1"><span class="category">Funktion: </span><span><strong>make_random_state</strong> <em>(<var>s</var>)</em><a href='#index-make_005frandom_005fstate-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-make_005frandom_005fstate-2"><span class="category">Funktion: </span><span><strong>make_random_state</strong> <em>(true)</em><a href='#index-make_005frandom_005fstate-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-make_005frandom_005fstate-3"><span class="category">Funktion: </span><span><strong>make_random_state</strong> <em>(false)</em><a href='#index-make_005frandom_005fstate-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Ein Zufallszustand repr&auml;sentiert den Zustand des Zufallszahlengenerators.  Der
+Zustand enth&auml;lt 627 32-Bit Worte.
+</p>
+<p><code>make_random_state(<var>n</var>)</code> gibt einen neuen Zufallszustand zur&uuml;ck, der 
+aus einer ganzen Zahl <var>n</var> modulo 2^32 erzeugt wird.  <var>n</var> kann eine 
+negative Zahl sein.
+</p>
+<p><code>make_random_state(<var>s</var>)</code> gibt eine Kopie des Zufallszutandes <var>s</var>
+zur&uuml;ck.
+</p>
+<p><code>make_random_state(true)</code> gibt einen neuen Zufallszustand zur&uuml;ck, der aus
+der aktuellen Systemzeit des Computers erzeugt wird.
+</p>
+<p><code>make_random_state(false)</code> gibt eine Kopie des aktuellen Zustands des
+Zufallszahlengenerators zur&uuml;ck.
+</p></dd></dl>
+
+<span id="set_005frandom_005fstate"></span><span id="Item_003a-MathFunctions_002ede_002fdeffn_002fset_005frandom_005fstate"></span><dl class="def">
+<dt id="index-set_005frandom_005fstate"><span class="category">Funktion: </span><span><strong>set_random_state</strong> <em>(<var>s</var>)</em><a href='#index-set_005frandom_005fstate' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Kopiert <var>s</var> in den Zufallszustand des Zufallszahlengenerators.
+</p>
+<p><code>set_random_state</code> gibt immer <code>done</code> zur&uuml;ck.
+</p></dd></dl>
+
+<span id="random"></span><span id="Item_003a-MathFunctions_002ede_002fdeffn_002frandom"></span><dl class="def">
+<dt id="index-random"><span class="category">Funktion: </span><span><strong>random</strong> <em>(<var>x</var>)</em><a href='#index-random' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Erzeugt eine Pseudo-Zufallszahl.  Ist <var>x</var> eine ganze Zahl, gibt 
+<code>random(<var>x</var>)</code> eine ganze Zahl im Intervall 0 bis einschlie&szlig;lich
+<code><var>x</var>-1</code> zur&uuml;ck.  Ist <var>x</var> eine Gleitkommazahl, gibt
+<code>random(<var>x</var>)</code> eine positive Gleitkommazahl zur&uuml;ck, die kleiner als
+<var>x</var> ist.  <code>random</code> gibt eine Fehlermeldung, wenn <var>x</var> weder eine
+ganze Zahl noch eine Gleitkommazahl ist oder wenn <var>x</var> eine negative Zahl 
+ist.
+</p>
+<p>Die Funktionen <code>make_random_state</code> und <code>set_random_state</code> verwalten
+den Zustand des Zufallszahlengenerators.
+</p>
+<p>Der Maxima-Zufallszahlengenerator ist eine Implementation des Mersenne twister
+MT 19937.
+</p>
+<p>Beispiele:
+</p>
+<div class="example">
+<pre class="example">(%i1) s1: make_random_state (654321)$
+(%i2) set_random_state (s1);
+(%o2)                         done
+(%i3) random (1000);
+(%o3)                          768
+(%i4) random (9573684);
+(%o4)                        7657880
+(%i5) random (2^75);
+(%o5)                11804491615036831636390
+(%i6) s2: make_random_state (false)$
+(%i7) random (1.0);
+(%o7)                   .2310127244107132
+(%i8) random (10.0);
+(%o8)                   4.394553645870825
+(%i9) random (100.0);
+(%o9)                   32.28666704056853
+(%i10) set_random_state (s2);
+(%o10)                        done
+(%i11) random (1.0);
+(%o11)                  .2310127244107132
+(%i12) random (10.0);
+(%o12)                  4.394553645870825
+(%i13) random (100.0);
+(%o13)                  32.28666704056853
+</pre></div>
+</dd></dl>
+
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Vorige: <a href="maxima_57.html" accesskey="p" rel="prev">Hyperbelfunktionen</a>, Nach oben: <a href="maxima_49.html" accesskey="u" rel="up">Mathematische Funktionen</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

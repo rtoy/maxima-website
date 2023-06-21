@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para lindstedt (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para lindstedt (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para lindstedt (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_244.html" rel="up" title="lindstedt">
+<link href="maxima_244.html" rel="prev" title="lindstedt">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body lang="es" class="tex2jax_ignore">
+<div class="section" id="Funciones-y-variables-para-lindstedt">
+<div class="header">
+<p>
+Anterior: <a href="maxima_244.html" accesskey="p" rel="prev">lindstedt</a>, Subir: <a href="maxima_244.html" accesskey="u" rel="up">lindstedt</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Funciones-y-variables-para-lindstedt-1"></span><h3 class="section">61.1 Funciones y variables para lindstedt</h3>
+
+
+<span id="Item_003a-lindstedt_002fdeffn_002fLindstedt"></span><dl class="def">
+<dt id="index-Lindstedt"><span class="category">Función: </span><span><strong>Lindstedt</strong> <em>(<var>eq</var>,<var>pvar</var>,<var>torder</var>,<var>ic</var>)</em><a href='#index-Lindstedt' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Este es el primer paso hacia un programa para resolver ecuaciones de Lindstedt.
+Puede resolver problemas con condiciones iniciales, las cuales pueden ser
+constantes arbitrarias (no pueden usarse <var>%k1</var> ni <var>%k2</var>) donde las condiciones iniciales sobre las ecuaciones de perturbación son <em class='tex2jax_process'>\(z[i]=0, z'[i]=0\)</em> para <em class='tex2jax_process'>\(i&gt;0\)</em>.
+El argumento <var>ic</var> es la lista de condiciones iniciales.
+</p>
+<p>Ejemplo:
+</p><div class="example">
+<pre class="example">(%i1) load(&quot;makeOrders&quot;)$
+
+(%i2) load(&quot;lindstedt&quot;)$
+
+(%i3) Lindstedt('diff(x,t,2)+x-(e*x^3)/6,e,2,[1,0]);
+          2
+         e  (cos(5 T) - 24 cos(3 T) + 23 cos(T))
+(%o3) [[[---------------------------------------
+                          36864
+   e (cos(3 T) - cos(T))
+ - --------------------- + cos(T)],
+            192
+          2
+       7 e    e
+T = (- ---- - -- + 1) t]]
+       3072   16
+</pre></div>
+
+<p>Antes de hacer uso de esta función ejecútense  <code>load(&quot;makeOrders&quot;)</code> y <code>load(&quot;lindstedt&quot;)</code>.
+</p></dd></dl>
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Anterior: <a href="maxima_244.html" accesskey="p" rel="prev">lindstedt</a>, Subir: <a href="maxima_244.html" accesskey="u" rel="up">lindstedt</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>Información de licencia de JavaScript</small></a>
+</body>
+</html>

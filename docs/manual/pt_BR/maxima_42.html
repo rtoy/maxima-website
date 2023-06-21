@@ -1,0 +1,1569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funções e Variáveis Definidas para Polinômios (Manual do Maxima)</title>
+
+<meta name="description" content="Funções e Variáveis Definidas para Polinômios (Manual do Maxima)">
+<meta name="keywords" content="Funções e Variáveis Definidas para Polinômios (Manual do Maxima)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_231.html" rel="index" title="Índice de Funções e Variáveis">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Sum&aacute;rio">
+<link href="maxima_40.html" rel="up" title="Polinômios">
+<link href="maxima_41.html" rel="prev" title="Introdução a Polinômios">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="pt">
+<div class="section" id="Fun_00e7_00f5es-e-Vari_00e1veis-Definidas-para-Polin_00f4mios">
+<div class="header">
+<p>
+Anterior: <a href="maxima_41.html" accesskey="p" rel="prev">Introdução a Polinômios</a>, Acima: <a href="maxima_40.html" accesskey="u" rel="up">Polinômios</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+<span id="Funcoes-e-Variaveis-Definidas-para-Polinomios"></span><h3 class="section">12.2, Funções e Variáveis Definidas para Polinômios</h3>
+
+<span id="Item_003a-Polynomials_002fdefvr_002falgebraic"></span><dl class="def">
+<dt id="index-algebraic"><span class="category">Variável de opção: </span><span><strong>algebraic</strong><a href='#index-algebraic' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>false</code>
+</p>
+<p><code>algebraic</code> deve ser escolhida para <code>true</code> com o objetivo de que a
+simplificação de inteiros algébricos tenha efeito.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fberlefact"></span><dl class="def">
+<dt id="index-berlefact"><span class="category">Variável de opção: </span><span><strong>berlefact</strong><a href='#index-berlefact' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>true</code>
+</p>
+<p>Quando <code>berlefact</code> for <code>false</code> então o algorítmo de fatoração de
+Kronecker será usado.  De outra forma o algorítmo de Berlekamp, que é o
+padrão, será usado.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fbezout"></span><dl class="def">
+<dt id="index-bezout"><span class="category">Função: </span><span><strong>bezout</strong> <em>(<var>p1</var>, <var>p2</var>, <var>x</var>)</em><a href='#index-bezout' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>uma alternativa para o comando <code>resultant</code>.  Isso
+retorna uma matriz.  <code>determinant</code> dessa matriz é o resultante desejado.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fbothcoef"></span><dl class="def">
+<dt id="index-bothcoef"><span class="category">Função: </span><span><strong>bothcoef</strong> <em>(<var>expr</var>, <var>x</var>)</em><a href='#index-bothcoef' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna uma lista da qual o primeiro membro é o
+coeficiente de <var>x</var> em <var>expr</var> (como achado por <code>ratcoef</code> se <var>expr</var> está na forma CRE
+de outro modo por <code>coeff</code>) e cujo segundo membro é a parte restante de
+<var>expr</var>.  Isto é, <code>[A, B]</code> onde <code><var>expr</var> = A*<var>x</var> + B</code>.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) islinear (expr, x) := block ([c],
+        c: bothcoef (rat (expr, x), x),
+        é (freeof (x, c) and c[1] # 0))$
+(%i2) islinear ((r^2 - (x - r)^2)/x, x);
+(%o2)                         true
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fcoeff"></span><dl class="def">
+<dt id="index-coeff"><span class="category">Função: </span><span><strong>coeff</strong> <em>(<var>expr</var>, <var>x</var>, <var>n</var>)</em><a href='#index-coeff' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o coeficiente de <code><var>x</var>^<var>n</var></code> em <var>expr</var>.  <var>n</var> pode ser
+omitido se for 1.  <var>x</var> pode ser um átomo, ou subexpressão completa de
+<var>expr</var> e.g., <code>sin(x)</code>, <code>a[i+1]</code>, <code>x + y</code>, etc. (No último caso a
+expressão <code>(x + y)</code> pode ocorrer em <var>expr</var>).  Algumas vezes isso pode ser necessário
+para expandir ou fatorar <var>expr</var> com o objetivo de fazer <code><var>x</var>^<var>n</var></code> explicito.  Isso não é
+realizado por <code>coeff</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) coeff (2*a*tan(x) + tan(x) + b = 5*tan(x) + 3, tan(x));
+(%o1)                      2 a + 1 = 5
+(%i2) coeff (y + x*%e^x + 1, x, 0);
+(%o2)                         y + 1
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fcombine"></span><dl class="def">
+<dt id="index-combine"><span class="category">Função: </span><span><strong>combine</strong> <em>(<var>expr</var>)</em><a href='#index-combine' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Simplifica a adição <var>expr</var> por termos combinados com o mesmo
+denominador dentro de um termo simples.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fcontent"></span><dl class="def">
+<dt id="index-content"><span class="category">Função: </span><span><strong>content</strong> <em>(<var>p_1</var>, <var>x_1</var>, ..., <var>x_n</var>)</em><a href='#index-content' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna uma lista cujo primeiro elemento é
+o máximo divisor comum dos coeficientes dos termos do
+polinômio <var>p_1</var> na variável <var>x_n</var> (isso é o conteúdo) e cujo
+segundo elemento é o polinômio <var>p_1</var> dividido pelo conteúdo.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) content (2*x*y + 4*x^2*y^2, y);
+                                   2
+(%o1)                   [2 x, 2 x y  + y]
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fdenom"></span><dl class="def">
+<dt id="index-denom"><span class="category">Função: </span><span><strong>denom</strong> <em>(<var>expr</var>)</em><a href='#index-denom' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o denominador da expressão racional <var>expr</var>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fdivide"></span><dl class="def">
+<dt id="index-divide"><span class="category">Função: </span><span><strong>divide</strong> <em>(<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, ..., <var>x_n</var>)</em><a href='#index-divide' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>calcula o quocietne e o resto
+do polinômio <var>p_1</var> dividido pelo polinômio <var>p_2</var>, na variável
+principal do polinômio, <var>x_n</var>.
+As outras variáveis são como na função <code>ratvars</code>.
+O resultado é uma lista cujo primeiro elemento é o quociente
+e cujo segundo elemento é o resto.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) divide (x + y, x - y, x);
+(%o1)                       [1, 2 y]
+(%i2) divide (x + y, x - y);
+(%o2)                      [- 1, 2 x]
+</pre></div>
+
+<p>Note que <code>y</code> é a variável principal no segundo exemplo.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002feliminate"></span><dl class="def">
+<dt id="index-eliminate"><span class="category">Função: </span><span><strong>eliminate</strong> <em>([<var>eqn_1</var>, ..., <var>eqn_n</var>], [<var>x_1</var>, ..., <var>x_k</var>])</em><a href='#index-eliminate' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Elimina variáveis de
+equações (ou expressões assumidas iguais a zero) pegando resultantes
+sucessivos. Isso retorna uma lista de <code><var>n</var> - <var>k</var></code> expressões com <var>k</var>
+variáveis <var>x_1</var>, ..., <var>x_k</var> eliminadas.  Primeiro <var>x_1</var> é eliminado retornando <code><var>n</var> - 1</code>
+expressões, então <code>x_2</code> é eliminado, etc.  Se <code><var>k</var> = <var>n</var></code> então uma expressão simples em uma
+lista é retornada livre das variáveis <var>x_1</var>, ..., <var>x_k</var>.  Nesse caso <code>solve</code>
+é chamado para resolver a última resultante para a última variável.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) expr1: 2*x^2 + y*x + z;
+                                      2
+(%o1)                    z + x y + 2 x
+(%i2) expr2: 3*x + 5*y - z - 1;
+(%o2)                  - z + 5 y + 3 x - 1
+(%i3) expr3: z^2 + x - y^2 + 5;
+                          2    2
+(%o3)                    z  - y  + x + 5
+(%i4) eliminate ([expr3, expr2, expr1], [y, z]);
+             8         7         6          5          4
+(%o4) [7425 x  - 1170 x  + 1299 x  + 12076 x  + 22887 x
+
+                                    3         2
+                            - 5154 x  - 1291 x  + 7688 x + 15376]
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fezgcd"></span><dl class="def">
+<dt id="index-ezgcd"><span class="category">Função: </span><span><strong>ezgcd</strong> <em>(<var>p_1</var>, <var>p_2</var>, <var>p_3</var>, ...)</em><a href='#index-ezgcd' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna uma lista cujo primeiro elemento é o m.d.c. dos
+polinômios <var>p_1</var>, <var>p_2</var>, <var>p_3</var>, ...  e cujos restantes elementos são os
+polinômios divididos pelo mdc.  Isso sempre usa o algorítmo
+<code>ezgcd</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002ffacexpand"></span><dl class="def">
+<dt id="index-facexpand"><span class="category">Variável de opção: </span><span><strong>facexpand</strong><a href='#index-facexpand' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>true</code>
+</p>
+<p><code>facexpand</code> controla se os fatores irredutíveis
+retornados por <code>factor</code> estão na forma expandida (o padrão) ou na forma recursiva
+(CRE normal).
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002ffactcomb"></span><dl class="def">
+<dt id="index-factcomb"><span class="category">Função: </span><span><strong>factcomb</strong> <em>(<var>expr</var>)</em><a href='#index-factcomb' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Tenta combinar os coeficientes de fatoriais em <var>expr</var>
+com os próprios fatoriais convertendo, por exemplo, <code>(n + 1)*n!</code>
+em <code>(n + 1)!</code>.
+</p>
+<p><code>sumsplitfact</code> se escolhida para <code>false</code> fará com que <code>minfactorial</code> seja
+aplicado após um <code>factcomb</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002ffactor"></span><dl class="def">
+<dt id="index-factor"><span class="category">Função: </span><span><strong>factor</strong> <em>(<var>expr</var>)</em><a href='#index-factor' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-factor-1"><span class="category">Função: </span><span><strong>factor</strong> <em>(<var>expr</var>, <var>p</var>)</em><a href='#index-factor-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Fatora a expressão <var>expr</var>, contendo qualquer número de
+variáveis ou funções, em fatores irredutíveis sobre os inteiros.
+<code>factor (<var>expr</var>, <var>p</var>)</code> fatora <var>expr</var> sobre o campo dos inteiros com um elemento
+adjunto cujo menor polinômio é <var>p</var>.
+</p>
+<p><code>factor</code> usa a função <code>ifactors</code> para fatorar inteiros.
+</p>
+<p><code>factorflag</code> se <code>false</code> suprime a fatoração de fatores inteiros
+de expressões racionais.
+</p>
+<p><code>dontfactor</code> pode ser escolhida para uma lista de variáveis com relação à qual
+fatoração não é para ocorrer.  (Essa é inicialmente vazia).  Fatoração também
+não acontece com relação a quaisquer variáveis que são menos
+importantes (usando a ordenação de variável assumida pela forma CRE) como
+essas na lista <code>dontfactor</code>.
+</p>
+<p><code>savefactors</code> se <code>true</code> faz com que os fatores de uma expressão que
+é um produto de fatores seja guardada por certas funções com o objetivo de
+aumentar a velocidade de futuras fatorações de expressões contendo alguns dos
+mesmos fatores.
+</p>
+<p><code>berlefact</code> se <code>false</code> então o algorítmo de fatoração de Kronecker será
+usado de outra forma o algorítmo de Berlekamp, que é o padrão, será
+usado.
+</p>
+<p><code>intfaclim</code> se <code>true</code> maxima irá interromper a fatoração de
+inteiros se nenhum fator for encontrado após tentar divisões e o método rho de
+Pollard.  Se escolhida para <code>false</code> (esse é o caso quando o usuário chama
+<code>factor</code> explicitamente), a fatoração completa do inteiro será
+tentada.  A escolha do usuário para <code>intfaclim</code> é usada para chamadas
+internas a <code>factor</code>. Dessa forma, <code>intfaclim</code> pode ser resetada para evitar que o
+Maxima gaste um tempo muito longo fatorando inteiros grandes.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) factor (2^63 - 1);
+                    2
+(%o1)              7  73 127 337 92737 649657
+(%i2) factor (-8*y - 4*x + z^2*(2*y + x));
+(%o2)               (2 y + x) (z - 2) (z + 2)
+(%i3) -1 - 2*x - x^2 + y^2 + 2*x*y^2 + x^2*y^2;
+                2  2        2    2    2
+(%o3)          x  y  + 2 x y  + y  - x  - 2 x - 1
+(%i4) block ([dontfactor: [x]], factor (%/36/(1 + 2*y + y^2)));
+                       2
+                     (x  + 2 x + 1) (y - 1)
+(%o4)                ----------------------
+                           36 (y + 1)
+(%i5) factor (1 + %e^(3*x));
+                      x         2 x     x
+(%o5)              (%e  + 1) (%e    - %e  + 1)
+(%i6) factor (1 + x^4, a^2 - 2);
+                    2              2
+(%o6)             (x  - a x + 1) (x  + a x + 1)
+(%i7) factor (-y^2*z^2 - x*z^2 + x^2*y^2 + x^3);
+                       2
+(%o7)              - (y  + x) (z - x) (z + x)
+(%i8) (2 + x)/(3 + x)/(b + x)/(c + x)^2;
+                             x + 2
+(%o8)               ------------------------
+                                           2
+                    (x + 3) (x + b) (x + c)
+(%i9) ratsimp (%);
+                4                  3
+(%o9) (x + 2)/(x  + (2 c + b + 3) x
+
+     2                       2             2                   2
+ + (c  + (2 b + 6) c + 3 b) x  + ((b + 3) c  + 6 b c) x + 3 b c )
+(%i10) partfrac (%, x);
+           2                   4                3
+(%o10) - (c  - 4 c - b + 6)/((c  + (- 2 b - 6) c
+
+     2              2         2                2
+ + (b  + 12 b + 9) c  + (- 6 b  - 18 b) c + 9 b ) (x + c))
+
+                 c - 2
+ - ---------------------------------
+     2                             2
+   (c  + (- b - 3) c + 3 b) (x + c)
+
+                         b - 2
+ + -------------------------------------------------
+             2             2       3      2
+   ((b - 3) c  + (6 b - 2 b ) c + b  - 3 b ) (x + b)
+
+                         1
+ - ----------------------------------------------
+             2
+   ((b - 3) c  + (18 - 6 b) c + 9 b - 27) (x + 3)
+(%i11) map ('factor, %);
+              2
+             c  - 4 c - b + 6                 c - 2
+(%o11) - ------------------------- - ------------------------
+                2        2                                  2
+         (c - 3)  (c - b)  (x + c)   (c - 3) (c - b) (x + c)
+
+                       b - 2                        1
+            + ------------------------ - ------------------------
+                             2                          2
+              (b - 3) (c - b)  (x + b)   (b - 3) (c - 3)  (x + 3)
+(%i12) ratsimp ((x^5 - 1)/(x - 1));
+                       4    3    2
+(%o12)                x  + x  + x  + x + 1
+(%i13) subst (a, x, %);
+                       4    3    2
+(%o13)                a  + a  + a  + a + 1
+(%i14) factor (%th(2), %);
+                       2        3        3    2
+(%o14)   (x - a) (x - a ) (x - a ) (x + a  + a  + a + 1)
+(%i15) factor (1 + x^12);
+                       4        8    4
+(%o15)               (x  + 1) (x  - x  + 1)
+(%i16) factor (1 + x^99);
+                 2            6    3
+(%o16) (x + 1) (x  - x + 1) (x  - x  + 1)
+
+   10    9    8    7    6    5    4    3    2
+ (x   - x  + x  - x  + x  - x  + x  - x  + x  - x + 1)
+
+   20    19    17    16    14    13    11    10    9    7    6
+ (x   + x   - x   - x   + x   + x   - x   - x   - x  + x  + x
+
+    4    3            60    57    51    48    42    39    33
+ - x  - x  + x + 1) (x   + x   - x   - x   + x   + x   - x
+
+    30    27    21    18    12    9    3
+ - x   - x   + x   + x   - x   - x  + x  + 1)
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002ffactorflag"></span><dl class="def">
+<dt id="index-factorflag"><span class="category">Variável de opção: </span><span><strong>factorflag</strong><a href='#index-factorflag' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>false</code>
+</p>
+<p>Quando <code>factorflag</code> for <code>false</code>, suprime a fatoração de
+fatores inteiros em expressões racionais.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002ffactorout"></span><dl class="def">
+<dt id="index-factorout"><span class="category">Função: </span><span><strong>factorout</strong> <em>(<var>expr</var>, <var>x_1</var>, <var>x_2</var>, ...)</em><a href='#index-factorout' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Rearranja a adição <var>expr</var> em uma adição de
+parcelas da forma <code>f (<var>x_1</var>, <var>x_2</var>, ...)*g</code> onde <code>g</code> é um produto de
+expressões que não possuem qualquer <var>x_i</var> e <code>f</code> é fatorado.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002ffactorsum"></span><dl class="def">
+<dt id="index-factorsum"><span class="category">Função: </span><span><strong>factorsum</strong> <em>(<var>expr</var>)</em><a href='#index-factorsum' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Tenta agrupar parcelas em fatores de <var>expr</var> que são adições
+em grupos de parcelas tais que sua adição é fatorável.  <code>factorsum</code> pode
+recuperar o resultado de <code>expand ((x + y)^2 + (z + w)^2)</code> mas não pode recuperar
+<code>expand ((x + 1)^2 + (x + y)^2)</code> porque os termos possuem variáveis em comum.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) expand ((x + 1)*((u + v)^2 + a*(w + z)^2));
+           2      2                            2      2
+(%o1) a x z  + a z  + 2 a w x z + 2 a w z + a w  x + v  x
+
+                                     2        2    2            2
+                        + 2 u v x + u  x + a w  + v  + 2 u v + u
+(%i2) factorsum (%);
+                                   2          2
+(%o2)            (x + 1) (a (z + w)  + (v + u) )
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002ffasttimes"></span><dl class="def">
+<dt id="index-fasttimes"><span class="category">Função: </span><span><strong>fasttimes</strong> <em>(<var>p_1</var>, <var>p_2</var>)</em><a href='#index-fasttimes' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o produto dos polinômios <var>p_1</var> e <var>p_2</var> usando um
+algorítmo especial para a multiplicação de polinômios.  <code>p_1</code> e <code>p_2</code> podem ser
+de várias variáveis, densos, e aproximadamente do mesmo tamanho.  A multiplicação
+clássica é de ordem <code>n_1 n_2</code> onde
+<code>n_1</code> é o grau de <code>p_1</code>
+and <code>n_2</code> é o grau de <code>p_2</code>.
+<code>fasttimes</code> é da ordem <code>max (n_1, n_2)^1.585</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002ffullratsimp"></span><dl class="def">
+<dt id="index-fullratsimp"><span class="category">Função: </span><span><strong>fullratsimp</strong> <em>(<var>expr</var>)</em><a href='#index-fullratsimp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p><code>fullratsimp</code> aplica
+repetidamente <code>ratsimp</code> seguido por simplificação não racional a uma
+expressão até que nenhuma mudança adicional ocorra,
+e retorna o resultado.
+</p>
+<p>Quando expressões não racionais estão envolvidas, uma chamada
+a <code>ratsimp</code> seguida como é usual por uma simplificação não racional
+(&quot;geral&quot;) pode não ser suficiente para retornar um resultado simplificado.
+Algumas vezes, mais que uma tal chamada pode ser necessária. 
+<code>fullratsimp</code> faz esse processo convenientemente.
+</p>
+<p><code>fullratsimp (<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</code> pega um ou mais argumentos similar
+a <code>ratsimp</code> e <code>rat</code>.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: (x^(a/2) + 1)^2*(x^(a/2) - 1)^2/(x^a - 1);
+                       a/2     2   a/2     2
+                     (x    - 1)  (x    + 1)
+(%o1)                -----------------------
+                              a
+                             x  - 1
+(%i2) ratsimp (expr);
+                          2 a      a
+                         x    - 2 x  + 1
+(%o2)                    ---------------
+                              a
+                             x  - 1
+(%i3) fullratsimp (expr);
+                              a
+(%o3)                        x  - 1
+(%i4) rat (expr);
+                       a/2 4       a/2 2
+                     (x   )  - 2 (x   )  + 1
+(%o4)/R/             -----------------------
+                              a
+                             x  - 1
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002ffullratsubst"></span><dl class="def">
+<dt id="index-fullratsubst"><span class="category">Função: </span><span><strong>fullratsubst</strong> <em>(<var>a</var>, <var>b</var>, <var>c</var>)</em><a href='#index-fullratsubst' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>é o mesmo que <code>ratsubst</code> exceto que essa chama
+a si mesma recursivamente sobre esse resultado até que o resultado para de mudar.
+Essa função é útil quando a expressão de substituição e a
+expressão substituída tenham uma ou mais variáveis em comum.
+</p>
+<p><code>fullratsubst</code> irá também aceitar seus argumentos no formato de
+<code>lratsubst</code>.  Isto é, o primeiro argumento pode ser uma substituição simples
+de equação ou uma lista de tais equações, enquanto o segundo argumento é a
+expressão sendo processada.
+</p>
+<p><code>load (&quot;lrats&quot;)</code> chama <code>fullratsubst</code> e <code>lratsubst</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;lrats&quot;)$
+</pre></div>
+<ul>
+<li> <code>subst</code> pode realizar multiplas substituições.
+<code>lratsubst</code> é analogo a <code>subst</code>.
+</li></ul>
+<div class="example">
+<pre class="example">(%i2) subst ([a = b, c = d], a + c);
+(%o2)                         d + b
+(%i3) lratsubst ([a^2 = b, c^2 = d], (a + e)*c*(a + c));
+(%o3)                (d + a c) e + a d + b c
+</pre></div>
+<ul>
+<li> Se somente uma substituição é desejada, então uma equação
+simples pode ser dada como primeiro argumento.
+</li></ul>
+<div class="example">
+<pre class="example">(%i4) lratsubst (a^2 = b, a^3);
+(%o4)                          a b
+</pre></div>
+<ul>
+<li> <code>fullratsubst</code> é equivalente a <code>ratsubst</code>
+exceto que essa executa recursivamente até que seu resultado para de mudar.
+</li></ul>
+<div class="example">
+<pre class="example">(%i5) ratsubst (b*a, a^2, a^3);
+                               2
+(%o5)                         a  b
+(%i6) fullratsubst (b*a, a^2, a^3);
+                                 2
+(%o6)                         a b
+</pre></div>
+<ul>
+<li> <code>fullratsubst</code> também aceita uma lista de equações ou uma equação
+simples como primeiro argumento.
+</li></ul>
+<div class="example">
+<pre class="example">(%i7) fullratsubst ([a^2 = b, b^2 = c, c^2 = a], a^3*b*c);
+(%o7)                           b
+(%i8) fullratsubst (a^2 = b*a, a^3);
+                                 2
+(%o8)                         a b
+</pre></div>
+<ul>
+<li> <code>fullratsubst</code> pode causar uma recursão infinita.
+</li></ul>
+<div class="example">
+<pre class="example">(%i9) errcatch (fullratsubst (b*a^2, a^2, a^3));
+
+*** - Lisp stack overflow. RESET
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fgcd"></span><dl class="def">
+<dt id="index-gcd"><span class="category">Função: </span><span><strong>gcd</strong> <em>(<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, ...)</em><a href='#index-gcd' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o máximo divisor comum entre <var>p_1</var> e <var>p_2</var>.
+O sinalizador <code>gcd</code> determina qual algorítmo é empregado.
+Escolhendo <code>gcd</code> para <code>ez</code>, <code>subres</code>, <code>red</code>, ou <code>spmod</code> seleciona o algorítmo <code>ezgcd</code>,
+subresultante <code>prs</code>, reduzido, ou modular,
+respectivamente.  Se <code>gcd</code> for <code>false</code> então <code>gcd (<var>p_1</var>, <var>p_2</var>, <var>x</var>)</code> sempre retorna 1
+para todo <var>x</var>.  Muitas funções (e.g.  <code>ratsimp</code>, <code>factor</code>, etc.) fazem com que mdc&rsquo;s
+sejam feitos implicitamente.  Para polinômios homogêneos é recomendado
+que <code>gcd</code> igual a <code>subres</code> seja usado.  Para pegar o mdc quando uma expressão algébrica está
+presente, e.g. <code>gcd (<var>x</var>^2 - 2*sqrt(2)*<var>x</var> + 2, <var>x</var> - sqrt(2))</code>, <code>algebraic</code> deve ser
+<code>true</code> e <code>gcd</code> não deve ser <code>ez</code>.  <code>subres</code> é um novo algorítmo, e pessoas
+que tenham estado usando a opção <code>red</code> podem provavelmente alterar isso para
+<code>subres</code>.
+</p>
+<p>O sinalizador <code>gcd</code>, padrão: <code>subres</code>, se <code>false</code> irá também evitar o máximo
+divisor comum de ser usado quando expressões são convertidas para a forma de expressão racional
+canônica (CRE).  Isso irá algumas vezes aumentar a velocidade dos cálculos se mdc&rsquo;s não são
+requeridos.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fgcdex"></span><dl class="def">
+<dt id="index-gcdex"><span class="category">Função: </span><span><strong>gcdex</strong> <em>(<var>f</var>, <var>g</var>)</em><a href='#index-gcdex' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-gcdex-1"><span class="category">Função: </span><span><strong>gcdex</strong> <em>(<var>f</var>, <var>g</var>, <var>x</var>)</em><a href='#index-gcdex-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retornam uma lista <code>[<var>a</var>, <var>b</var>, <var>u</var>]</code>
+onde <var>u</var> é o máximo divisor comum (mdc) entre <var>f</var> e <var>g</var>,
+e <var>u</var> é igual a <code><var>a</var> <var>f</var> + <var>b</var> <var>g</var></code>.
+Os argumentos <var>f</var> e <var>g</var> podem ser polinômios de uma variável,
+ou de outra forma polinômios em <var>x</var> uma <b>main</b>(principal) variável suprida
+desde que nós precisamos estar em um domínio de ideal principal para isso trabalhar.
+O mdc significa o mdc considerando <var>f</var> e <var>g</var> como polinômios de uma única variável com coeficientes
+sendo funções racionais em outras variáveis.
+</p>
+<p><code>gcdex</code> implementa o algorítmo Euclideano,
+onde temos a seq&uuml;ência
+of <code>L[i]: [a[i], b[i], r[i]]</code> que são todos perpendiculares
+a <code>[f, g, -1]</code> e o próximo se é construído como
+se <code>q = quotient(r[i]/r[i+1])</code> então <code>L[i+2]: L[i] - q L[i+1]</code>, e isso
+encerra em <code>L[i+1]</code> quando o resto <code>r[i+2]</code> for zero.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) gcdex (x^2 + 1, x^3 + 4);
+                       2
+                      x  + 4 x - 1  x + 4
+(%o1)/R/           [- ------------, -----, 1]
+                           17        17
+(%i2) % . [x^2 + 1, x^3 + 4, -1];
+(%o2)/R/                        0
+</pre></div>
+
+<p>Note que o mdc adiante é <code>1</code>
+uma vez que trabalhamos em <code>k(y)[x]</code>, o <code>y+1</code> não pode ser esperado em <code>k[y, x]</code>.
+</p>
+
+<div class="example">
+<pre class="example">(%i1) gcdex (x*(y + 1), y^2 - 1, x);
+                               1
+(%o1)/R/                 [0, ------, 1]
+                              2
+                             y  - 1
+</pre></div>
+
+</dd></dl>
+
+
+<span id="Item_003a-Polynomials_002fdeffn_002fgcfactor"></span><dl class="def">
+<dt id="index-gcfactor"><span class="category">Função: </span><span><strong>gcfactor</strong> <em>(<var>n</var>)</em><a href='#index-gcfactor' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Fatora o inteiro Gaussiano <var>n</var> sobre os inteiros Gaussianos, i.e.,
+números da forma <code><var>a</var> + <var>b</var> <code>%i</code></code> onde <var>a</var> e <var>b</var> são inteiros raconais
+(i.e.,  inteiros comuns).  Fatorações são normalizadas fazendo <var>a</var> e <var>b</var>
+não negativos.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fgfactor"></span><dl class="def">
+<dt id="index-gfactor"><span class="category">Função: </span><span><strong>gfactor</strong> <em>(<var>expr</var>)</em><a href='#index-gfactor' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Fatora o polinômio <var>expr</var> sobre os inteiros de Gauss
+(isto é, os inteiros com a unidade imaginária <code>%i</code> adjunta).
+Isso é como <code>factor (<var>expr</var>, <var>a</var>^2+1)</code> trocando <var>a</var> por <code>%i</code>.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) gfactor (x^4 - 1);
+(%o1)           (x - 1) (x + 1) (x - %i) (x + %i)
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fgfactorsum"></span><dl class="def">
+<dt id="index-gfactorsum"><span class="category">Função: </span><span><strong>gfactorsum</strong> <em>(<var>expr</var>)</em><a href='#index-gfactorsum' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>é similar a <code>factorsum</code> mas aplica <code>gfactor</code> em lugar
+de <code>factor</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fhipow"></span><dl class="def">
+<dt id="index-hipow"><span class="category">Função: </span><span><strong>hipow</strong> <em>(<var>expr</var>, <var>x</var>)</em><a href='#index-hipow' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o maior expoente explícito de <var>x</var> em <var>expr</var>.
+<var>x</var> pode ser uma variável ou uma expressão geral.
+Se <var>x</var> não aparece em <var>expr</var>,
+<code>hipow</code> retorna <code>0</code>.
+</p>
+<p><code>hipow</code> não considera expressões equivalentes a <code>expr</code>.
+Em particular, <code>hipow</code> não expande <code>expr</code>,
+então <code>hipow (<var>expr</var>, <var>x</var>)</code> e <code>hipow (expand (<var>expr</var>, <var>x</var>))</code>
+podem retornar diferentes resultados.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) hipow (y^3 * x^2 + x * y^4, x);
+(%o1)                           2
+(%i2) hipow ((x + y)^5, x);
+(%o2)                           1
+(%i3) hipow (expand ((x + y)^5), x);
+(%o3)                           5
+(%i4) hipow ((x + y)^5, x + y);
+(%o4)                           5
+(%i5) hipow (expand ((x + y)^5), x + y);
+(%o5)                           0
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fintfaclim"></span><dl class="def">
+<dt id="index-intfaclim"><span class="category">Variável de opção: </span><span><strong>intfaclim</strong><a href='#index-intfaclim' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor padrão: true
+</p>
+<p>Se <code>true</code>, maxima irá interromper a fatoração de
+inteiros se nenhum fator for encontrado após tentar divisões e o método rho de
+Pollard e a fatoração não será completada.
+</p>
+<p>Quando <code>intfaclim</code> for <code>false</code> (esse é o caso quando o usuário
+chama <code>factor</code> explicitamente), a fatoração completa será
+tentada.  <code>intfaclim</code> é escolhida para <code>false</code> quando fatores são
+calculados em <code>divisors</code>, <code>divsum</code> e <code>totient</code>.
+</p>
+<p>Chamadas internas a <code>factor</code> respeitam o valor especificado pelo usuário para
+<code>intfaclim</code>. Setting <code>intfaclim</code> to <code>true</code> may reduce
+<code>intfaclim</code>. Escolhendo <code>intfaclim</code> para <code>true</code> podemos reduzir
+o tempo gasto fatorando grandes inteiros.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fkeepfloat"></span><dl class="def">
+<dt id="index-keepfloat"><span class="category">Variável de opção: </span><span><strong>keepfloat</strong><a href='#index-keepfloat' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>false</code>
+</p>
+<p>Quando <code>keepfloat</code> for <code>true</code>, evitamos que números
+em ponto flutuante sejam racionalizados quando expressões que os possuem
+são então convertidas para a forma de expressão racional canônica (CRE).
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002flratsubst"></span><dl class="def">
+<dt id="index-lratsubst"><span class="category">Função: </span><span><strong>lratsubst</strong> <em>(<var>L</var>, <var>expr</var>)</em><a href='#index-lratsubst' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>é análogo a <code>subst (<var>L</var>, <var>expr</var>)</code>
+exceto que esse usa <code>ratsubst</code> em lugar de <code>subst</code>.
+</p>
+<p>O primeiro argumento de
+<code>lratsubst</code> é uma equação ou uma lista de equações idênticas em
+formato para que sejam aceitas por <code>subst</code>.  As
+substituições são feitas na ordem dada pela lista de equações,
+isto é, da esquerda para a direita.
+</p>
+<p><code>load (&quot;lrats&quot;)</code> chama <code>fullratsubst</code> e <code>lratsubst</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) load (&quot;lrats&quot;)$
+</pre></div>
+<ul>
+<li> <code>subst</code> pode realizar multiplas substituições.
+<code>lratsubst</code> é analoga a <code>subst</code>.
+</li></ul>
+<div class="example">
+<pre class="example">(%i2) subst ([a = b, c = d], a + c);
+(%o2)                         d + b
+(%i3) lratsubst ([a^2 = b, c^2 = d], (a + e)*c*(a + c));
+(%o3)                (d + a c) e + a d + b c
+</pre></div>
+<ul>
+<li> Se somente uma substituição for desejada, então uma equação
+simples pode ser dada como primeiro argumento.
+</li></ul>
+<div class="example">
+<pre class="example">(%i4) lratsubst (a^2 = b, a^3);
+(%o4)                          a b
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fmodulus"></span><dl class="def">
+<dt id="index-modulus"><span class="category">Variável de opção: </span><span><strong>modulus</strong><a href='#index-modulus' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>false</code>
+</p>
+<p>Quando <code>modulus</code> for um número positivo <var>p</var>,
+operações sobre os números racionais (como retornado por <code>rat</code> e funções relacionadas)
+são realizadas módulo <var>p</var>,
+usando o então chamado sistema de módulo &quot;balanceado&quot;
+no qual <code><var>n</var> módulo <var>p</var></code> é definido como 
+um inteiro <var>k</var> em <code>[-(<var>p</var>-1)/2, ..., 0, ..., (<var>p</var>-1)/2]</code>
+quando <var>p</var> for ímpar, ou <code>[-(<var>p</var>/2 - 1), ..., 0, ...., <var>p</var>/2]</code> quando <var>p</var> for par,
+tal que <code><var>a</var> <var>p</var> + <var>k</var></code> seja igual a <var>n</var> para algum inteiro <var>a</var>.
+</p>
+<p>Se <var>expr</var> já estiver na forma de expressão racional canônica (CRE) quando <code>modulus</code> for colocado em seu valor original,
+então você pode precisar repetir o rat <var>expr</var>, e.g., <code>expr: rat (ratdisrep (expr))</code>,
+com o objetivo de pegar resultados corretos.
+</p>
+<p>Tipicamente <code>modulus</code> é escolhido para um número primo.
+Se <code>modulus</code> for escolhido para um inteiro não primo positivo,
+essa escolha é aceita, mas uma mensagem de alerta é mostrada.
+Maxima permitirá que zero ou um inteiro negativo seja atribuído a <code>modulus</code>,
+embora isso não seja limpo se aquele tiver quaisquer conseq&uuml;ências úteis.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Polynomials_002fdeffn_002fnum"></span><dl class="def">
+<dt id="index-num"><span class="category">Função: </span><span><strong>num</strong> <em>(<var>expr</var>)</em><a href='#index-num' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o numerador de <var>expr</var> se isso for uma razão.
+Se <var>expr</var> não for uma razão, <var>expr</var> é retornado.
+</p>
+<p><code>num</code> avalia seu argumento.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fpolydecomp"></span><dl class="def">
+<dt id="index-polydecomp"><span class="category">Função: </span><span><strong>polydecomp</strong> <em>(<var>p</var>, <var>x</var>)</em><a href='#index-polydecomp' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Decompões o polinômio <var>p</var> na variável  <var>x</var>
+em uma composição funcional de polinômios em <var>x</var>.
+<code>polydecomp</code> retorna uma lista <code>[<var>p_1</var>, ..., <var>p_n</var>]</code> tal que
+</p>
+<div class="example">
+<pre class="example">lambda ([x], p_1) (lambda ([x], p_2) (... (lambda ([x], p_n) (x)) ...))
+</pre></div>
+
+<p>seja igual a <var>p</var>.
+O grau de <var>p_i</var> é maior que 1 para <var>i</var> menor que <var>n</var>.
+</p>
+<p>Tal decomposição não é única.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) polydecomp (x^210, x);
+                          7   5   3   2
+(%o1)                   [x , x , x , x ]
+(%i2) p : expand (subst (x^3 - x - 1, x, x^2 - a));
+                6      4      3    2
+(%o2)          x  - 2 x  - 2 x  + x  + 2 x - a + 1
+(%i3) polydecomp (p, x);
+                        2       3
+(%o3)                 [x  - a, x  - x - 1]
+</pre></div>
+
+<p>As seguintes funções compõem <code>L = [e_1, ..., e_n]</code> como funções em <code>x</code>;
+essa funçào é a inversa de <code>polydecomp</code>:
+</p>
+<div class="example">
+<pre class="example">compose (L, x) :=
+  block ([r : x], for e in L do r : subst (e, x, r), r) $
+</pre></div>
+
+<p>Re-exprimindo o exemplo acima usando <code>compose</code>:
+</p>
+<div class="example">
+<pre class="example">(%i3) polydecomp (compose ([x^2 - a, x^3 - x - 1], x), x);
+                        2       3
+(%o3)                 [x  - a, x  - x - 1]
+</pre></div>
+
+<p>Note que apesar de <code>compose (polydecomp (<var>p</var>, <var>x</var>), <var>x</var>)</code>
+sempre retornar <var>p</var> (não expandido),
+<code>polydecomp (compose ([<var>p_1</var>, ..., <var>p_n</var>], <var>x</var>), <var>x</var>)</code> <i>não</i>
+necessáriamente retorna <code>[<var>p_1</var>, ..., <var>p_n</var>]</code>:
+</p>
+<div class="example">
+<pre class="example">(%i4) polydecomp (compose ([x^2 + 2*x + 3, x^2], x), x);
+                          2       2
+(%o4)                   [x  + 2, x  + 1]
+(%i5) polydecomp (compose ([x^2 + x + 1, x^2 + x + 1], x), x);
+                      2       2
+                     x  + 3  x  + 5
+(%o5)               [------, ------, 2 x + 1]
+                       4       2
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fquotient"></span><dl class="def">
+<dt id="index-quotient"><span class="category">Função: </span><span><strong>quotient</strong> <em>(<var>p_1</var>, <var>p_2</var>)</em><a href='#index-quotient' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-quotient-1"><span class="category">Função: </span><span><strong>quotient</strong> <em>(<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, ..., <var>x_n</var>)</em><a href='#index-quotient-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o polinômio <var>p_1</var> dividido pelo polinômio <var>p_2</var>.
+Os argumentos <var>x_1</var>, ..., <var>x_n</var> são interpretados como em <code>ratvars</code>.
+</p>
+<p><code>quotient</code> retorna o primeiro elemento de uma lista de dois elementos retornada por <code>divide</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002frat"></span><dl class="def">
+<dt id="index-rat"><span class="category">Função: </span><span><strong>rat</strong> <em>(<var>expr</var>)</em><a href='#index-rat' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-rat-1"><span class="category">Função: </span><span><strong>rat</strong> <em>(<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</em><a href='#index-rat-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Converte <var>expr</var> para a forma de expressão racional canônica (CRE) expandindo e
+combinando todos os termos sobre um denominador comum e cancelando para fora o
+máximo divisor comum entre o numerador e o denominador, também
+convertendo números em ponto flutuante para números racionais dentro da
+tolerância de <code>ratepsilon</code>.
+As variáveis são ordenadas de acordo com
+<var>x_1</var>, ..., <var>x_n</var>, se especificado, como em <code>ratvars</code>.
+</p>
+<p><code>rat</code> geralmente não simplifica funções outras que não sejam
+adição <code>+</code>, subtração <code>-</code>, multiplicação <code>*</code>, divisão <code>/</code>, e
+exponenciação com expoente inteiro,
+uma vez que <code>ratsimp</code> não manuseia esses casos.
+Note que átomos (números e variáveis) na forma CRE não são os
+mesmos que eles são na forma geral.
+Por exemplo, <code>rat(x)- x</code> retorna 
+<code>rat(0)</code> que tem uma representação interna diferente de 0.
+</p>
+<p>Quando <code>ratfac</code> for <code>true</code>, <code>rat</code> retorna uma forma parcialmente fatorada para CRE.
+Durante operações racionais a expressão é
+mantida como totalmente fatorada como possível sem uma chamada ao
+pacote de fatoração (<code>factor</code>).  Isso pode sempre economizar espaço de memória e algum tempo
+em algumas computações.  O numerador e o denominador são ainda tidos como
+relativamente primos
+(e.g.  <code>rat ((x^2 - 1)^4/(x + 1)^2)</code> retorna <code>(x - 1)^4 (x + 1)^2)</code>,
+mas os fatores dentro de cada parte podem não ser relativamente primos.
+</p>
+<p><code>ratprint</code> se <code>false</code> suprime a impressão de mensagens
+informando o usuário de conversões de números em ponto flutuante para
+números racionais.
+</p>
+<p><code>keepfloat</code> se <code>true</code> evita que números em ponto flutuante sejam
+convertidos para números racionais.
+</p>
+<p>Veja também <code>ratexpand</code> e  <code>ratsimp</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) ((x - 2*y)^4/(x^2 - 4*y^2)^2 + 1)*(y + a)*(2*y + x) /(4*y^2 + x^2);
+                                           4
+                                  (x - 2 y)
+              (y + a) (2 y + x) (------------ + 1)
+                                   2      2 2
+                                 (x  - 4 y )
+(%o1)         ------------------------------------
+                              2    2
+                           4 y  + x
+(%i2) rat (%, y, a, x);
+                            2 a + 2 y
+(%o2)/R/                    ---------
+                             x + 2 y
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fratalgdenom"></span><dl class="def">
+<dt id="index-ratalgdenom"><span class="category">Variável de opção: </span><span><strong>ratalgdenom</strong><a href='#index-ratalgdenom' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>true</code>
+</p>
+<p>Quando <code>ratalgdenom</code> for <code>true</code>, permite racionalização de
+denominadores com respeito a radicais tenham efeito.
+<code>ratalgdenom</code> tem efeito somente quando expressões racionais canônicas (CRE) forem usadas no modo algébrico.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratcoef"></span><dl class="def">
+<dt id="index-ratcoef"><span class="category">Função: </span><span><strong>ratcoef</strong> <em>(<var>expr</var>, <var>x</var>, <var>n</var>)</em><a href='#index-ratcoef' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ratcoef-1"><span class="category">Função: </span><span><strong>ratcoef</strong> <em>(<var>expr</var>, <var>x</var>)</em><a href='#index-ratcoef-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o coeficiente da expressão <code><var>x</var>^<var>n</var></code>
+dentro da expressão <var>expr</var>.
+Se omitido, <var>n</var> é assumido ser 1.
+</p>
+<p>O valor de retorno está livre
+(exceto possivelmente em um senso não racional) das variáveis em <var>x</var>.
+Se nenhum coeficiente desse tipo existe, 0 é retornado.
+</p>
+<p><code>ratcoef</code>
+expande e simplifica racionalmente seu primeiro argumento e dessa forma pode
+produzir respostas diferentes das de <code>coeff</code> que é puramente
+sintática.
+Dessa forma <code>ratcoef ((x + 1)/y + x, x)</code> retorna <code>(y + 1)/y</code> ao passo que <code>coeff</code> retorna 1.
+</p>
+<p><code>ratcoef (<var>expr</var>, <var>x</var>, 0)</code>, visualiza <var>expr</var> como uma adição,
+retornando uma soma desses termos que não possuem <var>x</var>.
+portanto se <var>x</var> ocorre para quaisquer expoentes negativos, <code>ratcoef</code> pode não ser usado.
+</p>
+<p>Uma vez que <var>expr</var> é racionalmente
+simplificada antes de ser examinada, coeficientes podem não aparecer inteiramente
+no caminho que eles foram pensados.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) s: a*x + b*x + 5$
+(%i2) ratcoef (s, a + b);
+(%o2)                           x
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratdenom"></span><dl class="def">
+<dt id="index-ratdenom"><span class="category">Função: </span><span><strong>ratdenom</strong> <em>(<var>expr</var>)</em><a href='#index-ratdenom' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o denominador de <var>expr</var>,
+após forçar a conversão de <var>expr</var> para expressão racional canônica (CRE).
+O valor de retorno é a CRE.
+</p>
+<p><var>expr</var> é forçada para uma CRE por <code>rat</code>
+se não for já uma CRE.
+Essa conversão pode mudar a forma de <var>expr</var> colocando todos os termos
+sobre um denominador comum.
+</p>
+<p><code>denom</code> é similar, mas retorna uma expressão comum em lugar de uma CRE.
+Também, <code>denom</code> não tenta colocar todos os termos sobre um denominador comum,
+e dessa forma algumas expressões que são consideradas razões por <code>ratdenom</code>
+não são consideradas razões por <code>denom</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fratdenomdivide"></span><dl class="def">
+<dt id="index-ratdenomdivide"><span class="category">Variável de opção: </span><span><strong>ratdenomdivide</strong><a href='#index-ratdenomdivide' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>true</code>
+</p>
+<p>Quando <code>ratdenomdivide</code> for <code>true</code>,
+<code>ratexpand</code> expande uma razão cujo o numerador for uma adição 
+dentro de uma soma de razões,
+tendo todos um denominador comum.
+De outra forma, <code>ratexpand</code> colapsa uma adição de razões dentro de uma razão simples,
+cujo numerador seja a adição dos numeradores de cada razão.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: (x^2 + x + 1)/(y^2 + 7);
+                            2
+                           x  + x + 1
+(%o1)                      ----------
+                              2
+                             y  + 7
+(%i2) ratdenomdivide: true$
+(%i3) ratexpand (expr);
+                       2
+                      x        x        1
+(%o3)               ------ + ------ + ------
+                     2        2        2
+                    y  + 7   y  + 7   y  + 7
+(%i4) ratdenomdivide: false$
+(%i5) ratexpand (expr);
+                            2
+                           x  + x + 1
+(%o5)                      ----------
+                              2
+                             y  + 7
+(%i6) expr2: a^2/(b^2 + 3) + b/(b^2 + 3);
+                                     2
+                           b        a
+(%o6)                    ------ + ------
+                          2        2
+                         b  + 3   b  + 3
+(%i7) ratexpand (expr2);
+                                  2
+                             b + a
+(%o7)                        ------
+                              2
+                             b  + 3
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratdiff"></span><dl class="def">
+<dt id="index-ratdiff"><span class="category">Função: </span><span><strong>ratdiff</strong> <em>(<var>expr</var>, <var>x</var>)</em><a href='#index-ratdiff' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Realiza a derivação da expressão racional <var>expr</var> com relação a <var>x</var>.
+<var>expr</var> deve ser uma razão de polinômios ou um polinômio em <var>x</var>.
+O argumento <var>x</var> pode ser uma variável ou uma subexpressão de <var>expr</var>.
+</p>
+<p>O resultado é equivalente a <code>diff</code>, embora talvez em uma forma diferente.
+<code>ratdiff</code> pode ser mais rápida que <code>diff</code>, para expressões racionais.
+</p>
+<p><code>ratdiff</code> retorna uma expressão racional canônica (CRE) se <code>expr</code> for uma CRE.
+De outra forma, <code>ratdiff</code> retorna uma expressão geral.
+</p>
+<p><code>ratdiff</code> considera somente as dependências de <var>expr</var> sobre <var>x</var>,
+e ignora quaisquer dependências estabelecidas por <code>depends</code>.
+</p>
+
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) expr: (4*x^3 + 10*x - 11)/(x^5 + 5);
+                           3
+                        4 x  + 10 x - 11
+(%o1)                   ----------------
+                              5
+                             x  + 5
+(%i2) ratdiff (expr, x);
+                    7       5       4       2
+                 8 x  + 40 x  - 55 x  - 60 x  - 50
+(%o2)          - ---------------------------------
+                          10       5
+                         x   + 10 x  + 25
+(%i3) expr: f(x)^3 - f(x)^2 + 7;
+                         3       2
+(%o3)                   f (x) - f (x) + 7
+(%i4) ratdiff (expr, f(x));
+                           2
+(%o4)                   3 f (x) - 2 f(x)
+(%i5) expr: (a + b)^3 + (a + b)^2;
+                              3          2
+(%o5)                  (b + a)  + (b + a)
+(%i6) ratdiff (expr, a + b);
+                    2                    2
+(%o6)            3 b  + (6 a + 2) b + 3 a  + 2 a
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratdisrep"></span><dl class="def">
+<dt id="index-ratdisrep"><span class="category">Função: </span><span><strong>ratdisrep</strong> <em>(<var>expr</var>)</em><a href='#index-ratdisrep' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna seu argumento como uma expressão geral.
+Se <var>expr</var> for uma expressão geral, é retornada inalterada.
+</p>
+<p>Tipicamente <code>ratdisrep</code> é chamada para converter uma expressão racional canônica (CRE)
+em uma expressão geral.
+Isso é algumas vezes conveniente se deseja-se parar o &quot;contágio&quot;, ou
+caso se esteja usando funções racionais em contextos não racionais.
+</p>
+<p>Veja também <code>totaldisrep</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fratepsilon"></span><dl class="def">
+<dt id="index-ratepsilon"><span class="category">Variável de opção: </span><span><strong>ratepsilon</strong><a href='#index-ratepsilon' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: 2.0e-8
+</p>
+<p><code>ratepsilon</code> é a tolerância usada em conversões
+de números em ponto flutuante para números racionais.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratexpand"></span><dl class="def">
+<dt id="index-ratexpand"><span class="category">Função: </span><span><strong>ratexpand</strong> <em>(<var>expr</var>)</em><a href='#index-ratexpand' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ratexpand-1"><span class="category">Variável de opção: </span><span><strong>ratexpand</strong><a href='#index-ratexpand-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Expande <var>expr</var> multiplicando para fora produtos de somas e
+somas exponenciadas, combinando frações sobre um denominador comum,
+cancelando o máximo divisor comum entre entre o numerador e o
+denominador, então quebrando o numerador (se for uma soma) dentro de suas
+respectivas parcelas divididas pelo denominador.
+</p>
+<p>O valor de retorno de <code>ratexpand</code> é uma expressão geral,
+mesmo se <var>expr</var> for uma expressão racional canônica (CRE).
+</p>
+<p>O comutador <code>ratexpand</code> se <code>true</code> fará com que expressões
+CRE sejam completamente expandidas quando forem convertidas de volta para
+a forma geral ou mostradas, enquanto se for <code>false</code> então elas serão colocadas
+na forma recursiva.
+Veja também <code>ratsimp</code>.
+</p>
+<p>Quando <code>ratdenomdivide</code> for <code>true</code>,
+<code>ratexpand</code> expande uma razão na qual o numerador é uma adição
+dentro de uma adição de razões,
+todas tendo um denominador comum.
+De outra forma, <code>ratexpand</code> contrai uma soma de razões em uma razão simples,
+cujo numerador é a soma dos numeradores de cada razão.
+</p>
+<p>Quando <code>keepfloat</code> for <code>true</code>, evita que números
+em ponto flutuante sejam racionalizados quando expressões que contenham
+números em ponto flutuante forem convertidas para a forma de expressão racional canônica (CRE).
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) ratexpand ((2*x - 3*y)^3);
+                     3         2       2        3
+(%o1)          - 27 y  + 54 x y  - 36 x  y + 8 x
+(%i2) expr: (x - 1)/(x + 1)^2 + 1/(x - 1);
+                         x - 1       1
+(%o2)                   -------- + -----
+                               2   x - 1
+                        (x + 1)
+(%i3) expand (expr);
+                    x              1           1
+(%o3)          ------------ - ------------ + -----
+                2              2             x - 1
+               x  + 2 x + 1   x  + 2 x + 1
+(%i4) ratexpand (expr);
+                        2
+                     2 x                 2
+(%o4)           --------------- + ---------------
+                 3    2            3    2
+                x  + x  - x - 1   x  + x  - x - 1
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fratfac"></span><dl class="def">
+<dt id="index-ratfac"><span class="category">Variável de opção: </span><span><strong>ratfac</strong><a href='#index-ratfac' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>false</code>
+</p>
+<p>Quando <code>ratfac</code> for <code>true</code>,
+expressões racionais canônicas (CRE) são manipuladas na forma parcialmente fatorada.
+</p>
+<p>Durante operações racionais a
+expressão é mantida como completamente fatorada como foi possível sem chamadas a <code>factor</code>.
+Isso pode sempre economizar espaço e pode economizar tempo em algumas computações.
+O numerador e o denominador são feitos relativamente primos, por exemplo
+<code>rat ((x^2 - 1)^4/(x + 1)^2)</code> retorna <code>(x - 1)^4 (x + 1)^2)</code>,
+mas o fator dentro de cada parte pode não ser relativamente primo.
+</p>
+<p>No pacote <code>ctensor</code> (Manipulação de componentes de tensores),
+tensores de Ricci, Einstein, Riemann, e de Weyl e a curvatura escalar 
+são fatorados automaticamente quando <code>ratfac</code> for <code>true</code>.
+<i><code>ratfac</code> pode somente ser
+escolhido para casos onde as componentes tensoriais sejam sabidametne consistidas de
+poucos termos.</i>
+</p>
+<p>Os esquemas de <code>ratfac</code> e de <code>ratweight</code> são incompatíveis e não podem
+ambos serem usados ao mesmo tempo.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratnumer"></span><dl class="def">
+<dt id="index-ratnumer"><span class="category">Função: </span><span><strong>ratnumer</strong> <em>(<var>expr</var>)</em><a href='#index-ratnumer' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o numerador de <var>expr</var>,
+após forçar <var>expr</var> para uma expressão racional canônica (CRE).
+O valor de retorno é uma CRE.
+</p>
+<p><var>expr</var> é forçada para uma CRE por <code>rat</code>
+se isso não for já uma CRE.
+Essa conversão pode alterar a forma de <var>expr</var> pela colocação de todos os termos
+sobre um denominador comum.
+</p>
+<p><code>num</code> é similar, mas retorna uma expressão comum em lugar de uma CRE.
+Também, <code>num</code> não tenta colocar todos os termos sobre um denominador comum,
+e dessa forma algumas expressões que são consideradas razões por <code>ratnumer</code>
+não são consideradas razões por <code>num</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratnump"></span><dl class="def">
+<dt id="index-ratnump"><span class="category">Função: </span><span><strong>ratnump</strong> <em>(<var>expr</var>)</em><a href='#index-ratnump' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna <code>true</code> se <var>expr</var> for um inteiro literal ou razão de inteiros literais,
+de outra forma retorna <code>false</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratp"></span><dl class="def">
+<dt id="index-ratp"><span class="category">Função: </span><span><strong>ratp</strong> <em>(<var>expr</var>)</em><a href='#index-ratp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna <code>true</code> se <var>expr</var> for uma expressão racional canônica (CRE) ou CRE extendida,
+de outra forma retorna <code>false</code>.
+</p>
+<p>CRE são criadas por <code>rat</code> e funções relacionadas.
+CRE extendidas são criadas por <code>taylor</code> e funções relacionadas.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fratprint"></span><dl class="def">
+<dt id="index-ratprint"><span class="category">Variável de opção: </span><span><strong>ratprint</strong><a href='#index-ratprint' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>true</code>
+</p>
+<p>Quando <code>ratprint</code> for <code>true</code>,
+uma mensagem informando ao usuário da conversão de números em ponto flutuante
+para números racionais é mostrada.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratsimp"></span><dl class="def">
+<dt id="index-ratsimp"><span class="category">Função: </span><span><strong>ratsimp</strong> <em>(<var>expr</var>)</em><a href='#index-ratsimp' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ratsimp-1"><span class="category">Função: </span><span><strong>ratsimp</strong> <em>(<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</em><a href='#index-ratsimp-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Simplifica a expressão <var>expr</var> e todas as suas subexpressões,
+incluindo os argumentos para funções não racionais.
+O resultado é retornado como o quociente de dois polinômios na forma recursiva,
+isto é, os coeficientes de variável principal são polinômios em outras variáveis.
+Variáveis podem incluir funções não racionais (e.g., <code>sin (x^2 + 1)</code>)
+e os argumentos para quaisquer tais funções são também simplificados racionalmente.
+</p>
+<p><code>ratsimp (<var>expr</var>, <var>x_1</var>, ..., <var>x_n</var>)</code>
+habilita simplificação racional com a
+especiicação de variável ordenando como em <code>ratvars</code>.
+</p>
+<p>Quando <code>ratsimpexpons</code> for <code>true</code>,
+<code>ratsimp</code> é aplicado para os expoentes de expressões durante a simplificação.
+</p>
+<p>Veja também <code>ratexpand</code>.
+Note que <code>ratsimp</code> é afetado por algum dos
+sinalizadores que afetam <code>ratexpand</code>.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) sin (x/(x^2 + x)) = exp ((log(x) + 1)^2 - log(x)^2);
+                                         2      2
+                   x         (log(x) + 1)  - log (x)
+(%o1)        sin(------) = %e
+                  2
+                 x  + x
+(%i2) ratsimp (%);
+                             1          2
+(%o2)                  sin(-----) = %e x
+                           x + 1
+(%i3) ((x - 1)^(3/2) - (x + 1)*sqrt(x - 1))/sqrt((x - 1)*(x + 1));
+                       3/2
+                (x - 1)    - sqrt(x - 1) (x + 1)
+(%o3)           --------------------------------
+                     sqrt((x - 1) (x + 1))
+(%i4) ratsimp (%);
+                           2 sqrt(x - 1)
+(%o4)                    - -------------
+                                 2
+                           sqrt(x  - 1)
+(%i5) x^(a + 1/a), ratsimpexpons: true;
+                               2
+                              a  + 1
+                              ------
+                                a
+(%o5)                        x
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fratsimpexpons"></span><dl class="def">
+<dt id="index-ratsimpexpons"><span class="category">Variável de opção: </span><span><strong>ratsimpexpons</strong><a href='#index-ratsimpexpons' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>false</code>
+</p>
+<p>Quando <code>ratsimpexpons</code> for <code>true</code>,
+<code>ratsimp</code> é aplicado para os expoentes de expressões durante uma simplificação.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratsubst"></span><dl class="def">
+<dt id="index-ratsubst"><span class="category">Função: </span><span><strong>ratsubst</strong> <em>(<var>a</var>, <var>b</var>, <var>c</var>)</em><a href='#index-ratsubst' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Substitue <var>a</var> por <var>b</var> em <var>c</var> e retorna a expressão resultante. 
+<var>b</var> pode também ser uma adição, produto, expoente, etc.
+</p>
+<p><code>ratsubst</code> sabe alguma coisa do significado de expressões
+uma vez que <code>subst</code> não é uma substituição puramente sintática.
+Dessa forma <code>subst (a, x + y, x + y + z)</code> retorna <code>x + y + z</code>
+ao passo que <code>ratsubst</code> retorna <code>z + a</code>.
+</p>
+<p>Quando <code>radsubstflag</code> for <code>true</code>,
+<code>ratsubst</code> faz substituição de radicais em expressões
+que explicitamente não possuem esses radicais.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) ratsubst (a, x*y^2, x^4*y^3 + x^4*y^8);
+                              3      4
+(%o1)                      a x  y + a
+(%i2) cos(x)^4 + cos(x)^3 + cos(x)^2 + cos(x) + 1;
+               4         3         2
+(%o2)       cos (x) + cos (x) + cos (x) + cos(x) + 1
+(%i3) ratsubst (1 - sin(x)^2, cos(x)^2, %);
+            4           2                     2
+(%o3)    sin (x) - 3 sin (x) + cos(x) (2 - sin (x)) + 3
+(%i4) ratsubst (1 - cos(x)^2, sin(x)^2, sin(x)^4);
+                        4           2
+(%o4)                cos (x) - 2 cos (x) + 1
+(%i5) radsubstflag: false$
+(%i6) ratsubst (u, sqrt(x), x);
+(%o6)                           x
+(%i7) radsubstflag: true$
+(%i8) ratsubst (u, sqrt(x), x);
+                                2
+(%o8)                          u
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratvars"></span><dl class="def">
+<dt id="index-ratvars"><span class="category">Função: </span><span><strong>ratvars</strong> <em>(<var>x_1</var>, ..., <var>x_n</var>)</em><a href='#index-ratvars' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ratvars-1"><span class="category">Função: </span><span><strong>ratvars</strong> <em>()</em><a href='#index-ratvars-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ratvars-2"><span class="category">Variável de sistema: </span><span><strong>ratvars</strong><a href='#index-ratvars-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Declara variáveis principais <var>x_1</var>, ..., <var>x_n</var> para expressões racionais.
+<var>x_n</var>, se presente em uma expressão racional, é considerada a variável principal.
+De outra forma, <var>x_[n-1]</var> é considerada a variável principal se presente,
+e assim por diante até as variáveis precedentes para <var>x_1</var>,
+que é considerada a variável principal somente se nenhuma das variáveis que a sucedem estiver presente.
+</p>
+<p>Se uma variável em uma expressão racional não está presente na lista <code>ratvars</code>,
+a ela é dada uma prioridade menor que <var>x_1</var>.
+</p>
+<p>Os argumentos para <code>ratvars</code> podem ser ou variáveis ou funções não racionais
+tais como <code>sin(x)</code>.
+</p>
+<p>A variável <code>ratvars</code> é uma lista de argumentos da
+função <code>ratvars</code> quando ela foi chamada mais recentemente.
+Cada chamada para a função <code>ratvars</code> sobre-grava a lista apagando seu conteúdo anterior.
+<code>ratvars ()</code> limpa a lista.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fratweight"></span><dl class="def">
+<dt id="index-ratweight"><span class="category">Função: </span><span><strong>ratweight</strong> <em>(<var>x_1</var>, <var>w_1</var>, ..., <var>x_n</var>, <var>w_n</var>)</em><a href='#index-ratweight' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ratweight-1"><span class="category">Função: </span><span><strong>ratweight</strong> <em>()</em><a href='#index-ratweight-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Atribui um peso <var>w_i</var> para a variável <var>x_i</var>.
+Isso faz com que um termo seja substituído por 0 se seu peso exceder o
+valor da variável <code>ratwtlvl</code> (o padrão retorna sem truncação).
+O peso de um termo é a soma dos produtos dos
+pesos de uma variável no termo vezes seu expoente.
+Por exemplo, o peso de <code>3 x_1^2 x_2</code> é <code>2 w_1 + w_2</code>.
+A truncação de acordo com <code>ratwtlvl</code> é realizada somente quando multiplicando
+ou exponencializando expressões racionais canônicas (CRE).
+</p>
+<p><code>ratweight ()</code> retorna a lista cumulativa de atribuições de pesos.
+</p>
+<p>Nota: Os esquemas de <code>ratfac</code> e <code>ratweight</code> são incompatíveis e não podem
+ambo serem usados ao mesmo tempo.
+</p>
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) ratweight (a, 1, b, 1);
+(%o1)                     [a, 1, b, 1]
+(%i2) expr1: rat(a + b + 1)$
+(%i3) expr1^2;
+                  2                  2
+(%o3)/R/         b  + (2 a + 2) b + a  + 2 a + 1
+(%i4) ratwtlvl: 1$
+(%i5) expr1^2;
+(%o5)/R/                  2 b + 2 a + 1
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fratweights"></span><dl class="def">
+<dt id="index-ratweights"><span class="category">Variável de sistema: </span><span><strong>ratweights</strong><a href='#index-ratweights' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>[]</code>
+</p>
+<p><code>ratweights</code> é a lista de pesos atribuídos por <code>ratweight</code>.
+A lista é cumulativa:
+cada chamada a <code>ratweight</code> coloca ítens adicionais na lista.
+</p>
+<p><code>kill (ratweights)</code> e <code>save (ratweights)</code> ambos trabalham como esperado.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fratwtlvl"></span><dl class="def">
+<dt id="index-ratwtlvl"><span class="category">Variável de opção: </span><span><strong>ratwtlvl</strong><a href='#index-ratwtlvl' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>false</code>
+</p>
+<p><code>ratwtlvl</code> é usada em combinação com a função 
+<code>ratweight</code> para controlar a truncação de expressão racionais canônicas (CRE).
+Para o valor padrão <code>false</code>, nenhuma truncação ocorre.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fremainder"></span><dl class="def">
+<dt id="index-remainder"><span class="category">Função: </span><span><strong>remainder</strong> <em>(<var>p_1</var>, <var>p_2</var>)</em><a href='#index-remainder' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-remainder-1"><span class="category">Função: </span><span><strong>remainder</strong> <em>(<var>p_1</var>, <var>p_2</var>, <var>x_1</var>, ..., <var>x_n</var>)</em><a href='#index-remainder-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Retorna o resto do polinômio <var>p_1</var> dividido pelo polinômio <var>p_2</var>.
+Os argumentos <var>x_1</var>, ..., <var>x_n</var> são interpretados como em <code>ratvars</code>.
+</p>
+<p><code>remainder</code> retorna o segundo elemento
+de uma lista de dois elementos retornada por <code>divide</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fresultant"></span><dl class="def">
+<dt id="index-resultant"><span class="category">Função: </span><span><strong>resultant</strong> <em>(<var>p_1</var>, <var>p_2</var>, <var>x</var>)</em><a href='#index-resultant' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-resultant-1"><span class="category">Variável: </span><span><strong>resultant</strong><a href='#index-resultant-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Calcula o resultante de dois polinômios <var>p_1</var> e <var>p_2</var>,
+eliminando a variável <var>x</var>.
+O resultante é um determinante dos coeficientes de <var>x</var>
+em <var>p_1</var> e <var>p_2</var>,
+que é igual a zero
+se e somente se <var>p_1</var> e <var>p_2</var> tiverem um fator em comum não constante.
+</p>
+<p>Se <var>p_1</var> ou <var>p_2</var> puderem ser fatorados,
+pode ser desejável chamar <code>factor</code> antes de chamar <code>resultant</code>.
+</p>
+<p>A variável <code>resultant</code> controla que algorítmo será usado para calcular
+o resultante.
+<code>subres</code> para o prs subresultante,
+<code>mod</code> para o algorítmo resultante modular,
+e <code>red</code> para prs reduzido.
+Para muitos problemas <code>subres</code> pode ser melhor.
+Para alguns problemas com valores grandes de grau de uma única variável ou de duas variáveis <code>mod</code> pode ser melhor.
+</p>
+<p>A função <code>bezout</code> pega os mesmos argumentos que <code>resultant</code> e retorna
+uma matriz.  O determinante do valor de retorno é o resultante desejado.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdefvr_002fsavefactors"></span><dl class="def">
+<dt id="index-savefactors"><span class="category">Variável de opção: </span><span><strong>savefactors</strong><a href='#index-savefactors' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor Padrão: <code>false</code>
+</p>
+<p>Quando <code>savefactors</code> for <code>true</code>, faz com que os fatores de uma
+expressão que é um produto de fatores sejam gravados por certas
+funções com o objetivo de aumentar a velocidade em posteriores fatorações de expressões
+contendo algum desses mesmos fatores.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002fsqfr"></span><dl class="def">
+<dt id="index-sqfr"><span class="category">Função: </span><span><strong>sqfr</strong> <em>(<var>expr</var>)</em><a href='#index-sqfr' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>é similar a <code>factor</code> exceto que os fatores do polinômio são &quot;livres de raízes&quot;.
+Isto é, eles possuem fatores somente de grau um.
+Esse algorítmo, que é também usado no primeiro estágio de <code>factor</code>, utiliza
+o fato que um polinômio tem em comum com sua n&rsquo;ésima derivada todos
+os seus fatores de grau maior que n.  Dessa forma pegando o maior divisor comum
+com o polinômio das
+derivadas com relação a cada variável no polinômio, todos
+os fatores de grau maior que 1 podem ser achados.
+</p>
+<p>Exemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) sqfr (4*x^4 + 4*x^3 - 3*x^2 - 4*x - 1);
+                                2   2
+(%o1)                  (2 x + 1)  (x  - 1)
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002ftellrat"></span><dl class="def">
+<dt id="index-tellrat"><span class="category">Função: </span><span><strong>tellrat</strong> <em>(<var>p_1</var>, ..., <var>p_n</var>)</em><a href='#index-tellrat' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-tellrat-1"><span class="category">Função: </span><span><strong>tellrat</strong> <em>()</em><a href='#index-tellrat-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Adiciona ao anel dos inteiros algébricos conhecidos do Maxima
+os elementos que são as soluções dos polinômios <var>p_1</var>, ..., <var>p_n</var>.
+Cada argumento <var>p_i</var> é um polinômio concoeficientes inteiros.
+</p>
+<p><code>tellrat (<var>x</var>)</code> efetivamente significa substituir 0 por <var>x</var> em funções
+racionais.
+</p>
+<p><code>tellrat ()</code> retorna uma lista das substituições correntes.
+</p>
+<p><code>algebraic</code> deve ser escolhida para <code>true</code> com o objetivo de que a simplificação de
+inteiros algébricos tenha efeito.
+</p>
+<p>Maxima inicialmente sabe sobre a unidade imaginária <code>%i</code>
+e todas as raízes de inteiros.
+</p>
+<p>Existe um comando <code>untellrat</code> que pega kernels (núcleos) e
+remove propriedades <code>tellrat</code>.
+</p>
+<p>Quando fazemos <code>tellrat</code> em um polinômio
+de várias variáveis, e.g., <code>tellrat (x^2 - y^2)</code>, pode existir uma ambig&uuml;idade como para
+ou substituir <code><var>y</var>^2</code> por <code><var>x</var>^2</code>
+ou vice-versa.  
+Maxima seleciona uma ordenação particular, mas se o usuário desejar especificar qual e.g.
+<code>tellrat (y^2 = x^2)</code> forneçe uma sintaxe que diga para substituir
+<code><var>y</var>^2</code> por <code><var>x</var>^2</code>.
+</p>
+
+<p>Exemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) 10*(%i + 1)/(%i + 3^(1/3));
+                           10 (%i + 1)
+(%o1)                      -----------
+                                  1/3
+                            %i + 3
+(%i2) ev (ratdisrep (rat(%)), algebraic);
+             2/3      1/3              2/3      1/3
+(%o2)    (4 3    - 2 3    - 4) %i + 2 3    + 4 3    - 2
+(%i3) tellrat (1 + a + a^2);
+                            2
+(%o3)                     [a  + a + 1]
+(%i4) 1/(a*sqrt(2) - 1) + a/(sqrt(3) + sqrt(2));
+                      1                 a
+(%o4)           ------------- + -----------------
+                sqrt(2) a - 1   sqrt(3) + sqrt(2)
+(%i5) ev (ratdisrep (rat(%)), algebraic);
+         (7 sqrt(3) - 10 sqrt(2) + 2) a - 2 sqrt(2) - 1
+(%o5)    ----------------------------------------------
+                               7
+(%i6) tellrat (y^2 = x^2);
+                        2    2   2
+(%o6)                 [y  - x , a  + a + 1]
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002ftotaldisrep"></span><dl class="def">
+<dt id="index-totaldisrep"><span class="category">Função: </span><span><strong>totaldisrep</strong> <em>(<var>expr</var>)</em><a href='#index-totaldisrep' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Converte toda subexpressão de <var>expr</var> da forma de expressão racionais canônicas (CRE) para
+a forma geral e retorna o resultado.
+Se <var>expr</var> é em sí mesma na forma CRE então <code>totaldisrep</code> é identica a
+<code>ratdisrep</code>.
+</p>
+<p><code>totaldisrep</code> pode ser usada para
+fazer um <code>ratdisrep</code> em expressões tais como equações, listas, matrizes, etc., que
+tiverem algumas subexpressões na forma CRE.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Polynomials_002fdeffn_002funtellrat"></span><dl class="def">
+<dt id="index-untellrat"><span class="category">Função: </span><span><strong>untellrat</strong> <em>(<var>x_1</var>, ..., <var>x_n</var>)</em><a href='#index-untellrat' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Remove propriedades <code>tellrat</code> de <var>x_1</var>, ..., <var>x_n</var>.
+</p>
+</dd></dl>
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Anterior: <a href="maxima_41.html" accesskey="p" rel="prev">Introdução a Polinômios</a>, Acima: <a href="maxima_40.html" accesskey="u" rel="up">Polinômios</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Sum&aacute;rio" rel="contents">Conte&uacute;do</a>][<a href="maxima_231.html" title="&Iacute;ndice" rel="index">&Iacute;ndice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Einf&uuml;hrung in nutzerdefinierte Operatoren (Maxima Manual)</title>
+
+<meta name="description" content="Einf&uuml;hrung in nutzerdefinierte Operatoren (Maxima Manual)">
+<meta name="keywords" content="Einf&uuml;hrung in nutzerdefinierte Operatoren (Maxima Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_334.html" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_40.html" rel="up" title="Nutzerdefinierte Operatoren">
+<link href="maxima_42.html" rel="next" title="Funktionen und Variablen f&uuml;r nutzerdefinierte Operatoren">
+<link href="maxima_40.html" rel="prev" title="Nutzerdefinierte Operatoren">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="de">
+<div class="subsection" id="Einf_00fchrung-in-nutzerdefinierte-Operatoren">
+<div class="header">
+<p>
+Nächste: <a href="maxima_42.html" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r nutzerdefinierte Operatoren</a>, Vorige: <a href="maxima_40.html" accesskey="p" rel="prev">Nutzerdefinierte Operatoren</a>, Nach oben: <a href="maxima_40.html" accesskey="u" rel="up">Nutzerdefinierte Operatoren</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Einfuhrung-in-nutzerdefinierte-Operatoren"></span><h4 class="subsection">7.7.1 Einf&uuml;hrung in nutzerdefinierte Operatoren</h4>
+
+<p>Es ist m&ouml;glich neue Operatoren zu definieren, vorhandene Operatoren zu
+entfernen oder deren Eigenschaften zu &auml;ndern.  Jede Funktion kann als ein
+Operator definiert werden, die Funktion kann, muss aber nicht definiert sein.
+</p>
+<p>Im Folgenden werden die Operatoren <code>dd</code> und <code>&quot;&lt;-&quot;</code> definiert.  Nach
+der Definition als Operatoren ist <code>dd a</code> gleichbedeutend mit <code>&quot;dd&quot;(a)</code>
+und <code>a &lt;- b</code> entspricht dem Funktionsaufruf <code>&quot;&lt;-&quot;(a,b)</code>.  In diesem
+Beispiel sind die Funktionen <code>&quot;dd&quot;</code> und <code>&quot;&lt;-&quot;</code> nicht definiert.
+</p>
+<div class="example">
+<pre class="example">(%i1) prefix (&quot;dd&quot;);
+(%o1)                          dd
+(%i2) dd a;
+(%o2)                         dd a
+(%i3) &quot;dd&quot; (a);
+(%o3)                         dd a
+(%i4) infix (&quot;&lt;-&quot;);
+(%o4)                          &lt;-
+(%i5) a &lt;- dd b;
+(%o5)                      a &lt;- dd b
+(%i6) &quot;&lt;-&quot; (a, &quot;dd&quot; (b));
+(%o6)                      a &lt;- dd b
+</pre></div>
+
+<p>Maxima kennt die folgenden Funktionen, um Operatoren zu definieren:
+<code>prefix</code>, <code>postfix</code>, <code>infix</code>, <code>nary</code>, <code>matchfix</code> und
+<code>nofix</code>.
+</p>
+<p>Der Vorrang eines Operators <var>op</var> vor anderen Operatoren leitet sich aus dem
+links- und rechtsseitigen Vorrang des Operators ab.  Sind die links- und
+rechtsseitigen Vorr&auml;nge von <var>op</var> beide gr&ouml;&szlig;er als der links-
+und rechtsseitige Vorrang eines anderen Operators, dann hat <var>op</var> 
+Vorrang vor diesem Operator.  Sind die Vorr&auml;nge nicht beide gr&ouml;&szlig;er oder
+kleiner, werden weitere Regeln zur Bestimmung des Vorrangs herangezogen.
+</p>
+<p>Maxima kennt die Wortart eines Operanden und des Ergebnisses eines Operanden.
+Wortart bedeutet hier, den Typ eines Operanden.  Maxima kennt die drei Typen
+<code>expr</code>, <code>clause</code> und <code>any</code>.  Diese stehen f&uuml;r einen
+algebraischen Ausdruck, einen logischen Ausdruck und einen beliebigen Ausdruck.
+Mit Hilfe der f&uuml;r einen Operator definierten Wortart kann der Parser beim 
+Einlesen eines Ausdrucks Syntaxfehler feststellen.
+</p>
+<p>Die Assoziativit&auml;t eines Operators <var>op</var> h&auml;ngt ab von seinem Vorrang.
+Ein gr&ouml;&szlig;erer linksseitiger Vorrang hat zur Folge, dass der Operator
+<var>op</var> vor einem anderen Operator auf seiner linken Seite ausgewertet wird.
+W&auml;hrend ein gr&ouml;&szlig;erer rechtsseitiger Vorrang zur Folge hat, dass der
+Operator vor anderen Operatoren auf der rechten Seite ausgewertet wird.  Daraus
+folgt, dass ein gr&ouml;&szlig;erer linksseitiger Vorrang <var>lbp</var> einen Operator
+<var>op</var> rechts-assoziativ und eine gr&ouml;&szlig;erer rechtsseitiger Vorrang
+<var>rbp</var> den Operator links-assoziativ macht.  Sind der links- und
+rechtsseitige Vorrang gleich gro&szlig;, ist der Operator <var>op</var>
+links-assoziativ.
+</p>
+<p>Mit den Befehlen <code><a href="maxima_63.html#remove">remove</a></code> und <code><a href="maxima_9.html#kill">kill</a></code> k&ouml;nnen Operatoreigenschaften
+von einem Symbol entfernt werden.  <code>remove(&quot;<var>a</var>&quot;, op)</code> entfernt
+die Operatoreigenschaften des Symbols <var>a</var>.  <code>kill(&quot;<var>a</var>&quot;)</code> entfernt
+alle Eigenschaften einschlie&szlig;ich der Operator-Eigenschaften des Symbols 
+<var>a</var>.  In diesem Fall steht der Name des Symbols in Anf&uuml;hrungszeichen.
+</p>
+<div class="example">
+<pre class="example">(%i1) infix (&quot;##&quot;);
+(%o1)                          ##
+(%i2) &quot;##&quot; (a, b) := a^b;
+                                     b
+(%o2)                     a ## b := a
+(%i3) 5 ## 3;
+(%o3)                          125
+(%i4) remove (&quot;##&quot;, op);
+(%o4)                         done
+(%i5) 5 ## 3;
+Incorrect syntax: # is not a prefix operator
+5 ##
+  ^
+(%i5) &quot;##&quot; (5, 3);
+(%o5)                          125
+(%i6) infix (&quot;##&quot;);
+(%o6)                          ##
+(%i7) 5 ## 3;
+(%o7)                          125
+(%i8) kill (&quot;##&quot;);
+(%o8)                         done
+(%i9) 5 ## 3;
+Incorrect syntax: # is not a prefix operator
+5 ##
+  ^
+(%i9) &quot;##&quot; (5, 3);
+(%o9)                       ##(5, 3)
+</pre></div>
+
+<span id="Item_003a-Operators_002ede_002fnode_002fFunktionen-und-Variablen-f_00fcr-nutzerdefinierte-Operatoren"></span></div>
+<hr>
+<div class="header">
+<p>
+Nächste: <a href="maxima_42.html" accesskey="n" rel="next">Funktionen und Variablen f&uuml;r nutzerdefinierte Operatoren</a>, Vorige: <a href="maxima_40.html" accesskey="p" rel="prev">Nutzerdefinierte Operatoren</a>, Nach oben: <a href="maxima_40.html" accesskey="u" rel="up">Nutzerdefinierte Operatoren</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

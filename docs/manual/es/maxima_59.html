@@ -1,0 +1,827 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para las propiedades (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para las propiedades (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para las propiedades (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_57.html" rel="up" title="Base de datos de Maxima">
+<link href="maxima_60.html" rel="next" title="Funciones y variables para los hechos">
+<link href="maxima_58.html" rel="prev" title="Introducción a la base de datos de Maxima">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Funciones-y-variables-para-las-propiedades">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_60.html" accesskey="n" rel="next">Funciones y variables para los hechos</a>, Anterior: <a href="maxima_58.html" accesskey="p" rel="prev">Introducción a la base de datos de Maxima</a>, Subir: <a href="maxima_57.html" accesskey="u" rel="up">Base de datos de Maxima</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Funciones-y-variables-para-las-propiedades-1"></span><h3 class="section">11.2 Funciones y variables para las propiedades</h3>
+
+<span id="Item_003a-Database_002ees_002fdefvr_002falphabetic"></span><dl class="def">
+<dt id="index-alphabetic"><span class="category">Propiedad: </span><span><strong>alphabetic</strong><a href='#index-alphabetic' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>alphabetic</code> es un tipo de propiedad reconocida por <code>declare</code>.
+La expresión <code>declare(<var>s</var>, alphabetic)</code> le indica a Maxima que reconozca
+como alfabéticos todos los caracteres que haya en <var>s</var>, que debe ser una cadena de texto.
+</p>
+<p>Véase también <code>Identifiers</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) xx\~yy\`\@ : 1729;
+(%o1)                         1729
+(%i2) declare (&quot;~`@&quot;, alphabetic);
+(%o2)                         done
+(%i3) xx~yy`@ + @yy`xx + `xx@@yy~;
+(%o3)               `xx@@yy~ + @yy`xx + 1729
+(%i4) listofvars (%);
+(%o4)                  [@yy`xx, `xx@@yy~]
+</pre></div>
+</dd></dl>
+
+<span id="Item_003a-Database_002ees_002fdefvr_002fbindtest"></span><dl class="def">
+<dt id="index-bindtest"><span class="category">Propiedad: </span><span><strong>bindtest</strong><a href='#index-bindtest' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>La sentencia <code>declare(<var>x</var>, bindtest</code> le indica a Maxima que devuelva un mensaje
+de error cuando el símbolo <var>x</var> no tenga asociado valor alguno.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) aa + bb;
+(%o1)                        bb + aa
+(%i2) declare (aa, bindtest);
+(%o2)                         done
+(%i3) aa + bb;
+aa unbound variable
+ -- an error.  Quitting.  To debug this try debugmode(true);
+(%i4) aa : 1234;
+(%o4)                         1234
+(%i5) aa + bb;
+(%o5)                       bb + 1234
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fconstant"></span><dl class="def">
+<dt id="index-constant"><span class="category">Propiedad: </span><span><strong>constant</strong><a href='#index-constant' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p><code>declare(<var>a</var>, constant)</code> declara <var>a</var> como constante.  La declaración
+de un símbolo como constante no impide que se le asigne un valor no
+constante al símbolo.
+</p>
+<p>Véanse <code>constantp</code> y <code>declare</code>
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) declare(c, constant);
+(%o1)                         done
+(%i2) constantp(c);
+(%o2)                         true
+(%i3) c : x;
+(%o3)                           x
+(%i4) constantp(c);
+(%o4)                         false
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fconstantp"></span><dl class="def">
+<dt id="index-constantp"><span class="category">Función: </span><span><strong>constantp</strong> <em>(<var>expr</var>)</em><a href='#index-constantp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve <code>true</code> si <var>expr</var> es una expresión constante y
+<code>false</code> en caso contrario.
+</p>
+<p>Una expresión se considera constante si sus argumentos son números 
+(incluidos los números racionales que se muestran con <code>/R/</code>), 
+constantes simbólicas como <code>%pi</code>, <code>%e</code> o <code>%i</code>, variables 
+con valor constante o declarada como constante por <code>declare</code>,
+o funciones cuyos argumentos son constantes.
+</p>
+<p>La función <code>constantp</code> evalúa sus argumentos.
+</p>
+<p>Ejemplos:
+</p>
+
+<div class="example">
+<pre class="example">(%i1) constantp (7 * sin(2));
+(%o1)                                true
+(%i2) constantp (rat (17/29));
+(%o2)                                true
+(%i3) constantp (%pi * sin(%e));
+(%o3)                                true
+(%i4) constantp (exp (x));
+(%o4)                                false
+(%i5) declare (x, constant);
+(%o5)                                done
+(%i6) constantp (exp (x));
+(%o6)                                true
+(%i7) constantp (foo (x) + bar (%e) + baz (2));
+(%o7)                                false
+(%i8) 
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fdeclare"></span><dl class="def">
+<dt id="index-declare"><span class="category">Función: </span><span><strong>declare</strong> <em>(<var>a_1</var>, <var>f_1</var>, <var>a_2</var>, <var>f_2</var>, ...)</em><a href='#index-declare' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Asigna al átomo o lista de átomos <var>a_i</var> la propiedad o lista de 
+propiedades<var>p_i</var>. Si <var>a_i</var> y/o <var>p_i</var> son listas, cada uno de
+los átomos adquiere todas las propiedades.
+</p>
+<p>La función <code>declare</code> no evalúa sus argumentos y siempre devuelve la
+expresión <code>done</code>.
+</p>
+<p>La llamada <code>featurep (<var>object</var>, <var>feature</var>)</code> devuelve <code>true</code>
+si <var>object</var> ha sido previamente declarado como poseedor de la propiedad
+<var>feature</var>.
+</p>
+<p>Véase también <code>features</code>.
+</p>
+<p>La función <code>declare</code> reconoce las siguientes propiedades:
+</p>
+<dl compact="compact">
+<dt><span><code>additive</code></span></dt>
+<dd><p>Hace que Maxima simplifique las expresiones <var>a_i</var>
+      haciendo uso de la sustitución 
+      <code><var>a_i</var>(x + y + z + ...)</code> <code>--&gt;</code>
+      <code><var>a_i</var>(x) + <var>a_i</var>(y) + <var>a_i</var>(z) + ...</code>.
+      Tal sustitución se aplica únicamente al primer argumento.
+</p>
+</dd>
+<dt><span><code>alphabetic</code></span></dt>
+<dd><p>Indica a Maxima que reconozca todos los caracteres de la cadena alfanumérica
+      <var>a_i</var> como caracteres alfabéticos.
+</p>
+</dd>
+<dt><span><code>antisymmetric, commutative, symmetric</code></span></dt>
+<dd><p>Hace que Maxima reconozca a <var>a_i</var> como una función simétrica o
+      antisimétrica. La propiedad <code>commutative</code> equivale a <code>symmetric</code>.
+</p>
+</dd>
+<dt><span><code>bindtest</code></span></dt>
+<dd><p>Hace que Maxima envíe un error si <var>a_i</var> es evaluado sin habérsele
+      asignado un valor.
+</p>
+</dd>
+<dt><span><code>constant</code></span></dt>
+<dd><p>Hace que Maxima considere a <var>a_i</var> como una constante
+      simbólica.
+</p>
+</dd>
+<dt><span><code>even, odd</code></span></dt>
+<dd><p>Hace que Maxima reconozca a <var>a_i</var> como una variable entera par o impar.
+</p>
+</dd>
+<dt><span><code>evenfun, oddfun</code></span></dt>
+<dd><p>Hace que Maxima reconozca a <var>a_i</var> como una función par o impar.
+</p>
+</dd>
+<dt><span><code>evflag</code></span></dt>
+<dd><p>Hace que <var>a_i</var> sea reconocida por <code>ev</code>, de manera que a <var>a_i</var> se le
+      asigne el valor <code>true</code> durante la ejecución de <code>ev</code> cuando <var>a_i</var> 
+      aparezca como argumento de control de <code>ev</code>. Véase también <code>evflag</code>.
+</p>
+</dd>
+<dt><span><code>evfun</code></span></dt>
+<dd><p>Hace que <var>a_i</var> sea reconocida por <code>ev</code>, de manera que la función
+      nombrada por <var>a_i</var> se aplique cuando <var>a_i</var> aparezca como argumento
+      de control de <code>ev</code>. Véase también <code>evfun</code>.
+</p>
+</dd>
+<dt><span><code>feature</code></span></dt>
+<dd><p>Hace que Maxima considere a <var>a_i</var> como el nombre de una propiedad.
+      Otros átomos podrán ser declarados entonces como poseedores de
+      la propiedad <var>a_i</var>.
+</p>
+</dd>
+<dt><span><code>increasing, decreasing</code></span></dt>
+<dd><p>Hace que Maxima reconozca a <var>a_i</var> como una función creciente o decreciente.
+</p>
+</dd>
+<dt><span><code>integer, noninteger</code></span></dt>
+<dd><p>Hace que Maxima reconozca a <var>a_i</var> como una variable entera o no entera.
+</p>
+</dd>
+<dt><span><code>integervalued</code></span></dt>
+<dd><p>Hace que Maxima reconozca a <var>a_i</var> como una función de valor entero.
+</p>
+</dd>
+<dt><span><code>lassociative, rassociative</code></span></dt>
+<dd><p>Hace que Maxima reconozca a <var>a_i</var> como una función asociativa por la derecha o
+      por la izquierda.
+</p>
+</dd>
+<dt><span><code>linear</code></span></dt>
+<dd><p>Equivale a declarar <var>a_i</var> conjuntamente como <code>outative</code> y <code>additive</code>.
+</p>
+</dd>
+<dt><span><code>mainvar</code></span></dt>
+<dd><p>Hace que Maxima considere a <var>a_i</var> como una &quot;variable principal&quot;,
+      dándole prioridad frente a cualesquiera otras constantes o
+      variables en la ordenación canónica de expresiones de Maxima,
+      tal como determina <code>ordergreatp</code>.
+</p>
+</dd>
+<dt><span><code>multiplicative</code></span></dt>
+<dd><p>Hace que Maxima simplifique las expresiones <var>a_i</var>
+      haciendo uso de la sustitución 
+      <code><var>a_i</var>(x * y * z * ...)</code> <code>--&gt;</code> <code><var>a_i</var>(x) * <var>a_i</var>(y) * <var>a_i</var>(z) * ...</code>.
+      Tal sustitución se aplica únicamente al primer argumento.
+</p>
+</dd>
+<dt><span><code>nary</code></span></dt>
+<dd><p>Hace que Maxima reconozca a <var>a_i</var> como una función n-aria.
+</p>
+<p>La declaración <code>nary</code> no es equivalente a la función <code>nary</code>.
+      El único efecto de <code>declare(foo, nary)</code> consiste en hacer que
+      el simplificador de Maxima reduzca expresiones anidadas; por ejemplo, 
+      para transformar <code>foo(x, foo(y, z))</code> a <code>foo(x, y, z)</code>.
+</p>
+</dd>
+<dt><span><code>nonarray</code></span></dt>
+<dd><p>Indica que Maxima no debe considerar <var>a_i</var> como un array. Esta declaración
+      evita la evaluación múltiple de variables subindicadas.
+</p>
+</dd>
+<dt><span><code>nonscalar</code></span></dt>
+<dd><p>Hace que Maxima considere a <var>a_i</var> como una variable no escalar.
+      Se aplica comúnmente para declarar una variable como un vector simbólico
+      o una matriz simbólica.
+</p>
+</dd>
+<dt><span><code>noun</code></span></dt>
+<dd><p>Hace que Maxima considere a <var>a_i</var> como un nombre. El efecto
+      que se obtiene es que se reemplazan todas las expresiones <var>a_i</var>
+      por <code>'<var>a_i</var></code> o <code>nounify (<var>a_i</var>)</code>,
+      dependiendo del contexto.
+</p>
+</dd>
+<dt><span><code>outative</code></span></dt>
+<dd><p>Hace que Maxima simplifique las expresiones <var>a_i</var>
+      extrayendo los factores constantes del primer argumento.
+</p>
+<p>Cuando <var>a_i</var> tenga un único argumento, un factor se considerará constante
+      si es una constante literal o declarada.
+</p>
+<p>Cuando <var>a_i</var> tenga dos o más argumentos, un factor se considerará constante
+      si el segundo argumento es un símbolo y el factor no contiene al
+      segundo argumento.
+</p>
+</dd>
+<dt><span><code>posfun</code></span></dt>
+<dd><p>Hace que Maxima reconozca a <var>a_i</var> como una función positiva.
+</p>
+</dd>
+<dt><span><code>rational, irrational</code></span></dt>
+<dd><p>Hace que Maxima reconozca a <var>a_i</var> como una variable real racional o irracional.
+</p>
+</dd>
+<dt><span><code>real, imaginary, complex</code></span></dt>
+<dd><p>Hace que Maxima reconozca a <var>a_i</var> como una variable real, imaginaria o compleja.
+</p>
+</dd>
+<dt><span><code>scalar</code></span></dt>
+<dd><p>Hace que Maxima considere a <var>a_i</var> como una variable escalar.
+</p>
+</dd>
+</dl>
+
+<p>Ejemplos sobre el uso de estas propiedades están disponibles en la 
+documentación correspondiente a cada propiedad por separado.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002fdecreasing"></span><dl class="def">
+<dt id="index-decreasing"><span class="category">Propiedad: </span><span><strong>decreasing</strong><a href='#index-decreasing' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Database_002ees_002fdefvr_002fincreasing"></span></dd><dt id="index-increasing"><span class="category">Propiedad: </span><span><strong>increasing</strong><a href='#index-increasing' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Las instrucciones <code>declare(<var>f</var>, decreasing)</code> y
+<code>declare(<var>f</var>, increasing</code> le indican a Maxima que reconozca la función
+<var>f</var> como una función decreciente o creciente.
+</p>
+<p>Véase también <code>declare</code> para más propiedades.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) assume(a &gt; b);
+(%o1)                        [a &gt; b]
+(%i2) is(f(a) &gt; f(b));
+(%o2)                        unknown
+(%i3) declare(f, increasing);
+(%o3)                         done
+(%i4) is(f(a) &gt; f(b));
+(%o4)                         true
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002feven"></span><dl class="def">
+<dt id="index-even"><span class="category">Propiedad: </span><span><strong>even</strong><a href='#index-even' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Database_002ees_002fdefvr_002fodd"></span></dd><dt id="index-odd"><span class="category">Propiedad: </span><span><strong>odd</strong><a href='#index-odd' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>declare(<var>a</var>, even)</code> y <code>declare(<var>a</var>, odd)</code> le indican a Maxima
+que reconozca el símbolo <var>a</var> como entero par o impar.  Las
+propiedades <code>even</code> y <code>odd</code> no son reconocidas por las funciones 
+<code>evenp</code>, <code>oddp</code> y <code>integerp</code>.
+</p>
+<p>Véanse también <code>declare</code> y <code>askinteger</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) declare(n, even);
+(%o1)                         done
+(%i2) askinteger(n, even);
+(%o2)                          yes
+(%i3) askinteger(n);
+(%o3)                          yes
+(%i4) evenp(n);
+(%o4)                         false
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002ffeature"></span><dl class="def">
+<dt id="index-feature"><span class="category">Propiedad: </span><span><strong>feature</strong><a href='#index-feature' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Maxima interpreta dos tipos diferentes de propiedades, del sistema y las que
+se aplican a expresiones matemáticas. Véase <code>status</code> para obtener
+información sobre propiedades del sistema, así como
+<code>features</code> y <code>featurep</code> para propiedades de las expresiones matemáticas.
+</p>
+<p><code>feature</code> no es el nombre de ninguna función o variable.
+</p></dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002ffeaturep"></span><dl class="def">
+<dt id="index-featurep"><span class="category">Función: </span><span><strong>featurep</strong> <em>(<var>a</var>, <var>f</var>)</em><a href='#index-featurep' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Intenta determinar si el objeto <var>a</var> tiene la propiedad <var>f</var> en base a los
+hechos almacenados en la base de datos. En caso afirmativo, devuelve <code>true</code>,
+o <code>false</code> en caso contrario.
+</p>
+<p>Nótese que <code>featurep</code> devuelve <code>false</code> cuando no se puedan verificar ni
+<var>f</var> ni su negación.
+</p>
+<p><code>featurep</code> evalúa su argumento.
+</p>
+<p>Véanse también <code>declare</code> y <code>features</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (j, even)$
+(%i2) featurep (j, integer);
+(%o2)                           true
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002ffeatures"></span><dl class="def">
+<dt id="index-features"><span class="category">Declaración: </span><span><strong>features</strong><a href='#index-features' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Maxima reconoce ciertas propiedades matemáticas sobre funciones y variables.
+</p>
+<p>La llamada <code>declare (<var>x</var>, <var>foo</var>)</code> asocia la propiedad <var>foo</var> a la función o variable <var>x</var>.
+</p>
+<p>La llamada <code>declare (<var>foo</var>, feature)</code> declara una nueva propiedad <var>foo</var>. 
+Por ejemplo, <code>declare ([rojo, verde, azul], feature)</code> declara tres nuevas propiedades, 
+<code>rojo</code>, <code>verde</code> y <code>azul</code>.
+</p>
+<p>El predicado <code>featurep (<var>x</var>, <var>foo</var>)</code>
+devuelve <code>true</code> si <var>x</var> goza de la propiedad <var>foo</var>, y <code>false</code> en caso contrario.
+</p>
+<p>La lista <code>features</code> contiene las propiedades que reconoce Maxima; a saber,
+</p>
+<pre class="verbatim">   integer        noninteger      even
+   odd            rational        irrational
+   real           imaginary       complex
+   analytic       increasing      decreasing
+   oddfun         evenfun         posfun
+   commutative    lassociative    rassociative
+   symmetric      antisymmetric
+</pre>
+<p>junto con las definidas por el usuario.
+</p>
+<p>La lista <code>features</code> sólo contiene propiedades matemáticas. 
+Hay otra lista con propiedades no matemáticas; Véase <code>status</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) declare (FOO, feature);
+(%o1)                         done
+(%i2) declare (x, FOO);
+(%o2)                         done
+(%i3) featurep (x, FOO);
+(%o3)                         true
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fget"></span><dl class="def">
+<dt id="index-get"><span class="category">Función: </span><span><strong>get</strong> <em>(<var>a</var>, <var>i</var>)</em><a href='#index-get' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Recupera la propiedad de usuario indicada por <var>i</var> asociada al átomo <var>a</var> 
+o devuelve <code>false</code> si <var>a</var> no tiene la propiedad <var>i</var>.
+</p>
+<p>La función <code>get</code> evalúa sus argumentos.
+</p>
+<p>Véanse también <code>put</code> y <code>qput</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) put (%e, 'transcendental, 'type);
+(%o1)                    transcendental
+(%i2) put (%pi, 'transcendental, 'type)$
+(%i3) put (%i, 'algebraic, 'type)$
+(%i4) typeof (expr) := block ([q],
+        if numberp (expr)
+        then return ('algebraic),
+        if not atom (expr)
+        then return (maplist ('typeof, expr)),
+        q: get (expr, 'type),
+        if q=false
+        then errcatch (error(expr,&quot;is not numeric.&quot;)) else q)$
+(%i5) typeof (2*%e + x*%pi);
+x is not numeric.
+(%o5)  [[transcendental, []], [algebraic, transcendental]]
+(%i6) typeof (2*%e + %pi);
+(%o6)     [transcendental, [algebraic, transcendental]]
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002finteger"></span><dl class="def">
+<dt id="index-integer"><span class="category">Propiedad: </span><span><strong>integer</strong><a href='#index-integer' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Database_002ees_002fdefvr_002fnoninteger"></span></dd><dt id="index-noninteger"><span class="category">Propiedad: </span><span><strong>noninteger</strong><a href='#index-noninteger' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>declare(<var>a</var>, integer)</code> o <code>declare(<var>a</var>, noninteger)</code> indica a
+Maxima que reconozca <var>a</var> como una variable entera o no entera.
+</p>
+<p>Véase también <code>declare</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) declare(n, integer, x, noninteger);
+(%o1)                         done
+(%i2) askinteger(n);
+(%o2)                          yes
+(%i3) askinteger(x);
+(%o3)                          no
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002fintegervalued"></span><dl class="def">
+<dt id="index-integervalued"><span class="category">Propiedad: </span><span><strong>integervalued</strong><a href='#index-integervalued' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>declare(<var>f</var>, integervalued)</code> indica a MAxima que reconozca <var>f</var> como
+una función que toma valores enteros.
+</p>
+<p>Véase también <code>declare</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) exp(%i)^f(x);
+                              %i f(x)
+(%o1)                      (%e  )
+(%i2) declare(f, integervalued);
+(%o2)                         done
+(%i3) exp(%i)^f(x);
+                              %i f(x)
+(%o3)                       %e
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fnonarray"></span><dl class="def">
+<dt id="index-nonarray"><span class="category">Propiedad: </span><span><strong>nonarray</strong><a href='#index-nonarray' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>La instrucción <code>declare(a, nonarray)</code> le indica a Maxima que
+no considere <var>a</var> como un array. Esta declaración evita la 
+evaluación múltiple de <var>a</var>, si ésta es una variable subindicada.
+</p>
+<p>Véase también <code>declare</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) a:'b$ b:'c$ c:'d$
+
+(%i4) a[x];
+(%o4)                          d
+                                x
+(%i5) declare(a, nonarray);
+(%o5)                         done
+(%i6) a[x];
+(%o6)                          a
+                                x
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002fnonscalar"></span><dl class="def">
+<dt id="index-nonscalar"><span class="category">Propiedad: </span><span><strong>nonscalar</strong><a href='#index-nonscalar' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Hace que los átomos se comporten como hace una lista o matriz 
+con respecto del operador <code>.</code> del la multiplicación no conmutativa.
+</p>
+<p>Véase también <code>declare</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fnonscalarp"></span><dl class="def">
+<dt id="index-nonscalarp"><span class="category">Función: </span><span><strong>nonscalarp</strong> <em>(<var>expr</var>)</em><a href='#index-nonscalarp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve <code>true</code> si <var>expr</var> no es escalar, es decir, 
+si contiene átomos declarados como no escalares, listas o matrices. 
+</p></dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002fposfun"></span><dl class="def">
+<dt id="index-posfun"><span class="category">Declaración: </span><span><strong>posfun</strong><a href='#index-posfun' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>La instrucción <code>declare (f, posfun)</code> declara a <code>f</code> como 
+función positiva, de forma que 
+<code>is (f(x) &gt; 0)</code> devolverá <code>true</code>.
+</p>
+<p>Véase también <code>declare</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fprintprops"></span><dl class="def">
+<dt id="index-printprops"><span class="category">Función: </span><span><strong>printprops</strong> <em>(<var>a</var>, <var>i</var>)</em><a href='#index-printprops' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-printprops-1"><span class="category">Función: </span><span><strong>printprops</strong> <em>([<var>a_1</var>, ..., <var>a_n</var>], <var>i</var>)</em><a href='#index-printprops-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-printprops-2"><span class="category">Función: </span><span><strong>printprops</strong> <em>(all, <var>i</var>)</em><a href='#index-printprops-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Muestra la propiedad con el indicador <var>i</var> asociado 
+con el átomo <var>a</var>. <var>a</var> puede ser también una lista de
+átomos o el átomo <code>all</code> en cuyo caso todos los átomos a los cuales se les haya dado esa propiedad serán usados. 
+Por ejemplo, <code>printprops ([f, g], atvalue)</code>. <code>printprops</code> es 
+para propiedades que no pueden ser mostradas de otra manera, i.e. para
+<code>atvalue</code>, <code>atomgrad</code>, <code>gradef</code>, y <code>matchdeclare</code>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fproperties"></span><dl class="def">
+<dt id="index-properties"><span class="category">Función: </span><span><strong>properties</strong> <em>(<var>a</var>)</em><a href='#index-properties' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve una lista con los nombres de todas las propiedades asociadas
+al t'omo <var>a</var>.
+</p></dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002fprops"></span><dl class="def">
+<dt id="index-props"><span class="category">Variable del sistema: </span><span><strong>props</strong><a href='#index-props' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>[]</code>
+</p>
+<p><code>props</code> son t'omos que tienen asociadas otras propiedades además de las
+explícitamente mencionadas en <code>infolists</code>, tales como las
+especificadas por <code>atvalue</code>, <code>matchdeclare</code> y la función 
+<code>declare</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fpropvars"></span><dl class="def">
+<dt id="index-propvars"><span class="category">Función: </span><span><strong>propvars</strong> <em>(<var>prop</var>)</em><a href='#index-propvars' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve la lista con los átomos de la lista <code>props</code> que tienen
+la propiedad indicada por <var>prop</var>. Así, <code>propvars (atvalue)</code> 
+devuelve la lista con los átomos a los que se les ha asociado valores con
+<code>atvalue</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fput"></span><dl class="def">
+<dt id="index-put"><span class="category">Función: </span><span><strong>put</strong> <em>(<var>átomo</var>, <var>valor</var>, <var>indicador</var>)</em><a href='#index-put' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Asigna el <var>valor</var> a la propiedad  (especificada por <var>indicador</var>) de <var>átomo</var>;
+<var>indicador</var> puede ser el nombre de cualquier propiedad y no solamente de aquellas definidas por el sistema.
+</p>
+<p><code>rem</code> deshace la asignación realizada por <code>put</code>.
+</p>
+<p>La función <code>put</code> evalúa sus argumentos y devuelve <var>valor</var>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) put (foo, (a+b)^5, expr);
+                                   5
+(%o1)                       (b + a)
+(%i2) put (foo, &quot;Hello&quot;, str);
+(%o2)                         Hello
+(%i3) properties (foo);
+(%o3)            [[user properties, str, expr]]
+(%i4) get (foo, expr);
+                                   5
+(%o4)                       (b + a)
+(%i5) get (foo, str);
+(%o5)                         Hello
+</pre></div>
+
+</dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fqput"></span><dl class="def">
+<dt id="index-qput"><span class="category">Función: </span><span><strong>qput</strong> <em>(<var>átomo</var>, <var>valor</var>, <var>indicador</var>)</em><a href='#index-qput' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Asigna <var>valor</var> a la propiedad de <var>átomo</var> que especifique <var>indicador</var>.
+Actúa del mismo modeo que <code>put</code>, excepto que sus argumentos no son evaluados.
+</p>
+<p>Véase también <code>get</code>.
+</p>
+<p>Ejemplo:
+</p>
+<div class="example">
+<pre class="example">(%i1) foo: aa$ 
+(%i2) bar: bb$
+(%i3) baz: cc$
+(%i4) put (foo, bar, baz);
+(%o4)                          bb
+(%i5) properties (aa);
+(%o5)                [[user properties, cc]]
+(%i6) get (aa, cc);
+(%o6)                          bb
+(%i7) qput (foo, bar, baz);
+(%o7)                          bar
+(%i8) properties (foo);
+(%o8)            [value, [user properties, baz]]
+(%i9) get ('foo, 'baz);
+(%o9)                          bar
+</pre></div>
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002frational"></span><dl class="def">
+<dt id="index-rational-1"><span class="category">Propiedad: </span><span><strong>rational</strong><a href='#index-rational-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Database_002ees_002fdefvr_002firrational"></span></dd><dt id="index-irrational"><span class="category">Propiedad: </span><span><strong>irrational</strong><a href='#index-irrational' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>declare(<var>a</var>, rational)</code> o <code>declare(<var>a</var>, irrational)</code> indica a
+Maxima que reconozca <var>a</var> como una variable real racional o irracional.
+</p>
+<p>Véase también <code>declare</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002freal"></span><dl class="def">
+<dt id="index-real"><span class="category">Propiedad: </span><span><strong>real</strong><a href='#index-real' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Database_002ees_002fdefvr_002fimaginary"></span></dd><dt id="index-imaginary"><span class="category">Propiedad: </span><span><strong>imaginary</strong><a href='#index-imaginary' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Database_002ees_002fdefvr_002fcomplex"></span></dd><dt id="index-complex"><span class="category">Propiedad: </span><span><strong>complex</strong><a href='#index-complex' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>declare(<var>a</var>, real)</code>, <code>declare(<var>a</var>, imaginary)</code> o
+<code>declare(<var>a</var>, complex)</code> indican a Maxima que reconozca <var>a</var> como variable real,
+imaginaria puro o compleja, respectivamente.
+</p>
+<p>Véase también <code>declare</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002frem"></span><dl class="def">
+<dt id="index-rem"><span class="category">Función: </span><span><strong>rem</strong> <em>(<var>átomo</var>, <var>indicador</var>)</em><a href='#index-rem' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Elimina del <var>átomo</var> la propiedad indicada por <var>indicador</var>.
+<code>rem</code> deshace la asignación realizada por <code>put</code>.
+</p>
+<p><code>rem</code> devuelve <code>done</code> si <var>átomo</var> tenía la 
+propiedad <var>indicador</var> cuando <code>rem</code> fue invocado, devolviendo
+<code>false</code> si carecía tal propiedad.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fremove"></span><dl class="def">
+<dt id="index-remove"><span class="category">Función: </span><span><strong>remove</strong> <em>(<var>a_1</var>, <var>p_1</var>, ..., <var>a_n</var>, <var>p_n</var>)</em><a href='#index-remove' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-remove-1"><span class="category">Función: </span><span><strong>remove</strong> <em>([<var>a_1</var>, ..., <var>a_m</var>], [<var>p_1</var>, ..., <var>p_n</var>], ...)</em><a href='#index-remove-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-remove-2"><span class="category">Función: </span><span><strong>remove</strong> <em>(&quot;<var>a</var>&quot;, operator)</em><a href='#index-remove-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-remove-3"><span class="category">Función: </span><span><strong>remove</strong> <em>(<var>a</var>, transfun)</em><a href='#index-remove-3' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-remove-4"><span class="category">Función: </span><span><strong>remove</strong> <em>(all, <var>p</var>)</em><a href='#index-remove-4' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Elimina propiedades asociadas con átomos.
+</p>
+<p>La llamada <code>remove (<var>a_1</var>, <var>p_1</var>, ..., <var>a_n</var>, <var>p_n</var>)</code>
+elimina la propiedad <code>p_k</code> del átomo <code>a_k</code>.
+</p>
+<p>La llamada <code>remove ([<var>a_1</var>, ..., <var>a_m</var>], [<var>p_1</var>, ..., <var>p_n</var>], ...)</code>
+elimina las propiedades <code><var>p_1</var>, ..., <var>p_n</var></code> de los átomos <var>a_1</var>, ..., <var>a_m</var>. Puede tener más de un par de listas.
+</p>
+<p>La llamada <code>remove (all, <var>p</var>)</code> elimina la propiedad <var>p</var> de todos los átomos que la tengan.
+</p>
+<p>Las propiedades eliminadas pueden ser de las que define el sistema, como 
+<code>function</code>, <code>macro</code> o <code>mode_declare</code>; <code>remove</code> no elimina
+las propiedades definidas por <code>put</code>.
+</p>
+<p>La llamada <code>remove (&quot;<var>a</var>&quot;, operator)</code> o su equivalente <code>remove (&quot;<var>a</var>&quot;, op)</code> elimina de  <var>a</var> las propiedades de operador declaradas por <code>prefix</code>, <code>infix</code>, <code>nary</code>, <code>postfix</code>, <code>matchfix</code> o <code>nofix</code>. Nótese que el nombre del operador debe escribirse como cadena precedida de apóstrofo.
+</p>
+<p>La función <code>remove</code> devuelve siempre <code>done</code> independientemente que haya algún átomo con la propiedad especificada.
+</p>
+<p>La función <code>remove</code> no evalúa sus argumentos.
+</p></dd></dl>
+
+
+<span id="Item_003a-Database_002ees_002fdefvr_002fscalar"></span><dl class="def">
+<dt id="index-scalar"><span class="category">Propiedad: </span><span><strong>scalar</strong><a href='#index-scalar' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>declare(<var>a</var>, scalar)</code> indica a Maxima que considere a <var>a</var> como
+una variable escalar.
+</p>
+<p>Véase también <code>declare</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Database_002ees_002fdeffn_002fscalarp"></span><dl class="def">
+<dt id="index-scalarp"><span class="category">Función: </span><span><strong>scalarp</strong> <em>(<var>expr</var>)</em><a href='#index-scalarp' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Devuelve <code>true</code> si <var>expr</var> es un número, constante  o variable 
+declarada como <code>scalar</code> con <code>declare</code>, o compuesta completamente de tales 
+números, constantes o variables, pero que no contengan matrices ni listas.
+</p></dd></dl>
+
+
+
+
+
+
+
+<span id="Item_003a-Database_002ees_002fnode_002fFunciones-y-variables-para-los-hechos"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_60.html" accesskey="n" rel="next">Funciones y variables para los hechos</a>, Anterior: <a href="maxima_58.html" accesskey="p" rel="prev">Introducción a la base de datos de Maxima</a>, Subir: <a href="maxima_57.html" accesskey="u" rel="up">Base de datos de Maxima</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

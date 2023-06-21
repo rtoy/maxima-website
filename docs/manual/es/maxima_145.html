@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Interrupciones (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Interrupciones (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Interrupciones (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_143.html" rel="up" title="Entorno de Ejecución">
+<link href="maxima_146.html" rel="next" title="Funciones y variables para el entorno de ejecución">
+<link href="maxima_144.html" rel="prev" title="Introducción al entorno de ejecución">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Interrupciones">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_146.html" accesskey="n" rel="next">Funciones y variables para el entorno de ejecución</a>, Anterior: <a href="maxima_144.html" accesskey="p" rel="prev">Introducción al entorno de ejecución</a>, Subir: <a href="maxima_143.html" accesskey="u" rel="up">Entorno de Ejecución</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Interrupciones-1"></span><h3 class="section">32.2 Interrupciones</h3>
+
+<p>El usuario puede detener un cómputo que esté consumiendo recursos excesivos con el carácter ^C (control-C). La acción que se sigue por defecto es la detención del cómputo y la impresión de otro prompt. En este caso, no será posible reiniciar la tarea interrumpida.
+</p>
+<p>Si a la variable Lisp <code>*debugger-hook*</code> se le asigna <code>nil</code> haciendo
+</p>
+<div class="example">
+<pre class="example">:lisp (setq *debugger-hook* nil)
+</pre></div>
+
+<p>entonces tras recibir ^C, Maxima entra en el depurador de Lisp y el usuario podrá utilizar el depurador para inspeccionar el entorno Lisp. La tarea que haya sido interrumpida podrá reiniciarse escribiendo <code>continue</code> en el depurado de Lisp. La forma de volver a Maxima desde el depurador de Lisp, que no sea la de permitir la computación hasta la terminación de la tarea, dependerá de la versión de Lisp.
+</p>
+<p>En sistemas Unix el carácter ^Z (control-Z) hace que Maxima deje de ejecutarse devolviendo el control al terminal del sistema. El comando <code>fg</code> hace que la ejecución de Maxima se reanude en el punto que lo dejó.
+</p>
+
+<span id="Item_003a-Runtime_002ees_002fnode_002fFunciones-y-variables-para-el-entorno-de-ejecuci_00f3n"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_146.html" accesskey="n" rel="next">Funciones y variables para el entorno de ejecución</a>, Anterior: <a href="maxima_144.html" accesskey="p" rel="prev">Introducción al entorno de ejecución</a>, Subir: <a href="maxima_143.html" accesskey="u" rel="up">Entorno de Ejecución</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

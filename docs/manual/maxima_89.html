@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Error Function (Maxima 5.47.0 Manual)</title>
+
+<meta name="description" content="Error Function (Maxima 5.47.0 Manual)">
+<meta name="keywords" content="Error Function (Maxima 5.47.0 Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_423.html" rel="index" title="Function and Variable Index">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="maxima_83.html" rel="up" title="Special Functions">
+<link href="maxima_90.html" rel="next" title="Struve Functions">
+<link href="maxima_88.html" rel="prev" title="Exponential Integrals">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body lang="en" class="tex2jax_ignore">
+<div class="section" id="Error-Function">
+<div class="header">
+<p>
+Next: <a href="maxima_90.html" accesskey="n" rel="next">Struve Functions</a>, Previous: <a href="maxima_88.html" accesskey="p" rel="prev">Exponential Integrals</a>, Up: <a href="maxima_83.html" accesskey="u" rel="up">Special Functions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Error-Function-1"></span><h3 class="section">15.6 Error Function</h3>
+
+<p>The Error function and related functions are defined in
+Abramowitz and Stegun,
+<i>Handbook of Mathematical Functions</i>, <a href="https://personal.math.ubc.ca/~cbm/aands/page_297.htm">A&amp;S Chapter 7</a> and (<a href="https://dlmf.nist.gov/7">DLMF 7</a>)
+</p>
+<span id="erf"></span><span id="Item_003a-Special_002fdeffn_002ferf"></span><dl class="def">
+<dt id="index-erf"><span class="category">Function: </span><span><strong>erf</strong> <em>(<var>z</var>)</em><a href='#index-erf' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The Error Function erf(z):
+<div class="displaymath"><em class="tex2jax_process">\[{\rm erf}\ z = {{2\over \sqrt{\pi}}} \int_0^z e^{-t^2}\, dt
+\]</em></div></p>
+
+<p>(<a href="https://personal.math.ubc.ca/~cbm/aands/page_297.htm">A&amp;S eqn 7.1.1</a>) and (<a href="https://dlmf.nist.gov/7.2.E1">DLMF 7.2.E1</a>).
+</p>
+<p>See also flag <code><a href="maxima_104.html#erfflag">erfflag</a></code>.  This can also be expressed in terms
+of a hypergeometric function.  See <a href="#hypergeometric_005frepresentation">hypergeometric_representation</a>.
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Special-functions">Special functions</a>
+&middot;
+</div>
+</p></dd></dl>
+
+<span id="erfc"></span><span id="Item_003a-Special_002fdeffn_002ferfc"></span><dl class="def">
+<dt id="index-erfc"><span class="category">Function: </span><span><strong>erfc</strong> <em>(<var>z</var>)</em><a href='#index-erfc' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The Complementary Error Function erfc(z):
+<div class="displaymath"><em class="tex2jax_process">\[{\rm erfc}\ z = 1 - {\rm erf}\ z
+\]</em></div></p>
+
+<p>(<a href="https://personal.math.ubc.ca/~cbm/aands/page_297.htm">A&amp;S eqn 7.1.2</a>) and (<a href="https://dlmf.nist.gov/7.2.E2">DLMF 7.2.E2</a>).
+</p>
+<p>This can also be expressed in terms
+of a hypergeometric function.  See <a href="#hypergeometric_005frepresentation">hypergeometric_representation</a>.
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Special-functions">Special functions</a>
+&middot;
+</div>
+</p></dd></dl>
+
+<span id="erfi"></span><span id="Item_003a-Special_002fdeffn_002ferfi"></span><dl class="def">
+<dt id="index-erfi"><span class="category">Function: </span><span><strong>erfi</strong> <em>(<var>z</var>)</em><a href='#index-erfi' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The Imaginary Error Function. 
+<div class="displaymath"><em class="tex2jax_process">\[{\rm erfi}\ z = -i\, {\rm erf}(i z)
+\]</em></div></p>
+
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Special-functions">Special functions</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="erf_005fgeneralized"></span><span id="Item_003a-Special_002fdeffn_002ferf_005fgeneralized"></span><dl class="def">
+<dt id="index-erf_005fgeneralized"><span class="category">Function: </span><span><strong>erf_generalized</strong> <em>(<var>z1</var>,<var>z2</var>)</em><a href='#index-erf_005fgeneralized' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Generalized Error function Erf(z1,z2):
+<div class="displaymath"><em class="tex2jax_process">\[{\rm erf}(z_1, z_2) = {{2\over \sqrt{\pi}}} \int_{z_1}^{z_2} e^{-t^2}\, dt
+\]</em></div></p>
+
+<p>This can also be expressed in terms
+of a hypergeometric function.  See <a href="#hypergeometric_005frepresentation">hypergeometric_representation</a>.
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Special-functions">Special functions</a>
+&middot;
+</div>
+</p></dd></dl>
+
+<span id="fresnel_005fc"></span><span id="Item_003a-Special_002fdeffn_002ffresnel_005fc"></span><dl class="def">
+<dt id="index-fresnel_005fc"><span class="category">Function: </span><span><strong>fresnel_c</strong> <em>(<var>z</var>)</em><a href='#index-fresnel_005fc' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The Fresnel Integral
+</p>
+<div class="displaymath"><em class="tex2jax_process">\[C(z) = \int_0^z \cos\left({\pi \over 2} t^2\right)\, dt
+\]</em></div>
+
+<p>(<a href="https://personal.math.ubc.ca/~cbm/aands/page_300.htm">A&amp;S eqn 7.3.1</a>) and (<a href="https://dlmf.nist.gov/7.2.E7">DLMF 7.2.E7</a>).
+</p>
+<p>The simplification 
+<em class='tex2jax_process'>\(C(-x) = -C(x)\)</em>
+ is applied when
+flag <code><a href="maxima_56.html#trigsign">trigsign</a></code> is true.
+</p>
+<p>The simplification 
+<em class='tex2jax_process'>\(C(ix) = iC(x)\)</em>
+ is applied when
+flag <code><a href="maxima_56.html#g_t_0025iargs">%iargs</a></code> is true.
+</p>
+<p>See flags <code><a href="#erf_005frepresentation">erf_representation</a></code> and <code><a href="#hypergeometric_005frepresentation">hypergeometric_representation</a></code>.
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Special-functions">Special functions</a>
+&middot;
+</div>
+</p></dd></dl>
+
+<span id="fresnel_005fs"></span><span id="Item_003a-Special_002fdeffn_002ffresnel_005fs"></span><dl class="def">
+<dt id="index-fresnel_005fs"><span class="category">Function: </span><span><strong>fresnel_s</strong> <em>(<var>z</var>)</em><a href='#index-fresnel_005fs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The Fresnel Integral
+<div class="displaymath"><em class="tex2jax_process">\[S(z) = \int_0^z \sin\left({\pi \over 2} t^2\right)\, dt
+\]</em></div></p>
+
+<p>(<a href="https://personal.math.ubc.ca/~cbm/aands/page_300.htm">A&amp;S eqn 7.3.2</a>) and (<a href="https://dlmf.nist.gov/7.2.E8">DLMF 7.2.E8</a>).
+</p>
+<p>The simplification 
+<em class='tex2jax_process'>\(S(-x) = -S(x)\)</em>
+ is applied when
+flag <code><a href="maxima_56.html#trigsign">trigsign</a></code> is true.
+</p>
+<p>The simplification 
+<em class='tex2jax_process'>\(S(ix) = iS(x)\)</em>
+ is applied when
+flag <code><a href="maxima_56.html#g_t_0025iargs">%iargs</a></code> is true.
+</p>
+<p>See flags <code><a href="#erf_005frepresentation">erf_representation</a></code> and <code><a href="#hypergeometric_005frepresentation">hypergeometric_representation</a></code>.
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Special-functions">Special functions</a>
+&middot;
+</div>
+</p></dd></dl>
+
+<span id="erf_005frepresentation"></span><span id="Item_003a-Special_002fdefvr_002ferf_005frepresentation"></span><dl class="def">
+<dt id="index-erf_005frepresentation"><span class="category">Option variable: </span><span><strong>erf_representation</strong><a href='#index-erf_005frepresentation' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Default value: false
+</p>
+<p><code>erf_representation</code> controls how the error functions are
+represented.  It must be set to one of <code>false</code>, <code>erf</code>,
+<code>erfc</code>, or <code>erfi</code>.  When set to <code>false</code>, the error functions are not
+modified.  When set to <code>erf</code>, all error functions (<code><a href="#erfc">erfc</a></code>,
+<code><a href="#erfi">erfi</a></code>, <code><a href="#erf_005fgeneralized">erf_generalized</a></code>, <code><a href="#fresnel_005fs">fresnel_s</a></code> and
+<code><a href="#fresnel_005fc">fresnel_c</a></code>) are converted to <code><a href="#erf">erf</a></code> functions.  Similary,
+<code>erfc</code> converts error functions to <code><a href="#erfc">erfc</a></code>.  Finally
+<code>erfi</code> converts the functions to <code><a href="#erfi">erfi</a></code>.
+</p>
+<p>Converting to <code><a href="#erf">erf</a></code>:
+</p><div class="example">
+<pre class="example">(%i1) erf_representation:erf;
+(%o1)                                true
+(%i2) erfc(z);
+(%o2)                               erfc(z)
+(%i3) erfi(z);
+(%o3)                               erfi(z)
+(%i4) erf_generalized(z1,z2);
+(%o4)                          erf(z2) - erf(z1)
+(%i5) fresnel_c(z);
+                    sqrt(%pi) (%i + 1) z           sqrt(%pi) (1 - %i) z
+      (1 - %i) (erf(--------------------) + %i erf(--------------------))
+                             2                              2
+(%o5) -------------------------------------------------------------------
+                                       4
+(%i6) fresnel_s(z);
+                    sqrt(%pi) (%i + 1) z           sqrt(%pi) (1 - %i) z
+      (%i + 1) (erf(--------------------) - %i erf(--------------------))
+                             2                              2
+(%o6) -------------------------------------------------------------------
+                                       4
+
+</pre></div>
+
+<p>Converting to <code><a href="#erfc">erfc</a></code>:
+</p><div class="example">
+<pre class="example">(%i1) erf_representation:erfc;
+(%o1)                                erfc
+(%i2) erf(z);
+(%o2)                             1 - erfc(z)
+(%i3) erfc(z);
+(%o3)                               erfc(z)
+(%i4) erf_generalized(z1,z2);
+(%o4)                         erfc(z1) - erfc(z2)
+(%i5) fresnel_s(c);
+                         sqrt(%pi) (%i + 1) c
+(%o5) ((%i + 1) ((- erfc(--------------------))
+                                  2
+                                                 sqrt(%pi) (1 - %i) c
+                                  - %i (1 - erfc(--------------------)) + 1))/4
+                                                          2
+(%i6) fresnel_c(c);
+                         sqrt(%pi) (%i + 1) c
+(%o6) ((1 - %i) ((- erfc(--------------------))
+                                  2
+                                                 sqrt(%pi) (1 - %i) c
+                                  + %i (1 - erfc(--------------------)) + 1))/4
+                                                          2
+</pre></div>
+
+<p>Converting to <code><a href="#erfc">erfc</a></code>:
+</p>
+<div class="example">
+<pre class="example">(%i1) erf_representation:erfi;
+(%o1)                                erfi
+(%i2) erf(z);
+(%o2)                           - %i erfi(%i z)
+(%i3) erfc(z);
+(%o3)                          %i erfi(%i z) + 1
+(%i4) erfi(z);
+(%o4)                               erfi(z)
+(%i5) erf_generalized(z1,z2);
+(%o5)                   %i erfi(%i z1) - %i erfi(%i z2)
+(%i6) fresnel_s(z);
+                            sqrt(%pi) %i (%i + 1) z
+(%o6) ((%i + 1) ((- %i erfi(-----------------------))
+                                       2
+                                                   sqrt(%pi) (1 - %i) %i z
+                                            - erfi(-----------------------)))/4
+                                                              2
+(%i7) fresnel_c(z);
+(%o7) 
+                   sqrt(%pi) (1 - %i) %i z            sqrt(%pi) %i (%i + 1) z
+    (1 - %i) (erfi(-----------------------) - %i erfi(-----------------------))
+                              2                                  2
+    ---------------------------------------------------------------------------
+                                         4
+</pre></div>
+</dd></dl>
+
+<span id="hypergeometric_005frepresentation"></span><span id="Item_003a-Special_002fdefvr_002fhypergeometric_005frepresentation"></span><dl class="def">
+<dt id="index-hypergeometric_005frepresentation"><span class="category">Option variable: </span><span><strong>hypergeometric_representation</strong><a href='#index-hypergeometric_005frepresentation' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Default value: false
+</p>
+<p>Enables transformation to a Hypergeometric
+representation for <code><a href="#fresnel_005fs">fresnel_s</a></code> and <code><a href="#fresnel_005fc">fresnel_c</a></code> and other
+error functions.
+</p>
+<div class="example">
+<pre class="example">(%i1) hypergeometric_representation:true;
+(%o1)                                true
+(%i2) fresnel_s(z);
+                                                      2  4
+                                     3    3  7     %pi  z    3
+                 %pi hypergeometric([-], [-, -], - -------) z
+                                     4    2  4       16
+(%o2)            ---------------------------------------------
+                                       6
+(%i3) fresnel_c(z);
+                                                    2  4
+                                   1    1  5     %pi  z
+(%o3)              hypergeometric([-], [-, -], - -------) z
+                                   4    2  4       16
+(%i4) erf(z);
+                                        1    3      2
+                      2 hypergeometric([-], [-], - z ) z
+                                        2    2
+(%o4)                 ----------------------------------
+                                  sqrt(%pi)
+(%i5) erfi(z);
+                                         1    3    2
+                       2 hypergeometric([-], [-], z ) z
+                                         2    2
+(%o5)                  --------------------------------
+                                  sqrt(%pi)
+(%i6) erfc(z);
+                                          1    3      2
+                        2 hypergeometric([-], [-], - z ) z
+                                          2    2
+(%o6)               1 - ----------------------------------
+                                    sqrt(%pi)
+(%i7) erf_generalized(z1,z2);
+                        1    3       2
+      2 hypergeometric([-], [-], - z2 ) z2
+                        2    2
+(%o7) ------------------------------------
+                   sqrt(%pi)
+                                                             1    3       2
+                                           2 hypergeometric([-], [-], - z1 ) z1
+                                                             2    2
+                                         - ------------------------------------
+                                                        sqrt(%pi)
+</pre></div>
+
+</dd></dl>
+
+<span id="Item_003a-Special_002fnode_002fStruve-Functions"></span></div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="maxima_90.html" accesskey="n" rel="next">Struve Functions</a>, Previous: <a href="maxima_88.html" accesskey="p" rel="prev">Exponential Integrals</a>, Up: <a href="maxima_83.html" accesskey="u" rel="up">Special Functions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>JavaScript license information</small></a>
+</body>
+</html>

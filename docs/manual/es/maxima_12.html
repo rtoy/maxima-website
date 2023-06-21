@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introducción a los números (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Introducción a los números (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Introducción a los números (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_11.html" rel="up" title="Números">
+<link href="maxima_13.html" rel="next" title="Funciones y variables para los números">
+<link href="maxima_11.html" rel="prev" title="Números">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="subsection" id="Introducci_00f3n-a-los-n_00fameros">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_13.html" accesskey="n" rel="next">Funciones y variables para los números</a>, Anterior: <a href="maxima_11.html" accesskey="p" rel="prev">Números</a>, Subir: <a href="maxima_11.html" accesskey="u" rel="up">Números</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Introduccion-a-los-numeros"></span><h4 class="subsection">5.1.1 Introducción a los números</h4>
+
+
+
+
+<span id="Numeros-enteros-y-racionales"></span><h4 class="subheading">Números enteros y racionales</h4>
+
+<p>Los cálculos aritméticos con números enteros y racionales son exactos.
+En principio, los números enteros y racionales admiten una cantidad arbitraria
+de cifras, con la única limitación que impongan las capacidades de memoria
+del sistema.
+</p>
+<div class="example">
+<pre class="example">(%i1) 1/3+5/4+3;
+                               55
+(%o1)                          --
+                               12
+(%i2) 100!;
+(%o2) 9332621544394415268169923885626670049071596826438162146859\
+2963895217599993229915608941463976156518286253697920827223758251\
+185210916864000000000000000000000000
+(%i3) 100!/101!;
+                                1
+(%o3)                          ---
+                               101
+</pre></div>
+
+<p>Funciones disponibles para los números enteros y racionales:
+</p>
+<pre class="verbatim">   integerp       numberp       nonnegintegerp     
+   oddp           evenp
+   ratnump        rationalize
+</pre>
+<span id="Numeros-decimales-en-coma-flotante"></span><h4 class="subheading">Números decimales en coma flotante</h4>
+
+<p>Maxima hace los cálculos con números decimales en coma flotante 
+en doble precisión. Además, Maxima puede hacer c&#314;culos con 
+números decimales grandes en coma flotante (<i>bigfloats</i>, en inglés),
+que, en principio, admiten precisión arbitraria.
+</p>
+<p>La coma de los números decimales en coma flotante se escribe con un
+punto y el exponente se puede indicar con &quot;f&quot;, &quot;e&quot; o &quot;d&quot;. Por defecto,
+Maxima hace los cálculos en doble precisión y muestra el exponente
+como &quot;e&quot; en el resultado, mientras que representa el exponente con la
+letra &quot;b&quot; en el caso de decimales grandes de precisión arbitraria.
+Maxima no distingue si la letra del exponente se escribe en minúscula
+o mayúscula.
+</p>
+<div class="example">
+<pre class="example">(%i1) [2.0,1f10,1,e10,1d10,1d300];
+(%o1)        [2.0, 1.e+10, 1, e10, 1.e+10, 1.e+300]
+(%i2) [2.0b0,1b10,1b300];
+(%o2)               [2.0b0, 1.0b10, 1.0b300]
+</pre></div>
+
+<p>Si en un cálculo aritmético aparece un número decimal en coma flotante,
+se producirá un efecto de contagio que hará que el resultado se devuelva
+también como decimal. Esto también es cierto para el caso de decimales
+grandes de precisión arbitraria.
+</p>
+<div class="example">
+<pre class="example">(%i1) 2.0+1/2+3;
+(%o1)                                 5.5
+(%i2) 2.0b0+1/2+3;
+(%o2)                                5.5b0
+</pre></div>
+
+<p>Con las funciones <code>float</code> y <code>bfloat</code> se puede convertir
+un número en decimal de doble precisión, o de precisión
+arbitraria, respectivamente:
+</p>
+<div class="example">
+<pre class="example">(%i1) float([2,1/2,1/3,2.0b0]);
+(%o1)          [2.0, 0.5, .3333333333333333, 2.0]
+(%i2) bfloat([2,1/2,1/3,2.0b0]);
+(%o2)     [2.0b0, 5.0b-1, 3.333333333333333b-1, 2.0b0]
+</pre></div>
+
+<p>Funciones y variables disponibles para números decimales:
+</p>
+<pre class="verbatim">   float        floatnump     
+   bfloat       bfloatp       fpprec
+   float2bf     bftorat       ratepsilon
+
+   number_pbranch 
+   m1pbranch
+</pre>
+<span id="Numeros-complejos"></span><h4 class="subheading">Números complejos</h4>
+
+<p>Maxima no tiene un tipo de dato especíco para
+números complejos; éstos se representan internamente como
+la suma de la parte real y la imaginaria multiplicada por el
+símbolo <code>%i</code>, que hace las veces de unidad
+imaginaria. Por ejemplo, las raíces de la ecuación
+<code>x^2 - 4*x + 13 = 0</code> se representan como <code>2 + 3*%i</code> y
+<code>2 - 3*%i</code>.
+</p>
+<p>Maxima no simplifica automáticamente productos, cocientes,
+raíces y otras expresiones con números complejos.
+Por ejemplo, para hacer la multiplicación de números
+complejos se puede utilizar la función <code>expand</code>.
+</p>
+<p>Funciones disponibles para los números complejos:
+</p>
+<pre class="verbatim">   realpart     imagpart      rectform     polarform
+   cabs         carg          conjugate    csign
+</pre>
+
+
+
+
+
+
+<span id="Item_003a-DataTypes_002ees_002fnode_002fFunciones-y-variables-para-los-n_00fameros"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_13.html" accesskey="n" rel="next">Funciones y variables para los números</a>, Anterior: <a href="maxima_11.html" accesskey="p" rel="prev">Números</a>, Subir: <a href="maxima_11.html" accesskey="u" rel="up">Números</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

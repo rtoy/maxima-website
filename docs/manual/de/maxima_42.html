@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funktionen und Variablen f&uuml;r nutzerdefinierte Operatoren (Maxima Manual)</title>
+
+<meta name="description" content="Funktionen und Variablen f&uuml;r nutzerdefinierte Operatoren (Maxima Manual)">
+<meta name="keywords" content="Funktionen und Variablen f&uuml;r nutzerdefinierte Operatoren (Maxima Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_334.html" rel="index" title="Index der Variablen und Funktionen">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
+<link href="maxima_40.html" rel="up" title="Nutzerdefinierte Operatoren">
+<link href="maxima_41.html" rel="prev" title="Einf&uuml;hrung in nutzerdefinierte Operatoren">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="de">
+<div class="subsection" id="Funktionen-und-Variablen-f_00fcr-nutzerdefinierte-Operatoren">
+<div class="header">
+<p>
+Vorige: <a href="maxima_41.html" accesskey="p" rel="prev">Einf&uuml;hrung in nutzerdefinierte Operatoren</a>, Nach oben: <a href="maxima_40.html" accesskey="u" rel="up">Nutzerdefinierte Operatoren</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Funktionen-und-Variablen-fur-nutzerdefinierte-Operatoren"></span><h4 class="subsection">7.7.2 Funktionen und Variablen f&uuml;r nutzerdefinierte Operatoren</h4>
+
+<span id="infix"></span><span id="Item_003a-Operators_002ede_002fdeffn_002finfix"></span><dl class="def">
+<dt id="index-infix"><span class="category">Funktion: </span><span><strong>infix</strong> <em>(<var>op</var>)</em><a href='#index-infix' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-infix-1"><span class="category">Funktion: </span><span><strong>infix</strong> <em>(<var>op</var>, <var>lbp</var>, <var>rbp</var>)</em><a href='#index-infix-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-infix-2"><span class="category">Funktion: </span><span><strong>infix</strong> <em>(<var>op</var>, <var>lbp</var>, <var>rbp</var>, <var>lpos</var>, <var>rpos</var>, <var>pos</var>)</em><a href='#index-infix-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Deklariert <var>op</var> als einen Infix-Operator.  Ein Infix-Operator hat eine 
+Funktionsdefinition mit zwei Argumenten.  Der Infix-Operator steht zwischen den
+Operanden.  Zum Beispiel ist die Subtraktion <code><a href="maxima_35.html#g_t_002d">-</a></code> ein Infix-Operator.
+</p>
+<p><code>infix(<var>op</var>)</code> deklariert <var>op</var> als einen Infix-Operator mit einem
+links- und rechtsseitigen Vorrang von jeweils 180.
+</p>
+<p><code>infix(<var>op</var>, <var>lbp</var>, <var>rbp</var>)</code> deklariert <var>op</var> als einen
+Infix-Operator mit den angegebenen Werten f&uuml;r den links- und rechtsseitigen
+Vorrang.
+</p>
+<p><code>infix(<var>op</var>, <var>lbp</var>, <var>rbp</var>, <var>lpos</var>, <var>rpos</var>, <var>pos</var>)</code>
+deklariert <var>op</var> als einen Infix-Operator mit den angegebenen
+Vorr&auml;ngen sowie den Wortarten <var>lpos</var>, <var>rpos</var> und <var>pos</var> f&uuml;r
+den linken und den rechten Operanden sowie das Ergebnis des Operators.
+</p>
+<p>Beispiele:
+</p>
+<p>Sind die rechtsseitigen und linksseitigen Vorr&auml;nge eines Operators
+<var>op</var> gr&ouml;&szlig;er als die entsprechenden Vorr&auml;nge eines anderen
+Operators, dann hat der Operator <var>op</var> Vorrang.
+</p>
+<div class="example">
+<pre class="example">(%i1) :lisp (get '$+ 'lbp)
+100
+(%i1) :lisp (get '$+ 'rbp)
+100
+(%i1) infix (&quot;##&quot;, 101, 101);
+(%o1)                          ##
+(%i2) &quot;##&quot;(a, b) := sconcat(&quot;(&quot;, a, &quot;,&quot;, b, &quot;)&quot;);
+(%o2)       (a ## b) := sconcat(&quot;(&quot;, a, &quot;,&quot;, b, &quot;)&quot;)
+(%i3) 1 + a ## b + 2;
+(%o3)                       (a,b) + 3
+(%i4) infix (&quot;##&quot;, 99, 99);
+(%o4)                          ##
+(%i5) 1 + a ## b + 2;
+(%o5)                       (a+1,b+2)
+</pre></div>
+
+<p>Ein gr&ouml;&szlig;erer linksseitige Vorrang <var>lbp</var> bewirkt, dass der
+Operator <var>op</var> rechts-assoziativ ist.  Ein gr&ouml;&szlig;erer rechtsseitiger
+Vorrang macht dagegen den Operator <var>op</var> links-assoziativ.
+</p>
+<div class="example">
+<pre class="example">(%i1) infix (&quot;##&quot;, 100, 99);
+(%o1)                          ##
+(%i2) &quot;##&quot;(a, b) := sconcat(&quot;(&quot;, a, &quot;,&quot;, b, &quot;)&quot;)$
+(%i3) foo ## bar ## baz;
+(%o3)                    (foo,(bar,baz))
+(%i4) infix (&quot;##&quot;, 100, 101);
+(%o4)                          ##
+(%i5) foo ## bar ## baz;
+(%o5)                    ((foo,bar),baz)
+</pre></div>
+
+<p>Maxima kann Syntaxfehler beim Einlesen eines Ausdrucks feststellen, wenn der
+eingelesene Operand nicht die f&uuml;r den Operator definierte Wortart hat.
+</p>
+<div class="example">
+<pre class="example">(%i1) infix (&quot;##&quot;, 100, 99, expr, expr, expr);
+(%o1)                          ##
+(%i2) if x ## y then 1 else 0;
+Incorrect syntax: Found algebraic expression where 
+logical expression expected
+if x ## y then 
+             ^
+(%i2) infix (&quot;##&quot;, 100, 99, expr, expr, clause);
+(%o2)                          ##
+(%i3) if x ## y then 1 else 0;
+(%o3)                if x ## y then 1 else 0
+</pre></div>
+</dd></dl>
+
+<span id="matchfix"></span><span id="Item_003a-Operators_002ede_002fdeffn_002fmatchfix"></span><dl class="def">
+<dt id="index-matchfix"><span class="category">Funktion: </span><span><strong>matchfix</strong> <em>(<var>ldelimiter</var>, <var>rdelimiter</var>)</em><a href='#index-matchfix' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-matchfix-1"><span class="category">Funktion: </span><span><strong>matchfix</strong> <em>(<var>ldelimiter</var>, <var>rdelimiter</var>, <var>arg_pos</var>, <var>pos</var>)</em><a href='#index-matchfix-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Deklariert einen Matchfix-Operator mit dem linksseitigen Begrenzungszeichen 
+<var>ldelimiter</var> und dem rechtsseitigen Begrenzungszeichen <var>rdelimiter</var>.
+</p>
+<p>Ein Matchfix-Operator hat eine beliebige Anzahl an Argumenten, die zwischen
+dem linksseitigen und dem rechtsseitigen Begrenzungszeichen stehen.  Das
+Begrenzungszeichen kann eine beliebige Zeichenkette sein.  Einige Zeichen wie
+<code>%</code>, <code>,</code>, <code>$</code> und <code>;</code> k&ouml;nnen nicht als Begrenzungszeichen
+definiert werden.
+</p>
+<p>Ein linksseitiges Begrenzungszeichen kann nicht verschiedene rechtsseitige
+Begrenzungszeichen haben.
+</p>
+<p>Maxima-Operatoren k&ouml;nnen als Matchfix-Operatoren definiert werden, ohne 
+dass sich die sonstigen Operatoreigenschaften &auml;ndern.  So kann zum Beispiel
+der Operator <code>+</code> als Matchfix-Operator definiert werden.
+</p>
+<p><code>matchfix(<var>ldelimiter</var>, <var>rdelimiter</var>, <var>arg_pos</var>, <var>pos</var>)</code>
+definiert die Wortarten f&uuml;r die Argumente <var>arg_pos</var> und das Ergebnis
+<var>pos</var> sowie das linksseitige <var>ldelimiter</var> und rechtsseitige
+<var>rdelimiter</var> Begrenzungszeichen.
+</p>
+<p>Die zu einem Matchfix-Operator zugeh&ouml;rige Funktion kann jede 
+nutzerdefinierte Funktion sein, die mit <code><a href="maxima_39.html#g_t_003a_003d">:=</a></code> oder <code><a href="maxima_160.html#define">define</a></code> definiert
+wird.  Die Definition der Funktion kann mit <code>dispfun(<var>ldelimiter</var>)</code> 
+ausgegeben werden.
+</p>
+<p>Maxima kennt nur den Operator f&uuml;r Listen <code>[ ]</code> als Matchfix-Operator.
+Klammern <code>( )</code> und Anf&uuml;hrungszeichen <code>&quot; &quot;</code> arbeiten wie 
+Matchfix-Operatoren, werden aber vom Parser nicht als Matchfix-Operatoren 
+behandelt.
+</p>
+<p><code><a href="#matchfix">matchfix</a></code> wertet die Argumente aus.  <code>matchfix</code> gibt das erste
+Argument <var>ldelimiter</var> als Ergebnis zur&uuml;ck.
+</p>
+<p>Beispiele:
+</p>
+<p>Begrenzungszeichen k&ouml;nnen eine beliebige Zeichenkette sein.
+</p>
+<div class="example">
+<pre class="example">(%i1) matchfix (&quot;@@&quot;, &quot;~&quot;);
+(%o1)                          @@
+(%i2) @@ a, b, c ~;
+(%o2)                      @@a, b, c~
+(%i3) matchfix (&quot;&gt;&gt;&quot;, &quot;&lt;&lt;&quot;);
+(%o3)                          &gt;&gt;
+(%i4) &gt;&gt; a, b, c &lt;&lt;;
+(%o4)                      &gt;&gt;a, b, c&lt;&lt;
+(%i5) matchfix (&quot;foo&quot;, &quot;oof&quot;);
+(%o5)                          foo
+(%i6) foo a, b, c oof;
+(%o6)                     fooa, b, coof
+(%i7) &gt;&gt; w + foo x, y oof + z &lt;&lt; / @@ p, q ~;
+                     &gt;&gt;z + foox, yoof + w&lt;&lt;
+(%o7)                ----------------------
+                            @@p, q~
+</pre></div>
+
+<p>Matchfix-Operatoren k&ouml;nnen f&uuml;r nutzerdefinierte Funktionen definiert 
+werden.
+</p>
+<div class="example">
+<pre class="example">(%i1) matchfix (&quot;!-&quot;, &quot;-!&quot;);
+(%o1)                         &quot;!-&quot;
+(%i2) !- x, y -! := x/y - y/x;
+                                    x   y
+(%o2)                   !-x, y-! := - - -
+                                    y   x
+(%i3) define (!-x, y-!, x/y - y/x);
+                                    x   y
+(%o3)                   !-x, y-! := - - -
+                                    y   x
+(%i4) define (&quot;!-&quot; (x, y), x/y - y/x);
+                                    x   y
+(%o4)                   !-x, y-! := - - -
+                                    y   x
+(%i5) dispfun (&quot;!-&quot;);
+                                    x   y
+(%t5)                   !-x, y-! := - - -
+                                    y   x
+
+(%o5)                         done
+(%i6) !-3, 5-!;
+                                16
+(%o6)                         - --
+                                15
+(%i7) &quot;!-&quot; (3, 5);
+                                16
+(%o7)                         - --
+                                15
+</pre></div>
+</dd></dl>
+
+<span id="nary"></span><span id="Item_003a-Operators_002ede_002fdeffn_002fnary"></span><dl class="def">
+<dt id="index-nary"><span class="category">Funktion: </span><span><strong>nary</strong> <em>(<var>op</var>)</em><a href='#index-nary' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-nary-1"><span class="category">Funktion: </span><span><strong>nary</strong> <em>(<var>op</var>, <var>bp</var>, <var>arg_pos</var>, <var>pos</var>)</em><a href='#index-nary-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>nary(<var>op</var>)</code> definiert einen <code>N-ary</code>-Operator <var>op</var> mit einem
+linksseitigen Vorrang von 180.  Der rechtsseitige Vorrang wird nicht ben&ouml;tigt.
+</p>
+<p><code>nary(<var>op</var>, <var>bp</var>, <var>arg_pos</var>, <var>pos</var>)</code> definiert einen
+<code>N-ary</code>-Operator <var>op</var> mit einem rechtsseitigen Vorrang von <var>bp</var> und
+der Wortart <var>arg_pos</var> f&uuml;r den Operanden und der Wortart <var>pos</var> für das
+Ergebnis.
+</p>
+<p>Ein <code>N-ary</code>-Operator ist ein Operator, der eine beliebige Anzahl an 
+Argumenten haben kann.  Die Argumente werden durch den Operator voneinander 
+getrennt, so ist zum Beispiel <code>+</code> ein <code>N-ary</code>-Operator und 
+<code>A+B+C</code>.
+</p>
+<p>Im Unterschied zur Definition eines Operators kann eine Funktion <code>f</code> auch
+als <code><a href="#nary">nary</a></code> mit der Funktion <code><a href="maxima_63.html#declare">declare</a></code> deklariert werden.  Die
+Deklaration hat Auswirkung auf die Vereinfachung der Funktion.  Zum Beispiel
+wird ein Ausdruck <code>j(j(a,b),j(c,d)</code> zu <code>j(a,b,c,d)</code> vereinfacht.
+</p></dd></dl>
+
+<span id="nofix"></span><span id="Item_003a-Operators_002ede_002fdeffn_002fnofix"></span><dl class="def">
+<dt id="index-nofix"><span class="category">Funktion: </span><span><strong>nofix</strong> <em>(<var>op</var>)</em><a href='#index-nofix' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-nofix-1"><span class="category">Funktion: </span><span><strong>nofix</strong> <em>(<var>op</var>, <var>pos</var>)</em><a href='#index-nofix-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>nofix(<var>op</var>)</code> definiert den Operator <var>op</var> als einen Nofix-Operator.
+</p>
+<p><code>nofix(<var>op</var>, <var>pos</var>)</code> definiert einen Nofix-Operator mit der
+Wortart <var>pos</var> f&uuml;r das Ergebnis.
+</p>
+<p>Nofix-Operatoren sind Operatoren, die kein Argument haben.  Tritt ein solcher 
+Operator allein auf, wird die dazugeh&ouml;rige Funktion ausgewertet.  Zum Beispiel
+beendet die Funktion <code>quit()</code> eine Maxima-Sitzung.  Wird diese Funktion 
+mit <code>nofix(&quot;quit&quot;)</code> als ein Nofix-Operator definiert, gen&uuml;gt die
+Eingabe von <code>quit</code>, um eine Maxima-Sitzung zu beenden.
+</p></dd></dl>
+
+<span id="postfix"></span><span id="Item_003a-Operators_002ede_002fdeffn_002fpostfix"></span><dl class="def">
+<dt id="index-postfix"><span class="category">Funktion: </span><span><strong>postfix</strong> <em>(<var>op</var>)</em><a href='#index-postfix' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-postfix-1"><span class="category">Funktion: </span><span><strong>postfix</strong> <em>(<var>op</var>, <var>lbp</var>, <var>lpos</var>, <var>pos</var>)</em><a href='#index-postfix-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>postfix (<var>op</var>)</code> definiert einen Postfix-Operator <var>op</var>.
+</p>
+<p><code>postfix (<var>op</var>, <var>lbp</var>, <var>lpos</var>, <var>pos</var>)</code> definiert einen
+Postfix-Operator <var>op</var> mit einem linksseitigem Vorrang von <var>lbp</var> sowie
+den Wortarten <var>lpos</var> f&uuml;r den Operanden und <var>pos</var> f&uuml;r das Ergebnis.
+</p>
+<p>Ein Postfix-Operator hat einen Operanden, der dem Operator vorangestellt ist.
+Ein Beispiel ist der <code>!</code>-Operator mit <code>3!</code>.  Die Funktion
+<code>postfix(&quot;x&quot;)</code> erweitert die Maxima-Syntax um den Postfix-Operator 
+<code>x</code>.
+</p></dd></dl>
+
+<span id="prefix"></span><span id="Item_003a-Operators_002ede_002fdeffn_002fprefix"></span><dl class="def">
+<dt id="index-prefix"><span class="category">Funktion: </span><span><strong>prefix</strong> <em>(<var>op</var>)</em><a href='#index-prefix' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-prefix-1"><span class="category">Funktion: </span><span><strong>prefix</strong> <em>(<var>op</var>, <var>rbp</var>, <var>rpos</var>, <var>pos</var>)</em><a href='#index-prefix-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>prefix (<var>op</var>)</code> definiert einen Prefix-Operator <var>op</var>.
+</p>
+<p><code>prefix (<var>op</var>, <var>lbp</var>, <var>lpos</var>, <var>pos</var>)</code> definiert einen
+Prefix-Operator <var>op</var> mit einem rechtsseitigem Vorrang von <var>rbp</var> sowie
+den Wortarten <var>rpos</var> f&uuml;r den Operanden und <var>pos</var> f&uuml;r das Ergebnis.
+</p>
+<p>Ein Prefix-Operator hat einen Operanden, der dem Operator nachfolgt.  Mit
+<code>prefix(&quot;x&quot;)</code> wird die Maxima-Syntax um einen Prefix-Operator <code>x</code>
+erweitert.
+</p></dd></dl>
+
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Vorige: <a href="maxima_41.html" accesskey="p" rel="prev">Einf&uuml;hrung in nutzerdefinierte Operatoren</a>, Nach oben: <a href="maxima_40.html" accesskey="u" rel="up">Nutzerdefinierte Operatoren</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Inhaltsverzeichnis" rel="contents">Inhalt</a>][<a href="maxima_334.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

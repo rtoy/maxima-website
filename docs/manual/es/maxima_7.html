@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introducción a la línea de comandos (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Introducción a la línea de comandos (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Introducción a la línea de comandos (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_6.html" rel="up" title="Línea de comandos">
+<link href="maxima_8.html" rel="next" title="Funciones y variables para la línea de comandos">
+<link href="maxima_6.html" rel="prev" title="Línea de comandos">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Introducci_00f3n-a-la-l_00ednea-de-comandos">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_8.html" accesskey="n" rel="next">Funciones y variables para la línea de comandos</a>, Anterior: <a href="maxima_6.html" accesskey="p" rel="prev">Línea de comandos</a>, Subir: <a href="maxima_6.html" accesskey="u" rel="up">Línea de comandos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+<span id="Introduccion-a-la-linea-de-comandos"></span><h3 class="section">4.1 Introducción a la línea de comandos</h3>
+
+
+<span id="Consola"></span><h4 class="subheading">Consola</h4>
+
+<p>Existen distintos interfaces para Maxima, tales como wxMaxima, Xmaxima, Imaxima
+y la consola o terminal de texto.
+</p>
+<p>La consola trabaja en modo texto, al tiempo que para introducir instrucciones
+con ayuda de un menú y obtener resultados en modo gráfico es necesario instalar
+otros interfaces.
+</p>
+<p>A lo largo de este manual se utilizará la consola, la cual está disponible en
+cualquiera de los sistemas operativos en los que trabaja Maxima. El usuario puede
+introducir todas las funciones de Maxima desde la consola; en el modo texto, los
+resultados se devolverán normalmente en un formato ASCII bidimensional, mientras
+que los gráficos necesitan de un programa adicional tal como Gnuplot.
+</p>
+<span id="Entrada_002c-Evaluacion_002c-Simplificacion-y-Salida"></span><h4 class="subheading">Entrada, Evaluación, Simplificación y Salida</h4>
+
+<p>Desde que el usuario introduce una solicitud de cálculo hasta que obtiene el
+resultado en la consola, se desarrolla un proceso que consta de cuatro fases:
+</p>
+<ol>
+<li> Bien sea desde un teclado o desde un fichero se lee una expresión que el
+analizador sintáctico se encargará de transformar en una cierta representación
+interna. En esta primera fase, se utilizan principalmente operadores tales
+como &quot;+&quot;, &quot;/&quot; o &quot;do&quot;.
+
+</li><li> La expresión leída por el analizador sintáctico es evaluada
+durante la segunda fase. Las variables se substituyen por sus valores y se
+ejecutan funciones tales como la derivación o la integración. El resultado 
+de esta fase es una expresión evaluada.
+
+</li><li> La expresión evaluada de la fase anterior se simplifica en esta tercera fase,
+en la que una expresión tal como <code>a+a</code> se reduce a <code>2*a</code>, o
+<code>sin(%pi/2)</code> se simplifica a <code>1</code>.
+
+</li><li> Tras la tercera fase se dispone de una expresión que ha sido evaluada y
+posteriormente simplificada. Ya en la cuarta y última fase, se prepara
+el resultado para ser mostrado a través de la consola.
+</li></ol>
+
+<p>El usuario puede tomar el control en cualquiera de las cuatro fases recién
+descritas. En diferentes capítulos de este manual se detallan estas posibilidades,
+pero en éste se describen aquellas instrucciones relacionadas con las fases
+primera y cuarta, relacionadas con la entrada y salida a través de la consola.
+Los capítulos sobre Evaluación y Simplificación tratan
+de las otras dos fases intermedias.
+</p>
+<span id="Marcas"></span><h4 class="subheading">Marcas</h4>
+
+<p>Maxima almacena todas las entradas con la marca <code>%i</code> seguida de un
+número entero en orden creciente, así como las salidas o resultados con la
+marca <code>%o</code> también seguida de un número de orden. Además,
+ciertas funciones utilizan la marca intermedia <code>%t</code>. Otras variables
+del sistema almacenan el último resultado devuelto por Maxima o la
+última entrada efectuada por el usuario. Los siguientes símbolos
+indican variables y funciones para la gestión de las marcas:
+</p>
+<pre class="verbatim">   __          _        
+   %           %%           %th
+   inchar      linechar     outchar
+   linenum     nolabels
+</pre>
+<span id="Listas-informativas"></span><h4 class="subheading">Listas informativas</h4>
+
+<p>Maxima gestiona listas informativas, cuyos nombres se guardan en la variable
+del sistema <code>infolists</code>. En el presente capítulo se
+describen las listas <code>labels</code>, <code>values</code> y <code>myoptions</code>.
+Los siguientes símbolos indican variables y funciones
+relacionadas con las listas informativas y variables opcionales.
+</p>
+<pre class="verbatim">   infolists     labels        values 
+   myoptions     optionset
+</pre>
+<p>Otras listas informativas, que se describirán en otros capítulos,
+son:
+</p>
+<pre class="verbatim">   functions      arrays         macros
+   rules          aliases        dependencies 
+   gradefs        props          let_rule_packages
+   structures
+</pre>
+<span id="Borrado-y-reiniciacion"></span><h4 class="subheading">Borrado y reiniciación</h4>
+
+<p>A fin de establecer el contexto en el que trabaje Maxima, en el que
+no haya variables o funciones definidas, o en el que se eliminen
+hipótesis, propiedades o definiciones concretas, se dispone de las
+siguientes funciones:
+</p>
+<pre class="verbatim">   kill     reset     reset_verbosely
+</pre>
+<span id="Otras-instrucciones"></span><h4 class="subheading">Otras instrucciones</h4>
+
+<p>Se puede acceder a la documentación con los símbolos
+<code>?</code> y <code>??</code>. En caso de que se utilice <code>?</code> a modo
+de prefijo de un símbolo, éste se interpretará como
+símbolo de Lisp. Hay instrucciones para terminar una sesión de 
+Maxima o para cambiar a una sesión de Lisp. También es posible conocer el tiempo
+que ha necesitado Maxima para realizar un cálculo. Para este tipo de cuestiones,
+Maxima dispone de las siguientes instrucciones:
+</p>
+<pre class="verbatim">   ?            ??
+   playback     prompt     showtime
+   quit         to_lisp
+</pre>
+<p>Las funciones <code>read</code> und <code>readonly</code> imprimen texto en la consola y
+leen la información introducida por el usuario.
+</p>
+<span id="Salida-por-consola"></span><h4 class="subheading">Salida por consola</h4>
+
+<p>Antes de mostrar un resultado, se transforma su representación interna 
+a otra externa. Por ejemplo, la representación interna de <code>sqrt(x)</code>
+es <code>x^(1/2)</code>, y ambos formatos pueden ser devueltos por Maxima en
+función del valor que guarde la variable opcional <code>sqrtdispflag</code>.
+</p>
+<p>Los siguientes símbolos y variables opcionales controlan
+la salida de resultados por consola:
+</p>
+<pre class="verbatim">   %edispflag         absboxchar       display2d
+   display_format_internal             exptdispflag
+   expt               nexpt            ibase
+   linel              lispdisp         negsumdispflag
+   obase              pfeformat        powerdisp
+   sqrtdispflag       stardisp         ttyoff
+</pre>
+<p>Con las siguientes funciones es posible formatear los resultados:
+</p>
+<pre class="verbatim">   disp               display          dispterms
+   grind              ldisp            ldisplay
+   print
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="Item_003a-Command_002ees_002fnode_002fFunciones-y-variables-para-la-l_00ednea-de-comandos"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_8.html" accesskey="n" rel="next">Funciones y variables para la línea de comandos</a>, Anterior: <a href="maxima_6.html" accesskey="p" rel="prev">Línea de comandos</a>, Subir: <a href="maxima_6.html" accesskey="u" rel="up">Línea de comandos</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>

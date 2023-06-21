@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Airy Functions (Maxima 5.47.0 Manual)</title>
+
+<meta name="description" content="Airy Functions (Maxima 5.47.0 Manual)">
+<meta name="keywords" content="Airy Functions (Maxima 5.47.0 Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_423.html" rel="index" title="Function and Variable Index">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="maxima_83.html" rel="up" title="Special Functions">
+<link href="maxima_87.html" rel="next" title="Gamma and Factorial Functions">
+<link href="maxima_85.html" rel="prev" title="Bessel Functions">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body lang="en" class="tex2jax_ignore">
+<div class="section" id="Airy-Functions">
+<div class="header">
+<p>
+Next: <a href="maxima_87.html" accesskey="n" rel="next">Gamma and Factorial Functions</a>, Previous: <a href="maxima_85.html" accesskey="p" rel="prev">Bessel Functions</a>, Up: <a href="maxima_83.html" accesskey="u" rel="up">Special Functions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Airy-Functions-1"></span><h3 class="section">15.3 Airy Functions</h3>
+
+<p>The Airy functions 
+<em class='tex2jax_process'>\({\rm Ai}(x)\)</em>
+ and 
+<em class='tex2jax_process'>\({\rm Bi}(x)\)</em>
+ are defined in Abramowitz and Stegun,
+<i>Handbook of Mathematical Functions</i>, <a href="https://personal.math.ubc.ca/~cbm/aands/page_446.htm">A&amp;S Section 10.4</a> and <a href="https://dlmf.nist.gov/9">DLMF 9</a>.
+</p>
+<p>The Airy differential equation is:
+</p>
+<div class="displaymath"><em class="tex2jax_process">\[{d^2 y\over dx^2} - xy = 0
+\]</em></div>
+
+<p>The numerically satisfactory pair of solutions (<a href="https://dlmf.nist.gov/9.2#T1">DLMF 9.2#T1</a>) on the real line are 
+<em class='tex2jax_process'>\(y = {\rm Ai}(x)\)</em>
+ and 
+<em class='tex2jax_process'>\(y = {\rm Bi}(x).\)</em>
+</p>
+<p>These two solutions are oscillatory for <em class='tex2jax_process'>\(x &lt; 0\)</em>.  
+<em class='tex2jax_process'>\({\rm Ai}(x)\)</em>
+ is
+the solution subject to the condition that 
+<em class='tex2jax_process'>\(y\rightarrow 0\)</em>
+ as 
+<em class='tex2jax_process'>\(x\rightarrow +\infty,\)</em>
+ and 
+<em class='tex2jax_process'>\({\rm Bi}(x)\)</em>
+ is
+the second solution with the
+same amplitude as 
+<em class='tex2jax_process'>\({\rm Ai}(x)\)</em>
+ as 
+<em class='tex2jax_process'>\(x\rightarrow-\infty\)</em>
+ which differs in phase
+by 
+<em class='tex2jax_process'>\(\pi/2.\)</em>
+  Also, 
+<em class='tex2jax_process'>\({\rm Bi}(x)\)</em>
+ is unbounded
+as 
+<em class='tex2jax_process'>\(x\rightarrow +\infty.\)</em>
+</p>
+
+
+<p>If the argument <em class='tex2jax_process'>\(x\)</em> is a real or complex floating point 
+number, the numerical value of the function is returned.
+</p>
+<span id="airy_005fai"></span><span id="Item_003a-Special_002fdeffn_002fairy_005fai"></span><dl class="def">
+<dt id="index-airy_005fai"><span class="category">Function: </span><span><strong>airy_ai</strong> <em>(<var>x</var>)</em><a href='#index-airy_005fai' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The Airy function 
+<em class='tex2jax_process'>\({\rm Ai}(x).\)</em>
+  See <a href="https://personal.math.ubc.ca/~cbm/aands/page_446.htm">A&amp;S eqn 10.4.2</a> and <a href="https://dlmf.nist.gov/9">DLMF 9</a>.
+</p>
+<p>See also <code><a href="#airy_005fbi">airy_bi</a></code>, <code><a href="#airy_005fdai">airy_dai</a></code>, and <code><a href="#airy_005fdbi">airy_dbi</a></code>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Airy-functions">Airy functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Special-functions">Special functions</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="airy_005fdai"></span><span id="Item_003a-Special_002fdeffn_002fairy_005fdai"></span><dl class="def">
+<dt id="index-airy_005fdai"><span class="category">Function: </span><span><strong>airy_dai</strong> <em>(<var>x</var>)</em><a href='#index-airy_005fdai' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The derivative of the Airy function 
+<em class='tex2jax_process'>\({\rm Ai}(x)\)</em>
+:
+</p>
+<div class="displaymath"><em class="tex2jax_process">\[{\rm airy\_dai}(x) = {d\over dx}{\rm Ai}(x)
+\]</em></div> 
+
+<p>See <code><a href="#airy_005fai">airy_ai</a></code>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Airy-functions">Airy functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Special-functions">Special functions</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="airy_005fbi"></span><span id="Item_003a-Special_002fdeffn_002fairy_005fbi"></span><dl class="def">
+<dt id="index-airy_005fbi"><span class="category">Function: </span><span><strong>airy_bi</strong> <em>(<var>x</var>)</em><a href='#index-airy_005fbi' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The Airy function 
+<em class='tex2jax_process'>\({\rm Bi}(x)\)</em>
+.  See <a href="https://personal.math.ubc.ca/~cbm/aands/page_446.htm">A&amp;S eqn 10.4.3</a> and  <a href="https://dlmf.nist.gov/9">DLMF 9</a>.
+</p>
+<p>See <code><a href="#airy_005fai">airy_ai</a></code>, and <code><a href="#airy_005fdbi">airy_dbi</a></code>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Airy-functions">Airy functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Special-functions">Special functions</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="airy_005fdbi"></span><span id="Item_003a-Special_002fdeffn_002fairy_005fdbi"></span><dl class="def">
+<dt id="index-airy_005fdbi"><span class="category">Function: </span><span><strong>airy_dbi</strong> <em>(<var>x</var>)</em><a href='#index-airy_005fdbi' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The derivative of the Airy function 
+<em class='tex2jax_process'>\({\rm Bi}(x)\)</em>
+:
+</p>
+<div class="displaymath"><em class="tex2jax_process">\[{\rm airy\_dbi}(x) = {d\over dx}{\rm Bi}(x)
+\]</em></div>
+
+<p>See <code><a href="#airy_005fai">airy_ai</a></code>, and <code><a href="#airy_005fbi">airy_bi</a></code>.
+</p>
+<div class=categorybox>
+Categories:
+<a href="maxima_424.html#Category_003a-Airy-functions">Airy functions</a>
+&middot;
+<a href="maxima_424.html#Category_003a-Special-functions">Special functions</a>
+&middot;
+</div>
+</dd></dl>
+
+<span id="Item_003a-Special_002fnode_002fGamma-and-Factorial-Functions"></span></div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="maxima_87.html" accesskey="n" rel="next">Gamma and Factorial Functions</a>, Previous: <a href="maxima_85.html" accesskey="p" rel="prev">Bessel Functions</a>, Up: <a href="maxima_83.html" accesskey="u" rel="up">Special Functions</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="maxima_423.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>JavaScript license information</small></a>
+</body>
+</html>

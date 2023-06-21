@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introducción a distrib (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Introducción a distrib (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Introducción a distrib (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_194.html" rel="up" title="distrib">
+<link href="maxima_196.html" rel="next" title="Funciones y variables para distribuciones continuas">
+<link href="maxima_194.html" rel="prev" title="distrib">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body lang="es" class="tex2jax_ignore">
+<div class="section" id="Introducci_00f3n-a-distrib">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_196.html" accesskey="n" rel="next">Funciones y variables para distribuciones continuas</a>, Anterior: <a href="maxima_194.html" accesskey="p" rel="prev">distrib</a>, Subir: <a href="maxima_194.html" accesskey="u" rel="up">distrib</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Introduccion-a-distrib"></span><h3 class="section">46.1 Introducción a distrib</h3>
+
+
+<p>El paquete <code>distrib</code> contiene un conjunto de funciones para la realización de cálculos probabilísticos con modelos univariantes, tanto discretos como continuos. 
+</p>
+<p>A continuación un breve recordatorio de las deficiones básicas sobre distribuciones de probabilidad.
+</p>
+<p>Sea <em class='tex2jax_process'>\(f(x)\)</em> la <var>función de densidad</var> de una variable aleatoria <em class='tex2jax_process'>\(X\)</em> absolutamente continua. La <var>función de distribución</var> se define como
+</p><div class="example">
+<pre class="example">                       x
+                      /
+                      [
+               F(x) = I     f(u) du
+                      ]
+                      /
+                       minf
+</pre></div>
+<p>que es igual a la probabilidad <var>Pr(X &lt;= x)</var>.
+</p>
+<p>La <var>media</var> es un parámetro de localización y se define como
+</p><div class="example">
+<pre class="example">                     inf
+                    /
+                    [
+           E[X]  =  I   x f(x) dx
+                    ]
+                    /
+                     minf
+</pre></div>
+
+<p>La  <var>varianza</var> es una medida de dispersión,
+</p><div class="example">
+<pre class="example">                 inf
+                /
+                [                    2
+         V[X] = I     f(x) (x - E[X])  dx
+                ]
+                /
+                 minf
+</pre></div>
+<p>que es un número real positivo. La raíz cuadrada de la varianza es la <var>desviación típica</var>, <em class='tex2jax_process'>\(D[X]=sqrt(V[X])\)</em>, siendo otra medida de dispersión.
+</p>
+<p>El <var>coeficiente de asimetría</var> es una medida de forma,
+</p><div class="example">
+<pre class="example">                 inf
+                /
+            1   [                    3
+  SK[X] = ----- I     f(x) (x - E[X])  dx
+              3 ]
+          D[X]  /
+                 minf
+</pre></div>
+
+<p>Y el <var>coeficiente de curtosis</var> mide el apuntamiento de la densidad,
+</p><div class="example">
+<pre class="example">                 inf
+                /
+            1   [                    4
+  KU[X] = ----- I     f(x) (x - E[X])  dx - 3
+              4 ]
+          D[X]  /
+                 minf
+</pre></div>
+<p>Si <em class='tex2jax_process'>\(X\)</em> es normal, <em class='tex2jax_process'>\(KU[X]=0\)</em>. De hecho, tanto la asimetría como la curtosis son parámetros de forma para medir la no normalidad de una distribución.
+</p>
+<p>Si la variable aleatoria <em class='tex2jax_process'>\(X\)</em> es discreta, su función de densidad, o de <var>probabiliad</var>,  <em class='tex2jax_process'>\(f(x)\)</em> toma valores positivos dentro de un conjunto numerable de valores <em class='tex2jax_process'>\(x_i\)</em>, y cero en cualquier otro lugar. En este caso, la función de distribución es
+</p><div class="example">
+<pre class="example">                       ====
+                       \
+                F(x) =  &gt;    f(x )
+                       /        i
+                       ====
+                      x &lt;= x
+                       i
+</pre></div>
+
+<p>La media, varianza, desviación típica y los coeficientes de asimetría y curtosis adquieren las formas
+</p><div class="example">
+<pre class="example">                       ====
+                       \
+                E[X] =  &gt;  x  f(x ) ,
+                       /    i    i
+                       ====
+                        x 
+                         i
+</pre></div>
+
+<div class="example">
+<pre class="example">                ====
+                \                     2
+        V[X] =   &gt;    f(x ) (x - E[X])  ,
+                /        i    i
+                ====
+                 x
+                  i
+</pre></div>
+
+<div class="example">
+<pre class="example">               D[X] = sqrt(V[X]),
+</pre></div>
+
+<div class="example">
+<pre class="example">                     ====
+              1      \                     3
+  SK[X] =  -------    &gt;    f(x ) (x - E[X])  
+           D[X]^3    /        i    i
+                     ====
+                      x
+                       i
+</pre></div>
+<p>y
+</p><div class="example">
+<pre class="example">                     ====
+              1      \                     4
+  KU[X] =  -------    &gt;    f(x ) (x - E[X])   - 3 ,
+           D[X]^4    /        i    i
+                     ====
+                      x
+                       i
+</pre></div>
+<p>respectivamente.
+</p>
+<p>Por favor, consúltese cualquier manual introductorio de probabilidad y estadística para más información sobre toda esta parafernalia matemática.
+</p>
+<p>Se sigue cierta convención a la hora de nombrar las funciones del paquete <code>distrib</code>. Cada nombre tiene dos partes, el primero hace referencia a la función o parámetro que se quiere calcular,
+</p><div class="example">
+<pre class="example">Funciones:
+   Función de densidad        (pdf_*)
+   Función de distribución    (cdf_*)
+   Cuantil                    (quantile_*)
+   Media                      (mean_*)
+   Varianza                   (var_*)
+   Desviación típica          (std_*)
+   Coeficiente de asimetría   (skewness_*)
+   Coeficiente de curtosis    (kurtosis_*)
+   Valor aleatorio            (random_*)
+</pre></div>
+
+<p>La segunda parte hace referencia explícita al modelo probabilístico,
+</p><div class="example">
+<pre class="example">Distribuciones continuas:
+   Normal              (*normal)
+   Student             (*student_t)
+   Chi^2               (*chi2)
+   Chi^2 no central    (*noncentral_chi2)
+   F                   (*f)
+   Exponencial         (*exp)
+   Lognormal           (*lognormal)
+   Gamma               (*gamma)
+   Beta                (*beta)
+   Continua uniforme   (*continuous_uniform)
+   Logística           (*logistic)
+   Pareto              (*pareto)
+   Weibull             (*weibull)
+   Rayleigh            (*rayleigh)
+   Laplace             (*laplace)
+   Cauchy              (*cauchy)
+   Gumbel              (*gumbel)
+
+Distribuciones discretas:
+   Binomial             (*binomial)
+   Poisson              (*poisson)
+   Bernoulli            (*bernoulli)
+   Geométrica           (*geometric)
+   Uniforme discreta    (*discrete_uniform)
+   Hipergeométrica      (*hypergeometric)
+   Binomial negativa    (*negative_binomial)
+   Finita discreta      (*general_finite_discrete)
+</pre></div>
+
+<p>Por ejemplo, <code>pdf_student_t(x,n)</code> es la función de densidad de la distribución de Student con <var>n</var> grados de libertad, <code>std_pareto(a,b)</code> es la desviación típica de la distribución de Pareto de parámetros <var>a</var> y <var>b</var>, y <code>kurtosis_poisson(m)</code> es el coeficiente de curtosis de la distribución de Poisson de media <var>m</var>.
+</p>
+
+<p>Para poder hacer uso del paquete <code>distrib</code> es necesario cargarlo primero tecleando
+</p><div class="example">
+<pre class="example">(%i1) load(&quot;distrib&quot;)$
+</pre></div>
+
+<p>Para comentarios, errores o sugerencias, por favor contáctese conmigo en <var>&rsquo;riotorto AT yahoo DOT com&rsquo;</var>.
+</p>
+<span id="Item_003a-distrib_002fnode_002fFunciones-y-variables-para-distribuciones-continuas"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_196.html" accesskey="n" rel="next">Funciones y variables para distribuciones continuas</a>, Anterior: <a href="maxima_194.html" accesskey="p" rel="prev">distrib</a>, Subir: <a href="maxima_194.html" accesskey="u" rel="up">distrib</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>Información de licencia de JavaScript</small></a>
+</body>
+</html>

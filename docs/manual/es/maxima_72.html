@@ -1,0 +1,614 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funciones y variables para lectura y escritura (Manual de Maxima 5.47.0)</title>
+
+<meta name="description" content="Funciones y variables para lectura y escritura (Manual de Maxima 5.47.0)">
+<meta name="keywords" content="Funciones y variables para lectura y escritura (Manual de Maxima 5.47.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="maxima_toc.html" rel="start" title="Top">
+<link href="maxima_304.html" rel="index" title="Índice de Funciones y Variables">
+<link href="maxima_toc.html#SEC_Contents" rel="contents" title="Índice general">
+<link href="maxima_69.html" rel="up" title="Lectura y escritura">
+<link href="maxima_73.html" rel="next" title="Funciones y variables para salida TeX">
+<link href="maxima_71.html" rel="prev" title="Archivos">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+body {color: black; background: white;  margin-left: 8%; margin-right: 13%;
+      font-family: "FreeSans", sans-serif}
+h1 {font-size: 150%; font-family: "FreeSans", sans-serif}
+h2 {font-size: 125%; font-family: "FreeSans", sans-serif}
+h3 {font-size: 100%; font-family: "FreeSans", sans-serif}
+a[href] {color: rgb(0,0,255); text-decoration: none;}
+a[href]:hover {background: rgb(220,220,220);}
+div.textbox {border: solid; border-width: thin; padding-top: 1em;
+    padding-bottom: 1em; padding-left: 2em; padding-right: 2em}
+div.titlebox {border: none; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 2em; padding-right: 2em; background: rgb(200,255,255);
+    font-family: sans-serif}
+div.synopsisbox {
+    border: none; padding-top: 1em; padding-bottom: 1em; padding-left: 2em;
+    padding-right: 2em; background: rgb(255,220,255);}
+pre.example {border: 1px solid rgb(180,180,180); padding-top: 1em;
+    padding-bottom: 1em; padding-left: 1em; padding-right: 1em;
+    background-color: rgb(238,238,255)}
+div.spacerbox {border: none; padding-top: 2em; padding-bottom: 2em}
+div.image {margin: 0; padding: 1em; text-align: center}
+div.categorybox {border: 1px solid gray; padding-top: 1em; padding-bottom: 1em;
+    padding-left: 1em; padding-right: 1em; background: rgb(247,242,220)}
+img {max-width:80%; max-height: 80%; display: block; margin-left: auto; margin-right: auto}
+
+-->
+</style>
+
+<link rel="icon" href="figures/favicon.ico">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6>"></script>
+
+</head>
+
+<body lang="es">
+<div class="section" id="Funciones-y-variables-para-lectura-y-escritura">
+<div class="header">
+<p>
+Siguiente: <a href="maxima_73.html" accesskey="n" rel="next">Funciones y variables para salida TeX</a>, Anterior: <a href="maxima_71.html" accesskey="p" rel="prev">Archivos</a>, Subir: <a href="maxima_69.html" accesskey="u" rel="up">Lectura y escritura</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+<span id="Funciones-y-variables-para-lectura-y-escritura-1"></span><h3 class="section">13.3 Funciones y variables para lectura y escritura</h3>
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002fappendfile"></span><dl class="def">
+<dt id="index-appendfile"><span class="category">Función: </span><span><strong>appendfile</strong> <em>(<var>filename</var>)</em><a href='#index-appendfile' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Añade información de la consola a <var>filename</var>, de igual manera que lo hace <code>writefile</code>, pero con la salvedad de que si el archivo ya existe la información queda añadida al final de su contenido.
+</p>
+<p>La función <code>closefile</code> cierra los archivos abiertos por <code>appendfile</code> o <code>writefile</code>.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002fbatch"></span><dl class="def">
+<dt id="index-batch"><span class="category">Función: </span><span><strong>batch</strong> <em>(<var>filename</var>)</em><a href='#index-batch' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-batch-1"><span class="category">Function: </span><span><strong>batch</strong> <em>(<var>filename</var>, <code>option</code>)</em><a href='#index-batch-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p><code>batch(<var>filename</var>)</code> lee expresiones de Maxima desde <var>filename</var> y 
+las evalúa. La función <code>batch</code> busca <var>filename</var> en la lista 
+<code>file_search_maxima</code>. Véase <code>file_search</code>.
+</p>
+<p><code>batch(<var>filename</var>, <code>test</code>)</code> es como <code>run_testsuite</code> con la
+opción <code>display_all=true</code>. En este caso <code>batch</code> busca <var>filename</var> 
+en la lista <code>file_search_maxima</code> y no en <code>file_search_tests</code> como hace
+<code>run_testsuite</code>. Además, <code>run_testsuite</code> ejecuta tests que están
+en la lista <code>testsuite_files</code>. Con <code>batch</code> es posible ejecutar
+cualquier fichero que se encuentre en <code>file_search_maxima</code> en modo de prueba.
+</p>
+<p>El contenido de <var>filename</var> debe ser una secuencia de expresiones de Maxima,
+cada una de las cuales termina en <code>;</code> o <code>$</code>.
+La variable especial <code>%</code> y la función <code>%th</code>
+se refieren a resultados previos dentro del archivo.
+El archivo puede incluir construcciones del tipo <code>:lisp</code>.
+Espacios, tabulaciones y saltos de línea en el archivo se ignoran.
+Un archivo de entrada válido puede crearse con un editor de texto o con la 
+función <code>stringout</code>.
+</p>
+<p>La función <code>batch</code> lee las expresiones del archivo <var>filename</var>, 
+muestra las entradas en la consola, realiza los cálculos solicitados y 
+muestra las expresiones de los resultados.
+A las expresiones de entrada se les asignan etiquetas, así 
+como a las de salida. La función <code>batch</code> evalúa todas las expresiones 
+de entrada del archivo a menos que se produzca un error. Si se le solicita 
+información al usuario (con <code>asksign</code> o <code>askinteger</code>, por ejemplo)
+<code>batch</code> se detiene para leer la nueva información para luego continuar.
+</p>
+<p>Es posible detener  <code>batch</code> tecleando <code>control-C</code> desde la consola.
+El efecto de <code>control-C</code> depende del entorno Lisp instalado.
+</p>
+<p>La función <code>batch</code> tiene diversas aplicaciones, tales como servir de 
+almacén de código escrito por el usuario, suministrar demostraciones
+libres de errores o ayudar a organizar el trabajo del usuario en la resolución 
+de problemas complejos.
+</p>
+<p>La función <code>batch</code> evalúa su argumento y devuelve la ruta hacia
+<var>filename</var> en formato cadena cuando es invocada sin segundo argumento
+o con la opción <code>demo</code>. Cuando es llamada con la opción <code>test</code>, 
+devuelve la lista vacía <code>[]</code> o una lista con <var>filename</var>
+y los números de tests que han fallado.
+</p>
+<p>Véanse también  <code>load</code>, <code>batchload</code> y <code>demo</code>.
+</p>
+</dd></dl>
+
+<span id="Item_003a-Input_002ees_002fdeffn_002fbatchload"></span><dl class="def">
+<dt id="index-batchload"><span class="category">Función: </span><span><strong>batchload</strong> <em>(<var>filename</var>)</em><a href='#index-batchload' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Lee expresiones de Maxima desde <var>filename</var> y las evalúa sin mostrar las entradas ni las salidas y sin asignarles etiquetas. Sin embargo, las salidas producidas por  <code>print</code> o <code>describe</code> sí se muestran.
+</p>
+<p>La variable especial <code>%</code> y la función <code>%th</code> se refieren a resultados previos del intérprete interactivo, no a los del propio archivo. El archivo no puede incluir construcciones del tipo <code>:lisp</code>.
+</p>
+<p>La función <code>batchload</code> devuelve la ruta de <var>filename</var> en formato de cadena.
+</p>
+<p>La función <code>batchload</code> evalúa sus argumentos.
+</p>
+<p>Véanse también <code>batch</code> y <code>load</code>.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002fclosefile"></span><dl class="def">
+<dt id="index-closefile"><span class="category">Función: </span><span><strong>closefile</strong> <em>()</em><a href='#index-closefile' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>La función <code>closefile</code> cierra los archivos abiertos por <code>appendfile</code> o <code>writefile</code>.
+</p>
+</dd></dl>
+
+
+<span id="Item_003a-Input_002ees_002fdefvr_002ffile_005foutput_005fappend"></span><dl class="def">
+<dt id="index-file_005foutput_005fappend"><span class="category">Variable opcional: </span><span><strong>file_output_append</strong><a href='#index-file_005foutput_005fappend' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>La variable <code>file_output_append</code> controla si las funciones de escritura de ficheros añaden información o sustituyen el fichero de salida. Cuando <code>file_output_append</code> toma el valor <code>true</code>, estas funciones amplían el contenido de sus ficheros de salida; en otro caso, sustituyen el fichero anterior de igual nombre por otro con el nuevo contenido.
+</p>
+<p>Las funciones <code>save</code>, <code>stringout</code> y <code>with_stdout</code> se ven afectadas por el valor que tome la variable <code>file_output_append</code>. Otras funciones que también escriben en ficheros de salida no tienen en cuenta este valor; en concreto, las funciones para la representación de gráficos y las de traducción siempre sustituyen el fichero anterior por uno nuevo de igual nombre, mientras que las funciones <code>tex</code> y <code>appendfile</code> siempre añaden información al fichero de salida sin eliminar la información anterior.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002ffilename_005fmerge"></span><dl class="def">
+<dt id="index-filename_005fmerge"><span class="category">Función: </span><span><strong>filename_merge</strong> <em>(<var>path</var>, <var>filename</var>)</em><a href='#index-filename_005fmerge' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Construye una ruta modificada a partir de <var>path</var> y <var>filename</var>.
+Si la componente final de <var>path</var> es de la forma <code>###.<var>something</var></code>,
+la componente se reemplaza con <code><var>filename</var>.<var>something</var></code>.
+En otro caso, la componente final se reemplaza simplemente por <var>filename</var>.
+</p>
+<p>El resultado es un objeto Lisp de tipo <i>pathname</i>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002ffile_005fsearch"></span><dl class="def">
+<dt id="index-file_005fsearch"><span class="category">Función: </span><span><strong>file_search</strong> <em>(<var>filename</var>)</em><a href='#index-file_005fsearch' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-file_005fsearch-1"><span class="category">Función: </span><span><strong>file_search</strong> <em>(<var>filename</var>, <var>pathlist</var>)</em><a href='#index-file_005fsearch-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>La función <code>file_search</code> busca el archivo <var>filename</var> y devuelve su ruta como una cadena; si no lo encuentra,  <code>file_search</code> devuelve <code>false</code>. La llamada 
+<code>file_search (<var>filename</var>)</code> busca en los directorios de búsqueda por defecto,
+que son los especificados por las variables <code>file_search_maxima</code>, <code>file_search_lisp</code> y <code>file_search_demo</code>.
+</p>
+<p>La función <code>file_search</code> analiza primero si el nombre del argumento existe antes de hacerlo coincidir con los comodines de los patrones de búsqueda de archivos.
+Véase <code>file_search_maxima</code> para más información sobre patrones de búsqueda de archivos.
+</p>
+<p>El argumento <var>filename</var> puede ser una ruta con nombre de archivo,
+o simplemente el nombre del archivo, o, si el directorio de búsqueda de archivo incluye un patrón de búsqueda, es suficiente con el nombre de archivo sin extensión.
+Por ejemplo,
+</p>
+<div class="example">
+<pre class="example">file_search (&quot;/home/wfs/special/zeta.mac&quot;);
+file_search (&quot;zeta.mac&quot;);
+file_search (&quot;zeta&quot;);
+</pre></div>
+
+<p>todos buscan el mismo archivo, dando por hecho que el archivo existe y que <code>/home/wfs/special/###.mac</code>
+está en <code>file_search_maxima</code>.
+</p>
+<p>La llamada <code>file_search (<var>filename</var>, <var>pathlist</var>)</code> busca solamente en los directorios especificados por <var>pathlist</var>, que es una lista de cadenas.
+El argumento <var>pathlist</var> ignora los directorios de búsqueda por defecto, de manera que si se da la lista de rutas, <code>file_search</code> busca solamente en ellas y no en los directorios por defecto.
+Incluso si hay un único directorio en <var>pathlist</var>, debe ser suministrado como una lista de un único elemento.
+</p>
+<p>El usuario puede modificar los directorios de búsqueda por defecto; véase para ello See <code>file_search_maxima</code>.
+</p>
+<p>La función <code>file_search</code> es llamada por <code>load</code> con los directorios de búsqueda <code>file_search_maxima</code> y <code>file_search_lisp</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdefvr_002ffile_005fsearch_005fmaxima"></span><dl class="def">
+<dt id="index-file_005fsearch_005fmaxima"><span class="category">Variable opcional: </span><span><strong>file_search_maxima</strong><a href='#index-file_005fsearch_005fmaxima' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Input_002ees_002fdefvr_002ffile_005fsearch_005flisp"></span></dd><dt id="index-file_005fsearch_005flisp"><span class="category">Variable opcional: </span><span><strong>file_search_lisp</strong><a href='#index-file_005fsearch_005flisp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Input_002ees_002fdefvr_002ffile_005fsearch_005fdemo"></span></dd><dt id="index-file_005fsearch_005fdemo"><span class="category">Variable opcional: </span><span><strong>file_search_demo</strong><a href='#index-file_005fsearch_005fdemo' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Input_002ees_002fdefvr_002ffile_005fsearch_005fusage"></span></dd><dt id="index-file_005fsearch_005fusage"><span class="category">Variable opcional: </span><span><strong>file_search_usage</strong><a href='#index-file_005fsearch_005fusage' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Input_002ees_002fdefvr_002ffile_005fsearch_005ftests"></span></dd><dt id="index-file_005fsearch_005ftests"><span class="category">Variable opcional: </span><span><strong>file_search_tests</strong><a href='#index-file_005fsearch_005ftests' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Estas variables especifican listas de directorios en los que deben buscar la funciones  <code>load</code>, <code>demo</code> y algunas otras. Los valores por defecto de estas variables nombran directorios de la instalación de Maxima.
+</p>
+<p>El usuario puede modificar estas variables, bien reemplazando los valores por defecto, bien añadiendo nuevos directorios.
+Por ejemplo,
+</p>
+<div class="example">
+<pre class="example">file_search_maxima: [&quot;/usr/local/foo/###.mac&quot;,
+    &quot;/usr/local/bar/###.mac&quot;]$
+</pre></div>
+
+<p>reemplaza el valor por defecto de <code>file_search_maxima</code>, mintras que
+</p>
+<div class="example">
+<pre class="example">file_search_maxima: append (file_search_maxima,
+    [&quot;/usr/local/foo/###.mac&quot;, &quot;/usr/local/bar/###.mac&quot;])$
+</pre></div>
+
+<p>añade dos directorios más. Puede ser conveniente colocar una expresión como esta en el archivo <code>maxima-init.mac</code>, de manera que la ruta de búsqueda de ficheros se asigne automáticamente cada vez que arranca Maxima.
+</p>
+<p>Se pueden especificar varias extensiones de archivos y rutas con comodines especiales.
+La cadena <code>###</code> representa el nombre del archivo buscado y una lista separada de comas y encerrada entre llaves,  <code>{foo,bar,baz}</code> representa múltiples cadenas.
+Por ejemplo, suponiendo que se busca el nombre <code>neumann</code>,
+</p>
+<div class="example">
+<pre class="example">&quot;/home/{wfs,gcj}/###.{lisp,mac}&quot;
+</pre></div>
+
+<p>se interpreta como <code>/home/wfs/neumann.lisp</code>, <code>/home/gcj/neumann.lisp</code>, <code>/home/wfs/neumann.mac</code> y <code>/home/gcj/neumann.mac</code>.
+</p></dd></dl>
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002ffile_005ftype"></span><dl class="def">
+<dt id="index-file_005ftype"><span class="category">Función: </span><span><strong>file_type</strong> <em>(<var>filename</var>)</em><a href='#index-file_005ftype' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Devuelve una descripción del contenido de <var>filename</var> basada en la 
+extensión, sin intentar abrir el archivo para inspeccionar su contenido.
+</p>
+<p>El valor devuelto es un símbolo <code>object</code>, <code>lisp</code> o 
+<code>maxima</code>. Si la extensión es &quot;mac&quot;, &quot;mc&quot;, &quot;demo&quot;, &quot;dem&quot;, &quot;dm1&quot;, &quot;dm2&quot;, 
+&quot;dm3&quot; o &quot;dmt&quot;, <code>file_type</code> devuelve <code>maxima</code>. Si la extensión es 
+&quot;l&quot;, &quot;lsp&quot; o &quot;lisp&quot;, <code>file_type</code> devuelve <code>lisp</code>. Si la extensión
+no es ninguna de las anteriores, <code>file_type</code> devuelve <code>object</code>.
+</p>
+<p>Véase también <code>pathname_type</code>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i2) map('file_type,[&quot;test.lisp&quot;, &quot;test.mac&quot;, &quot;test.dem&quot;, &quot;test.txt&quot;]);
+(%o2)            [lisp, maxima, maxima, object]
+</pre></div>
+</dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdefvr_002ffile_005ftype_005flisp"></span><dl class="def">
+<dt id="index-file_005ftype_005flisp"><span class="category">Variable opcional: </span><span><strong>file_type_lisp</strong><a href='#index-file_005ftype_005flisp' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto:  <code>[l, lsp, lisp]</code>
+</p>
+<p><code>file_type_lisp</code> es una lista con extensiones de ficheros que Maxima 
+reconoce como fuente de Lisp.
+</p>
+<p>Véase también <code>file_type</code>
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdefvr_002ffile_005ftype_005fmaxima"></span><dl class="def">
+<dt id="index-file_005ftype_005fmaxima"><span class="category">Variable opcional: </span><span><strong>file_type_maxima</strong><a href='#index-file_005ftype_005fmaxima' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto:  <code>[mac, mc, demo, dem, dm1, dm2, dm3, dmt]</code>
+</p>
+<p><code>file_type_maxima</code> es una lista con extensiones de ficheros que Maxima 
+reconoce como fuente de Maxima.
+</p>
+<p>Véase también <code>file_type</code>
+</p></dd></dl>
+
+
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002fload"></span><dl class="def">
+<dt id="index-load"><span class="category">Función: </span><span><strong>load</strong> <em>(<var>filename</var>)</em><a href='#index-load' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Evalúa las expresiones del archivo <var>filename</var>, trayendo variables,
+funciones y otros objetos a Maxima. Una asignación hecha previamente a 
+una variable en Maxima será destruida por otra asignación que se le 
+haga en <var>filename</var>. Para encontrar el fichero, <code>load</code> llama a 
+<code>file_search</code> con <code>file_search_maxima</code> y <code>file_search_lisp</code> 
+como directorios de búsqueda. Si la llamada a <code>load</code> funciona correctamente, 
+devuelve el nombre del fichero; en caso contrario, <code>load</code> muestra un mensaje de error.
+</p>
+<p>La función <code>load</code> trabaja indistintamente con código Lisp y Maxima.
+Los ficheros creados con <code>save</code>, <code>translate_file</code> y <code>compile_file</code>, 
+que crea código Lisp, y <code>stringout</code>, que crea código Maxima, todos ellos 
+pueden ser procesados por <code>load</code>. La función <code>load</code> llama a <code>loadfile</code> 
+para cargar archivos en Lisp y a  <code>batchload</code> para cargar archivos en Maxima.
+</p>
+<p>La función <code>load</code> no reconoce las construcciones de tipo <code>:lisp</code> en
+ficheros de Maxima. Además, mientras se está procesando <var>filename</var>,
+las variables globales <code>_</code>, <code>__</code>, <code>%</code> y <code>%th</code> mantienen los
+valores que tenían cuando se realizó la llamada a <code>load</code>.
+</p>
+<p>Véanse también <code>loadfile</code>, <code>batch</code>, <code>batchload</code> y <code>demo</code>;
+<code>loadfile</code> procesa archivos en Lisp; <code>batch</code>, <code>batchload</code> y <code>demo</code>
+procesan archivos en Maxima.
+</p>
+<p>Véase <code>file_search</code> para más detalles sobre el mecanismo de búsqueda de archivos.
+</p>
+<p>La función <code>load</code> evalúa sus argumentos.
+</p>
+</dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdefvr_002fload_005fpathname"></span><dl class="def">
+<dt id="index-load_005fpathname"><span class="category">Variable del sistema: </span><span><strong>load_pathname</strong><a href='#index-load_005fpathname' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Cuando se carga un fichero con las funciones <code>load</code>, <code>loadfile</code>
+o <code>batchload</code>, a la variable <code>load_pathname</code> se le asigna la
+ruta al fichero en cuestión.
+</p>
+<p>Se puede acceder a la variable <code>load_pathname</code> mientras se está
+cargando el fichero.
+</p>
+<p>Ejemplo:
+</p>
+<p>Supóngase que se tiene el fichero <code>test.mac</code> en la carpeta
+<code>&quot;/home/usuario/workspace/mymaxima/temp/&quot;</code> con las siguientes
+instrucciones:
+</p>
+<div class="example">
+<pre class="example">print(&quot;The value of load_pathname is: &quot;, load_pathname)$
+print(&quot;End of batchfile&quot;)$
+</pre></div>
+
+<p>Entonces se obtiene el siguiente resultado:
+</p>
+<div class="example">
+<pre class="example">(%i1) load(&quot;/home/usuario/workspace/mymaxima/temp/test.mac&quot;)$
+The value of load_pathname is:  
+                   /home/usuario/workspace/mymaxima/temp/test.mac 
+End of batchfile
+</pre></div>
+</dd></dl>
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002floadfile"></span><dl class="def">
+<dt id="index-loadfile"><span class="category">Función: </span><span><strong>loadfile</strong> <em>(<var>filename</var>)</em><a href='#index-loadfile' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Evalúa las expresiones Lisp del archivo <var>filename</var>. La función
+<code>loadfile</code> no llama a <code>file_search</code>, de manera que <code>filename</code> debe incluir la extensión del archivo y su ruta completa.
+</p>
+<p>La función <code>loadfile</code> puede procesar ficheros creados por  <code>save</code>, <code>translate_file</code> y <code>compile_file</code>.
+Puede ser más conveniente utilizar <code>load</code> en lugar de <code>loadfile</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdefvr_002floadprint"></span><dl class="def">
+<dt id="index-loadprint"><span class="category">Variable opcional: </span><span><strong>loadprint</strong><a href='#index-loadprint' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>true</code>
+</p>
+<p>La variable <code>loadprint</code> indica si mostrar un mensaje cuando se carga un archivo.
+</p>
+<ul>
+<li> Si <code>loadprint</code> vale <code>true</code>, se muestra siempre un mensaje.
+</li><li> Si <code>loadprint</code> vale <code>'loadfile</code>, muestra un mensaje sólo si el archivo es cargado con la función <code>loadfile</code>.
+</li><li> Si <code>loadprint</code> vale <code>'autoload</code>, muestra un mensaje sólo cuandi un archivo se carga automáticamente. Véase  <code>setup_autoload</code>.
+</li><li> Si <code>loadprint</code> vale <code>false</code>, nunca mostrará mensajes.
+</li></ul>
+
+</dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdefvr_002fpackagefile"></span><dl class="def">
+<dt id="index-packagefile"><span class="category">Variable opcional: </span><span><strong>packagefile</strong><a href='#index-packagefile' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Valor por defecto: <code>false</code>
+</p>
+<p>Los desarrolladores de paquetes que utilizan <code>save</code> o <code>translate</code>
+para crear paquetes (ficheros) que van a ser utilizados por terceros pueden
+hacer <code>packagefile: true</code> para evitar que se añada información a la
+listas de información de Maxima, como <code>values</code> o <code>functions</code>.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002fpathname_005fdirectory"></span><dl class="def">
+<dt id="index-pathname_005fdirectory"><span class="category">Función: </span><span><strong>pathname_directory</strong> <em>(<var>pathname</var>)</em><a href='#index-pathname_005fdirectory' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Input_002ees_002fdeffn_002fpathname_005fname"></span></dd><dt id="index-pathname_005fname"><span class="category">Función: </span><span><strong>pathname_name</strong> <em>(<var>pathname</var>)</em><a href='#index-pathname_005fname' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="Item_003a-Input_002ees_002fdeffn_002fpathname_005ftype"></span></dd><dt id="index-pathname_005ftype"><span class="category">Función: </span><span><strong>pathname_type</strong> <em>(<var>pathname</var>)</em><a href='#index-pathname_005ftype' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Estas funciones devuelven las componentes de <var>pathname</var>.
+</p>
+<p>Ejemplos:
+</p>
+<div class="example">
+<pre class="example">(%i1) pathname_directory(&quot;/home/usuario/maxima/changelog.txt&quot;);
+(%o1)                 /home/usuario/maxima/
+(%i2) pathname_name(&quot;/home/usuario/maxima/changelog.txt&quot;);
+(%o2)                       changelog
+(%i3) pathname_type(&quot;/home/usuario/maxima/changelog.txt&quot;);
+(%o3)                          txt
+</pre></div>
+
+</dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002fprintfile"></span><dl class="def">
+<dt id="index-printfile"><span class="category">Función: </span><span><strong>printfile</strong> <em>(<var>path</var>)</em><a href='#index-printfile' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Envía el fichero al que hace referncia la ruta <var>path</var>
+a la consola. <var>path</var> puede ser una cadena o un símbolo,
+en cuyo caso se convertirá en una cadena.
+</p>
+<p>Si <var>path</var> hace referencia a un fichero accesible desde el directorio
+actual de trabajo, entonces se enviará a la consola; en caso contrario,
+<code>printfile</code> intentará localizar el fichero añadiéndole <var>path</var>
+a cada uno de los elementos de <code>file_search_usage</code> a través de 
+<code>filename_merge</code>.
+</p>
+<p><code>printfile</code> devuelve la ruta del fichero encontado.
+</p>
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002fsave"></span><dl class="def">
+<dt id="index-save"><span class="category">Función: </span><span><strong>save</strong> <em>(<var>filename</var>, <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, ...)</em><a href='#index-save' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-save-1"><span class="category">Función: </span><span><strong>save</strong> <em>(<var>filename</var>, values, functions, labels, ...)</em><a href='#index-save-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-save-2"><span class="category">Función: </span><span><strong>save</strong> <em>(<var>filename</var>, [<var>m</var>, <var>n</var>])</em><a href='#index-save-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-save-3"><span class="category">Función: </span><span><strong>save</strong> <em>(<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, ...)</em><a href='#index-save-3' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-save-4"><span class="category">Función: </span><span><strong>save</strong> <em>(<var>filename</var>, all)</em><a href='#index-save-4' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-save-5"><span class="category">Función: </span><span><strong>save</strong> <em>(<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, <var>name_2</var>=<var>expr_2</var>, ...)</em><a href='#index-save-5' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Alamacena los valores actuales de <var>name_1</var>, <var>name_2</var>, <var>name_3</var>, ..., 
+en el archivo <var>filename</var>. Los argumentos son nombres de variables, funciones 
+u otros objetos. Si un nombre no tiene un valor o una función asociado a él, 
+entonces se ignora.
+</p>
+<p>La función <code>save</code> devuelve <var>filename</var>.
+</p>
+<p>La función <code>save</code> almacena datos en forma de expresiones Lisp.
+Los datos almacenados por <code>save</code> pueden recuperarse con <code>load (<var>filename</var>)</code>.
+El resultado de ejecutar  <code>save</code> cuando <var>filename</var> ya existe depende 
+del soporte Lisp implementado; el archivo puede ser sobreescrito o que <code>save</code> 
+envíe un mesaje de error.
+</p>
+<p>La llamada <code>save (<var>filename</var>, values, functions, labels, ...)</code>
+almacena los elementos cuyos nombres son <code>values</code>, <code>functions</code>, 
+<code>labels</code>, etc. Los nombres pueden ser cualesquiera de los especificados 
+por la variable <code>infolists</code>; <code>values</code> incluye todas las variables 
+definidas por el usuario.
+</p>
+<p>La llamada <code>save (<var>filename</var>, [<var>m</var>, <var>n</var>])</code> almacena los valores 
+de las etiquetas de entrada y salida desde <var>m</var> hasta <var>n</var>. Nótese que 
+<var>m</var> y <var>n</var> deben ser números. Las etiquetas de entrada y salida 
+también se pueden almacenar una a una, por ejemplo, <code>save (&quot;foo.1&quot;, %i42, %o42)</code>.
+La llamada <code>save (<var>filename</var>, labels)</code> almacena todas las etiquetas de 
+entrada y salida. Cuando las etiquetas almacenadas en el archivo sean posteriormente 
+recuperadas, se sobreescribirán las activas en ese momento.
+</p>
+<p>La llamada <code>save (<var>filename</var>, <var>name_1</var>=<var>expr_1</var>, <var>name_2</var>=<var>expr_2</var>, ...)</code>
+almacena los valores de <var>expr_1</var>, <var>expr_2</var>, ...,
+con los nombres <var>name_1</var>, <var>name_2</var>, ....
+Es útil hacer este tipo de llamada para con etiquetas de entrada y salida, por ejemplo, <code>save (&quot;foo.1&quot;, aa=%o88)</code>.
+El miembro derecho de la igualdad puede ser cualquier expresión, que será evaluada.
+Esta llamada a la función <code>save</code> no incorpora nuevos nombres a la sesión actual de Maxima,
+simplemente los almacena en el archivo <var>filename</var>.
+</p>
+<p>Todas estas formas de llamar a la función <code>save</code> se pueden combinar a voluntad.
+Por ejemplo, <code>save (<var>filename</var>, aa, bb, cc=42, functions, [11, 17])</code>.
+</p>
+<p>La llamada <code>save (<var>filename</var>, all)</code> almacena el estado actual de Maxima, 
+lo que incluye todas las variables definidas por el usuario, funciones, arreglos, etc., 
+así como algunos objetos definidos automáticamente.
+Los elementos almacenados incluyen variables del sistema, como <code>file_search_maxima</code> o 
+<code>showtime</code>, si han sido modificadas por el usuario. Véase <code>myoptions</code>.
+</p>
+<p><code>save</code> evalúa <var>filename</var> pero no el resto de argumentos.
+</p></dd></dl>
+
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002fstringout"></span><dl class="def">
+<dt id="index-stringout"><span class="category">Función: </span><span><strong>stringout</strong> <em>(<var>filename</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, ...)</em><a href='#index-stringout' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-stringout-1"><span class="category">Función: </span><span><strong>stringout</strong> <em>(<var>filename</var>, [<var>m</var>, <var>n</var>])</em><a href='#index-stringout-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-stringout-2"><span class="category">Función: </span><span><strong>stringout</strong> <em>(<var>filename</var>, input)</em><a href='#index-stringout-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-stringout-3"><span class="category">Función: </span><span><strong>stringout</strong> <em>(<var>filename</var>, functions)</em><a href='#index-stringout-3' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-stringout-4"><span class="category">Función: </span><span><strong>stringout</strong> <em>(<var>filename</var>, values)</em><a href='#index-stringout-4' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>La función <code>stringout</code> escribe expresiones en un archivo de la misma forma en 
+que se escribirían como expresiones de entrada. El archivo puede ser 
+utilizado entonces como entrada a las funciones <code>batch</code> o <code>demo</code>, y puede 
+ser editado para cualquier otro propósito.
+</p>
+<p>La forma general de <code>stringout</code> escribe los valores de una o más expresiones 
+en el archivo de salida. Nótese que si una expresión es una variable, solamente se 
+escribirá el valor de la variable y no el nombre de ésta. Como caso especial, y muy 
+útil en algunas ocasiones, las expresiones pueden ser etiquetas de entrada (<code>%i1</code>, 
+<code>%i2</code>, <code>%i3</code>, ...) o de salida (<code>%o1</code>, <code>%o2</code>, <code>%o3</code>, ...).
+</p>
+<p>Si <code>grind</code> vale <code>true</code>, <code>stringout</code> formatea la salida utilizando <code>grind</code>. 
+En caso contrario, se utilizará el formato <code>string</code>. Véanse <code>grind</code> y <code>string</code>.
+</p>
+<p>La forma especial <code>stringout (<var>filename</var>, [<var>m</var>, <var>n</var>])</code> escribe los valores 
+de las etiquetas de entrada desde la m hasta la n, ambas inclusive. 
+</p>
+<p>La forma especial <code>stringout (<var>filename</var>, input)</code> escribe todas las etiquetas de
+entrada en el archivo.
+</p>
+<p>La forma especial <code>stringout (<var>filename</var>, functions)</code> escribe todas las funciones 
+definidas por el usuario, contenidas en la lista global <code>functions</code>, en el archivo.
+</p>
+<p>La forma especial <code>stringout (<var>filename</var>, values)</code> escribe todas las variables 
+asignadas por el usuario, contenidas en la lista global <code>values</code>, en el archivo. 
+Cada variable se escribe como una sentencia de asignación, con el nombre de la variable 
+seguida de dos puntos y a continuación su valor. Nótese que la forma general de 
+<code>stringout</code> no escribe las variables como sentencias de asignación.
+</p></dd></dl>
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002fwith_005fstdout"></span><dl class="def">
+<dt id="index-with_005fstdout"><span class="category">Función: </span><span><strong>with_stdout</strong> <em>(<var>f</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, ...)</em><a href='#index-with_005fstdout' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-with_005fstdout-1"><span class="category">Función: </span><span><strong>with_stdout</strong> <em>(<var>s</var>, <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, ...)</em><a href='#index-with_005fstdout-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Evalúa  <var>expr_1</var>, <var>expr_2</var>, <var>expr_3</var>, ...
+y escribe los resultados en el fichero <var>f</var> o flujo de salida <var>s</var>.
+Las expresiones que se evalúan no se escriben. La salida puede generarse por medio
+de <code>print</code>, <code>display</code>, <code>grind</code> entre otras funciones.
+</p>
+<p>La variable global <code>file_output_append</code> controla si <code>with_stdout</code>
+añade o reinicia el contenido del fichero de salida <var>f</var>.
+Si <code>file_output_append</code> vale <code>true</code>, <code>with_stdout</code> añade
+contenido al fichero de salida. En cualquier caso, <code>with_stdout</code>
+crea el fichero si éste no existe.
+</p>
+<p>La función <code>with_stdout</code> devuelve el valor de su último argumento.
+</p>
+<p>Véase también <code>writefile</code>.
+</p>
+<div class="example">
+<pre class="example">(%i1) with_stdout (&quot;tmp.out&quot;, 
+                   for i:5 thru 10 do print (i, &quot;! yields&quot;, i!))$
+(%i2) printfile (&quot;tmp.out&quot;)$
+5 ! yields 120 
+6 ! yields 720 
+7 ! yields 5040 
+8 ! yields 40320 
+9 ! yields 362880 
+10 ! yields 3628800
+</pre></div>
+</dd></dl>
+
+
+
+
+<span id="Item_003a-Input_002ees_002fdeffn_002fwritefile"></span><dl class="def">
+<dt id="index-writefile"><span class="category">Función: </span><span><strong>writefile</strong> <em>(<var>filename</var>)</em><a href='#index-writefile' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Comienza escribiendo una transcripción de la sesión de Maxima en el archivo <var>filename</var>.
+Cualquier interacción entre Maxima y el usuario se almacena también en este archivo, tal como aparece en la consola.
+</p>
+<p>Puesto que la transcripción se escribe en el formato de salida a la consola, su contenido no es interpretable por Maxima.
+Para hacer un archivo que contenga expresiones que puedan ser nuevamente cargadas en Maxima, véanse <code>save</code> y <code>stringout</code>; la función <code>save</code> almacena expresiones en formato Lisp, mientras que <code>stringout</code> lo hace en formato Maxima.
+</p>
+<p>El resultado de ejecutar <code>writefile</code> cuando el archivo <var>filename</var> ya existe depende del entorno Lisp operativo; el contenido anterior puede ser sobreescrito o ampliado con la sesión actual. La función <code>appendfile</code> siempre añade la sesión al contenido actual.
+</p>
+<p>Puede ser útil ejecutar <code>playback</code> después de <code>writefile</code> para guardar las interacciones previas de la sesión. Puesto que  <code>playback</code> muestra solamente las variables de entrada y salida (<code>%i1</code>, <code>%o1</code>, etc.),
+cualquier salida generada por una sentencia de impresión desde dentro de una función no es mostrada por <code>playback</code>.
+</p>
+<p>La función <code>closefile</code> cierra los archivos abiertos por <code>writefile</code> o <code>appendfile</code>.
+</p></dd></dl>
+
+
+
+
+<span id="Item_003a-Input_002ees_002fnode_002fFunciones-y-variables-para-salida-TeX"></span></div>
+<hr>
+<div class="header">
+<p>
+Siguiente: <a href="maxima_73.html" accesskey="n" rel="next">Funciones y variables para salida TeX</a>, Anterior: <a href="maxima_71.html" accesskey="p" rel="prev">Archivos</a>, Subir: <a href="maxima_69.html" accesskey="u" rel="up">Lectura y escritura</a> &nbsp; [<a href="maxima_toc.html#SEC_Contents" title="Índice general" rel="contents">Índice general</a>][<a href="maxima_304.html" title="Índice" rel="index">Índice</a>]</p>
+</div>
+
+
+
+</body>
+</html>
