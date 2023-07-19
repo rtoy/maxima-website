@@ -45,10 +45,17 @@ have your copy of the Web repository, make sure you don't have any additional
 files or changes that have not been committed, and then issue the following
 command:
 
-    rsync -avz --delete * username@web.sf.net:/home/project-web/maxima/htdocs
+    rsync -avz --exclude "ext" --delete * username@web.sf.net:/home/project-web/maxima/htdocs
+
 
 Where username should be replaced with the username you use in
 Sourceforge. In addition to rsync, you can also use sftp or scp to copy files
 to the web.sf.net; if you use one of those programs instead, make sure you
 send any new files, update the files that have changed and delete the ones
 that have been removed from the repository.
+
+Big external documents should be archived in the subdirectory ext/, which
+is not under version control. If you add any files to that directory, use
+the following command (or equivalent) to copy them to Maxima's Website:
+
+    rsync -avzu ext username@web.sf.net:/home/project-web/maxima/htdoc
