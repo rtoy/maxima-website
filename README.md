@@ -58,4 +58,4 @@ Big external documents should be archived in the subdirectory ext/, which
 is not under version control. If you add any files to that directory, use
 the following command (or equivalent) to copy them to Maxima's Website:
 
-    rsync -avzu ext username@web.sf.net:/home/project-web/maxima/htdoc
+    rsync -avzu ext username@web.sf.net:/home/project-web/maxima/htdocs
