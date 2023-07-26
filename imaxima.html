@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Imaxima Manual</title>
+
+<meta name="description" content="Imaxima Manual">
+<meta name="keywords" content="Imaxima Manual">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<link href="#Index" rel="index" title="Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<link href="#Installation" rel="next" title="Installation">
+<link href="dir.html#Top" rel="prev" title="(dir)">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter-printindex {text-decoration: none}
+div.example {margin-left: 3.2em}
+kbd.kbd {font-style: oblique}
+kbd.key {font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+td.printindex-index-entry {vertical-align: top}
+td.printindex-index-section {vertical-align: top}
+th.entries-header-printindex {text-align:left}
+th.sections-header-printindex {text-align:left}
+ul.mark-bullet {list-style-type: disc}
+ul.toc-numbered-mark {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+
+
+
+<div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+Next: <a href="#Installation" accesskey="n" rel="next">Installation</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h1 class="top" id="Imaxima">Imaxima</h1>
+<p>Imaxima is a package for displaying the output from the computer
+algebra system Maxima as images typeset by TeX.
+</p>
+<p>This manual documents imaxima version branch_5_47_base_350_gc29330126. You can
+download the latest version of imaxima from
+<a class="uref" href="http://maxima.sourceforge.net/">the Maxima website</a>.
+</p>
+<p>Since version 1.0b, imaxima and imath supports inline graphs.
+</p>
+<p>Send suggestions and bug reports to
+<a class="email" href="mailto:maxima-discuss@lists.sourceforge.net">the Maxima email list</a> or
+<a class="uref" href="https://sourceforge.net/p/maxima/bugs/">the Maxima bug tracker</a>.
+</p>
+
+<div class="element-contents" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="toc-numbered-mark">
+  <li><a id="toc-Installation-1" href="#Installation">1 Installation</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Manual-installation" href="#Manual-installation">1.1 Manual installation</a></li>
+  </ul></li>
+  <li><a id="toc-Usage-1" href="#Usage">2 Usage</a></li>
+  <li><a id="toc-Inline-Graphs-1" href="#Inline-Graphs">3 Inline Graphs</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Keybindings-1" href="#Keybindings">3.1 Keybindings</a></li>
+    <li><a id="toc-Commands-and-Options-1" href="#Commands-and-Options">3.2 Commands and Options</a></li>
+  </ul></li>
+  <li><a id="toc-Options-1" href="#Options">4 Options</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Appearance-1" href="#Appearance">4.1 Appearance</a></li>
+    <li><a id="toc-Line-Breaking-1" href="#Line-Breaking">4.2 Line Breaking</a></li>
+    <li><a id="toc-Miscellaneous-1" href="#Miscellaneous">4.3 Miscellaneous</a></li>
+  </ul></li>
+  <li><a id="toc-Imath-minor-mode-1" href="#Imath-minor-mode">5 Imath minor mode</a></li>
+  <li><a id="toc-Index-1" href="#Index" rel="index">6 Index</a></li>
+</ul>
+</div>
+</div>
+<hr>
+<div class="chapter-level-extent" id="Installation">
+<div class="nav-panel">
+<p>
+Next: <a href="#Usage" accesskey="n" rel="next">Usage</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Imaxima</a>, Up: <a href="#Top" accesskey="u" rel="up">Imaxima</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Installation-1">1 Installation</h2>
+<a class="index-entry-id" id="index-breqn"></a>
+<p>Install imaxima by unpacking the tarball and doing the usual
+incantation
+</p>
+<div class="example">
+<pre class="example-preformatted">./configure
+make
+make install
+</pre></div>
+
+<p>and put
+</p>
+<div class="example lisp">
+<pre class="lisp-preformatted">(autoload 'imaxima &quot;imaxima&quot; &quot;Image support for Maxima.&quot; t)
+</pre></div>
+
+<p>in your <samp class="file">.emacs</samp> file.
+</p>
+<p>If you use Interactive Math minor mode, put
+</p>
+<div class="example lisp">
+<pre class="lisp-preformatted">(autoload 'imath-mode &quot;imath&quot; &quot;Interactive Math minor mode.&quot; t)
+</pre></div>
+
+<p>in your <samp class="file">.emacs</samp> file.
+</p>
+
+<p>To do line breaking imaxima requires the LaTeX package
+<code class="code">breqn</code>. This package is currently distributed from
+<a class="uref" href="https://ctan.org/pkg/breqn">its CTAN webpage</a> as
+<a class="uref" href="http://mirrors.ctan.org/install/macros/latex/contrib/breqn.tds.zip">breqn.tds.zip</a>.
+</p>
+<p>The files in <code class="code">breqn</code> must be installed in a place where TeX can
+find them. In a typical LaTeX installation you should put the
+<samp class="file">*.sty</samp> and <samp class="file">*.sym</samp> files in
+</p>
+<div class="example">
+<pre class="example-preformatted"><samp class="file">/usr/share/texmf/tex/latex/breqn/</samp>
+</pre></div>
+
+<p>and the documentation files in 
+</p>
+<div class="example">
+<pre class="example-preformatted"><samp class="file">/usr/share/texmf/doc/latex/breqn/</samp>.  
+</pre></div>
+
+<p>The files can also be installed in a number of other places&mdash;consult
+your TeX documentation for details.
+</p>
+<p>Now run <code class="command">texhash</code> after installing the files.  You can use the
+command <code class="command">kpsewhich</code> to verify that TeX is able to find the
+files, e.g.
+</p>
+<div class="example">
+<pre class="example-preformatted">kpsewhich breqn.sty
+</pre></div>
+
+<p>To get the best image quality a fairly recent version of Ghostscript
+is recommended.  See <a class="xref" href="#Miscellaneous">Miscellaneous</a>, for options suitable for using
+older versions of Ghostscript or not using Ghostscript at all
+</p>
+<ul class="mini-toc">
+<li><a href="#Manual-installation" accesskey="1">Manual installation</a></li>
+</ul>
+<div class="section-level-extent" id="Manual-installation">
+<h3 class="section">1.1 Manual installation</h3>
+<p>If you cannot use <code class="command">make</code>, the manual steps required for
+installation are
+</p>
+<ul class="itemize mark-bullet">
+<li>Byte compile <samp class="file">imaxima.el</samp> and <samp class="file">imath.el</samp>.
+</li><li>Place the files <samp class="file">imaxima.el</samp>, <samp class="file">imaxima.elc</samp>, <samp class="file">imath.el</samp>,
+<samp class="file">imath.elc</samp>, <samp class="file">imaxima-autoconf-variables.el</samp> and
+<samp class="file">imaxima.lisp</samp> in Emacs&rsquo; <code class="code">load-path</code> (see <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Lisp-Libraries">Lisp Libraries</a> in <cite class="cite">The Emacs manual</cite>).
+</li><li>Install the TeX files in the way explained above.
+</li></ul>
+
+<hr>
+</div>
+</div>
+<div class="chapter-level-extent" id="Usage">
+<div class="nav-panel">
+<p>
+Next: <a href="#Inline-Graphs" accesskey="n" rel="next">Inline Graphs</a>, Previous: <a href="#Installation" accesskey="p" rel="prev">Installation</a>, Up: <a href="#Top" accesskey="u" rel="up">Imaxima</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Usage-1">2 Usage</h2>
+<p>To start using imaxima just type <kbd class="kbd">M-x imaxima</kbd>. The imaxima
+directory needs to be on Emacs&rsquo; <code class="code">load-path</code>.
+</p>
+<dl class="first-deffn first-defun-alias-first-deffn">
+<dt class="deffn defun-alias-deffn" id="index-imaxima"><span class="category-def">Function: </span><span><strong class="def-name">imaxima</strong><a class="copiable-link" href='#index-imaxima'> &para;</a></span></dt>
+<dd><p>Starts a Maxima session in an Emacs buffer.
+</p></dd></dl>
+
+<p>You can turn image generation off by evaluating
+</p>
+<div class="example">
+<pre class="example-preformatted">display2d:true
+</pre></div>
+
+<p>in Maxima.  Output from Maxima is then shown with the usual
+<abbr class="acronym">ASCII</abbr> graphics.  To turn images on again, evaluate
+</p>
+<div class="example">
+<pre class="example-preformatted">display2d:imaxima
+</pre></div>
+
+<p>If there is an error in a LaTeX expression you can press <kbd class="kbd">Mouse-2</kbd>
+(or <kbd class="kbd"><kbd class="key">RET</kbd></kbd>) on the error message to view the error log and
+<kbd class="kbd">Mouse-3</kbd> (or <kbd class="kbd">M-<kbd class="key">RET</kbd></kbd>) to view the LaTeX source file.
+</p>
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002duse_002dmaxima_002dmode_002dflag"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-use-maxima-mode-flag</strong><a class="copiable-link" href='#index-imaxima_002duse_002dmaxima_002dmode_002dflag'> &para;</a></span></dt>
+<dd><p>Set to non-<code class="code">nil</code> to use the Maxima mode from <code class="code">maxima.el</code>.
+</p>
+<p>By default <code class="code">imaxima.el</code> uses a very simple mode which doesn&rsquo;t
+provide any custom menus, font-locking or key-bindings.  You can,
+however, combine <code class="code">imaxima.el</code> with the Emacs mode from the Maxima
+distribution to get these features.
+</p></dd></dl>
+
+<dl class="first-deffn first-defun-alias-first-deffn">
+<dt class="deffn defun-alias-deffn" id="index-imaxima_002dlatex"><span class="category-def">Function: </span><span><strong class="def-name">imaxima-latex</strong><a class="copiable-link" href='#index-imaxima_002dlatex'> &para;</a></span></dt>
+<dd><p>Converts the Maxima buffer to a LaTeX document and opens it in LaTeX
+mode. <a class="ref" href="#imaxima_002dlatex_002dbuffer_002dname">imaxima-latex-buffer-name</a> <em class="emph">Note:</em> This command does not
+work in XEmacs.
+</p></dd></dl>
+
+<dl class="first-deffn first-defun-alias-first-deffn">
+<dt class="deffn defun-alias-deffn" id="index-imaxima_002dto_002dhtml"><span class="category-def">Function: </span><span><strong class="def-name">imaxima-to-html</strong><a class="copiable-link" href='#index-imaxima_002dto_002dhtml'> &para;</a></span></dt>
+<dd><p>Converts the Maxima buffer to a HTML document named session.html 
+and opens it in HTML mode. All the PNG files generated by imaxima 
+for each output from Maxima are gathered in a folder named session-images
+and referenced from session.html. <em class="emph">Note:</em> This command does not 
+work in XEmacs. 
+</p></dd></dl>
+
+<dl class="first-deffn first-defun-alias-first-deffn">
+<dt class="deffn defun-alias-deffn" id="index-imaxima_002dclean_002dup"><span class="category-def">Function: </span><span><strong class="def-name">imaxima-clean-up</strong><a class="copiable-link" href='#index-imaxima_002dclean_002dup'> &para;</a></span></dt>
+<dd><p>Delete temporary files created by imaxima and kill the Ghostscript
+process if it is running.  Normally imaxima does this automatically
+when you quit Maxima.  This command is just a convenience if
+this doesn&rsquo;t happen.
+</p></dd></dl>
+
+<dl class="first-deffn first-defun-alias-first-deffn">
+<dt class="deffn defun-alias-deffn" id="index-imaxima_002dversion"><span class="category-def">Function: </span><span><strong class="def-name">imaxima-version</strong><a class="copiable-link" href='#index-imaxima_002dversion'> &para;</a></span></dt>
+<dd><p>Display the package name and the version number of the imaxima imath
+package in the mini buffer. You should make sure the version 
+information when you want to make bug reports.
+</p></dd></dl>
+
+<dl class="first-deffn first-defun-alias-first-deffn">
+<dt class="deffn defun-alias-deffn" id="index-reinit_002dimaxima"><span class="category-def">Function: </span><span><strong class="def-name">reinit-imaxima</strong><a class="copiable-link" href='#index-reinit_002dimaxima'> &para;</a></span></dt>
+<dd><p>Initialize the imaxima program. Sometimes you may encounter situations
+where imaxima does not repond to your input. This is caused by the
+inconsistency between Emacs Lisp and Maxima. Such situations can be
+resolved by using this command. After calling this command from the
+Emacs mini buffer, you should type simple Maxima expression such as
+1+2; to ensure that the imaxima does respond to you now.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dprint_002dbuffer"></a><dl class="first-deffn first-defun-alias-first-deffn">
+<dt class="deffn defun-alias-deffn" id="index-imaxima_002dprint_002dbuffer"><span class="category-def">Function: </span><span><strong class="def-name">imaxima-print-buffer</strong><a class="copiable-link" href='#index-imaxima_002dprint_002dbuffer'> &para;</a></span></dt>
+<dd><p>Run LaTeX on the current buffer and show output. See
+See <a class="xref" href="#imaxima_002dprint_002dtex_002dcommand">imaxima-print-tex-command</a> for how LaTeX is run.
+</p></dd></dl>
+
+
+<hr>
+</div>
+<div class="chapter-level-extent" id="Inline-Graphs">
+<div class="nav-panel">
+<p>
+Next: <a href="#Options" accesskey="n" rel="next">Options</a>, Previous: <a href="#Usage" accesskey="p" rel="prev">Usage</a>, Up: <a href="#Top" accesskey="u" rel="up">Imaxima</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Inline-Graphs-1">3 Inline Graphs</h2>
+
+<p>Since version 1.0b, imaxima and imath supports the inline graph display
+feature. That is, if a special graph command (such as wxplot2d, wxplot3d)
+is used in the maxima session, the graph generated by the command is 
+inserted in the maxima session buffer, instead of displaying in another
+window.
+</p>
+
+<p>Before using this feature, you should make sure <code class="code">plot2d</code> works
+with Gnuplot by trying:
+</p><div class="example">
+<pre class="example-preformatted">(%i1) plot2d(x^2,[x,-5,5],[plot_format,gnuplot]);
+</pre></div>
+<p>If this works fine, then quite likely <code class="code">wxplot2d</code> works, too.
+</p>
+<p>Following commands can be used in a maxima session to draw graphs to be
+displayed inline: <code class="code">wxplot2d</code>, <code class="code">wxplot3d</code>, <code class="code">wxdraw2d</code>,
+<code class="code">wxdraw3d</code>, <code class="code">wximplicit_plot</code>, and <code class="code">wxcontour_plot</code>. New
+in version 1.0d, the graphics commands <code class="code">wxdraw</code>, <code class="code">wxjulia</code> and
+<code class="code">wxmandelbroit</code> also provide inline images.
+</p>
+<p>The syntax and capabilities of the wx-prefixed versions of the commands
+and their arguments are the same as the ones of the corresponding
+original commands. Hence, <code class="code">wxplot2d</code> draws a graph inline in the
+<code class="verb">imaxima</code> buffer, while <code class="code">plot2d</code> displays the same graph in
+a different window created by Gnuplot.
+</p>
+<p>The wx-prefixed versions of the commands set up arguments so that
+Gnuplot is used to draw the graph and writes the graph in extended
+postscript format into a temporary file. Conseqently, use of plot
+options such as <code class="code">plot_format</code>, <code class="code">gnuplot_script_file</code>,
+<code class="code">gnuplot_term</code>, <code class="code">ps_file</code> or their draw counterparts will
+result in unspecified behaviour.
+</p>
+<p>The <code class="code">wxdraw</code> family of commands automatically load the draw package
+since they call <code class="code">draw</code> internally. Similarly, <code class="code">wxjulia</code> and
+<code class="code">wxmandelbroit</code> automatically load the dynamics package.
+</p>
+
+<ul class="mini-toc">
+<li><a href="#Keybindings" accesskey="1">Keybindings</a></li>
+<li><a href="#Commands-and-Options" accesskey="2">Commands and Options</a></li>
+</ul>
+<hr>
+<div class="section-level-extent" id="Keybindings">
+<div class="nav-panel">
+<p>
+Next: <a href="#Commands-and-Options" accesskey="n" rel="next">Commands and Options</a>, Previous: <a href="#Inline-Graphs" accesskey="p" rel="prev">Inline Graphs</a>, Up: <a href="#Inline-Graphs" accesskey="u" rel="up">Inline Graphs</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Keybindings-1">3.1 Keybindings</h3>
+
+<p>Images in the <code class="verb">imaxima</code> buffer have a special keymap
+(see <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#keymaps">(emacs)keymaps</a>). By hovering the mouse over the
+image, one can display the list of &lsquo;hot keys&rsquo; and a short description of
+each action pressing a key triggers. To activate the keymap, point must
+be on the image.
+</p>
+<ol class="enumerate">
+<li> l : Copy the LaTeX source to generate the image under point into the
+register stored in <a class="ref" href="#imaxima_002dlatex_002dsrc_002dregister">imaxima-latex-src-register</a> (default:
+l). see <a class="pxref" href="#imaxima_002dget_002dlatex_002dsrc">imaxima-get-latex-src</a>.
+
+</li><li> g : Have Gnuplot replot the graph/image under point in a separate window
+spawned by Gnuplot. see <a class="pxref" href="#imaxima_002dgnuplot_002dreplot">imaxima-gnuplot-replot</a>.
+
+</li><li> s : Forcibly restart the Gnuplot process. This can be useful if an error
+occurs during plotting. Some <code class="code">plot</code> examples may only work if
+Gnuplot is restarted. see <a class="pxref" href="#imaxima_002dgnuplot_002drestart">imaxima-gnuplot-restart</a>.
+</li></ol>
+
+<hr>
+</div>
+<div class="section-level-extent" id="Commands-and-Options">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Keybindings" accesskey="p" rel="prev">Keybindings</a>, Up: <a href="#Inline-Graphs" accesskey="u" rel="up">Inline Graphs</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Commands-and-Options-1">3.2 Commands and Options</h3>
+
+<a class="anchor" id="imaxima_002dget_002dlatex_002dsrc"></a><dl class="first-deffn">
+<dt class="deffn" id="index-imaxima_002dget_002dlatex_002dsrc"><span class="category-def">Command: </span><span><strong class="def-name">imaxima-get-latex-src</strong><a class="copiable-link" href='#index-imaxima_002dget_002dlatex_002dsrc'> &para;</a></span></dt>
+<dd><p>When point is over an image, this copies the LaTeX source used by
+imaxima to generate the image into the register named by
+<a class="ref" href="#imaxima_002dlatex_002dsrc_002dregister">imaxima-latex-src-register</a>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dgnuplot_002dreplot"></a><dl class="first-deffn">
+<dt class="deffn" id="index-imaxima_002dgnuplot_002dreplot"><span class="category-def">Command: </span><span><strong class="def-name">imaxima-gnuplot-replot</strong><a class="copiable-link" href='#index-imaxima_002dgnuplot_002dreplot'> &para;</a></span></dt>
+<dd><p>When point is over an image created by Gnuplot, this command will
+re-execute the Gnuplot script that created the image and display it in a
+separate window spawned by Gnuplot. Asks for the Gnuplot terminal to
+use. see <a class="pxref" href="#imaxima_002dgnuplot_002dreplot_002dterm">imaxima-gnuplot-replot-term</a>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dgnuplot_002drestart"></a><dl class="first-deffn">
+<dt class="deffn" id="index-imaxima_002dgnuplot_002drestart"><span class="category-def">Command: </span><span><strong class="def-name">imaxima-gnuplot-restart</strong><a class="copiable-link" href='#index-imaxima_002dgnuplot_002drestart'> &para;</a></span></dt>
+<dd><p>Forcibly kill the Gnuplot process and buffer, if necessary, and then
+start a new Gnuplot process.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dgnuplot_002dbuffer"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dgnuplot_002dbuffer"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-gnuplot-buffer</strong><a class="copiable-link" href='#index-imaxima_002dgnuplot_002dbuffer'> &para;</a></span></dt>
+<dd><p>The name of the buffer in which imaxima runs its Gnuplot
+process. Default: <code class="verb">*imaxima-gnuplot*</code>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dgnuplot_002dcommand"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dgnuplot_002dcommand"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-gnuplot-command</strong><a class="copiable-link" href='#index-imaxima_002dgnuplot_002dcommand'> &para;</a></span></dt>
+<dd><p>The name of the Gnuplot executable that imaxima runs. Default:
+<code class="verb">gnuplot</code>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dgnuplot_002dargs"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dgnuplot_002dargs"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-gnuplot-args</strong><a class="copiable-link" href='#index-imaxima_002dgnuplot_002dargs'> &para;</a></span></dt>
+<dd><p>Optional arguments sent to the Gnuplot executable by imaxima. Default:
+<code class="verb">&quot;&quot;</code>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dlatex_002dsrc_002dregister"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlatex_002dsrc_002dregister"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-latex-src-register</strong><a class="copiable-link" href='#index-imaxima_002dlatex_002dsrc_002dregister'> &para;</a></span></dt>
+<dd><p>One can copy the LaTeX source used to generate an image into a
+register by placing point over the image and typing this key. Default:
+<code class="code">l</code>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dgnuplot_002dreplot_002dterm"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dgnuplot_002dreplot_002dterm"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-gnuplot-replot-term</strong><a class="copiable-link" href='#index-imaxima_002dgnuplot_002dreplot_002dterm'> &para;</a></span></dt>
+<dd><p>The name of the Gnuplot terminal used to display an inline plot in an
+external, Gnuplot-spawned window. see <a class="pxref" href="#imaxima_002dgnuplot_002dreplot">imaxima-gnuplot-replot</a>.
+</p></dd></dl>
+
+
+<hr>
+</div>
+</div>
+<div class="chapter-level-extent" id="Options">
+<div class="nav-panel">
+<p>
+Next: <a href="#Imath-minor-mode" accesskey="n" rel="next">Imath minor mode</a>, Previous: <a href="#Inline-Graphs" accesskey="p" rel="prev">Inline Graphs</a>, Up: <a href="#Top" accesskey="u" rel="up">Imaxima</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Options-1">4 Options</h2>
+
+
+<p>All options can be changed in the Emacs customize interface, use
+<kbd class="kbd">M-x customize-group <kbd class="key">RET</kbd> imaxima <kbd class="key">RET</kbd></kbd>.
+</p>
+<ul class="mini-toc">
+<li><a href="#Appearance" accesskey="1">Appearance</a></li>
+<li><a href="#Line-Breaking" accesskey="2">Line Breaking</a></li>
+<li><a href="#Miscellaneous" accesskey="3">Miscellaneous</a></li>
+</ul>
+<hr>
+<div class="section-level-extent" id="Appearance">
+<div class="nav-panel">
+<p>
+Next: <a href="#Line-Breaking" accesskey="n" rel="next">Line Breaking</a>, Previous: <a href="#Options" accesskey="p" rel="prev">Options</a>, Up: <a href="#Options" accesskey="u" rel="up">Options</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Appearance-1">4.1 Appearance</h3>
+
+<a class="anchor" id="imaxima_002dpt_002dsize"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dpt_002dsize"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-pt-size</strong><a class="copiable-link" href='#index-imaxima_002dpt_002dsize'> &para;</a></span></dt>
+<dd><p>The type size used in LaTeX.  This can be &lsquo;<samp class="samp">9</samp>&rsquo;, &lsquo;<samp class="samp">10</samp>&rsquo;,
+&lsquo;<samp class="samp">11</samp>&rsquo; or &lsquo;<samp class="samp">12</samp>&rsquo; pt.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dfnt_002dsize"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dfnt_002dsize"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-fnt-size</strong><a class="copiable-link" href='#index-imaxima_002dfnt_002dsize'> &para;</a></span></dt>
+<dd><p>Default size of font.  Options include &lsquo;<samp class="samp">small</samp>&rsquo;,
+&lsquo;<samp class="samp">normalsize</samp>&rsquo;, &lsquo;<samp class="samp">large</samp>&rsquo;, &lsquo;<samp class="samp">Large</samp>&rsquo;, &lsquo;<samp class="samp">LARGE</samp>&rsquo;,
+&lsquo;<samp class="samp">huge</samp>&rsquo; or &lsquo;<samp class="samp">Huge</samp>&rsquo; (in non decreasing order).
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dscale_002dfactor"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dscale_002dfactor"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-scale-factor</strong><a class="copiable-link" href='#index-imaxima_002dscale_002dfactor'> &para;</a></span></dt>
+<dd><p>Scale all images by this factor.  The default is &lsquo;<samp class="samp">1.0</samp>&rsquo;.
+</p></dd></dl>
+
+<p><em class="emph">Note:</em> The options <code class="code">imaxima-pt-size</code>,
+<code class="code">imaxima-fnt-size</code> and <code class="code">imaxima-scale-factor</code> are highly
+non-orthogonal.
+</p>
+<a class="anchor" id="imaxima_002dequation_002dcolor"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dequation_002dcolor"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-equation-color</strong><a class="copiable-link" href='#index-imaxima_002dequation_002dcolor'> &para;</a></span></dt>
+<dd><p>Color used for equations.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dlabel_002dcolor"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlabel_002dcolor"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-label-color</strong><a class="copiable-link" href='#index-imaxima_002dlabel_002dcolor'> &para;</a></span></dt>
+<dd><p>Color used for output labels (red by default).
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dbg_002dcolor"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dbg_002dcolor"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-bg-color</strong><a class="copiable-link" href='#index-imaxima_002dbg_002dcolor'> &para;</a></span></dt>
+<dd><p>Background color used in the imaxima buffer.  <code class="code">nil</code> if you don&rsquo;t want
+to change the default color.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dfg_002dcolor"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dfg_002dcolor"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-fg-color</strong><a class="copiable-link" href='#index-imaxima_002dfg_002dcolor'> &para;</a></span></dt>
+<dd><p>Foreground color used in the imaxima buffer.  <code class="code">nil</code> if you don&rsquo;t want
+to change the default color.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dlatex_002dpreamble"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlatex_002dpreamble"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-latex-preamble</strong><a class="copiable-link" href='#index-imaxima_002dlatex_002dpreamble'> &para;</a></span></dt>
+<dd><p>(See options <code class="code">imaxima-latex-document-class</code>,
+<code class="code">imaxima-latex-use-packages</code>,
+<code class="code">imaxima-latex-document-dimensions</code>, <code class="code">imaxima-latex-macros</code>
+and <code class="code">imaxima-latex-macros-linear</code>.) LaTeX expression inserted at
+the start of the document preamble when TeX&rsquo;ing equations. This can be
+used to change, say, the document font. E.g.
+</p>
+<div class="example">
+<pre class="example-preformatted">\usepackage{concrete}
+\usepackage{euler}
+</pre></div>
+
+<a class="index-entry-id" id="index-euler"></a>
+<a class="index-entry-id" id="index-concrete"></a>
+<p>will use Herman Zapf&rsquo;s Euler math fonts and the accompanying Concrete
+roman fonts.  These are probably better suited as screen fonts than the
+default Computer Modern, which works best at high resolutions.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dlatex_002derror_002dface"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlatex_002derror_002dface"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-latex-error-face</strong><a class="copiable-link" href='#index-imaxima_002dlatex_002derror_002dface'> &para;</a></span></dt>
+<dd><p>Face used for LaTeX errors.  This option is ignored when using
+<code class="code">maxima.el</code>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dlatex_002ddocument_002dclass"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlatex_002ddocument_002dclass"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-latex-document-class</strong><a class="copiable-link" href='#index-imaxima_002dlatex_002ddocument_002dclass'> &para;</a></span></dt>
+<dd><p>An elisp list (FORMAT-STRING [ARGS]) that provides a valid list of
+inputs to <code class="code">format</code>. FORMAT-STRING should generate the LaTeX
+document class used to generate all LaTeX documents; ARGS is
+evaluated. Used by <code class="code">imaxima-latex</code>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dlatex_002duse_002dpackages"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlatex_002duse_002dpackages"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-latex-use-packages</strong><a class="copiable-link" href='#index-imaxima_002dlatex_002duse_002dpackages'> &para;</a></span></dt>
+<dd><p>A string that contains all <code class="code">usepackage</code> declarations needed. This
+is inserted into the LaTeX document after
+<code class="code">imaxima-latex-preamble</code>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dlatex_002dmacros_002dformat_002dfile"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlatex_002dmacros_002dformat_002dfile"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-latex-macros-format-file</strong><a class="copiable-link" href='#index-imaxima_002dlatex_002dmacros_002dformat_002dfile'> &para;</a></span></dt>
+<dd><p>Macros used by <code class="code">imaxima-dump-tex</code> to generate the format file.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dlatex_002dmacros"></a><a class="anchor" id="imaxima_002dlatex_002dmacros_002dlinear"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlatex_002dmacros_002c"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-latex-macros,</strong> <var class="def-var-arguments">imaxima-latex-macros-linear</var><a class="copiable-link" href='#index-imaxima_002dlatex_002dmacros_002c'> &para;</a></span></dt>
+<dd><p>A string that defines <em class="emph">imaxima</em>-specific macros to format fractions
+in regular and linear fashion.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dlatex_002ddocument_002ddimensions"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlatex_002ddocument_002ddimensions"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-latex-document-dimensions</strong><a class="copiable-link" href='#index-imaxima_002dlatex_002ddocument_002ddimensions'> &para;</a></span></dt>
+<dd><p>A string the contains the document dimensions for <code class="code">imaxima-latex</code>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dcreate_002dimage_002doptions"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dcreate_002dimage_002doptions"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-create-image-options</strong><a class="copiable-link" href='#index-imaxima_002dcreate_002dimage_002doptions'> &para;</a></span></dt>
+<dd><p>An association list of options that are used by the imaxima function
+<code class="code">imaxima-create-image</code>. For example, if one is using a dark
+background in emacs, it may be preferable to set this option to
+<code class="code">(:ascent center)</code>, thereby removing the default mask option.
+</p></dd></dl>
+
+
+<hr>
+</div>
+<div class="section-level-extent" id="Line-Breaking">
+<div class="nav-panel">
+<p>
+Next: <a href="#Miscellaneous" accesskey="n" rel="next">Miscellaneous</a>, Previous: <a href="#Appearance" accesskey="p" rel="prev">Appearance</a>, Up: <a href="#Options" accesskey="u" rel="up">Options</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Line-Breaking-1">4.2 Line Breaking</h3>
+<p>Imaxima usually does a decent job of breaking lines that are too wide
+to fit in the buffer (thanks to the <code class="code">breqn</code> LaTeX package).
+However, this doesn&rsquo;t work so well for very long fractions,
+superscripts and subscripts.  Imaxima has two ways of dealing with
+this:
+</p>
+<ul class="itemize mark-bullet">
+<li>Scaling.
+</li><li>Rewriting the equation in a &ldquo;linear&rdquo; form which can be split over
+several lines.
+</li></ul>
+
+<p>The following options control how this is done.
+</p>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dmax_002dscale"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-max-scale</strong><a class="copiable-link" href='#index-imaxima_002dmax_002dscale'> &para;</a></span></dt>
+<dd><p>Maximum amount of scaling allowed to fit wide equations in the buffer.
+The default is <code class="code">0.85</code>, which allows images to be scaled down to
+85% of the original size. <code class="code">nil</code> disables scaling and <code class="code">t</code>
+allows unlimited scaling.
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlinearize_002dflag"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-linearize-flag</strong><a class="copiable-link" href='#index-imaxima_002dlinearize_002dflag'> &para;</a></span></dt>
+<dd><p>Non-<code class="code">nil</code> allows fractions, superscripts, subscripts and square
+roots to be linearized to fit in the buffer.  That is
+</p><div class="example">
+<pre class="example-preformatted">
+
+         b                           a + b         _______
+        a              a            -------       V a + b 
+                        b            c + d
+</pre></div>
+
+<p>are written as
+</p>
+<div class="example">
+<pre class="example-preformatted">                                                          ?
+    expt(a,b)   subscript(a,b)   (a + b)/(c + d)   (a + b)
+</pre></div>
+</dd></dl>
+
+<hr>
+</div>
+<div class="section-level-extent" id="Miscellaneous">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Line-Breaking" accesskey="p" rel="prev">Line Breaking</a>, Up: <a href="#Options" accesskey="u" rel="up">Options</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Miscellaneous-1">4.3 Miscellaneous</h3>
+<p>If the required files are in your path, you shouldn&rsquo;t normally need to
+change these options.
+</p>
+<a class="anchor" id="imaxima_002dlatex_002dbuffer_002dname"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlatex_002dbuffer_002dname"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-latex-buffer-name</strong><a class="copiable-link" href='#index-imaxima_002dlatex_002dbuffer_002dname'> &para;</a></span></dt>
+<dd><p>The default name of the buffer created by <code class="code">imaxima-latex</code>.
+The default value is <code class="code">*imaxima-latex*</code>.
+</p></dd></dl>
+
+<a class="index-entry-id" id="index-png"></a>
+<a class="index-entry-id" id="index-jpeg"></a>
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dimage_002dtype"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-image-type</strong><a class="copiable-link" href='#index-imaxima_002dimage_002dtype'> &para;</a></span></dt>
+<dd><p>Image type used in the buffer.  <abbr class="acronym">PNG</abbr>, <abbr class="acronym">JPEG</abbr>,
+<abbr class="acronym">TIFF</abbr> and PostScript are supported.  In my opinion
+<abbr class="acronym">PNG</abbr> gives the best results, but if your Emacs wasn&rsquo;t
+compiled with <abbr class="acronym">PNG</abbr> support you could try one of the others.
+PostScript doesn&rsquo;t require Ghostscript to be installed.  XEmacs can
+not display PostScript images, so this type does not work in XEmacs.
+</p></dd></dl>
+
+<a class="index-entry-id" id="index-ghostscript"></a>
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dgs_002dprogram"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-gs-program</strong><a class="copiable-link" href='#index-imaxima_002dgs_002dprogram'> &para;</a></span></dt>
+<dd><p>Ghostscript executable
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dgs_002doptions"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-gs-options</strong><a class="copiable-link" href='#index-imaxima_002dgs_002doptions'> &para;</a></span></dt>
+<dd><p>Options passed to <code class="command">gs</code> when converting <abbr class="acronym">EPS</abbr> to other
+image formats.  Older versions of Ghostscript don&rsquo;t support
+anti-aliasing. In that case you might have to remove the options
+<samp class="option">-dTextAlphaBits=4</samp> and <samp class="option">-dGraphicsAlphaBits=4</samp>.
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dcp_002dprogram"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-cp-program</strong><a class="copiable-link" href='#index-imaxima_002dcp_002dprogram'> &para;</a></span></dt>
+<dd><p>The default &lsquo;copy&rsquo; program.
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002ddvips_002dprogram"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-dvips-program</strong><a class="copiable-link" href='#index-imaxima_002ddvips_002dprogram'> &para;</a></span></dt>
+<dd><p>Dvips executable.
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002ddvips_002doptions"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-dvips-options</strong><a class="copiable-link" href='#index-imaxima_002ddvips_002doptions'> &para;</a></span></dt>
+<dd><p>Command line options passed to <code class="command">dvips</code> when converting
+<abbr class="acronym">EPS</abbr> files to <abbr class="acronym">DVI</abbr>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dtmp_002ddir"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dtmp_002ddir"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-tmp-dir</strong><a class="copiable-link" href='#index-imaxima_002dtmp_002ddir'> &para;</a></span></dt>
+<dd><p>Directory used for temporary files created by imaxima.
+<samp class="file">/tmp</samp> by default.
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dlisp_002dfile"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-lisp-file</strong><a class="copiable-link" href='#index-imaxima_002dlisp_002dfile'> &para;</a></span></dt>
+<dd><p>The Lisp file used to initialize Maxima.
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dtex_002dprogram"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-tex-program</strong><a class="copiable-link" href='#index-imaxima_002dtex_002dprogram'> &para;</a></span></dt>
+<dd><p>TeX executable.
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dinitex_002doption"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-initex-option</strong><a class="copiable-link" href='#index-imaxima_002dinitex_002doption'> &para;</a></span></dt>
+<dd><p>Option passed to TeX to start it in the &ldquo;initial&rdquo; form capable of
+dumping format files.
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dmaxima_002dprogram"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-maxima-program</strong><a class="copiable-link" href='#index-imaxima_002dmaxima_002dprogram'> &para;</a></span></dt>
+<dd><p>Maxima executable.
+</p></dd></dl>
+
+<a class="index-entry-id" id="index-CMUCL"></a>
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dmaxima_002doptions"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-maxima-options</strong><a class="copiable-link" href='#index-imaxima_002dmaxima_002doptions'> &para;</a></span></dt>
+<dd><p>Command line arguments passed to Maxima.  If you have Maxima versions
+compiled with different Lisps, you can use this to select which one to
+use.  E.g. <samp class="option">--lisp=cmucl</samp> will choose the version compiled with
+CMUCL.
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dstartup_002dhook"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-startup-hook</strong><a class="copiable-link" href='#index-imaxima_002dstartup_002dhook'> &para;</a></span></dt>
+<dd><p>Hook run when starting imaxima.
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dexit_002dhook"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-exit-hook</strong><a class="copiable-link" href='#index-imaxima_002dexit_002dhook'> &para;</a></span></dt>
+<dd><p>Hook run when exiting imaxima.
+</p></dd></dl>
+
+<dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dhtml_002ddir"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-html-dir</strong><a class="copiable-link" href='#index-imaxima_002dhtml_002ddir'> &para;</a></span></dt>
+<dd><p>When imaxima-to-html function is called, the function determines
+the directory into which the session.html file and the 
+session-images directory are created. The default value is &ldquo;~&rdquo;.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dprint_002dtex_002dfile"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dprint_002dtex_002dfile"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-print-tex-file</strong><a class="copiable-link" href='#index-imaxima_002dprint_002dtex_002dfile'> &para;</a></span></dt>
+<dd><p>Name of the LaTeX file name to be created by
+<code class="code">imaxima-print-buffer</code>. Do not include &quot;.tex&quot; suffix. This file
+will be stored in the directory <code class="code">imaxima-tmp-dir</code>.
+</p></dd></dl>
+
+<a class="anchor" id="imaxima_002dprint_002dtex_002dcommand"></a><dl class="first-defvr first-defopt-alias-first-defvr">
+<dt class="defvr defopt-alias-defvr" id="index-imaxima_002dprint_002dtex_002dcommand"><span class="category-def">User Option: </span><span><strong class="def-name">imaxima-print-tex-command</strong><a class="copiable-link" href='#index-imaxima_002dprint_002dtex_002dcommand'> &para;</a></span></dt>
+<dd><p>Command to run LaTeX on the file created by
+<code class="code">imaxima-print-buffer</code>. In the string &rsquo;%s&rsquo; is replaced by the name
+of the tex file. e.g. &quot;pdflatex %s; xpdf %s&quot;
+</p></dd></dl>
+
+<hr>
+</div>
+</div>
+<div class="chapter-level-extent" id="Imath-minor-mode">
+<div class="nav-panel">
+<p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Options" accesskey="p" rel="prev">Options</a>, Up: <a href="#Top" accesskey="u" rel="up">Imaxima</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Imath-minor-mode-1">5 Imath minor mode</h2>
+<p>The imath minor mode provides a small set of functions to aid
+insert math formulas into plain text. 
+</p>
+<p>A math formula is written using a Maxima form whose syntax is
+{maxima a formula maxima} where a formula is a string which can
+be accepted as Maxima command input. C-c [ inserts a template
+for a maxima form. 
+</p>
+<p>The other way to write a math formula is to use LaTeX form
+whose syntax is {latex a formula latex} where a formula is 
+a valid LaTeX commands. C-c ] inserts a template for a latex
+form.
+</p>
+<p>Example maxima and latex forms are:
+</p><div class="example">
+<pre class="example-preformatted">{maxima integrate(f(x),x) maxima}
+{maxima sum(a[n],n,0,i) maxima}
+{latex  \\int {f\\left(x\\right)}{\\;dx} latex}
+{latex  \\sum_{n=0}^{i}{a_{n}} latex}
+</pre></div>
+
+<p>Assuming the cursor position is right after a form or in the
+middle, C-c ! transforms the form into the formula image using
+the Imaxima functionality.
+</p>
+<p>If the resulting image is not what you want, you may want to edit
+the formula again. To do this, place the cursor right after the
+image and C-c &amp;. Then the image is removed and original form
+appears at the position.
+</p>
+<p>When saving the buffer into a file, images are
+discarded. However, maxima forms and their corresponding latex
+forms are kept there in the text. If the text is loaded again
+into Emacs and imath minor mode is enabled, you can type C-c $ to
+restore all the images for the forms in the buffer.
+</p>
+<div class="example">
+<pre class="example-preformatted">\C-c[   Compose Maxima form
+\C-c]   Compose Latex form
+\C-c!   Transform a form to an image
+\C-c$   Transform all forms to images
+\C-c&amp;   Remove the image to restore the original form text
+</pre></div>
+
+<p>You can export the imath mode buffer contents into HTML using
+a command named imath-to-html. This command can be invoked by
+M-x imath-to-html. Then a buffer is created, visiting a file
+whose name is the same as the original imath text file, only
+exception being .html as the file extension. Upon saving, the
+file is placed in the same directory as the original file. Also
+a directory is created whose name is the same as the imath text
+file, but removing the extension and add -images. Images for
+formulas are copied in this directory. 
+</p>
+<hr>
+</div>
+<div class="chapter-level-extent" id="Index">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Imath-minor-mode" accesskey="p" rel="prev">Imath minor mode</a>, Up: <a href="#Top" accesskey="u" rel="up">Imaxima</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Index-1">6 Index</h2>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-J"><b>J</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="cp-entries-printindex" border="0">
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-B">B</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-breqn">breqn</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Installation">Installation</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-C">C</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-CMUCL">CMUCL</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-concrete">concrete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-E">E</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-euler">euler</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-G">G</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-ghostscript">ghostscript</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-I">I</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima">imaxima</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Usage">Usage</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dbg_002dcolor">imaxima-bg-color</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dclean_002dup">imaxima-clean-up</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Usage">Usage</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dcp_002dprogram">imaxima-cp-program</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dcreate_002dimage_002doptions">imaxima-create-image-options</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002ddvips_002doptions">imaxima-dvips-options</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002ddvips_002dprogram">imaxima-dvips-program</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dequation_002dcolor">imaxima-equation-color</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dexit_002dhook">imaxima-exit-hook</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dfg_002dcolor">imaxima-fg-color</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dfnt_002dsize">imaxima-fnt-size</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dget_002dlatex_002dsrc">imaxima-get-latex-src</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Commands-and-Options">Commands and Options</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dgnuplot_002dargs">imaxima-gnuplot-args</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Commands-and-Options">Commands and Options</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dgnuplot_002dbuffer">imaxima-gnuplot-buffer</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Commands-and-Options">Commands and Options</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dgnuplot_002dcommand">imaxima-gnuplot-command</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Commands-and-Options">Commands and Options</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dgnuplot_002dreplot">imaxima-gnuplot-replot</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Commands-and-Options">Commands and Options</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dgnuplot_002dreplot_002dterm">imaxima-gnuplot-replot-term</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Commands-and-Options">Commands and Options</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dgnuplot_002drestart">imaxima-gnuplot-restart</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Commands-and-Options">Commands and Options</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dgs_002doptions">imaxima-gs-options</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dgs_002dprogram">imaxima-gs-program</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dhtml_002ddir">imaxima-html-dir</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dimage_002dtype">imaxima-image-type</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dinitex_002doption">imaxima-initex-option</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlabel_002dcolor">imaxima-label-color</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlatex">imaxima-latex</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Usage">Usage</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlatex_002dbuffer_002dname">imaxima-latex-buffer-name</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlatex_002ddocument_002dclass">imaxima-latex-document-class</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlatex_002ddocument_002ddimensions">imaxima-latex-document-dimensions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlatex_002derror_002dface">imaxima-latex-error-face</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlatex_002dmacros_002c">imaxima-latex-macros,</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlatex_002dmacros_002dformat_002dfile">imaxima-latex-macros-format-file</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlatex_002dpreamble">imaxima-latex-preamble</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlatex_002dsrc_002dregister">imaxima-latex-src-register</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Commands-and-Options">Commands and Options</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlatex_002duse_002dpackages">imaxima-latex-use-packages</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlinearize_002dflag">imaxima-linearize-flag</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Line-Breaking">Line Breaking</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dlisp_002dfile">imaxima-lisp-file</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dmax_002dscale">imaxima-max-scale</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Line-Breaking">Line Breaking</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dmaxima_002doptions">imaxima-maxima-options</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dmaxima_002dprogram">imaxima-maxima-program</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dprint_002dbuffer">imaxima-print-buffer</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Usage">Usage</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dprint_002dtex_002dcommand">imaxima-print-tex-command</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dprint_002dtex_002dfile">imaxima-print-tex-file</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dpt_002dsize">imaxima-pt-size</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dscale_002dfactor">imaxima-scale-factor</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Appearance">Appearance</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dstartup_002dhook">imaxima-startup-hook</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dtex_002dprogram">imaxima-tex-program</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dtmp_002ddir">imaxima-tmp-dir</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dto_002dhtml">imaxima-to-html</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Usage">Usage</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002duse_002dmaxima_002dmode_002dflag">imaxima-use-maxima-mode-flag</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Usage">Usage</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-imaxima_002dversion">imaxima-version</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Usage">Usage</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-J">J</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-jpeg">jpeg</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-P">P</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-png">png</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous">Miscellaneous</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-R">R</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-reinit_002dimaxima">reinit-imaxima</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Usage">Usage</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-J"><b>J</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+</td></tr></table>
+</div>
+
+</div>
+</div>
+
+
+
+</body>
+</html>
